@@ -1,0 +1,58 @@
+/* Class names are prefixed so a consuming app's styles cannot collide. */
+.ova-button {
+  --ova-button-bg: #111111;
+  --ova-button-fg: #ffffff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0 1rem;
+  height: 2.5rem;
+  font: inherit;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--ova-button-fg);
+  background: var(--ova-button-bg);
+  cursor: pointer;
+  transition: opacity 120ms ease, background 120ms ease;
+}
+
+.ova-button:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.ova-button:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.ova-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ova-button--secondary {
+  --ova-button-bg: transparent;
+  --ova-button-fg: #111111;
+  border-color: #d4d4d4;
+}
+
+.ova-button--ghost {
+  --ova-button-bg: transparent;
+  --ova-button-fg: #111111;
+}
+
+.ova-button--sm {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ova-button--lg {
+  height: 3rem;
+  padding: 0 1.5rem;
+  font-size: 1.0625rem;
+}

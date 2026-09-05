@@ -1,0 +1,25 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      # --ignore-scripts keeps the "prepare" script from building twice.
+      - run: bun install --frozen-lockfile --ignore-scripts
+      - run: bun run check-types
+      - run: bun run build
+      - run: bun publish --access restricted
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
