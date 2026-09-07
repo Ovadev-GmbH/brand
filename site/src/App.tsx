@@ -11,6 +11,7 @@ function Doors() {
   return (
     <main className="cat-doors">
       <h1 className="cat-doors__title">Ovadev Brand</h1>
+      <p className="cat-doors__lead">Vier Komponenten-Libraries, jede für sich.</p>
       <ul className="cat-doors__list">
         {PACKAGES.map((p) => (
           <li key={p.id}>

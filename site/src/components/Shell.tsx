@@ -5,35 +5,33 @@ import { grouped, href } from "../registry";
 import { pkgVersion } from "../props";
 import { StatusBadge } from "./StatusBadge";
 
-/** One package's catalog chrome: its name in the header, only its
- *  components in the sidebar. The other packages are not mentioned; the
- *  root's four doors are the only place they meet. */
+/** One package's catalog: the sidebar carries the package name and only
+ *  its components. The other packages are not mentioned; the root is the
+ *  only place they meet. */
 export function Shell({ pkg, current, children }: { pkg: Pkg; current?: string; children: React.ReactNode }) {
   const [filter, setFilter] = React.useState("");
   const [open, setOpen] = React.useState(false);
   const groups = grouped(pkg, filter);
   return (
     <div className="cat">
-      <header className="cat-top">
-        <Link to={href(pkg.id)} className="cat-top__brand">
-          <span className="cat-top__name">{pkg.name}</span>
-          <span className="cat-top__pkg">
-            {pkg.pkg}@{pkgVersion(pkg.id)}
-          </span>
-        </Link>
-        <Link to="/" className="cat-top__root">
-          Ovadev Brand
-        </Link>
-        <button className="cat-burger" aria-label="Navigation" onClick={() => setOpen((v) => !v)}>
-          ≡
-        </button>
-      </header>
-      <div className="cat-body">
-        <aside className={`cat-side ${open ? "cat-side--open" : ""}`}>
+      <aside className={`cat-side ${open ? "cat-side--open" : ""}`}>
+        <div className="cat-side__head">
+          <Link to="/" className="cat-side__root">
+            Ovadev Brand
+          </Link>
+          <Link to={href(pkg.id)} className="cat-side__pkg">
+            <span className="cat-side__name">{pkg.name}</span>
+            <span className="cat-side__version">v{pkgVersion(pkg.id)}</span>
+          </Link>
+          <button className="cat-burger" aria-label="Navigation" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+            Menü
+          </button>
+        </div>
+        <div className="cat-side__body">
           <input
             type="search"
             className="cat-search"
-            placeholder="Komponente"
+            placeholder="Suchen"
             aria-label="Komponente suchen"
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
@@ -60,9 +58,9 @@ export function Shell({ pkg, current, children }: { pkg: Pkg; current?: string; 
             ))}
             {groups.length === 0 ? <p className="cat-nav__empty">Nichts gefunden.</p> : null}
           </nav>
-        </aside>
-        <main className="cat-main">{children}</main>
-      </div>
+        </div>
+      </aside>
+      <main className="cat-main">{children}</main>
     </div>
   );
 }

@@ -7,8 +7,8 @@ export function PackagePage({ pkg }: { pkg: Pkg }) {
   return (
     <article className="cat-page">
       <header className="cat-page__head">
-        <p className="cat-eyebrow">{pkg.pkg}</p>
         <h1 className="cat-h1">{pkg.name}</h1>
+        <p className="cat-sub"><code>{pkg.pkg}</code></p>
         <p className="cat-lead">{pkg.intro}</p>
       </header>
       <section className="cat-block">

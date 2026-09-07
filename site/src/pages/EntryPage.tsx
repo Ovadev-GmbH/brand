@@ -8,16 +8,13 @@ export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
   return (
     <article className="cat-page">
       <header className="cat-page__head">
-        <p className="cat-eyebrow">
-          {pkg.name} · {entry.group}
-        </p>
         <h1 className="cat-h1">
           {entry.name} {entry.status ? <StatusBadge status={entry.status} /> : null}
         </h1>
         <p className="cat-lead">{entry.summary}</p>
-        <pre className="cat-code cat-code--inline">
-          <code>{`import { ${propsOf.join(", ")} } from "${pkg.pkg}";`}</code>
-        </pre>
+        <p className="cat-sub">
+          <code>{`import { ${propsOf.join(", ")} } from "${pkg.pkg}"`}</code>
+        </p>
       </header>
       <section className="cat-block">
         <h2 className="cat-h2">
