@@ -1,7 +1,12 @@
-# Ovadev component libraries
+# brand
 
-Four React component libraries in one repo, three of them one per brand,
-the fourth for the internal tools:
+Everything the Ovadev brands are made of, in one repo. Today that is four
+React component libraries; logos, fonts and a DESIGN.md per brand are
+coming to sit next to them.
+
+## Component libraries
+
+Three of the four are one per brand, the fourth is for the internal tools:
 
 | Package | For | Class prefix |
 | --- | --- | --- |

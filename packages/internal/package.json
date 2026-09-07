@@ -22,7 +22,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ovadev-GmbH/ui.git",
+    "url": "git+https://github.com/Ovadev-GmbH/brand.git",
     "directory": "packages/internal"
   },
   "publishConfig": {

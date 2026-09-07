@@ -1,9 +1,9 @@
 {
-  "name": "ui",
+  "name": "brand",
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "The three Ovadev component libraries, one per brand.",
+  "description": "The Ovadev brands: component libraries, and soon logos, fonts and DESIGN.md.",
   "packageManager": "bun@1.4.2",
   "workspaces": [
     "packages/*"
