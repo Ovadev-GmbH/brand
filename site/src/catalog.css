@@ -1,0 +1,115 @@
+/* The catalog's own chrome. Deliberately plain and neutral: the thing on
+   show is the component in the demo box, not the page around it. Nothing
+   here reads a package's tokens, so a TICKETOVA catalog and an Ovadev
+   catalog have the same frame around different content. */
+:root {
+  --cat-ink: #111;
+  --cat-muted: #6b7280;
+  --cat-line: #e5e7eb;
+  --cat-soft: #f5f5f4;
+  --cat-paper: #fff;
+  --cat-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --cat-sans: ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+html { color-scheme: light; }
+body { margin: 0; font-family: var(--cat-sans); color: var(--cat-ink); background: var(--cat-paper); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+code { font-family: var(--cat-mono); font-size: 0.85em; }
+
+/* --- root: four doors --- */
+.cat-doors { max-width: 40rem; margin: 12vh auto; padding: 0 1.5rem; }
+.cat-doors__title { font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cat-muted); margin: 0 0 1.5rem; }
+.cat-doors__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.cat-doors__link { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1rem 1.25rem; border: 1px solid var(--cat-line); text-decoration: none; }
+.cat-doors__link:hover { border-color: var(--cat-ink); }
+.cat-doors__name { font-size: 1.25rem; font-weight: 700; }
+.cat-doors__pkg { font-family: var(--cat-mono); font-size: 0.8rem; color: var(--cat-muted); }
+
+/* --- frame --- */
+.cat { min-height: 100vh; display: flex; flex-direction: column; }
+.cat-top { display: flex; align-items: center; gap: 1.5rem; padding: 0.75rem 1.5rem; border-bottom: 2px solid var(--cat-ink); }
+.cat-top__brand { display: flex; align-items: baseline; gap: 0.75rem; text-decoration: none; }
+.cat-top__name { font-weight: 800; font-size: 1.1rem; letter-spacing: 0.02em; }
+.cat-top__pkg { font-family: var(--cat-mono); font-size: 0.75rem; color: var(--cat-muted); }
+.cat-top__root { margin-left: auto; font-size: 0.8rem; color: var(--cat-muted); text-decoration: none; }
+.cat-top__root:hover { color: var(--cat-ink); }
+.cat-burger { display: none; background: none; border: 1px solid var(--cat-line); font-size: 1.25rem; line-height: 1; padding: 0.25rem 0.5rem; cursor: pointer; }
+.cat-body { flex: 1; display: flex; }
+.cat-side { width: 15rem; flex: 0 0 auto; border-right: 1px solid var(--cat-line); padding: 1.25rem 1rem; position: sticky; top: 0; align-self: flex-start; max-height: 100vh; overflow-y: auto; }
+.cat-search { width: 100%; box-sizing: border-box; font: inherit; font-size: 0.875rem; padding: 0.4rem 0.6rem; border: 1px solid var(--cat-line); margin-bottom: 1.25rem; }
+.cat-search:focus { outline: 2px solid var(--cat-ink); outline-offset: -1px; }
+.cat-nav__group { margin-bottom: 1.25rem; }
+.cat-nav__title { font-family: var(--cat-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cat-muted); margin: 0 0 0.35rem; }
+.cat-nav__list { list-style: none; margin: 0; padding: 0; }
+.cat-nav__link { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; padding: 0.3rem 0.5rem; margin-left: -0.5rem; font-size: 0.9rem; text-decoration: none; border-radius: 3px; }
+.cat-nav__link:hover { background: var(--cat-soft); }
+.cat-nav__link--active { background: var(--cat-ink); color: var(--cat-paper); }
+.cat-nav__empty { font-size: 0.85rem; color: var(--cat-muted); }
+.cat-main { flex: 1; min-width: 0; padding: 2rem 2.5rem 4rem; }
+
+/* --- page --- */
+.cat-page { max-width: 64rem; }
+.cat-page__head { margin-bottom: 2.5rem; }
+.cat-eyebrow { font-family: var(--cat-mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cat-muted); margin: 0 0 0.5rem; }
+.cat-h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.01em; margin: 0; }
+.cat-h2 { font-size: 1.1rem; font-weight: 700; margin: 0 0 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--cat-ink); }
+.cat-lead { font-size: 1.05rem; color: var(--cat-muted); max-width: 60ch; margin: 0.75rem 0 0; }
+.cat-block { margin-top: 2.5rem; }
+.cat-count { font-family: var(--cat-mono); font-size: 0.75rem; font-weight: 400; color: var(--cat-muted); margin-left: 0.5rem; }
+.cat-muted { color: var(--cat-muted); font-size: 0.9rem; margin: 0 0 0.75rem; }
+.cat-nowrap { white-space: nowrap; }
+.cat-dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.35rem 1.5rem; font-size: 0.9rem; margin: 1rem 0 0; }
+.cat-dl dt { color: var(--cat-muted); }
+.cat-dl dd { margin: 0; }
+.cat-status { display: inline-block; vertical-align: middle; font-family: var(--cat-mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.1rem 0.4rem; border-radius: 2px; }
+.cat-status--draft { background: #fef3c7; color: #92400e; }
+.cat-status--deprecated { background: #fee2e2; color: #991b1b; }
+
+/* --- code --- */
+.cat-code { font-family: var(--cat-mono); font-size: 0.8rem; line-height: 1.5; background: var(--cat-soft); border: 1px solid var(--cat-line); padding: 1rem 1.25rem; margin: 0; overflow: auto; max-height: 32rem; }
+.cat-code--inline { display: inline-block; margin-top: 1rem; padding: 0.5rem 0.75rem; }
+
+/* --- index grid --- */
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.cat-thumb { display: flex; flex-direction: column; text-decoration: none; border: 1px solid var(--cat-line); transition: border-color 120ms ease; }
+.cat-thumb:hover { border-color: var(--cat-ink); }
+.cat-thumb__stage { height: 130px; overflow: hidden; pointer-events: none; user-select: none; padding: 0.75rem; border-bottom: 1px solid var(--cat-line); background: var(--cat-paper); }
+/* The first example at 55 %: the same DOM the page renders, just smaller. */
+.cat-thumb__inner { zoom: 0.55; width: 100%; }
+.cat-thumb__name { margin: 0.6rem 0.75rem 0; font-weight: 700; font-size: 0.9rem; }
+.cat-thumb__summary { margin: 0.2rem 0.75rem 0.75rem; font-size: 0.8rem; line-height: 1.4; color: var(--cat-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* --- example --- */
+.cat-example { margin: 0 0 2.5rem; }
+.cat-example__head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.cat-example__title { font-size: 1rem; font-weight: 700; margin: 0; }
+.cat-example__title a { text-decoration: none; }
+.cat-example__title a:hover::after { content: " #"; color: var(--cat-muted); }
+.cat-example__tools { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.cat-example__note { margin: 0 0 0.75rem; font-size: 0.9rem; color: var(--cat-muted); }
+.cat-toggle { display: inline-flex; border: 1px solid var(--cat-line); border-radius: 3px; overflow: hidden; }
+.cat-toggle__btn, .cat-btn { font: inherit; font-family: var(--cat-mono); font-size: 0.7rem; padding: 0.3rem 0.6rem; background: var(--cat-paper); color: var(--cat-muted); border: 0; cursor: pointer; }
+.cat-toggle__btn + .cat-toggle__btn { border-left: 1px solid var(--cat-line); }
+.cat-toggle__btn:hover, .cat-btn:hover { background: var(--cat-soft); }
+.cat-toggle__btn--active { background: var(--cat-ink); color: var(--cat-paper); cursor: default; }
+.cat-btn { border: 1px solid var(--cat-line); border-radius: 3px; }
+.cat-ground { padding: 1.5rem; border: 1px solid var(--cat-line); background: var(--cat-paper); overflow-x: auto; }
+.cat-ground--dark { background: #111; color: #fff; border-color: #111; }
+
+/* --- props --- */
+.cat-tablewrap { overflow-x: auto; }
+.cat-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.cat-table th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cat-muted); padding: 0 0.75rem 0.4rem 0; border-bottom: 1px solid var(--cat-ink); }
+.cat-table td { padding: 0.5rem 0.75rem 0.5rem 0; border-bottom: 1px solid var(--cat-line); vertical-align: top; }
+.cat-prop { font-weight: 700; }
+.cat-prop__req { color: #b91c1c; margin-left: 2px; }
+
+@media (max-width: 760px) {
+  .cat-burger { display: block; margin-left: auto; }
+  .cat-top__root { display: none; }
+  .cat-side { display: none; position: static; max-height: none; width: auto; border-right: 0; border-bottom: 1px solid var(--cat-line); }
+  .cat-side--open { display: block; }
+  .cat-body { flex-direction: column; }
+  .cat-main { padding: 1.5rem 1.25rem 3rem; }
+  .cat-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+}

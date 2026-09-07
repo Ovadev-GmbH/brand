@@ -1,0 +1,31 @@
+{
+  "name": "site",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "brand.ova.dev: one catalog per component library, statically built and served from GitHub Pages.",
+  "scripts": {
+    "props": "bun scripts/gen-props.mjs",
+    "dev": "bun scripts/gen-props.mjs && vite",
+    "build": "bun scripts/gen-props.mjs && vite build && cp dist/index.html dist/404.html",
+    "check-types": "bun scripts/gen-props.mjs && tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@ovadev-gmbh/ui-internal": "workspace:*",
+    "@ovadev-gmbh/ui-januna": "workspace:*",
+    "@ovadev-gmbh/ui-ovadev": "workspace:*",
+    "@ovadev-gmbh/ui-ticketova": "workspace:*",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router": "^7.8.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^5.2.0",
+    "react-docgen-typescript": "^2.4.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6"
+  }
+}

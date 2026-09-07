@@ -4,6 +4,31 @@ Everything the Ovadev brands are made of, in one repo. Today that is four
 React component libraries; logos, fonts and a DESIGN.md per brand are
 coming to sit next to them.
 
+## The catalog: ovadev-gmbh.github.io/brand
+
+`site/` is a static Vite app, built by the `pages` workflow on every push to
+main and served by GitHub Pages. It is **one catalog per package** — the root
+is four doors, and behind each door only that package exists: its sidebar,
+its components, its install line. The packages are standalone libraries and
+the site does not pretend otherwise.
+
+- `/ovadev`, `/ticketova`, `/januna`, `/internal` — a package, its
+  components by group, each as a live-rendered thumbnail
+- `/<package>/<component>` — the examples on a light or dark ground, the
+  source of each example (a `?raw` import of the file that renders), a
+  permalink per example, and a props table
+
+`site/src/registry/<package>.ts` names every component, group, summary and
+example; `site/src/examples/` holds the example files. The props tables are
+generated from the packages' TypeScript by `site/scripts/gen-props.mjs`
+(react-docgen-typescript) on every build, into a gitignored
+`site/src/props.json`. Adding a component to the catalog is one registry
+entry and one example file.
+
+The `internal` examples need the Ovadev Design System underneath them, so
+its vendored build sits in `site/src/vendor/design-system` — the same
+`dist/` INTERN ships, copied, until the design system is a package too.
+
 ## Component libraries
 
 Three of the four are one per brand, the fourth is for the internal tools:
