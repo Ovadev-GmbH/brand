@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "description": "The three Ovadev component libraries, one per brand.",
-  "packageManager": "bun@1.3.4",
+  "packageManager": "bun@1.4.2",
   "workspaces": [
     "packages/*"
   ],
