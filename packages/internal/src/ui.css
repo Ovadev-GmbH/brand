@@ -1,0 +1,205 @@
+/* ============================================================
+   ui-internal — the shared tool layer (ui-*) of the Ovadev internal
+   apps, on top of the Design System. Quiet by default: text face for
+   labels, mono only for figures, hairlines instead of boxes. Sections
+   add their own accent.
+
+   Requires the Design System stylesheet to be loaded first: every
+   colour, size and face below is a --ovadev-* token, and the headings,
+   buttons, inputs, selects, stats and badges are ov-* classes.
+   ============================================================ */
+
+/* --- page anatomy --- */
+.ui-page { max-width: none; }
+.ui-page__head { margin-bottom: var(--ovadev-space-2xl); }
+.ui-eyebrow {
+  font-family: var(--ovadev-font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: var(--ovadev-text-xs);
+  color: var(--ovadev-c-ntr-m);
+  margin: 0 0 var(--ovadev-space-sm);
+}
+.ui-lead {
+  font-size: var(--ovadev-text-xl);
+  line-height: 1.45;
+  color: var(--ovadev-c-ntr-y);
+  margin: var(--ovadev-space-md) 0 0;
+  max-width: 60ch;
+}
+.ui-block { margin-top: var(--ovadev-space-2xl); }
+.ui-block__intro {
+  font-size: var(--ovadev-text-lg);
+  line-height: 1.5;
+  color: var(--ovadev-c-ntr-y);
+  margin: 0 0 var(--ovadev-space-lg);
+  max-width: 64ch;
+}
+.ui-block p { font-family: var(--ovadev-font-text); line-height: 1.6; }
+
+/* --- segmented control --- */
+.ui-seg { display: inline-flex; border: 1px solid var(--ovadev-c-ntr-s); border-radius: 4px; overflow: hidden; align-self: flex-start; }
+.ui-seg__btn {
+  font-family: var(--ovadev-font-mono); font-size: var(--ovadev-text-2xs);
+  padding: 0.26rem 0.5rem; cursor: pointer; background: var(--ovadev-c-wht); color: var(--ovadev-c-ntr-y);
+  border: 0; border-right: 1px solid var(--ovadev-c-ntr-s); white-space: nowrap;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out, opacity 0.15s ease-out;
+}
+.ui-seg__btn:last-child { border-right: 0; }
+.ui-seg__btn:not(.ui-seg__btn--active):not(.ui-seg__btn--off):hover { background: var(--ovadev-c-ntr-0); }
+.ui-seg__btn--active { background: var(--ovadev-c-blk); color: var(--ovadev-c-wht); cursor: default; }
+/* Disabled — clearly muted, hatched, never struck through. */
+.ui-seg__btn--off {
+  color: var(--ovadev-c-ntr-m); cursor: not-allowed; opacity: 0.85;
+  background:
+    repeating-linear-gradient(135deg, var(--ovadev-c-ntr-0) 0 5px, #ececec 5px 10px);
+}
+
+.ui-num { font-family: var(--ovadev-font-mono); font-variant-numeric: tabular-nums; }
+.ui-sub { display: block; font-size: var(--ovadev-text-xs); line-height: 1.4; color: var(--ovadev-c-ntr-y); }
+.ui-meta { margin: var(--ovadev-space-sm) 0 0; font-size: var(--ovadev-text-sm); color: var(--ovadev-c-ntr-y); }
+.ui-meta a { color: inherit; }
+.ui-empty { color: var(--ovadev-c-ntr-y); font-family: var(--ovadev-font-text); padding: var(--ovadev-space-lg) 0; margin: 0; }
+
+/* --- links --- */
+.ui-link, .ui-name {
+  color: var(--ovadev-c-blk);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ovadev-c-ntr-m);
+  transition: border-color var(--ovadev-duration) var(--ovadev-ease);
+}
+.ui-name { font-weight: 700; }
+.ui-link:hover, .ui-name:hover { border-bottom-color: var(--ovadev-c-blk); }
+.ui-link__ext { font-size: 0.8em; margin-left: 0.15em; color: var(--ovadev-c-ntr-y); }
+
+/* --- section head --- */
+.ui-section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--ovadev-space-md);
+  padding-bottom: var(--ovadev-space-xs);
+  border-bottom: 2px solid var(--ovadev-c-ntr-x);
+  margin-bottom: var(--ovadev-space-lg);
+}
+.ui-section__title { margin: 0; }
+.ui-section__aside { font-size: var(--ovadev-text-sm); color: var(--ovadev-c-ntr-y); white-space: nowrap; }
+
+/* --- stats --- */
+.ui-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--ovadev-space-lg) var(--ovadev-space-xl);
+  margin: var(--ovadev-space-md) 0;
+}
+.ui-stats .ov-stat { padding-left: var(--ovadev-space-md); border-left: 2px solid var(--ovadev-c-ntr-s); text-decoration: none; }
+.ui-stats .ov-stat__value { font-size: var(--ovadev-text-2xl); }
+.ui-stats .ov-stat__label { font-size: var(--ovadev-text-xs); letter-spacing: 0.06em; }
+.ui-stats .ov-stat__caption { font-family: var(--ovadev-font-text); }
+.ui-stat--link { transition: border-color var(--ovadev-duration) var(--ovadev-ease); }
+.ui-stat--link:hover { border-left-color: var(--ovadev-c-blk); }
+
+/* --- toolbar --- */
+.ui-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--ovadev-space-sm) var(--ovadev-space-md);
+  margin: var(--ovadev-space-md) 0 var(--ovadev-space-sm);
+}
+.ui-toolbar__filters { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ovadev-space-xs); flex: 1 1 auto; min-width: 0; }
+.ui-toolbar__right { display: flex; align-items: center; gap: var(--ovadev-space-md); margin-left: auto; }
+.ui-toolbar__meta { font-size: var(--ovadev-text-xs); color: var(--ovadev-c-ntr-y); white-space: nowrap; }
+.ui-toolbar__actions { display: flex; gap: var(--ovadev-space-xs); }
+.ui-search { flex: 1 1 220px; max-width: 360px; min-width: 160px; }
+.ui-select { width: auto; flex: 0 0 auto; }
+.ui-select .ov-select { width: auto; min-width: 150px; max-width: 260px; text-overflow: ellipsis; }
+.ui-select .ov-select__caret { right: 0.75rem; width: 0.4rem; height: 0.4rem; margin-top: -0.32rem; }
+.ui-more { margin-top: var(--ovadev-space-md); }
+
+/* --- table --- */
+.ui-tablewrap { margin: var(--ovadev-space-sm) 0; overflow-x: auto; }
+.ui-table { width: 100%; border-collapse: collapse; font-family: var(--ovadev-font-text); font-size: var(--ovadev-text-sm); }
+.ui-table th, .ui-table td { text-align: left; }
+.ui-th {
+  font-weight: 600;
+  font-size: var(--ovadev-text-xs);
+  color: var(--ovadev-c-ntr-x);
+  padding: 0 var(--ovadev-space-sm) var(--ovadev-space-xs);
+  border-bottom: 1px solid var(--ovadev-c-blk);
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+.ui-th:first-child, .ui-table td:first-child { padding-left: 0; }
+.ui-th:last-child, .ui-table td:last-child { padding-right: 0; }
+.ui-th--num { text-align: right !important; }
+.ui-th__btn {
+  all: unset;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+.ui-th__btn:hover { color: var(--ovadev-c-blk); }
+.ui-th__arrow { color: var(--ovadev-c-ntr-m); font-size: 0.85em; }
+.ui-th--active { color: var(--ovadev-c-blk); }
+.ui-th--active .ui-th__arrow { color: var(--ovadev-c-blk); }
+.ui-table td {
+  padding: 0.55rem var(--ovadev-space-sm);
+  border-bottom: 1px solid var(--ovadev-c-ntr-s);
+  vertical-align: top;
+  line-height: 1.4;
+}
+.ui-table--dense td { padding-top: 0.35rem; padding-bottom: 0.35rem; }
+.ui-table tbody tr:last-child td { border-bottom: 0; }
+.ui-table--hover tbody tr:hover td { background: var(--ovadev-c-ntr-0); }
+.ui-td--num { text-align: right !important; white-space: nowrap; }
+.ui-td--muted { color: var(--ovadev-c-ntr-y); }
+.ui-td--nowrap { white-space: nowrap; }
+.ui-td--none { color: var(--ovadev-c-ntr-m); }
+.ui-td--name { min-width: 180px; }
+.ui-table .ov-badge { vertical-align: middle; letter-spacing: 0.06em; padding: 0.2rem 0.4rem; }
+.ui-table .ov-badge--outline { border-color: var(--ovadev-c-ntr-m); color: var(--ovadev-c-ntr-x); }
+
+/* --- definition list --- */
+.ui-dl {
+  display: grid;
+  grid-template-columns: minmax(120px, 170px) 1fr;
+  gap: var(--ovadev-space-xs) var(--ovadev-space-lg);
+  margin: var(--ovadev-space-md) 0;
+  font-size: var(--ovadev-text-sm);
+  font-family: var(--ovadev-font-text);
+}
+.ui-dl dt { font-weight: 600; color: var(--ovadev-c-ntr-x); }
+.ui-dl dd { margin: 0; line-height: 1.5; }
+
+/* --- note --- */
+.ui-note {
+  font-family: var(--ovadev-font-text);
+  font-size: var(--ovadev-text-base);
+  line-height: 1.55;
+  background: var(--ovadev-c-ntr-0);
+  border-left: 3px solid var(--ovadev-c-blk);
+  padding: var(--ovadev-space-md) var(--ovadev-space-lg);
+  margin: var(--ovadev-space-md) 0;
+}
+.ui-note p { margin: 0; }
+.ui-note p + p { margin-top: var(--ovadev-space-sm); }
+.ui-note--accent { border-left-color: var(--ui-accent, var(--ovadev-c-blk)); }
+.ui-note--warn { border-left-color: var(--ovadev-c-ylw-x); background: var(--ovadev-c-ylw-s); }
+
+/* --- badges inside tool UIs sit a notch smaller than marketing --- */
+.ui-badges { display: flex; flex-wrap: wrap; gap: var(--ovadev-space-xs); margin: 0 0 var(--ovadev-space-lg); align-items: center; }
+
+@media (max-width: 720px) {
+  .ui-search { max-width: none; }
+  .ui-select, .ui-select .ov-select { width: 100%; max-width: none; }
+  .ui-toolbar__right { margin-left: 0; width: 100%; justify-content: space-between; }
+  .ui-dl { grid-template-columns: 1fr; gap: 0; }
+  .ui-dl dd { margin-bottom: var(--ovadev-space-sm); }
+  .ui-section__head { flex-direction: column; align-items: flex-start; gap: var(--ovadev-space-2xs); }
+}

@@ -9,6 +9,23 @@
         "@types/node": "^26.4.1",
       },
     },
+    "packages/internal": {
+      "name": "@ovadev-gmbh/ui-internal",
+      "version": "0.1.0",
+      "devDependencies": {
+        "@types/react": "^19.2.18",
+        "@types/react-dom": "^19.2.7",
+        "@vitejs/plugin-react": "^5.2.0",
+        "react": "^19.2.8",
+        "react-dom": "^19.2.8",
+        "typescript": "^5.9.3",
+        "vite": "^7.3.6",
+      },
+      "peerDependencies": {
+        "react": ">=18",
+        "react-dom": ">=18",
+      },
+    },
     "packages/januna": {
       "name": "@ovadev-gmbh/ui-januna",
       "version": "0.1.0",
@@ -163,6 +180,8 @@
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.31", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw=="],
 
     "@napi-rs/lzma-linux-x64-gnu": ["@napi-rs/lzma-linux-x64-gnu@1.5.1", "", { "os": "linux", "cpu": "x64" }, "sha512-oTXEIha4SsuXdTA4Iyskj0kpdx2yVXdhd75c2v3xGrHFfVMsbhTPZU/nMPL4sWKo4pBHm3aucLaqGlF696dTyQ=="],
+
+    "@ovadev-gmbh/ui-internal": ["@ovadev-gmbh/ui-internal@workspace:packages/internal"],
 
     "@ovadev-gmbh/ui-januna": ["@ovadev-gmbh/ui-januna@workspace:packages/januna"],
 

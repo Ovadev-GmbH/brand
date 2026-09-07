@@ -1,14 +1,16 @@
 # Ovadev component libraries
 
-Three React component libraries, one per brand, in one repo:
+Four React component libraries in one repo, three of them one per brand,
+the fourth for the internal tools:
 
-| Package | Brand | Class prefix |
+| Package | For | Class prefix |
 | --- | --- | --- |
 | `@ovadev-gmbh/ui-ovadev` | Ovadev | `ova-` |
 | `@ovadev-gmbh/ui-ticketova` | TICKETOVA | `tova-` |
 | `@ovadev-gmbh/ui-januna` | Januna | `jan-` |
+| `@ovadev-gmbh/ui-internal` | intern.ova.dev and its sections | `ui-` |
 
-They are **independent**: no shared core, no cross-package imports. Each owns
+The three brand libraries are **independent**: no shared core, no cross-package imports. Each owns
 its own copy of every component, and the brands are free to diverge. The cost
 is that a fix to one Button is a fix to three; that trade was made on purpose.
 
@@ -51,7 +53,7 @@ would get TS2307.
 Versions are per package, so the tag names the package:
 
 ```bash
-git tag ticketova-v0.2.0
+git tag ticketova-v0.2.0      # or internal-v0.2.0
 git push origin ticketova-v0.2.0
 ```
 
@@ -85,13 +87,24 @@ React and react-dom are peer dependencies and stay external, so the app
 supplies the single copy. CI and Railway need `GITHUB_PACKAGES_TOKEN` in the
 environment too, or the install fails on a 401.
 
+## `@ovadev-gmbh/ui-internal` is different in kind
+
+The brand libraries own their look. `ui-internal` does not: it is the tool
+layer of the internal apps (page anatomy, tables, stats, toolbar, controls)
+and sits **on top of the Ovadev Design System**. Every colour, size and face
+in its stylesheet is a `--ovadev-*` token, and its headings, buttons, inputs
+and stats are `ov-*` classes, so the consumer has to load the Design System
+stylesheet first. It renders links through the component handed to its
+`<UiProvider>`, which is how it stays router-agnostic: INTERN passes its
+section-aware react-router `Link`, a static page passes nothing and gets a
+plain `<a>`. It was extracted from INTERN's `src/components/ui/` and is what
+INTERN installs.
+
 ## `@ovadev-gmbh/ui` is the old name
 
-Before the split this repo published a single `@ovadev-gmbh/ui`, and `0.1.0`
-of it is still in the registry and still what `INTERN` installs. Nothing here
-builds that name any more. INTERN keeps resolving the published `0.1.0` until
-it is moved to `@ovadev-gmbh/ui-ovadev`; do not delete that version from the
-registry before then.
+Before the split this repo published a single `@ovadev-gmbh/ui` with one
+placeholder Button; `0.1.0` of it is still in the registry. Nothing builds
+or installs that name any more, so it can be deleted from the registry.
 
 ## What is actually in here
 

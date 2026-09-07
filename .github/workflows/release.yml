@@ -10,6 +10,7 @@ on:
       - "ovadev-v*"
       - "ticketova-v*"
       - "januna-v*"
+      - "internal-v*"
 
 jobs:
   publish:
