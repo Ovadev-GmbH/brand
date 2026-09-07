@@ -23,20 +23,20 @@ export function Shell({ pkg, current, children }: { pkg: Pkg; current?: string; 
             <span className="cat-side__name">{pkg.name}</span>
             <span className="cat-side__version">v{pkgVersion(pkg.id)}</span>
           </Link>
-          <button className="cat-burger" aria-label="Navigation" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-            Menü
+          <button className="cat-burger" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+            Menu
           </button>
         </div>
         <div className="cat-side__body">
           <input
             type="search"
             className="cat-search"
-            placeholder="Suchen"
-            aria-label="Komponente suchen"
+            placeholder="Search"
+            aria-label="Search components"
             value={filter}
             onChange={(e) => setFilter(e.target.value)}
           />
-          <nav className="cat-nav" aria-label="Komponenten">
+          <nav className="cat-nav" aria-label="Components">
             {groups.map(({ group, entries }) => (
               <div className="cat-nav__group" key={group}>
                 <p className="cat-nav__title">{group}</p>
@@ -56,7 +56,7 @@ export function Shell({ pkg, current, children }: { pkg: Pkg; current?: string; 
                 </ul>
               </div>
             ))}
-            {groups.length === 0 ? <p className="cat-nav__empty">Nichts gefunden.</p> : null}
+            {groups.length === 0 ? <p className="cat-nav__empty">No matches.</p> : null}
           </nav>
         </div>
       </aside>

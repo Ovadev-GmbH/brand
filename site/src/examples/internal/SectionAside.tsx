@@ -2,8 +2,8 @@ import { Section, Button } from "@ovadev-gmbh/ui-internal";
 
 export default function SectionAside() {
   return (
-    <Section title="Kontakte" intro="Wer erreichbar ist, und über welchen Kanal." aside={<Button size="sm">Exportieren</Button>}>
-      <p>Die Section trägt rechts auf der Titelzeile eine Zahl, einen Schalter oder eine Aktion.</p>
+    <Section title="Contacts" intro="Who can be reached, and through which channel." aside={<Button size="sm">Export</Button>}>
+      <p>The section carries a count, a switch or an action on the right of its title line.</p>
     </Section>
   );
 }

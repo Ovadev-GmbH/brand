@@ -27,7 +27,7 @@ export function Example({ example, anchor }: { example: ExampleData; anchor: str
       setCopied(true);
       window.setTimeout(() => setCopied(false), 1600);
     } catch {
-      window.prompt("Kopieren:", url);
+      window.prompt("Copy:", url);
     }
   };
   return (
@@ -37,10 +37,10 @@ export function Example({ example, anchor }: { example: ExampleData; anchor: str
           <a href={`#${anchor}`}>{example.title}</a>
         </h3>
         <div className="cat-example__tools">
-          <Toggle label="Grund" value={ground} onChange={setGround} options={[{ value: "light", label: "Hell" }, { value: "dark", label: "Dunkel" }]} />
-          <Toggle label="Ansicht" value={view} onChange={setView} options={[{ value: "demo", label: "Demo" }, { value: "code", label: "Code" }]} />
+          <Toggle label="Background" value={ground} onChange={setGround} options={[{ value: "light", label: "Light" }, { value: "dark", label: "Dark" }]} />
+          <Toggle label="View" value={view} onChange={setView} options={[{ value: "demo", label: "Demo" }, { value: "code", label: "Code" }]} />
           <button type="button" className="cat-btn" onClick={copy}>
-            {copied ? "Kopiert" : "Link"}
+            {copied ? "Copied" : "Link"}
           </button>
         </div>
       </div>

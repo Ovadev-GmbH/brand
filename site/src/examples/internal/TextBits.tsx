@@ -4,18 +4,18 @@ export default function TextBits() {
   return (
     <>
       <p>
-        Seebad Richterswil <Sub>Zürichsee · seit 1904</Sub>
+        Seebad Richterswil <Sub>Lake Zurich · since 1904</Sub>
       </p>
       <p>
         <ExtLink href="https://ova.dev">ova.dev</ExtLink>
       </p>
       <Note>
-        <p>Eine Notiz: Recherche, Hinweis, Verifikation.</p>
+        <p>A note: research, hint, verification.</p>
       </Note>
       <Note tone="warn">
-        <p>Eine Warnung mit gelbem Grund.</p>
+        <p>A warning on a yellow ground.</p>
       </Note>
-      <Empty>Keine Einträge.</Empty>
+      <Empty>No entries.</Empty>
     </>
   );
 }

@@ -4,9 +4,9 @@ export default function DlBasic() {
   return (
     <Dl
       items={[
-        { k: "Betreiber", v: "Gemeinde Richterswil" },
-        { k: "Kanton", v: "ZH" },
-        { k: "Besucher", v: "48 200", num: true },
+        { k: "Operator", v: "Municipality of Richterswil" },
+        { k: "Canton", v: "ZH" },
+        { k: "Visitors", v: "48 200", num: true },
         { k: "Website", v: "" },
       ]}
     />

@@ -18,7 +18,7 @@ export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
       </header>
       <section className="cat-block">
         <h2 className="cat-h2">
-          Beispiele <span className="cat-count">{entry.examples.length}</span>
+          Examples <span className="cat-count">{entry.examples.length}</span>
         </h2>
         {entry.examples.map((ex, i) => (
           <Example key={i} example={ex} anchor={`beispiel-${i + 1}`} />

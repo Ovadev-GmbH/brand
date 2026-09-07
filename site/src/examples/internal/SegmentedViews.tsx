@@ -9,9 +9,9 @@ export default function SegmentedViews() {
       value={v}
       onChange={setV}
       options={[
-        { value: "all", label: "Alle" },
-        { value: "open", label: "Offen" },
-        { value: "done", label: "Erledigt", off: true },
+        { value: "all", label: "All" },
+        { value: "open", label: "Open" },
+        { value: "done", label: "Done", off: true },
       ]}
     />
   );

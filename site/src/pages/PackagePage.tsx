@@ -12,7 +12,7 @@ export function PackagePage({ pkg }: { pkg: Pkg }) {
         <p className="cat-lead">{pkg.intro}</p>
       </header>
       <section className="cat-block">
-        <h2 className="cat-h2">Installieren</h2>
+        <h2 className="cat-h2">Install</h2>
         <pre className="cat-code">
           <code>{`bun add ${pkg.pkg}@${pkgVersion(pkg.id)}\n\nimport { … } from "${pkg.pkg}";\nimport "${pkg.pkg}/styles.css";`}</code>
         </pre>
@@ -21,7 +21,7 @@ export function PackagePage({ pkg }: { pkg: Pkg }) {
           <dd>{pkgVersion(pkg.id)}</dd>
           <dt>Registry</dt>
           <dd>npm.pkg.github.com</dd>
-          <dt>Quelle</dt>
+          <dt>Source</dt>
           <dd>
             <a href={`https://github.com/Ovadev-GmbH/brand/tree/main/packages/${pkg.id}`}>Ovadev-GmbH/brand › packages/{pkg.id}</a>
           </dd>

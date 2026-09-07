@@ -8,8 +8,8 @@ export default function ButtonVariants() {
       <Button variant="ghost">Ghost</Button>
       <Button size="md" variant="solid">Medium</Button>
       <Button disabled>Disabled</Button>
-      <Button href="/internal/button">Router-Link</Button>
-      <Button href="https://ova.dev" external>Extern</Button>
+      <Button href="/internal/button">Router link</Button>
+      <Button href="https://ova.dev" external>External</Button>
     </div>
   );
 }
