@@ -1,0 +1,14 @@
+/* Ovadev brand tokens. Values taken from the live site's :root in
+   Landing/apps/ova/src/styles.css, not invented here. Ovadev is the dark
+   identity of the three: paper is near-black, ink near-white, and red is the
+   only colour in the system that is not a grey. */
+:root {
+  --ova-bg: #0e0f12;
+  --ova-fg: #eceef2;
+  --ova-accent: #e8202a;
+  --ova-on-accent: #eceef2;
+  --ova-muted: #8b9098;
+  --ova-line: rgba(236, 238, 242, 0.26);
+  --ova-radius: 0;
+  --ova-font: "Oswald", ui-sans-serif, system-ui, sans-serif;
+}

@@ -2,7 +2,7 @@ import { resolve } from "node:path";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-// Library mode: one ESM entry plus the extracted stylesheet (dist/ui.css).
+// Library mode: one ESM entry plus the extracted stylesheet (dist/jan.css).
 // React stays external so the consuming app supplies the single copy.
 export default defineConfig({
   plugins: [react()],
@@ -11,7 +11,7 @@ export default defineConfig({
       entry: resolve(import.meta.dirname, "src/index.ts"),
       formats: ["es"],
       fileName: () => "index.js",
-      cssFileName: "ui",
+      cssFileName: "jan",
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],

@@ -1,0 +1,14 @@
+/* Januna brand tokens. Values taken from the Januna repo's
+   src/app/globals.css, which is a shadcn theme and states its palette in
+   oklch. They are kept in oklch rather than converted to hex, so a value
+   here and a value there are the same string. */
+:root {
+  --jan-bg: oklch(1 0 0);
+  --jan-fg: oklch(0.145 0 0);
+  --jan-accent: oklch(0.527 0.154 150.069);
+  --jan-on-accent: oklch(0.982 0.018 155.826);
+  --jan-muted: oklch(0.556 0 0);
+  --jan-line: oklch(0.922 0 0);
+  --jan-radius: 10px;
+  --jan-font: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+}

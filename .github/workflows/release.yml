@@ -1,9 +1,15 @@
 name: release
 
+# One repo, three independently versioned packages, so the tag says which one
+# ships: ovadev-v0.1.0, ticketova-v0.2.0, januna-v0.1.1. A tag that does not
+# name a real package, or whose version disagrees with that package.json,
+# fails before anything is published.
 on:
   push:
     tags:
-      - "v*"
+      - "ovadev-v*"
+      - "ticketova-v*"
+      - "januna-v*"
 
 jobs:
   publish:
@@ -16,10 +22,30 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-      # --ignore-scripts keeps the "prepare" script from building twice.
+
+      - name: Read the package and version out of the tag
+        id: tag
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          pkg="${tag%-v*}"
+          version="${tag##*-v}"
+          if [ ! -f "packages/$pkg/package.json" ]; then
+            echo "::error::tag $tag names package '$pkg', which does not exist"
+            exit 1
+          fi
+          declared=$(bun --print "require('./packages/$pkg/package.json').version")
+          if [ "$declared" != "$version" ]; then
+            echo "::error::tag $tag says $version but packages/$pkg/package.json says $declared"
+            exit 1
+          fi
+          echo "pkg=$pkg" >> "$GITHUB_OUTPUT"
+
+      # --ignore-scripts keeps a package's own build from running at install.
       - run: bun install --frozen-lockfile --ignore-scripts
       - run: bun run check-types
-      - run: bun run build
+      - run: bun run --filter "@ovadev-gmbh/ui-${{ steps.tag.outputs.pkg }}" build
+
       - run: bun publish --access restricted
+        working-directory: packages/${{ steps.tag.outputs.pkg }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

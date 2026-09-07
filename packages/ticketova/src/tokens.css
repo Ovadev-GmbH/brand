@@ -1,0 +1,13 @@
+/* TICKETOVA brand tokens. Values taken from Landing/apps/ticketova/src/
+   globals.css, whose own comment states the rule: "no colour is decoration
+   (green #065f46 only)". Unlike Ovadev this identity is light. */
+:root {
+  --tova-bg: #fafafa;
+  --tova-fg: #0a0a0a;
+  --tova-accent: #065f46;
+  --tova-on-accent: #fafafa;
+  --tova-muted: #9ca3af;
+  --tova-line: #e5e7eb;
+  --tova-radius: 6px;
+  --tova-font: ui-sans-serif, system-ui, sans-serif;
+}

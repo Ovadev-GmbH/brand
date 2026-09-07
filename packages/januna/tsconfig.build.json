@@ -6,11 +6,7 @@
     "declaration": true,
     "declarationMap": true,
     "outDir": "dist",
-    "types": [
-      "vite/client"
-    ]
+    "types": ["vite/client"]
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

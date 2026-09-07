@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes } from "react";
+import "./tokens.css";
 import "./button.css";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost";
