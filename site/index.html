@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Ovadev Brand</title>
+    <script>
+      /* The theme before first paint, so a dark reader never sees a white
+         flash. Same key and same rule as src/components/theme.tsx. */
+      (function () {
+        try {
+          var t = localStorage.getItem("ovadev-brand-theme");
+          if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

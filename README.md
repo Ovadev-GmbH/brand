@@ -14,9 +14,24 @@ the site does not pretend otherwise.
 
 - `/ovadev`, `/ticketova`, `/januna`, `/internal` — a package, its
   components by group, each as a live-rendered thumbnail
+- `/<package>/colors`, `/<package>/typography` — the brand's foundations,
+  read off its own token file (`site/src/brands.ts` holds those values and
+  names where each came from)
 - `/<package>/<component>` — the examples on a light or dark ground, the
   source of each example (a `?raw` import of the file that renders), a
   permalink per example, and a props table
+
+The shell around all of that is one component, `site/src/components/Shell.tsx`:
+sticky header, sidebar, ⌘K command menu over that package's pages only, a
+three-state theme switcher (system/light/dark) and a Prev/Next pager. The
+wordmark top left is the one control that knows the other brands exist — it
+opens the library switcher (`BrandSwitcher.tsx`), which is also the way back
+to the landing. It puts
+`data-brand="<package>"` on its root, and `site/src/styles/tokens.css` hangs
+that brand's accent, display face and corner radius off that attribute — so
+each brand has its own layout without a second copy of the shell. The page
+order the sidebar, the ⌘K menu and the pager all read is
+`site/src/nav.ts`.
 
 `site/src/registry/<package>.ts` names every component, group, summary and
 example; `site/src/examples/` holds the example files. The props tables are

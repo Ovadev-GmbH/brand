@@ -1,66 +1,124 @@
-import * as React from "react";
-import { Link, NavLink } from "react-router";
-import type { Pkg } from "../types";
-import { grouped, href } from "../registry";
-import { pkgVersion } from "../props";
-import { StatusBadge } from "./StatusBadge";
+/* One brand's catalog. The frame is the same for all four; what changes is
+   the data-brand on the root, which is where styles/tokens.css hangs that
+   brand's accent, display face and corner radius. So each brand gets its own
+   layout without a second copy of the shell.
 
-/** One package's catalog: the sidebar carries the package name and only
- *  its components. The other packages are not mentioned; the root is the
- *  only place they meet. */
-export function Shell({ pkg, current, children }: { pkg: Pkg; current?: string; children: React.ReactNode }) {
-  const [filter, setFilter] = React.useState("");
-  const [open, setOpen] = React.useState(false);
-  const groups = grouped(pkg, filter);
+   The other brands are never named in here: the chooser at / is the only
+   place they meet. */
+
+import * as React from "react";
+import { Link, NavLink, useLocation } from "react-router";
+import type { Pkg } from "../types";
+import { navGroups, neighbours } from "../nav";
+import { StatusBadge } from "./StatusBadge";
+import { ThemeSwitcher } from "./theme";
+import { CommandMenu } from "./CommandMenu";
+import { Pagination } from "./Pagination";
+import { MenuIcon, CloseIcon, SearchIcon } from "./icons";
+import { BrandSwitcher } from "./BrandSwitcher";
+
+function NavList({ pkg, onNavigate }: { pkg: Pkg; onNavigate?: () => void }) {
   return (
-    <div className="cat">
-      <aside className={`cat-side ${open ? "cat-side--open" : ""}`}>
-        <div className="cat-side__head">
-          <Link to="/" className="cat-side__root">
-            Ovadev Brand
-          </Link>
-          <Link to={href(pkg.id)} className="cat-side__pkg">
-            <span className="cat-side__name">{pkg.name}</span>
-            <span className="cat-side__version">v{pkgVersion(pkg.id)}</span>
-          </Link>
-          <button className="cat-burger" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-            Menu
-          </button>
-        </div>
-        <div className="cat-side__body">
-          <input
-            type="search"
-            className="cat-search"
-            placeholder="Search"
-            aria-label="Search components"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-          />
-          <nav className="cat-nav" aria-label="Components">
-            {groups.map(({ group, entries }) => (
-              <div className="cat-nav__group" key={group}>
-                <p className="cat-nav__title">{group}</p>
-                <ul className="cat-nav__list">
-                  {entries.map((e) => (
-                    <li key={e.slug}>
-                      <NavLink
-                        to={href(pkg.id, e.slug)}
-                        className={({ isActive }) => `cat-nav__link ${isActive || current === e.slug ? "cat-nav__link--active" : ""}`}
-                        onClick={() => setOpen(false)}
-                      >
-                        <span>{e.name}</span>
-                        {e.status ? <StatusBadge status={e.status} /> : null}
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+    <>
+      {navGroups(pkg).map(({ group, items }) => (
+        <div className="g-side__group" key={group}>
+          <p className="g-side__title">{group}</p>
+          <ul className="g-side__list">
+            {items.map((item) => (
+              <li key={item.href}>
+                <NavLink
+                  end
+                  to={item.href}
+                  onClick={onNavigate}
+                  className={({ isActive }) => `g-side__link ${isActive ? "g-side__link--active" : ""}`}
+                >
+                  <span>{item.name}</span>
+                  {item.entry?.status ? <StatusBadge status={item.entry.status} /> : null}
+                </NavLink>
+              </li>
             ))}
-            {groups.length === 0 ? <p className="cat-nav__empty">No matches.</p> : null}
-          </nav>
+          </ul>
         </div>
-      </aside>
-      <main className="cat-main">{children}</main>
+      ))}
+    </>
+  );
+}
+
+export function Shell({ pkg, children }: { pkg: Pkg; children: React.ReactNode }) {
+  const [menu, setMenu] = React.useState(false);
+  const [search, setSearch] = React.useState(false);
+  const { pathname } = useLocation();
+  const { prev, next } = neighbours(pkg, pathname);
+
+  // ⌘K / Ctrl-K anywhere in the catalog.
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key.toLowerCase() === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setSearch((v) => !v);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  React.useEffect(() => {
+    setMenu(false);
+  }, [pathname]);
+
+  return (
+    <div className="g-shell" data-brand={pkg.id}>
+      <header className="g-header">
+        <div className="g-header__inner">
+          <div className="g-header__brand">
+            <BrandSwitcher pkg={pkg} />
+          </div>
+          <div className="g-header__tools">
+            <button type="button" className="g-searchbtn" onClick={() => setSearch(true)}>
+              <span className="g-searchbtn__label">
+                <SearchIcon />
+                <span className="g-searchbtn__text">Search {pkg.name}</span>
+              </span>
+              <kbd className="g-kbd">
+                <span>⌘</span>
+                <span>K</span>
+              </kbd>
+            </button>
+            <span className="g-header__spacer" />
+            <ThemeSwitcher />
+            <button
+              type="button"
+              className="g-menubtn"
+              aria-label={menu ? "Close menu" : "Open menu"}
+              aria-expanded={menu}
+              onClick={() => setMenu((v) => !v)}
+            >
+              {menu ? <CloseIcon /> : <MenuIcon />}
+            </button>
+          </div>
+        </div>
+        {menu ? (
+          <nav className="g-mobilenav" aria-label={`${pkg.name} pages`}>
+            <NavList pkg={pkg} onNavigate={() => setMenu(false)} />
+          </nav>
+        ) : null}
+      </header>
+
+      <main className="g-main">
+        <aside className="g-side">
+          <div className="g-side__scroll">
+            <NavList pkg={pkg} />
+          </div>
+        </aside>
+        <div className="g-content">
+          <div className="g-content__inner">
+            <div className="g-content__body">{children}</div>
+            <Pagination prev={prev} next={next} />
+          </div>
+        </div>
+      </main>
+
+      <CommandMenu pkg={pkg} open={search} onClose={() => setSearch(false)} />
     </div>
   );
 }
