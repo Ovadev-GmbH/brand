@@ -14,5 +14,9 @@ jobs:
         with:
           bun-version: latest
       - run: bun install --frozen-lockfile --ignore-scripts
+      # The site resolves the libraries through their package exports, which
+      # point at dist/ — so they have to be built before anything type-checks
+      # against them.
+      - run: bun run --filter '@ovadev-gmbh/*' build
       - run: bun run check-types
       - run: bun run build
