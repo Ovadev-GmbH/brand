@@ -11,7 +11,6 @@ import { Link, NavLink, useLocation } from "react-router";
 import type { Pkg } from "../types";
 import { navGroups, neighbours } from "../nav";
 import { StatusBadge } from "./StatusBadge";
-import { ThemeSwitcher } from "./theme";
 import { CommandMenu } from "./CommandMenu";
 import { Pagination } from "./Pagination";
 import { MenuIcon, CloseIcon, SearchIcon } from "./icons";
@@ -96,7 +95,6 @@ export function Shell({ pkg, children }: { pkg: Pkg; children: React.ReactNode }
               </kbd>
             </button>
             <span className="hidden flex-1 md:block" />
-            <ThemeSwitcher />
             <button
               type="button"
               className="inline-flex size-8 cursor-pointer items-center justify-center rounded-full border-0 bg-transparent text-gray-1000 lg:hidden"

@@ -30,8 +30,6 @@ export type TypeRow = { name: string; family: string; weight: number; size: stri
 export type BrandChrome = {
   /** The mark: a wordmark, since none of the brands has an SVG in this repo yet. */
   mark: string;
-  /** Ground the examples default to. */
-  dark: boolean;
   swatches: Swatch[];
   type: TypeRow[];
   /** Where the tokens came from, named on the page. */
@@ -53,7 +51,6 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       },
     ],
     mark: "Ovadev",
-    dark: true,
     source: "packages/ovadev/src/tokens.css — taken from Landing/apps/ova/src/styles.css",
     swatches: [
       { name: "Background", token: "--ova-bg", value: "#0e0f12" },
@@ -72,7 +69,6 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       { file: "ticketova-icon", name: "Icon", kind: "icon", note: "The T, between the same two rules." },
     ],
     mark: "TICKETOVA",
-    dark: false,
     source: "packages/ticketova/src/tokens.css — taken from Landing/apps/ticketova/src/globals.css",
     swatches: [
       { name: "Background", token: "--tova-bg", value: "#fafafa" },
@@ -97,7 +93,6 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       },
     ],
     mark: "Januna",
-    dark: false,
     source: "packages/januna/src/tokens.css — taken from the Januna repo's globals.css",
     swatches: [
       { name: "Background", token: "--jan-bg", value: "#ffffff" },
@@ -112,7 +107,6 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   },
   internal: {
     mark: "INTERN",
-    dark: false,
     source: "src/vendor/design-system/ovadev.css — the build INTERN ships",
     swatches: [
       { name: "Black", token: "--ovadev-c-blk", value: "#000000" },

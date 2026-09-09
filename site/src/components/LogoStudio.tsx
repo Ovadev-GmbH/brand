@@ -3,7 +3,7 @@
  * One card per mark: the drawing as it actually is, and a download in the
  * format you need. There are no variants to choose — a mark that ships in its
  * own colours is shown in them, and one that doesn't paints itself in
- * currentColor, so it takes the page's ink in either theme. */
+ * currentColor, so it takes the page's ink. */
 
 import * as React from "react";
 import type { Mark } from "../brands";
@@ -18,8 +18,8 @@ const CDN_BASE = "https://cdn.intern.ova.dev/conventions/imagery/";
 
 /* ── drawing ───────────────────────────────────────────────────────────── */
 
-/** The page can let a currentColor mark follow the theme; a file cannot, so
- *  what leaves here is set in ink. */
+/** The page can let a currentColor mark follow the page's ink; a file cannot,
+ *  so what leaves here is set in ink. */
 const inkFor = (svg: string) =>
   svg.replace(/<svg([^>]*?)>/, (_m, a: string) => `<svg${a.replace(/\scolor="[^"]*"/g, "")} color="#000000">`);
 

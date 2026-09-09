@@ -21,9 +21,9 @@
    what makes a docs chrome tunable per brand. The values are ours.
 
    Each one points at a --ds-* variable rather than holding a colour, which is
-   what lets the three themes below swap the whole palette by redeclaring a
-   dozen variables, and lets a brand redeclare its radius and display face
-   without Tailwind knowing anything about brands.
+   what lets the palette below be declared in one place, and lets a brand
+   redeclare its radius and display face without Tailwind knowing anything
+   about brands.
    ------------------------------------------------------------------------ */
 @theme {
   /* Tailwind's own palette and breakpoints would only be a second vocabulary
@@ -81,10 +81,10 @@
   --container-side: 260px;
 }
 
-/* ── the three themes ──────────────────────────────────────────────────────
-   Light on :root, dark twice: once behind prefers-color-scheme for "system",
-   once behind [data-theme="dark"] so the switcher wins in both directions.
-   Nothing gets its only definition inside a media query.
+/* ── the palette ───────────────────────────────────────────────────────────
+   One theme, light, declared once on :root. The site is a brand reference:
+   the marks and the swatches are the subject, so the room they hang in stays
+   the same for everyone.
    ------------------------------------------------------------------------ */
 :root {
   color-scheme: light;
@@ -120,60 +120,6 @@
 
   --ds-radius: 6px;
   --display-tracking: -0.02em;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --ds-gray-100: #1a1a1a;
-    --ds-gray-200: #1f1f1f;
-    --ds-gray-300: #292929;
-    --ds-gray-400: #2e2e2e;
-    --ds-gray-500: #454545;
-    --ds-gray-600: #878787;
-    --ds-gray-700: #8f8f8f;
-    --ds-gray-800: #a1a1a1;
-    --ds-gray-900: #b4b4b4;
-    --ds-gray-1000: #ededed;
-    --ds-gray-alpha-100: rgba(255, 255, 255, 0.06);
-    --ds-gray-alpha-200: rgba(255, 255, 255, 0.09);
-    --ds-gray-alpha-400: rgba(255, 255, 255, 0.14);
-    --ds-gray-alpha-500: rgba(255, 255, 255, 0.22);
-    --ds-gray-alpha-600: rgba(255, 255, 255, 0.34);
-    --ds-background-100: #0a0a0a;
-    --ds-background-200: #000000;
-    --ds-red-700: #ff6166;
-    --ds-red-100: #2a1213;
-    --ds-accent: #ededed;
-    --ds-on-accent: #0a0a0a;
-    --ds-shadow-menu: 0 8px 30px rgba(0, 0, 0, 0.6);
-  }
-}
-
-:root[data-theme="dark"] {
-  color-scheme: dark;
-  --ds-gray-100: #1a1a1a;
-  --ds-gray-200: #1f1f1f;
-  --ds-gray-300: #292929;
-  --ds-gray-400: #2e2e2e;
-  --ds-gray-500: #454545;
-  --ds-gray-600: #878787;
-  --ds-gray-700: #8f8f8f;
-  --ds-gray-800: #a1a1a1;
-  --ds-gray-900: #b4b4b4;
-  --ds-gray-1000: #ededed;
-  --ds-gray-alpha-100: rgba(255, 255, 255, 0.06);
-  --ds-gray-alpha-200: rgba(255, 255, 255, 0.09);
-  --ds-gray-alpha-400: rgba(255, 255, 255, 0.14);
-  --ds-gray-alpha-500: rgba(255, 255, 255, 0.22);
-  --ds-gray-alpha-600: rgba(255, 255, 255, 0.34);
-  --ds-background-100: #0a0a0a;
-  --ds-background-200: #000000;
-  --ds-red-700: #ff6166;
-  --ds-red-100: #2a1213;
-  --ds-accent: #ededed;
-  --ds-on-accent: #0a0a0a;
-  --ds-shadow-menu: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
 /* ── one layout per brand ──────────────────────────────────────────────────
@@ -299,23 +245,10 @@
 }
 
 /* The transparency checkerboard the logo studio stages a mark on, the way an
-   image editor does. It comes in two weights: the board darkens whenever what
-   sits on it is light, so a white mark on nothing stays visible. */
+   image editor does. */
 @utility bg-checker {
   --checker: var(--color-alpha-100);
   background-color: var(--color-bg-100);
-  background-image:
-    linear-gradient(45deg, var(--checker) 25%, transparent 25%),
-    linear-gradient(-45deg, var(--checker) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, var(--checker) 75%),
-    linear-gradient(-45deg, transparent 75%, var(--checker) 75%);
-  background-size: 16px 16px;
-  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
-}
-
-@utility bg-checker-dark {
-  --checker: rgb(0 0 0 / 0.5);
-  background-color: #3a3a3a;
   background-image:
     linear-gradient(45deg, var(--checker) 25%, transparent 25%),
     linear-gradient(-45deg, var(--checker) 25%, transparent 25%),

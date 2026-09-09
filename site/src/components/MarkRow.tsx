@@ -4,8 +4,7 @@ import type { Mark } from "../brands";
 /** The brand's marks, side by side and inert, as the Brand Assets card's
  *  preview — each as it actually ships, so a mark that has its own colours is
  *  shown in them. The rest paint themselves in currentColor, which is why they
- *  are fetched rather than <img>-ed: inlined, they take the page's ink in
- *  either theme. */
+ *  are fetched rather than <img>-ed: inlined, they take the page's ink. */
 export function MarkRow({ marks }: { marks: Mark[] }) {
   const [svgs, setSvgs] = React.useState<Record<string, string>>({});
 

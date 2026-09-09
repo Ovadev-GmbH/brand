@@ -10,7 +10,6 @@ import { PACKAGES, href } from "../registry";
 import { pkgVersion } from "../versions";
 import { Grid, Cell } from "../components/Grid";
 import { GitHubIcon } from "../components/icons";
-import { ThemeSwitcher } from "../components/theme";
 
 export function HomePage() {
   return (
@@ -30,7 +29,6 @@ export function HomePage() {
               .
             </p>
           </div>
-          <ThemeSwitcher />
         </div>
       </header>
       <Grid cols={2}>

@@ -9,8 +9,7 @@ const CaretIcon = () => (
 
 /** One example on a component page: the demo on a card, and its source folded
  *  away underneath. The heading is the permalink — there is no separate link
- *  button, and no per-example light/dark switch: the header's theme switcher
- *  already decides that for the whole page.
+ *  button.
  *
  *  The stage carries data-demo: styles/demo.css hangs the demos' own
  *  presentation off it, which cannot be utilities because the elements inside

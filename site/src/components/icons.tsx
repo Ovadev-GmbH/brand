@@ -34,32 +34,6 @@ export function SearchIcon(p: P) {
   );
 }
 
-export function SystemIcon(p: P) {
-  return (
-    <Svg {...p}>
-      <rect x="1.75" y="2.75" width="12.5" height="8.5" />
-      <path d="M5.5 14h5" />
-    </Svg>
-  );
-}
-
-export function SunIcon(p: P) {
-  return (
-    <Svg {...p}>
-      <circle cx="8" cy="8" r="3.25" />
-      <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.1 3.1l1 1M11.9 11.9l1 1M12.9 3.1l-1 1M4.1 11.9l-1 1" />
-    </Svg>
-  );
-}
-
-export function MoonIcon(p: P) {
-  return (
-    <Svg {...p}>
-      <path d="M13.5 9.6A5.8 5.8 0 0 1 6.4 2.5a5.8 5.8 0 1 0 7.1 7.1Z" />
-    </Svg>
-  );
-}
-
 export function MenuIcon(p: P) {
   return (
     <Svg {...p}>
