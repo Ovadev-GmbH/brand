@@ -46,7 +46,7 @@ function Component() {
 /** Without a package there is no shell to put the page in. */
 function NotFound() {
   return (
-    <div className="mx-auto min-h-screen max-w-shell border-x border-alpha-400 bg-bg-100 px-6 py-12 md:px-12 md:py-16">
+    <div className="mx-auto min-h-screen max-w-shell border-x border-alpha-400 bg-bg-100 px-6 pt-8 pb-12 lg:px-12 lg:pt-10 lg:pb-16">
       <NotFoundPage />
     </div>
   );

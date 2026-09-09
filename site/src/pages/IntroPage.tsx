@@ -10,6 +10,7 @@ import type { Pkg } from "../types";
 import { grouped, href } from "../registry";
 import { CHROME } from "../brands";
 import { Grid, Cell } from "../components/Grid";
+import { PageHeader } from "../components/PageHeader";
 import { MarkRow } from "../components/MarkRow";
 
 /** Each door says only how much is behind it. A sentence per card would be
@@ -39,9 +40,7 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
 
   return (
     <article>
-      <header className="mb-10">
-        <h1 className="font-display text-2xl leading-tight md:text-4xl">{pkg.name} Design System</h1>
-      </header>
+      <PageHeader title={`${pkg.name} Design System`} />
 
       <div className="-mx-6 lg:-mx-12">
         <Grid cols={2}>

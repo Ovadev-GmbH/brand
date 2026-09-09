@@ -3,13 +3,15 @@
  * The rules are the grid's own gaps, not borders on the cells: the section
  * paints itself in the hairline colour, the cells paint themselves back over
  * it, and the 1px gap between them is what is left showing. That is why there
- * is no doubling anywhere — no two elements ever draw the same line, and the
- * outer edge is drawn by whatever the grid sits inside, once.
+ * is no doubling anywhere — no two elements ever draw the same line. The top
+ * edge belongs to the heading above it (PageHeader, SectionHeader), so the
+ * grid draws only the bottom one, and the sides are drawn by whatever the
+ * grid sits inside, once.
  *
- * The outer rules are the same hairline colour as that fill, so the fill has
- * to stop at the padding edge (bg-clip-padding): a background runs under its
- * own border by default, and two coats of a translucent grey read as a rule
- * twice as heavy as the gaps it is supposed to match.
+ * That bottom rule is the same hairline colour as the fill, so the fill has to
+ * stop at the padding edge (bg-clip-padding): a background runs under its own
+ * border by default, and two coats of a translucent grey read as a rule twice
+ * as heavy as the gaps it is supposed to match.
  *
  * It follows that a half-filled last row would show the hairline colour across
  * the whole gap, so the grid fills the row out with empty cells. Counting them
@@ -25,7 +27,7 @@ export function Grid({ cols = 1, children }: { cols?: number; children: ReactNod
   const missing = count % cols === 0 ? 0 : cols - (count % cols);
   return (
     <section
-      className="grid grid-cols-1 gap-px border-y border-alpha-400 bg-alpha-400 bg-clip-padding md:grid-cols-(--cols)"
+      className="grid grid-cols-1 gap-px border-b border-alpha-400 bg-alpha-400 bg-clip-padding md:grid-cols-(--cols)"
       style={{ "--cols": `repeat(${cols}, minmax(0, 1fr))` } as CSSProperties}
     >
       {children}

@@ -4,15 +4,14 @@
 
 import type { Pkg } from "../types";
 import { CHROME } from "../brands";
+import { PageHeader } from "../components/PageHeader";
 
 export function TypographyPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
   return (
-    <article className="max-w-224">
-      <header className="mb-10">
-        <h1 className="font-display text-2xl leading-tight md:text-4xl">Typography</h1>
-      </header>
-      <section className="mt-12">
+    <article>
+      <PageHeader title="Typography" />
+      <section className="mt-12 max-w-224">
         {chrome.type.map((t) => (
           <div
             className="flex flex-wrap items-baseline justify-between gap-6 border-b border-alpha-400 py-5"

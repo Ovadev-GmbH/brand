@@ -14,7 +14,7 @@ import { GitHubIcon } from "../components/icons";
 export function HomePage() {
   return (
     <div className="mx-auto flex min-h-screen max-w-shell flex-col border-x border-alpha-400 bg-bg-100">
-      <header className="px-6 py-12 md:px-12 md:py-16">
+      <header className="border-b border-alpha-400 px-6 pt-12 pb-10 md:px-12 md:pt-16">
         <div className="flex items-start justify-between gap-6">
           <div>
             <h1 className="text-[28px] md:text-[44px]">Ovadev Brand</h1>

@@ -6,23 +6,17 @@ import type { Pkg } from "../types";
 import { grouped } from "../registry";
 import { Thumb } from "../components/Thumb";
 import { Grid, Cell } from "../components/Grid";
+import { PageHeader, SectionHeader } from "../components/PageHeader";
 
 export function ComponentsPage({ pkg }: { pkg: Pkg }) {
   const groups = grouped(pkg);
   return (
     <article>
-      <header className="mb-10">
-        <h1 className="font-display text-2xl leading-tight md:text-4xl">Components</h1>
-      </header>
+      <PageHeader title="Components" />
 
       {groups.map(({ group, entries }) => (
-        <section className="mb-12" key={group}>
-          <h2 className="mb-4 font-display text-xl">
-            {group}{" "}
-            <span className="ml-2 font-mono text-[13px] font-normal tracking-normal text-gray-700">
-              {entries.length}
-            </span>
-          </h2>
+        <section key={group}>
+          <SectionHeader title={group} count={entries.length} />
           <div className="-mx-6 lg:-mx-12">
             <Grid cols={2}>
               {entries.map((e) => (
