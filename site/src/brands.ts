@@ -73,7 +73,6 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     swatches: [
       { name: "Background", token: "--tova-bg", value: "#fafafa" },
       { name: "Foreground", token: "--tova-fg", value: "#0a0a0a" },
-      { name: "Accent", token: "--tova-accent", value: "#065f46" },
     ],
     type: [
       { name: "Display", family: "Oswald, ui-sans-serif, system-ui, sans-serif", weight: 700, size: "40px", note: "--tova-font" },
