@@ -4,6 +4,7 @@
 
 import type { Entry, Pkg } from "./types";
 import { grouped, href } from "./registry";
+import { CHROME } from "./brands";
 
 export type NavItem = {
   href: string;
@@ -13,11 +14,16 @@ export type NavItem = {
   entry?: Entry;
 };
 
-export const FOUNDATIONS = [
-  { slug: "", name: "Introduction" },
-  { slug: "colors", name: "Colors" },
-  { slug: "typography", name: "Typography" },
-] as const;
+/** Logo is only a page for a brand that has marks: ui-internal has none of its
+ *  own, it wears Ovadev's. */
+export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
+  return [
+    { slug: "", name: "Introduction" },
+    { slug: "colors", name: "Colors" },
+    { slug: "typography", name: "Typography" },
+    ...(CHROME[pkg.id].marks?.length ? [{ slug: "logo", name: "Logo" }] : []),
+  ];
+}
 
 export type NavGroup = { group: string; items: NavItem[] };
 
@@ -25,12 +31,14 @@ export type NavGroup = { group: string; items: NavItem[] };
  *  narrows by name and drops the groups that empty out. */
 export function navGroups(pkg: Pkg, filter = ""): NavGroup[] {
   const q = filter.trim().toLowerCase();
-  const foundations: NavItem[] = FOUNDATIONS.filter((f) => !q || f.name.toLowerCase().includes(q)).map((f) => ({
-    href: f.slug ? `${href(pkg.id)}/${f.slug}` : href(pkg.id),
-    name: f.name,
-    group: "Foundations",
-    kind: "foundation",
-  }));
+  const foundations: NavItem[] = foundationsOf(pkg)
+    .filter((f) => !q || f.name.toLowerCase().includes(q))
+    .map((f) => ({
+      href: f.slug ? `${href(pkg.id)}/${f.slug}` : href(pkg.id),
+      name: f.name,
+      group: "Foundations",
+      kind: "foundation",
+    }));
   const components: NavGroup[] = grouped(pkg, filter).map(({ group, entries }) => ({
     group,
     items: entries.map((e) => ({ href: href(pkg.id, e.slug), name: e.name, group, kind: "component", entry: e })),

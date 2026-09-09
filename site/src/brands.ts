@@ -8,6 +8,18 @@
 import type { PkgId } from "./types";
 
 export type Swatch = { name: string; token: string; value: string; note?: string };
+
+/** One drawing the brand owns, as it sits in public/brand. The studio recolours
+ *  and frames it, so only the black artwork is kept — one file, not a variant
+ *  per colour. */
+export type Mark = {
+  /** public/brand/<file>.svg */
+  file: string;
+  /** What it is called on the page. */
+  name: string;
+  /** LGO or ICO in the filename the studio builds. */
+  kind: "logo" | "icon";
+};
 export type TypeRow = { name: string; family: string; weight: number; size: string; note: string };
 
 export type BrandChrome = {
@@ -19,10 +31,19 @@ export type BrandChrome = {
   type: TypeRow[];
   /** Where the tokens came from, named on the page. */
   source: string;
+  /** The letter this brand's assets are filed under. Absent for internal,
+   *  which has no marks of its own — it wears Ovadev's. */
+  letter?: string;
+  marks?: Mark[];
 };
 
 export const CHROME: Record<PkgId, BrandChrome> = {
   ovadev: {
+    letter: "O",
+    marks: [
+      { file: "ovadev-logo", name: "Logo", kind: "logo" },
+      { file: "ovadev-logo", name: "Icon", kind: "icon" },
+    ],
     mark: "Ovadev",
     dark: true,
     source: "packages/ovadev/src/tokens.css — taken from Landing/apps/ova/src/styles.css",
@@ -41,6 +62,11 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     ],
   },
   ticketova: {
+    letter: "T",
+    marks: [
+      { file: "ticketova-logo", name: "Logo", kind: "logo" },
+      { file: "ticketova-icon", name: "Icon", kind: "icon" },
+    ],
     mark: "TICKETOVA",
     dark: false,
     source: "packages/ticketova/src/tokens.css — taken from Landing/apps/ticketova/src/globals.css",
@@ -59,6 +85,11 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     ],
   },
   januna: {
+    letter: "J",
+    marks: [
+      { file: "januna-logo", name: "Logo", kind: "logo" },
+      { file: "januna-icon", name: "Icon", kind: "icon" },
+    ],
     mark: "Januna",
     dark: false,
     source: "packages/januna/src/tokens.css — taken from the Januna repo's globals.css",
