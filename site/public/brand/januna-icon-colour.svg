@@ -1,0 +1,3 @@
+<!-- Januna icon in its own colours, from Januna/src/app/icon.svg: the badge in
+     green-dark #094413 with the wave in #f9f3ed. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-label="Januna"><rect width="1024" height="1024" rx="512" fill="#094413"/><path fill="#f9f3ed" transform="translate(122.88 336.154) scale(1.412)" d="M0 231V101.5A108.5 108.5 0 0 1 217 101.5V147.5A58.5 58.5 0 0 0 334 147.5V101.5A108.5 108.5 0 0 1 551 101.5V231A25 25 0 0 1 501 231V101.5A58.5 58.5 0 0 0 384 101.5V147.5A108.5 108.5 0 0 1 167 147.5V101.5A58.5 58.5 0 0 0 50 101.5V231A25 25 0 0 1 0 231Z"/></svg>

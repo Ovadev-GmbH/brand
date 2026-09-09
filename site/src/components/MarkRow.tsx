@@ -2,8 +2,10 @@ import * as React from "react";
 import type { Mark } from "../brands";
 
 /** The brand's marks, side by side and inert, as the Brand Assets card's
- *  preview. They are fetched rather than <img>-ed so they take the page's ink
- *  in either theme — the artwork paints itself in currentColor. */
+ *  preview — each as it actually ships, so a mark that has its own colours is
+ *  shown in them. The rest paint themselves in currentColor, which is why they
+ *  are fetched rather than <img>-ed: inlined, they take the page's ink in
+ *  either theme. */
 export function MarkRow({ marks }: { marks: Mark[] }) {
   const [svgs, setSvgs] = React.useState<Record<string, string>>({});
 
@@ -11,7 +13,7 @@ export function MarkRow({ marks }: { marks: Mark[] }) {
     let alive = true;
     Promise.all(
       marks.map((m) =>
-        fetch(`${import.meta.env.BASE_URL}brand/${m.file}.svg`)
+        fetch(`${import.meta.env.BASE_URL}brand/${m.colour ?? m.file}.svg`)
           .then((r) => r.text())
           .then((t) => [m.file, t] as const)
           .catch(() => [m.file, ""] as const),

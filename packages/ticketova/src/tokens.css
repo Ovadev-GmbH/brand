@@ -9,5 +9,7 @@
   --tova-muted: #9ca3af;
   --tova-line: #e5e7eb;
   --tova-radius: 6px;
-  --tova-font: ui-sans-serif, system-ui, sans-serif;
+  /* Oswald, self-hosted by the site — see Landing/apps/ticketova/src/globals.css.
+     Two weights ship: 400 and 700. */
+  --tova-font: Oswald, ui-sans-serif, system-ui, sans-serif;
 }

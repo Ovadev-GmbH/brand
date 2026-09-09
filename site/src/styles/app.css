@@ -194,7 +194,8 @@
 
 [data-brand="ticketova"] {
   --ds-radius: 6px;
-  --font-display: var(--font-sans);
+  --font-display: "Oswald", var(--font-sans);
+  --display-tracking: 0.01em;
 }
 
 [data-brand="januna"] {

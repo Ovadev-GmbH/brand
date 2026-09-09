@@ -9,9 +9,7 @@ import type { PkgId } from "./types";
 
 export type Swatch = { name: string; token: string; value: string; note?: string };
 
-/** One drawing the brand owns, as it sits in public/brand. The studio recolours
- *  and frames it, so only the black artwork is kept — one file, not a variant
- *  per colour. */
+/** One drawing the brand owns, as it sits in public/brand. */
 export type Mark = {
   /** public/brand/<file>.svg */
   file: string;
@@ -21,6 +19,11 @@ export type Mark = {
   kind: "logo" | "icon";
   /** One line under the name, if the drawing needs one. */
   note?: string;
+  /** public/brand/<colour>.svg — the mark as it actually ships, ground and
+   *  accents and all. Where it exists it is the one shown and downloaded; the
+   *  currentColor drawing in `file` is the cut for anything that has to take
+   *  the surrounding ink. */
+  colour?: string;
 };
 export type TypeRow = { name: string; family: string; weight: number; size: string; note: string };
 
@@ -33,18 +36,21 @@ export type BrandChrome = {
   type: TypeRow[];
   /** Where the tokens came from, named on the page. */
   source: string;
-  /** The letter this brand's assets are filed under. Absent for internal,
-   *  which has no marks of its own — it wears Ovadev's. */
-  letter?: string;
+  /** Absent for internal, which has no marks of its own — it wears Ovadev's. */
   marks?: Mark[];
 };
 
 export const CHROME: Record<PkgId, BrandChrome> = {
   ovadev: {
-    letter: "O",
     marks: [
       { file: "ovadev-logo", name: "Logo", kind: "logo", note: "The OVADEV wordmark, outlined — it needs no font." },
-      { file: "ovadev-icon", name: "Icon", kind: "icon", note: "The pixel O. Its red quadrant is an accent, so the monochrome cut leaves it out." },
+      {
+        file: "ovadev-icon",
+        name: "Icon",
+        kind: "icon",
+        colour: "ovadev-icon-colour",
+        note: "The pixel O, as it ships: paper, ink and the red block.",
+      },
     ],
     mark: "Ovadev",
     dark: true,
@@ -52,10 +58,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     swatches: [
       { name: "Background", token: "--ova-bg", value: "#0e0f12" },
       { name: "Foreground", token: "--ova-fg", value: "#eceef2" },
-      { name: "Accent", token: "--ova-accent", value: "#e8202a", note: "The only colour in the system that is not a grey." },
-      { name: "On accent", token: "--ova-on-accent", value: "#eceef2" },
-      { name: "Muted", token: "--ova-muted", value: "#8b9098" },
-      { name: "Line", token: "--ova-line", value: "rgba(236, 238, 242, 0.26)" },
+      { name: "Accent", token: "--ova-accent", value: "#e8202a" },
     ],
     type: [
       { name: "Display", family: '"Oswald", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "--ova-font, set in caps" },
@@ -64,7 +67,6 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     ],
   },
   ticketova: {
-    letter: "T",
     marks: [
       { file: "ticketova-logo", name: "Logo", kind: "logo", note: "The wordmark between its two rules." },
       { file: "ticketova-icon", name: "Icon", kind: "icon", note: "The T, between the same two rules." },
@@ -75,22 +77,24 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     swatches: [
       { name: "Background", token: "--tova-bg", value: "#fafafa" },
       { name: "Foreground", token: "--tova-fg", value: "#0a0a0a" },
-      { name: "Accent", token: "--tova-accent", value: "#065f46", note: "No colour is decoration." },
-      { name: "On accent", token: "--tova-on-accent", value: "#fafafa" },
-      { name: "Muted", token: "--tova-muted", value: "#9ca3af" },
-      { name: "Line", token: "--tova-line", value: "#e5e7eb" },
+      { name: "Accent", token: "--tova-accent", value: "#065f46" },
     ],
     type: [
-      { name: "Display", family: "ui-sans-serif, system-ui, sans-serif", weight: 600, size: "40px", note: "--tova-font" },
-      { name: "Heading", family: "ui-sans-serif, system-ui, sans-serif", weight: 600, size: "24px", note: "--tova-font" },
-      { name: "Body", family: "ui-sans-serif, system-ui, sans-serif", weight: 400, size: "16px", note: "--tova-font" },
+      { name: "Display", family: "Oswald, ui-sans-serif, system-ui, sans-serif", weight: 700, size: "40px", note: "--tova-font" },
+      { name: "Heading", family: "Oswald, ui-sans-serif, system-ui, sans-serif", weight: 700, size: "24px", note: "--tova-font" },
+      { name: "Body", family: "Oswald, ui-sans-serif, system-ui, sans-serif", weight: 400, size: "16px", note: "--tova-font, the only other weight" },
     ],
   },
   januna: {
-    letter: "J",
     marks: [
       { file: "januna-logo", name: "Logo", kind: "logo", note: "The Januna wordmark." },
-      { file: "januna-icon", name: "Icon", kind: "icon", note: "The wave, placed on the square the app icon uses." },
+      {
+        file: "januna-icon",
+        name: "Icon",
+        kind: "icon",
+        colour: "januna-icon-colour",
+        note: "The wave on its green badge, as the app icon ships it.",
+      },
     ],
     mark: "Januna",
     dark: false,
@@ -98,10 +102,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     swatches: [
       { name: "Background", token: "--jan-bg", value: "oklch(1 0 0)" },
       { name: "Foreground", token: "--jan-fg", value: "oklch(0.145 0 0)" },
-      { name: "Accent", token: "--jan-accent", value: "oklch(0.527 0.154 150.069)", note: "Kept in oklch, not converted." },
-      { name: "On accent", token: "--jan-on-accent", value: "oklch(0.982 0.018 155.826)" },
-      { name: "Muted", token: "--jan-muted", value: "oklch(0.556 0 0)" },
-      { name: "Line", token: "--jan-line", value: "oklch(0.922 0 0)" },
+      { name: "Accent", token: "--jan-accent", value: "oklch(0.527 0.154 150.069)" },
     ],
     type: [
       { name: "Display", family: '"Instrument Sans", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "--jan-font" },
