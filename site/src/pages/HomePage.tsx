@@ -1,9 +1,8 @@
 /* The chooser. Four doors and nothing else: the libraries are standalone, so
    there is no page here that lists components across them. A door is named by
-   the package a consumer would install rather than by the brand's wordmark:
-   the four capitalise themselves differently enough (INTERN, Ovadev,
-   TICKETOVA, Januna) that a row of them reads as noise rather than as four of
-   the same kind of thing. */
+   the brand, set the way the brand sets itself — Internal, Ovadev, TICKETOVA,
+   Januna — with the package a consumer would install on the line under it, so
+   the card answers both "whose is this" and "what do I type". */
 
 import { Link } from "react-router";
 import { PACKAGES, href } from "../registry";
@@ -38,7 +37,10 @@ export function HomePage() {
               className="flex h-full flex-col gap-6 bg-bg-100 p-8 text-inherit no-underline transition-colors duration-150 hover:bg-alpha-100"
               to={href(p.id)}
             >
-              <p className="font-mono text-base break-all text-gray-1000">{p.pkg}</p>
+              <div className="flex flex-col gap-2">
+                <p className="text-xl text-gray-1000 md:text-2xl">{p.name}</p>
+                <p className="font-mono text-sm break-all text-gray-900">{p.pkg}</p>
+              </div>
               <p className="mt-auto font-mono text-xs text-gray-700">v{pkgVersion(p.id)}</p>
             </Link>
           </Cell>

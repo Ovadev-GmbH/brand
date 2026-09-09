@@ -1,4 +1,4 @@
-/* The header's left-hand control: the package this catalog is for, which
+/* The header's left-hand control: the brand this catalog is for, which
    opens the list of the four libraries plus the way out to the landing. It is the only
    place inside a catalog that knows the other brands exist, which keeps the
    rest of the shell honest about them being standalone.
@@ -13,11 +13,7 @@ import type { Pkg } from "../types";
 import { PACKAGES, href } from "../registry";
 import { CaretIcon } from "./icons";
 
-type Row = { key: string; label: string; to: string; current: boolean; root?: boolean; mono?: boolean };
-
-/** The package without its scope — the scope is the same on all four, so it
- *  would only make every name longer without telling them apart. */
-const shortName = (pkg: string) => pkg.replace(/^@[^/]+\//, "");
+type Row = { key: string; label: string; to: string; current: boolean; root?: boolean };
 
 export function BrandSwitcher({ pkg }: { pkg: Pkg }) {
   const navigate = useNavigate();
@@ -32,17 +28,15 @@ export function BrandSwitcher({ pkg }: { pkg: Pkg }) {
   // which is the honest answer — Internal has no Brand Assets.
   const rest = pathname.split("/").slice(2).join("/");
 
-  // Named by the package rather than the wordmark: the four capitalise
-  // themselves differently enough (INTERN, Ovadev, TICKETOVA, Januna) that a
-  // list of them reads as noise. The scope is the same on all four, so it is
-  // left off.
+  // Named by the brand, set the way the brand sets itself: Internal, Ovadev,
+  // TICKETOVA, Januna. The package name is one line down on the landing for
+  // whoever needs the string to install.
   const rows: Row[] = [
     ...PACKAGES.map((p) => ({
       key: p.id,
-      label: shortName(p.pkg),
+      label: p.name,
       to: rest ? `${href(p.id)}/${rest}` : href(p.id),
       current: p.id === pkg.id,
-      mono: true,
     })),
     { key: "__root", label: "All libraries", to: "/", current: false, root: true },
   ];
@@ -115,7 +109,7 @@ export function BrandSwitcher({ pkg }: { pkg: Pkg }) {
           }
         }}
       >
-        <span className="font-mono text-sm font-medium text-gray-1000 md:text-[15px]">{shortName(pkg.pkg)}</span>
+        <span className="text-sm font-medium text-gray-1000 md:text-[15px]">{pkg.name}</span>
         <span className="flex transition-transform duration-150 group-aria-expanded:rotate-180" aria-hidden="true">
           <CaretIcon />
         </span>
@@ -137,8 +131,8 @@ export function BrandSwitcher({ pkg }: { pkg: Pkg }) {
                 itemsRef.current[i] = el;
               }}
               className={`flex h-10 w-full cursor-pointer items-center rounded-brand border-0 bg-transparent px-2.5 text-left text-sm text-gray-1000 hover:bg-alpha-100 aria-current:font-semibold ${
-                row.mono ? "font-mono text-[13px]" : ""
-              } ${row.root ? "mt-1 rounded-t-none border-t border-alpha-400 pt-1 text-gray-900" : ""}`}
+                row.root ? "mt-1 rounded-t-none border-t border-alpha-400 pt-1 text-gray-900" : ""
+              }`}
               aria-current={row.current || undefined}
               onClick={() => go(row.to)}
             >
