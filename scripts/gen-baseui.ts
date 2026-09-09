@@ -68,7 +68,7 @@ const EXTRA_ENTRY_POINTS: Record<string, string[]> = { radio: ["radio-group"] };
 
 type Part = { name: string; classable: boolean };
 type Module = { name: string; sub: string; single: boolean; parts: Part[] };
-type Comp = { slug: string; title: string; summary: string; group: string; modules: Module[]; anatomy: string; demo: string };
+type Comp = { slug: string; title: string; group: string; modules: Module[]; anatomy: string; demo: string };
 
 /** The parts a namespace actually exports, read off the module. A component
  *  that is one element rather than a namespace is a forwardRef object: it has
@@ -117,7 +117,6 @@ async function readComponents(): Promise<Comp[]> {
     out.push({
       slug,
       title: /^title: (.+)$/m.exec(md)![1],
-      summary: /^subtitle: (.+)$/m.exec(md)![1],
       group: GROUPS[slug],
       modules,
       anatomy: fencedAfter(md, "\n## Anatomy"),
@@ -284,12 +283,9 @@ function registrySource(pkg: PkgSpec, comps: Comp[]): string {
     name: ${JSON.stringify(title)},
     slug: ${JSON.stringify(slug)},
     group: ${JSON.stringify(c.group)},
-    summary: ${JSON.stringify(c.summary)},
     imports: ${JSON.stringify(names)},
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ${n},
         source: ${n}Src,
       },

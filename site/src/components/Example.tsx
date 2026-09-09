@@ -8,8 +8,8 @@ const CaretIcon = () => (
 );
 
 /** One example on a component page: the demo on a card, and its source folded
- *  away underneath. The heading is the permalink — there is no separate link
- *  button.
+ *  away underneath. It carries no heading and no blurb of its own — the page
+ *  is already named after the component, and the demo is the description.
  *
  *  The stage carries data-demo: styles/demo.css hangs the demos' own
  *  presentation off it, which cannot be utilities because the elements inside
@@ -19,12 +19,6 @@ export function Example({ example, anchor }: { example: ExampleData; anchor: str
   const Demo = example.Component;
   return (
     <section className="mb-10" id={anchor}>
-      <h2 className="mb-2 font-display text-xl font-semibold">
-        <a className="no-underline hover:underline" href={`#${anchor}`}>
-          {example.title}
-        </a>
-      </h2>
-      {example.note ? <p className="mb-4 max-w-[62ch] text-sm leading-normal text-gray-900">{example.note}</p> : null}
       <div className="overflow-hidden rounded-brand border border-alpha-400 bg-bg-100">
         <div data-demo className="scrollbar-quiet min-h-24 overflow-x-auto p-6 [&>*+*]:mt-4">
           <Demo />

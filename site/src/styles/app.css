@@ -1,5 +1,26 @@
 @import "tailwindcss";
 
+/* ── the catalog's own faces ───────────────────────────────────────────────
+   Geist, self-hosted, for every word the site writes. The brands' faces are
+   the *subject* here, not the chrome: they are loaded by the packages and set
+   inline on the Typography page, so a reader can tell what a brand ships from
+   what this catalog is written in. Two variable files, one axis each.
+   ------------------------------------------------------------------------ */
+@font-face {
+  font-family: "Geist";
+  src: url("./fonts/Geist.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("./fonts/GeistMono.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* The components the catalog *shows*, dressed for the docs. Not utilities:
    the demos render the packages' own elements, whose markup this repo does
    not write. */
@@ -22,8 +43,7 @@
 
    Each one points at a --ds-* variable rather than holding a colour, which is
    what lets the palette below be declared in one place, and lets a brand
-   redeclare its radius and display face without Tailwind knowing anything
-   about brands.
+   redeclare its radius without Tailwind knowing anything about brands.
    ------------------------------------------------------------------------ */
 @theme {
   /* Tailwind's own palette and breakpoints would only be a second vocabulary
@@ -63,9 +83,10 @@
   --color-accent: var(--ds-accent);
   --color-on-accent: var(--ds-on-accent);
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  /* Redeclared per brand at the foot of this file. */
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* The same face set tighter: the catalog has one voice, and a heading is
+     that voice louder rather than a second typeface. */
   --font-display: var(--font-sans);
 
   --radius-brand: var(--ds-radius);
@@ -119,40 +140,34 @@
   --ds-shadow-menu: 0 8px 30px rgba(0, 0, 0, 0.12);
 
   --ds-radius: 6px;
-  --display-tracking: -0.02em;
 }
 
 /* ── one layout per brand ──────────────────────────────────────────────────
    The shell is the same machine; each brand turns it into its own room by
-   redeclaring the two things that carry an identity here: the display face
-   and the corner radius. Names are set the way each brand writes them —
-   Ovadev, TICKETOVA, Januna, INTERN — so nothing here transforms case.
+   redeclaring the one thing that carries an identity here: the corner radius.
+   Names are set the way each brand writes them — Ovadev, TICKETOVA, Januna,
+   INTERN — so nothing here transforms case.
 
-   The chrome is not tinted: the accent stays the neutral ink, and a brand's
-   real colours live on its Colors page, where they are the subject rather
-   than decoration.
+   The chrome is neither tinted nor re-lettered: the accent stays the neutral
+   ink and the type stays Geist. A brand's real colours and real faces live on
+   its Colors and Typography pages, where they are the subject rather than
+   decoration — and where a reader can tell them apart from the catalog's own
+   voice.
    ------------------------------------------------------------------------ */
 [data-brand="ovadev"] {
   --ds-radius: 0px;
-  --font-display: "Oswald", var(--font-sans);
-  --display-tracking: 0.01em;
 }
 
 [data-brand="ticketova"] {
   --ds-radius: 6px;
-  --font-display: "Oswald", var(--font-sans);
-  --display-tracking: 0.01em;
 }
 
 [data-brand="januna"] {
   --ds-radius: 10px;
-  --font-display: "Instrument Sans", var(--font-sans);
 }
 
 [data-brand="internal"] {
   --ds-radius: 4px;
-  --font-display: "Oswald", var(--font-sans);
-  --display-tracking: 0.01em;
 }
 
 /* ── base ─────────────────────────────────────────────────────────────────
@@ -194,7 +209,7 @@
   h3,
   h4 {
     font-weight: 600;
-    letter-spacing: var(--display-tracking);
+    letter-spacing: -0.02em;
     color: var(--color-gray-1000);
   }
 

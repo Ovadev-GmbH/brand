@@ -3,9 +3,9 @@ import type { Entry, PkgId } from "../types";
 import { href } from "../registry";
 
 /** A card in the package's index, in the shape the Geist introduction uses:
- *  the component itself on top, live and inert, and its name and one line
- *  pushed to the foot so every card's text sits on the same baseline however
- *  tall the preview is.
+ *  the component itself on top, live and inert, and its name pushed to the
+ *  foot so every card's name sits on the same baseline however tall the
+ *  preview is.
  *
  *  It draws no border of its own — it fills a cell of the hairline grid, and
  *  the grid's gaps are the rules.
@@ -26,7 +26,6 @@ export function Thumb({ pkg, entry }: { pkg: PkgId; entry: Entry }) {
       </div>
       <div className="mt-auto">
         <p className="text-base font-semibold text-gray-1000">{entry.name}</p>
-        <p className="mt-0.5 text-sm text-gray-900">{entry.summary}</p>
       </div>
       <Link to={href(pkg, entry.slug)} className="absolute inset-0" aria-label={entry.name} />
     </div>

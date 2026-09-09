@@ -84,12 +84,9 @@ export const baseUiEntries: Entry[] = [
     name: "Button",
     slug: "button",
     group: "Actions",
-    summary: "A button component that can be rendered as another tag or focusable when disabled.",
     imports: ["Button"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ButtonBasic,
         source: ButtonBasicSrc,
       },
@@ -99,12 +96,9 @@ export const baseUiEntries: Entry[] = [
     name: "Toggle",
     slug: "toggle",
     group: "Actions",
-    summary: "A two-state button that can be on or off.",
     imports: ["Toggle"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ToggleBasic,
         source: ToggleBasicSrc,
       },
@@ -114,12 +108,9 @@ export const baseUiEntries: Entry[] = [
     name: "Toggle Group",
     slug: "toggle-group",
     group: "Actions",
-    summary: "Provides a shared state to a series of toggle buttons.",
     imports: ["ToggleGroup"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ToggleGroupBasic,
         source: ToggleGroupBasicSrc,
       },
@@ -129,12 +120,9 @@ export const baseUiEntries: Entry[] = [
     name: "Toolbar",
     slug: "toolbar",
     group: "Actions",
-    summary: "A container for grouping a set of buttons and controls.",
     imports: ["Toolbar"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ToolbarBasic,
         source: ToolbarBasicSrc,
       },
@@ -144,12 +132,9 @@ export const baseUiEntries: Entry[] = [
     name: "Autocomplete",
     slug: "autocomplete",
     group: "Forms",
-    summary: "An input that suggests options as you type.",
     imports: ["Autocomplete"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: AutocompleteBasic,
         source: AutocompleteBasicSrc,
       },
@@ -159,12 +144,9 @@ export const baseUiEntries: Entry[] = [
     name: "Checkbox",
     slug: "checkbox",
     group: "Forms",
-    summary: "An easily stylable checkbox component.",
     imports: ["Checkbox"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: CheckboxBasic,
         source: CheckboxBasicSrc,
       },
@@ -174,12 +156,9 @@ export const baseUiEntries: Entry[] = [
     name: "Checkbox Group",
     slug: "checkbox-group",
     group: "Forms",
-    summary: "Provides shared state to a series of checkboxes.",
     imports: ["CheckboxGroup"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: CheckboxGroupBasic,
         source: CheckboxGroupBasicSrc,
       },
@@ -189,12 +168,9 @@ export const baseUiEntries: Entry[] = [
     name: "Combobox",
     slug: "combobox",
     group: "Forms",
-    summary: "An input combined with a list of predefined items to select.",
     imports: ["Combobox"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ComboboxBasic,
         source: ComboboxBasicSrc,
       },
@@ -204,12 +180,9 @@ export const baseUiEntries: Entry[] = [
     name: "Field",
     slug: "field",
     group: "Forms",
-    summary: "A component that provides labeling and validation for form controls.",
     imports: ["Field"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: FieldBasic,
         source: FieldBasicSrc,
       },
@@ -219,12 +192,9 @@ export const baseUiEntries: Entry[] = [
     name: "Fieldset",
     slug: "fieldset",
     group: "Forms",
-    summary: "A native fieldset element with an easily stylable legend.",
     imports: ["Fieldset"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: FieldsetBasic,
         source: FieldsetBasicSrc,
       },
@@ -234,12 +204,9 @@ export const baseUiEntries: Entry[] = [
     name: "Form",
     slug: "form",
     group: "Forms",
-    summary: "A native form element with consolidated error handling.",
     imports: ["Form"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: FormBasic,
         source: FormBasicSrc,
       },
@@ -249,12 +216,9 @@ export const baseUiEntries: Entry[] = [
     name: "Input",
     slug: "input",
     group: "Forms",
-    summary: "A native input element that automatically works with Field.",
     imports: ["Input"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: InputBasic,
         source: InputBasicSrc,
       },
@@ -264,12 +228,9 @@ export const baseUiEntries: Entry[] = [
     name: "Number Field",
     slug: "number-field",
     group: "Forms",
-    summary: "A numeric input element with increment and decrement buttons, and a scrub area.",
     imports: ["NumberField"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: NumberFieldBasic,
         source: NumberFieldBasicSrc,
       },
@@ -279,12 +240,9 @@ export const baseUiEntries: Entry[] = [
     name: "OTP Field",
     slug: "otp-field",
     group: "Forms",
-    summary: "A one-time password input composed of individual character slots.",
     imports: ["OTPField"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: OtpFieldBasic,
         source: OtpFieldBasicSrc,
       },
@@ -294,12 +252,9 @@ export const baseUiEntries: Entry[] = [
     name: "Radio",
     slug: "radio",
     group: "Forms",
-    summary: "An easily stylable radio button component.",
     imports: ["Radio","RadioGroup"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: RadioBasic,
         source: RadioBasicSrc,
       },
@@ -309,12 +264,9 @@ export const baseUiEntries: Entry[] = [
     name: "Select",
     slug: "select",
     group: "Forms",
-    summary: "A common form component for choosing a predefined value in a dropdown menu.",
     imports: ["Select"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: SelectBasic,
         source: SelectBasicSrc,
       },
@@ -324,12 +276,9 @@ export const baseUiEntries: Entry[] = [
     name: "Slider",
     slug: "slider",
     group: "Forms",
-    summary: "An easily stylable range input.",
     imports: ["Slider"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: SliderBasic,
         source: SliderBasicSrc,
       },
@@ -339,12 +288,9 @@ export const baseUiEntries: Entry[] = [
     name: "Switch",
     slug: "switch",
     group: "Forms",
-    summary: "A control that indicates whether a setting is on or off.",
     imports: ["Switch"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: SwitchBasic,
         source: SwitchBasicSrc,
       },
@@ -354,12 +300,9 @@ export const baseUiEntries: Entry[] = [
     name: "Alert Dialog",
     slug: "alert-dialog",
     group: "Overlays",
-    summary: "A dialog that requires a user response to proceed.",
     imports: ["AlertDialog"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: AlertDialogBasic,
         source: AlertDialogBasicSrc,
       },
@@ -369,12 +312,9 @@ export const baseUiEntries: Entry[] = [
     name: "Context Menu",
     slug: "context-menu",
     group: "Overlays",
-    summary: "A menu that appears at the pointer on right click or long press.",
     imports: ["ContextMenu"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ContextMenuBasic,
         source: ContextMenuBasicSrc,
       },
@@ -384,12 +324,9 @@ export const baseUiEntries: Entry[] = [
     name: "Dialog",
     slug: "dialog",
     group: "Overlays",
-    summary: "A popup that opens on top of the entire page.",
     imports: ["Dialog"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: DialogBasic,
         source: DialogBasicSrc,
       },
@@ -399,12 +336,9 @@ export const baseUiEntries: Entry[] = [
     name: "Drawer",
     slug: "drawer",
     group: "Overlays",
-    summary: "A panel that slides in from the edge of the screen.",
     imports: ["Drawer"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: DrawerBasic,
         source: DrawerBasicSrc,
       },
@@ -414,12 +348,9 @@ export const baseUiEntries: Entry[] = [
     name: "Menu",
     slug: "menu",
     group: "Overlays",
-    summary: "A list of actions in a dropdown, enhanced with keyboard navigation.",
     imports: ["Menu"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: MenuBasic,
         source: MenuBasicSrc,
       },
@@ -429,12 +360,9 @@ export const baseUiEntries: Entry[] = [
     name: "Menubar",
     slug: "menubar",
     group: "Overlays",
-    summary: "A menu bar providing commands and options for your application.",
     imports: ["Menubar"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: MenubarBasic,
         source: MenubarBasicSrc,
       },
@@ -444,12 +372,9 @@ export const baseUiEntries: Entry[] = [
     name: "Navigation Menu",
     slug: "navigation-menu",
     group: "Overlays",
-    summary: "A collection of links and menus for website navigation.",
     imports: ["NavigationMenu"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: NavigationMenuBasic,
         source: NavigationMenuBasicSrc,
       },
@@ -459,12 +384,9 @@ export const baseUiEntries: Entry[] = [
     name: "Popover",
     slug: "popover",
     group: "Overlays",
-    summary: "An accessible popup anchored to a button.",
     imports: ["Popover"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: PopoverBasic,
         source: PopoverBasicSrc,
       },
@@ -474,12 +396,9 @@ export const baseUiEntries: Entry[] = [
     name: "Preview Card",
     slug: "preview-card",
     group: "Overlays",
-    summary: "A link that shows a destination preview without interrupting keyboard or screen reader navigation.",
     imports: ["PreviewCard"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: PreviewCardBasic,
         source: PreviewCardBasicSrc,
       },
@@ -489,12 +408,9 @@ export const baseUiEntries: Entry[] = [
     name: "Toast",
     slug: "toast",
     group: "Overlays",
-    summary: "Generates toast notifications.",
     imports: ["Toast"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ToastBasic,
         source: ToastBasicSrc,
       },
@@ -504,12 +420,9 @@ export const baseUiEntries: Entry[] = [
     name: "Tooltip",
     slug: "tooltip",
     group: "Overlays",
-    summary: "A popup that appears when an element is hovered or focused, showing a hint for sighted users.",
     imports: ["Tooltip"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: TooltipBasic,
         source: TooltipBasicSrc,
       },
@@ -519,12 +432,9 @@ export const baseUiEntries: Entry[] = [
     name: "Accordion",
     slug: "accordion",
     group: "Disclosure",
-    summary: "A set of collapsible panels with headings.",
     imports: ["Accordion"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: AccordionBasic,
         source: AccordionBasicSrc,
       },
@@ -534,12 +444,9 @@ export const baseUiEntries: Entry[] = [
     name: "Collapsible",
     slug: "collapsible",
     group: "Disclosure",
-    summary: "A collapsible panel controlled by a button.",
     imports: ["Collapsible"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: CollapsibleBasic,
         source: CollapsibleBasicSrc,
       },
@@ -549,12 +456,9 @@ export const baseUiEntries: Entry[] = [
     name: "Tabs",
     slug: "tabs",
     group: "Disclosure",
-    summary: "A component for toggling between related panels on the same page.",
     imports: ["Tabs"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: TabsBasic,
         source: TabsBasicSrc,
       },
@@ -564,12 +468,9 @@ export const baseUiEntries: Entry[] = [
     name: "Meter",
     slug: "meter",
     group: "Feedback",
-    summary: "A graphical display of a numeric value within a range.",
     imports: ["Meter"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: MeterBasic,
         source: MeterBasicSrc,
       },
@@ -579,12 +480,9 @@ export const baseUiEntries: Entry[] = [
     name: "Progress",
     slug: "progress",
     group: "Feedback",
-    summary: "Displays the status of a task that takes a long time.",
     imports: ["Progress"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ProgressBasic,
         source: ProgressBasicSrc,
       },
@@ -594,12 +492,9 @@ export const baseUiEntries: Entry[] = [
     name: "Avatar",
     slug: "avatar",
     group: "Layout",
-    summary: "An easily stylable avatar component.",
     imports: ["Avatar"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: AvatarBasic,
         source: AvatarBasicSrc,
       },
@@ -609,12 +504,9 @@ export const baseUiEntries: Entry[] = [
     name: "Scroll Area",
     slug: "scroll-area",
     group: "Layout",
-    summary: "A native scroll container with custom scrollbars.",
     imports: ["ScrollArea"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: ScrollAreaBasic,
         source: ScrollAreaBasicSrc,
       },
@@ -624,12 +516,9 @@ export const baseUiEntries: Entry[] = [
     name: "Separator",
     slug: "separator",
     group: "Layout",
-    summary: "A separator element accessible to screen readers.",
     imports: ["Separator"],
     examples: [
       {
-        title: "Base UI demo",
-        note: "Base UI's own example, with its stylesheet removed: this is the component before the brand reaches it.",
         Component: SeparatorBasic,
         source: SeparatorBasicSrc,
       },

@@ -6,8 +6,16 @@
  * is no doubling anywhere — no two elements ever draw the same line, and the
  * outer edge is drawn by whatever the grid sits inside, once.
  *
+ * The outer rules are the same hairline colour as that fill, so the fill has
+ * to stop at the padding edge (bg-clip-padding): a background runs under its
+ * own border by default, and two coats of a translucent grey read as a rule
+ * twice as heavy as the gaps it is supposed to match.
+ *
  * It follows that a half-filled last row would show the hairline colour across
- * the whole gap, so the grid fills the row out with empty cells. */
+ * the whole gap, so the grid fills the row out with empty cells. Counting them
+ * means every child has to be one Cell: hand it a fragment or a component that
+ * expands to several and the count is wrong, which buys a phantom row whose
+ * gap lands on the section's own bottom rule and reads as a 2px line. */
 
 import * as React from "react";
 import type { CSSProperties, ReactNode } from "react";
@@ -17,7 +25,7 @@ export function Grid({ cols = 1, children }: { cols?: number; children: ReactNod
   const missing = count % cols === 0 ? 0 : cols - (count % cols);
   return (
     <section
-      className="grid grid-cols-1 gap-px border-y border-alpha-400 bg-alpha-400 md:grid-cols-(--cols)"
+      className="grid grid-cols-1 gap-px border-y border-alpha-400 bg-alpha-400 bg-clip-padding md:grid-cols-(--cols)"
       style={{ "--cols": `repeat(${cols}, minmax(0, 1fr))` } as CSSProperties}
     >
       {children}

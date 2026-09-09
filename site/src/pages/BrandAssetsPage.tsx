@@ -2,8 +2,8 @@
 
 import type { Pkg } from "../types";
 import { CHROME } from "../brands";
-import { LogoStudio } from "../components/LogoStudio";
-import { Grid } from "../components/Grid";
+import { AssetCard } from "../components/LogoStudio";
+import { Grid, Cell } from "../components/Grid";
 
 export function BrandAssetsPage({ pkg }: { pkg: Pkg }) {
   const marks = CHROME[pkg.id].marks ?? [];
@@ -16,7 +16,11 @@ export function BrandAssetsPage({ pkg }: { pkg: Pkg }) {
       {marks.length ? (
         <div className="-mx-6 lg:-mx-12">
           <Grid cols={2}>
-            <LogoStudio marks={marks} />
+            {marks.map((m) => (
+              <Cell key={`${m.file}-${m.kind}`}>
+                <AssetCard mark={m} />
+              </Cell>
+            ))}
           </Grid>
         </div>
       ) : (

@@ -7,7 +7,6 @@
 
 import * as React from "react";
 import type { Mark } from "../brands";
-import { Cell } from "./Grid";
 
 const SIZES = [128, 256, 512, 1024, 2048];
 const FORMATS = ["svg", "png", "webp"] as const;
@@ -64,7 +63,7 @@ function save(blob: Blob, filename: string) {
 
 /* ── one mark ──────────────────────────────────────────────────────────── */
 
-function AssetCard({ mark }: { mark: Mark }) {
+export function AssetCard({ mark }: { mark: Mark }) {
   const file = mark.colour ?? mark.file;
   const [raw, setRaw] = React.useState<string | null>(null);
   const [px, setPx] = React.useState(512);
@@ -190,14 +189,3 @@ function AssetCard({ mark }: { mark: Mark }) {
 }
 
 /** The cards, as cells of the hairline grid the page puts them in. */
-export function LogoStudio({ marks }: { marks: Mark[] }) {
-  return (
-    <>
-      {marks.map((m) => (
-        <Cell key={`${m.file}-${m.kind}`}>
-          <AssetCard mark={m} />
-        </Cell>
-      ))}
-    </>
-  );
-}
