@@ -8,23 +8,23 @@ import { CHROME } from "../brands";
 export function ColorsPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
   return (
-    <article className="cat-page">
-      <header className="cat-page__head">
-        <h1 className="cat-h1">Colors</h1>
-        <p className="cat-sub">
+    <article className="max-w-224">
+      <header className="mb-10">
+        <h1 className="mb-3 font-display text-2xl leading-tight md:text-4xl">Colors</h1>
+        <p className="mt-3 text-[13px] text-gray-900">
           From <code>{chrome.source}</code>
         </p>
       </header>
-      <section className="cat-block">
-        <div className="cat-swatches">
+      <section className="mt-12">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
           {chrome.swatches.map((s) => (
-            <div className="cat-swatch" key={s.token}>
-              <div className="cat-swatch__chip" style={{ background: s.value }} />
-              <div className="cat-swatch__meta">
-                <span className="cat-swatch__name">{s.name}</span>
-                <code className="cat-swatch__value">{s.value}</code>
-                <code className="cat-swatch__token">{s.token}</code>
-                {s.note ? <p className="cat-muted" style={{ margin: "6px 0 0" }}>{s.note}</p> : null}
+            <div className="overflow-hidden rounded-brand border border-alpha-400" key={s.token}>
+              <div className="h-22" style={{ background: s.value }} />
+              <div className="border-t border-alpha-400 px-3 py-2.5">
+                <span className="text-[13px] font-semibold text-gray-1000">{s.name}</span>
+                <code className="block break-all font-mono text-xs text-gray-900">{s.value}</code>
+                <code className="block font-mono text-[11px] text-gray-700">{s.token}</code>
+                {s.note ? <p className="mt-1.5 mb-0 text-sm text-gray-900">{s.note}</p> : null}
               </div>
             </div>
           ))}

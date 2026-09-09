@@ -1,0 +1,11 @@
+/* Slider — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-slider-control    Slider.Control
+   .tova-slider-indicator  Slider.Indicator
+   .tova-slider-label      Slider.Label
+   .tova-slider            Slider.Root
+   .tova-slider-thumb      Slider.Thumb
+   .tova-slider-track      Slider.Track
+   .tova-slider-value      Slider.Value
+*/

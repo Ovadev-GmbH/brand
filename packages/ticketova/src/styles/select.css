@@ -1,0 +1,22 @@
+/* Select — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-select-arrow              Select.Arrow
+   .tova-select-backdrop           Select.Backdrop
+   .tova-select-group              Select.Group
+   .tova-select-group-label        Select.GroupLabel
+   .tova-select-icon               Select.Icon
+   .tova-select-item               Select.Item
+   .tova-select-item-indicator     Select.ItemIndicator
+   .tova-select-item-text          Select.ItemText
+   .tova-select-label              Select.Label
+   .tova-select-list               Select.List
+   .tova-select-popup              Select.Popup
+   .tova-select-portal             Select.Portal
+   .tova-select-positioner         Select.Positioner
+   .tova-select-scroll-down-arrow  Select.ScrollDownArrow
+   .tova-select-scroll-up-arrow    Select.ScrollUpArrow
+   .tova-select-separator          Select.Separator
+   .tova-select-trigger            Select.Trigger
+   .tova-select-value              Select.Value
+*/

@@ -1,0 +1,11 @@
+/* Preview Card — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-preview-card-arrow       PreviewCard.Arrow
+   .tova-preview-card-backdrop    PreviewCard.Backdrop
+   .tova-preview-card-popup       PreviewCard.Popup
+   .tova-preview-card-portal      PreviewCard.Portal
+   .tova-preview-card-positioner  PreviewCard.Positioner
+   .tova-preview-card-trigger     PreviewCard.Trigger
+   .tova-preview-card-viewport    PreviewCard.Viewport
+*/

@@ -1,0 +1,9 @@
+/* Accordion — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-accordion-header   Accordion.Header
+   .tova-accordion-item     Accordion.Item
+   .tova-accordion-panel    Accordion.Panel
+   .tova-accordion          Accordion.Root
+   .tova-accordion-trigger  Accordion.Trigger
+*/

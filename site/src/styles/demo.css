@@ -1,0 +1,425 @@
+/* How the components look in this catalog, and nowhere else.
+ *
+ * The four packages ship no CSS: Base UI has none and the brands have not been
+ * designed yet. A catalog of unstyled components is unreadable, though — an
+ * unstyled popup is a transparent box at the foot of <body> — so this gives
+ * every part a neutral surface out of the catalog's own theme tokens. It is
+ * the docs' presentation, not a brand's, and it lives here so the packages
+ * stay exactly what they are.
+ *
+ * The hooks are the packages' own classes. All four spell a part the same way
+ * after their prefix — ova-dialog-popup, tova-dialog-popup, jan-…, ui-… — so a
+ * [class*="-dialog-popup"] matches the part in every brand and nothing else on
+ * the page, which is what lets one stylesheet dress all four. Popups render
+ * through a portal at <body>, so none of this can be scoped to the demo card.
+ */
+
+/* --- anything that acts like a button ---------------------------------- */
+
+[class*="-trigger"],
+[class*="-close"],
+[class*="-button"],
+[class*="-increment"],
+[class*="-decrement"],
+[class*="-clear"],
+[class*="-action"],
+[class*="-chip-remove"],
+[class$="-toggle"],
+[class*="-toggle "] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1;
+  color: var(--color-gray-1000);
+  background: var(--color-bg-100);
+  border: 0;
+  border-radius: var(--radius-brand);
+  box-shadow: var(--shadow-border);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+[class*="-trigger"]:hover:not(:disabled),
+[class*="-close"]:hover:not(:disabled),
+[class*="-button"]:hover:not(:disabled),
+[class*="-increment"]:hover:not(:disabled),
+[class*="-decrement"]:hover:not(:disabled),
+[class*="-clear"]:hover:not(:disabled),
+[class*="-action"]:hover:not(:disabled) {
+  background: var(--color-alpha-100);
+}
+
+[class*="-trigger"]:focus-visible,
+[class*="-close"]:focus-visible,
+[class*="-button"]:focus-visible,
+[class*="-input"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg-100), 0 0 0 4px var(--color-accent);
+}
+
+[class*="-trigger"]:disabled,
+[class*="-button"]:disabled,
+[class*="-trigger"][data-disabled],
+[class*="-button"][data-disabled] {
+  color: var(--color-gray-700);
+  cursor: not-allowed;
+}
+
+[class*="-toggle"][data-pressed],
+[class*="-tab"][data-selected] {
+  background: var(--color-alpha-200);
+}
+
+/* Triggers that are not buttons: a link, a paragraph anchor, a whole row. */
+[class*="-preview-card-trigger"],
+[class*="-navigation-menu-link"] {
+  display: inline;
+  height: auto;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* --- surfaces ---------------------------------------------------------- */
+
+[class*="-popup"] {
+  box-sizing: border-box;
+  min-width: 10rem;
+  max-width: min(24rem, calc(100vw - 2rem));
+  padding: 6px;
+  color: var(--color-gray-1000);
+  background: var(--color-bg-100);
+  border-radius: var(--radius-brand);
+  box-shadow: var(--shadow-border), var(--shadow-menu);
+  outline: none;
+}
+
+[class*="-backdrop"] {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.35);
+}
+
+/* The dialog family is the one Base UI does not position for you: without a
+   rule its popup sits in normal flow at the end of <body>. */
+[class*="-dialog-popup"],
+[class*="-drawer-popup"] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 24rem;
+  padding: 20px;
+}
+
+[class*="-dialog-title"],
+[class*="-drawer-title"] { margin: 0 0 6px; font-size: 16px; font-weight: 600; }
+[class*="-dialog-description"],
+[class*="-drawer-description"],
+[class*="-popover-description"] { margin: 0 0 16px; font-size: 14px; color: var(--color-gray-900); }
+[class*="-popover-title"] { margin: 0 0 6px; font-size: 14px; font-weight: 600; }
+
+[class*="-arrow"] { display: none; }
+
+/* --- lists inside popups ----------------------------------------------- */
+
+/* Only the components whose Item is a row in a list. Accordion.Item and
+   NavigationMenu.Item are containers, and this would wreck them. */
+[class*="-select-item"]:not([class*="-indicator"]):not([class*="-text"]),
+[class*="-combobox-item"]:not([class*="-indicator"]),
+[class*="-autocomplete-item"],
+[class$="-menu-item"]:not([class*="-navigation-"]),
+[class*="-menu-checkbox-item"]:not([class*="-indicator"]),
+[class*="-menu-radio-item"]:not([class*="-indicator"]),
+[class*="-menu-link-item"] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: max(calc(var(--radius-brand) - 2px), 0px);
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
+  outline: none;
+  user-select: none;
+}
+
+[class*="-select-item"][data-highlighted],
+[class*="-combobox-item"][data-highlighted],
+[class*="-autocomplete-item"][data-highlighted],
+[class$="-menu-item"][data-highlighted],
+[class*="-menu-checkbox-item"][data-highlighted],
+[class*="-menu-radio-item"][data-highlighted],
+[class*="-menu-link-item"][data-highlighted] {
+  background: var(--color-alpha-200);
+}
+
+[class*="-group-label"] {
+  display: block;
+  padding: 8px 10px 4px;
+  font-size: 12px;
+  color: var(--color-gray-700);
+}
+
+[class*="-separator"]:not([class*="-otp-"]) {
+  height: 1px;
+  margin: 4px 0;
+  background: var(--color-alpha-400);
+}
+
+[class*="-item-indicator"],
+[class*="-checkbox-item-indicator"],
+[class*="-radio-item-indicator"] {
+  display: inline-flex;
+  width: 14px;
+  justify-content: center;
+}
+
+[class*="-empty"],
+[class*="-status"] { padding: 10px; font-size: 14px; color: var(--color-gray-900); }
+
+/* --- text fields ------------------------------------------------------- */
+
+[class*="-input"]:not([class*="-group"]),
+[class*="-field-control"] {
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--color-gray-1000);
+  background: var(--color-bg-100);
+  border: 0;
+  border-radius: var(--radius-brand);
+  box-shadow: var(--shadow-border);
+}
+
+[class*="-otp-field-input"] { width: 2.25rem; padding: 0; text-align: center; }
+[class*="-number-field-input"] { width: 5rem; text-align: center; }
+
+[class*="-input-group"],
+[class*="-number-field-group"],
+[class*="-chips"] { display: inline-flex; align-items: center; gap: 4px; }
+
+[class*="-label"],
+[class*="-legend"] {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-gray-1000);
+}
+
+[class*="-field-description"] { display: block; font-size: 13px; color: var(--color-gray-900); }
+[class*="-field-error"] { display: block; font-size: 13px; color: var(--color-red-700); }
+
+[class*="-fieldset"] { border: 0; padding: 0; margin: 0; }
+
+[class*="-chip"] {
+  padding: 2px 8px;
+  font-size: 13px;
+  background: var(--color-alpha-200);
+  border-radius: var(--radius-brand);
+}
+
+/* --- checkbox, radio, switch ------------------------------------------- */
+
+[class*="-checkbox"]:not([class*="-item"]):not([class*="-group"]):not([class*="-indicator"]),
+[class*="-radio"]:not([class*="-item"]):not([class*="-group"]):not([class*="-indicator"]) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  background: var(--color-bg-100);
+  border: 0;
+  box-shadow: var(--shadow-border);
+  border-radius: var(--radius-brand);
+  cursor: pointer;
+}
+
+[class*="-radio"]:not([class*="-item"]):not([class*="-group"]):not([class*="-indicator"]) { border-radius: 50%; }
+
+[class*="-checkbox"][data-checked],
+[class*="-checkbox"][data-indeterminate],
+[class*="-radio"][data-checked] {
+  background: var(--color-gray-1000);
+  color: var(--color-bg-100);
+}
+
+[class*="-checkbox-indicator"] { display: flex; color: currentColor; }
+[class*="-checkbox-indicator"] svg { width: 12px; height: 12px; }
+[class*="-radio-indicator"] { width: 6px; height: 6px; border-radius: 50%; background: var(--color-bg-100); }
+
+[class*="-switch"]:not([class*="-thumb"]) {
+  display: inline-flex;
+  align-items: center;
+  width: 36px;
+  height: 20px;
+  padding: 2px;
+  background: var(--color-alpha-400);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+[class*="-switch"][data-checked] { background: var(--color-gray-1000); }
+[class*="-switch-thumb"] {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-bg-100);
+  transition: translate 120ms ease;
+}
+[class*="-switch"][data-checked] [class*="-switch-thumb"] { translate: 16px 0; }
+
+/* --- bars: slider, progress, meter -------------------------------------- */
+
+[class*="-slider-control"] { display: flex; align-items: center; width: 12rem; height: 20px; }
+
+/* Base UI places the indicator and the thumb with inline styles, and the thumb
+   sits inside the track — so the track must not clip, and must not be the only
+   thing setting the height. */
+[class*="-slider-track"] {
+  position: relative;
+  width: 100%;
+  height: 6px;
+  background: var(--color-alpha-400);
+  border-radius: 999px;
+}
+[class*="-slider-indicator"] { display: block; background: var(--color-gray-1000); border-radius: 999px; }
+[class*="-slider-thumb"] {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-bg-100);
+  box-shadow: var(--shadow-border), var(--shadow-small);
+}
+
+[class*="-progress-track"],
+[class*="-meter-track"] {
+  display: block;
+  width: 12rem;
+  height: 6px;
+  background: var(--color-alpha-400);
+  border-radius: 999px;
+  overflow: hidden;
+}
+[class*="-progress-indicator"],
+[class*="-meter-indicator"] { display: block; height: 100%; background: var(--color-gray-1000); border-radius: 999px; }
+[class*="-progress-value"],
+[class*="-meter-value"],
+[class*="-slider-value"] { font-size: 13px; color: var(--color-gray-900); }
+[class*="-progress"]:not([class*="-track"]):not([class*="-indicator"]):not([class*="-label"]):not([class*="-value"]),
+[class*="-meter"]:not([class*="-track"]):not([class*="-indicator"]):not([class*="-label"]):not([class*="-value"]) {
+  display: grid;
+  gap: 6px;
+  width: 12rem;
+}
+
+/* --- disclosure: accordion, collapsible, tabs --------------------------- */
+
+[class*="-accordion-item"],
+[class*="-collapsible"]:not([class*="-trigger"]):not([class*="-panel"]) { border-bottom: 1px solid var(--color-alpha-400); }
+[class*="-accordion-header"] { margin: 0; }
+[class*="-accordion-trigger"],
+[class*="-collapsible-trigger"] {
+  width: 100%;
+  justify-content: space-between;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  height: 40px;
+  font-weight: 500;
+}
+[class*="-accordion-panel"],
+[class*="-collapsible-panel"] { font-size: 14px; color: var(--color-gray-900); padding-bottom: 12px; }
+
+[class*="-tabs-list"] { display: flex; gap: 4px; position: relative; border-bottom: 1px solid var(--color-alpha-400); }
+[class*="-tabs-tab"] {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
+  background: none;
+  border: 0;
+  color: var(--color-gray-900);
+  cursor: pointer;
+}
+[class*="-tabs-tab"][data-selected] { color: var(--color-gray-1000); background: none; }
+[class*="-tabs-indicator"] { position: absolute; bottom: -1px; left: 0; height: 2px; width: var(--active-tab-width); translate: var(--active-tab-left) 0; background: var(--color-gray-1000); transition: translate 150ms ease, width 150ms ease; }
+[class*="-tabs-panel"] { padding-top: 16px; font-size: 14px; }
+
+/* --- toolbar, menubar, navigation menu ---------------------------------- */
+
+[class*="-toolbar"]:not([class*="-button"]):not([class*="-separator"]):not([class*="-input"]):not([class*="-group"]):not([class*="-link"]),
+[class*="-menubar"],
+[class*="-navigation-menu-list"] { display: flex; align-items: center; gap: 4px; }
+[class*="-toolbar-separator"] { width: 1px; height: 20px; margin: 0 4px; }
+[class*="-navigation-menu-content"] { padding: 8px; }
+[class*="-navigation-menu-content"] ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+
+/* --- avatar, scroll area, toast ----------------------------------------- */
+
+[class*="-avatar"]:not([class*="-image"]):not([class*="-fallback"]) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--color-alpha-200);
+  font-size: 14px;
+  color: var(--color-gray-900);
+  vertical-align: middle;
+}
+[class*="-avatar-image"] { width: 100%; height: 100%; object-fit: cover; }
+
+[class*="-scroll-area"]:not([class*="-viewport"]):not([class*="-content"]):not([class*="-scrollbar"]):not([class*="-thumb"]):not([class*="-corner"]) { width: 16rem; height: 10rem; }
+[class*="-scroll-area-viewport"] { height: 100%; overflow: auto; padding-right: 12px; }
+[class*="-scroll-area-scrollbar"] { width: 6px; background: var(--color-alpha-100); border-radius: 999px; }
+[class*="-scroll-area-thumb"] { width: 6px; background: var(--color-alpha-500); border-radius: 999px; }
+
+[class*="-toast-viewport"] { position: fixed; right: 16px; bottom: 16px; display: grid; gap: 8px; width: 20rem; z-index: 10; }
+[class*="-toast-root"],
+[class$="-toast"] {
+  padding: 12px;
+  background: var(--color-bg-100);
+  border-radius: var(--radius-brand);
+  box-shadow: var(--shadow-border), var(--shadow-small);
+}
+[class*="-toast-title"] { font-size: 14px; font-weight: 600; }
+[class*="-toast-description"] { font-size: 13px; color: var(--color-gray-900); }
+
+/* --- the plain elements in Base UI's demos ------------------------------ */
+/* [data-demo] is the demo card's stage — see components/Example.tsx. */
+/* The demos wrap the parts in bare <label>, <div>, <form> and <ul>, whose
+   CSS Modules classes came out with the rest of the styling. These are only
+   the arrangement — enough that a demo reads as one thing. */
+
+[data-demo] label { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
+[data-demo] form,
+[data-demo] fieldset { display: grid; gap: 12px; justify-items: start; border: 0; padding: 0; margin: 0; }
+[data-demo] ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+[data-demo] p { margin: 0; font-size: 14px; line-height: 1.5; }
+[data-demo] h3 { margin: 0; font-size: 14px; font-weight: 600; }
+[data-demo] img { border-radius: var(--radius-brand); }
+
+/* A popup's own wrappers: the demos put the title and the actions in a bare
+   <div> inside the popup. */
+[class*="-popup"] > div + div { margin-top: 12px; }
+[class*="-dialog-popup"] > div:last-child,
+[class*="-drawer-popup"] > div:last-child,
+[class*="-alert-dialog-popup"] > div:last-child { display: flex; justify-content: flex-end; gap: 8px; }

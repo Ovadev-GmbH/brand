@@ -1,0 +1,11 @@
+/* Preview Card — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ova-preview-card-arrow       PreviewCard.Arrow
+   .ova-preview-card-backdrop    PreviewCard.Backdrop
+   .ova-preview-card-popup       PreviewCard.Popup
+   .ova-preview-card-portal      PreviewCard.Portal
+   .ova-preview-card-positioner  PreviewCard.Positioner
+   .ova-preview-card-trigger     PreviewCard.Trigger
+   .ova-preview-card-viewport    PreviewCard.Viewport
+*/

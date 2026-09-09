@@ -1,0 +1,12 @@
+/* Alert Dialog — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .jan-alert-dialog-backdrop     AlertDialog.Backdrop
+   .jan-alert-dialog-close        AlertDialog.Close
+   .jan-alert-dialog-description  AlertDialog.Description
+   .jan-alert-dialog-popup        AlertDialog.Popup
+   .jan-alert-dialog-portal       AlertDialog.Portal
+   .jan-alert-dialog-title        AlertDialog.Title
+   .jan-alert-dialog-trigger      AlertDialog.Trigger
+   .jan-alert-dialog-viewport     AlertDialog.Viewport
+*/

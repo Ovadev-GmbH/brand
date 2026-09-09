@@ -1,0 +1,10 @@
+/* Scroll Area — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-scroll-area-content    ScrollArea.Content
+   .tova-scroll-area-corner     ScrollArea.Corner
+   .tova-scroll-area            ScrollArea.Root
+   .tova-scroll-area-scrollbar  ScrollArea.Scrollbar
+   .tova-scroll-area-thumb      ScrollArea.Thumb
+   .tova-scroll-area-viewport   ScrollArea.Viewport
+*/

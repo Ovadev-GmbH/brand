@@ -1,30 +1,24 @@
-/* The hairline grid the brand chooser and the introduction sit in: cells
-   separated by 1px rules, with a small cross at each corner of the block.
-   It is decoration, but it is the decoration that makes a page of cards read
-   as one drawing rather than four boxes. */
+/* The hairline grid the brand chooser sits in.
+ *
+ * The rules are the grid's own gaps, not borders on the cells: the section
+ * paints itself in the hairline colour, the cells paint themselves back over
+ * it, and the 1px gap between them is what is left showing. That is why there
+ * is no doubling anywhere — no two elements ever draw the same line, and the
+ * outer edge is drawn by whatever the grid sits inside, once. */
 
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
-export function Crosses() {
+export function Grid({ cols = 1, children }: { cols?: number; children: ReactNode }) {
   return (
-    <>
-      <span className="g-cross g-cross--tl" aria-hidden="true" />
-      <span className="g-cross g-cross--tr" aria-hidden="true" />
-      <span className="g-cross g-cross--bl" aria-hidden="true" />
-      <span className="g-cross g-cross--br" aria-hidden="true" />
-    </>
-  );
-}
-
-export function Grid({ cols = 1, flush = false, crosses = true, children }: { cols?: number; flush?: boolean; crosses?: boolean; children: ReactNode }) {
-  return (
-    <section className={`g-grid ${flush ? "g-grid--flush" : ""}`} style={{ ["--cols" as string]: cols }}>
+    <section
+      className="grid grid-cols-1 gap-px border-y border-alpha-400 bg-alpha-400 md:grid-cols-(--cols)"
+      style={{ "--cols": `repeat(${cols}, minmax(0, 1fr))` } as CSSProperties}
+    >
       {children}
-      {crosses ? <Crosses /> : null}
     </section>
   );
 }
 
 export function Cell({ children }: { children: ReactNode }) {
-  return <div className="g-grid__cell">{children}</div>;
+  return <div className="min-w-0 bg-bg-100">{children}</div>;
 }

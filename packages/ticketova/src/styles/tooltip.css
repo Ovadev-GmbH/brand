@@ -1,0 +1,10 @@
+/* Tooltip — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-tooltip-arrow       Tooltip.Arrow
+   .tova-tooltip-popup       Tooltip.Popup
+   .tova-tooltip-portal      Tooltip.Portal
+   .tova-tooltip-positioner  Tooltip.Positioner
+   .tova-tooltip-trigger     Tooltip.Trigger
+   .tova-tooltip-viewport    Tooltip.Viewport
+*/

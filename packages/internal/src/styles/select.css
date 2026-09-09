@@ -1,0 +1,22 @@
+/* Select — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-select-arrow              Select.Arrow
+   .ui-select-backdrop           Select.Backdrop
+   .ui-select-group              Select.Group
+   .ui-select-group-label        Select.GroupLabel
+   .ui-select-icon               Select.Icon
+   .ui-select-item               Select.Item
+   .ui-select-item-indicator     Select.ItemIndicator
+   .ui-select-item-text          Select.ItemText
+   .ui-select-label              Select.Label
+   .ui-select-list               Select.List
+   .ui-select-popup              Select.Popup
+   .ui-select-portal             Select.Portal
+   .ui-select-positioner         Select.Positioner
+   .ui-select-scroll-down-arrow  Select.ScrollDownArrow
+   .ui-select-scroll-up-arrow    Select.ScrollUpArrow
+   .ui-select-separator          Select.Separator
+   .ui-select-trigger            Select.Trigger
+   .ui-select-value              Select.Value
+*/

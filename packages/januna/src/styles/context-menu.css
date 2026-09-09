@@ -1,0 +1,21 @@
+/* Context Menu — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .jan-context-menu-arrow                    ContextMenu.Arrow
+   .jan-context-menu-backdrop                 ContextMenu.Backdrop
+   .jan-context-menu-checkbox-item            ContextMenu.CheckboxItem
+   .jan-context-menu-checkbox-item-indicator  ContextMenu.CheckboxItemIndicator
+   .jan-context-menu-group                    ContextMenu.Group
+   .jan-context-menu-group-label              ContextMenu.GroupLabel
+   .jan-context-menu-item                     ContextMenu.Item
+   .jan-context-menu-link-item                ContextMenu.LinkItem
+   .jan-context-menu-popup                    ContextMenu.Popup
+   .jan-context-menu-portal                   ContextMenu.Portal
+   .jan-context-menu-positioner               ContextMenu.Positioner
+   .jan-context-menu-radio-group              ContextMenu.RadioGroup
+   .jan-context-menu-radio-item               ContextMenu.RadioItem
+   .jan-context-menu-radio-item-indicator     ContextMenu.RadioItemIndicator
+   .jan-context-menu-separator                ContextMenu.Separator
+   .jan-context-menu-submenu-trigger          ContextMenu.SubmenuTrigger
+   .jan-context-menu-trigger                  ContextMenu.Trigger
+*/

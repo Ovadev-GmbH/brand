@@ -1,0 +1,27 @@
+/* Combobox — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .jan-combobox-arrow           Combobox.Arrow
+   .jan-combobox-backdrop        Combobox.Backdrop
+   .jan-combobox-chip            Combobox.Chip
+   .jan-combobox-chip-remove     Combobox.ChipRemove
+   .jan-combobox-chips           Combobox.Chips
+   .jan-combobox-clear           Combobox.Clear
+   .jan-combobox-empty           Combobox.Empty
+   .jan-combobox-group           Combobox.Group
+   .jan-combobox-group-label     Combobox.GroupLabel
+   .jan-combobox-icon            Combobox.Icon
+   .jan-combobox-input           Combobox.Input
+   .jan-combobox-input-group     Combobox.InputGroup
+   .jan-combobox-item            Combobox.Item
+   .jan-combobox-item-indicator  Combobox.ItemIndicator
+   .jan-combobox-label           Combobox.Label
+   .jan-combobox-list            Combobox.List
+   .jan-combobox-popup           Combobox.Popup
+   .jan-combobox-portal          Combobox.Portal
+   .jan-combobox-positioner      Combobox.Positioner
+   .jan-combobox-row             Combobox.Row
+   .jan-combobox-separator       Combobox.Separator
+   .jan-combobox-status          Combobox.Status
+   .jan-combobox-trigger         Combobox.Trigger
+*/

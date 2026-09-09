@@ -1,0 +1,7 @@
+/* OTP Field — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-otp-field-input      OTPField.Input
+   .tova-otp-field            OTPField.Root
+   .tova-otp-field-separator  OTPField.Separator
+*/

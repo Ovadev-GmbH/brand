@@ -1,0 +1,9 @@
+/* Accordion — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .jan-accordion-header   Accordion.Header
+   .jan-accordion-item     Accordion.Item
+   .jan-accordion-panel    Accordion.Panel
+   .jan-accordion          Accordion.Root
+   .jan-accordion-trigger  Accordion.Trigger
+*/

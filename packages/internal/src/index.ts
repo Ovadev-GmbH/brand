@@ -1,17 +1,13 @@
-// The shared tool layer of the Ovadev internal apps. It sits on the Design
-// System: the consumer loads that stylesheet (tokens, ov-* classes) and this
-// library's styles.css on top. Links render through the component handed to
-// <UiProvider>, so the library never imports a router.
+/* @ovadev-gmbh/ui-internal: every Base UI component, wrapped with the ui-*
+   classes the internal tools use.
+ *
+ * Nothing here is styled. Base UI supplies the behaviour — keyboard, focus,
+ * ARIA, portals, positioning — and src/styles holds one empty stylesheet per
+ * component, each listing the class hooks its parts carry. Styling means
+ * filling those in, one component at a time; no .tsx has to change for it.
+ *
+ * @base-ui/react is a peer dependency, so the app supplies the single copy
+ * and two of these libraries can be loaded side by side. Its types
+ * (Dialog.Root.Props and the like) come from that package directly. */
 
-import "./ui.css";
-
-export { UiProvider, useLink } from "./link";
-export type { LinkComponent, LinkProps } from "./link";
-export { Page, Section, Note, Empty, Sub, ExtLink, Dl } from "./Page";
-export { Table, Th, Td, NameCell, MoreButton } from "./Table";
-export { nextSort } from "./sort";
-export type { SortState } from "./sort";
-export { SearchInput, Select, Toolbar, Button, Segmented, CopyButton } from "./Controls";
-export type { ButtonProps } from "./Controls";
-export { Stats } from "./Stats";
-export type { StatItem } from "./Stats";
+export * from "./base-ui";

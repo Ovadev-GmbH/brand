@@ -1,0 +1,22 @@
+/* Autocomplete — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-autocomplete-arrow        Autocomplete.Arrow
+   .tova-autocomplete-backdrop     Autocomplete.Backdrop
+   .tova-autocomplete-clear        Autocomplete.Clear
+   .tova-autocomplete-empty        Autocomplete.Empty
+   .tova-autocomplete-group        Autocomplete.Group
+   .tova-autocomplete-group-label  Autocomplete.GroupLabel
+   .tova-autocomplete-icon         Autocomplete.Icon
+   .tova-autocomplete-input        Autocomplete.Input
+   .tova-autocomplete-input-group  Autocomplete.InputGroup
+   .tova-autocomplete-item         Autocomplete.Item
+   .tova-autocomplete-list         Autocomplete.List
+   .tova-autocomplete-popup        Autocomplete.Popup
+   .tova-autocomplete-portal       Autocomplete.Portal
+   .tova-autocomplete-positioner   Autocomplete.Positioner
+   .tova-autocomplete-row          Autocomplete.Row
+   .tova-autocomplete-separator    Autocomplete.Separator
+   .tova-autocomplete-status       Autocomplete.Status
+   .tova-autocomplete-trigger      Autocomplete.Trigger
+*/

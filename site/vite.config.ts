@@ -1,4 +1,5 @@
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
 
 // GitHub Pages serves a project site under /<repo>/, so the base is set by
@@ -8,5 +9,5 @@ import { defineConfig } from "vite";
 // a client-routed app.
 export default defineConfig({
   base: process.env.BASE_PATH ?? "/",
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
 });

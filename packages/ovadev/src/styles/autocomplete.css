@@ -1,0 +1,22 @@
+/* Autocomplete — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ova-autocomplete-arrow        Autocomplete.Arrow
+   .ova-autocomplete-backdrop     Autocomplete.Backdrop
+   .ova-autocomplete-clear        Autocomplete.Clear
+   .ova-autocomplete-empty        Autocomplete.Empty
+   .ova-autocomplete-group        Autocomplete.Group
+   .ova-autocomplete-group-label  Autocomplete.GroupLabel
+   .ova-autocomplete-icon         Autocomplete.Icon
+   .ova-autocomplete-input        Autocomplete.Input
+   .ova-autocomplete-input-group  Autocomplete.InputGroup
+   .ova-autocomplete-item         Autocomplete.Item
+   .ova-autocomplete-list         Autocomplete.List
+   .ova-autocomplete-popup        Autocomplete.Popup
+   .ova-autocomplete-portal       Autocomplete.Portal
+   .ova-autocomplete-positioner   Autocomplete.Positioner
+   .ova-autocomplete-row          Autocomplete.Row
+   .ova-autocomplete-separator    Autocomplete.Separator
+   .ova-autocomplete-status       Autocomplete.Status
+   .ova-autocomplete-trigger      Autocomplete.Trigger
+*/

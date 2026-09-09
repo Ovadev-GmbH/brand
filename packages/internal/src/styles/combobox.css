@@ -1,0 +1,27 @@
+/* Combobox — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-combobox-arrow           Combobox.Arrow
+   .ui-combobox-backdrop        Combobox.Backdrop
+   .ui-combobox-chip            Combobox.Chip
+   .ui-combobox-chip-remove     Combobox.ChipRemove
+   .ui-combobox-chips           Combobox.Chips
+   .ui-combobox-clear           Combobox.Clear
+   .ui-combobox-empty           Combobox.Empty
+   .ui-combobox-group           Combobox.Group
+   .ui-combobox-group-label     Combobox.GroupLabel
+   .ui-combobox-icon            Combobox.Icon
+   .ui-combobox-input           Combobox.Input
+   .ui-combobox-input-group     Combobox.InputGroup
+   .ui-combobox-item            Combobox.Item
+   .ui-combobox-item-indicator  Combobox.ItemIndicator
+   .ui-combobox-label           Combobox.Label
+   .ui-combobox-list            Combobox.List
+   .ui-combobox-popup           Combobox.Popup
+   .ui-combobox-portal          Combobox.Portal
+   .ui-combobox-positioner      Combobox.Positioner
+   .ui-combobox-row             Combobox.Row
+   .ui-combobox-separator       Combobox.Separator
+   .ui-combobox-status          Combobox.Status
+   .ui-combobox-trigger         Combobox.Trigger
+*/

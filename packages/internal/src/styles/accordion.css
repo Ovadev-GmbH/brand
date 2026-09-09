@@ -1,0 +1,9 @@
+/* Accordion — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-accordion-header   Accordion.Header
+   .ui-accordion-item     Accordion.Item
+   .ui-accordion-panel    Accordion.Panel
+   .ui-accordion          Accordion.Root
+   .ui-accordion-trigger  Accordion.Trigger
+*/

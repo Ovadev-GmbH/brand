@@ -5,13 +5,14 @@
   "type": "module",
   "description": "brand.ova.dev: one catalog per component library, statically built and served from GitHub Pages.",
   "scripts": {
-    "props": "bun scripts/gen-props.mjs",
-    "dev": "bun scripts/gen-props.mjs && vite",
-    "build": "bun scripts/gen-props.mjs && vite build && cp dist/index.html dist/404.html",
-    "check-types": "bun scripts/gen-props.mjs && tsc --noEmit",
+    "versions": "bun scripts/gen-versions.mjs",
+    "dev": "bun scripts/gen-versions.mjs && vite",
+    "build": "bun scripts/gen-versions.mjs && vite build && cp dist/index.html dist/404.html",
+    "check-types": "bun scripts/gen-versions.mjs && tsc --noEmit",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@base-ui/react": "^1.8.0",
     "@ovadev-gmbh/ui-internal": "workspace:*",
     "@ovadev-gmbh/ui-januna": "workspace:*",
     "@ovadev-gmbh/ui-ovadev": "workspace:*",
@@ -21,10 +22,12 @@
     "react-router": "^7.8.2"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^5.2.0",
     "react-docgen-typescript": "^2.4.0",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "vite": "^7.3.6"
   }

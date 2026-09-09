@@ -1,0 +1,9 @@
+/* Progress — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-progress-indicator  Progress.Indicator
+   .ui-progress-label      Progress.Label
+   .ui-progress            Progress.Root
+   .ui-progress-track      Progress.Track
+   .ui-progress-value      Progress.Value
+*/

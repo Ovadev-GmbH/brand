@@ -1,0 +1,14 @@
+/* Toast — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-toast-action       Toast.Action
+   .ui-toast-arrow        Toast.Arrow
+   .ui-toast-close        Toast.Close
+   .ui-toast-content      Toast.Content
+   .ui-toast-description  Toast.Description
+   .ui-toast-portal       Toast.Portal
+   .ui-toast-positioner   Toast.Positioner
+   .ui-toast              Toast.Root
+   .ui-toast-title        Toast.Title
+   .ui-toast-viewport     Toast.Viewport
+*/

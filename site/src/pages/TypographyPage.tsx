@@ -8,23 +8,26 @@ import { CHROME } from "../brands";
 export function TypographyPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
   return (
-    <article className="cat-page">
-      <header className="cat-page__head">
-        <h1 className="cat-h1">Typography</h1>
-        <p className="cat-sub">
+    <article className="max-w-224">
+      <header className="mb-10">
+        <h1 className="mb-3 font-display text-2xl leading-tight md:text-4xl">Typography</h1>
+        <p className="mt-3 text-[13px] text-gray-900">
           From <code>{chrome.source}</code>
         </p>
       </header>
-      <section className="cat-block">
+      <section className="mt-12">
         {chrome.type.map((t) => (
-          <div className="cat-typerow" key={t.name}>
+          <div
+            className="flex flex-wrap items-baseline justify-between gap-6 border-b border-alpha-400 py-5"
+            key={t.name}
+          >
             <span
-              className="cat-typerow__sample"
+              className="min-w-0 text-gray-1000"
               style={{ fontFamily: t.family, fontWeight: t.weight, fontSize: t.size, lineHeight: 1.2 }}
             >
               {t.name}
             </span>
-            <span className="cat-typerow__meta">
+            <span className="font-mono text-xs whitespace-nowrap text-gray-700">
               {t.size} · {t.weight} · {t.note}
             </span>
           </div>

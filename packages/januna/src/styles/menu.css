@@ -1,0 +1,22 @@
+/* Menu — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .jan-menu-arrow                    Menu.Arrow
+   .jan-menu-backdrop                 Menu.Backdrop
+   .jan-menu-checkbox-item            Menu.CheckboxItem
+   .jan-menu-checkbox-item-indicator  Menu.CheckboxItemIndicator
+   .jan-menu-group                    Menu.Group
+   .jan-menu-group-label              Menu.GroupLabel
+   .jan-menu-item                     Menu.Item
+   .jan-menu-link-item                Menu.LinkItem
+   .jan-menu-popup                    Menu.Popup
+   .jan-menu-portal                   Menu.Portal
+   .jan-menu-positioner               Menu.Positioner
+   .jan-menu-radio-group              Menu.RadioGroup
+   .jan-menu-radio-item               Menu.RadioItem
+   .jan-menu-radio-item-indicator     Menu.RadioItemIndicator
+   .jan-menu-separator                Menu.Separator
+   .jan-menu-submenu-trigger          Menu.SubmenuTrigger
+   .jan-menu-trigger                  Menu.Trigger
+   .jan-menu-viewport                 Menu.Viewport
+*/

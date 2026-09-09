@@ -1,0 +1,22 @@
+/* Autocomplete — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-autocomplete-arrow        Autocomplete.Arrow
+   .ui-autocomplete-backdrop     Autocomplete.Backdrop
+   .ui-autocomplete-clear        Autocomplete.Clear
+   .ui-autocomplete-empty        Autocomplete.Empty
+   .ui-autocomplete-group        Autocomplete.Group
+   .ui-autocomplete-group-label  Autocomplete.GroupLabel
+   .ui-autocomplete-icon         Autocomplete.Icon
+   .ui-autocomplete-input        Autocomplete.Input
+   .ui-autocomplete-input-group  Autocomplete.InputGroup
+   .ui-autocomplete-item         Autocomplete.Item
+   .ui-autocomplete-list         Autocomplete.List
+   .ui-autocomplete-popup        Autocomplete.Popup
+   .ui-autocomplete-portal       Autocomplete.Portal
+   .ui-autocomplete-positioner   Autocomplete.Positioner
+   .ui-autocomplete-row          Autocomplete.Row
+   .ui-autocomplete-separator    Autocomplete.Separator
+   .ui-autocomplete-status       Autocomplete.Status
+   .ui-autocomplete-trigger      Autocomplete.Trigger
+*/

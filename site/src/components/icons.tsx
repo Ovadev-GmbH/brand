@@ -109,3 +109,18 @@ export function SwatchIcon(p: P) {
     </Svg>
   );
 }
+
+/* The one glyph here that is a filled mark rather than a stroked one: the
+   GitHub logo only reads as itself solid. It inherits currentColor like the
+   rest, so it is whatever ink the text around it is. */
+export function GitHubIcon({ size = 16 }: P) {
+  return (
+    <svg viewBox="0 0 16 16" width={size} height={size} fill="currentColor" aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8 .2a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.39l-.01-1.37c-2.23.48-2.7-1.07-2.7-1.07-.36-.93-.89-1.18-.89-1.18-.72-.5.06-.49.06-.49.8.06 1.22.83 1.22.83.72 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48l-.01 2.2c0 .21.14.46.55.38A8 8 0 0 0 8 .2Z"
+      />
+    </svg>
+  );
+}

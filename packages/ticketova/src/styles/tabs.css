@@ -1,0 +1,9 @@
+/* Tabs — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-tabs-indicator  Tabs.Indicator
+   .tova-tabs-list       Tabs.List
+   .tova-tabs-panel      Tabs.Panel
+   .tova-tabs            Tabs.Root
+   .tova-tabs-tab        Tabs.Tab
+*/

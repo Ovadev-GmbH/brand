@@ -1,0 +1,333 @@
+@import "tailwindcss";
+
+/* The components the catalog *shows*, dressed for the docs. Not utilities:
+   the demos render the packages' own elements, whose markup this repo does
+   not write. */
+@import "./demo.css";
+
+/* The catalog's whole stylesheet. Everything the site itself draws is a
+ * Tailwind utility in the markup; what is left here is the three things
+ * utilities cannot be: the token layer the utilities are made of, the base
+ * element rules, and the two utilities Tailwind has no name for.
+ *
+ * The components the catalog *shows* are styled in demo.css, imported last.
+ * That one cannot be utilities: the demos render the packages' own elements,
+ * whose markup this repo does not write.
+ */
+
+/* ── the theme ─────────────────────────────────────────────────────────────
+   The scales borrow the *shape* of Vercel's Geist tokens — a numbered grey
+   scale, two backgrounds, alpha greys, one accent — because that shape is
+   what makes a docs chrome tunable per brand. The values are ours.
+
+   Each one points at a --ds-* variable rather than holding a colour, which is
+   what lets the three themes below swap the whole palette by redeclaring a
+   dozen variables, and lets a brand redeclare its radius and display face
+   without Tailwind knowing anything about brands.
+   ------------------------------------------------------------------------ */
+@theme {
+  /* Tailwind's own palette and breakpoints would only be a second vocabulary
+     for the same page. Start from nothing. */
+  --color-*: initial;
+  --breakpoint-*: initial;
+
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1200px;
+
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-gray-100: var(--ds-gray-100);
+  --color-gray-200: var(--ds-gray-200);
+  --color-gray-300: var(--ds-gray-300);
+  --color-gray-400: var(--ds-gray-400);
+  --color-gray-500: var(--ds-gray-500);
+  --color-gray-600: var(--ds-gray-600);
+  --color-gray-700: var(--ds-gray-700);
+  --color-gray-800: var(--ds-gray-800);
+  --color-gray-900: var(--ds-gray-900);
+  --color-gray-1000: var(--ds-gray-1000);
+
+  --color-alpha-100: var(--ds-gray-alpha-100);
+  --color-alpha-200: var(--ds-gray-alpha-200);
+  --color-alpha-400: var(--ds-gray-alpha-400);
+  --color-alpha-500: var(--ds-gray-alpha-500);
+  --color-alpha-600: var(--ds-gray-alpha-600);
+
+  --color-bg-100: var(--ds-background-100);
+  --color-bg-200: var(--ds-background-200);
+
+  --color-red-100: var(--ds-red-100);
+  --color-red-700: var(--ds-red-700);
+
+  --color-accent: var(--ds-accent);
+  --color-on-accent: var(--ds-on-accent);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Redeclared per brand at the foot of this file. */
+  --font-display: var(--font-sans);
+
+  --radius-brand: var(--ds-radius);
+
+  --shadow-border: 0 0 0 1px var(--color-alpha-400);
+  --shadow-small: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-menu: var(--ds-shadow-menu);
+
+  /* The header's height, which the sidebar and the content column both
+     measure themselves against. */
+  --spacing-header: 64px;
+  --container-shell: 1220px;
+  --container-side: 260px;
+}
+
+/* ── the three themes ──────────────────────────────────────────────────────
+   Light on :root, dark twice: once behind prefers-color-scheme for "system",
+   once behind [data-theme="dark"] so the switcher wins in both directions.
+   Nothing gets its only definition inside a media query.
+   ------------------------------------------------------------------------ */
+:root {
+  color-scheme: light;
+
+  --ds-gray-100: #f2f2f2;
+  --ds-gray-200: #ebebeb;
+  --ds-gray-300: #e1e1e1;
+  --ds-gray-400: #d4d4d4;
+  --ds-gray-500: #b8b8b8;
+  --ds-gray-600: #a0a0a0;
+  --ds-gray-700: #8f8f8f;
+  --ds-gray-800: #6f6f6f;
+  --ds-gray-900: #5c5c5c;
+  --ds-gray-1000: #171717;
+
+  --ds-gray-alpha-100: rgba(0, 0, 0, 0.04);
+  --ds-gray-alpha-200: rgba(0, 0, 0, 0.06);
+  --ds-gray-alpha-400: rgba(0, 0, 0, 0.1);
+  --ds-gray-alpha-500: rgba(0, 0, 0, 0.16);
+  --ds-gray-alpha-600: rgba(0, 0, 0, 0.28);
+
+  --ds-background-100: #ffffff;
+  --ds-background-200: #fafafa;
+
+  --ds-red-700: #b42318;
+  --ds-red-100: #fdecea;
+
+  /* Overridden per brand below; the neutral default is for the chooser. */
+  --ds-accent: #171717;
+  --ds-on-accent: #ffffff;
+
+  --ds-shadow-menu: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  --ds-radius: 6px;
+  --display-tracking: -0.02em;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --ds-gray-100: #1a1a1a;
+    --ds-gray-200: #1f1f1f;
+    --ds-gray-300: #292929;
+    --ds-gray-400: #2e2e2e;
+    --ds-gray-500: #454545;
+    --ds-gray-600: #878787;
+    --ds-gray-700: #8f8f8f;
+    --ds-gray-800: #a1a1a1;
+    --ds-gray-900: #b4b4b4;
+    --ds-gray-1000: #ededed;
+    --ds-gray-alpha-100: rgba(255, 255, 255, 0.06);
+    --ds-gray-alpha-200: rgba(255, 255, 255, 0.09);
+    --ds-gray-alpha-400: rgba(255, 255, 255, 0.14);
+    --ds-gray-alpha-500: rgba(255, 255, 255, 0.22);
+    --ds-gray-alpha-600: rgba(255, 255, 255, 0.34);
+    --ds-background-100: #0a0a0a;
+    --ds-background-200: #000000;
+    --ds-red-700: #ff6166;
+    --ds-red-100: #2a1213;
+    --ds-accent: #ededed;
+    --ds-on-accent: #0a0a0a;
+    --ds-shadow-menu: 0 8px 30px rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ds-gray-100: #1a1a1a;
+  --ds-gray-200: #1f1f1f;
+  --ds-gray-300: #292929;
+  --ds-gray-400: #2e2e2e;
+  --ds-gray-500: #454545;
+  --ds-gray-600: #878787;
+  --ds-gray-700: #8f8f8f;
+  --ds-gray-800: #a1a1a1;
+  --ds-gray-900: #b4b4b4;
+  --ds-gray-1000: #ededed;
+  --ds-gray-alpha-100: rgba(255, 255, 255, 0.06);
+  --ds-gray-alpha-200: rgba(255, 255, 255, 0.09);
+  --ds-gray-alpha-400: rgba(255, 255, 255, 0.14);
+  --ds-gray-alpha-500: rgba(255, 255, 255, 0.22);
+  --ds-gray-alpha-600: rgba(255, 255, 255, 0.34);
+  --ds-background-100: #0a0a0a;
+  --ds-background-200: #000000;
+  --ds-red-700: #ff6166;
+  --ds-red-100: #2a1213;
+  --ds-accent: #ededed;
+  --ds-on-accent: #0a0a0a;
+  --ds-shadow-menu: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ── one layout per brand ──────────────────────────────────────────────────
+   The shell is the same machine; each brand turns it into its own room by
+   redeclaring the two things that carry an identity here: the display face
+   and the corner radius. Names are set the way each brand writes them —
+   Ovadev, TICKETOVA, Januna, INTERN — so nothing here transforms case.
+
+   The chrome is not tinted: the accent stays the neutral ink, and a brand's
+   real colours live on its Colors page, where they are the subject rather
+   than decoration.
+   ------------------------------------------------------------------------ */
+[data-brand="ovadev"] {
+  --ds-radius: 0px;
+  --font-display: "Oswald", var(--font-sans);
+  --display-tracking: 0.01em;
+}
+
+[data-brand="ticketova"] {
+  --ds-radius: 6px;
+  --font-display: var(--font-sans);
+}
+
+[data-brand="januna"] {
+  --ds-radius: 10px;
+  --font-display: "Instrument Sans", var(--font-sans);
+}
+
+[data-brand="internal"] {
+  --ds-radius: 4px;
+  --font-display: "Oswald", var(--font-sans);
+  --display-tracking: 0.01em;
+}
+
+/* ── base ─────────────────────────────────────────────────────────────────
+   The element defaults every page inherits, and the focus ring, which has to
+   be one rule rather than a utility so nothing can be focusable without it.
+   ------------------------------------------------------------------------ */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Always keep the scrollbar's gutter, so the centred column does not
+       shift by its width when a short page (the chooser) hands over to a long
+       one (a component). scrollbar-gutter: stable is the tidier way to say
+       this and Chrome does not honour it on the root, so this is the blunt
+       one that works everywhere. */
+    overflow-y: scroll;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-gray-1000);
+    background: var(--color-bg-200);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  code,
+  kbd,
+  pre {
+    font-family: var(--font-mono);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: var(--display-tracking);
+    color: var(--color-gray-1000);
+  }
+
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-bg-100), 0 0 0 4px var(--color-accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+}
+
+/* ── the two utilities Tailwind has no name for ────────────────────────────
+   One quiet scrollbar everywhere the page or a panel scrolls: no track, a
+   thumb in the same alpha grey as the hairlines, and the brand's own corner
+   radius. The sidebar opts out entirely.
+   ------------------------------------------------------------------------ */
+@utility scrollbar-quiet {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-alpha-400) transparent;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  /* The border is transparent and clipped away: that is what insets the thumb
+     from the edge without needing a visible track. */
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-alpha-400);
+    background-clip: content-box;
+    border: 3px solid transparent;
+    border-radius: var(--radius-brand);
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-alpha-600);
+    background-clip: content-box;
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* The page itself scrolls, and its bar is the one the reader sees most. */
+@layer base {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-alpha-400) transparent;
+  }
+  html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  html::-webkit-scrollbar-track,
+  html::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  html::-webkit-scrollbar-thumb {
+    background: var(--color-alpha-400);
+    background-clip: content-box;
+    border: 3px solid transparent;
+    border-radius: var(--radius-brand);
+  }
+  html::-webkit-scrollbar-thumb:hover {
+    background: var(--color-alpha-600);
+    background-clip: content-box;
+  }
+}

@@ -1,0 +1,14 @@
+/* Popover — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-popover-arrow        Popover.Arrow
+   .ui-popover-backdrop     Popover.Backdrop
+   .ui-popover-close        Popover.Close
+   .ui-popover-description  Popover.Description
+   .ui-popover-popup        Popover.Popup
+   .ui-popover-portal       Popover.Portal
+   .ui-popover-positioner   Popover.Positioner
+   .ui-popover-title        Popover.Title
+   .ui-popover-trigger      Popover.Trigger
+   .ui-popover-viewport     Popover.Viewport
+*/

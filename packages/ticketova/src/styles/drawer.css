@@ -1,0 +1,16 @@
+/* Drawer — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-drawer-backdrop           Drawer.Backdrop
+   .tova-drawer-close              Drawer.Close
+   .tova-drawer-content            Drawer.Content
+   .tova-drawer-description        Drawer.Description
+   .tova-drawer-indent             Drawer.Indent
+   .tova-drawer-indent-background  Drawer.IndentBackground
+   .tova-drawer-popup              Drawer.Popup
+   .tova-drawer-portal             Drawer.Portal
+   .tova-drawer-swipe-area         Drawer.SwipeArea
+   .tova-drawer-title              Drawer.Title
+   .tova-drawer-trigger            Drawer.Trigger
+   .tova-drawer-viewport           Drawer.Viewport
+*/

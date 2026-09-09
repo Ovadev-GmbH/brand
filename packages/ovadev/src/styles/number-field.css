@@ -1,0 +1,11 @@
+/* Number Field — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ova-number-field-decrement          NumberField.Decrement
+   .ova-number-field-group              NumberField.Group
+   .ova-number-field-increment          NumberField.Increment
+   .ova-number-field-input              NumberField.Input
+   .ova-number-field                    NumberField.Root
+   .ova-number-field-scrub-area         NumberField.ScrubArea
+   .ova-number-field-scrub-area-cursor  NumberField.ScrubAreaCursor
+*/

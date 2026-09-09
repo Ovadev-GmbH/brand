@@ -1,0 +1,10 @@
+/* Scroll Area — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .jan-scroll-area-content    ScrollArea.Content
+   .jan-scroll-area-corner     ScrollArea.Corner
+   .jan-scroll-area            ScrollArea.Root
+   .jan-scroll-area-scrollbar  ScrollArea.Scrollbar
+   .jan-scroll-area-thumb      ScrollArea.Thumb
+   .jan-scroll-area-viewport   ScrollArea.Viewport
+*/

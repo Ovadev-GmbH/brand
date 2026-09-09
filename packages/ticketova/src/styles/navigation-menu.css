@@ -1,0 +1,17 @@
+/* Navigation Menu — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-navigation-menu-arrow       NavigationMenu.Arrow
+   .tova-navigation-menu-backdrop    NavigationMenu.Backdrop
+   .tova-navigation-menu-content     NavigationMenu.Content
+   .tova-navigation-menu-icon        NavigationMenu.Icon
+   .tova-navigation-menu-item        NavigationMenu.Item
+   .tova-navigation-menu-link        NavigationMenu.Link
+   .tova-navigation-menu-list        NavigationMenu.List
+   .tova-navigation-menu-popup       NavigationMenu.Popup
+   .tova-navigation-menu-portal      NavigationMenu.Portal
+   .tova-navigation-menu-positioner  NavigationMenu.Positioner
+   .tova-navigation-menu             NavigationMenu.Root
+   .tova-navigation-menu-trigger     NavigationMenu.Trigger
+   .tova-navigation-menu-viewport    NavigationMenu.Viewport
+*/

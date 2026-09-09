@@ -1,0 +1,12 @@
+/* Alert Dialog — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ova-alert-dialog-backdrop     AlertDialog.Backdrop
+   .ova-alert-dialog-close        AlertDialog.Close
+   .ova-alert-dialog-description  AlertDialog.Description
+   .ova-alert-dialog-popup        AlertDialog.Popup
+   .ova-alert-dialog-portal       AlertDialog.Portal
+   .ova-alert-dialog-title        AlertDialog.Title
+   .ova-alert-dialog-trigger      AlertDialog.Trigger
+   .ova-alert-dialog-viewport     AlertDialog.Viewport
+*/

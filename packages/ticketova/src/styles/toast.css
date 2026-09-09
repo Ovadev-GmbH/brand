@@ -1,0 +1,14 @@
+/* Toast — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-toast-action       Toast.Action
+   .tova-toast-arrow        Toast.Arrow
+   .tova-toast-close        Toast.Close
+   .tova-toast-content      Toast.Content
+   .tova-toast-description  Toast.Description
+   .tova-toast-portal       Toast.Portal
+   .tova-toast-positioner   Toast.Positioner
+   .tova-toast              Toast.Root
+   .tova-toast-title        Toast.Title
+   .tova-toast-viewport     Toast.Viewport
+*/

@@ -1,0 +1,10 @@
+/* Tooltip — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-tooltip-arrow       Tooltip.Arrow
+   .ui-tooltip-popup       Tooltip.Popup
+   .ui-tooltip-portal      Tooltip.Portal
+   .ui-tooltip-positioner  Tooltip.Positioner
+   .ui-tooltip-trigger     Tooltip.Trigger
+   .ui-tooltip-viewport    Tooltip.Viewport
+*/

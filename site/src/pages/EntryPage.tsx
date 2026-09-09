@@ -1,35 +1,21 @@
 import type { Entry, Pkg } from "../types";
 import { Example } from "../components/Example";
-import { PropsTable } from "../components/PropsTable";
-import { StatusBadge } from "../components/StatusBadge";
 
 export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
-  const propsOf = entry.props ?? [entry.name];
   return (
-    <article className="cat-page">
-      <header className="cat-page__head">
-        <h1 className="cat-h1">
-          {entry.name} {entry.status ? <StatusBadge status={entry.status} /> : null}
-        </h1>
-        <p className="cat-lead">{entry.summary}</p>
-        <p className="cat-sub">
-          <code>{`import { ${propsOf.join(", ")} } from "${pkg.pkg}"`}</code>
+    <article className="max-w-224">
+      <header className="mb-10">
+        <h1 className="mb-3 font-display text-2xl leading-tight md:text-4xl">{entry.name}</h1>
+        <p className="mt-3 max-w-[62ch] text-base leading-normal text-gray-900 md:text-xl">{entry.summary}</p>
+        <p className="mt-3 text-[13px] text-gray-900">
+          <code>{`import { ${(entry.imports ?? [entry.name]).join(", ")} } from "${pkg.pkg}"`}</code>
         </p>
       </header>
-      <section className="cat-block">
-        <h2 className="cat-h2">
-          Examples <span className="cat-count">{entry.examples.length}</span>
-        </h2>
+      <section className="mt-12">
         {entry.examples.map((ex, i) => (
-          <Example key={i} example={ex} anchor={`beispiel-${i + 1}`} />
+          <Example key={i} example={ex} anchor={`example-${i + 1}`} />
         ))}
       </section>
-      {propsOf.map((name) => (
-        <section className="cat-block" key={name} id={`props-${name.toLowerCase()}`}>
-          <h2 className="cat-h2">{name} Props</h2>
-          <PropsTable pkg={pkg.id} name={name} />
-        </section>
-      ))}
     </article>
   );
 }

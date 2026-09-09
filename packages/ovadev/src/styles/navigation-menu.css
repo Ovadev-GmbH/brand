@@ -1,0 +1,17 @@
+/* Navigation Menu — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ova-navigation-menu-arrow       NavigationMenu.Arrow
+   .ova-navigation-menu-backdrop    NavigationMenu.Backdrop
+   .ova-navigation-menu-content     NavigationMenu.Content
+   .ova-navigation-menu-icon        NavigationMenu.Icon
+   .ova-navigation-menu-item        NavigationMenu.Item
+   .ova-navigation-menu-link        NavigationMenu.Link
+   .ova-navigation-menu-list        NavigationMenu.List
+   .ova-navigation-menu-popup       NavigationMenu.Popup
+   .ova-navigation-menu-portal      NavigationMenu.Portal
+   .ova-navigation-menu-positioner  NavigationMenu.Positioner
+   .ova-navigation-menu             NavigationMenu.Root
+   .ova-navigation-menu-trigger     NavigationMenu.Trigger
+   .ova-navigation-menu-viewport    NavigationMenu.Viewport
+*/

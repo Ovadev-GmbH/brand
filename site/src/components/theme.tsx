@@ -1,7 +1,8 @@
 /* Three-state theme, the way the docs sites do it: system, light, dark.
    "system" writes no attribute and lets prefers-color-scheme decide; the two
-   explicit choices stamp data-theme on <html> so the CSS in tokens.css can
-   win in both directions. The choice is remembered per browser.
+   explicit choices stamp data-theme on <html> so the token layer in
+   styles/app.css can win in both directions. The choice is remembered per
+   browser.
 
    index.html runs the same read before first paint, so a dark reader never
    sees a white flash. */
@@ -57,16 +58,19 @@ const OPTIONS: { value: Theme; label: string; Icon: React.ComponentType<{ size?:
   { value: "dark", label: "Dark", Icon: MoonIcon },
 ];
 
+/** One fieldset of radios: the input is the state, the label is the button.
+ *  A radio group rather than three buttons, so the three are announced as one
+ *  choice and the arrow keys move between them for free. */
 export function ThemeSwitcher() {
   const { theme, setTheme } = useTheme();
   const id = React.useId();
   return (
-    <fieldset className="g-theme">
-      <legend>Select a display theme:</legend>
+    <fieldset className="m-0 flex h-8 w-fit rounded-full border-0 p-0 shadow-border">
+      <legend className="sr-only">Select a display theme:</legend>
       {OPTIONS.map(({ value, label, Icon }) => (
-        <span className="g-theme__opt" key={value}>
+        <span className="block h-full" key={value}>
           <input
-            className="g-theme__input"
+            className="peer absolute opacity-0 pointer-events-none"
             type="radio"
             id={`${id}-${value}`}
             name={`${id}-theme`}
@@ -74,8 +78,11 @@ export function ThemeSwitcher() {
             checked={theme === value}
             onChange={() => setTheme(value)}
           />
-          <label className="g-theme__label" htmlFor={`${id}-${value}`}>
-            <span className="g-sr">{label}</span>
+          <label
+            className="flex size-8 cursor-pointer items-center justify-center rounded-full text-gray-700 hover:text-gray-1000 peer-checked:bg-bg-100 peer-checked:text-gray-1000 peer-checked:shadow-[0_0_0_1px_var(--color-gray-400),var(--shadow-small)] peer-focus-visible:shadow-[0_0_0_2px_var(--color-bg-100),0_0_0_4px_var(--color-accent)]"
+            htmlFor={`${id}-${value}`}
+          >
+            <span className="sr-only">{label}</span>
             <Icon />
           </label>
         </span>

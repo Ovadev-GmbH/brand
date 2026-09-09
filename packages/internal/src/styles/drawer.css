@@ -1,0 +1,16 @@
+/* Drawer — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ui-drawer-backdrop           Drawer.Backdrop
+   .ui-drawer-close              Drawer.Close
+   .ui-drawer-content            Drawer.Content
+   .ui-drawer-description        Drawer.Description
+   .ui-drawer-indent             Drawer.Indent
+   .ui-drawer-indent-background  Drawer.IndentBackground
+   .ui-drawer-popup              Drawer.Popup
+   .ui-drawer-portal             Drawer.Portal
+   .ui-drawer-swipe-area         Drawer.SwipeArea
+   .ui-drawer-title              Drawer.Title
+   .ui-drawer-trigger            Drawer.Trigger
+   .ui-drawer-viewport           Drawer.Viewport
+*/

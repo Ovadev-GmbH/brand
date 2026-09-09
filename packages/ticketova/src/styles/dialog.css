@@ -1,0 +1,12 @@
+/* Dialog — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .tova-dialog-backdrop     Dialog.Backdrop
+   .tova-dialog-close        Dialog.Close
+   .tova-dialog-description  Dialog.Description
+   .tova-dialog-popup        Dialog.Popup
+   .tova-dialog-portal       Dialog.Portal
+   .tova-dialog-title        Dialog.Title
+   .tova-dialog-trigger      Dialog.Trigger
+   .tova-dialog-viewport     Dialog.Viewport
+*/

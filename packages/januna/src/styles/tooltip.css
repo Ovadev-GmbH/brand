@@ -1,0 +1,10 @@
+/* Tooltip — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .jan-tooltip-arrow       Tooltip.Arrow
+   .jan-tooltip-popup       Tooltip.Popup
+   .jan-tooltip-portal      Tooltip.Portal
+   .jan-tooltip-positioner  Tooltip.Positioner
+   .jan-tooltip-trigger     Tooltip.Trigger
+   .jan-tooltip-viewport    Tooltip.Viewport
+*/

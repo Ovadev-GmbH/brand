@@ -1,8 +1,6 @@
 // The component catalog's registry — one entry per component, one file per
 // package. A page in the catalog is nothing but this data rendered: the
-// sidebar, the visual index and the component pages all read it, and the
-// props tables come from src/data/brand/props.json, generated out of the
-// packages' TypeScript by scripts/gen-brand-props.mjs.
+// sidebar, the visual index and the component pages all read it.
 
 import type { ComponentType } from "react";
 
@@ -15,8 +13,6 @@ export type Example = {
   Component: ComponentType;
   /** The example file, verbatim (a Vite `?raw` import). */
   source: string;
-  /** Start on the dark ground. Right for a component whose brand is dark. */
-  dark?: boolean;
 };
 
 export type Entry = {
@@ -26,8 +22,8 @@ export type Entry = {
   summary: string;
   status?: "draft" | "deprecated";
   examples: Example[];
-  /** Components whose props to list, by display name in the package. Defaults to [name]. */
-  props?: string[];
+  /** What the page's import line names. Defaults to [name]. */
+  imports?: string[];
 };
 
 export type Pkg = {

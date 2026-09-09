@@ -1,0 +1,10 @@
+import { Input } from "@ovadev-gmbh/ui-januna";
+
+export default function InputBasic() {
+  return (
+    <label>
+      Name
+      <Input placeholder="e.g. Colm Tuite" />
+    </label>
+  );
+}

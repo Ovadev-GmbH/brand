@@ -1,0 +1,10 @@
+/* Toolbar — unstyled. These are every class the wrapper puts on the
+   DOM; give them rules to make this component the brand's.
+
+   .ova-toolbar-button     Toolbar.Button
+   .ova-toolbar-group      Toolbar.Group
+   .ova-toolbar-input      Toolbar.Input
+   .ova-toolbar-link       Toolbar.Link
+   .ova-toolbar            Toolbar.Root
+   .ova-toolbar-separator  Toolbar.Separator
+*/
