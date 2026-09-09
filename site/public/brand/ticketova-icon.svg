@@ -1,5 +1,6 @@
+<!-- TICKETOVA icon, from INTERN/public/brand/ticketova-icon.svg. -->
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M78.9976 140V56.4198H64V40H116V56.4198H101.125V140H78.9976Z" fill="black"/>
-<path d="M0 160.22H180V180H0V160.22Z" fill="black"/>
-<path d="M0 0H180V19.7802H0V0Z" fill="black"/>
+<path d="M78.9976 140V56.4198H64V40H116V56.4198H101.125V140H78.9976Z" fill="currentColor"/>
+<path d="M0 160.22H180V180H0V160.22Z" fill="currentColor"/>
+<path d="M0 0H180V19.7802H0V0Z" fill="currentColor"/>
 </svg>

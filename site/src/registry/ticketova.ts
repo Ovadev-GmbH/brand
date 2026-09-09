@@ -6,8 +6,7 @@ export const ticketova: Pkg = {
   id: "ticketova",
   name: "TICKETOVA",
   pkg: "@ovadev-gmbh/ui-ticketova",
-  intro:
-    "The TICKETOVA identity: light, green #065f46 as the only non-neutral. Tokens from Landing/apps/ticketova. Every component is Base UI, unstyled: the class hooks are in place, the brand is not.",
+  intro: "The TICKETOVA design system: light, with one green and nothing else that is not a neutral.",
   groups: [...BASE_UI_GROUPS],
   entries: [...baseUiEntries],
 };

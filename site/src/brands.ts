@@ -19,6 +19,8 @@ export type Mark = {
   name: string;
   /** LGO or ICO in the filename the studio builds. */
   kind: "logo" | "icon";
+  /** One line under the name, if the drawing needs one. */
+  note?: string;
 };
 export type TypeRow = { name: string; family: string; weight: number; size: string; note: string };
 
@@ -41,8 +43,8 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   ovadev: {
     letter: "O",
     marks: [
-      { file: "ovadev-logo", name: "Logo", kind: "logo" },
-      { file: "ovadev-logo", name: "Icon", kind: "icon" },
+      { file: "ovadev-logo", name: "Logo", kind: "logo", note: "The OVADEV wordmark, outlined — it needs no font." },
+      { file: "ovadev-icon", name: "Icon", kind: "icon", note: "The pixel O. Its red quadrant is an accent, so the monochrome cut leaves it out." },
     ],
     mark: "Ovadev",
     dark: true,
@@ -64,8 +66,8 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   ticketova: {
     letter: "T",
     marks: [
-      { file: "ticketova-logo", name: "Logo", kind: "logo" },
-      { file: "ticketova-icon", name: "Icon", kind: "icon" },
+      { file: "ticketova-logo", name: "Logo", kind: "logo", note: "The wordmark between its two rules." },
+      { file: "ticketova-icon", name: "Icon", kind: "icon", note: "The T, between the same two rules." },
     ],
     mark: "TICKETOVA",
     dark: false,
@@ -87,8 +89,8 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   januna: {
     letter: "J",
     marks: [
-      { file: "januna-logo", name: "Logo", kind: "logo" },
-      { file: "januna-icon", name: "Icon", kind: "icon" },
+      { file: "januna-logo", name: "Logo", kind: "logo", note: "The Januna wordmark." },
+      { file: "januna-icon", name: "Icon", kind: "icon", note: "The wave, placed on the square the app icon uses." },
     ],
     mark: "Januna",
     dark: false,

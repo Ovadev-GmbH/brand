@@ -1,65 +1,67 @@
-/* A package's front page, in the shape of the Geist introduction: the name and
-   one line at the top, how to install it, then its components as cards in the
-   hairline grid — one cell each, the component itself on top and its name at
-   the foot. The grid runs edge to edge of the content column, which is why it
-   is pulled back out of the column's padding. */
+/* A design system's front door, in the shape Geist uses: its name, one line
+   saying what it is, and a grid of the parts it is made of.
+ *
+ * Only the parts that exist say anything. A section that has not been built
+ * yet is a card with an empty stage and a page behind it that says so — not a
+ * card dressed up to look finished. Things get added; nothing gets faked. */
 
+import { Link } from "react-router";
 import type { Pkg } from "../types";
-import { grouped } from "../registry";
-import { pkgVersion } from "../versions";
+import { grouped, href } from "../registry";
 import { CHROME } from "../brands";
-import { Thumb } from "../components/Thumb";
 import { Grid, Cell } from "../components/Grid";
+import { MarkRow } from "../components/MarkRow";
+
+type Section = { name: string; blurb: string; to: string; preview?: React.ReactNode };
 
 export function IntroPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
+  const marks = chrome.marks ?? [];
+  const components = grouped(pkg).reduce((n, g) => n + g.entries.length, 0);
+
+  const sections: Section[] = [
+    ...(marks.length
+      ? [
+          {
+            name: "Brand Assets",
+            blurb: "The marks, and every variant the naming scheme allows.",
+            to: `${href(pkg.id)}/brand-assets`,
+            preview: <MarkRow marks={marks} />,
+          },
+        ]
+      : []),
+    { name: "Colors", blurb: `The ${chrome.swatches.length} values this system paints with.`, to: `${href(pkg.id)}/colors` },
+    { name: "Typeface", blurb: "The faces it sets text in, at the sizes it uses.", to: `${href(pkg.id)}/typography` },
+    { name: "Components", blurb: `${components} components, Base UI underneath and unstyled.`, to: `${href(pkg.id)}/components` },
+  ];
+
   return (
     <article>
       <header className="mb-10">
-        <h1 className="mb-3 font-display text-2xl leading-tight md:text-4xl">{pkg.name}</h1>
+        <h1 className="mb-3 font-display text-2xl leading-tight md:text-4xl">{pkg.name} Design System</h1>
         <p className="mt-3 max-w-[62ch] text-base leading-normal text-gray-900 md:text-xl">{pkg.intro}</p>
       </header>
 
-      <section className="mb-12 max-w-224">
-        <h2 className="mb-4 font-display text-xl">Install</h2>
-        <pre className="scrollbar-quiet m-0 overflow-auto rounded-brand border border-alpha-400 bg-bg-200 px-5 py-4 text-[13px] leading-relaxed text-gray-1000">
-          <code>{`bun add ${pkg.pkg}@${pkgVersion(pkg.id)}\n\nimport { … } from "${pkg.pkg}";\nimport "${pkg.pkg}/styles.css";`}</code>
-        </pre>
-        <dl className="mt-4 grid grid-cols-[max-content_1fr] gap-x-6 gap-y-1.5 text-sm [&_dd]:m-0 [&_dt]:text-gray-900 [&_a]:text-accent">
-          <dt>Version</dt>
-          <dd>{pkgVersion(pkg.id)}</dd>
-          <dt>Registry</dt>
-          <dd>npm.pkg.github.com</dd>
-          <dt>Tokens</dt>
-          <dd>{chrome.source}</dd>
-          <dt>Source</dt>
-          <dd>
-            <a href={`https://github.com/Ovadev-GmbH/brand/tree/main/packages/${pkg.id}`}>
-              Ovadev-GmbH/brand › packages/{pkg.id}
-            </a>
-          </dd>
-        </dl>
-      </section>
-
-      {grouped(pkg).map(({ group, entries }) => (
-        <section className="mb-12" key={group}>
-          <h2 className="mb-4 font-display text-xl">
-            {group}{" "}
-            <span className="ml-2 font-mono text-[13px] font-normal tracking-normal text-gray-700">
-              {entries.length}
-            </span>
-          </h2>
-          <div className="-mx-6 lg:-mx-12">
-            <Grid cols={2}>
-              {entries.map((e) => (
-                <Cell key={e.slug}>
-                  <Thumb pkg={pkg.id} entry={e} />
-                </Cell>
-              ))}
-            </Grid>
-          </div>
-        </section>
-      ))}
+      <div className="-mx-6 lg:-mx-12">
+        <Grid cols={2}>
+          {sections.map((s) => (
+            <Cell key={s.name}>
+              <Link
+                to={s.to}
+                className="flex h-full flex-col gap-6 p-8 text-inherit no-underline transition-colors duration-150 hover:bg-alpha-100"
+              >
+                <div className="pointer-events-none flex min-h-24 select-none items-center justify-center overflow-hidden">
+                  {s.preview ?? null}
+                </div>
+                <div className="mt-auto">
+                  <p className="text-base font-semibold text-gray-1000">{s.name}</p>
+                  <p className="mt-0.5 text-sm text-gray-900">{s.blurb}</p>
+                </div>
+              </Link>
+            </Cell>
+          ))}
+        </Grid>
+      </div>
     </article>
   );
 }

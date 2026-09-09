@@ -14,14 +14,16 @@ export type NavItem = {
   entry?: Entry;
 };
 
-/** Logo is only a page for a brand that has marks: ui-internal has none of its
- *  own, it wears Ovadev's. */
+/** The pages above the components, in the order the introduction lists them.
+ *  Brand Assets only exists for a brand that has marks: ui-internal has none
+ *  of its own, it wears Ovadev's. */
 export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
   return [
     { slug: "", name: "Introduction" },
+    ...(CHROME[pkg.id].marks?.length ? [{ slug: "brand-assets", name: "Brand Assets" }] : []),
     { slug: "colors", name: "Colors" },
     { slug: "typography", name: "Typography" },
-    ...(CHROME[pkg.id].marks?.length ? [{ slug: "logo", name: "Logo" }] : []),
+    { slug: "components", name: "Components" },
   ];
 }
 

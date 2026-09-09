@@ -10,8 +10,7 @@ export const internal: Pkg = {
   id: "internal",
   name: "Internal",
   pkg: "@ovadev-gmbh/ui-internal",
-  intro:
-    "The primitives for the internal tools: every Base UI component under the ui-* prefix, unstyled. The class hooks are in place, the styling is not — and INTERN does not install this yet.",
+  intro: "The design system the internal tools are built from, under the ui-* prefix.",
   groups: [...BASE_UI_GROUPS],
   entries: [...baseUiEntries],
 };

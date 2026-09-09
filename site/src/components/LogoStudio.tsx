@@ -58,7 +58,11 @@ const CDN_BASE = "https://cdn.intern.ova.dev/conventions/imagery/";
 
 /* ── drawing ───────────────────────────────────────────────────────────── */
 
-const recolor = (svg: string, color: string) => svg.replace(/fill="(black|#000000|#000)"/gi, `fill="${color}"`);
+/** Every mark in public/brand paints itself in currentColor, so setting the
+ *  colour on the root is the whole of recolouring — no fill in the artwork has
+ *  to be found and rewritten. */
+const recolor = (svg: string, color: string) =>
+  svg.replace(/<svg([^>]*?)>/, (_m, a: string) => `<svg${a.replace(/\scolor="[^"]*"/g, "")} color="${color}">`);
 
 function viewBoxRatio(svg: string): number {
   const m = /viewBox="([\d.\s-]+)"/.exec(svg);
@@ -121,7 +125,9 @@ function download(blob: Blob, filename: string) {
 
 /* ── controls ──────────────────────────────────────────────────────────── */
 
-function Segmented({
+/** A labelled row of choices. The buttons split the width evenly, so the four
+ *  controls line up as a form rather than reading as four different widths. */
+function Field({
   label,
   options,
   index,
@@ -135,9 +141,12 @@ function Segmented({
   off?: (i: number) => boolean;
 }) {
   return (
-    <div className="flex items-center justify-between gap-4">
-      <span className="text-[13px] text-gray-900">{label}</span>
-      <div className="flex rounded-brand bg-bg-200 p-0.5 shadow-border">
+    <div>
+      <span className="mb-1.5 block text-[11px] tracking-wide text-gray-700 uppercase">{label}</span>
+      <div
+        className="grid gap-0.5 rounded-brand bg-bg-200 p-0.5 shadow-border"
+        style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}
+      >
         {options.map((o, i) => {
           const disabled = off?.(i) ?? false;
           return (
@@ -146,7 +155,7 @@ function Segmented({
               type="button"
               disabled={disabled}
               aria-pressed={index === i}
-              className={`h-7 cursor-pointer rounded-brand border-0 px-2 font-mono text-[11px] ${
+              className={`h-7 cursor-pointer rounded-brand border-0 font-mono text-[11px] ${
                 index === i
                   ? "bg-bg-100 text-gray-1000 shadow-border"
                   : disabled
@@ -210,7 +219,10 @@ function AssetCard({ letter, mark }: { letter: string; mark: Mark }) {
   }, [hasBg, ground, mark.kind]);
 
   const comp = React.useMemo(
-    () => (raw ? composite(recolor(raw, at(FG, fg).value), { bg: ground, padF: at(PADS, pad).f, radF: radiusOf(rad, pad) }) : null),
+    () =>
+      raw
+        ? composite(recolor(raw, at(FG, fg).value), { bg: ground, padF: at(PADS, pad).f, radF: radiusOf(rad, pad) })
+        : null,
     [raw, fg, ground, pad, rad],
   );
 
@@ -218,7 +230,15 @@ function AssetCard({ letter, mark }: { letter: string; mark: Mark }) {
   // never resizes when padding is added or taken away.
   const preview = comp?.svg.replace(/<svg([^>]*?)>/, (_m, a: string) => `<svg width="100%" height="100%"${a}>`);
 
-  const name = [letter, "IMG", mark.kind === "logo" ? "LGO" : "ICO", at(FG, fg).name, at(BG, bg).name, at(PADS, pad).name, at(RADII, rad).name].join("_");
+  const name = [
+    letter,
+    "IMG",
+    mark.kind === "logo" ? "LGO" : "ICO",
+    at(FG, fg).name,
+    at(BG, bg).name,
+    at(PADS, pad).name,
+    at(RADII, rad).name,
+  ].join("_");
   const filename = `${name}${format === "svg" ? "" : `_PX-${px}`}.${format}`;
 
   // A logo stops at normal padding; only an icon gets the full badge.
@@ -242,10 +262,20 @@ function AssetCard({ letter, mark }: { letter: string; mark: Mark }) {
     }
   }
 
+  async function copyCdn() {
+    try {
+      await navigator.clipboard.writeText(`${CDN_BASE}${filename}`);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1600);
+    } catch {
+      /* clipboard blocked — nothing to do */
+    }
+  }
+
   return (
     <div className="flex h-full flex-col gap-6 p-8">
       <div
-        className={`flex h-40 items-center justify-center overflow-hidden rounded-brand p-4 ${
+        className={`flex h-40 items-center justify-center overflow-hidden rounded-brand p-5 ${
           checkerDark ? "bg-checker-dark" : "bg-checker"
         }`}
       >
@@ -254,77 +284,66 @@ function AssetCard({ letter, mark }: { letter: string; mark: Mark }) {
         ) : null}
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div>
         <p className="text-base font-semibold text-gray-1000">{mark.name}</p>
-        <Segmented label="Background" options={BG} index={bg} onPick={setBg} />
-        <Segmented label="Colour" options={FG} index={fg} onPick={setFg} off={(i) => hasBg && at(FG, i).value === ground} />
-        <Segmented label="Padding" options={pads} index={pad} onPick={setPad} off={(i) => (hasBg ? i === 0 : i !== 0)} />
-        <Segmented label="Corners" options={RADII} index={rad} onPick={setRad} off={(i) => !hasBg && i !== 0} />
+        {mark.note ? <p className="mt-0.5 text-sm text-gray-900">{mark.note}</p> : null}
       </div>
 
-      <div className="mt-auto flex flex-col gap-2">
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex rounded-brand bg-bg-200 p-0.5 shadow-border">
-            {FORMATS.map((f) => (
-              <button
-                key={f}
-                type="button"
-                aria-pressed={format === f}
-                className={`h-7 cursor-pointer rounded-brand border-0 px-2 font-mono text-[11px] ${
-                  format === f ? "bg-bg-100 text-gray-1000 shadow-border" : "bg-transparent text-gray-900 hover:text-gray-1000"
-                }`}
-                onClick={() => setFormat(f)}
+      <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+        <Field label="Background" options={BG} index={bg} onPick={setBg} />
+        <Field label="Colour" options={FG} index={fg} onPick={setFg} off={(i) => hasBg && at(FG, i).value === ground} />
+        <Field label="Padding" options={pads} index={pad} onPick={setPad} off={(i) => (hasBg ? i === 0 : i !== 0)} />
+        <Field label="Corners" options={RADII} index={rad} onPick={setRad} off={(i) => !hasBg && i !== 0} />
+      </div>
+
+      <div className="mt-auto flex flex-col gap-3">
+        <div className="grid grid-cols-2 gap-x-4">
+          <Field label="Format" options={FORMATS.map((f) => ({ name: f }))} index={FORMATS.indexOf(format)} onPick={(i) => setFormat(at([...FORMATS], i))} />
+          <div>
+            <span className="mb-1.5 block text-[11px] tracking-wide text-gray-700 uppercase">Size</span>
+            {format === "svg" ? (
+              <p className="flex h-8 items-center text-[13px] text-gray-700" title="An SVG scales — it has no fixed size">
+                Scalable
+              </p>
+            ) : (
+              <select
+                className="h-8 w-full cursor-pointer rounded-brand border-0 bg-bg-200 px-2 font-mono text-[11px] text-gray-1000 shadow-border"
+                value={px}
+                aria-label="Pixel height"
+                onChange={(e) => setPx(Number(e.target.value))}
               >
-                {f}
-              </button>
-            ))}
+                {SIZES.map((s) => (
+                  <option key={s} value={s}>
+                    {s} px
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
-          {format === "svg" ? (
-            <span className="text-[13px] text-gray-700" title="An SVG scales — it has no fixed size">
-              Scalable
-            </span>
-          ) : (
-            <select
-              className="h-7 cursor-pointer rounded-brand border-0 bg-bg-200 px-2 font-mono text-[11px] text-gray-1000 shadow-border"
-              value={px}
-              aria-label="Pixel height"
-              onChange={(e) => setPx(Number(e.target.value))}
-            >
-              {SIZES.map((s) => (
-                <option key={s} value={s}>
-                  {s} px
-                </option>
-              ))}
-            </select>
-          )}
         </div>
 
         <button
           type="button"
-          className="h-9 w-full cursor-pointer truncate rounded-brand border-0 bg-bg-200 px-3 font-mono text-[11px] text-gray-1000 shadow-border hover:bg-alpha-100 disabled:cursor-not-allowed disabled:text-gray-700"
+          className="h-9 w-full cursor-pointer rounded-brand border-0 bg-gray-1000 text-sm font-medium text-bg-100 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
           onClick={save}
           disabled={busy || !comp}
-          title={filename}
         >
-          {busy ? "Rendering…" : filename}
+          {busy ? "Rendering…" : `Download ${format.toUpperCase()}`}
         </button>
 
-        <button
-          type="button"
-          className="h-9 w-full cursor-pointer rounded-brand border-0 bg-transparent px-3 text-[13px] text-gray-900 hover:text-gray-1000"
-          title={`${CDN_BASE}${filename}`}
-          onClick={async () => {
-            try {
-              await navigator.clipboard.writeText(`${CDN_BASE}${filename}`);
-              setCopied(true);
-              window.setTimeout(() => setCopied(false), 1600);
-            } catch {
-              /* clipboard blocked — nothing to do */
-            }
-          }}
-        >
-          {copied ? "CDN link copied" : "Copy CDN link"}
-        </button>
+        {/* The filename is the point of the tool, so it is readable and
+            selectable rather than hidden inside the button. */}
+        <div className="flex items-start justify-between gap-3">
+          <code className="min-w-0 font-mono text-[11px] leading-4 break-all text-gray-700">{filename}</code>
+          <button
+            type="button"
+            className="shrink-0 cursor-pointer border-0 bg-transparent text-[11px] whitespace-nowrap text-gray-900 underline underline-offset-2 hover:text-gray-1000"
+            title={`${CDN_BASE}${filename}`}
+            onClick={copyCdn}
+          >
+            {copied ? "Copied" : "CDN link"}
+          </button>
+        </div>
       </div>
     </div>
   );

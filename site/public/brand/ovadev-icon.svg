@@ -1,0 +1,5 @@
+<!-- Ovadev icon, from Landing/apps/ova/public/icon.svg. Its paper is dropped — the
+     background is a switch here — and so is the red quadrant: it is an accent, and
+     flattening it into the same ink would turn the mark into a solid square. This
+     studio is black and white, so this is the monochrome cut. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88" fill="none" shape-rendering="crispEdges" role="img" aria-label="Ovadev"><g fill="currentColor"><rect x="0" y="0" width="88" height="11"/><rect x="0" y="11" width="88" height="11"/><rect x="0" y="22" width="88" height="11"/><rect x="0" y="33" width="33" height="11"/><rect x="55" y="33" width="33" height="11"/><rect x="0" y="44" width="33" height="11"/><rect x="55" y="44" width="33" height="11"/><rect x="0" y="55" width="55" height="11"/><rect x="0" y="66" width="55" height="11"/><rect x="0" y="77" width="55" height="11"/></g></svg>

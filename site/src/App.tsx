@@ -6,14 +6,21 @@ import { HomePage } from "./pages/HomePage";
 import { IntroPage } from "./pages/IntroPage";
 import { ColorsPage } from "./pages/ColorsPage";
 import { TypographyPage } from "./pages/TypographyPage";
-import { LogoPage } from "./pages/LogoPage";
+import { BrandAssetsPage } from "./pages/BrandAssetsPage";
+import { ComponentsPage } from "./pages/ComponentsPage";
 import { EntryPage } from "./pages/EntryPage";
 
 /* Each brand is its own catalog under /<brand>, with its own shell, its own
    ⌘K and its own foundations. The root is the chooser and the only place the
    four brands are named together. */
 
-const PAGES = { intro: IntroPage, colors: ColorsPage, typography: TypographyPage, logo: LogoPage };
+const PAGES = {
+  intro: IntroPage,
+  colors: ColorsPage,
+  typography: TypographyPage,
+  "brand-assets": BrandAssetsPage,
+  components: ComponentsPage,
+};
 
 function Brand({ page }: { page: keyof typeof PAGES }) {
   const { pkg: id } = useParams();
@@ -59,7 +66,8 @@ export function App() {
         <Route path="/:pkg" element={<Brand page="intro" />} />
         <Route path="/:pkg/colors" element={<Brand page="colors" />} />
         <Route path="/:pkg/typography" element={<Brand page="typography" />} />
-        <Route path="/:pkg/logo" element={<Brand page="logo" />} />
+        <Route path="/:pkg/brand-assets" element={<Brand page="brand-assets" />} />
+        <Route path="/:pkg/components" element={<Brand page="components" />} />
         <Route path="/:pkg/:slug" element={<Component />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
