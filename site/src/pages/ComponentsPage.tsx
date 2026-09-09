@@ -12,10 +12,7 @@ export function ComponentsPage({ pkg }: { pkg: Pkg }) {
   return (
     <article>
       <header className="mb-10">
-        <h1 className="mb-3 font-display text-2xl leading-tight md:text-4xl">Components</h1>
-        <p className="mt-3 max-w-[62ch] text-base leading-normal text-gray-900 md:text-xl">
-          Base UI underneath, unstyled: the class hooks are in place, the brand is not.
-        </p>
+        <h1 className="font-display text-2xl leading-tight md:text-4xl">Components</h1>
       </header>
 
       {groups.map(({ group, entries }) => (

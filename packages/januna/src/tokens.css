@@ -1,14 +1,22 @@
-/* Januna brand tokens. Values taken from the Januna repo's
-   src/app/globals.css, which is a shadcn theme and states its palette in
-   oklch. They are kept in oklch rather than converted to hex, so a value
-   here and a value there are the same string. */
+/* Januna brand tokens.
+ *
+ * The Januna repo's src/app/globals.css states its values twice: a shadcn
+ * preset at the top, and below it the hand-written block that overrules it,
+ * which is the real palette. That block says plainly that each colour carries
+ * its hex in a comment and "that hex is the source of truth" — so these are
+ * the hex, not the oklch the preset happens to be written in.
+ *
+ *   green-dark #094413  every filled button and the primary surface
+ *   taupe      #f9f3ed  what green-dark carries, never white
+ *   grey       #2c2c2c  the ink
+ */
 :root {
-  --jan-bg: oklch(1 0 0);
-  --jan-fg: oklch(0.145 0 0);
-  --jan-accent: oklch(0.527 0.154 150.069);
-  --jan-on-accent: oklch(0.982 0.018 155.826);
-  --jan-muted: oklch(0.556 0 0);
-  --jan-line: oklch(0.922 0 0);
+  --jan-bg: #ffffff;
+  --jan-fg: #2c2c2c;
+  --jan-accent: #094413;
+  --jan-on-accent: #f9f3ed;
+  --jan-muted: #6b6b6b;
+  --jan-line: rgba(44, 44, 44, 0.16);
   --jan-radius: 10px;
   --jan-font: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
 }

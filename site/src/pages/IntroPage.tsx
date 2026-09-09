@@ -12,6 +12,8 @@ import { CHROME } from "../brands";
 import { Grid, Cell } from "../components/Grid";
 import { MarkRow } from "../components/MarkRow";
 
+/** Each door says only how much is behind it. A sentence per card would be
+ *  four different sentences to keep true; a count keeps itself. */
 type Section = { name: string; blurb: string; to: string; preview?: React.ReactNode };
 
 export function IntroPage({ pkg }: { pkg: Pkg }) {
@@ -24,22 +26,21 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
       ? [
           {
             name: "Brand Assets",
-            blurb: "The marks, and every variant the naming scheme allows.",
+            blurb: `${marks.length} marks`,
             to: `${href(pkg.id)}/brand-assets`,
             preview: <MarkRow marks={marks} />,
           },
         ]
       : []),
-    { name: "Colors", blurb: `The ${chrome.swatches.length} values this system paints with.`, to: `${href(pkg.id)}/colors` },
-    { name: "Typeface", blurb: "The faces it sets text in, at the sizes it uses.", to: `${href(pkg.id)}/typography` },
-    { name: "Components", blurb: `${components} components, Base UI underneath and unstyled.`, to: `${href(pkg.id)}/components` },
+    { name: "Colors", blurb: `${chrome.swatches.length} values`, to: `${href(pkg.id)}/colors` },
+    { name: "Typeface", blurb: `${chrome.type.length} faces`, to: `${href(pkg.id)}/typography` },
+    { name: "Components", blurb: `${components} components`, to: `${href(pkg.id)}/components` },
   ];
 
   return (
     <article>
       <header className="mb-10">
-        <h1 className="mb-3 font-display text-2xl leading-tight md:text-4xl">{pkg.name} Design System</h1>
-        <p className="mt-3 max-w-[62ch] text-base leading-normal text-gray-900 md:text-xl">{pkg.intro}</p>
+        <h1 className="font-display text-2xl leading-tight md:text-4xl">{pkg.name} Design System</h1>
       </header>
 
       <div className="-mx-6 lg:-mx-12">

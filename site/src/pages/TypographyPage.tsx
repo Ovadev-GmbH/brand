@@ -10,10 +10,7 @@ export function TypographyPage({ pkg }: { pkg: Pkg }) {
   return (
     <article className="max-w-224">
       <header className="mb-10">
-        <h1 className="mb-3 font-display text-2xl leading-tight md:text-4xl">Typography</h1>
-        <p className="mt-3 text-[13px] text-gray-900">
-          From <code>{chrome.source}</code>
-        </p>
+        <h1 className="font-display text-2xl leading-tight md:text-4xl">Typography</h1>
       </header>
       <section className="mt-12">
         {chrome.type.map((t) => (

@@ -32,7 +32,6 @@ export type Pkg = {
   name: string;
   /** The npm name. */
   pkg: string;
-  intro: string;
   /** Group order in the sidebar; entries name one of these. */
   groups: string[];
   entries: Entry[];

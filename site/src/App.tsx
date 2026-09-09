@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Navigate, Route, Routes, useLocation, useParams } from "react-router";
+import { Route, Routes, useLocation, useParams } from "react-router";
 import { entryBySlug, pkgById } from "./registry";
+import { CHROME } from "./brands";
 import { Shell } from "./components/Shell";
 import { HomePage } from "./pages/HomePage";
 import { IntroPage } from "./pages/IntroPage";
@@ -8,6 +9,7 @@ import { ColorsPage } from "./pages/ColorsPage";
 import { TypographyPage } from "./pages/TypographyPage";
 import { BrandAssetsPage } from "./pages/BrandAssetsPage";
 import { ComponentsPage } from "./pages/ComponentsPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 import { EntryPage } from "./pages/EntryPage";
 
 /* Each brand is its own catalog under /<brand>, with its own shell, its own
@@ -25,25 +27,28 @@ const PAGES = {
 function Brand({ page }: { page: keyof typeof PAGES }) {
   const { pkg: id } = useParams();
   const pkg = pkgById(id);
-  if (!pkg) return <Navigate to="/" replace />;
+  if (!pkg) return <NotFound />;
+  // Brand Assets only exists where there are marks, so switching to a brand
+  // without them lands on 404 rather than somewhere it was not asked for.
+  const missing = page === "brand-assets" && !CHROME[pkg.id].marks?.length;
   const Body = PAGES[page];
-  return (
-    <Shell pkg={pkg}>
-      <Body pkg={pkg} />
-    </Shell>
-  );
+  return <Shell pkg={pkg}>{missing ? <NotFoundPage pkg={pkg} /> : <Body pkg={pkg} />}</Shell>;
 }
 
 function Component() {
   const { pkg: id, slug } = useParams();
   const pkg = pkgById(id);
   const entry = pkg ? entryBySlug(pkg, slug) : undefined;
-  if (!pkg) return <Navigate to="/" replace />;
-  if (!entry) return <Navigate to={`/${pkg.id}`} replace />;
+  if (!pkg) return <NotFound />;
+  return <Shell pkg={pkg}>{entry ? <EntryPage pkg={pkg} entry={entry} /> : <NotFoundPage pkg={pkg} />}</Shell>;
+}
+
+/** Without a package there is no shell to put the page in. */
+function NotFound() {
   return (
-    <Shell pkg={pkg}>
-      <EntryPage pkg={pkg} entry={entry} />
-    </Shell>
+    <div className="mx-auto min-h-screen max-w-shell border-x border-alpha-400 bg-bg-100 px-6 py-12 md:px-12 md:py-16">
+      <NotFoundPage />
+    </div>
   );
 }
 
@@ -69,7 +74,7 @@ export function App() {
         <Route path="/:pkg/brand-assets" element={<Brand page="brand-assets" />} />
         <Route path="/:pkg/components" element={<Brand page="components" />} />
         <Route path="/:pkg/:slug" element={<Component />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

@@ -100,9 +100,9 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     dark: false,
     source: "packages/januna/src/tokens.css — taken from the Januna repo's globals.css",
     swatches: [
-      { name: "Background", token: "--jan-bg", value: "oklch(1 0 0)" },
-      { name: "Foreground", token: "--jan-fg", value: "oklch(0.145 0 0)" },
-      { name: "Accent", token: "--jan-accent", value: "oklch(0.527 0.154 150.069)" },
+      { name: "Background", token: "--jan-bg", value: "#ffffff" },
+      { name: "Foreground", token: "--jan-fg", value: "#2c2c2c" },
+      { name: "Accent", token: "--jan-accent", value: "#094413" },
     ],
     type: [
       { name: "Display", family: '"Instrument Sans", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "--jan-font" },

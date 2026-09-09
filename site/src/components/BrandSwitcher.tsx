@@ -8,7 +8,7 @@
    the trigger, Tab out closes. */
 
 import * as React from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import type { Pkg } from "../types";
 import { PACKAGES, href } from "../registry";
 import { CaretIcon } from "./icons";
@@ -21,17 +21,29 @@ const shortName = (pkg: string) => pkg.replace(/^@[^/]+\//, "");
 
 export function BrandSwitcher({ pkg }: { pkg: Pkg }) {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [open, setOpen] = React.useState(false);
   const wrapRef = React.useRef<HTMLDivElement>(null);
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const itemsRef = React.useRef<(HTMLButtonElement | null)[]>([]);
+
+  // Switching brands keeps you where you are: from Januna's Colors you land on
+  // TICKETOVA's. Where the other brand has no such page you land on its 404,
+  // which is the honest answer — Internal has no Brand Assets.
+  const rest = pathname.split("/").slice(2).join("/");
 
   // Named by the package rather than the wordmark: the four capitalise
   // themselves differently enough (INTERN, Ovadev, TICKETOVA, Januna) that a
   // list of them reads as noise. The scope is the same on all four, so it is
   // left off.
   const rows: Row[] = [
-    ...PACKAGES.map((p) => ({ key: p.id, label: shortName(p.pkg), to: href(p.id), current: p.id === pkg.id, mono: true })),
+    ...PACKAGES.map((p) => ({
+      key: p.id,
+      label: shortName(p.pkg),
+      to: rest ? `${href(p.id)}/${rest}` : href(p.id),
+      current: p.id === pkg.id,
+      mono: true,
+    })),
     { key: "__root", label: "All libraries", to: "/", current: false, root: true },
   ];
 

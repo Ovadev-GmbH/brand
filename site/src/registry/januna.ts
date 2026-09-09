@@ -6,7 +6,6 @@ export const januna: Pkg = {
   id: "januna",
   name: "Januna",
   pkg: "@ovadev-gmbh/ui-januna",
-  intro: "The Januna design system: white, green in oklch, set in Instrument Sans.",
   groups: [...BASE_UI_GROUPS],
   entries: [...baseUiEntries],
 };

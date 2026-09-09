@@ -10,7 +10,6 @@ export const internal: Pkg = {
   id: "internal",
   name: "Internal",
   pkg: "@ovadev-gmbh/ui-internal",
-  intro: "The design system the internal tools are built from, under the ui-* prefix.",
   groups: [...BASE_UI_GROUPS],
   entries: [...baseUiEntries],
 };
