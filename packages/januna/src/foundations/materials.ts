@@ -33,8 +33,8 @@ const stripe = (ring: number, contact: number, blur: string, lift: number) =>
   ({ stroke: `0 0 0 1px ${ink(ring)}`, shadow: `0 1px 1px ${ink(contact)}, ${blur} ${ink(lift)}` });
 
 export const SURFACE: Material[] = [
-  { cls: "material-base", name: "Base", radius: 12, fill: "var(--jan-surface-primary)", stroke: `0 0 0 1px ${ink(16)}`, shadow: "none", use: "Everyday use: cards at rest, list containers." },
-  { cls: "material-small", name: "Small", radius: 12, fill: "var(--jan-surface-primary)", ...stripe(16, 12, "0 2px 5px", 8), use: "Slightly raised: an input, a resting button, a card in a list." },
+  { cls: "material-base", name: "Base", radius: 12, fill: "var(--jan-surface-primary)", stroke: `0 0 0 1px ${ink(12)}`, shadow: "none", use: "Everyday use: cards at rest, list containers." },
+  { cls: "material-small", name: "Small", radius: 12, fill: "var(--jan-surface-primary)", stroke: `0 0 0 1px ${ink(12)}`, shadow: `0 1px 2px ${ink(6)}`, use: "Slightly raised: an input, a resting button, a card in a list. One hairline and a whisper under it." },
   { cls: "material-medium", name: "Medium", radius: 16, fill: "var(--jan-surface-primary)", ...stripe(12, 10, "0 4px 12px", 10), use: "Further raised: a card that invites a click." },
   { cls: "material-large", name: "Large", radius: 16, fill: "var(--jan-surface-primary)", ...stripe(10, 8, "0 8px 24px", 12), use: "The most raised thing on the page." },
 ];

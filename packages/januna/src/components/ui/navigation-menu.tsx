@@ -56,7 +56,7 @@ function NavigationMenuItem({
 }
 
 const navigationMenuTriggerStyle = cva(
-  "group/navigation-menu-trigger inline-flex h-10 w-max items-center justify-center rounded-regular px-3 py-2 text-button-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none hover:bg-surface-hover focus:bg-surface-hover focus-visible:ring-3 focus-visible:ring-ring/30 focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-popup-open:bg-surface-hover/50 data-popup-open:hover:bg-surface-hover data-open:bg-surface-hover/50 data-open:hover:bg-surface-hover data-open:focus:bg-surface-hover"
+  "group/navigation-menu-trigger inline-flex h-10 w-max items-center justify-center rounded-regular px-3 py-2 text-button-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none hover:bg-surface-hover focus:bg-surface-hover focus-visible:ring-1 focus-visible:ring-brand-bright focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-popup-open:bg-surface-hover/50 data-popup-open:hover:bg-surface-hover data-open:bg-surface-hover/50 data-open:hover:bg-surface-hover data-open:focus:bg-surface-hover"
 )
 
 function NavigationMenuTrigger({
@@ -129,7 +129,7 @@ function NavigationMenuLink({
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
       className={cn(
-        "flex items-center gap-2 rounded-regular px-3 py-2 text-button-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none hover:bg-surface-hover focus:bg-surface-hover focus-visible:ring-3 focus-visible:ring-ring/30 focus-visible:outline-1 in-data-[slot=navigation-menu-content]:w-full in-data-[slot=navigation-menu-content]:rounded-small in-data-[slot=navigation-menu-content]:px-3 in-data-[slot=navigation-menu-content]:py-2 in-data-[slot=navigation-menu-content]:text-label-14 data-[active=true]:bg-surface-active data-[active=true]:hover:bg-surface-hover data-[active=true]:focus:bg-surface-hover [&_svg:not([class*='size-'])]:size-4",
+        "flex items-center gap-2 rounded-regular px-3 py-2 text-button-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none hover:bg-surface-hover focus:bg-surface-hover focus-visible:ring-1 focus-visible:ring-brand-bright focus-visible:outline-1 in-data-[slot=navigation-menu-content]:w-full in-data-[slot=navigation-menu-content]:rounded-small in-data-[slot=navigation-menu-content]:px-3 in-data-[slot=navigation-menu-content]:py-2 in-data-[slot=navigation-menu-content]:text-label-14 data-[active=true]:bg-surface-active data-[active=true]:hover:bg-surface-hover data-[active=true]:focus:bg-surface-hover [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}

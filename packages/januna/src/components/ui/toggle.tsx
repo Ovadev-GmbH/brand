@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 
 const toggleVariants = cva(
-  "group/toggle inline-flex items-center justify-center gap-1 rounded-regular border border-transparent text-button-14 whitespace-nowrap transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none hover:bg-surface-hover hover:text-content-primary focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 aria-pressed:bg-surface-active aria-pressed:text-content-primary [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/toggle inline-flex items-center justify-center gap-1 rounded-regular border border-transparent text-button-14 whitespace-nowrap transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none hover:bg-surface-hover hover:text-content-primary focus-visible:ring-1 focus-visible:ring-brand-bright disabled:pointer-events-none disabled:opacity-50 aria-invalid:ring-status-danger aria-pressed:bg-surface-active aria-pressed:text-content-primary [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {

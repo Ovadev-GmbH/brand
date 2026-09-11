@@ -24,7 +24,7 @@ function NativeSelect({
       <select
         data-slot="native-select"
         data-size={size}
-        className="h-10 w-full min-w-0 appearance-none rounded-regular border border-transparent bg-surface-primary shadow-small py-1 pr-9 pl-3.5 text-label-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none select-none selection:bg-brand selection:text-content-inverse placeholder:text-content-tertiary focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-[size=sm]:h-7"
+        className="h-10 w-full min-w-0 appearance-none rounded-regular border border-transparent bg-surface-primary shadow-small py-1 pr-9 pl-3.5 text-label-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none select-none selection:bg-brand selection:text-content-inverse placeholder:text-content-tertiary focus-visible:ring-1 focus-visible:ring-brand-bright disabled:pointer-events-none disabled:cursor-not-allowed aria-invalid:ring-1 aria-invalid:ring-status-danger data-[size=sm]:h-7"
         {...props}
       />
       <HugeiconsIcon icon={UnfoldMoreIcon} strokeWidth={2} className="pointer-events-none absolute top-1/2 right-3.5 size-4 -translate-y-1/2 text-content-tertiary select-none" aria-hidden="true" data-slot="native-select-icon" />

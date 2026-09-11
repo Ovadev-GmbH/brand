@@ -107,7 +107,7 @@ function QuestionnaireChoice({
     <QuestionnairePrimitive.Choice
       data-slot="questionnaire-choice"
       className={cn(
-        "group/questionnaire-choice relative flex min-h-11 cursor-pointer items-start gap-3 rounded-regular border border-transparent bg-surface-primary shadow-small px-4 py-3 text-start text-copy-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none select-none hover:bg-surface-hover has-[>input:focus-visible]:border-ring has-[>input:focus-visible]:ring-3 has-[>input:focus-visible]:ring-ring/50 data-invalid:border-status-danger data-checked:border-brand/40 data-checked:bg-surface-active",
+        "group/questionnaire-choice relative flex min-h-11 cursor-pointer items-start gap-3 rounded-regular border border-transparent bg-surface-primary shadow-small px-4 py-3 text-start text-copy-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none select-none hover:bg-surface-hover has-[>input:focus-visible]:border-ring has-[>input:focus-visible]:ring-1 has-[>input:focus-visible]:ring-brand-bright data-checked:border-brand/40 data-checked:bg-surface-active",
         "data-disabled:pointer-events-none data-disabled:cursor-not-allowed data-disabled:opacity-50",
         className
       )}
@@ -167,7 +167,7 @@ function QuestionnaireInput({
       <QuestionnairePrimitive.Input
         data-slot="questionnaire-input"
         className={cn(
-          "h-10 min-h-11 w-full min-w-0 rounded-regular border border-transparent bg-surface-primary shadow-small px-3.5 py-1 text-copy-16 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 sm:min-h-0 md:text-copy-14",
+          "h-10 min-h-11 w-full min-w-0 rounded-regular border border-transparent bg-surface-primary shadow-small px-3.5 py-1 text-copy-16 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none focus-visible:ring-1 focus-visible:ring-brand-bright disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-1 aria-invalid:ring-status-danger sm:min-h-0 md:text-copy-14",
           "selection:bg-brand selection:text-content-inverse placeholder:text-content-tertiary",
           className
         )}

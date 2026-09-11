@@ -71,7 +71,7 @@ function BubbleContent({
     props: mergeProps<"div">(
       {
         className: cn(
-          "w-fit max-w-full min-w-0 overflow-hidden rounded-modal border border-transparent px-3 py-2.5 text-copy-14 wrap-break-word group-data-[align=end]/bubble:self-end [button]:text-left [button,a]:transition-colors [button,a]:duration-fast [button,a]:ease-brand [button,a]:outline-none [button,a]:focus-visible:border-ring [button,a]:focus-visible:ring-3 [button,a]:focus-visible:ring-ring/30",
+          "w-fit max-w-full min-w-0 overflow-hidden rounded-modal border border-transparent px-3 py-2.5 text-copy-14 wrap-break-word group-data-[align=end]/bubble:self-end [button]:text-left [button,a]:transition-colors [button,a]:duration-fast [button,a]:ease-brand [button,a]:outline-none [button,a]:[button,a]:focus-visible:ring-1 [button,a]:focus-visible:ring-brand-bright",
           className
         ),
       },
@@ -85,7 +85,7 @@ function BubbleContent({
 }
 
 const bubbleReactionsVariants = cva(
-  "absolute z-10 flex w-fit shrink-0 items-center justify-center gap-1 rounded-pill bg-surface-secondary px-1.5 py-0.5 text-label-14 ring-3 ring-surface-primary has-[button]:p-0",
+  "absolute z-10 flex w-fit shrink-0 items-center justify-center gap-1 rounded-pill bg-surface-secondary px-1.5 py-0.5 text-label-14 ring-1 ring-surface-primary has-[button]:p-0",
   {
     variants: {
       side: {

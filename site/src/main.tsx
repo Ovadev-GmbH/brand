@@ -11,7 +11,7 @@ createRoot(document.getElementById("root")!).render(
       <App />
       {/* One quiet toast for the things the catalog copies to the clipboard. */}
       <Toaster
-        position="bottom-center"
+        position="bottom-right"
         duration={1800}
         gap={8}
         toastOptions={{

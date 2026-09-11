@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../lib/utils"
 
 const buttonVariants = cva(
-  "group/button inline-flex shrink-0 items-center justify-center rounded-regular border border-transparent bg-clip-padding text-button-14 whitespace-nowrap transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/30 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "group/button inline-flex shrink-0 items-center justify-center rounded-regular border border-transparent bg-clip-padding text-button-14 whitespace-nowrap transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none select-none focus-visible:ring-1 focus-visible:ring-brand-bright active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:ring-1 aria-invalid:ring-status-danger [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
@@ -15,7 +15,7 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-surface-hover hover:text-content-primary aria-expanded:bg-surface-hover aria-expanded:text-content-primary",
         destructive:
-          "bg-status-danger/10 text-status-danger hover:bg-status-danger/20 focus-visible:border-status-danger/40 focus-visible:ring-status-danger/20",
+          "bg-status-danger/10 text-status-danger hover:bg-status-danger/20 focus-visible:border-status-danger/40 focus-visible:ring-status-danger",
         link: "text-content-brand underline-offset-4 hover:underline",
       },
       size: {

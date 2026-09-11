@@ -7,7 +7,7 @@ import { cn } from "../../lib/utils"
 import { Button } from "./button"
 
 const attachmentVariants = cva(
-  "group/attachment relative flex w-fit max-w-full min-w-0 shrink-0 flex-wrap rounded-regular border border-divider bg-surface-primary text-content-primary transition-colors duration-fast ease-brand focus-within:ring-1 focus-within:ring-ring/30 has-[>a,>button]:hover:bg-surface-hover data-[state=error]:border-status-danger/30 data-[state=idle]:border-dashed",
+  "group/attachment relative flex w-fit max-w-full min-w-0 shrink-0 flex-wrap rounded-regular border border-divider bg-surface-primary text-content-primary transition-colors duration-fast ease-brand focus-within:ring-1 focus-within:ring-brand-bright has-[>a,>button]:hover:bg-surface-hover data-[state=error]:border-status-danger/30 data-[state=idle]:border-dashed",
   {
     variants: {
       size: {
