@@ -57,14 +57,19 @@ function Report({ id }: { id: string }) {
 /** Every demo, fetched in idle time after the first one is up, so paging
  *  through the catalog finds each chunk already in the cache. */
 const DEMOS = import.meta.glob("./examples/*/*Demo.tsx");
+/** Safari has no requestIdleCallback; a short timeout is idle enough. */
+const idle = (cb: () => void) =>
+  typeof requestIdleCallback === "function" ? requestIdleCallback(cb) : setTimeout(cb, 150);
 function prefetch() {
   const loaders = Object.values(DEMOS);
   const next = () => {
     const load = loaders.shift();
     if (!load) return;
-    void load().finally(() => requestIdleCallback(next));
+    load()
+      .catch(() => undefined)
+      .finally(() => idle(next));
   };
-  requestIdleCallback(next);
+  idle(next);
 }
 
 function Preview() {
