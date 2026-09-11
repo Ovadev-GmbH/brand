@@ -9,6 +9,7 @@ import { ColorsPage } from "./pages/ColorsPage";
 import { TypographyPage } from "./pages/TypographyPage";
 import { BrandAssetsPage } from "./pages/BrandAssetsPage";
 import { IconsPage } from "./pages/IconsPage";
+import { MaterialsPage } from "./pages/MaterialsPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { EntryPage } from "./pages/EntryPage";
 
@@ -22,6 +23,7 @@ const PAGES = {
   typography: TypographyPage,
   "brand-assets": BrandAssetsPage,
   icons: IconsPage,
+  materials: MaterialsPage,
 };
 
 function Brand({ page }: { page: keyof typeof PAGES }) {
@@ -31,7 +33,8 @@ function Brand({ page }: { page: keyof typeof PAGES }) {
   // Brand Assets only exists where there are marks, so switching to a brand
   // without them lands on 404 rather than somewhere it was not asked for.
   const missing =
-    (page === "brand-assets" && !CHROME[pkg.id].marks?.length) || (page === "icons" && !CHROME[pkg.id].icons);
+    (page === "brand-assets" && !CHROME[pkg.id].marks?.length) || (page === "icons" && !CHROME[pkg.id].icons) ||
+    (page === "materials" && !CHROME[pkg.id].materials);
   const Body = PAGES[page];
   return <Shell pkg={pkg}>{missing ? <NotFoundPage pkg={pkg} /> : <Body pkg={pkg} />}</Shell>;
 }
@@ -74,6 +77,7 @@ export function App() {
         <Route path="/:pkg/typography" element={<Brand page="typography" />} />
         <Route path="/:pkg/brand-assets" element={<Brand page="brand-assets" />} />
         <Route path="/:pkg/icons" element={<Brand page="icons" />} />
+        <Route path="/:pkg/materials" element={<Brand page="materials" />} />
         <Route path="/:pkg/:slug" element={<Component />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -39,7 +39,16 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
       to: `${href(pkg.id)}/colors`,
       preview: <SwatchRow swatches={chrome.swatches} />,
     },
-    { name: "Typeface", blurb: `${chrome.type.length} faces`, to: `${href(pkg.id)}/typography` },
+    {
+      name: "Typography",
+      blurb: chrome.typography
+        ? `${chrome.typography.GROUPS.reduce((n, g) => n + g.styles.length, 0)} styles`
+        : `${chrome.type.length} faces`,
+      to: `${href(pkg.id)}/typography`,
+    },
+    ...(chrome.materials
+      ? [{ name: "Materials", blurb: `${chrome.materials.SURFACE.length + chrome.materials.FLOATING.length} presets`, to: `${href(pkg.id)}/materials` }]
+      : []),
     ...(chrome.icons ? [{ name: "Icons", blurb: `${chrome.icons.library}, the free set`, to: `${href(pkg.id)}/icons` }] : []),
   ];
 

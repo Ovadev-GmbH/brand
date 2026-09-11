@@ -10,14 +10,15 @@
  * on [data-brand="januna"], for a page that shows more than one brand (the
  * catalog). The slot names are shadcn's so `shadcn add` keeps working.
  *
- * Fonts: --jan-font names Geist, which styles.css loads through
- * @fontsource-variable/geist. An app importing only this file must load the
- * face itself. */
+ * The colour system lives in colors.css, the type styles in typography.css,
+ * the materials in materials.css — all generated from src/foundations. The
+ * faces (Geist, Geist Mono) are loaded by styles.css; an app importing only
+ * this file must load them itself. */
 @import "./colors.css";
+@import "./typography.css";
+@import "./materials.css";
 
 @theme inline {
-  --font-sans: var(--jan-font);
-  --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -64,7 +65,6 @@
   color-scheme: light;
 
   --jan-radius: 0.625rem;
-  --jan-font: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
 
   /* ── the slots the components read, as steps of the scales ─────────── */
   --background: var(--jan-background-100);

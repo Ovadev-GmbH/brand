@@ -32,6 +32,8 @@ const index = [
   'export { cn } from "./lib/utils";',
   'export { useIsMobile } from "./hooks/use-mobile";',
   'export * as colors from "./foundations/colors";',
+  'export * as typography from "./foundations/typography";',
+  'export * as materials from "./foundations/materials";',
   "",
 ].join("\n");
 writeFileSync(resolve(pkg, "src/index.ts"), index);
