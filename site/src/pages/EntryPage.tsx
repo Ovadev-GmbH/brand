@@ -12,7 +12,12 @@ export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
       </PageHeader>
       <section className="mt-12 max-w-224">
         {entry.examples.map((ex, i) => (
-          <Example key={i} example={ex} anchor={`example-${i + 1}`} />
+          <Example
+            key={i}
+            example={ex}
+            anchor={`example-${i + 1}`}
+            frame={pkg.frame ? { pkg: pkg.id, slug: entry.slug, index: i, tall: entry.group === "Overlays" } : undefined}
+          />
         ))}
       </section>
     </article>

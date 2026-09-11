@@ -8,7 +8,7 @@
  * stay exactly what they are.
  *
  * The hooks are the packages' own classes. All four spell a part the same way
- * after their prefix — ova-dialog-popup, tova-dialog-popup, jan-…, ui-… — so a
+ * after their prefix — ova-dialog-popup, tova-dialog-popup, ui-… — so a
  * [class*="-dialog-popup"] matches the part in every brand and nothing else on
  * the page, which is what lets one stylesheet dress all four. Popups render
  * through a portal at <body>, so none of this can be scoped to the demo card.

@@ -3,3 +3,5 @@ dist/
 *.tgz
 .DS_Store
 site/src/versions.json
+
+packages/*/src/shadcn.generated.css

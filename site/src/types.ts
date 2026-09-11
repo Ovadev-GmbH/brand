@@ -30,5 +30,9 @@ export type Pkg = {
   pkg: string;
   /** Group order in the sidebar; entries name one of these. */
   groups: string[];
+  /** The demos render in preview.html, an iframe with the package's own
+   *  stylesheet, rather than inline: a Tailwind library needs its own
+   *  Tailwind, and the catalog's chrome is built on a different theme. */
+  frame?: boolean;
   entries: Entry[];
 };

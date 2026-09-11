@@ -27,6 +27,17 @@ export type Mark = {
 };
 export type TypeRow = { name: string; family: string; weight: number; size: string; note: string };
 
+/** The icon set a brand draws with, for the Icons page. */
+export type IconSet = {
+  library: string;
+  /** The package the icons are imported from. */
+  pkg: string;
+  /** The import line, as the components write it. */
+  usage: string;
+  /** The colour the page draws them in: the brand's green. */
+  color: string;
+};
+
 export type BrandChrome = {
   /** The mark: a wordmark, since none of the brands has an SVG in this repo yet. */
   mark: string;
@@ -36,6 +47,8 @@ export type BrandChrome = {
   source: string;
   /** Absent for internal, which has no marks of its own — it wears Ovadev's. */
   marks?: Mark[];
+  /** Only for a brand whose components ship with an icon set. */
+  icons?: IconSet;
 };
 
 export const CHROME: Record<PkgId, BrandChrome> = {
@@ -92,17 +105,25 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       },
     ],
     mark: "Januna",
-    source: "packages/januna/src/tokens.css — taken from the Januna repo's globals.css",
+    source: "packages/januna/src/theme.css — five primitives, everything else derived from them",
     swatches: [
-      { name: "Background", token: "--jan-bg", value: "#ffffff" },
-      { name: "Foreground", token: "--jan-fg", value: "#2c2c2c" },
-      { name: "Accent", token: "--jan-accent", value: "#094413" },
+      { name: "Green", token: "--jan-green", value: "#094413", note: "The one green: every filled button, the focus ring, the first chart series." },
+      { name: "Ink", token: "--jan-ink", value: "#2c2c2c", note: "The text, and at 16% the borders." },
+      { name: "Paper", token: "--jan-paper", value: "#ffffff" },
+      { name: "Taupe", token: "--jan-taupe", value: "#f9f3ed", note: "What the green carries, never white; and the muted surface." },
+      { name: "Red", token: "--jan-red", value: "#d73815", note: "Destructive, and nothing else." },
     ],
     type: [
-      { name: "Display", family: '"Instrument Sans", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "--jan-font" },
-      { name: "Heading", family: '"Instrument Sans", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "24px", note: "--jan-font" },
-      { name: "Body", family: '"Instrument Sans", ui-sans-serif, system-ui, sans-serif', weight: 400, size: "16px", note: "--jan-font" },
+      { name: "Display", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "--jan-font" },
+      { name: "Heading", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "24px", note: "--jan-font" },
+      { name: "Body", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 400, size: "16px", note: "--jan-font" },
     ],
+    icons: {
+      library: "Hugeicons",
+      pkg: "@hugeicons/core-free-icons",
+      usage: 'import { HugeiconsIcon } from "@hugeicons/react"; import { Add01Icon } from "@hugeicons/core-free-icons";',
+      color: "#094413",
+    },
   },
   internal: {
     mark: "INTERN",

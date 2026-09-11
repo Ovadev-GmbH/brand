@@ -35,6 +35,7 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
       : []),
     { name: "Colors", blurb: `${chrome.swatches.length} values`, to: `${href(pkg.id)}/colors` },
     { name: "Typeface", blurb: `${chrome.type.length} faces`, to: `${href(pkg.id)}/typography` },
+    ...(chrome.icons ? [{ name: "Icons", blurb: `${chrome.icons.library}, the free set`, to: `${href(pkg.id)}/icons` }] : []),
     { name: "Components", blurb: `${components} components`, to: `${href(pkg.id)}/components` },
   ];
 

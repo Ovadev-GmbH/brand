@@ -13,13 +13,16 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
+    "@hugeicons/core-free-icons": "^4.3.2",
+    "@hugeicons/react": "^1.1.10",
     "@ovadev-gmbh/ui-internal": "workspace:*",
     "@ovadev-gmbh/ui-januna": "workspace:*",
     "@ovadev-gmbh/ui-ovadev": "workspace:*",
     "@ovadev-gmbh/ui-ticketova": "workspace:*",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router": "^7.8.2"
+    "react-router": "^7.8.2",
+    "recharts": "3.8.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

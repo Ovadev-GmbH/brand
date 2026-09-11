@@ -21,7 +21,7 @@ export function ComponentsPage({ pkg }: { pkg: Pkg }) {
             <Grid cols={2}>
               {entries.map((e) => (
                 <Cell key={e.slug}>
-                  <Thumb pkg={pkg.id} entry={e} />
+                  <Thumb pkg={pkg} entry={e} />
                 </Cell>
               ))}
             </Grid>

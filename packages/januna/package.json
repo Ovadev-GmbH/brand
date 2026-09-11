@@ -1,7 +1,7 @@
 {
   "name": "@ovadev-gmbh/ui-januna",
-  "version": "0.1.0",
-  "description": "Januna component library.",
+  "version": "0.2.0",
+  "description": "Januna component library: shadcn on Base UI, themed from one green.",
   "license": "UNLICENSED",
   "type": "module",
   "sideEffects": [
@@ -14,7 +14,9 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./dist/jan.css"
+    "./styles.css": "./src/styles.css",
+    "./theme.css": "./src/theme.css",
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
@@ -29,13 +31,31 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json && bun run ../../scripts/strip-css-imports.ts",
-    "check-types": "tsc --noEmit"
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "check-types": "tsc --noEmit",
+    "shadcn": "shadcn add --all --overwrite --yes && bun run ../../scripts/shadcn-relativize.ts . && rm -f src/shadcn.generated.css"
   },
   "peerDependencies": {
     "@base-ui/react": "^1.8.0",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=19",
+    "react-dom": ">=19",
+    "tailwindcss": "^4"
+  },
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.3.0",
+    "@hugeicons/core-free-icons": "^4.3.2",
+    "@hugeicons/react": "^1.1.10",
+    "@shadcn/react": "^0.3.1",
+    "class-variance-authority": "^0.7.1",
+    "cmdk": "^1.1.1",
+    "cn": "^0.2.6",
+    "date-fns": "^4.4.0",
+    "embla-carousel-react": "^8.6.0",
+    "input-otp": "^1.5.0",
+    "react-day-picker": "^10.0.1",
+    "react-resizable-panels": "^4.12.4",
+    "recharts": "3.8.0",
+    "tw-animate-css": "^1.4.0"
   },
   "devDependencies": {
     "@base-ui/react": "^1.8.0",
@@ -44,6 +64,9 @@
     "@vitejs/plugin-react": "^5.2.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "rollup-preserve-directives": "^1.1.3",
+    "shadcn": "^4.21.0",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "vite": "^7.3.6"
   }

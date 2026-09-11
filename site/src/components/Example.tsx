@@ -1,5 +1,6 @@
 import * as React from "react";
-import type { Example as ExampleData } from "../types";
+import type { Example as ExampleData, PkgId } from "../types";
+import { DemoFrame } from "./DemoFrame";
 
 const CaretIcon = () => (
   <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
@@ -14,15 +15,28 @@ const CaretIcon = () => (
  *  The stage carries data-demo: styles/demo.css hangs the demos' own
  *  presentation off it, which cannot be utilities because the elements inside
  *  come out of the packages. */
-export function Example({ example, anchor }: { example: ExampleData; anchor: string }) {
+export function Example({
+  example,
+  anchor,
+  frame,
+}: {
+  example: ExampleData;
+  anchor: string;
+  /** Set for a package whose demos run in preview.html. */
+  frame?: { pkg: PkgId; slug: string; index: number; tall?: boolean };
+}) {
   const [open, setOpen] = React.useState(false);
   const Demo = example.Component;
   return (
     <section className="mb-10" id={anchor}>
       <div className="overflow-hidden rounded-brand border border-alpha-400 bg-bg-100">
-        <div data-demo className="scrollbar-quiet min-h-24 overflow-x-auto p-6 [&>*+*]:mt-4">
-          <Demo />
-        </div>
+        {frame ? (
+          <DemoFrame pkg={frame.pkg} slug={frame.slug} index={frame.index} tall={frame.tall} />
+        ) : (
+          <div data-demo className="scrollbar-quiet min-h-24 overflow-x-auto p-6 [&>*+*]:mt-4">
+            <Demo />
+          </div>
+        )}
         <div className="border-t border-alpha-400 bg-bg-200">
           <button
             type="button"
