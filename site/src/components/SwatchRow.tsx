@@ -5,14 +5,14 @@ import type { Swatch } from "../brands";
  *  its scales in. Inert; the page behind the card names the values. */
 export function SwatchRow({ swatches }: { swatches: Swatch[] }) {
   return (
-    <div className="flex w-full items-center justify-center gap-3">
+    <div className="flex w-full items-center justify-center gap-2">
       {swatches.map((s) => (
         <div
           key={s.token}
-          className="flex h-24 w-10 shrink-0 items-center justify-center rounded-full border border-alpha-400 bg-bg-100"
+          className="flex h-22 w-9 shrink-0 items-center justify-center rounded-full border border-alpha-400 bg-bg-100"
           title={`${s.name} ${s.value}`}
         >
-          <span className="block h-16 w-3 rounded-full shadow-border" style={{ background: s.value }} />
+          <span className="block h-14 w-2.5 rounded-full shadow-border" style={{ background: s.value }} />
         </div>
       ))}
     </div>

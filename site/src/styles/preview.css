@@ -8,3 +8,9 @@ html,
 body {
   margin: 0;
 }
+
+/* Embedded as a card's preview (?thumb=1): the card's ground shows through. */
+html.thumb,
+html.thumb body {
+  background: transparent;
+}

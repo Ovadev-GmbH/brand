@@ -58,7 +58,7 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
                 to={d.to}
                 className="flex h-full flex-col gap-8 p-8 text-inherit no-underline transition-colors duration-150 hover:bg-alpha-100 lg:p-10"
               >
-                <div className="pointer-events-none flex min-h-32 select-none items-center justify-center overflow-hidden">
+                <div className="pointer-events-none flex min-h-32 select-none items-center justify-center">
                   {d.preview ?? null}
                 </div>
                 <div className="mt-auto">

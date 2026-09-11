@@ -33,6 +33,8 @@ function fromUrl(): Shown {
   return { pkg: q.get("pkg") ?? "", slug: q.get("slug") ?? "", index: Number(q.get("i") ?? 0) };
 }
 const THUMB = new URLSearchParams(location.search).get("thumb") === "1";
+// A card's preview shows through to the card: no sheet of its own.
+if (THUMB) document.documentElement.classList.add("thumb");
 
 function Report({ id }: { id: string }) {
   useEffect(() => {
