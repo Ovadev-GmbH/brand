@@ -3,8 +3,9 @@
  * The colour system lives in src/foundations/colors.ts and is generated
  * into colors.css: nine scales of ten steps plus two page backgrounds, as
  * custom properties and as Tailwind colours. This file maps the slots the
- * shadcn components read onto steps of those scales, and sets the radius
- * and the face. Nothing here names a colour by value.
+ * shadcn components read onto the semantic layer (surface, content, accent,
+ * status, stroke), which in turn points at steps of the scales. Nothing
+ * here names a colour by value. Light only: Januna has one room.
  *
  * The same block is declared on :root, for an app that wears the brand, and
  * on [data-brand="januna"], for a page that shows more than one brand (the
@@ -17,6 +18,7 @@
 @import "./colors.css";
 @import "./typography.css";
 @import "./materials.css";
+@import "./layout.css";
 
 @theme inline {
   --color-sidebar-ring: var(--sidebar-ring);
@@ -64,35 +66,33 @@
 [data-brand="januna"] {
   color-scheme: light;
 
-  --jan-radius: 0.625rem;
+  --jan-radius: var(--jan-radius-regular);
 
-  /* ── the slots the components read, as steps of the scales ─────────── */
-  --background: var(--jan-background-100);
-  --foreground: var(--jan-gray-1000);
-  --card: var(--jan-background-100);
-  --card-foreground: var(--jan-gray-1000);
-  --popover: var(--jan-background-100);
-  --popover-foreground: var(--jan-gray-1000);
+  /* ── the slots the components read, as the semantic layer ──────────── */
+  --background: var(--jan-surface-primary);
+  --foreground: var(--jan-content-primary);
+  --card: var(--jan-surface-primary);
+  --card-foreground: var(--jan-content-primary);
+  --popover: var(--jan-surface-primary);
+  --popover-foreground: var(--jan-content-primary);
 
-  /* Filled: the dark green carrying the taupe, never white. */
-  --primary: var(--jan-green-1000);
-  --primary-foreground: var(--jan-background-200);
+  /* Filled: the accent carrying the taupe, never white. */
+  --primary: var(--jan-accent);
+  --primary-foreground: var(--jan-content-inverse);
 
-  /* The tints: gray 1 at rest, 2 on hover, as the roles say. */
-  --secondary: var(--jan-gray-200);
-  --secondary-foreground: var(--jan-gray-1000);
-  --muted: var(--jan-gray-100);
-  --muted-foreground: var(--jan-gray-900);
-  --accent: var(--jan-gray-200);
-  --accent-foreground: var(--jan-gray-1000);
+  --secondary: var(--jan-surface-hover);
+  --secondary-foreground: var(--jan-content-primary);
+  --muted: var(--jan-surface-secondary);
+  --muted-foreground: var(--jan-content-secondary);
+  --accent: var(--jan-surface-hover);
+  --accent-foreground: var(--jan-content-primary);
 
-  --destructive: var(--jan-red-700);
-  --destructive-foreground: var(--jan-background-100);
+  --destructive: var(--jan-status-danger);
+  --destructive-foreground: var(--jan-surface-primary);
 
-  /* Alpha so the same border sits on the sheet and on the island. */
-  --border: var(--jan-gray-alpha-400);
-  --input: var(--jan-gray-alpha-400);
-  --ring: var(--jan-green-700);
+  --border: var(--jan-divider);
+  --input: var(--jan-divider-strong);
+  --ring: var(--jan-accent-bright);
 
   --chart-1: var(--jan-green-700);
   --chart-2: var(--jan-green-1000);
@@ -103,14 +103,14 @@
   --radius: var(--jan-radius);
 
   /* The panel is the taupe island; its current row is a filled button. */
-  --sidebar: var(--jan-background-200);
-  --sidebar-foreground: var(--jan-gray-1000);
-  --sidebar-primary: var(--jan-green-1000);
-  --sidebar-primary-foreground: var(--jan-background-200);
+  --sidebar: var(--jan-surface-tertiary);
+  --sidebar-foreground: var(--jan-content-primary);
+  --sidebar-primary: var(--jan-accent);
+  --sidebar-primary-foreground: var(--jan-content-inverse);
   --sidebar-accent: var(--jan-gray-alpha-200);
-  --sidebar-accent-foreground: var(--jan-gray-1000);
-  --sidebar-border: var(--jan-gray-alpha-400);
-  --sidebar-ring: var(--jan-green-700);
+  --sidebar-accent-foreground: var(--jan-content-primary);
+  --sidebar-border: var(--jan-divider);
+  --sidebar-ring: var(--jan-accent-bright);
 }
 
 @layer base {

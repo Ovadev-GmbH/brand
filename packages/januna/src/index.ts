@@ -66,3 +66,4 @@ export { useIsMobile } from "./hooks/use-mobile";
 export * as colors from "./foundations/colors";
 export * as typography from "./foundations/typography";
 export * as materials from "./foundations/materials";
+export * as layout from "./foundations/layout";

@@ -34,6 +34,7 @@ const index = [
   'export * as colors from "./foundations/colors";',
   'export * as typography from "./foundations/typography";',
   'export * as materials from "./foundations/materials";',
+  'export * as layout from "./foundations/layout";',
   "",
 ].join("\n");
 writeFileSync(resolve(pkg, "src/index.ts"), index);

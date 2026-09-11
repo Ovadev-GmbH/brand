@@ -81,9 +81,18 @@ function Legend({ rows }: { rows: { value: string; name: string; use: string }[]
 
 function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
   const { copied, copy } = useCopy();
-  const { SCALES, STEPS, ROLES, BACKGROUNDS } = colors;
+  const { SCALES, STEPS, ROLES, BACKGROUNDS, SEMANTIC } = colors;
   const gray = SCALES[0]!;
   const bgs = Object.entries(BACKGROUNDS);
+  /** A semantic token's literal value, for the swatch: background-200 or
+   *  gray-alpha-400 resolved against the scales. */
+  const resolve = (ref: string): string => {
+    const m = /^(.*)-(\d+)$/.exec(ref);
+    if (!m) return ref;
+    const [, id, step] = m;
+    if (id === "background") return BACKGROUNDS[Number(step) as 100 | 200].value;
+    return SCALES.find((sc) => sc.id === id)?.steps[Number(step) as (typeof STEPS)[number]] ?? ref;
+  };
   return (
     <article>
       <PageHeader title="Colors">
@@ -141,6 +150,31 @@ function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
           placed on. Background 2 is the island: the sidebar, a panel, a subtle step, used sparingly.
         </p>
         <Legend rows={bgs.map(([, bg]) => ({ value: bg.value, name: bg.name, use: bg.use }))} />
+      </section>
+
+      <section>
+        <SectionHeader title="Semantic" count={SEMANTIC.reduce((n, g) => n + g.tokens.length, 0)} />
+        <p className="mt-4 max-w-160 text-[15px] text-gray-900">
+          What a surface, a piece of text or a status <em>is</em>, each pointing at one step of one scale. This is
+          the vocabulary to write with: <code>bg-surface-secondary</code>, <code>text-content-tertiary</code>,{" "}
+          <code>bg-status-danger/10</code>. Reach for a scale step only for an exact colour.
+        </p>
+        {SEMANTIC.map((g) => (
+          <div key={g.name} className="mt-8">
+            <h3 className="m-0 text-base font-semibold text-gray-1000">{g.name}</h3>
+            <p className="mt-1 mb-0 text-sm text-gray-900">{g.note}</p>
+            <div className="mt-3">
+              {g.tokens.map((t) => (
+                <div key={t.token} className="flex min-h-10 items-center gap-3 border-b border-alpha-400 py-2 last:border-b-0">
+                  <Dot value={resolve(t.ref)} />
+                  <code className="w-44 shrink-0 font-mono text-[13px] text-gray-1000">{t.token}</code>
+                  <code className="hidden w-32 shrink-0 font-mono text-[12px] text-gray-700 md:block">{t.ref}</code>
+                  <p className="m-0 text-sm text-gray-900">{t.use}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </section>
 
       {ROLES.map((role) => {

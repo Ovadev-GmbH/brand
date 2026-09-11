@@ -6,12 +6,13 @@
    [data-brand="<id>"]. */
 
 import type { PkgId } from "./types";
-import { colors as janunaColors, typography as janunaType, materials as janunaMaterials } from "@ovadev-gmbh/ui-januna";
+import { colors as janunaColors, typography as janunaType, materials as janunaMaterials, layout as janunaLayout } from "@ovadev-gmbh/ui-januna";
 
 /** A brand's foundations, as its package exports them (src/foundations). */
 export type ColorSystem = typeof janunaColors;
 export type TypeSystem = typeof janunaType;
 export type MaterialSystem = typeof janunaMaterials;
+export type LayoutSystem = typeof janunaLayout;
 
 export type Swatch = { name: string; token: string; value: string; note?: string };
 
@@ -61,6 +62,7 @@ export type BrandChrome = {
   colors?: ColorSystem;
   typography?: TypeSystem;
   materials?: MaterialSystem;
+  layout?: LayoutSystem;
 };
 
 export const CHROME: Record<PkgId, BrandChrome> = {
@@ -121,7 +123,8 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     colors: janunaColors,
     typography: janunaType,
     materials: janunaMaterials,
-    swatches: janunaColors.SCALES.filter((sc) => sc.id !== "gray-alpha").map((sc) => ({
+    layout: janunaLayout,
+    swatches: janunaColors.SCALES.filter((sc) => !sc.id.endsWith("-alpha")).map((sc) => ({
       name: sc.name,
       token: `--jan-${sc.id}-700`,
       value: sc.steps[700],

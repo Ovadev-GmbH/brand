@@ -4,23 +4,26 @@
    The scales as custom properties, on :root for an app that wears the brand
    and on [data-brand="januna"] for a page that shows more than one; and the
    same scales as Tailwind colours, so `bg-green-700` or `border-gray-400`
-   name a step of the system. Tailwind's own palette is cleared first: the
-   only colours an app can reach for are these. */
+   name a step of the system. Then the semantic layer on top: surface,
+   content, accent, status, stroke — bg-surface-secondary,
+   text-content-tertiary — each one step of one scale. Tailwind's own
+   palette is cleared first: the only colours an app can reach for are
+   these. */
 
 :root,
 [data-brand="januna"] {
   --jan-background-100: oklch(1 0 0);
   --jan-background-200: oklch(0.967 0.010 68);
-  --jan-gray-100: oklch(0.972 0.001 68);
-  --jan-gray-200: oklch(0.952 0.002 68);
-  --jan-gray-300: oklch(0.925 0.004 68);
-  --jan-gray-400: oklch(0.885 0.005 68);
-  --jan-gray-500: oklch(0.830 0.007 68);
-  --jan-gray-600: oklch(0.745 0.009 68);
-  --jan-gray-700: oklch(0.580 0.012 68);
-  --jan-gray-800: oklch(0.520 0.011 68);
-  --jan-gray-900: oklch(0.450 0.010 68);
-  --jan-gray-1000: oklch(0.290 0.000 0);
+  --jan-gray-100: #fbf8f5;
+  --jan-gray-200: #f9f3ed;
+  --jan-gray-300: #f6eee5;
+  --jan-gray-400: #ddd6ce;
+  --jan-gray-500: #c5beb7;
+  --jan-gray-600: #a39990;
+  --jan-gray-700: #7d7670;
+  --jan-gray-800: #6a635c;
+  --jan-gray-900: #514c49;
+  --jan-gray-1000: #2c2c2c;
   --jan-gray-alpha-100: oklch(0.29 0 0 / 5%);
   --jan-gray-alpha-200: oklch(0.29 0 0 / 8%);
   --jan-gray-alpha-300: oklch(0.29 0 0 / 11%);
@@ -31,6 +34,16 @@
   --jan-gray-alpha-800: oklch(0.29 0 0 / 62%);
   --jan-gray-alpha-900: oklch(0.29 0 0 / 72%);
   --jan-gray-alpha-1000: oklch(0.29 0 0);
+  --jan-taupe-alpha-100: oklch(0.967 0.010 68 / 2%);
+  --jan-taupe-alpha-200: oklch(0.967 0.010 68 / 5%);
+  --jan-taupe-alpha-300: oklch(0.967 0.010 68 / 8%);
+  --jan-taupe-alpha-400: oklch(0.967 0.010 68 / 12%);
+  --jan-taupe-alpha-500: oklch(0.967 0.010 68 / 18%);
+  --jan-taupe-alpha-600: oklch(0.967 0.010 68 / 30%);
+  --jan-taupe-alpha-700: oklch(0.967 0.010 68 / 50%);
+  --jan-taupe-alpha-800: oklch(0.967 0.010 68 / 70%);
+  --jan-taupe-alpha-900: oklch(0.967 0.010 68 / 90%);
+  --jan-taupe-alpha-1000: oklch(0.967 0.010 68);
   --jan-green-100: oklch(0.972 0.020 145);
   --jan-green-200: oklch(0.952 0.034 145);
   --jan-green-300: oklch(0.925 0.051 145);
@@ -101,6 +114,35 @@
   --jan-pink-800: oklch(0.520 0.160 350);
   --jan-pink-900: oklch(0.450 0.143 350);
   --jan-pink-1000: oklch(0.290 0.102 350);
+
+  --jan-surface-primary: var(--jan-background-100);
+  --jan-surface-secondary: var(--jan-gray-100);
+  --jan-surface-tertiary: var(--jan-background-200);
+  --jan-surface-quaternary: var(--jan-gray-300);
+  --jan-surface-hover: var(--jan-gray-200);
+  --jan-surface-active: var(--jan-green-100);
+  --jan-surface-modal: var(--jan-gray-alpha-500);
+  --jan-surface-danger: var(--jan-red-100);
+  --jan-surface-success: var(--jan-green-100);
+  --jan-surface-warning: var(--jan-amber-100);
+  --jan-surface-info: var(--jan-blue-100);
+  --jan-content-primary: var(--jan-gray-1000);
+  --jan-content-secondary: var(--jan-gray-900);
+  --jan-content-tertiary: var(--jan-gray-700);
+  --jan-content-inverse: var(--jan-background-200);
+  --jan-content-accent: var(--jan-green-1000);
+  --jan-content-disabled: var(--jan-gray-600);
+  --jan-accent: var(--jan-green-1000);
+  --jan-accent-hover: var(--jan-gray-1000);
+  --jan-accent-subtle: var(--jan-green-200);
+  --jan-accent-bright: var(--jan-green-700);
+  --jan-status-danger: var(--jan-red-700);
+  --jan-status-success: var(--jan-green-700);
+  --jan-status-warning: var(--jan-amber-800);
+  --jan-status-info: var(--jan-blue-700);
+  --jan-divider: var(--jan-gray-alpha-400);
+  --jan-divider-strong: var(--jan-gray-alpha-600);
+  --jan-divider-inverse: var(--jan-taupe-alpha-400);
 }
 
 @theme inline {
@@ -131,6 +173,16 @@
   --color-gray-alpha-800: var(--jan-gray-alpha-800);
   --color-gray-alpha-900: var(--jan-gray-alpha-900);
   --color-gray-alpha-1000: var(--jan-gray-alpha-1000);
+  --color-taupe-alpha-100: var(--jan-taupe-alpha-100);
+  --color-taupe-alpha-200: var(--jan-taupe-alpha-200);
+  --color-taupe-alpha-300: var(--jan-taupe-alpha-300);
+  --color-taupe-alpha-400: var(--jan-taupe-alpha-400);
+  --color-taupe-alpha-500: var(--jan-taupe-alpha-500);
+  --color-taupe-alpha-600: var(--jan-taupe-alpha-600);
+  --color-taupe-alpha-700: var(--jan-taupe-alpha-700);
+  --color-taupe-alpha-800: var(--jan-taupe-alpha-800);
+  --color-taupe-alpha-900: var(--jan-taupe-alpha-900);
+  --color-taupe-alpha-1000: var(--jan-taupe-alpha-1000);
   --color-green-100: var(--jan-green-100);
   --color-green-200: var(--jan-green-200);
   --color-green-300: var(--jan-green-300);
@@ -201,4 +253,33 @@
   --color-pink-800: var(--jan-pink-800);
   --color-pink-900: var(--jan-pink-900);
   --color-pink-1000: var(--jan-pink-1000);
+
+  --color-surface-primary: var(--jan-surface-primary);
+  --color-surface-secondary: var(--jan-surface-secondary);
+  --color-surface-tertiary: var(--jan-surface-tertiary);
+  --color-surface-quaternary: var(--jan-surface-quaternary);
+  --color-surface-hover: var(--jan-surface-hover);
+  --color-surface-active: var(--jan-surface-active);
+  --color-surface-modal: var(--jan-surface-modal);
+  --color-surface-danger: var(--jan-surface-danger);
+  --color-surface-success: var(--jan-surface-success);
+  --color-surface-warning: var(--jan-surface-warning);
+  --color-surface-info: var(--jan-surface-info);
+  --color-content-primary: var(--jan-content-primary);
+  --color-content-secondary: var(--jan-content-secondary);
+  --color-content-tertiary: var(--jan-content-tertiary);
+  --color-content-inverse: var(--jan-content-inverse);
+  --color-content-accent: var(--jan-content-accent);
+  --color-content-disabled: var(--jan-content-disabled);
+  --color-accent: var(--jan-accent);
+  --color-accent-hover: var(--jan-accent-hover);
+  --color-accent-subtle: var(--jan-accent-subtle);
+  --color-accent-bright: var(--jan-accent-bright);
+  --color-status-danger: var(--jan-status-danger);
+  --color-status-success: var(--jan-status-success);
+  --color-status-warning: var(--jan-status-warning);
+  --color-status-info: var(--jan-status-info);
+  --color-divider: var(--jan-divider);
+  --color-divider-strong: var(--jan-divider-strong);
+  --color-divider-inverse: var(--jan-divider-inverse);
 }

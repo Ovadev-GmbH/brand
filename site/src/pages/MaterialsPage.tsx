@@ -64,6 +64,11 @@ export function MaterialsPage({ pkg }: { pkg: Pkg }) {
         <Table rows={materials.FLOATING} />
       </section>
       <section>
+        <SectionHeader title="Tints" count={materials.TINTS.length} />
+        <p className="mt-4 text-[15px] text-gray-900">The small material with a colour in its ring.</p>
+        <Table rows={materials.TINTS} />
+      </section>
+      <section>
         <SectionHeader title="Best practices" />
         {materials.PRACTICES.map((p) => (
           <div key={p.name} className="mt-6 max-w-160">

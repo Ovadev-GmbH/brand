@@ -47,7 +47,10 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
       to: `${href(pkg.id)}/typography`,
     },
     ...(chrome.materials
-      ? [{ name: "Materials", blurb: `${chrome.materials.SURFACE.length + chrome.materials.FLOATING.length} presets`, to: `${href(pkg.id)}/materials` }]
+      ? [{ name: "Materials", blurb: `${chrome.materials.SURFACE.length + chrome.materials.FLOATING.length + chrome.materials.TINTS.length} presets`, to: `${href(pkg.id)}/materials` }]
+      : []),
+    ...(chrome.layout
+      ? [{ name: "Layout", blurb: `${chrome.layout.SPACING.length + chrome.layout.RADIUS.length + chrome.layout.MOTION.length} tokens`, to: `${href(pkg.id)}/layout` }]
       : []),
     ...(chrome.icons ? [{ name: "Icons", blurb: `${chrome.icons.library}, the free set`, to: `${href(pkg.id)}/icons` }] : []),
   ];

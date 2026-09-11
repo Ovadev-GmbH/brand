@@ -8,13 +8,16 @@
 :root,
 [data-brand="januna"] {
   --jan-shadow-base: 0 0 0 1px oklch(0.29 0 0 / 16%);
-  --jan-shadow-small: 0 0 0 1px oklch(0.29 0 0 / 12%), 0 1px 2px oklch(0.29 0 0 / 6%);
-  --jan-shadow-medium: 0 0 0 1px oklch(0.29 0 0 / 10%), 0 2px 8px oklch(0.29 0 0 / 8%);
-  --jan-shadow-large: 0 0 0 1px oklch(0.29 0 0 / 8%), 0 4px 16px oklch(0.29 0 0 / 10%);
-  --jan-shadow-tooltip: 0 0 0 1px oklch(0.29 0 0 / 12%), 0 2px 8px oklch(0.29 0 0 / 10%);
-  --jan-shadow-menu: 0 0 0 1px oklch(0.29 0 0 / 10%), 0 8px 24px oklch(0.29 0 0 / 12%);
-  --jan-shadow-modal: 0 0 0 1px oklch(0.29 0 0 / 8%), 0 16px 48px oklch(0.29 0 0 / 16%);
-  --jan-shadow-fullscreen: 0 0 0 1px oklch(0.29 0 0 / 6%), 0 24px 80px oklch(0.29 0 0 / 24%);
+  --jan-shadow-small: 0 0 0 1px oklch(0.29 0 0 / 16%), 0 1px 1px oklch(0.29 0 0 / 12%), 0 2px 5px oklch(0.29 0 0 / 8%);
+  --jan-shadow-medium: 0 0 0 1px oklch(0.29 0 0 / 12%), 0 1px 1px oklch(0.29 0 0 / 10%), 0 4px 12px oklch(0.29 0 0 / 10%);
+  --jan-shadow-large: 0 0 0 1px oklch(0.29 0 0 / 10%), 0 1px 1px oklch(0.29 0 0 / 8%), 0 8px 24px oklch(0.29 0 0 / 12%);
+  --jan-shadow-tooltip: 0 0 0 1px oklch(0.29 0 0 / 12%), 0 1px 1px oklch(0.29 0 0 / 10%), 0 2px 8px oklch(0.29 0 0 / 10%);
+  --jan-shadow-menu: 0 0 0 1px oklch(0.29 0 0 / 10%), 0 1px 1px oklch(0.29 0 0 / 8%), 0 8px 24px oklch(0.29 0 0 / 12%);
+  --jan-shadow-modal: 0 0 0 1px oklch(0.29 0 0 / 8%), 0 1px 1px oklch(0.29 0 0 / 8%), 0 16px 48px oklch(0.29 0 0 / 16%);
+  --jan-shadow-fullscreen: 0 0 0 1px oklch(0.29 0 0 / 6%), 0 1px 1px oklch(0.29 0 0 / 6%), 0 24px 80px oklch(0.29 0 0 / 24%);
+  --jan-shadow-accent: 0 0 0 1px var(--jan-green-700), 0 1px 1px oklch(0.29 0 0 / 12%), 0 2px 5px oklch(0.548 0.171 145 / 18%);
+  --jan-shadow-active: 0 0 0 1px var(--jan-green-600), 0 1px 1px oklch(0.548 0.171 145 / 40%), 0 2px 5px oklch(0.548 0.171 145 / 28%);
+  --jan-shadow-danger: 0 0 0 1px var(--jan-red-600), 0 1px 1px oklch(0.581 0.201 33 / 20%), 0 2px 5px oklch(0.581 0.201 33 / 20%);
 }
 
 @theme inline {
@@ -26,52 +29,73 @@
   --shadow-menu: var(--jan-shadow-menu);
   --shadow-modal: var(--jan-shadow-modal);
   --shadow-fullscreen: var(--jan-shadow-fullscreen);
+  --shadow-accent: var(--jan-shadow-accent);
+  --shadow-active: var(--jan-shadow-active);
+  --shadow-danger: var(--jan-shadow-danger);
 }
 
 @utility material-base {
-  border-radius: 8px;
-  background: var(--jan-background-100);
+  border-radius: 12px;
+  background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-base);
 }
 
 @utility material-small {
-  border-radius: 8px;
-  background: var(--jan-background-100);
+  border-radius: 12px;
+  background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-small);
 }
 
 @utility material-medium {
-  border-radius: 12px;
-  background: var(--jan-background-100);
+  border-radius: 16px;
+  background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-medium);
 }
 
 @utility material-large {
-  border-radius: 12px;
-  background: var(--jan-background-100);
+  border-radius: 16px;
+  background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-large);
 }
 
 @utility material-tooltip {
-  border-radius: 8px;
-  background: var(--jan-background-100);
+  border-radius: 12px;
+  background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-tooltip);
 }
 
 @utility material-menu {
-  border-radius: 12px;
-  background: var(--jan-background-100);
+  border-radius: 16px;
+  background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-menu);
 }
 
 @utility material-modal {
-  border-radius: 12px;
-  background: var(--jan-background-100);
+  border-radius: 24px;
+  background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-modal);
 }
 
 @utility material-fullscreen {
-  border-radius: 16px;
-  background: var(--jan-background-100);
+  border-radius: 24px;
+  background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-fullscreen);
+}
+
+@utility material-accent {
+  border-radius: 12px;
+  background: var(--jan-surface-primary);
+  box-shadow: var(--jan-shadow-accent);
+}
+
+@utility material-active {
+  border-radius: 12px;
+  background: var(--jan-surface-primary);
+  box-shadow: var(--jan-shadow-active);
+}
+
+@utility material-danger {
+  border-radius: 12px;
+  background: var(--jan-surface-primary);
+  box-shadow: var(--jan-shadow-danger);
 }
