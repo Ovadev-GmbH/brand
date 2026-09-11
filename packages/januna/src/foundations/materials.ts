@@ -40,8 +40,8 @@ export const SURFACE: Material[] = [
 ];
 
 export const FLOATING: Material[] = [
-  { cls: "material-tooltip", name: "Tooltip", radius: 12, fill: "var(--jan-surface-primary)", ...stripe(12, 10, "0 2px 8px", 10), use: "The lightest lift. Tooltips are the only floating element with a stem." },
-  { cls: "material-menu", name: "Menu", radius: 16, fill: "var(--jan-surface-primary)", ...stripe(10, 8, "0 8px 24px", 12), use: "Menus, popovers, comboboxes: lifted from the page." },
+  { cls: "material-tooltip", name: "Tooltip", radius: 8, fill: "var(--jan-surface-primary)", ...stripe(12, 10, "0 2px 8px", 10), use: "The lightest lift. Tooltips are the only floating element with a stem." },
+  { cls: "material-menu", name: "Menu", radius: 12, fill: "var(--jan-surface-primary)", ...stripe(10, 8, "0 8px 24px", 12), use: "Menus, popovers, comboboxes: lifted from the page." },
   { cls: "material-modal", name: "Modal", radius: 24, fill: "var(--jan-surface-primary)", ...stripe(8, 8, "0 16px 48px", 16), use: "Dialogs and sheets: further lift." },
   { cls: "material-fullscreen", name: "Fullscreen", radius: 24, fill: "var(--jan-surface-primary)", ...stripe(6, 6, "0 24px 80px", 24), use: "Takeovers: the biggest lift." },
 ];

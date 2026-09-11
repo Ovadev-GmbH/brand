@@ -26,7 +26,7 @@ function Command({
     <CommandPrimitive
       data-slot="command"
       className={cn(
-        "flex size-full flex-col overflow-hidden material-menu p-1 text-content-primary",
+        "flex size-full flex-col overflow-hidden material-menu p-1.5 text-content-primary",
         className
       )}
       {...props}
@@ -72,8 +72,8 @@ function CommandInput({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
-    <div data-slot="command-input-wrapper" className="p-1 pb-0">
-      <InputGroup className="h-8! bg-surface-secondary">
+    <div data-slot="command-input-wrapper" className="p-1.5 pb-0">
+      <InputGroup className="h-10! bg-surface-secondary">
         <CommandPrimitive.Input
           data-slot="command-input"
           className={cn(
@@ -127,7 +127,7 @@ function CommandGroup({
     <CommandPrimitive.Group
       data-slot="command-group"
       className={cn(
-        "overflow-hidden p-1 text-content-primary **:[[cmdk-group-heading]]:px-2 **:[[cmdk-group-heading]]:py-1.5 **:[[cmdk-group-heading]]:text-label-12 **:[[cmdk-group-heading]]:text-content-tertiary",
+        "overflow-hidden p-1 text-content-primary **:[[cmdk-group-heading]]:px-3 **:[[cmdk-group-heading]]:py-2 **:[[cmdk-group-heading]]:text-label-12 **:[[cmdk-group-heading]]:text-content-tertiary",
         className
       )}
       {...props}
@@ -157,7 +157,7 @@ function CommandItem({
     <CommandPrimitive.Item
       data-slot="command-item"
       className={cn(
-        "group/command-item relative flex min-h-7 cursor-default items-center gap-2 rounded-regular px-2 py-1.5 text-label-14 outline-hidden select-none in-data-[slot=dialog-content]:rounded-large data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 data-selected:bg-surface-hover data-selected:text-content-primary [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-selected:*:[svg]:text-content-primary",
+        "group/command-item relative flex min-h-7 cursor-default items-center gap-2 rounded-small px-3 py-2 text-label-14 outline-hidden select-none in-data-[slot=dialog-content]:rounded-large data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 data-selected:bg-surface-hover data-selected:text-content-primary [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 data-selected:*:[svg]:text-content-primary",
         className
       )}
       {...props}

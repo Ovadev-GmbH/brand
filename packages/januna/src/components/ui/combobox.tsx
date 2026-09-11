@@ -122,7 +122,7 @@ function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
     <ComboboxPrimitive.List
       data-slot="combobox-list"
       className={cn(
-        "no-scrollbar max-h-[min(calc(--spacing(72)---spacing(9)),calc(var(--available-height)---spacing(9)))] scroll-py-1 overflow-y-auto overscroll-contain p-1 data-empty:p-0",
+        "no-scrollbar max-h-[min(calc(--spacing(72)---spacing(9)),calc(var(--available-height)---spacing(9)))] scroll-py-1.5 overflow-y-auto overscroll-contain p-1.5 data-empty:p-0",
         className
       )}
       {...props}
@@ -139,7 +139,7 @@ function ComboboxItem({
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
       className={cn(
-        "relative flex min-h-7 w-full cursor-default items-center gap-2 rounded-regular py-1.5 pr-8 pl-2 text-label-14 outline-hidden select-none data-highlighted:bg-surface-hover data-highlighted:text-content-primary not-data-[variant=destructive]:data-highlighted:**:text-content-primary data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex min-h-7 w-full cursor-default items-center gap-2 rounded-small py-2 pr-9 pl-3 text-label-14 outline-hidden select-none data-highlighted:bg-surface-hover data-highlighted:text-content-primary not-data-[variant=destructive]:data-highlighted:**:text-content-primary data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
@@ -147,7 +147,7 @@ function ComboboxItem({
       {children}
       <ComboboxPrimitive.ItemIndicator
         render={
-          <span className="pointer-events-none absolute right-2 flex size-4 items-center justify-center" />
+          <span className="pointer-events-none absolute right-3 flex size-4 items-center justify-center" />
         }
       >
         <HugeiconsIcon icon={Tick02Icon} strokeWidth={2} className="pointer-events-none" />
@@ -173,7 +173,7 @@ function ComboboxLabel({
   return (
     <ComboboxPrimitive.GroupLabel
       data-slot="combobox-label"
-      className={cn("px-2 py-1.5 text-label-12 text-content-tertiary", className)}
+      className={cn("px-3 py-2 text-label-12 text-content-tertiary", className)}
       {...props}
     />
   )
@@ -220,7 +220,7 @@ function ComboboxChips({
     <ComboboxPrimitive.Chips
       data-slot="combobox-chips"
       className={cn(
-        "flex min-h-8 flex-wrap items-center gap-1 rounded-regular border border-transparent bg-surface-primary shadow-small bg-clip-padding px-2.5 py-1 text-label-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30 has-aria-invalid:border-destructive has-aria-invalid:ring-3 has-aria-invalid:ring-destructive/20 has-data-[slot=combobox-chip]:px-1",
+        "flex min-h-10 flex-wrap items-center gap-1 rounded-regular border border-transparent bg-surface-primary shadow-small bg-clip-padding px-3.5 py-1.5 text-label-14 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30 has-aria-invalid:border-destructive has-aria-invalid:ring-3 has-aria-invalid:ring-destructive/20 has-data-[slot=combobox-chip]:px-1",
         className
       )}
       {...props}

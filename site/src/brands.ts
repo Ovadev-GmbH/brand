@@ -24,6 +24,10 @@ export type Mark = {
   name: string;
   /** LGO or ICO in the filename the studio builds. */
   kind: "logo" | "icon";
+  /** Pixels to lift the mark on the introduction's card so its *visual*
+   *  centre sits level with the others — a wordmark with a descender
+   *  reads high in its own box. */
+  nudge?: number;
   /** One line under the name, if the drawing needs one. */
   note?: string;
   /** public/brand/<colour>.svg — the mark as it actually ships, ground and
@@ -109,7 +113,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   },
   januna: {
     marks: [
-      { file: "januna-logo", name: "Logo", kind: "logo", note: "The Januna wordmark." },
+      { file: "januna-logo", name: "Logo", kind: "logo", note: "The Januna wordmark.", nudge: -5 },
       {
         file: "januna-icon",
         name: "Icon",

@@ -32,6 +32,7 @@ export function MarkRow({ marks }: { marks: Mark[] }) {
           <div
             key={`${m.file}-${m.kind}`}
             className="flex h-12 items-center [&>svg]:h-full [&>svg]:w-auto"
+            style={m.nudge ? { transform: `translateY(${m.nudge}px)` } : undefined}
             dangerouslySetInnerHTML={{ __html: svg }}
           />
         );

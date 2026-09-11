@@ -118,9 +118,9 @@
   --jan-surface-primary: var(--jan-background-100);
   --jan-surface-secondary: var(--jan-gray-100);
   --jan-surface-tertiary: var(--jan-background-200);
-  --jan-surface-quaternary: var(--jan-gray-300);
+  --jan-surface-quaternary: var(--jan-gray-400);
   --jan-surface-hover: var(--jan-gray-200);
-  --jan-surface-active: var(--jan-green-100);
+  --jan-surface-active: var(--jan-gray-300);
   --jan-surface-modal: var(--jan-gray-alpha-500);
   --jan-surface-danger: var(--jan-red-100);
   --jan-surface-success: var(--jan-green-100);

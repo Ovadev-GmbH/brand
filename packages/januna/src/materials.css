@@ -59,13 +59,13 @@
 }
 
 @utility material-tooltip {
-  border-radius: 12px;
+  border-radius: 8px;
   background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-tooltip);
 }
 
 @utility material-menu {
-  border-radius: 16px;
+  border-radius: 12px;
   background: var(--jan-surface-primary);
   box-shadow: var(--jan-shadow-menu);
 }
