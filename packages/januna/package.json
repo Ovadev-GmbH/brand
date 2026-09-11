@@ -31,9 +31,10 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "build": "vite build && tsc -p tsconfig.build.json",
+    "build": "bun run foundations && vite build && tsc -p tsconfig.build.json",
     "check-types": "tsc --noEmit",
-    "shadcn": "shadcn add --all --overwrite --yes && bun run ../../scripts/shadcn-relativize.ts . && rm -f src/shadcn.generated.css"
+    "shadcn": "shadcn add --all --overwrite --yes && bun run ../../scripts/shadcn-relativize.ts . && rm -f src/shadcn.generated.css",
+    "foundations": "bun run ../../scripts/gen-foundations.ts januna"
   },
   "peerDependencies": {
     "@base-ui/react": "^1.8.0",

@@ -1,23 +1,19 @@
 /* Januna: the theme.
  *
- * Five primitives, one of them the green. Every colour a component can be
- * drawn in is derived from these below, so a change to --jan-green moves
- * every green on the screen: filled buttons, the focus ring, the first chart
- * series, the sidebar's current row. Nothing else in this package names a
- * colour.
- *
- * The values come from packages/januna/src/tokens.css's sources (the Januna
- * repo's globals.css): green-dark #094413 is the one green, and what it
- * carries is taupe #f9f3ed, never white.
+ * The colour system lives in src/foundations/colors.ts and is generated
+ * into colors.css: nine scales of ten steps plus two page backgrounds, as
+ * custom properties and as Tailwind colours. This file maps the slots the
+ * shadcn components read onto steps of those scales, and sets the radius
+ * and the face. Nothing here names a colour by value.
  *
  * The same block is declared on :root, for an app that wears the brand, and
  * on [data-brand="januna"], for a page that shows more than one brand (the
- * catalog). The slots below are the ones shadcn components read; their names
- * are shadcn's so `shadcn add` keeps working.
+ * catalog). The slot names are shadcn's so `shadcn add` keeps working.
  *
  * Fonts: --jan-font names Geist, which styles.css loads through
  * @fontsource-variable/geist. An app importing only this file must load the
  * face itself. */
+@import "./colors.css";
 
 @theme inline {
   --font-sans: var(--jan-font);
@@ -67,61 +63,54 @@
 [data-brand="januna"] {
   color-scheme: light;
 
-  /* ── primitives: the only literal values in the package ─────────────── */
-  --jan-green: #094413;
-  --jan-ink: #2c2c2c;
-  --jan-paper: #ffffff;
-  --jan-taupe: #f9f3ed;
-  --jan-red: #d73815;
   --jan-radius: 0.625rem;
   --jan-font: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
 
-  /* ── derived: what the components read ──────────────────────────────── */
-  --background: var(--jan-paper);
-  --foreground: var(--jan-ink);
-  --card: var(--jan-paper);
-  --card-foreground: var(--jan-ink);
-  --popover: var(--jan-paper);
-  --popover-foreground: var(--jan-ink);
+  /* ── the slots the components read, as steps of the scales ─────────── */
+  --background: var(--jan-background-100);
+  --foreground: var(--jan-gray-1000);
+  --card: var(--jan-background-100);
+  --card-foreground: var(--jan-gray-1000);
+  --popover: var(--jan-background-100);
+  --popover-foreground: var(--jan-gray-1000);
 
-  /* Filled: the green carrying taupe. */
-  --primary: var(--jan-green);
-  --primary-foreground: var(--jan-taupe);
+  /* Filled: the dark green carrying the taupe, never white. */
+  --primary: var(--jan-green-1000);
+  --primary-foreground: var(--jan-background-200);
 
-  /* The tints: taupe, and taupe pulled a step toward the ink for hover. */
-  --secondary: color-mix(in oklch, var(--jan-taupe), var(--jan-ink) 4%);
-  --secondary-foreground: var(--jan-ink);
-  --muted: var(--jan-taupe);
-  --muted-foreground: color-mix(in oklch, var(--jan-ink) 70%, var(--jan-paper));
-  --accent: color-mix(in oklch, var(--jan-taupe), var(--jan-ink) 4%);
-  --accent-foreground: var(--jan-ink);
+  /* The tints: gray 1 at rest, 2 on hover, as the roles say. */
+  --secondary: var(--jan-gray-200);
+  --secondary-foreground: var(--jan-gray-1000);
+  --muted: var(--jan-gray-100);
+  --muted-foreground: var(--jan-gray-900);
+  --accent: var(--jan-gray-200);
+  --accent-foreground: var(--jan-gray-1000);
 
-  --destructive: var(--jan-red);
-  --destructive-foreground: var(--jan-taupe);
+  --destructive: var(--jan-red-700);
+  --destructive-foreground: var(--jan-background-100);
 
-  /* The ink at 16%, as an alpha so it sits on paper and on taupe alike. */
-  --border: color-mix(in oklch, var(--jan-ink) 16%, transparent);
-  --input: color-mix(in oklch, var(--jan-ink) 16%, transparent);
-  --ring: var(--jan-green);
+  /* Alpha so the same border sits on the sheet and on the island. */
+  --border: var(--jan-gray-alpha-400);
+  --input: var(--jan-gray-alpha-400);
+  --ring: var(--jan-green-700);
 
-  /* Series: the green, two lighter steps of it, a neutral, the red. */
-  --chart-1: var(--jan-green);
-  --chart-2: color-mix(in oklch, var(--jan-green) 60%, var(--jan-paper));
-  --chart-3: color-mix(in oklch, var(--jan-green) 30%, var(--jan-paper));
-  --chart-4: color-mix(in oklch, var(--jan-ink) 45%, var(--jan-paper));
-  --chart-5: var(--jan-red);
+  --chart-1: var(--jan-green-700);
+  --chart-2: var(--jan-green-1000);
+  --chart-3: var(--jan-gray-600);
+  --chart-4: var(--jan-blue-700);
+  --chart-5: var(--jan-red-700);
 
   --radius: var(--jan-radius);
 
   /* The panel is the taupe island; its current row is a filled button. */
-  --sidebar: var(--jan-taupe);
-  --sidebar-foreground: var(--jan-ink);
-  --sidebar-primary: var(--jan-green);
-  --sidebar-primary-foreground: var(--jan-taupe);
-  --sidebar-accent: color-mix(in oklch, var(--jan-taupe), var(--jan-ink) 10%);
-  --sidebar-accent-foreground: var(--jan-ink);
-  --sidebar-border: color-mix(in oklch, var(--jan-ink) 16%, transparent);
-  --sidebar-ring: var(--jan-green);
+  --sidebar: var(--jan-background-200);
+  --sidebar-foreground: var(--jan-gray-1000);
+  --sidebar-primary: var(--jan-green-1000);
+  --sidebar-primary-foreground: var(--jan-background-200);
+  --sidebar-accent: var(--jan-gray-alpha-200);
+  --sidebar-accent-foreground: var(--jan-gray-1000);
+  --sidebar-border: var(--jan-gray-alpha-400);
+  --sidebar-ring: var(--jan-green-700);
 }
 
 @layer base {

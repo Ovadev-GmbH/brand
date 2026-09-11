@@ -6,6 +6,10 @@
    [data-brand="<id>"]. */
 
 import type { PkgId } from "./types";
+import { colors as janunaColors } from "@ovadev-gmbh/ui-januna";
+
+/** A brand's colour system, as its package exports it (foundations/colors). */
+export type ColorSystem = typeof janunaColors;
 
 export type Swatch = { name: string; token: string; value: string; note?: string };
 
@@ -49,6 +53,10 @@ export type BrandChrome = {
   marks?: Mark[];
   /** Only for a brand whose components ship with an icon set. */
   icons?: IconSet;
+  /** Only for a brand with a colour *system*: scales and roles, read from
+   *  the package. The swatches above are then the scales' working colours,
+   *  for the introduction's card; the Colors page reads the system. */
+  colors?: ColorSystem;
 };
 
 export const CHROME: Record<PkgId, BrandChrome> = {
@@ -105,14 +113,13 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       },
     ],
     mark: "Januna",
-    source: "packages/januna/src/theme.css — five primitives, everything else derived from them",
-    swatches: [
-      { name: "Green", token: "--jan-green", value: "#094413", note: "The one green: every filled button, the focus ring, the first chart series." },
-      { name: "Ink", token: "--jan-ink", value: "#2c2c2c", note: "The text, and at 16% the borders." },
-      { name: "Paper", token: "--jan-paper", value: "#ffffff" },
-      { name: "Taupe", token: "--jan-taupe", value: "#f9f3ed", note: "What the green carries, never white; and the muted surface." },
-      { name: "Red", token: "--jan-red", value: "#d73815", note: "Destructive, and nothing else." },
-    ],
+    source: "packages/januna/src/foundations/colors.ts — nine scales, generated into colors.css",
+    colors: janunaColors,
+    swatches: janunaColors.SCALES.filter((sc) => sc.id !== "gray-alpha").map((sc) => ({
+      name: sc.name,
+      token: `--jan-${sc.id}-700`,
+      value: sc.steps[700],
+    })),
     type: [
       { name: "Display", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "--jan-font" },
       { name: "Heading", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "24px", note: "--jan-font" },

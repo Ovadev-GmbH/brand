@@ -35,7 +35,7 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
       : []),
     {
       name: "Colors",
-      blurb: `${chrome.swatches.length} values`,
+      blurb: chrome.colors ? `${chrome.colors.SCALES.length} scales` : `${chrome.swatches.length} values`,
       to: `${href(pkg.id)}/colors`,
       preview: <SwatchRow swatches={chrome.swatches} />,
     },

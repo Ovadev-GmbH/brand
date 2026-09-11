@@ -31,6 +31,7 @@ const index = [
   ...files.map((f) => `export * from "./components/ui/${f.replace(/\.tsx$/, "")}";`),
   'export { cn } from "./lib/utils";',
   'export { useIsMobile } from "./hooks/use-mobile";',
+  'export * as colors from "./foundations/colors";',
   "",
 ].join("\n");
 writeFileSync(resolve(pkg, "src/index.ts"), index);

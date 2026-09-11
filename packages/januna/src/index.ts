@@ -63,3 +63,4 @@ export * from "./components/ui/toggle";
 export * from "./components/ui/tooltip";
 export { cn } from "./lib/utils";
 export { useIsMobile } from "./hooks/use-mobile";
+export * as colors from "./foundations/colors";
