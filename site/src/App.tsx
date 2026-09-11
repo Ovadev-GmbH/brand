@@ -8,7 +8,6 @@ import { IntroPage } from "./pages/IntroPage";
 import { ColorsPage } from "./pages/ColorsPage";
 import { TypographyPage } from "./pages/TypographyPage";
 import { BrandAssetsPage } from "./pages/BrandAssetsPage";
-import { ComponentsPage } from "./pages/ComponentsPage";
 import { IconsPage } from "./pages/IconsPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { EntryPage } from "./pages/EntryPage";
@@ -22,7 +21,6 @@ const PAGES = {
   colors: ColorsPage,
   typography: TypographyPage,
   "brand-assets": BrandAssetsPage,
-  components: ComponentsPage,
   icons: IconsPage,
 };
 
@@ -75,7 +73,6 @@ export function App() {
         <Route path="/:pkg/colors" element={<Brand page="colors" />} />
         <Route path="/:pkg/typography" element={<Brand page="typography" />} />
         <Route path="/:pkg/brand-assets" element={<Brand page="brand-assets" />} />
-        <Route path="/:pkg/components" element={<Brand page="components" />} />
         <Route path="/:pkg/icons" element={<Brand page="icons" />} />
         <Route path="/:pkg/:slug" element={<Component />} />
         <Route path="*" element={<NotFound />} />

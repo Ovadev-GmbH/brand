@@ -16,12 +16,18 @@ import { Pagination } from "./Pagination";
 import { MenuIcon, CloseIcon, SearchIcon } from "./icons";
 import { BrandSwitcher } from "./BrandSwitcher";
 
+/* The sidebar's list: foundations first, then one group per component
+   category. A group is a small capitals label with its pages tight beneath
+   it, and a hairline above it to close the group before — so the eye finds
+   the seam between groups, not a gap it has to measure. */
 function NavList({ pkg, onNavigate }: { pkg: Pkg; onNavigate?: () => void }) {
   return (
     <>
       {navGroups(pkg).map(({ group, items }) => (
-        <div className="mt-4 first:mt-0" key={group}>
-          <p className="flex h-10 items-baseline gap-2 pl-1 text-sm font-medium text-gray-1000">{group}</p>
+        <div className="mt-4 border-t border-alpha-400 pt-4 first:mt-0 first:border-t-0 first:pt-0" key={group}>
+          <p className="mb-1 flex h-7 items-center pl-1 text-[11px] font-semibold tracking-[0.08em] text-gray-800 uppercase">
+            {group}
+          </p>
           <ul className="m-0 list-none p-0">
             {items.map((item) => (
               <li key={item.href}>
@@ -30,7 +36,7 @@ function NavList({ pkg, onNavigate }: { pkg: Pkg; onNavigate?: () => void }) {
                   to={item.href}
                   onClick={onNavigate}
                   className={({ isActive }) =>
-                    `-ml-2 flex h-9 items-center justify-between gap-2 rounded-brand px-3 text-sm no-underline hover:bg-alpha-100 hover:text-gray-1000 ${
+                    `-ml-2 flex h-8 items-center justify-between gap-2 rounded-brand px-3 text-sm no-underline hover:bg-alpha-100 hover:text-gray-1000 ${
                       isActive ? "bg-alpha-100 text-gray-1000" : "text-gray-900"
                     }`
                   }

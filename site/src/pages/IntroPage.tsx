@@ -7,7 +7,7 @@
 
 import { Link } from "react-router";
 import type { Pkg } from "../types";
-import { grouped, href } from "../registry";
+import { href } from "../registry";
 import { CHROME } from "../brands";
 import { Grid, Cell } from "../components/Grid";
 import { PageHeader } from "../components/PageHeader";
@@ -20,7 +20,6 @@ type Section = { name: string; blurb: string; to: string; preview?: React.ReactN
 export function IntroPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
   const marks = chrome.marks ?? [];
-  const components = grouped(pkg).reduce((n, g) => n + g.entries.length, 0);
 
   const sections: Section[] = [
     ...(marks.length
@@ -36,7 +35,6 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
     { name: "Colors", blurb: `${chrome.swatches.length} values`, to: `${href(pkg.id)}/colors` },
     { name: "Typeface", blurb: `${chrome.type.length} faces`, to: `${href(pkg.id)}/typography` },
     ...(chrome.icons ? [{ name: "Icons", blurb: `${chrome.icons.library}, the free set`, to: `${href(pkg.id)}/icons` }] : []),
-    { name: "Components", blurb: `${components} components`, to: `${href(pkg.id)}/components` },
   ];
 
   return (

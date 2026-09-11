@@ -24,7 +24,6 @@ export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
     { slug: "colors", name: "Colors" },
     { slug: "typography", name: "Typography" },
     ...(CHROME[pkg.id].icons ? [{ slug: "icons", name: "Icons" }] : []),
-    { slug: "components", name: "Components" },
   ];
 }
 
