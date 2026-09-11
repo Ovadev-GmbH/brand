@@ -8,7 +8,7 @@ import { PageHeader, SectionHeader } from "../components/PageHeader";
 
 function Table({ rows }: { rows: MaterialSystem["SURFACE"] }) {
   return (
-    <div className="mt-6 overflow-x-auto">
+    <div className="mt-6">
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr className="border-b border-alpha-400 text-left text-[13px] text-gray-900">
@@ -20,7 +20,7 @@ function Table({ rows }: { rows: MaterialSystem["SURFACE"] }) {
         <tbody>
           {rows.map((m) => (
             <tr key={m.cls} className="border-b border-alpha-400 last:border-b-0">
-              <td className="py-5 pr-6 align-middle">
+              <td className="py-8 pr-6 pl-1 align-middle">
                 <div
                   className="h-24 w-60 max-w-full"
                   style={{

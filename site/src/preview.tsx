@@ -10,11 +10,17 @@
  * demo to show by message, so paging through components never reloads it.
  * It reports its height to the parent as it changes, so the frame is
  * exactly as tall as the demo, popups included. */
-import { StrictMode, Suspense, useEffect, useState } from "react";
+import * as React from "react";
+import { StrictMode, Suspense, lazy, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import type { Pkg } from "./types";
 import { januna } from "./registry/januna";
 import "./styles/preview.css";
+
+/* Demos that are not a component's page: the introduction's card. */
+const EXTRA: Record<string, Record<string, React.LazyExoticComponent<React.ComponentType>>> = {
+  januna: { intro: lazy(() => import("./examples/januna/IntroDemo")) },
+};
 
 /* Only the packages whose demos are framed — not the registry index, which
    would carry every other package's stylesheet into this document. */
@@ -26,6 +32,7 @@ function fromUrl(): Shown {
   const q = new URLSearchParams(location.search);
   return { pkg: q.get("pkg") ?? "", slug: q.get("slug") ?? "", index: Number(q.get("i") ?? 0) };
 }
+const THUMB = new URLSearchParams(location.search).get("thumb") === "1";
 
 function Report({ id }: { id: string }) {
   useEffect(() => {
@@ -72,12 +79,14 @@ function Preview() {
   }, []);
 
   const pkg = FRAMED.find((p) => p.id === shown.pkg);
-  const example = pkg?.entries.find((e) => e.slug === shown.slug)?.examples[shown.index];
+  const Demo = pkg?.entries.find((e) => e.slug === shown.slug)?.examples[shown.index]?.Component ?? EXTRA[shown.pkg]?.[shown.slug];
   const id = `${shown.pkg}/${shown.slug}/${shown.index}`;
-  if (!pkg || !example) return <p className="p-6 text-sm">No such demo.</p>;
-  const Demo = example.Component;
+  if (!pkg || !Demo) return <p className="p-6 text-sm">No such demo.</p>;
   return (
-    <div data-brand={pkg.id} className="bg-background p-6 text-foreground">
+    <div
+      data-brand={pkg.id}
+      className={THUMB ? "flex items-center justify-center bg-transparent p-4 text-foreground" : "bg-background p-6 text-foreground"}
+    >
       <Suspense fallback={null}>
         <Demo key={id} />
       </Suspense>

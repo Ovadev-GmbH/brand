@@ -18,11 +18,11 @@ export function PageHeader({ title, children }: { title: string; children?: Reac
   );
 }
 
-/** A group's heading inside a page, ruled the same way so a section opens
- *  exactly like a page does. */
+/** A group's heading inside a page. No rule of its own: the page's header
+ *  drew the one line, and a section is set apart by space. */
 export function SectionHeader({ title, count }: { title: string; count?: number }) {
   return (
-    <h2 className="-mx-6 border-b border-alpha-400 px-6 pt-12 pb-4 font-display text-xl lg:-mx-12 lg:px-12">
+    <h2 className="mt-14 mb-0 font-display text-xl">
       {title}
       {count === undefined ? null : (
         <span className="ml-2 font-mono text-[13px] font-normal tracking-normal text-gray-700">{count}</span>

@@ -1,9 +1,10 @@
 /* A design system's front door, in the shape Geist uses: its name, one line
-   saying what it is, and a grid of the parts it is made of.
+ * saying what it is, and a grid of its foundations — each a card with a
+ * small picture of the thing, its name and one sentence. The components are
+ * not a door here: they are the sidebar, one page each.
  *
- * Only the parts that exist say anything. A section that has not been built
- * yet is a card with an empty stage and a page behind it that says so — not a
- * card dressed up to look finished. Things get added; nothing gets faked. */
+ * Only the parts that exist say anything. A brand without a foundation has
+ * no card for it; nothing is faked. */
 
 import { Link } from "react-router";
 import type { Pkg } from "../types";
@@ -13,46 +14,36 @@ import { Grid, Cell } from "../components/Grid";
 import { PageHeader } from "../components/PageHeader";
 import { MarkRow } from "../components/MarkRow";
 import { SwatchRow } from "../components/SwatchRow";
+import { DemoFrame } from "../components/DemoFrame";
+import { IconGrid, TypePanel, MaterialStack, GridPreview } from "../components/previews";
 
-/** Each door says only how much is behind it. A sentence per card would be
- *  four different sentences to keep true; a count keeps itself. */
-type Section = { name: string; blurb: string; to: string; preview?: React.ReactNode };
+type Door = { name: string; line: string; to: string; preview?: React.ReactNode };
 
 export function IntroPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
   const marks = chrome.marks ?? [];
+  const at = (slug: string) => `${href(pkg.id)}/${slug}`;
 
-  const sections: Section[] = [
-    ...(marks.length
-      ? [
-          {
-            name: "Brand Assets",
-            blurb: `${marks.length} marks`,
-            to: `${href(pkg.id)}/brand-assets`,
-            preview: <MarkRow marks={marks} />,
-          },
-        ]
+  const doors: Door[] = [
+    ...(marks.length ? [{ name: "Brand Assets", line: "The marks, and how to place them.", to: at("brand-assets"), preview: <MarkRow marks={marks} /> }] : []),
+    ...(chrome.icons ? [{ name: "Icons", line: `${chrome.icons.library}, in the brand's green.`, to: at("icons"), preview: <IconGrid icons={chrome.icons} /> }] : []),
+    ...(pkg.frame
+      ? [{ name: "Components", line: `${pkg.entries.length} building blocks on Base UI.`, to: href(pkg.id, pkg.entries[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug="intro" index={0} thumb /> }]
       : []),
     {
       name: "Colors",
-      blurb: chrome.colors ? `${chrome.colors.SCALES.length} scales` : `${chrome.swatches.length} values`,
-      to: `${href(pkg.id)}/colors`,
+      line: chrome.colors ? "A warm, high-contrast colour system." : "The brand's palette.",
+      to: at("colors"),
       preview: <SwatchRow swatches={chrome.swatches} />,
     },
     {
       name: "Typography",
-      blurb: chrome.typography
-        ? `${chrome.typography.GROUPS.reduce((n, g) => n + g.styles.length, 0)} styles`
-        : `${chrome.type.length} faces`,
-      to: `${href(pkg.id)}/typography`,
+      line: chrome.typography ? "One face, set in a fixed scale." : "The brand's faces.",
+      to: at("typography"),
+      preview: chrome.typography ? <TypePanel type={chrome.typography} /> : undefined,
     },
-    ...(chrome.materials
-      ? [{ name: "Materials", blurb: `${chrome.materials.SURFACE.length + chrome.materials.FLOATING.length + chrome.materials.TINTS.length} presets`, to: `${href(pkg.id)}/materials` }]
-      : []),
-    ...(chrome.layout
-      ? [{ name: "Layout", blurb: `${chrome.layout.SPACING.length + chrome.layout.RADIUS.length + chrome.layout.MOTION.length} tokens`, to: `${href(pkg.id)}/layout` }]
-      : []),
-    ...(chrome.icons ? [{ name: "Icons", blurb: `${chrome.icons.library}, the free set`, to: `${href(pkg.id)}/icons` }] : []),
+    ...(chrome.materials ? [{ name: "Materials", line: "Radius, stroke and shadow, by elevation.", to: at("materials"), preview: <MaterialStack materials={chrome.materials} /> }] : []),
+    ...(chrome.layout ? [{ name: "Layout", line: "Spacing, corners and motion.", to: at("layout"), preview: <GridPreview layout={chrome.layout} /> }] : []),
   ];
 
   return (
@@ -61,18 +52,18 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
 
       <div className="-mx-6 lg:-mx-12">
         <Grid cols={2}>
-          {sections.map((s) => (
-            <Cell key={s.name}>
+          {doors.map((d, i) => (
+            <Cell key={d.name} tone={(i + Math.floor(i / 2)) % 2 ? "200" : "100"}>
               <Link
-                to={s.to}
-                className="flex h-full flex-col gap-6 p-8 text-inherit no-underline transition-colors duration-150 hover:bg-alpha-100"
+                to={d.to}
+                className="flex h-full flex-col gap-8 p-8 text-inherit no-underline transition-colors duration-150 hover:bg-alpha-100 lg:p-10"
               >
-                <div className="pointer-events-none flex min-h-24 select-none items-center justify-center overflow-hidden">
-                  {s.preview ?? null}
+                <div className="pointer-events-none flex min-h-32 select-none items-center justify-center overflow-hidden">
+                  {d.preview ?? null}
                 </div>
                 <div className="mt-auto">
-                  <p className="text-base font-semibold text-gray-1000">{s.name}</p>
-                  <p className="mt-0.5 text-sm text-gray-900">{s.blurb}</p>
+                  <p className="m-0 text-base font-semibold text-gray-1000">{d.name}</p>
+                  <p className="mt-0.5 mb-0 text-sm text-gray-900">{d.line}</p>
                 </div>
               </Link>
             </Cell>

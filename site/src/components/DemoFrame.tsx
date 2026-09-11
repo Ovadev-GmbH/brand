@@ -17,11 +17,14 @@ export function DemoFrame({
   slug,
   index,
   tall = false,
+  thumb = false,
 }: {
   pkg: PkgId;
   slug: string;
   index: number;
   tall?: boolean;
+  /** Inert and centred: a card's preview, not a page's demo. */
+  thumb?: boolean;
 }) {
   const id = `${pkg}/${slug}/${index}`;
   const min = tall ? 480 : 96;
@@ -29,7 +32,7 @@ export function DemoFrame({
   const [ready, setReady] = React.useState(false);
   const [height, setHeight] = React.useState(min);
   const [src] = React.useState(
-    () => `${import.meta.env.BASE_URL}preview.html?pkg=${pkg}&slug=${slug}&i=${index}`,
+    () => `${import.meta.env.BASE_URL}preview.html?pkg=${pkg}&slug=${slug}&i=${index}${thumb ? "&thumb=1" : ""}`,
   );
 
   React.useEffect(() => {
@@ -54,8 +57,10 @@ export function DemoFrame({
       ref={frame}
       src={src}
       title="Demo"
-      className="block w-full border-0 transition-[height] duration-150"
+      className={`block w-full border-0 transition-[height] duration-150 ${thumb ? "pointer-events-none" : ""}`}
       style={{ height }}
+      tabIndex={thumb ? -1 : undefined}
+      aria-hidden={thumb || undefined}
     />
   );
 }

@@ -18,13 +18,13 @@ import { BrandSwitcher } from "./BrandSwitcher";
 
 /* The sidebar's list: foundations first, then one group per component
    category. A group is a small capitals label with its pages tight beneath
-   it, and a hairline above it to close the group before — so the eye finds
-   the seam between groups, not a gap it has to measure. */
+   it; the space above the label is the seam. No rules — the label is
+   enough. */
 function NavList({ pkg, onNavigate }: { pkg: Pkg; onNavigate?: () => void }) {
   return (
     <>
       {navGroups(pkg).map(({ group, items }) => (
-        <div className="mt-4 border-t border-alpha-400 pt-4 first:mt-0 first:border-t-0 first:pt-0" key={group}>
+        <div className="mt-8 first:mt-0" key={group}>
           <p className="mb-1 flex h-7 items-center pl-1 text-[11px] font-semibold tracking-[0.08em] text-gray-800 uppercase">
             {group}
           </p>

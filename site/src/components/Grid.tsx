@@ -38,6 +38,6 @@ export function Grid({ cols = 1, children }: { cols?: number; children: ReactNod
   );
 }
 
-export function Cell({ children }: { children?: ReactNode }) {
-  return <div className="min-w-0 bg-bg-100">{children}</div>;
+export function Cell({ children, tone = "100" }: { children?: ReactNode; tone?: "100" | "200" }) {
+  return <div className={`min-w-0 ${tone === "200" ? "bg-bg-200" : "bg-bg-100"}`}>{children}</div>;
 }

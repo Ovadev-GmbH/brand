@@ -7,7 +7,7 @@ import { PageHeader, SectionHeader } from "../components/PageHeader";
 
 function Table({ rows, render }: { rows: LayoutSystem["SPACING"]; render: (t: LayoutSystem["SPACING"][number]) => React.ReactNode }) {
   return (
-    <div className="mt-6 overflow-x-auto">
+    <div className="mt-6">
       <table className="w-full border-collapse text-sm">
         <thead>
           <tr className="border-b border-alpha-400 text-left text-[13px] text-gray-900">

@@ -49,7 +49,7 @@ function SystemPage({ type }: { type: TypeSystem }) {
         <section key={g.name}>
           <SectionHeader title={g.name} count={g.styles.length} />
           <p className="mt-4 max-w-160 text-[15px] text-gray-900">{g.note}</p>
-          <div className="mt-6 overflow-x-auto">
+          <div className="mt-6">
             <table className="w-full border-collapse text-sm">
               <thead>
                 <tr className="border-b border-alpha-400 text-left text-[13px] text-gray-900">
