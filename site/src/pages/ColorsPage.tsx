@@ -8,47 +8,27 @@
  *
  * A brand with only a token file gets the swatch grid. */
 
-import * as React from "react";
+import { toast } from "sonner";
 import type { Pkg } from "../types";
 import { CHROME, type ColorSystem } from "../brands";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
 
-function useCopy() {
-  const [copied, setCopied] = React.useState<string>();
-  const copy = (key: string, text: string) => {
-    void navigator.clipboard.writeText(text);
-    setCopied(key);
-    setTimeout(() => setCopied((c) => (c === key ? undefined : c)), 1200);
-  };
-  return { copied, copy };
+/** Put a value on the clipboard and say so, once, quietly. */
+function copy(label: string, value: string) {
+  void navigator.clipboard.writeText(value);
+  toast(`Copied ${label}`, { description: value });
 }
 
-function Swatch({
-  value,
-  label,
-  copied,
-  onCopy,
-}: {
-  value: string;
-  label: string;
-  copied: boolean;
-  onCopy: () => void;
-}) {
+function Swatch({ value, label }: { value: string; label: string }) {
   return (
     <button
       type="button"
       title={`${label}: ${value}`}
       aria-label={`Copy ${label}`}
-      onClick={onCopy}
-      className="relative aspect-square w-full max-w-17 cursor-copy rounded-sm border-0 p-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] outline-none focus-visible:ring-2 focus-visible:ring-accent"
+      onClick={() => copy(label, value)}
+      className="aspect-square w-full max-w-17 cursor-copy rounded-sm border-0 p-0 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] outline-none focus-visible:ring-2 focus-visible:ring-accent"
       style={{ background: value }}
-    >
-      {copied ? (
-        <span className="absolute inset-0 flex items-center justify-center rounded-sm bg-bg-100/90 font-mono text-[10px] text-gray-1000">
-          copied
-        </span>
-      ) : null}
-    </button>
+    />
   );
 }
 
@@ -80,7 +60,6 @@ function Legend({ rows }: { rows: { value: string; name: string; use: string }[]
 }
 
 function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
-  const { copied, copy } = useCopy();
   const { SCALES, STEPS, ROLES, BACKGROUNDS, SEMANTIC } = colors;
   const gray = SCALES[0]!;
   const bgs = Object.entries(BACKGROUNDS);
@@ -109,26 +88,14 @@ function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
           <Row name="Backgrounds">
             <div className="flex w-full gap-1 md:w-[152px] md:gap-2">
               {bgs.map(([step, bg]) => (
-                <Swatch
-                  key={step}
-                  value={bg.value}
-                  label={bg.name}
-                  copied={copied === `bg-${step}`}
-                  onCopy={() => copy(`bg-${step}`, bg.value)}
-                />
+                <Swatch key={step} value={bg.value} label={bg.name} />
               ))}
             </div>
           </Row>
           {SCALES.map((s) => (
             <Row key={s.id} name={s.name}>
               {STEPS.map((step) => (
-                <Swatch
-                  key={step}
-                  value={s.steps[step]}
-                  label={`${s.name} ${step}`}
-                  copied={copied === `${s.id}-${step}`}
-                  onCopy={() => copy(`${s.id}-${step}`, s.steps[step])}
-                />
+                <Swatch key={step} value={s.steps[step]} label={`${s.name} ${step}`} />
               ))}
             </Row>
           ))}

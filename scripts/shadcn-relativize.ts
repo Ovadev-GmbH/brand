@@ -1,8 +1,9 @@
 /* After `shadcn add`: make a package's components importable from outside.
  *
  * The CLI writes `@/components/ui/button`-style imports, which only resolve
- * inside the package (tsconfig paths). A published package needs relative
- * ones, and an index that exports every component. Run with the package
+ * inside the package (tsconfig paths), and takes `cn` from the bare package.
+ * A published package needs relative ones, the configured `cn` from
+ * lib/utils, and an index that exports every component. Run with the package
  * directory as the argument; `bun run shadcn` in each package does. */
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
@@ -18,7 +19,10 @@ for (const f of files) {
   const after = before
     .replace(/from "@\/components\/ui\/([^"]+)"/g, 'from "./$1"')
     .replace(/from "@\/lib\/([^"]+)"/g, 'from "../../lib/$1"')
-    .replace(/from "@\/hooks\/([^"]+)"/g, 'from "../../hooks/$1"');
+    .replace(/from "@\/hooks\/([^"]+)"/g, 'from "../../hooks/$1"')
+    // The CLI imports `cn` straight from the package; ours is configured
+    // (lib/utils.ts teaches it the brand's classes), so route through it.
+    .replace(/import \{ cn \} from "cn"/g, 'import { cn } from "../../lib/utils"');
   if (after !== before) {
     writeFileSync(path, after);
     rewritten++;

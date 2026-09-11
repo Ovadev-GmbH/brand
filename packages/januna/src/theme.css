@@ -77,7 +77,7 @@
   --popover-foreground: var(--jan-content-primary);
 
   /* Filled: the accent carrying the taupe, never white. */
-  --primary: var(--jan-accent);
+  --primary: var(--jan-brand);
   --primary-foreground: var(--jan-content-inverse);
 
   --secondary: var(--jan-surface-hover);
@@ -92,7 +92,7 @@
 
   --border: var(--jan-divider);
   --input: var(--jan-divider-strong);
-  --ring: var(--jan-accent-bright);
+  --ring: var(--jan-brand-bright);
 
   --chart-1: var(--jan-green-700);
   --chart-2: var(--jan-green-1000);
@@ -105,12 +105,12 @@
   /* The panel is the taupe island; its current row is a filled button. */
   --sidebar: var(--jan-surface-tertiary);
   --sidebar-foreground: var(--jan-content-primary);
-  --sidebar-primary: var(--jan-accent);
+  --sidebar-primary: var(--jan-brand);
   --sidebar-primary-foreground: var(--jan-content-inverse);
   --sidebar-accent: var(--jan-gray-alpha-200);
   --sidebar-accent-foreground: var(--jan-content-primary);
   --sidebar-border: var(--jan-divider);
-  --sidebar-ring: var(--jan-accent-bright);
+  --sidebar-ring: var(--jan-brand-bright);
 }
 
 @layer base {

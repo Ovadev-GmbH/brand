@@ -4,6 +4,7 @@
    import on the clipboard. */
 
 import * as React from "react";
+import { toast } from "sonner";
 import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import type { Pkg } from "../types";
 import { CHROME } from "../brands";
@@ -22,22 +23,20 @@ async function loadIcons(): Promise<Icon[]> {
 }
 
 function Cell({ icon, color, snippet }: { icon: Icon; color: string; snippet: string }) {
-  const [copied, setCopied] = React.useState(false);
   return (
     <button
       type="button"
       title={icon.name}
       onClick={() => {
         void navigator.clipboard.writeText(snippet);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1200);
+        toast(`Copied ${icon.name}`, { description: snippet });
       }}
       className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-2 rounded-brand border border-transparent bg-transparent p-2 text-center transition-colors duration-100 hover:border-alpha-400 hover:bg-alpha-100"
       style={{ contentVisibility: "auto", containIntrinsicSize: "96px" }}
     >
       <HugeiconsIcon icon={icon.svg} size={24} strokeWidth={1.5} color={color} aria-hidden="true" />
       <span className="w-full truncate font-mono text-[10px] leading-tight text-gray-800">
-        {copied ? "Copied" : icon.name.replace(/Icon$/, "")}
+        {icon.name.replace(/Icon$/, "")}
       </span>
     </button>
   );

@@ -160,7 +160,10 @@ export const scaleById = (id: string) => SCALES.find((s) => s.id === id);
    talks about it, each pointing at one step of one scale. This is the
    vocabulary the components and the apps use: bg-surface-secondary,
    text-content-tertiary, text-status-danger, bg-status-danger/10. The
-   scales stay reachable for the rare exact colour. */
+   scales stay reachable for the rare exact colour.
+
+   "Brand", not "accent": shadcn's own `accent` slot is the hover tint, and
+   the two must not share a Tailwind name. */
 export type Semantic = { token: string; ref: string; use: string };
 export type SemanticGroup = { name: string; note: string; tokens: Semantic[] };
 
@@ -192,18 +195,18 @@ export const SEMANTIC: SemanticGroup[] = [
       { token: "content-secondary", ref: ref("gray", 900), use: "Descriptions, helper text, secondary icons." },
       { token: "content-tertiary", ref: ref("gray", 700), use: "Placeholders, timestamps, the least important line." },
       { token: "content-inverse", ref: ref("background", 200), use: "Text on the green or on the ink: taupe, never white." },
-      { token: "content-accent", ref: ref("green", 1000), use: "Links and emphasis in the brand." },
+      { token: "content-brand", ref: ref("green", 1000), use: "Links and emphasis in the brand." },
       { token: "content-disabled", ref: ref("gray", 600), use: "Disabled labels and icons." },
     ],
   },
   {
-    name: "Accent",
+    name: "Brand",
     note: "The one colour that acts.",
     tokens: [
-      { token: "accent", ref: ref("green", 1000), use: "The primary button, the focus, the current item." },
-      { token: "accent-hover", ref: ref("gray", 1000), use: "The primary button under the pointer: the ink, as on the marketing site." },
-      { token: "accent-subtle", ref: ref("green", 200), use: "A tint of the accent behind a selected control." },
-      { token: "accent-bright", ref: ref("green", 700), use: "The bright green: the focus ring, a live indicator, the first chart series." },
+      { token: "brand", ref: ref("green", 1000), use: "The primary button, the current item, emphasis." },
+      { token: "brand-hover", ref: ref("gray", 1000), use: "The primary button under the pointer: the ink, as on the marketing site." },
+      { token: "brand-subtle", ref: ref("green", 200), use: "A tint of the brand behind a selected control." },
+      { token: "brand-bright", ref: ref("green", 700), use: "The bright green: the focus ring, a live indicator, the first chart series." },
     ],
   },
   {
