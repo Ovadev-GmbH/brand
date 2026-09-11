@@ -6,11 +6,11 @@ export default function SliderDemo() {
   const [window, setWindow] = React.useState<number[]>([18, 21]);
 
   return (
-    <div className="grid max-w-[640px] gap-8">
+    <div className="grid w-full max-w-xl gap-6">
       <div className="grid gap-3">
         <div className="flex items-center justify-between">
           <Label htmlFor="slider-party">Party size</Label>
-          <span className="text-sm text-muted-foreground tabular-nums">{partySize} guests</span>
+          <span className="text-label-13 text-content-secondary tabular-nums">{partySize} guests</span>
         </div>
         <Slider
           id="slider-party"
@@ -21,11 +21,10 @@ export default function SliderDemo() {
           onValueChange={(value) => setPartySize(Array.isArray(value) ? (value[0] ?? 0) : Number(value))}
         />
       </div>
-
       <div className="grid gap-3">
         <div className="flex items-center justify-between">
           <Label>Booking window</Label>
-          <span className="text-sm text-muted-foreground tabular-nums">
+          <span className="text-label-13 text-content-secondary tabular-nums">
             {window[0] ?? 0}:00 – {window[1] ?? 0}:00
           </span>
         </div>
@@ -37,16 +36,6 @@ export default function SliderDemo() {
           value={window}
           onValueChange={(value) => setWindow(Array.isArray(value) ? [...value] : [Number(value)])}
         />
-      </div>
-
-      <div className="grid gap-3">
-        <Label>Table turn time (minutes)</Label>
-        <Slider aria-label="Turn time" defaultValue={90} min={30} max={180} step={15} />
-      </div>
-
-      <div className="grid gap-3">
-        <Label>Deposit per guest (disabled)</Label>
-        <Slider aria-label="Deposit" defaultValue={20} max={50} disabled />
       </div>
     </div>
   );

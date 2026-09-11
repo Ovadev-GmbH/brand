@@ -38,17 +38,15 @@ export default function DrawerDemo() {
             {bookings.map((booking) => (
               <li
                 key={booking.table}
-                className="flex items-center justify-between rounded-2xl bg-muted px-3 py-2"
+                className="flex items-center justify-between rounded-2xl bg-surface-secondary px-3 py-2"
               >
                 <div className="grid">
-                  <span className="font-medium">{booking.guest}</span>
-                  <span className="text-xs text-muted-foreground">
+                  <span className="text-label-14 font-medium">{booking.guest}</span>
+                  <span className="text-label-12 text-content-secondary">
                     {booking.table} · {booking.guests} guests
                   </span>
                 </div>
-                <span className="text-sm text-muted-foreground">
-                  {booking.time}
-                </span>
+                <span className="text-label-13 text-content-secondary">{booking.time}</span>
               </li>
             ))}
           </ul>

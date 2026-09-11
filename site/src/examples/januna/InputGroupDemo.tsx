@@ -11,7 +11,7 @@ import {
 
 export default function InputGroupDemo() {
   return (
-    <div className="grid max-w-[640px] gap-4">
+    <div className="grid w-full max-w-xl gap-4">
       <InputGroup>
         <InputGroupInput placeholder="Search bookings, guests, tables…" />
         <InputGroupAddon>
@@ -21,7 +21,6 @@ export default function InputGroupDemo() {
           <InputGroupText>128 results</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
-
       <InputGroup>
         <InputGroupInput type="email" placeholder="guest@example.com" />
         <InputGroupAddon>
@@ -34,17 +33,6 @@ export default function InputGroupDemo() {
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>
-
-      <InputGroup>
-        <InputGroupAddon>
-          <InputGroupText>Guests</InputGroupText>
-        </InputGroupAddon>
-        <InputGroupInput type="number" min={1} defaultValue={4} />
-        <InputGroupAddon align="inline-end">
-          <InputGroupText>max 12</InputGroupText>
-        </InputGroupAddon>
-      </InputGroup>
-
       <InputGroup>
         <InputGroupTextarea placeholder="Note for the kitchen: allergies, a birthday, a window table…" />
         <InputGroupAddon align="block-end">
@@ -52,13 +40,6 @@ export default function InputGroupDemo() {
           <InputGroupButton className="ml-auto" variant="default" size="xs">
             Save note
           </InputGroupButton>
-        </InputGroupAddon>
-      </InputGroup>
-
-      <InputGroup>
-        <InputGroupInput aria-invalid placeholder="Booking reference" />
-        <InputGroupAddon>
-          <InputGroupText>JNA-</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
     </div>

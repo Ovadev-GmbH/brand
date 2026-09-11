@@ -3,7 +3,7 @@ import { Button, Toaster, toast } from "@ovadev-gmbh/ui-januna";
 export default function ToastDemo() {
   return (
     <Toaster>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-3">
         <Button
           variant="outline"
           onClick={() =>
@@ -51,18 +51,6 @@ export default function ToastDemo() {
           }}
         >
           Send reminders
-        </Button>
-        <Button
-          variant="outline"
-          onClick={() =>
-            toast.add({
-              type: "error",
-              title: "Table 12 is double-booked",
-              description: "Two parties at 19:30. Move one before service.",
-            })
-          }
-        >
-          Report conflict
         </Button>
       </div>
     </Toaster>

@@ -28,6 +28,21 @@ const resources = [
   { title: "Changelog", description: "What shipped this month." },
 ];
 
+function Links({ entries }: { entries: typeof product }) {
+  return (
+    <ul className="grid w-72 gap-1">
+      {entries.map((entry) => (
+        <li key={entry.title}>
+          <NavigationMenuLink href="#" className="flex-col items-start gap-0.5">
+            <span className="text-label-14 font-medium">{entry.title}</span>
+            <span className="text-label-12 text-content-secondary">{entry.description}</span>
+          </NavigationMenuLink>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function NavigationMenuDemo() {
   return (
     <NavigationMenu>
@@ -35,35 +50,13 @@ export default function NavigationMenuDemo() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Product</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-72 gap-1">
-              {product.map((entry) => (
-                <li key={entry.title}>
-                  <NavigationMenuLink href="#" className="flex-col items-start gap-0.5">
-                    <span className="font-medium">{entry.title}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {entry.description}
-                    </span>
-                  </NavigationMenuLink>
-                </li>
-              ))}
-            </ul>
+            <Links entries={product} />
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-72 gap-1">
-              {resources.map((entry) => (
-                <li key={entry.title}>
-                  <NavigationMenuLink href="#" className="flex-col items-start gap-0.5">
-                    <span className="font-medium">{entry.title}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {entry.description}
-                    </span>
-                  </NavigationMenuLink>
-                </li>
-              ))}
-            </ul>
+            <Links entries={resources} />
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>

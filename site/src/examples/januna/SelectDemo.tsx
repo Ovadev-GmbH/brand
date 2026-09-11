@@ -29,7 +29,7 @@ export default function SelectDemo() {
   const [table, setTable] = React.useState<string | null>(null);
 
   return (
-    <div className="grid max-w-[640px] gap-6">
+    <div className="flex flex-wrap items-end gap-4">
       <div className="grid gap-2">
         <Label htmlFor="select-table">Table</Label>
         <Select items={tables} value={table} onValueChange={setTable}>
@@ -56,40 +56,11 @@ export default function SelectDemo() {
             </SelectGroup>
           </SelectContent>
         </Select>
-        <p className="text-sm text-muted-foreground">
-          {table ? `Assigned ${table}` : "No table assigned yet"}
-        </p>
       </div>
-
-      <div className="flex flex-wrap items-center gap-4">
+      <div className="grid gap-2">
+        <Label htmlFor="select-shift">Shift</Label>
         <Select items={shifts} defaultValue="dinner">
-          <SelectTrigger size="sm" aria-label="Shift">
-            <SelectValue />
-          </SelectTrigger>
-          <SelectContent>
-            {shifts.map((item) => (
-              <SelectItem key={item.value} value={item.value}>
-                {item.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-
-        <Select items={shifts}>
-          <SelectTrigger aria-invalid aria-label="Shift, invalid">
-            <SelectValue placeholder="Shift required" />
-          </SelectTrigger>
-          <SelectContent>
-            {shifts.map((item) => (
-              <SelectItem key={item.value} value={item.value}>
-                {item.label}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-
-        <Select items={shifts} defaultValue="lunch" disabled>
-          <SelectTrigger aria-label="Shift, disabled">
+          <SelectTrigger id="select-shift" size="sm">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>

@@ -15,7 +15,7 @@ import {
 
 type Entry = { id: number; from: "guest" | "host"; text: string };
 
-const seed: Entry[] = Array.from({ length: 14 }, (_, i) => ({
+const seed: Entry[] = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
   from: i % 2 === 0 ? "guest" : "host",
   text:
@@ -41,7 +41,7 @@ export default function MessageScrollerDemo() {
   return (
     <div className="flex w-full max-w-md flex-col gap-3">
       <MessageScrollerProvider>
-        <MessageScroller className="h-80 rounded-2xl border">
+        <MessageScroller className="h-64 rounded-2xl border">
           <MessageScrollerViewport className="p-4">
             <MessageScrollerContent className="gap-3">
               {entries.map((entry) => (

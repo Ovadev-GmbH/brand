@@ -25,20 +25,15 @@ const config = {
 
 export default function ChartDemo() {
   return (
-    <div className="w-full max-w-xl">
-      <ChartContainer config={config} className="max-h-64 w-full">
-        <BarChart accessibilityLayer data={data}>
-          <CartesianGrid vertical={false} />
-          <XAxis dataKey="day" tickLine={false} tickMargin={8} axisLine={false} />
-          <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-          <ChartLegend content={<ChartLegendContent />} />
-          <Bar dataKey="covers" fill="var(--color-covers)" radius={4} />
-          <Bar dataKey="noShows" fill="var(--color-noShows)" radius={4} />
-        </BarChart>
-      </ChartContainer>
-      <p className="mt-2 text-center text-sm text-muted-foreground">
-        Covers served and no-shows per day, last week.
-      </p>
-    </div>
+    <ChartContainer config={config} className="max-h-60 w-full max-w-xl">
+      <BarChart accessibilityLayer data={data}>
+        <CartesianGrid vertical={false} />
+        <XAxis dataKey="day" tickLine={false} tickMargin={8} axisLine={false} />
+        <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+        <ChartLegend content={<ChartLegendContent />} />
+        <Bar dataKey="covers" fill="var(--color-covers)" radius={4} />
+        <Bar dataKey="noShows" fill="var(--color-noShows)" radius={4} />
+      </BarChart>
+    </ChartContainer>
   );
 }

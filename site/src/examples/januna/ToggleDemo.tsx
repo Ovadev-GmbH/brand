@@ -7,7 +7,7 @@ export default function ToggleDemo() {
   const [walkIns, setWalkIns] = useState(true);
 
   return (
-    <div className="flex max-w-2xl flex-wrap items-center gap-4">
+    <div className="flex max-w-xl flex-wrap items-center gap-4">
       <Toggle aria-label="Toggle bold">
         <HugeiconsIcon icon={TextBoldIcon} strokeWidth={2} />
       </Toggle>

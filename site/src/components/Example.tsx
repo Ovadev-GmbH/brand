@@ -23,7 +23,7 @@ export function Example({
   example: ExampleData;
   anchor: string;
   /** Set for a package whose demos run in preview.html. */
-  frame?: { pkg: PkgId; slug: string; index: number; tall?: boolean };
+  frame?: { pkg: PkgId; slug: string; index: number };
 }) {
   const [open, setOpen] = React.useState(false);
   const Demo = example.Component;
@@ -31,7 +31,7 @@ export function Example({
     <section className="mb-10" id={anchor}>
       <div className="overflow-hidden rounded-brand border border-alpha-400 bg-bg-100">
         {frame ? (
-          <DemoFrame pkg={frame.pkg} slug={frame.slug} index={frame.index} tall={frame.tall} />
+          <DemoFrame pkg={frame.pkg} slug={frame.slug} index={frame.index} />
         ) : (
           <div data-demo className="scrollbar-quiet min-h-24 overflow-x-auto p-6 [&>*+*]:mt-4">
             <Demo />

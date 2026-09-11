@@ -21,7 +21,7 @@ export default function TableDemo() {
   const covers = bookings.reduce((sum, booking) => sum + booking.covers, 0);
 
   return (
-    <div className="w-full max-w-2xl">
+    <div className="w-full max-w-xl">
       <Table>
         <TableCaption>Bookings for tonight's dinner shift.</TableCaption>
         <TableHeader>
@@ -39,7 +39,7 @@ export default function TableDemo() {
               <TableCell className="font-medium">{booking.time}</TableCell>
               <TableCell>{booking.table}</TableCell>
               <TableCell>{booking.guest}</TableCell>
-              <TableCell className="text-muted-foreground">{booking.status}</TableCell>
+              <TableCell className="text-content-secondary">{booking.status}</TableCell>
               <TableCell className="text-right">{booking.covers}</TableCell>
             </TableRow>
           ))}

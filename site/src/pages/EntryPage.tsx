@@ -16,7 +16,7 @@ export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
             key={i}
             example={ex}
             anchor={`example-${i + 1}`}
-            frame={pkg.frame ? { pkg: pkg.id, slug: entry.slug, index: i, tall: entry.group === "Overlays" } : undefined}
+            frame={pkg.frame ? { pkg: pkg.id, slug: entry.slug, index: i } : undefined}
           />
         ))}
       </section>

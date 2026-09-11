@@ -8,17 +8,16 @@ const waitlist = Array.from({ length: 24 }, (_, i) => ({
 
 export default function ScrollAreaDemo() {
   return (
-    <ScrollArea className="h-72 w-64 rounded-2xl border">
+    <ScrollArea className="h-60 w-64 rounded-2xl border">
       <div className="p-4">
-        <h4 className="mb-4 text-sm font-medium">Waitlist</h4>
         {waitlist.map((entry, index) => (
           <div key={entry.name}>
             {index > 0 ? <Separator className="my-2" /> : null}
-            <div className="flex justify-between text-sm">
+            <div className="flex justify-between text-copy-14">
               <span>
                 {entry.name}, party of {entry.party}
               </span>
-              <span className="text-muted-foreground">{entry.minutes} min</span>
+              <span className="text-content-secondary">{entry.minutes} min</span>
             </div>
           </div>
         ))}

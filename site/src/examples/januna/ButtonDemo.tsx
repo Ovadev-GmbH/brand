@@ -4,8 +4,8 @@ import { Add01Icon, ArrowRight01Icon, Delete02Icon } from "@hugeicons/core-free-
 
 export default function ButtonDemo() {
   return (
-    <div className="flex max-w-2xl flex-col gap-4">
-      <div className="flex flex-wrap items-center gap-4">
+    <div className="grid w-full max-w-xl gap-3">
+      <div className="flex flex-wrap items-center gap-3">
         <Button>Book a table</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="outline">Outline</Button>
@@ -16,10 +16,8 @@ export default function ButtonDemo() {
           Cancel booking
         </Button>
       </div>
-      <div className="flex flex-wrap items-center gap-4">
-        <Button size="xs">Extra small</Button>
+      <div className="flex flex-wrap items-center gap-3">
         <Button size="sm">Small</Button>
-        <Button size="default">Default</Button>
         <Button size="lg">Large</Button>
         <Button variant="outline">
           Next shift

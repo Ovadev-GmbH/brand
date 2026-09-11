@@ -21,35 +21,30 @@ export default function PaginationDemo() {
   };
 
   return (
-    <div className="flex w-full max-w-xl flex-col items-center gap-3">
-      <Pagination>
-        <PaginationContent>
-          <PaginationItem>
-            <PaginationPrevious href="#" onClick={go(page - 1)} />
-          </PaginationItem>
-          {pages.map((n) => (
-            <PaginationItem key={n}>
-              <PaginationLink href="#" isActive={page === n} onClick={go(n)}>
-                {n}
-              </PaginationLink>
-            </PaginationItem>
-          ))}
-          <PaginationItem>
-            <PaginationEllipsis />
-          </PaginationItem>
-          <PaginationItem>
-            <PaginationLink href="#" isActive={page === lastPage} onClick={go(lastPage)}>
-              {lastPage}
+    <Pagination>
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" onClick={go(page - 1)} />
+        </PaginationItem>
+        {pages.map((n) => (
+          <PaginationItem key={n}>
+            <PaginationLink href="#" isActive={page === n} onClick={go(n)}>
+              {n}
             </PaginationLink>
           </PaginationItem>
-          <PaginationItem>
-            <PaginationNext href="#" onClick={go(page + 1)} />
-          </PaginationItem>
-        </PaginationContent>
-      </Pagination>
-      <p className="text-sm text-muted-foreground">
-        Bookings, page {page} of {lastPage}
-      </p>
-    </div>
+        ))}
+        <PaginationItem>
+          <PaginationEllipsis />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationLink href="#" isActive={page === lastPage} onClick={go(lastPage)}>
+            {lastPage}
+          </PaginationLink>
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" onClick={go(page + 1)} />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
   );
 }

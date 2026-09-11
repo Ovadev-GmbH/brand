@@ -12,7 +12,7 @@ export default function BubbleDemo() {
         <BubbleContent>Yes, Patio 2 is free at 20:15. I have held it for 15 minutes.</BubbleContent>
         <BubbleReactions>
           <HugeiconsIcon icon={ThumbsUpIcon} strokeWidth={2} className="size-3.5" />
-          <span className="text-xs">1</span>
+          <span className="text-label-12">1</span>
         </BubbleReactions>
       </Bubble>
       <Bubble variant="outline">
@@ -20,11 +20,6 @@ export default function BubbleDemo() {
       </Bubble>
       <Bubble variant="tinted" align="end">
         <BubbleContent>Booked. A confirmation is on its way to your phone.</BubbleContent>
-      </Bubble>
-      <Bubble variant="ghost">
-        <BubbleContent className="text-xs text-muted-foreground">
-          Guest marked as no-show twice this year.
-        </BubbleContent>
       </Bubble>
     </BubbleGroup>
   );

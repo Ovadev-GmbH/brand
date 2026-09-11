@@ -11,6 +11,12 @@ import {
   CardTitle,
 } from "@ovadev-gmbh/ui-januna";
 
+const stats = [
+  { label: "Bookings", value: 42 },
+  { label: "Covers", value: 118 },
+  { label: "No-shows", value: 3 },
+];
+
 export default function CardDemo() {
   return (
     <Card className="w-full max-w-sm">
@@ -25,18 +31,12 @@ export default function CardDemo() {
       </CardHeader>
       <CardContent>
         <dl className="grid grid-cols-3 gap-4">
-          <div>
-            <dt className="text-xs text-muted-foreground">Bookings</dt>
-            <dd className="text-2xl font-medium tabular-nums">42</dd>
-          </div>
-          <div>
-            <dt className="text-xs text-muted-foreground">Covers</dt>
-            <dd className="text-2xl font-medium tabular-nums">118</dd>
-          </div>
-          <div>
-            <dt className="text-xs text-muted-foreground">No-shows</dt>
-            <dd className="text-2xl font-medium tabular-nums">3</dd>
-          </div>
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <dt className="text-label-12 text-content-secondary">{stat.label}</dt>
+              <dd className="text-heading-24 tabular-nums">{stat.value}</dd>
+            </div>
+          ))}
         </dl>
       </CardContent>
       <CardFooter className="gap-2">

@@ -36,11 +36,11 @@ export default function SidebarDemo() {
   return (
     <SidebarProvider
       style={{ minHeight: 0 }}
-      className="h-80 w-full max-w-2xl overflow-hidden rounded-2xl border"
+      className="h-80 w-full max-w-xl overflow-hidden rounded-2xl border"
     >
       <Sidebar collapsible="none" className="border-r">
         <SidebarHeader>
-          <div className="px-3 py-1 font-heading text-sm font-medium">Januna</div>
+          <div className="px-3 py-1 font-heading text-label-14 font-medium">Januna</div>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
@@ -64,11 +64,11 @@ export default function SidebarDemo() {
           </SidebarGroup>
         </SidebarContent>
         <SidebarFooter>
-          <div className="px-3 py-1 text-xs text-muted-foreground">Trattoria Sole, Zurich</div>
+          <div className="px-3 py-1 text-label-12 text-content-secondary">Trattoria Sole, Zurich</div>
         </SidebarFooter>
       </Sidebar>
-      <main className="flex flex-1 items-center justify-center bg-background p-6">
-        <span className="text-sm text-muted-foreground">{active}</span>
+      <main className="flex flex-1 items-center justify-center bg-surface-primary p-6">
+        <span className="text-label-13 text-content-secondary">{active}</span>
       </main>
     </SidebarProvider>
   );

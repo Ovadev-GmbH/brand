@@ -24,9 +24,9 @@ export default function CarouselDemo() {
           {shifts.map((shift) => (
             <CarouselItem key={shift.name}>
               <Card size="sm">
-                <CardContent className="flex aspect-square flex-col items-center justify-center gap-1">
-                  <span className="text-4xl font-medium tabular-nums">{shift.covers}</span>
-                  <span className="text-sm text-muted-foreground">covers, {shift.name}</span>
+                <CardContent className="flex aspect-video flex-col items-center justify-center gap-1">
+                  <span className="text-heading-32 tabular-nums">{shift.covers}</span>
+                  <span className="text-label-13 text-content-secondary">covers, {shift.name}</span>
                 </CardContent>
               </Card>
             </CarouselItem>

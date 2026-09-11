@@ -22,7 +22,7 @@ export default function ContextMenuDemo() {
 
   return (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-36 w-full max-w-sm items-center justify-center rounded-3xl border border-dashed text-sm text-muted-foreground">
+      <ContextMenuTrigger className="flex h-28 w-full max-w-sm items-center justify-center rounded-3xl border border-dashed text-label-13 text-content-secondary">
         Right-click Table 12
       </ContextMenuTrigger>
       <ContextMenuContent className="w-56">

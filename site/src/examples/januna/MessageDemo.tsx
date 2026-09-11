@@ -13,7 +13,7 @@ export default function MessageDemo() {
   return (
     <MessageGroup className="w-full max-w-md">
       <Message>
-        <MessageAvatar className="size-8 text-xs font-medium">AR</MessageAvatar>
+        <MessageAvatar className="size-8 text-label-12 font-medium">AR</MessageAvatar>
         <MessageContent>
           <MessageHeader>Anna Rossi</MessageHeader>
           <Bubble variant="muted">

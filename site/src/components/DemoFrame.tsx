@@ -8,26 +8,22 @@ import type { PkgId } from "../types";
  *  the frame never boots React and the stylesheet twice. Its `src` is fixed
  *  at mount for that reason — React updating it would navigate the frame.
  *
- *  The frame sizes itself to what the document reports (src/preview.tsx),
- *  so a demo that opens a popup grows the frame rather than clipping it.
- *  `tall` gives overlays room to open in: a dialog centres itself in the
- *  frame's viewport, and a frame the height of its trigger has none. */
+ *  The frame sizes itself to what the document reports (src/preview.tsx):
+ *  the demo at rest, and when a popup or dialog opens, the room it needs. */
 export function DemoFrame({
   pkg,
   slug,
   index,
-  tall = false,
   thumb = false,
 }: {
   pkg: PkgId;
   slug: string;
   index: number;
-  tall?: boolean;
   /** Inert and centred: a card's preview, not a page's demo. */
   thumb?: boolean;
 }) {
   const id = `${pkg}/${slug}/${index}`;
-  const min = tall ? 480 : 96;
+  const min = 96;
   const frame = React.useRef<HTMLIFrameElement>(null);
   const [ready, setReady] = React.useState(false);
   const [height, setHeight] = React.useState(min);

@@ -2,7 +2,7 @@ import { Skeleton } from "@ovadev-gmbh/ui-januna";
 
 export default function SkeletonDemo() {
   return (
-    <div className="flex max-w-2xl flex-wrap items-start gap-8">
+    <div className="flex max-w-xl flex-wrap items-start gap-8">
       <div className="flex items-center gap-4">
         <Skeleton className="size-12 rounded-full" />
         <div className="flex flex-col gap-2">
