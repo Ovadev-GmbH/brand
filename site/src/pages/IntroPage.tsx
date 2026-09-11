@@ -12,6 +12,7 @@ import { CHROME } from "../brands";
 import { Grid, Cell } from "../components/Grid";
 import { PageHeader } from "../components/PageHeader";
 import { MarkRow } from "../components/MarkRow";
+import { SwatchRow } from "../components/SwatchRow";
 
 /** Each door says only how much is behind it. A sentence per card would be
  *  four different sentences to keep true; a count keeps itself. */
@@ -32,7 +33,12 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
           },
         ]
       : []),
-    { name: "Colors", blurb: `${chrome.swatches.length} values`, to: `${href(pkg.id)}/colors` },
+    {
+      name: "Colors",
+      blurb: `${chrome.swatches.length} values`,
+      to: `${href(pkg.id)}/colors`,
+      preview: <SwatchRow swatches={chrome.swatches} />,
+    },
     { name: "Typeface", blurb: `${chrome.type.length} faces`, to: `${href(pkg.id)}/typography` },
     ...(chrome.icons ? [{ name: "Icons", blurb: `${chrome.icons.library}, the free set`, to: `${href(pkg.id)}/icons` }] : []),
   ];
