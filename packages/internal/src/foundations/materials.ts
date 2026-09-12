@@ -1,4 +1,4 @@
-/* Intern's materials: flat. A surface is a black hairline and nothing else;
+/* Internal's materials: flat. A surface is a black hairline and nothing else;
  * only what floats casts a shadow, and even that stays short. The identity
  * is the rule, not the lift.
  *
@@ -31,6 +31,6 @@ export const TINTS: Material[] = [
 
 export const PRACTICES = [
   { name: "When to use", items: ["Use a material instead of hand-rolling radius, fill, stroke and shadow; the name encodes the elevation.", "Base for almost everything. Medium and large only for the one object on a page that must be found first.", "Never stack two materials on one element; never add a border to one."] },
-  { name: "Behaviour", items: ["The rule is the edge. Nothing in Intern has a soft edge.", "Only what floats lifts, and it lifts little."] },
+  { name: "Behaviour", items: ["The rule is the edge. Nothing in Internal has a soft edge.", "Only what floats lifts, and it lifts little."] },
   { name: "Accessibility", items: ["A material is chrome; semantics live on the wrapper.", "Selection is a fill and a word, never the ring alone."] },
 ];

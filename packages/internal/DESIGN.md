@@ -1,17 +1,17 @@
 ---
 name: internal-design-system
-description: "Design, build, or substantially improve an Intern surface: Ovadev's internal tools for operations, billing, deployments, support and audit. Use for any admin screen, table, form, panel, console or report that staff use daily, whenever the result must look and behave like Intern: black on white, dense, exact, quiet."
+description: "Design, build, or substantially improve an Internal surface: Ovadev's internal tools for operations, billing, deployments, support and audit. Use for any admin screen, table, form, panel, console or report that staff use daily, whenever the result must look and behave like Internal: black on white, dense, exact, quiet."
 ---
 
-# Design Intern tool surfaces
+# Design Internal tool surfaces
 
-Act as an excellent Intern designer and design engineer. Turn the task into a tool that staff can work in for hours: dense where it needs density, exact in every figure, quiet everywhere else. Shape the job and the interface together; a tool is not a dashboard of cards.
+Act as an excellent Internal designer and design engineer. Turn the task into a tool that staff can work in for hours: dense where it needs density, exact in every figure, quiet everywhere else. Shape the job and the interface together; a tool is not a dashboard of cards.
 
-## Intern product and brand context
+## Internal product and brand context
 
-Intern is the layer Ovadev runs itself on: tenants, invoices, deployments, incidents, API keys, the audit log. The people using it are the team, every day, often with three other windows open. They do not need to be persuaded of anything; they need to find the row, read the number, and act.
+Internal is the layer Ovadev runs itself on: tenants, invoices, deployments, incidents, API keys, the audit log. The people using it are the team, every day, often with three other windows open. They do not need to be persuaded of anything; they need to find the row, read the number, and act.
 
-The look is black on white. Four neutrals between them, one colour per meaning (red, green, blue, yellow), black hairline rules for structure, corners barely rounded, figures in mono. No warmth, no lift, no gradient. An Intern screen looks like a well-kept ledger.
+The look is black on white. Four neutrals between them, one colour per meaning (red, green, blue, yellow), black hairline rules for structure, corners barely rounded, figures in mono. No warmth, no lift, no gradient. An Internal screen looks like a well-kept ledger.
 
 Start with the operator's job, not the screen category. Identify what they are looking for, what they must not misread, and the one action that follows. Build confidence through exactness: units, timestamps, IDs, states, all visible, all in the system's words.
 
@@ -20,9 +20,9 @@ Start with the operator's job, not the screen category. Identify what they are l
 When requirements compete, protect them in this order:
 
 1. Preserve the data, the words, the units, the states and the constraints you were given. An invoice of CHF 1'240.00 due 2026-10-01 is not "about twelve hundred, due next month".
-2. Preserve the host codebase: its framework, its routes, its data layer, and the Intern package as installed. Do not fork a component to restyle it; do not reach around the package for a raw element when a component exists.
+2. Preserve the host codebase: its framework, its routes, its data layer, and the Internal package as installed. Do not fork a component to restyle it; do not reach around the package for a raw element when a component exists.
 3. Make the operator's job immediately clear: what this screen lists or shows, what needs their decision, and what they can do about it.
-4. Be unmistakably Intern: the semantic colours, the type styles, the materials, the measure, Geist, Phosphor.
+4. Be unmistakably Internal: the semantic colours, the type styles, the materials, the measure, Geist, Phosphor.
 5. Compose for this screen. Reject the obvious template (a hero, a card grid, KPI tiles) unless the material earns it. In a tool, the material is usually a table.
 6. Refine responsive behaviour, interaction and detail without weakening the hierarchy above.
 
@@ -50,7 +50,7 @@ import { PlusIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
 
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. Keep screens static except where a control holds state.
 
-When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API. Intern shares its class vocabulary with Januna; a screen written for one reads in the other, only the values differ.
+When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API. Internal shares its class vocabulary with Januna; a screen written for one reads in the other, only the values differ.
 
 ## Work in four passes
 
@@ -68,7 +68,7 @@ Match the opening to the job. A list screen opens with the filter and the table.
 
 Map the material to the right primitive. Precise lookup is a `Table`. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Item`. A value to copy is a `Snippet`. Never encode with colour alone.
 
-### Authoritative Intern visual system
+### Authoritative Internal visual system
 
 Treat this section as the design authority. Use the published API at the end for exact names; use these instructions for composition, hierarchy, and every case the API does not decide.
 
@@ -80,7 +80,7 @@ Write with the semantic names. `bg-surface-primary` is the sheet, `bg-surface-te
 
 #### Type
 
-Geist for everything; Geist Mono for figures, IDs, codes and paths, which is a lot of Intern. Use the published styles and only them: `text-heading-20` for a page title, `-16` for a section or a card title; `text-label-13` for the working lines of the tool (rows, cells, menus, form labels), `-12` beneath it; `text-copy-14` for the rare running text; `text-button-14` on buttons; `text-label-13-mono` for anything a person might copy or compare. Each style sets size, line height, tracking and weight together, so never add `font-medium` beside one. Do not create a font size.
+Geist for everything; Geist Mono for figures, IDs, codes and paths, which is a lot of Internal. Use the published styles and only them: `text-heading-20` for a page title, `-16` for a section or a card title; `text-label-13` for the working lines of the tool (rows, cells, menus, form labels), `-12` beneath it; `text-copy-14` for the rare running text; `text-button-14` on buttons; `text-label-13-mono` for anything a person might copy or compare. Each style sets size, line height, tracking and weight together, so never add `font-medium` beside one. Do not create a font size.
 
 Headings are sentence case and name the thing: "Invoices", "Deployment 4f2c", "API keys". No eyebrows, no numbering, no praise.
 
@@ -108,7 +108,7 @@ Sentence case everywhere but proper nouns, IDs, and Title Case labels in a descr
 
 Render the result when tooling exists. Look at the first viewport, the full screen, and the narrow width before handoff. Review in this order:
 
-1. **First read:** Is it Intern at a glance? Can the operator see the table or the record and the one action without scrolling?
+1. **First read:** Is it Internal at a glance? Can the operator see the table or the record and the one action without scrolling?
 2. **Language:** Every state in the system's word, every figure with its unit, every ID as the system prints it?
 3. **Composition:** One dominant object? Each section earning its place? No accidental boxes, no KPI tiles that a table would say better?
 4. **Typography:** One published style per element, figures in mono and aligned, baselines aligned, every gap owned by one parent?
@@ -326,7 +326,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 **Behaviour.**
 
-- The rule is the edge. Nothing in Intern has a soft edge.
+- The rule is the edge. Nothing in Internal has a soft edge.
 - Only what floats lifts, and it lifts little.
 
 **Accessibility.**

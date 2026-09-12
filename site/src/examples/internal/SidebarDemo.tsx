@@ -38,7 +38,7 @@ export default function SidebarDemo() {
     <SidebarProvider style={{ minHeight: 0 }} className="h-72 w-full max-w-xl overflow-hidden border">
       <Sidebar collapsible="none" className="border-r">
         <SidebarHeader>
-          <div className="px-2 py-1 text-label-13">Ovadev Intern</div>
+          <div className="px-2 py-1 text-label-13">Ovadev Internal</div>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>

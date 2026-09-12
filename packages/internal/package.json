@@ -1,7 +1,7 @@
 {
   "name": "@ovadev-gmbh/ui-internal",
   "version": "0.2.0",
-  "description": "Intern component library: shadcn on Base UI, black on white, for Ovadev's internal tools.",
+  "description": "Internal component library: shadcn on Base UI, black on white, for Ovadev's internal tools.",
   "license": "UNLICENSED",
   "type": "module",
   "sideEffects": [

@@ -20,4 +20,4 @@ import { PlusIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
 
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. Keep screens static except where a control holds state.
 
-When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API. Intern shares its class vocabulary with Januna; a screen written for one reads in the other, only the values differ.
+When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API. Internal shares its class vocabulary with Januna; a screen written for one reads in the other, only the values differ.

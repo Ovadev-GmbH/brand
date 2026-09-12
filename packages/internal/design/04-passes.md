@@ -14,7 +14,7 @@ Match the opening to the job. A list screen opens with the filter and the table.
 
 Map the material to the right primitive. Precise lookup is a `Table`. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Item`. A value to copy is a `Snippet`. Never encode with colour alone.
 
-### Authoritative Intern visual system
+### Authoritative Internal visual system
 
 Treat this section as the design authority. Use the published API at the end for exact names; use these instructions for composition, hierarchy, and every case the API does not decide.
 
@@ -26,7 +26,7 @@ Write with the semantic names. `bg-surface-primary` is the sheet, `bg-surface-te
 
 #### Type
 
-Geist for everything; Geist Mono for figures, IDs, codes and paths, which is a lot of Intern. Use the published styles and only them: `text-heading-20` for a page title, `-16` for a section or a card title; `text-label-13` for the working lines of the tool (rows, cells, menus, form labels), `-12` beneath it; `text-copy-14` for the rare running text; `text-button-14` on buttons; `text-label-13-mono` for anything a person might copy or compare. Each style sets size, line height, tracking and weight together, so never add `font-medium` beside one. Do not create a font size.
+Geist for everything; Geist Mono for figures, IDs, codes and paths, which is a lot of Internal. Use the published styles and only them: `text-heading-20` for a page title, `-16` for a section or a card title; `text-label-13` for the working lines of the tool (rows, cells, menus, form labels), `-12` beneath it; `text-copy-14` for the rare running text; `text-button-14` on buttons; `text-label-13-mono` for anything a person might copy or compare. Each style sets size, line height, tracking and weight together, so never add `font-medium` beside one. Do not create a font size.
 
 Headings are sentence case and name the thing: "Invoices", "Deployment 4f2c", "API keys". No eyebrows, no numbering, no praise.
 
@@ -54,7 +54,7 @@ Sentence case everywhere but proper nouns, IDs, and Title Case labels in a descr
 
 Render the result when tooling exists. Look at the first viewport, the full screen, and the narrow width before handoff. Review in this order:
 
-1. **First read:** Is it Intern at a glance? Can the operator see the table or the record and the one action without scrolling?
+1. **First read:** Is it Internal at a glance? Can the operator see the table or the record and the one action without scrolling?
 2. **Language:** Every state in the system's word, every figure with its unit, every ID as the system prints it?
 3. **Composition:** One dominant object? Each section earning its place? No accidental boxes, no KPI tiles that a table would say better?
 4. **Typography:** One published style per element, figures in mono and aligned, baselines aligned, every gap owned by one parent?

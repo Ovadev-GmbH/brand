@@ -1,4 +1,4 @@
-/* Intern's measure and motion: the same spacing set as Januna, corners that
+/* Internal's measure and motion: the same spacing set as Januna, corners that
  * are barely there, and motion that is quick and over. */
 
 export type Token = { token: string; value: string; use: string };

@@ -1,4 +1,4 @@
-/* Intern's type.
+/* Internal's type.
  *
  * One face, Geist, with Geist Mono for figures, codes and paths, and a fixed set of
  * styles named the way Geist names its own: Heading for titles, Copy for

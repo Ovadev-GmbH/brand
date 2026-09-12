@@ -1,11 +1,11 @@
 ---
 name: internal-design
-description: Design and build UI for Intern (Ovadev's internal tools: operations, billing, deployments, support, audit) with the @ovadev-gmbh/ui-internal design system. Use whenever a task touches an internal admin screen, table, form, console or panel — building new UI, restyling, reviewing a PR for brand fit, or answering "how should this look". Loads DESIGN.md (priorities, visual system, anti-patterns, the published API) and points at the catalog's Markdown pages.
+description: Design and build UI for Internal (Ovadev's internal tools: operations, billing, deployments, support, audit) with the @ovadev-gmbh/ui-internal design system. Use whenever a task touches an internal admin screen, table, form, console or panel — building new UI, restyling, reviewing a PR for brand fit, or answering "how should this look". Loads DESIGN.md (priorities, visual system, anti-patterns, the published API) and points at the catalog's Markdown pages.
 ---
 
-# Intern design
+# Internal design
 
-Everything Intern-looking comes from one package and one document.
+Everything Internal-looking comes from one package and one document.
 
 1. Read `packages/internal/DESIGN.md` in the brand repo, or `https://ovadev-gmbh.github.io/brand/internal/design.md` from anywhere. It is the authority: read it fully before the first line of UI.
 2. For a specific component, read its Markdown page: `https://ovadev-gmbh.github.io/brand/internal/<slug>.md` (import line, demo, source). The index is `https://ovadev-gmbh.github.io/brand/internal/llms.txt`.

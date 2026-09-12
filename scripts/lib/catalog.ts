@@ -26,7 +26,7 @@ export const BRANDS: Record<string, Brand> = {
     icons: { library: "Hugeicons", usage: "", note: "" },
   },
   internal: {
-    name: "Intern", pkg: "@ovadev-gmbh/ui-internal", prefix: "int",
+    name: "Internal", pkg: "@ovadev-gmbh/ui-internal", prefix: "int",
     icons: {
       library: "Phosphor",
       usage: 'import { PlusIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";\n\n<PlusIcon className="size-4" />',

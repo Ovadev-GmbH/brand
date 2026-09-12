@@ -1,4 +1,4 @@
-/* Intern's colour system.
+/* Internal's colour system.
  *
  * The tool layer of Ovadev: black on white, four neutrals between them,
  * one colour per meaning. Built on the same shape as Januna's — scales of
