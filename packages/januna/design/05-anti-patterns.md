@@ -1,6 +1,6 @@
 ## Reject generated-design reflexes
 
-Recognise these and remove them. Each is what a model does when it has not read the system.
+Do not ship any of these recognisable defaults:
 
 - A second green: a lighter or brighter green as a fill, a tint behind a selected row, a green border. Selection is shade, not colour.
 - White text on the green. It is taupe.

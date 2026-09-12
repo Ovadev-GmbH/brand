@@ -36,7 +36,7 @@ const api = [
   `Icons: Hugeicons, the free set, via \`HugeiconsIcon\` from \`@hugeicons/react\` and names from \`@hugeicons/core-free-icons\` (\`<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />\`). The full set: https://ovadev-gmbh.github.io/brand/${ID}/icons`, ``,
 ].join("\n");
 
-const doc = parts.map((p) => readFileSync(`${dir}/${p}`, "utf8").trim()).flatMap((s, i) => (parts[i]!.startsWith("04") ? [s, api] : [s])).join("\n\n") + "\n";
+const doc = parts.map((p) => readFileSync(`${dir}/${p}`, "utf8").trim()).flatMap((s, i) => (parts[i]!.startsWith("05") ? [s, api] : [s])).join("\n\n") + "\n";
 
 writeFileSync(`${ROOT}/packages/${ID}/DESIGN.md`, doc);
 mkdirSync(`${ROOT}/site/public/${ID}`, { recursive: true });

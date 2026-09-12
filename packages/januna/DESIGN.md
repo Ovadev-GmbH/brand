@@ -1,21 +1,57 @@
+---
+name: januna-design-system
+description: "Design, build, or substantially improve a Januna product surface: a screen, a page, a form, a panel, a flow, an empty state, an e-mail-like message, or the copy on any of them. Use for the host's tablet at the lectern, the manager's laptop, and the guest's phone, whenever the result must look and behave like Januna without being told twice."
+---
+
 # Design Januna product surfaces
 
-You are building a screen for Januna: the reservations product restaurants run their evening on. Hosts stand at a lectern with a tablet, managers read the week on a laptop, guests book on their phones. Every surface you make is Januna talking to one of them, and it has to read like the same product every time.
+Act as an excellent Januna designer, editor and design engineer. Turn the task into a surface that is unmistakably Januna: warm, calm, precise, with the one thing that matters plainly in front of the reader. Shape the job and the interface together; do not merely assemble components around a data model.
 
-This document is how. It is written for an agent or a person who has the component package and needs to compose a page, a form, a panel or a flow that looks like Januna without being told twice. Read it once, then work from the published API at the end.
+## Januna product and brand context
 
-Januna is warm and calm. The sheet is white, the island is taupe, the ink is a soft black, and there is one green, dark, that does the acting. Nothing glows, nothing floats on a gradient, nothing shouts. A Januna screen looks like a well-set table: everything in its place, more air than object, and the one thing that matters plainly in front of you.
+Januna is the reservations product restaurants run their evening on. Hosts stand at a lectern with a tablet at 19:58, managers read the week on a laptop, guests book on their phones. Every surface is Januna talking to one of them, and it has to read like the same product every time.
+
+The brand is warm and calm. The sheet is white, the island is taupe, the ink is a soft black, and there is one green, dark, that does the acting. Nothing glows, nothing floats on a gradient, nothing shouts. A Januna screen looks like a well-set table: everything in its place, more air than object.
+
+Start with the reader's job, not the screen category. Identify what they must understand or decide, the one thing they must not miss, and what they can do about it. Build confidence through clarity and the right state at the right moment, never through decoration, novelty or hype.
 
 ## Use this priority order
 
-When requirements compete, protect them in this order. Never trade a higher item for a lower one.
+When requirements compete, protect them in this order:
 
 1. Preserve the data, the words, the units, the states and the constraints you were given. A booking at 19:30 for six is not a booking "around half seven".
 2. Preserve the host codebase: its framework, its routes, its data layer, and the Januna package as installed. Do not fork a component to restyle it; do not reach around the package for a raw element when a component exists.
 3. Make the reader's job immediately clear: what this screen is for, what needs their decision, and what they can do about it, in that order.
-4. Be unmistakably Januna: the semantic colours, the type styles, the materials, the measure, Geist, Hugeicons. A screen that is correct but generic is not done.
+4. Be unmistakably Januna: the semantic colours, the type styles, the materials, the measure, Geist, Hugeicons.
 5. Compose for this screen. Reject the obvious template (a centred hero, a grid of cards, a table with a toolbar) unless the material earns it.
 6. Refine responsive behaviour, interaction and detail without weakening the hierarchy above.
+
+Ask one grouped set of questions only when proceeding could change what a booking, a guest, a table, a price or a permission means, or who is allowed to act. Otherwise design the missing state honestly (an empty state, a placeholder, a "not yet" note) and proceed.
+
+## Integrate with the caller's project
+
+Preserve the host framework, file structure, routes, data fetching and build. Edit the files that naturally own the screen. Do not force a single-file deliverable, raw HTML or a new framework; when no project exists, the smallest runnable one is a Vite React app with Tailwind 4.
+
+The system is one package: `@ovadev-gmbh/ui-januna`, on the GitHub Packages registry of `Ovadev-GmbH`. Install it, then make its stylesheet the app's only Tailwind entry:
+
+```css
+/* app.css */
+@import "@ovadev-gmbh/ui-januna/styles.css";
+```
+
+That line brings Tailwind, the theme, the type styles, the materials, Geist and Geist Mono. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
+
+Import components from the package root and icons from Hugeicons:
+
+```tsx
+import { Button, Dialog, DialogTrigger, DialogContent } from "@ovadev-gmbh/ui-januna";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Calendar03Icon } from "@hugeicons/core-free-icons";
+```
+
+In Next.js, add the package to `transpilePackages` only if the build asks for it; the package ships ESM with `"use client"` preserved, so components work in the App Router without wrappers. Keep screens server-rendered except for stateful controls. In Vite, nothing else is needed.
+
+When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell, its `Stack` and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API.
 
 ## Work in four passes
 
@@ -31,49 +67,80 @@ Say aloud the layout the screen type suggests, then ask whether the material ear
 
 Match the opening to the job. A decision screen puts the decision and its basis together at the top. A comparison puts alternatives on the same visual basis. An overview leads with the state, not with navigation. A form leads with the field the person came to fill.
 
-Map the material to the right primitive. Precise lookup is a table. One conclusion is a sentence. A ratio is a gauge with its label. A state is a status dot with its word. Metadata is a description list. Never encode with colour alone.
+Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Entity`. Never encode with colour alone.
 
-### Apply the visual system
+### Authoritative Januna visual system
 
-Everything below the heading "The visual system" is the authority. Use only the published tokens, styles, materials and components. If the system has no name for something, the answer is almost always that the thing is not needed.
+Treat this section as the design authority. Use the published API at the end for exact names; use these instructions for composition, hierarchy, and every case the API does not decide.
 
-### Inspect and revise privately
+#### Colour
 
-Before delivering, review in order. First read: is it Januna at a glance, and is the one thing obvious? Language: can a host who has never seen this screen say what it is for? Composition: one dominant object, every section earning its place, no accidental empty rectangles? Type: the same style on every peer, baselines aligned, gaps owned by one parent? States: empty, loading, error and disabled all designed, not defaulted? Restraint: can a border, a surface, a label, a colour be removed without losing meaning? Reflow: usable at a phone's width, no overflow, no shrunken controls? Access: semantics, labels, focus, contrast, motion respected? Fix the highest-impact defect first, then deliver.
-
-## The visual system
-
-### Colour
-
-Design in the ink and the taupe. Colour appears where it means something: the green where the product acts (one primary button per view, the current item, a link), the status colours where a state is named (and always beside a word or an icon that names it too), the callout fills where a note needs a ground. A screen with more than one green thing acting is a screen with two decisions on it; pick one.
+Design in the ink and the taupe. Colour appears where it means something: the green where the product acts (one primary button per view, the current item, a link), the status colours where a state is named (always beside a word or an icon that names it too), the callout fills where a note needs a ground. A screen with more than one green thing acting is a screen with two decisions on it; pick one.
 
 Write with the semantic names. `bg-surface-primary` is the sheet, `bg-surface-tertiary` the taupe island for sidebars and panels, `bg-surface-secondary` a quieter area on the sheet. Hover is `bg-surface-hover`, pressed and selected `bg-surface-active`: both are the ink at a few percent, shade rather than colour. Text is `text-content-primary`, `-secondary`, `-tertiary` in descending importance; on the green it is `text-content-inverse`, which is taupe, never white. Lines are `border-divider`. Reach for a scale step (`bg-green-200`, `text-gray-700`) only for an exact colour a name does not cover, and say why in a comment.
 
-### Type
+#### Type
 
-Geist for everything; Geist Mono for figures that align, codes, and paths. Use the published styles and only them: `text-heading-24` for a page title, `-20` for a section, `-16` for a card or dialog title; `text-copy-14` for running text, `-16` where text can breathe; `text-label-14` for the single lines of the product (rows, menus, form labels), `-13` and `-12` beneath it; `text-button-14` for what acts; `text-label-13-mono` for a reference number. Each style sets size, line height, tracking and weight together, so never add `font-medium` beside one; use `<strong>` inside a style for emphasis. Do not create a font size.
+Geist for everything; Geist Mono for figures that align, codes and paths. Use the published styles and only them: `text-heading-24` for a page title, `-20` for a section, `-16` for a card or dialog title; `text-copy-14` for running text, `-16` where text can breathe; `text-label-14` for the single lines of the product (rows, menus, form labels), `-13` and `-12` beneath it; `text-button-14` for what acts; `text-label-13-mono` for a reference number. Each style sets size, line height, tracking and weight together, so never add `font-medium` beside one; use `<strong>` inside a style for emphasis. Do not create a font size.
 
 Headings are sentence case and say what the screen is about: "Tonight's bookings", not "Bookings overview". No all-caps eyebrows, no tracked labels, no decorative numbering.
 
-### Rhythm and measure
+#### Rhythm and measure
 
 Give every gap one owner: the `Stack`, the grid, or the page wrapper, never the children's margins. Inside a group use `space-2` to `space-4`; between groups `space-6` to `space-8`; between chapters of a page `space-12`. Controls are 40px tall; the small size, 32px, is for dense rows and toolbars only. Corners are `rounded-regular` (12px) on what acts and holds, `rounded-small` (8px) on the small things inside, `rounded-pill` only on badges, switches, chips and avatars. A page's content column is 6 to 8 of 12 desktop columns for prose and forms; tables and the floor plan may take all 12.
 
-### Surfaces and edges
+#### Surfaces and edges
 
 A surface is a material, and a material is a class: `material-base` for a resting card, `material-small` for an input or a card in a list, `material-menu` for anything that floats, `material-modal` for a dialog. The material draws the edge as a hairline in its shadow; never add a border to a material, and never draw a card inside a card. Prefer spacing and alignment to boxes: a section is set apart by air and a heading, not by a container.
 
-### Motion
+#### Motion
 
 Default to stillness. Use the one easing, `ease-brand`, and the three durations: `duration-fast` for a colour or a press, `duration-base` for a popover or a row appearing, `duration-slow` for a dialog or a page section. Motion explains a state change, preserves continuity, or confirms an action; it never decorates. Nothing pulses except a status dot that is genuinely in progress. Reduced motion is honoured by the tokens; do not override it.
 
-### Icons
+#### Icons
 
 Hugeicons, stroke 1.5 at 24px, 2 at 16px inside a button. An icon takes the colour of its text; it is green only where the text is green. Icons label, they do not decorate: one beside a word in a button, one in a table cell for a state, one in an empty state. No icon tiles, no oversized icons, no mixed sets.
 
-### Copy
+#### Copy
 
 Sentence case everywhere but proper nouns and Title Case labels in a description list. Buttons are verb plus noun: "Confirm booking", "Release table". Describe the impact of an action, not the mechanism. Numbers keep their units and their time; a relative time has an exact one in a tooltip. Write for the host at the lectern at 19:58.
+
+### Inspect and revise privately
+
+Render the result when tooling exists. Look at the first viewport, the full screen, and the narrow width before handoff. Review in this order:
+
+1. **First read:** Is it Januna at a glance? If the reader saw only the first viewport, would they know what the screen is for and what to do?
+2. **Language:** Can a host who has never seen this screen say what it is for? Is every state named with the system's word? Did every unit, time and qualifier survive?
+3. **Composition:** Is there one dominant object? Does each section earn its place? Is any empty rectangle accidental?
+4. **Typography:** One published style per element, peers equal, baselines aligned, every gap owned by one parent?
+5. **States:** Empty, loading, error, disabled and selected all designed, not defaulted?
+6. **Restraint:** Can any surface, border, pill, icon, label, colour or paragraph be removed without losing meaning or affordance? If yes, remove it.
+7. **Reflow:** Usable at a phone's width and on the lectern's tablet, no overflow, no shrunken controls, no character-level wrapping?
+8. **Trust and access:** Semantics, labels, focus, contrast, motion and the words beside every colour sound?
+
+Fix the highest-impact defect, render again, and repeat until nothing material remains. Keep this work internal; deliver the screen, not a score.
+
+## Reject generated-design reflexes
+
+Do not ship any of these recognisable defaults:
+
+- A second green: a lighter or brighter green as a fill, a tint behind a selected row, a green border. Selection is shade, not colour.
+- White text on the green. It is taupe.
+- Pill buttons in the product. Pills are for badges, switches and chips.
+- A 3px glow on focus, or any halo. Focus is a 1px edge.
+- Borders on materials, cards in cards, and a box around every section.
+- Gradients, blurs behind popups, glass, drop shadows deeper than the materials define.
+- All-caps eyebrows, tracked labels, decorative section numbers, a font size that is not a published style.
+- `font-medium` or `font-semibold` beside a type style. The style carries the weight.
+- A centred hero with a subtitle followed by a grid of three cards.
+- Repeated metric tiles where one composed row would say more.
+- A badge for ordinary metadata; a status dot without its word.
+- Icons as decoration: a tile per feature, an icon per heading, mixed icon sets.
+- Empty states with an illustration and a joke. An empty state says what is empty and offers the one action.
+- Dismiss buttons on notes; toasts for things the screen already shows.
+- Hard-coded hex, `bg-white`, `bg-black`, `text-gray-500`, Tailwind's default palette, `dark:` variants. Januna has one room and it is lit.
+- Em dashes in copy.
+- Narrating the design: captions that explain why a layout was chosen.
 
 ## Use the published API
 
@@ -411,28 +478,6 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 Icons: Hugeicons, the free set, via `HugeiconsIcon` from `@hugeicons/react` and names from `@hugeicons/core-free-icons` (`<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />`). The full set: https://ovadev-gmbh.github.io/brand/januna/icons
 
-
-## Reject generated-design reflexes
-
-Recognise these and remove them. Each is what a model does when it has not read the system.
-
-- A second green: a lighter or brighter green as a fill, a tint behind a selected row, a green border. Selection is shade, not colour.
-- White text on the green. It is taupe.
-- Pill buttons in the product. Pills are for badges, switches and chips.
-- A 3px glow on focus, or any halo. Focus is a 1px edge.
-- Borders on materials, cards in cards, and a box around every section.
-- Gradients, blurs behind popups, glass, drop shadows deeper than the materials define.
-- All-caps eyebrows, tracked labels, decorative section numbers, a font size that is not a published style.
-- `font-medium` or `font-semibold` beside a type style. The style carries the weight.
-- A centred hero with a subtitle followed by a grid of three cards.
-- Repeated metric tiles where one composed row would say more.
-- A badge for ordinary metadata; a status dot without its word.
-- Icons as decoration: a tile per feature, an icon per heading, mixed icon sets.
-- Empty states with an illustration and a joke. An empty state says what is empty and offers the one action.
-- Dismiss buttons on notes; toasts for things the screen already shows.
-- Hard-coded hex, `bg-white`, `bg-black`, `text-gray-500`, Tailwind's default palette, `dark:` variants. Januna has one room and it is lit.
-- Em dashes in copy.
-- Narrating the design: captions that explain why a layout was chosen.
 
 ## Accessibility and reflow
 
