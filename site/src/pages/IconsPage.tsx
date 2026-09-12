@@ -7,6 +7,7 @@ import * as React from "react";
 import { toast } from "sonner";
 import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 import type { Pkg } from "../types";
+import { mdHref } from "../registry";
 import { CHROME } from "../brands";
 import { PageHeader } from "../components/PageHeader";
 
@@ -60,7 +61,7 @@ export function IconsPage({ pkg }: { pkg: Pkg }) {
   if (!icons) return null;
   return (
     <article>
-      <PageHeader title="Icons">
+      <PageHeader title="Icons" md={mdHref(pkg, "icons")}>
         <p className="mt-3 max-w-160 text-[15px] text-gray-900">
           {icons.library}, the free set, as the components draw it: stroke 1.5 at 24px, in the ink. An icon takes
           the colour of its text, so it is green only where the text is. Click one to copy its import.

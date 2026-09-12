@@ -6,6 +6,7 @@
  * file gets the three faces at the sizes they are used at. */
 
 import type { Pkg } from "../types";
+import { mdHref } from "../registry";
 import { CHROME, type TypeSystem } from "../brands";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
 
@@ -34,10 +35,10 @@ function Sample({ style, strong, faces }: { style: TypeSystem["GROUPS"][number][
   );
 }
 
-function SystemPage({ type }: { type: TypeSystem }) {
+function SystemPage({ pkg, type }: { pkg: Pkg; type: TypeSystem }) {
   return (
     <article>
-      <PageHeader title="Typography">
+      <PageHeader title="Typography" md={mdHref(pkg, "typography")}>
         <p className="mt-3 max-w-160 text-[15px] text-gray-900">
           {type.FACES.sans.name} for everything, {type.FACES.mono.name} for figures and code. Each style is one
           class that sets size, line height, tracking and weight together. Inside a style,{" "}
@@ -106,5 +107,5 @@ function TokenPage({ pkg }: { pkg: Pkg }) {
 
 export function TypographyPage({ pkg }: { pkg: Pkg }) {
   const type = CHROME[pkg.id].typography;
-  return type ? <SystemPage type={type} /> : <TokenPage pkg={pkg} />;
+  return type ? <SystemPage pkg={pkg} type={type} /> : <TokenPage pkg={pkg} />;
 }

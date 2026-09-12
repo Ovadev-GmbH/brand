@@ -20,6 +20,13 @@ export function href(pkg: PkgId, slug?: string): string {
   return slug ? `/${pkg}/${slug}` : `/${pkg}`;
 }
 
+/** The Markdown twin of a page, where the catalog publishes one (the
+ *  packages whose demos are framed have a generated mirror under
+ *  public/<id>/). */
+export function mdHref(pkg: Pkg, slug: string): string | undefined {
+  return pkg.frame ? `${import.meta.env.BASE_URL}${pkg.id}/${slug}.md` : undefined;
+}
+
 /** Entries grouped in the package's declared order, empty groups dropped. */
 export function grouped(pkg: Pkg, filter = ""): { group: string; entries: Entry[] }[] {
   const q = filter.trim().toLowerCase();

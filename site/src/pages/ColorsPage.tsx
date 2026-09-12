@@ -10,6 +10,7 @@
 
 import { toast } from "sonner";
 import type { Pkg } from "../types";
+import { mdHref } from "../registry";
 import { CHROME, type ColorSystem } from "../brands";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
 
@@ -74,7 +75,7 @@ function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
   };
   return (
     <article>
-      <PageHeader title="Colors">
+      <PageHeader title="Colors" md={mdHref(pkg, "colors")}>
         <p className="mt-3 max-w-160 text-[15px] text-gray-900">
           {SCALES.length} scales of ten steps, and on top of them the names to write with. Click a swatch to copy
           its value.

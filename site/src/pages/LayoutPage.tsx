@@ -2,6 +2,7 @@
    and the durations, read off the package's layout module. */
 
 import type { Pkg } from "../types";
+import { mdHref } from "../registry";
 import { CHROME, type LayoutSystem } from "../brands";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
 
@@ -37,7 +38,7 @@ export function LayoutPage({ pkg }: { pkg: Pkg }) {
   if (!layout) return null;
   return (
     <article>
-      <PageHeader title="Layout">
+      <PageHeader title="Layout" md={mdHref(pkg, "layout")}>
         <p className="mt-3 max-w-160 text-[15px] text-gray-900">
           The spacing set, the corners, and how things move. Three short lists, so a layout is made of the same
           few steps everywhere.

@@ -6,10 +6,11 @@
   "description": "brand.ova.dev: one catalog per component library, statically built and served from GitHub Pages.",
   "scripts": {
     "versions": "bun scripts/gen-versions.mjs",
-    "dev": "bun scripts/gen-versions.mjs && vite",
-    "build": "bun scripts/gen-versions.mjs && vite build && cp dist/index.html dist/404.html",
+    "dev": "bun scripts/gen-versions.mjs && bun run docs && vite",
+    "build": "bun scripts/gen-versions.mjs && bun run docs && vite build && cp dist/index.html dist/404.html",
     "check-types": "bun scripts/gen-versions.mjs && tsc --noEmit",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docs": "bun run ../scripts/gen-design-md.ts januna && bun run ../scripts/gen-catalog-md.ts januna"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",

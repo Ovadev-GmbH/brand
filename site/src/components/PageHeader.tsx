@@ -9,10 +9,21 @@
 
 import type { ReactNode } from "react";
 
-export function PageHeader({ title, children }: { title: string; children?: ReactNode }) {
+export function PageHeader({ title, md, children }: { title: string; md?: string; children?: ReactNode }) {
   return (
     <header className="-mx-6 border-b border-alpha-400 px-6 pb-10 lg:-mx-12 lg:px-12">
-      <h1 className="font-display text-2xl leading-tight md:text-4xl">{title}</h1>
+      <div className="flex items-start justify-between gap-6">
+        <h1 className="font-display text-2xl leading-tight md:text-4xl">{title}</h1>
+        {md ? (
+          <a
+            href={md}
+            className="mt-2 shrink-0 font-mono text-[12px] text-gray-700 no-underline hover:text-gray-1000"
+            title="This page as Markdown, for agents"
+          >
+            .md
+          </a>
+        ) : null}
+      </div>
       {children}
     </header>
   );
