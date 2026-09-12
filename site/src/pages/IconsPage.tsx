@@ -22,7 +22,7 @@ async function loadIcons(): Promise<Icon[]> {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function Cell({ icon, color, snippet }: { icon: Icon; color: string; snippet: string }) {
+function Cell({ icon, snippet, brand }: { icon: Icon; snippet: string; brand: string }) {
   return (
     <button
       type="button"
@@ -31,10 +31,10 @@ function Cell({ icon, color, snippet }: { icon: Icon; color: string; snippet: st
         void navigator.clipboard.writeText(snippet);
         toast(`Copied ${icon.name}`, { description: snippet });
       }}
-      className="flex aspect-square cursor-pointer flex-col items-center justify-center gap-2 rounded-brand border border-transparent bg-transparent p-2 text-center transition-colors duration-100 hover:border-alpha-400 hover:bg-alpha-100"
+      className="group/icon flex aspect-square cursor-pointer flex-col items-center justify-center gap-2 rounded-brand border border-transparent bg-transparent p-2 text-center text-gray-1000 transition-colors duration-100 hover:border-alpha-400 hover:bg-alpha-100"
       style={{ contentVisibility: "auto", containIntrinsicSize: "96px" }}
     >
-      <HugeiconsIcon icon={icon.svg} size={24} strokeWidth={1.5} color={color} aria-hidden="true" />
+      <HugeiconsIcon icon={icon.svg} size={24} strokeWidth={1.5} className="transition-colors duration-100 group-hover/icon:text-(--brand)" style={{ "--brand": brand } as React.CSSProperties} aria-hidden="true" />
       <span className="w-full truncate font-mono text-[10px] leading-tight text-gray-800">
         {icon.name.replace(/Icon$/, "")}
       </span>
@@ -62,8 +62,8 @@ export function IconsPage({ pkg }: { pkg: Pkg }) {
     <article>
       <PageHeader title="Icons">
         <p className="mt-3 max-w-160 text-[15px] text-gray-900">
-          {icons.library}, the free set, as the components draw it: stroke 1.5 at 24px, in {pkg.name}'s green.
-          Click an icon to copy its import.
+          {icons.library}, the free set, as the components draw it: stroke 1.5 at 24px, in the ink. An icon takes
+          the colour of its text, so it is green only where the text is. Click one to copy its import.
         </p>
         <p className="mt-3 text-[13px] text-gray-900">
           <code>{icons.usage}</code>
@@ -89,7 +89,7 @@ export function IconsPage({ pkg }: { pkg: Pkg }) {
             <Cell
               key={icon.name}
               icon={icon}
-              color={icons.color}
+              brand={icons.color}
               snippet={`import { ${icon.name} } from "${icons.pkg}";`}
             />
           ))}

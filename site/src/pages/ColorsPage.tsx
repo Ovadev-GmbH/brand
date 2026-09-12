@@ -76,9 +76,8 @@ function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
     <article>
       <PageHeader title="Colors">
         <p className="mt-3 max-w-160 text-[15px] text-gray-900">
-          {SCALES.length} scales of ten steps, and the same ten roles on every scale. Click a swatch to copy its
-          value; the token is <code>--{pkg.id === "januna" ? "jan" : pkg.id}-&lt;scale&gt;-&lt;step&gt;</code>, the
-          Tailwind colour <code>&lt;scale&gt;-&lt;step&gt;</code>.
+          {SCALES.length} scales of ten steps, and on top of them the names to write with. Click a swatch to copy
+          its value.
         </p>
       </PageHeader>
 
@@ -122,9 +121,8 @@ function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
       <section>
         <SectionHeader title="Semantic" count={SEMANTIC.reduce((n, g) => n + g.tokens.length, 0)} />
         <p className="mt-4 max-w-160 text-[15px] text-gray-900">
-          What a surface, a piece of text or a status <em>is</em>, each pointing at one step of one scale. This is
-          the vocabulary to write with: <code>bg-surface-secondary</code>, <code>text-content-tertiary</code>,{" "}
-          <code>bg-status-danger/10</code>. Reach for a scale step only for an exact colour.
+          The names to write with: <code>bg-surface-secondary</code>, <code>text-content-tertiary</code>,{" "}
+          <code>bg-status-danger/10</code>. Each is one step of one scale. Reach past them only for an exact colour.
         </p>
         {SEMANTIC.map((g) => (
           <div key={g.name} className="mt-8">
@@ -144,25 +142,30 @@ function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
         ))}
       </section>
 
-      {ROLES.map((role) => {
-        const range =
-          role.steps.length > 1
-            ? `${role.steps[0]! / 100}–${role.steps[role.steps.length - 1]! / 100}`
-            : `${role.steps[0]! / 100}`;
-        return (
-          <section key={role.name}>
-            <SectionHeader title={`Colors ${range}: ${role.name}`} />
-            <p className="mt-4 max-w-160 text-[15px] text-gray-900">{role.use}</p>
-            <Legend
-              rows={role.steps.map((step, i) => ({
-                value: gray.steps[step],
-                name: `Color ${step / 100}`,
-                use: role.each[i] ?? "",
-              }))}
-            />
-          </section>
-        );
-      })}
+      <section>
+        <SectionHeader title="Reading a scale" />
+        <p className="mt-4 max-w-160 text-[15px] text-gray-900">
+          Every scale runs the same way, so a step means the same thing whatever the hue.
+        </p>
+        <div className="mt-6 max-w-160">
+          {ROLES.map((role) => (
+            <div key={role.name} className="flex items-start gap-4 border-b border-alpha-400 py-3 last:border-b-0">
+              <div className="flex w-20 shrink-0 gap-1 pt-0.5">
+                {role.steps.map((step) => (
+                  <Dot key={step} value={gray.steps[step]} />
+                ))}
+              </div>
+              <div>
+                <p className="m-0 text-sm font-medium text-gray-1000">
+                  {role.steps[0]! / 100}
+                  {role.steps.length > 1 ? `–${role.steps[role.steps.length - 1]! / 100}` : ""} · {role.name}
+                </p>
+                <p className="mt-0.5 mb-0 text-sm text-gray-900">{role.use}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </article>
   );
 }

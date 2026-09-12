@@ -37,18 +37,28 @@ const THUMB = new URLSearchParams(location.search).get("thumb") === "1";
 if (THUMB) document.documentElement.classList.add("thumb");
 
 /** The document's height as the frame should be: the flow height, or the
- *  lowest edge of anything portalled into <body> — popups and dialogs sit
- *  fixed, so they never enter scrollHeight. A dialog centres itself in the
- *  viewport, so the frame grows in a few steps until it fits. */
+ *  room anything portalled into <body> needs — popups and dialogs sit fixed,
+ *  so they never enter scrollHeight. Measured so the frame *converges*: a
+ *  popup below its trigger needs its bottom edge; a dialog centred in the
+ *  viewport, or a drawer pinned to its bottom edge, needs its own height —
+ *  chasing their bottom edge would move them down and grow forever. */
 function neededHeight(): number {
+  const vh = window.innerHeight;
   let h = document.documentElement.scrollHeight;
-  for (const el of Array.from(document.body.children)) {
-    for (const node of [el, ...Array.from(el.querySelectorAll<HTMLElement>("[data-slot$='popup'], [role='dialog'], [role='menu'], [role='listbox'], [role='tooltip']"))]) {
-      const r = (node as HTMLElement).getBoundingClientRect();
-      if (r.height > 0) h = Math.max(h, Math.ceil(r.bottom + window.scrollY) + 24);
+  const SEL = "[data-slot$='popup'], [role='dialog'], [role='menu'], [role='listbox'], [role='tooltip']";
+  for (const root of Array.from(document.body.children)) {
+    for (const node of [root, ...Array.from(root.querySelectorAll<HTMLElement>(SEL))]) {
+      const r = node.getBoundingClientRect();
+      if (r.height === 0 || r.width === 0) continue;
+      const fullscreen = r.top <= 1 && r.bottom >= vh - 1;
+      const pinnedToBottom = Math.abs(r.bottom - vh) <= 2;
+      const centred = Math.abs(r.top - (vh - r.bottom)) <= 4;
+      if (fullscreen) continue;
+      if (pinnedToBottom || centred) h = Math.max(h, Math.ceil(r.height) + 48);
+      else h = Math.max(h, Math.ceil(r.bottom) + 24);
     }
   }
-  return h;
+  return Math.min(h, 960);
 }
 
 function Report({ id }: { id: string }) {

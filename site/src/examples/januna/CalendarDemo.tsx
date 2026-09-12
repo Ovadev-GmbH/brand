@@ -9,7 +9,6 @@ export default function CalendarDemo() {
       mode="single"
       selected={booking}
       onSelect={setBooking}
-      disabled={{ dayOfWeek: [1] }}
       className="rounded-2xl border"
     />
   );
