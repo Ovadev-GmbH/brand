@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  BuildingsIcon,
-  GearIcon,
-  KeyIcon,
-  ReceiptIcon,
-  RocketLaunchIcon,
-  WarningIcon,
-} from "@phosphor-icons/react";
+import { Building2Icon, SettingsIcon, KeyIcon, ReceiptIcon, RocketIcon, TriangleAlertIcon } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -23,12 +16,12 @@ import {
 } from "@ovadev-gmbh/ui-internal";
 
 const items = [
-  { title: "Tenants", icon: BuildingsIcon },
+  { title: "Tenants", icon: Building2Icon },
   { title: "Invoices", icon: ReceiptIcon, badge: "12" },
-  { title: "Deployments", icon: RocketLaunchIcon },
-  { title: "Incidents", icon: WarningIcon, badge: "1" },
+  { title: "Deployments", icon: RocketIcon },
+  { title: "Incidents", icon: TriangleAlertIcon, badge: "1" },
   { title: "API keys", icon: KeyIcon },
-  { title: "Settings", icon: GearIcon },
+  { title: "Settings", icon: SettingsIcon },
 ];
 
 export default function SidebarDemo() {

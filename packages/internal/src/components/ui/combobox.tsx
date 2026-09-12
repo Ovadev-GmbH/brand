@@ -9,7 +9,7 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "./input-group"
-import { CaretDownIcon, XIcon, CheckIcon } from "@phosphor-icons/react"
+import { ChevronDownIcon, XIcon, CheckIcon } from "lucide-react"
 
 const Combobox = ComboboxPrimitive.Root
 
@@ -29,7 +29,7 @@ function ComboboxTrigger({
       {...props}
     >
       {children}
-      <CaretDownIcon className="pointer-events-none size-4 text-content-tertiary" />
+      <ChevronDownIcon className="pointer-events-none size-4 text-content-tertiary" />
     </ComboboxPrimitive.Trigger>
   )
 }

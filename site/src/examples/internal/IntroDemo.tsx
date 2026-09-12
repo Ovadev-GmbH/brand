@@ -1,5 +1,5 @@
 import { Badge, Button, Input, InputGroup, InputGroupAddon, InputGroupInput, StatusDot } from "@ovadev-gmbh/ui-internal";
-import { MagnifyingGlassIcon, PlusIcon } from "@phosphor-icons/react";
+import { SearchIcon, PlusIcon } from "lucide-react";
 
 /** The introduction's Components card: a few of the parts, side by side. */
 export default function IntroDemo() {
@@ -8,7 +8,7 @@ export default function IntroDemo() {
       <div className="flex items-center gap-3">
         <InputGroup className="w-56">
           <InputGroupAddon>
-            <MagnifyingGlassIcon className="size-4" />
+            <SearchIcon className="size-4" />
           </InputGroupAddon>
           <InputGroupInput placeholder="Find a tenant" readOnly />
         </InputGroup>

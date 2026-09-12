@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CaretRightIcon } from "@phosphor-icons/react";
+import { ChevronRightIcon } from "lucide-react";
 import {
   Button,
   DirectionProvider,
@@ -28,7 +28,7 @@ function InvoiceRow() {
         <ItemActions>
           <Button variant="outline" size="sm">
             Open
-            <CaretRightIcon data-icon="inline-end" />
+            <ChevronRightIcon data-icon="inline-end" />
           </Button>
         </ItemActions>
       </Item>

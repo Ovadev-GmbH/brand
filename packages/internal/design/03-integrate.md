@@ -11,11 +11,11 @@ The system is one package: `@ovadev-gmbh/ui-internal`, on the GitHub Packages re
 
 That line brings Tailwind, the theme, the type styles, the materials, Geist and Geist Mono. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
 
-Import components from the package root and icons from Phosphor:
+Import components from the package root and icons from Lucide:
 
 ```tsx
 import { Button, Table, TableRow, DropdownMenu } from "@ovadev-gmbh/ui-internal";
-import { PlusIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
+import { PlusIcon, SearchIcon } from "lucide-react";
 ```
 
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. Keep screens static except where a control holds state.

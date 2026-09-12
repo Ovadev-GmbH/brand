@@ -102,8 +102,8 @@
   --int-content-inverse: var(--int-background-100);
   --int-content-brand: var(--int-blue-800);
   --int-content-disabled: var(--int-gray-500);
-  --int-brand: var(--int-gray-1000);
-  --int-brand-hover: var(--int-gray-800);
+  --int-brand: var(--int-gray-900);
+  --int-brand-hover: var(--int-gray-1000);
   --int-brand-subtle: var(--int-gray-200);
   --int-brand-bright: var(--int-blue-800);
   --int-status-danger: var(--int-red-800);
@@ -111,7 +111,7 @@
   --int-status-warning: var(--int-yellow-700);
   --int-status-info: var(--int-blue-800);
   --int-divider: var(--int-gray-300);
-  --int-divider-strong: var(--int-gray-1000);
+  --int-divider-strong: var(--int-gray-400);
   --int-divider-inverse: var(--int-white-alpha-400);
 }
 

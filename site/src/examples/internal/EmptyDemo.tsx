@@ -7,7 +7,7 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@ovadev-gmbh/ui-internal";
-import { KeyIcon, PlusIcon } from "@phosphor-icons/react";
+import { KeyIcon, PlusIcon } from "lucide-react";
 
 export default function EmptyDemo() {
   return (

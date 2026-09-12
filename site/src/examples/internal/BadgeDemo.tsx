@@ -1,5 +1,5 @@
 import { Badge } from "@ovadev-gmbh/ui-internal";
-import { CheckCircleIcon } from "@phosphor-icons/react";
+import { CircleCheckIcon } from "lucide-react";
 
 export default function BadgeDemo() {
   return (
@@ -11,7 +11,7 @@ export default function BadgeDemo() {
       <Badge variant="ghost">Draft</Badge>
       <Badge variant="link">View invoice</Badge>
       <Badge variant="outline">
-        <CheckCircleIcon data-icon="inline-start" />
+        <CircleCheckIcon data-icon="inline-start" />
         Paid
       </Badge>
       <Badge variant="secondary" className="font-mono tabular-nums">

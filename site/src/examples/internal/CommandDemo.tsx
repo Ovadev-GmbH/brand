@@ -8,12 +8,7 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@ovadev-gmbh/ui-internal";
-import {
-  ArrowsClockwiseIcon,
-  BuildingsIcon,
-  KeyIcon,
-  ReceiptIcon,
-} from "@phosphor-icons/react";
+import { RefreshCwIcon, Building2Icon, KeyIcon, ReceiptIcon } from "lucide-react";
 
 export default function CommandDemo() {
   return (
@@ -23,12 +18,12 @@ export default function CommandDemo() {
         <CommandEmpty>No results.</CommandEmpty>
         <CommandGroup heading="Tenants">
           <CommandItem>
-            <BuildingsIcon />
+            <Building2Icon />
             Acme Logistics AG
             <span className="ml-auto text-label-12-mono text-content-tertiary">ten_8f3a2c</span>
           </CommandItem>
           <CommandItem>
-            <BuildingsIcon />
+            <Building2Icon />
             Nordwind Travel GmbH
             <span className="ml-auto text-label-12-mono text-content-tertiary">ten_1b77e0</span>
           </CommandItem>
@@ -41,7 +36,7 @@ export default function CommandDemo() {
         <CommandSeparator />
         <CommandGroup heading="Commands">
           <CommandItem>
-            <ArrowsClockwiseIcon />
+            <RefreshCwIcon />
             Redeploy production
             <CommandShortcut>⌘R</CommandShortcut>
           </CommandItem>

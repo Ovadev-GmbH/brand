@@ -95,8 +95,8 @@ export const SEMANTIC: SemanticGroup[] = [
     name: "Brand",
     note: "The one colour that acts. For a tool it is the ink.",
     tokens: [
-      { token: "brand", ref: ref("gray", 1000), use: "The primary button, the current item: black." },
-      { token: "brand-hover", ref: ref("gray", 800), use: "The primary button under the pointer." },
+      { token: "brand", ref: ref("gray", 900), use: "The primary button, the current item: near-black." },
+      { token: "brand-hover", ref: ref("gray", 1000), use: "The primary button under the pointer: black." },
       { token: "brand-subtle", ref: ref("gray", 200), use: "A tint behind a selected control." },
       { token: "brand-bright", ref: ref("blue", 800), use: "The focus ring and a live indicator: INTERN's blue." },
     ],
@@ -113,10 +113,10 @@ export const SEMANTIC: SemanticGroup[] = [
   },
   {
     name: "Stroke",
-    note: "Lines. INTERN draws them in black; the soft one is for inside things.",
+    note: "Lines. Grey hairlines, one step apart; nothing is drawn in black.",
     tokens: [
-      { token: "divider", ref: ref("gray", 300), use: "The soft line: between rows, inside a component." },
-      { token: "divider-strong", ref: ref("gray", 1000), use: "The rule: an input's edge, a card's edge, a section's end. Black." },
+      { token: "divider", ref: ref("gray", 300), use: "The soft line: between rows, inside a component, a card's edge." },
+      { token: "divider-strong", ref: ref("gray", 400), use: "A line that must be seen: an input's edge, a section's end." },
       { token: "divider-inverse", ref: ref("white-alpha", 400), use: "A line on black." },
     ],
   },

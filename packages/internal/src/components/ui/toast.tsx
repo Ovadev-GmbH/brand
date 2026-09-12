@@ -5,7 +5,7 @@ import { Toast as ToastPrimitive } from "@base-ui/react/toast"
 import { cn } from "../../lib/utils"
 
 import { Button } from "./button"
-import { XIcon, CheckCircleIcon, InfoIcon, WarningIcon, XCircleIcon, SpinnerIcon } from "@phosphor-icons/react"
+import { XIcon, CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon, Loader2Icon } from "lucide-react"
 
 const toast = ToastPrimitive.createToastManager()
 
@@ -137,7 +137,7 @@ function ToastIcon({ type }: { type: string | undefined }) {
 
   if (type === "success") {
     icon = (
-      <CheckCircleIcon aria-hidden="true" />
+      <CircleCheckIcon aria-hidden="true" />
     )
   }
 
@@ -149,19 +149,19 @@ function ToastIcon({ type }: { type: string | undefined }) {
 
   if (type === "warning") {
     icon = (
-      <WarningIcon aria-hidden="true" />
+      <TriangleAlertIcon aria-hidden="true" />
     )
   }
 
   if (type === "error") {
     icon = (
-      <XCircleIcon className="text-status-danger" aria-hidden="true" />
+      <OctagonXIcon className="text-status-danger" aria-hidden="true" />
     )
   }
 
   if (type === "loading") {
     icon = (
-      <SpinnerIcon className="animate-spin" aria-hidden="true" />
+      <Loader2Icon className="animate-spin" aria-hidden="true" />
     )
   }
 

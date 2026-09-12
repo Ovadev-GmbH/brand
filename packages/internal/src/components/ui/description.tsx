@@ -1,6 +1,6 @@
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { QuestionIcon } from "@phosphor-icons/react"
+import { CircleHelpIcon } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./tooltip"
 import { cn } from "../../lib/utils"
 
@@ -60,7 +60,7 @@ function Description({
               aria-label={tooltip}
               className="inline-flex size-4 shrink-0 items-center justify-center rounded-regular text-content-tertiary transition-colors duration-fast ease-brand outline-none hover:text-content-primary focus-visible:ring-1 focus-visible:ring-brand-bright data-popup-open:text-content-primary [&_svg]:pointer-events-none [&_svg]:size-3.5"
             >
-              <QuestionIcon />
+              <CircleHelpIcon />
             </TooltipTrigger>
             <TooltipContent>{tooltip}</TooltipContent>
           </Tooltip>

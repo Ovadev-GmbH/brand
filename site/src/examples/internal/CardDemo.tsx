@@ -1,4 +1,4 @@
-import { ArrowSquareOutIcon } from "@phosphor-icons/react";
+import { ExternalLinkIcon } from "lucide-react";
 import {
   Badge,
   Button,
@@ -33,7 +33,7 @@ export default function CardDemo() {
       </CardContent>
       <CardFooter className="gap-2">
         <Button variant="outline" size="sm">
-          <ArrowSquareOutIcon data-icon="inline-start" />
+          <ExternalLinkIcon data-icon="inline-start" />
           Open tenant
         </Button>
         <Button variant="ghost" size="sm">

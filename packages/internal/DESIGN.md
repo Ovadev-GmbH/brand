@@ -11,7 +11,7 @@ Act as an excellent Internal designer and design engineer. Turn the task into a 
 
 Internal is the layer Ovadev runs itself on: tenants, invoices, deployments, incidents, API keys, the audit log. The people using it are the team, every day, often with three other windows open. They do not need to be persuaded of anything; they need to find the row, read the number, and act.
 
-The look is black on white. Four neutrals between them, one colour per meaning (red, green, blue, yellow), black hairline rules for structure, corners barely rounded, figures in mono. No warmth, no lift, no gradient. An Internal screen looks like a well-kept ledger.
+The look is black on white. Four neutrals between them, one colour per meaning (red, green, blue, yellow), grey hairline rules for structure, square corners, figures in mono. No warmth, no lift, no gradient. An Internal screen looks like a well-kept ledger.
 
 Start with the operator's job, not the screen category. Identify what they are looking for, what they must not misread, and the one action that follows. Build confidence through exactness: units, timestamps, IDs, states, all visible, all in the system's words.
 
@@ -22,7 +22,7 @@ When requirements compete, protect them in this order:
 1. Preserve the data, the words, the units, the states and the constraints you were given. An invoice of CHF 1'240.00 due 2026-10-01 is not "about twelve hundred, due next month".
 2. Preserve the host codebase: its framework, its routes, its data layer, and the Internal package as installed. Do not fork a component to restyle it; do not reach around the package for a raw element when a component exists.
 3. Make the operator's job immediately clear: what this screen lists or shows, what needs their decision, and what they can do about it.
-4. Be unmistakably Internal: the semantic colours, the type styles, the materials, the measure, Geist, Phosphor.
+4. Be unmistakably Internal: the semantic colours, the type styles, the materials, the measure, Geist, Lucide.
 5. Compose for this screen. Reject the obvious template (a hero, a card grid, KPI tiles) unless the material earns it. In a tool, the material is usually a table.
 6. Refine responsive behaviour, interaction and detail without weakening the hierarchy above.
 
@@ -41,11 +41,11 @@ The system is one package: `@ovadev-gmbh/ui-internal`, on the GitHub Packages re
 
 That line brings Tailwind, the theme, the type styles, the materials, Geist and Geist Mono. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
 
-Import components from the package root and icons from Phosphor:
+Import components from the package root and icons from Lucide:
 
 ```tsx
 import { Button, Table, TableRow, DropdownMenu } from "@ovadev-gmbh/ui-internal";
-import { PlusIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
+import { PlusIcon, SearchIcon } from "lucide-react";
 ```
 
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. Keep screens static except where a control holds state.
@@ -76,7 +76,7 @@ Treat this section as the design authority. Use the published API at the end for
 
 Design in black and white. Colour appears only where it means something: the four status colours where a state is named (always beside a word or an icon), the blue on a link and the focus ring, the callout fills behind a note. The primary button is black. A screen with colour that is not a state is a screen with decoration on it; remove it.
 
-Write with the semantic names. `bg-surface-primary` is the sheet, `bg-surface-tertiary` the quieter sheet for sidebars and panels, `bg-surface-secondary` a table header or a well. Hover is `bg-surface-hover`, pressed and selected `bg-surface-active`: black at a few percent. Text is `text-content-primary`, `-secondary`, `-tertiary`; on black it is `text-content-inverse`. Lines are `border-divider` inside things and `border-divider-strong` (black) where structure ends: a card's edge, an input, a section. Reach for a scale step only for an exact colour a name does not cover, and say why in a comment.
+Write with the semantic names. `bg-surface-primary` is the sheet, `bg-surface-tertiary` the quieter sheet for sidebars and panels, `bg-surface-secondary` a table header or a well. Hover is `bg-surface-hover`, pressed and selected `bg-surface-active`: black at a few percent. Text is `text-content-primary`, `-secondary`, `-tertiary`; on black it is `text-content-inverse`. Lines are `border-divider` inside things and `border-divider-strong` where a line must be seen: an input, a section's end. Reach for a scale step only for an exact colour a name does not cover, and say why in a comment.
 
 #### Type
 
@@ -86,11 +86,11 @@ Headings are sentence case and name the thing: "Invoices", "Deployment 4f2c", "A
 
 #### Rhythm and measure
 
-Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group `space-2` to `space-3`; between groups `space-4` to `space-6`; between chapters `space-8`. Controls are 32px tall; 28px in dense rows and toolbars; 40px only for the one primary action on a form. Corners are `rounded-regular` (2px) on what acts and holds, `rounded-small` (0) on the things inside, `rounded-pill` only on status dots, avatars and switches. Tables take the full width; forms sit in a column of 480 to 640px.
+Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group `space-2` to `space-3`; between groups `space-4` to `space-6`; between chapters `space-8`. Controls are 32px tall; 28px in dense rows and toolbars; 40px only for the one primary action on a form. Corners are square: `rounded-regular` and `rounded-small` are both 0, `rounded-pill` only on status dots, avatars and switches. Tables take the full width; forms sit in a column of 480 to 640px.
 
 #### Surfaces and edges
 
-A surface is a material: `material-base` for cards, inputs and containers, a single black hairline; `material-menu` for what floats; `material-modal` for a dialog. The material draws the edge; never add a border to one, never a card in a card. `material-medium` and `-large` add a hard offset and exist for the one object on a page that must be found first. Prefer rules and spacing to boxes: a table's rows are lines, not cards.
+A surface is a material: `material-base` for cards, inputs and containers, a single grey hairline; `material-menu` for what floats; `material-modal` for a dialog. The material draws the edge; never add a border to one, never a card in a card. `material-medium` and `-large` add a short lift and exist for the one object on a page that must be found first. Prefer rules and spacing to boxes: a table's rows are lines, not cards.
 
 #### Motion
 
@@ -98,7 +98,7 @@ Default to stillness. Use `ease-brand` and the three durations, none longer than
 
 #### Icons
 
-Phosphor, regular weight, 16px inside controls, 20px standalone. An icon takes the colour of its text. Icons label; they do not decorate: one in a button beside its word, one in a cell for a state, one in an empty state. No icon tiles, no oversized icons, no mixed weights.
+Lucide, stroke 2 at 16px inside controls, 1.75 at 20px standalone. An icon takes the colour of its text. Icons label; they do not decorate: one in a button beside its word, one in a cell for a state, one in an empty state. No icon tiles, no oversized icons, no mixed sets.
 
 #### Copy
 
@@ -125,7 +125,7 @@ Do not ship any of these recognisable defaults:
 
 - A dashboard of KPI cards where a table with three figures above it would do.
 - Colour as decoration: a coloured header, a tinted sidebar, a gradient anywhere, an accent that is not a state.
-- Rounded corners beyond 2px on what acts or holds; pill buttons; pill badges.
+- Rounded corners on what acts or holds; pill buttons; pill badges.
 - Soft shadows on cards at rest. A card is a hairline.
 - A 3px glow on focus, or any halo. Focus is a 1px blue edge.
 - Borders on materials, cards in cards, a box around every section.
@@ -190,8 +190,8 @@ Write with these. Each is a Tailwind colour (`bg-surface-hover`, `text-content-s
 
 | Token | Step | Use |
 | --- | --- | --- |
-| `brand` | `gray-1000` | The primary button, the current item: black. |
-| `brand-hover` | `gray-800` | The primary button under the pointer. |
+| `brand` | `gray-900` | The primary button, the current item: near-black. |
+| `brand-hover` | `gray-1000` | The primary button under the pointer: black. |
 | `brand-subtle` | `gray-200` | A tint behind a selected control. |
 | `brand-bright` | `blue-800` | The focus ring and a live indicator: INTERN's blue. |
 
@@ -204,12 +204,12 @@ Write with these. Each is a Tailwind colour (`bg-surface-hover`, `text-content-s
 | `status-warning` | `yellow-700` | Pending, attention needed. |
 | `status-info` | `blue-800` | Neutral information. |
 
-**Stroke.** Lines. INTERN draws them in black; the soft one is for inside things.
+**Stroke.** Lines. Grey hairlines, one step apart; nothing is drawn in black.
 
 | Token | Step | Use |
 | --- | --- | --- |
-| `divider` | `gray-300` | The soft line: between rows, inside a component. |
-| `divider-strong` | `gray-1000` | The rule: an input's edge, a card's edge, a section's end. Black. |
+| `divider` | `gray-300` | The soft line: between rows, inside a component, a card's edge. |
+| `divider-strong` | `gray-400` | A line that must be seen: an input's edge, a section's end. |
 | `divider-inverse` | `white-alpha-400` | A line on black. |
 
 ### Scales
@@ -296,37 +296,37 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 | Class | Radius | Use |
 | --- | --- | --- |
-| `material-base` | 2px | Everything at rest: cards, inputs, list containers. One black hairline. |
-| `material-small` | 2px | The same rule; kept as a name so components read like Januna's. |
-| `material-medium` | 2px | A card that invites a click: the rule, and a hard 2px offset. |
-| `material-large` | 2px | The one thing on the page that must be found: a 4px offset. |
+| `material-base` | 0px | Everything at rest: cards, list containers, tables. One grey hairline. |
+| `material-small` | 0px | Inputs, selects, resting outline buttons: a hairline one step stronger, so a control reads as a control. |
+| `material-medium` | 0px | A card that invites a click. |
+| `material-large` | 0px | The one thing on the page that must be found first. |
 
 **Floating.** Above the page.
 
 | Class | Radius | Use |
 | --- | --- | --- |
-| `material-tooltip` | 2px | Black, white text, no stem. |
-| `material-menu` | 2px | Menus, popovers, comboboxes: the rule and a short lift. |
-| `material-modal` | 4px | Dialogs and sheets. |
-| `material-fullscreen` | 4px | Takeovers. |
+| `material-tooltip` | 0px | Black, white text, no stem. |
+| `material-menu` | 0px | Menus, popovers, comboboxes: the hairline and a short lift. |
+| `material-modal` | 0px | Dialogs and sheets. |
+| `material-fullscreen` | 0px | Takeovers. |
 
 **Tints.** The small material with a colour in its ring.
 
 | Class | Radius | Use |
 | --- | --- | --- |
-| `material-accent` | 2px | A card in focus, the recommended row. |
-| `material-active` | 2px | A selected card, a focused control. |
-| `material-danger` | 2px | A card in error. |
+| `material-accent` | 0px | A card in focus, the recommended row. |
+| `material-active` | 0px | A selected card, a focused control. |
+| `material-danger` | 0px | A card in error. |
 
 **When to use.**
 
 - Use a material instead of hand-rolling radius, fill, stroke and shadow; the name encodes the elevation.
-- Base for almost everything. Medium and large only for the one object on a page that must be found first.
+- Base for almost everything; small for controls. Medium and large only for the one object on a page that must be found first.
 - Never stack two materials on one element; never add a border to one.
 
 **Behaviour.**
 
-- The rule is the edge. Nothing in Internal has a soft edge.
+- The hairline is the edge. Corners are square.
 - Only what floats lifts, and it lifts little.
 
 **Accessibility.**
@@ -352,10 +352,10 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 | Token | Tailwind | Value | Use |
 | --- | --- | --- | --- |
-| `--int-radius-small` | `rounded-small` | `0px` | Menu items, cells, chips inside things: square. |
-| `--int-radius-regular` | `rounded-regular` | `2px` | Controls, cards, inputs. Enough to not look cut with scissors. |
-| `--int-radius-large` | `rounded-large` | `2px` | Menus, larger cards. |
-| `--int-radius-modal` | `rounded-modal` | `4px` | Dialogs and sheets. |
+| `--int-radius-small` | `rounded-small` | `0px` | Menu items, cells, chips: square. |
+| `--int-radius-regular` | `rounded-regular` | `0px` | Controls, cards, inputs: square. The lyra shape. |
+| `--int-radius-large` | `rounded-large` | `0px` | Menus, larger cards: square. |
+| `--int-radius-modal` | `rounded-modal` | `0px` | Dialogs and sheets: square. |
 | `--int-radius-section` | `rounded-section` | `0px` | Sections and panels: square. |
 | `--int-radius-pill` | `rounded-pill` | `9999px` | Status dots, avatars, switches. Nothing else. |
 
@@ -467,10 +467,10 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 ### Icons
 
-Phosphor. 1,500 icons, regular weight. 16px inside controls, 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling. The full set: https://ovadev-gmbh.github.io/brand/internal/icons
+Lucide. 2,000 icons, stroke 2 at 16px inside controls, 1.75 at 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling. The full set: https://ovadev-gmbh.github.io/brand/internal/icons
 
 ```tsx
-import { PlusIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
+import { PlusIcon, SearchIcon } from "lucide-react";
 
 <PlusIcon className="size-4" />
 ```

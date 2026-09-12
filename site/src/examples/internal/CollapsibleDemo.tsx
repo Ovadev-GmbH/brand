@@ -4,7 +4,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@ovadev-gmbh/ui-internal";
-import { CaretDownIcon } from "@phosphor-icons/react";
+import { ChevronDownIcon } from "lucide-react";
 
 export default function CollapsibleDemo() {
   return (
@@ -14,7 +14,7 @@ export default function CollapsibleDemo() {
         <CollapsibleTrigger
           render={<Button variant="ghost" size="icon-sm" aria-label="Toggle runs" />}
         >
-          <CaretDownIcon />
+          <ChevronDownIcon />
         </CollapsibleTrigger>
       </div>
       <div className="border border-divider px-2.5 py-1.5 text-label-13-mono">

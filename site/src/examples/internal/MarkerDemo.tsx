@@ -1,12 +1,12 @@
 import { Marker, MarkerContent, MarkerIcon } from "@ovadev-gmbh/ui-internal";
-import { RocketLaunchIcon } from "@phosphor-icons/react";
+import { RocketIcon } from "lucide-react";
 
 export default function MarkerDemo() {
   return (
     <div className="grid w-full max-w-xl gap-3">
       <Marker>
         <MarkerIcon>
-          <RocketLaunchIcon />
+          <RocketIcon />
         </MarkerIcon>
         <MarkerContent>
           Deploy #4821 by robin ·{" "}

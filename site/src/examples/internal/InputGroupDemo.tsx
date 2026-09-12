@@ -1,4 +1,4 @@
-import { ArrowRightIcon, KeyIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon, KeyIcon, SearchIcon } from "lucide-react";
 import {
   InputGroup,
   InputGroupAddon,
@@ -14,7 +14,7 @@ export default function InputGroupDemo() {
       <InputGroup>
         <InputGroupInput placeholder="Search tenants, invoices, deployments…" />
         <InputGroupAddon>
-          <MagnifyingGlassIcon />
+          <SearchIcon />
         </InputGroupAddon>
         <InputGroupAddon align="inline-end">
           <InputGroupText className="text-label-12-mono">312 rows</InputGroupText>

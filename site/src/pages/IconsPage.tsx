@@ -16,12 +16,12 @@ type Icon = { name: string; render: (color: string) => React.ReactNode };
 /** The set as a list the page can draw, whichever package it comes from.
  *  Hugeicons' free set exports every icon three times (Add01Icon, Add01,
  *  Add01FreeIcons); the …Icon spelling is the one the components import.
- *  Phosphor exports one component per icon, also ending in Icon. */
-async function loadIcons(kind: "hugeicons" | "phosphor"): Promise<Icon[]> {
-  if (kind === "phosphor") {
-    const mod = await import("@phosphor-icons/react");
+ *  Lucide exports each icon as Name and NameIcon; the Icon spelling is used. */
+async function loadIcons(kind: "hugeicons" | "lucide"): Promise<Icon[]> {
+  if (kind === "lucide") {
+    const mod = await import("lucide-react");
     return Object.entries(mod)
-      .filter(([name, v]) => name.endsWith("Icon") && name !== "Icon" && typeof v === "object" && v !== null)
+      .filter(([name, v]) => name.endsWith("Icon") && name !== "Icon" && name !== "LucideIcon" && (typeof v === "object" || typeof v === "function") && v !== null)
       .map(([name, Cmp]) => {
         const C = Cmp as React.ComponentType<{ size?: number; color?: string; "aria-hidden"?: boolean }>;
         return { name, render: (color: string) => <C size={24} color={color} aria-hidden /> };

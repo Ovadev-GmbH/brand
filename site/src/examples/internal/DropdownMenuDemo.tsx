@@ -12,12 +12,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@ovadev-gmbh/ui-internal";
-import {
-  ArrowsClockwiseIcon,
-  CopyIcon,
-  FileTextIcon,
-  TrashIcon,
-} from "@phosphor-icons/react";
+import { RefreshCwIcon, CopyIcon, FileTextIcon, Trash2Icon } from "lucide-react";
 
 export default function DropdownMenuDemo() {
   return (
@@ -32,7 +27,7 @@ export default function DropdownMenuDemo() {
           </DropdownMenuLabel>
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <ArrowsClockwiseIcon />
+              <RefreshCwIcon />
               Redeploy
               <DropdownMenuShortcut>R</DropdownMenuShortcut>
             </DropdownMenuItem>
@@ -56,7 +51,7 @@ export default function DropdownMenuDemo() {
           </DropdownMenuSub>
           <DropdownMenuSeparator />
           <DropdownMenuItem variant="destructive">
-            <TrashIcon />
+            <Trash2Icon />
             Delete deployment
           </DropdownMenuItem>
         </DropdownMenuContent>

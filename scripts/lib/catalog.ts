@@ -28,9 +28,9 @@ export const BRANDS: Record<string, Brand> = {
   internal: {
     name: "Internal", pkg: "@ovadev-gmbh/ui-internal", prefix: "int",
     icons: {
-      library: "Phosphor",
-      usage: 'import { PlusIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";\n\n<PlusIcon className="size-4" />',
-      note: "1,500 icons, regular weight. 16px inside controls, 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling.",
+      library: "Lucide",
+      usage: 'import { PlusIcon, SearchIcon } from "lucide-react";\n\n<PlusIcon className="size-4" />',
+      note: "2,000 icons, stroke 2 at 16px inside controls, 1.75 at 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling.",
     },
   },
 };

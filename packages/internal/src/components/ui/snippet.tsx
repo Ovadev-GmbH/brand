@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { CheckIcon, CopyIcon, EyeIcon, EyeSlashIcon } from "@phosphor-icons/react"
+import { CheckIcon, CopyIcon, EyeIcon, EyeOffIcon } from "lucide-react"
 import { Button } from "./button"
 import { cn } from "../../lib/utils"
 
@@ -191,7 +191,7 @@ function SecretValue({
         onClick={() => setRevealed((state) => !state)}
       >
         {revealed ? (
-          <EyeSlashIcon className="size-4" />
+          <EyeOffIcon className="size-4" />
         ) : (
           <EyeIcon className="size-4" />
         )}

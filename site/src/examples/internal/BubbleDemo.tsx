@@ -1,4 +1,4 @@
-import { CheckIcon } from "@phosphor-icons/react";
+import { CheckIcon } from "lucide-react";
 import { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from "@ovadev-gmbh/ui-internal";
 
 export default function BubbleDemo() {

@@ -1,5 +1,5 @@
 import { Button } from "@ovadev-gmbh/ui-internal";
-import { ArrowRightIcon, PlusIcon, TrashIcon } from "@phosphor-icons/react";
+import { ArrowRightIcon, PlusIcon, Trash2Icon } from "lucide-react";
 
 export default function ButtonDemo() {
   return (
@@ -11,7 +11,7 @@ export default function ButtonDemo() {
         <Button variant="ghost">Ghost</Button>
         <Button variant="link">Link</Button>
         <Button variant="destructive">
-          <TrashIcon data-icon="inline-start" />
+          <Trash2Icon data-icon="inline-start" />
           Revoke key
         </Button>
       </div>

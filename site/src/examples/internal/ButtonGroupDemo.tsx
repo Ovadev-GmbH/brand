@@ -4,7 +4,7 @@ import {
   ButtonGroupSeparator,
   ButtonGroupText,
 } from "@ovadev-gmbh/ui-internal";
-import { CaretDownIcon, GitBranchIcon } from "@phosphor-icons/react";
+import { ChevronDownIcon, GitBranchIcon } from "lucide-react";
 
 export default function ButtonGroupDemo() {
   return (
@@ -23,7 +23,7 @@ export default function ButtonGroupDemo() {
         <Button variant="outline">Deploy</Button>
         <ButtonGroupSeparator />
         <Button variant="outline" size="icon" aria-label="More deploy options">
-          <CaretDownIcon />
+          <ChevronDownIcon />
         </Button>
       </ButtonGroup>
     </div>

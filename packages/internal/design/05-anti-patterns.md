@@ -4,7 +4,7 @@ Do not ship any of these recognisable defaults:
 
 - A dashboard of KPI cards where a table with three figures above it would do.
 - Colour as decoration: a coloured header, a tinted sidebar, a gradient anywhere, an accent that is not a state.
-- Rounded corners beyond 2px on what acts or holds; pill buttons; pill badges.
+- Rounded corners on what acts or holds; pill buttons; pill badges.
 - Soft shadows on cards at rest. A card is a hairline.
 - A 3px glow on focus, or any halo. Focus is a 1px blue edge.
 - Borders on materials, cards in cards, a box around every section.

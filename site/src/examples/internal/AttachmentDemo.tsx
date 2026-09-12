@@ -1,4 +1,4 @@
-import { FileCsvIcon, FilePdfIcon, FileZipIcon, XIcon } from "@phosphor-icons/react";
+import { FileSpreadsheetIcon, FileTextIcon, FileArchiveIcon, XIcon } from "lucide-react";
 import {
   Attachment,
   AttachmentAction,
@@ -15,7 +15,7 @@ export default function AttachmentDemo() {
     <AttachmentGroup className="w-full max-w-xl">
       <Attachment>
         <AttachmentMedia>
-          <FilePdfIcon />
+          <FileTextIcon />
         </AttachmentMedia>
         <AttachmentContent>
           <AttachmentTitle>INV-2026-0142.pdf</AttachmentTitle>
@@ -29,7 +29,7 @@ export default function AttachmentDemo() {
       </Attachment>
       <Attachment state="uploading">
         <AttachmentMedia>
-          <FileCsvIcon />
+          <FileSpreadsheetIcon />
         </AttachmentMedia>
         <AttachmentContent>
           <AttachmentTitle>audit-log-2026-09.csv</AttachmentTitle>
@@ -38,7 +38,7 @@ export default function AttachmentDemo() {
       </Attachment>
       <Attachment size="sm">
         <AttachmentMedia>
-          <FileZipIcon />
+          <FileArchiveIcon />
         </AttachmentMedia>
         <AttachmentContent>
           <AttachmentTitle>d-8f3a21c-logs.zip</AttachmentTitle>

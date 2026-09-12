@@ -6,11 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@ovadev-gmbh/ui-internal";
-import {
-  ArrowCounterClockwiseIcon,
-  ArrowsClockwiseIcon,
-  KeyIcon,
-} from "@phosphor-icons/react";
+import { RotateCcwIcon, RefreshCwIcon, KeyIcon } from "lucide-react";
 
 export default function TooltipDemo() {
   return (
@@ -18,7 +14,7 @@ export default function TooltipDemo() {
       <div className="flex flex-wrap items-center gap-3">
         <Tooltip>
           <TooltipTrigger render={<Button variant="outline" size="icon" />}>
-            <ArrowsClockwiseIcon />
+            <RefreshCwIcon />
             <span className="sr-only">Redeploy</span>
           </TooltipTrigger>
           <TooltipContent>
@@ -27,7 +23,7 @@ export default function TooltipDemo() {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger render={<Button variant="outline" size="icon" />}>
-            <ArrowCounterClockwiseIcon />
+            <RotateCcwIcon />
             <span className="sr-only">Roll back</span>
           </TooltipTrigger>
           <TooltipContent>Roll back to previous build</TooltipContent>

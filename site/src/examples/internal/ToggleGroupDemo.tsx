@@ -1,5 +1,5 @@
 import { ToggleGroup, ToggleGroupItem } from "@ovadev-gmbh/ui-internal";
-import { ListIcon, SquaresFourIcon } from "@phosphor-icons/react";
+import { ListIcon, LayoutGridIcon } from "lucide-react";
 
 export default function ToggleGroupDemo() {
   return (
@@ -20,7 +20,7 @@ export default function ToggleGroupDemo() {
           <ListIcon />
         </ToggleGroupItem>
         <ToggleGroupItem value="grid" aria-label="Grid view">
-          <SquaresFourIcon />
+          <LayoutGridIcon />
         </ToggleGroupItem>
       </ToggleGroup>
     </div>

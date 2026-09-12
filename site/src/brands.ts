@@ -43,7 +43,7 @@ export type TypeRow = { name: string; family: string; weight: number; size: stri
 /** The icon set a brand draws with, for the Icons page. */
 export type IconSet = {
   /** Which package's shape the set has; the Icons page loads it accordingly. */
-  kind: "hugeicons" | "phosphor";
+  kind: "hugeicons" | "lucide";
   library: string;
   /** The package the icons are imported from. */
   pkg: string;
@@ -165,7 +165,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     lines: {
       colors: "Black, white, and one colour per meaning.",
       typography: "Geist, dense, figures in mono.",
-      icons: "Phosphor, regular weight, in the ink.",
+      icons: "Lucide, in the ink.",
       components: "Building blocks for the tools, on Base UI.",
     },
     colors: internColors,
@@ -183,10 +183,10 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       { name: "Mono", family: '"Geist Mono Variable", "Geist Mono", ui-monospace, monospace', weight: 400, size: "13px", note: "text-label-13-mono, figures and IDs" },
     ],
     icons: {
-      kind: "phosphor",
-      library: "Phosphor",
-      pkg: "@phosphor-icons/react",
-      usage: 'import { PlusIcon } from "@phosphor-icons/react";  <PlusIcon className="size-4" />',
+      kind: "lucide",
+      library: "Lucide",
+      pkg: "lucide-react",
+      usage: 'import { PlusIcon } from "lucide-react";  <PlusIcon className="size-4" />',
       color: "#000000",
     },
   },

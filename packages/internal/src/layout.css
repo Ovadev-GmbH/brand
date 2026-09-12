@@ -15,9 +15,9 @@
   --int-space-8: 32px;
   --int-space-12: 48px;
   --int-radius-small: 0px;
-  --int-radius-regular: 2px;
-  --int-radius-large: 2px;
-  --int-radius-modal: 4px;
+  --int-radius-regular: 0px;
+  --int-radius-large: 0px;
+  --int-radius-modal: 0px;
   --int-radius-section: 0px;
   --int-radius-pill: 9999px;
   --int-ease-out: cubic-bezier(0.2, 0, 0, 1);

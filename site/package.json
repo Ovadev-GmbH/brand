@@ -20,7 +20,7 @@
     "@ovadev-gmbh/ui-januna": "workspace:*",
     "@ovadev-gmbh/ui-ovadev": "workspace:*",
     "@ovadev-gmbh/ui-ticketova": "workspace:*",
-    "@phosphor-icons/react": "^2.1.10",
+    "lucide-react": "^1.45.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router": "^7.8.2",

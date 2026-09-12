@@ -1,5 +1,5 @@
 /* Internal's measure and motion: the same spacing set as Januna, corners that
- * are barely there, and motion that is quick and over. */
+ * are not there, and motion that is quick and over. */
 
 export type Token = { token: string; value: string; use: string };
 
@@ -14,10 +14,10 @@ export const SPACING: Token[] = [
 ];
 
 export const RADIUS: Token[] = [
-  { token: "radius-small", value: "0px", use: "Menu items, cells, chips inside things: square." },
-  { token: "radius-regular", value: "2px", use: "Controls, cards, inputs. Enough to not look cut with scissors." },
-  { token: "radius-large", value: "2px", use: "Menus, larger cards." },
-  { token: "radius-modal", value: "4px", use: "Dialogs and sheets." },
+  { token: "radius-small", value: "0px", use: "Menu items, cells, chips: square." },
+  { token: "radius-regular", value: "0px", use: "Controls, cards, inputs: square. The lyra shape." },
+  { token: "radius-large", value: "0px", use: "Menus, larger cards: square." },
+  { token: "radius-modal", value: "0px", use: "Dialogs and sheets: square." },
   { token: "radius-section", value: "0px", use: "Sections and panels: square." },
   { token: "radius-pill", value: "9999px", use: "Status dots, avatars, switches. Nothing else." },
 ];

@@ -22,7 +22,7 @@ Treat this section as the design authority. Use the published API at the end for
 
 Design in black and white. Colour appears only where it means something: the four status colours where a state is named (always beside a word or an icon), the blue on a link and the focus ring, the callout fills behind a note. The primary button is black. A screen with colour that is not a state is a screen with decoration on it; remove it.
 
-Write with the semantic names. `bg-surface-primary` is the sheet, `bg-surface-tertiary` the quieter sheet for sidebars and panels, `bg-surface-secondary` a table header or a well. Hover is `bg-surface-hover`, pressed and selected `bg-surface-active`: black at a few percent. Text is `text-content-primary`, `-secondary`, `-tertiary`; on black it is `text-content-inverse`. Lines are `border-divider` inside things and `border-divider-strong` (black) where structure ends: a card's edge, an input, a section. Reach for a scale step only for an exact colour a name does not cover, and say why in a comment.
+Write with the semantic names. `bg-surface-primary` is the sheet, `bg-surface-tertiary` the quieter sheet for sidebars and panels, `bg-surface-secondary` a table header or a well. Hover is `bg-surface-hover`, pressed and selected `bg-surface-active`: black at a few percent. Text is `text-content-primary`, `-secondary`, `-tertiary`; on black it is `text-content-inverse`. Lines are `border-divider` inside things and `border-divider-strong` where a line must be seen: an input, a section's end. Reach for a scale step only for an exact colour a name does not cover, and say why in a comment.
 
 #### Type
 
@@ -32,11 +32,11 @@ Headings are sentence case and name the thing: "Invoices", "Deployment 4f2c", "A
 
 #### Rhythm and measure
 
-Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group `space-2` to `space-3`; between groups `space-4` to `space-6`; between chapters `space-8`. Controls are 32px tall; 28px in dense rows and toolbars; 40px only for the one primary action on a form. Corners are `rounded-regular` (2px) on what acts and holds, `rounded-small` (0) on the things inside, `rounded-pill` only on status dots, avatars and switches. Tables take the full width; forms sit in a column of 480 to 640px.
+Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group `space-2` to `space-3`; between groups `space-4` to `space-6`; between chapters `space-8`. Controls are 32px tall; 28px in dense rows and toolbars; 40px only for the one primary action on a form. Corners are square: `rounded-regular` and `rounded-small` are both 0, `rounded-pill` only on status dots, avatars and switches. Tables take the full width; forms sit in a column of 480 to 640px.
 
 #### Surfaces and edges
 
-A surface is a material: `material-base` for cards, inputs and containers, a single black hairline; `material-menu` for what floats; `material-modal` for a dialog. The material draws the edge; never add a border to one, never a card in a card. `material-medium` and `-large` add a hard offset and exist for the one object on a page that must be found first. Prefer rules and spacing to boxes: a table's rows are lines, not cards.
+A surface is a material: `material-base` for cards, inputs and containers, a single grey hairline; `material-menu` for what floats; `material-modal` for a dialog. The material draws the edge; never add a border to one, never a card in a card. `material-medium` and `-large` add a short lift and exist for the one object on a page that must be found first. Prefer rules and spacing to boxes: a table's rows are lines, not cards.
 
 #### Motion
 
@@ -44,7 +44,7 @@ Default to stillness. Use `ease-brand` and the three durations, none longer than
 
 #### Icons
 
-Phosphor, regular weight, 16px inside controls, 20px standalone. An icon takes the colour of its text. Icons label; they do not decorate: one in a button beside its word, one in a cell for a state, one in an empty state. No icon tiles, no oversized icons, no mixed weights.
+Lucide, stroke 2 at 16px inside controls, 1.75 at 20px standalone. An icon takes the colour of its text. Icons label; they do not decorate: one in a button beside its word, one in a cell for a state, one in an empty state. No icon tiles, no oversized icons, no mixed sets.
 
 #### Copy
 

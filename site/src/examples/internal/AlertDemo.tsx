@@ -5,7 +5,7 @@ import {
   AlertTitle,
   Button,
 } from "@ovadev-gmbh/ui-internal";
-import { InfoIcon, WarningIcon } from "@phosphor-icons/react";
+import { InfoIcon, TriangleAlertIcon } from "lucide-react";
 
 export default function AlertDemo() {
   return (
@@ -30,7 +30,7 @@ export default function AlertDemo() {
         </AlertAction>
       </Alert>
       <Alert variant="destructive">
-        <WarningIcon />
+        <TriangleAlertIcon />
         <AlertTitle>Deploy #4819 rolled back</AlertTitle>
         <AlertDescription>
           Health check failed on 2 of 3 instances. Traffic stays on #4818.

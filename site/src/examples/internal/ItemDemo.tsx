@@ -1,4 +1,4 @@
-import { KeyIcon, RocketLaunchIcon, WarningIcon } from "@phosphor-icons/react";
+import { KeyIcon, RocketIcon, TriangleAlertIcon } from "lucide-react";
 import {
   Badge,
   Button,
@@ -17,7 +17,7 @@ export default function ItemDemo() {
     <ItemGroup className="max-w-xl">
       <Item variant="outline">
         <ItemMedia variant="icon">
-          <RocketLaunchIcon />
+          <RocketIcon />
         </ItemMedia>
         <ItemContent>
           <ItemTitle>
@@ -34,7 +34,7 @@ export default function ItemDemo() {
       <ItemSeparator />
       <Item variant="muted" size="sm">
         <ItemMedia variant="icon">
-          <WarningIcon />
+          <TriangleAlertIcon />
         </ItemMedia>
         <ItemContent>
           <ItemTitle>Incident INC-0412</ItemTitle>

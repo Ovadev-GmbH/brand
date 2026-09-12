@@ -1,14 +1,14 @@
 import { Toggle } from "@ovadev-gmbh/ui-internal";
-import { EyeIcon, TextBIcon, TextItalicIcon } from "@phosphor-icons/react";
+import { EyeIcon, BoldIcon, ItalicIcon } from "lucide-react";
 
 export default function ToggleDemo() {
   return (
     <div className="flex w-full max-w-xl flex-wrap items-center gap-3">
       <Toggle aria-label="Bold">
-        <TextBIcon />
+        <BoldIcon />
       </Toggle>
       <Toggle aria-label="Italic" defaultPressed>
-        <TextItalicIcon />
+        <ItalicIcon />
       </Toggle>
       <Toggle variant="outline">
         <EyeIcon data-icon="inline-start" />
