@@ -1,0 +1,126 @@
+/* Intern: the theme.
+ *
+ * The colour system lives in src/foundations/colors.ts and is generated
+ * into colors.css: nine scales of ten steps plus two page backgrounds, as
+ * custom properties and as Tailwind colours. This file maps the slots the
+ * shadcn components read onto the semantic layer (surface, content, accent,
+ * status, stroke), which in turn points at steps of the scales. Nothing
+ * here names a colour by value. Light only.
+ *
+ * The same block is declared on :root, for an app that wears the brand, and
+ * on [data-brand="internal"], for a page that shows more than one brand (the
+ * catalog). The slot names are shadcn's so `shadcn add` keeps working.
+ *
+ * The colour system lives in colors.css, the type styles in typography.css,
+ * the materials in materials.css — all generated from src/foundations. The
+ * faces (Geist, Geist Mono) are loaded by styles.css; an app importing only
+ * this file must load them itself. */
+@import "./colors.css";
+@import "./typography.css";
+@import "./materials.css";
+@import "./layout.css";
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root,
+[data-brand="internal"] {
+  color-scheme: light;
+
+  --int-radius: var(--int-radius-regular);
+
+  /* ── the slots the components read, as the semantic layer ──────────── */
+  --background: var(--int-surface-primary);
+  --foreground: var(--int-content-primary);
+  --card: var(--int-surface-primary);
+  --card-foreground: var(--int-content-primary);
+  --popover: var(--int-surface-primary);
+  --popover-foreground: var(--int-content-primary);
+
+  /* Filled: black carrying white. */
+  --primary: var(--int-brand);
+  --primary-foreground: var(--int-content-inverse);
+
+  --secondary: var(--int-surface-hover);
+  --secondary-foreground: var(--int-content-primary);
+  --muted: var(--int-surface-secondary);
+  --muted-foreground: var(--int-content-secondary);
+  --accent: var(--int-surface-hover);
+  --accent-foreground: var(--int-content-primary);
+
+  --destructive: var(--int-status-danger);
+  --destructive-foreground: var(--int-surface-primary);
+
+  --border: var(--int-divider);
+  --input: var(--int-divider-strong);
+  --ring: var(--int-brand-bright);
+
+  --chart-1: var(--int-gray-1000);
+  --chart-2: var(--int-blue-800);
+  --chart-3: var(--int-gray-500);
+  --chart-4: var(--int-green-800);
+  --chart-5: var(--int-red-800);
+
+  --radius: var(--int-radius);
+
+  /* The panel is the quieter sheet; its current row is a filled button. */
+  --sidebar: var(--int-surface-tertiary);
+  --sidebar-foreground: var(--int-content-primary);
+  --sidebar-primary: var(--int-brand);
+  --sidebar-primary-foreground: var(--int-content-inverse);
+  --sidebar-accent: var(--int-gray-alpha-200);
+  --sidebar-accent-foreground: var(--int-content-primary);
+  --sidebar-border: var(--int-divider);
+  --sidebar-ring: var(--int-brand-bright);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}

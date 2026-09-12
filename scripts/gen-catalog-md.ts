@@ -23,7 +23,7 @@ write("colors", `# ${brand.name} colours\n\n${colorsMd(ID, f.colors)}`);
 write("typography", `# ${brand.name} typography\n\n${typographyMd(f.typography)}`);
 write("materials", `# ${brand.name} materials\n\n${materialsMd(f.materials)}`);
 write("layout", `# ${brand.name} layout\n\n${layoutMd(ID, f.layout)}`);
-write("icons", `# ${brand.name} icons\n\nHugeicons, the free set (6,704 icons, stroke rounded). Usage:\n\n\`\`\`tsx\nimport { HugeiconsIcon } from "@hugeicons/react";\nimport { Add01Icon } from "@hugeicons/core-free-icons";\n\n<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />\n\`\`\`\n\nAn icon takes the colour of its text. Inside a button it is 16px at stroke 2; standalone 24px at stroke 1.5. Names end in \`Icon\`; browse them at ${BASE}/icons.`);
+write("icons", `# ${brand.name} icons\n\n${brand.icons.library}. ${brand.icons.note} An icon takes the colour of its text. Browse them at ${BASE}/icons.\n\n\`\`\`tsx\n${brand.icons.usage}\n\`\`\``);
 
 for (const c of components) {
   const demo = demoOf(ID, c.slug);
@@ -47,5 +47,13 @@ const index = [
   ...components.map((c) => `- [${c.name}](${BASE}/${c.slug}.md): ${c.exports.slice(0, 6).join(", ")}${c.exports.length > 6 ? ", …" : ""}`), ``,
 ].join("\n");
 writeFileSync(`${out}/llms.txt`, index);
-writeFileSync(`${ROOT}/site/public/llms.txt`, `# Ovadev brands\n\n- [${brand.name}](${BASE}/llms.txt): the ${brand.name} design system\n`);
+writeFileSync(
+  `${ROOT}/site/public/llms.txt`,
+  `# Ovadev brands\n\n` +
+    Object.entries(BRANDS)
+      .filter(([id]) => id === "januna" || id === "internal")
+      .map(([id, b]) => `- [${b.name}](https://ovadev-gmbh.github.io/brand/${id}/llms.txt): the ${b.name} design system`)
+      .join("\n") +
+    "\n",
+);
 console.log(`site/public/${ID}: ${components.length + 5} pages + llms.txt`);

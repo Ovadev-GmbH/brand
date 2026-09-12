@@ -1,0 +1,21 @@
+/* The one stylesheet an app imports to wear Intern:
+ *
+ *   @import "@ovadev-gmbh/ui-internal/styles.css";
+ *
+ * It is the app's Tailwind entry — Tailwind itself, the animation and shadcn
+ * utilities the components use, Geist, the theme, and a @source pointing at
+ * the built components so their classes are generated. The app's own files
+ * are picked up by Tailwind's automatic detection as usual.
+ *
+ * An app that already owns a Tailwind entry imports ./theme.css instead and
+ * adds the @source line itself. */
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./shadcn.css";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "./theme.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@source "../dist";

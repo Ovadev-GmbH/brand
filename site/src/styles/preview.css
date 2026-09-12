@@ -3,6 +3,7 @@
    styles.css. Each package's theme is declared on [data-brand="<id>"] as
    well as :root, which is what lets more than one live in this document. */
 @import "@ovadev-gmbh/ui-januna/styles.css";
+@import "@ovadev-gmbh/ui-internal/theme.css";
 
 html,
 body {

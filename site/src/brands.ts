@@ -7,6 +7,7 @@
 
 import type { PkgId } from "./types";
 import { colors as janunaColors, typography as janunaType, materials as janunaMaterials, layout as janunaLayout } from "@ovadev-gmbh/ui-januna";
+import { colors as internColors, typography as internType, materials as internMaterials, layout as internLayout } from "@ovadev-gmbh/ui-internal";
 
 /** A brand's foundations, as its package exports them (src/foundations). */
 export type ColorSystem = typeof janunaColors;
@@ -41,6 +42,8 @@ export type TypeRow = { name: string; family: string; weight: number; size: stri
 
 /** The icon set a brand draws with, for the Icons page. */
 export type IconSet = {
+  /** Which package's shape the set has; the Icons page loads it accordingly. */
+  kind: "hugeicons" | "phosphor";
   library: string;
   /** The package the icons are imported from. */
   pkg: string;
@@ -61,6 +64,9 @@ export type BrandChrome = {
   marks?: Mark[];
   /** Only for a brand whose components ship with an icon set. */
   icons?: IconSet;
+  /** One line per door on the introduction, where the brand has its own
+   *  way of saying it. */
+  lines?: { colors?: string; typography?: string; icons?: string; components?: string };
   /** Only for a brand with a colour *system*: scales and roles, read from
    *  the package. The swatches above are then the scales' working colours,
    *  for the introduction's card; the Colors page reads the system. */
@@ -125,6 +131,12 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     ],
     mark: "Januna",
     source: "packages/januna/src/foundations/colors.ts — nine scales, generated into colors.css",
+    lines: {
+      colors: "A warm, high-contrast colour system.",
+      typography: "One face, set in a fixed scale.",
+      icons: "Hugeicons, in the brand's green.",
+      components: "Building blocks for the product, on Base UI.",
+    },
     colors: janunaColors,
     typography: janunaType,
     materials: janunaMaterials,
@@ -140,6 +152,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       { name: "Body", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 400, size: "16px", note: "--jan-font" },
     ],
     icons: {
+      kind: "hugeicons",
       library: "Hugeicons",
       pkg: "@hugeicons/core-free-icons",
       usage: 'import { HugeiconsIcon } from "@hugeicons/react"; import { Add01Icon } from "@hugeicons/core-free-icons";',
@@ -148,23 +161,33 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   },
   internal: {
     mark: "INTERN",
-    source: "src/vendor/design-system/ovadev.css — the build INTERN ships",
-    swatches: [
-      { name: "Black", token: "--ovadev-c-blk", value: "#000000" },
-      { name: "White", token: "--ovadev-c-wht", value: "#ffffff" },
-      { name: "Neutral x", token: "--ovadev-c-ntr-x", value: "#262626" },
-      { name: "Neutral y", token: "--ovadev-c-ntr-y", value: "#57534e" },
-      { name: "Neutral m", token: "--ovadev-c-ntr-m", value: "#a8a29e" },
-      { name: "Neutral s", token: "--ovadev-c-ntr-s", value: "#e5e5e5" },
-      { name: "Red", token: "--ovadev-c-red-x", value: "#991b1b" },
-      { name: "Green", token: "--ovadev-c-grn-x", value: "#166534" },
-      { name: "Blue", token: "--ovadev-c-blu-x", value: "#3730a3", note: "Also the focus colour." },
-      { name: "Yellow", token: "--ovadev-c-ylw-x", value: "#ca8a04" },
-    ],
+    source: "packages/internal/src/foundations/colors.ts — INTERN's black, white, neutrals and four colours, as scales",
+    lines: {
+      colors: "Black, white, and one colour per meaning.",
+      typography: "Geist, dense, figures in mono.",
+      icons: "Phosphor, regular weight, in the ink.",
+      components: "Building blocks for the tools, on Base UI.",
+    },
+    colors: internColors,
+    typography: internType,
+    materials: internMaterials,
+    layout: internLayout,
+    swatches: internColors.SCALES.filter((sc) => !sc.id.endsWith("-alpha")).map((sc) => ({
+      name: sc.name,
+      token: `--int-${sc.id}-800`,
+      value: sc.steps[800],
+    })),
     type: [
-      { name: "Display", family: '"Oswald", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "48px", note: "--ovadev-font-display" },
-      { name: "Text", family: '"Source Sans 3", ui-sans-serif, system-ui, sans-serif', weight: 400, size: "16px", note: "--ovadev-font-text" },
-      { name: "Mono", family: '"JetBrains Mono", ui-monospace, monospace', weight: 400, size: "14px", note: "--ovadev-font-mono, figures only" },
+      { name: "Display", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "text-heading-40" },
+      { name: "Text", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 400, size: "14px", note: "text-copy-14" },
+      { name: "Mono", family: '"Geist Mono Variable", "Geist Mono", ui-monospace, monospace', weight: 400, size: "13px", note: "text-label-13-mono, figures and IDs" },
     ],
+    icons: {
+      kind: "phosphor",
+      library: "Phosphor",
+      pkg: "@phosphor-icons/react",
+      usage: 'import { PlusIcon } from "@phosphor-icons/react";  <PlusIcon className="size-4" />',
+      color: "#000000",
+    },
   },
 };

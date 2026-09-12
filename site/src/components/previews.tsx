@@ -9,7 +9,14 @@ import {
   Invoice01Icon, Dish01Icon, ChefHatIcon, Call02Icon, Message01Icon, Tick02Icon, Wallet01Icon,
   Analytics01Icon, Timer01Icon, Globe02Icon, QrCodeIcon, Tag01Icon,
 } from "@hugeicons/core-free-icons";
+import * as Ph from "@phosphor-icons/react";
 import type { IconSet, LayoutSystem, MaterialSystem, TypeSystem } from "../brands";
+
+const PHOSPHOR = [
+  Ph.CalendarIcon, Ph.UsersIcon, Ph.ReceiptIcon, Ph.HouseIcon, Ph.GearIcon, Ph.MagnifyingGlassIcon, Ph.EnvelopeIcon, Ph.BellIcon,
+  Ph.ClockIcon, Ph.MapPinIcon, Ph.CreditCardIcon, Ph.ChartLineIcon, Ph.InvoiceIcon, Ph.RocketLaunchIcon, Ph.ShieldCheckIcon, Ph.PhoneIcon,
+  Ph.ChatCircleIcon, Ph.CheckIcon, Ph.WalletIcon, Ph.ChartBarIcon, Ph.TimerIcon, Ph.GlobeIcon, Ph.QrCodeIcon, Ph.TagIcon,
+];
 
 const ICONS = [
   Calendar03Icon, UserGroupIcon, RestaurantTableIcon, Home01Icon, Settings01Icon, Search01Icon, Mail01Icon, Notification01Icon,
@@ -20,9 +27,9 @@ const ICONS = [
 export function IconGrid({ icons }: { icons: IconSet }) {
   return (
     <div className="grid grid-cols-8 gap-x-7 gap-y-5" style={{ color: icons.color }}>
-      {ICONS.map((icon, i) => (
-        <HugeiconsIcon key={i} icon={icon} size={22} strokeWidth={1.5} aria-hidden="true" />
-      ))}
+      {icons.kind === "phosphor"
+        ? PHOSPHOR.map((Icon, i) => <Icon key={i} size={22} aria-hidden />)
+        : ICONS.map((icon, i) => <HugeiconsIcon key={i} icon={icon} size={22} strokeWidth={1.5} aria-hidden="true" />)}
     </div>
   );
 }

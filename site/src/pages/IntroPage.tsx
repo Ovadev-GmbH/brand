@@ -26,19 +26,19 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
 
   const doors: Door[] = [
     ...(marks.length ? [{ name: "Brand Assets", line: "The marks, and how to place them.", to: at("brand-assets"), preview: <MarkRow marks={marks} /> }] : []),
-    ...(chrome.icons ? [{ name: "Icons", line: `${chrome.icons.library}, in the brand's green.`, to: at("icons"), preview: <IconGrid icons={chrome.icons} /> }] : []),
+    ...(chrome.icons ? [{ name: "Icons", line: chrome.lines?.icons ?? `${chrome.icons.library}, as the components draw it.`, to: at("icons"), preview: <IconGrid icons={chrome.icons} /> }] : []),
     ...(pkg.frame
-      ? [{ name: "Components", line: `${pkg.entries.length} building blocks on Base UI.`, to: href(pkg.id, pkg.entries[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug="intro" index={0} thumb /> }]
+      ? [{ name: "Components", line: chrome.lines?.components ?? `${pkg.entries.length} building blocks on Base UI.`, to: href(pkg.id, pkg.entries[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug="intro" index={0} thumb /> }]
       : []),
     {
       name: "Colors",
-      line: chrome.colors ? "A warm, high-contrast colour system." : "The brand's palette.",
+      line: chrome.lines?.colors ?? "The brand's palette.",
       to: at("colors"),
       preview: <SwatchRow swatches={chrome.swatches} />,
     },
     {
       name: "Typography",
-      line: chrome.typography ? "One face, set in a fixed scale." : "The brand's faces.",
+      line: chrome.lines?.typography ?? "The brand's faces.",
       to: at("typography"),
       preview: chrome.typography ? <TypePanel type={chrome.typography} /> : undefined,
     },

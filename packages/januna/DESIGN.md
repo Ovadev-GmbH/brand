@@ -473,7 +473,16 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 - Bubble (`bubble`): BubbleGroup, Bubble, BubbleContent, BubbleReactions
 - Attachment (`attachment`): Attachment, AttachmentGroup, AttachmentMedia, AttachmentContent, AttachmentTitle, AttachmentDescription, AttachmentActions, AttachmentAction, AttachmentTrigger
 
-Icons: Hugeicons, the free set, via `HugeiconsIcon` from `@hugeicons/react` and names from `@hugeicons/core-free-icons` (`<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />`). The full set: https://ovadev-gmbh.github.io/brand/januna/icons
+### Icons
+
+Hugeicons. The free set, 6,704 icons, stroke rounded. Inside a button it is 16px at stroke 2; standalone 24px at stroke 1.5. Names end in `Icon`. The full set: https://ovadev-gmbh.github.io/brand/januna/icons
+
+```tsx
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Add01Icon } from "@hugeicons/core-free-icons";
+
+<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
+```
 
 
 ## Accessibility and reflow

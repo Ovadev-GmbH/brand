@@ -33,7 +33,7 @@ const api = [
     for (const c of components) byGroup.set(c.group, [...(byGroup.get(c.group) ?? []), c]);
     return [...byGroup].flatMap(([g, cs]) => [`**${g}.**`, ``, ...cs.map((c) => `- ${c.name} (\`${c.slug}\`): ${c.exports.join(", ")}`), ``]);
   })(),
-  `Icons: Hugeicons, the free set, via \`HugeiconsIcon\` from \`@hugeicons/react\` and names from \`@hugeicons/core-free-icons\` (\`<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />\`). The full set: https://ovadev-gmbh.github.io/brand/${ID}/icons`, ``,
+  `### Icons`, ``, `${brand.icons.library}. ${brand.icons.note} The full set: https://ovadev-gmbh.github.io/brand/${ID}/icons`, ``, "```tsx", brand.icons.usage, "```", ``,
 ].join("\n");
 
 const doc = parts.map((p) => readFileSync(`${dir}/${p}`, "utf8").trim()).flatMap((s, i) => (parts[i]!.startsWith("05") ? [s, api] : [s])).join("\n\n") + "\n";

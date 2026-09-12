@@ -8,7 +8,7 @@ import { writeFileSync } from "node:fs";
 const ID = process.argv[2];
 if (!ID) throw new Error("usage: gen-foundations.ts <package id>");
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
-const PREFIX: Record<string, string> = { januna: "jan", ticketova: "tova" };
+const PREFIX: Record<string, string> = { januna: "jan", ticketova: "tova", internal: "int" };
 const p = PREFIX[ID];
 if (!p) throw new Error(`no token prefix for ${ID}`);
 

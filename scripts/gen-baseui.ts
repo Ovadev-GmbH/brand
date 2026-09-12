@@ -40,7 +40,6 @@ type PkgSpec = {
 const PACKAGES: PkgSpec[] = [
   { id: "ovadev", prefix: "ova-", alias: {} },
   { id: "ticketova", prefix: "tova-", alias: {} },
-  { id: "internal", prefix: "ui-", alias: {} },
 ];
 
 /** Where each component sits in the catalog sidebar. */

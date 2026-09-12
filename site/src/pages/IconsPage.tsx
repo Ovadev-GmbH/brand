@@ -11,15 +11,32 @@ import { mdHref } from "../registry";
 import { CHROME } from "../brands";
 import { PageHeader } from "../components/PageHeader";
 
-type Icon = { name: string; svg: IconSvgElement };
+type Icon = { name: string; render: (color: string) => React.ReactNode };
 
-/** The free set exports every icon three times (Add01Icon, Add01, Add01FreeIcons);
- *  the …Icon spelling is the one the components import. */
-async function loadIcons(): Promise<Icon[]> {
+/** The set as a list the page can draw, whichever package it comes from.
+ *  Hugeicons' free set exports every icon three times (Add01Icon, Add01,
+ *  Add01FreeIcons); the …Icon spelling is the one the components import.
+ *  Phosphor exports one component per icon, also ending in Icon. */
+async function loadIcons(kind: "hugeicons" | "phosphor"): Promise<Icon[]> {
+  if (kind === "phosphor") {
+    const mod = await import("@phosphor-icons/react");
+    return Object.entries(mod)
+      .filter(([name, v]) => name.endsWith("Icon") && name !== "Icon" && typeof v === "object" && v !== null)
+      .map(([name, Cmp]) => {
+        const C = Cmp as React.ComponentType<{ size?: number; color?: string; "aria-hidden"?: boolean }>;
+        return { name, render: (color: string) => <C size={24} color={color} aria-hidden /> };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name));
+  }
   const mod = await import("@hugeicons/core-free-icons");
   return Object.entries(mod)
     .filter(([name]) => name.endsWith("Icon"))
-    .map(([name, svg]) => ({ name, svg: svg as IconSvgElement }))
+    .map(([name, svg]) => ({
+      name,
+      render: (color: string) => (
+        <HugeiconsIcon icon={svg as IconSvgElement} size={24} strokeWidth={1.5} color={color} aria-hidden="true" />
+      ),
+    }))
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
@@ -35,7 +52,9 @@ function Cell({ icon, snippet, brand }: { icon: Icon; snippet: string; brand: st
       className="group/icon flex aspect-square cursor-pointer flex-col items-center justify-center gap-2 rounded-brand border border-transparent bg-transparent p-2 text-center text-gray-1000 transition-colors duration-100 hover:border-alpha-400 hover:bg-alpha-100"
       style={{ contentVisibility: "auto", containIntrinsicSize: "96px" }}
     >
-      <HugeiconsIcon icon={icon.svg} size={24} strokeWidth={1.5} className="transition-colors duration-100 group-hover/icon:text-(--brand)" style={{ "--brand": brand } as React.CSSProperties} aria-hidden="true" />
+      <span className="text-gray-1000 transition-colors duration-100 group-hover/icon:text-(--brand)" style={{ "--brand": brand } as React.CSSProperties}>
+        {icon.render("currentColor")}
+      </span>
       <span className="w-full truncate font-mono text-[10px] leading-tight text-gray-800">
         {icon.name.replace(/Icon$/, "")}
       </span>
@@ -50,7 +69,7 @@ export function IconsPage({ pkg }: { pkg: Pkg }) {
   const q = React.useDeferredValue(query.trim().toLowerCase().replace(/[\s-]/g, ""));
 
   React.useEffect(() => {
-    if (icons) void loadIcons().then(setAll);
+    if (icons) void loadIcons(icons.kind).then(setAll);
   }, [icons]);
 
   const shown = React.useMemo(() => {

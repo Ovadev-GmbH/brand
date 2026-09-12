@@ -15,16 +15,18 @@ import { StrictMode, Suspense, lazy, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import type { Pkg } from "./types";
 import { januna } from "./registry/januna";
+import { internal } from "./registry/internal";
 import "./styles/preview.css";
 
 /* Demos that are not a component's page: the introduction's card. */
 const EXTRA: Record<string, Record<string, React.LazyExoticComponent<React.ComponentType>>> = {
   januna: { intro: lazy(() => import("./examples/januna/IntroDemo")) },
+  internal: { intro: lazy(() => import("./examples/internal/IntroDemo")) },
 };
 
 /* Only the packages whose demos are framed — not the registry index, which
    would carry every other package's stylesheet into this document. */
-const FRAMED: Pkg[] = [januna];
+const FRAMED: Pkg[] = [januna, internal];
 
 type Shown = { pkg: string; slug: string; index: number };
 

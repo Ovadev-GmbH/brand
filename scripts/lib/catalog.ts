@@ -5,9 +5,34 @@ import { readdirSync, readFileSync } from "node:fs";
 
 export const ROOT = new URL("../..", import.meta.url).pathname.replace(/\/$/, "");
 
-export const BRANDS: Record<string, { name: string; pkg: string; prefix: string }> = {
-  januna: { name: "Januna", pkg: "@ovadev-gmbh/ui-januna", prefix: "jan" },
-  ticketova: { name: "TICKETOVA", pkg: "@ovadev-gmbh/ui-ticketova", prefix: "tova" },
+export type Brand = {
+  name: string;
+  pkg: string;
+  prefix: string;
+  /** The icon set, as Markdown for DESIGN.md and the icons page. */
+  icons: { library: string; usage: string; note: string };
+};
+export const BRANDS: Record<string, Brand> = {
+  januna: {
+    name: "Januna", pkg: "@ovadev-gmbh/ui-januna", prefix: "jan",
+    icons: {
+      library: "Hugeicons",
+      usage: 'import { HugeiconsIcon } from "@hugeicons/react";\nimport { Add01Icon } from "@hugeicons/core-free-icons";\n\n<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />',
+      note: "The free set, 6,704 icons, stroke rounded. Inside a button it is 16px at stroke 2; standalone 24px at stroke 1.5. Names end in `Icon`.",
+    },
+  },
+  ticketova: {
+    name: "TICKETOVA", pkg: "@ovadev-gmbh/ui-ticketova", prefix: "tova",
+    icons: { library: "Hugeicons", usage: "", note: "" },
+  },
+  internal: {
+    name: "Intern", pkg: "@ovadev-gmbh/ui-internal", prefix: "int",
+    icons: {
+      library: "Phosphor",
+      usage: 'import { PlusIcon, MagnifyingGlassIcon } from "@phosphor-icons/react";\n\n<PlusIcon className="size-4" />',
+      note: "1,500 icons, regular weight. 16px inside controls, 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling.",
+    },
+  },
 };
 
 /** Sidebar groups, in order, and which slug sits in which. */
