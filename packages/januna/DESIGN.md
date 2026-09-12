@@ -51,7 +51,7 @@ import { Calendar03Icon } from "@hugeicons/core-free-icons";
 
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. Keep screens static except where a control holds state.
 
-When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell, its `Stack` and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API.
+When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API.
 
 ## Work in four passes
 
@@ -67,7 +67,7 @@ Say aloud the layout the screen type suggests, then ask whether the material ear
 
 Match the opening to the job. A decision screen puts the decision and its basis together at the top. A comparison puts alternatives on the same visual basis. An overview leads with the state, not with navigation. A form leads with the field the person came to fill.
 
-Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Entity`. Never encode with colour alone.
+Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Item`. Never encode with colour alone.
 
 ### Authoritative Januna visual system
 
@@ -87,7 +87,7 @@ Headings are sentence case and say what the screen is about: "Tonight's bookings
 
 #### Rhythm and measure
 
-Give every gap one owner: the `Stack`, the grid, or the page wrapper, never the children's margins. Inside a group use `space-2` to `space-4`; between groups `space-6` to `space-8`; between chapters of a page `space-12`. Controls are 40px tall; the small size, 32px, is for dense rows and toolbars only. Corners are `rounded-regular` (12px) on what acts and holds, `rounded-small` (8px) on the small things inside, `rounded-pill` only on badges, switches, chips and avatars. A page's content column is 6 to 8 of 12 desktop columns for prose and forms; tables and the floor plan may take all 12.
+Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group use `space-2` to `space-4`; between groups `space-6` to `space-8`; between chapters of a page `space-12`. Controls are 40px tall; the small size, 32px, is for dense rows and toolbars only. Corners are `rounded-regular` (12px) on what acts and holds, `rounded-small` (8px) on the small things inside, `rounded-pill` only on badges, switches, chips and avatars. A page's content column is 6 to 8 of 12 desktop columns for prose and forms; tables and the floor plan may take all 12.
 
 #### Surfaces and edges
 
@@ -382,7 +382,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 ### Components
 
-68 components on Base UI. Each is documented with a live demo and its source at https://ovadev-gmbh.github.io/brand/januna/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
+65 components on Base UI. Each is documented with a live demo and its source at https://ovadev-gmbh.github.io/brand/januna/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
 
 **Actions.**
 
@@ -435,7 +435,6 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 **Feedback.**
 
 - Alert (`alert`): Alert, AlertTitle, AlertDescription, AlertAction
-- Note (`note`): Note, NoteIcon, NoteContent, NoteLabel, NoteAction
 - Badge (`badge`): Badge
 - Status Dot (`status-dot`): StatusDot
 - Progress (`progress`): Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue
@@ -450,7 +449,6 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 - Table (`table`): Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption
 - Chart (`chart`): ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, ChartStyle
 - Description (`description`): Description, DescriptionList
-- Entity (`entity`): Entity, EntityContent, EntityList
 - Snippet (`snippet`): Snippet, SecretValue
 - Pagination (`pagination`): Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious
 - Breadcrumb (`breadcrumb`): Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis
@@ -461,7 +459,6 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 **Layout.**
 
-- Stack (`stack`): Stack
 - Separator (`separator`): Separator
 - Aspect Ratio (`aspect-ratio`): AspectRatio
 - Scroll Area (`scroll-area`): ScrollArea, ScrollBar

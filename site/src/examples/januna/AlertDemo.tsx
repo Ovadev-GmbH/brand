@@ -30,6 +30,15 @@ export default function AlertDemo() {
           Two bookings overlap at 20:15. Move one of them before service starts.
         </AlertDescription>
       </Alert>
+      <Alert size="sm" variant="warning">
+        <HugeiconsIcon icon={Alert02Icon} strokeWidth={2} />
+        <AlertDescription>Friday is fully booked from 19:00; new requests join the waitlist.</AlertDescription>
+        <AlertAction>
+          <Button size="xs" variant="outline">
+            Open waitlist
+          </Button>
+        </AlertAction>
+      </Alert>
     </div>
   );
 }

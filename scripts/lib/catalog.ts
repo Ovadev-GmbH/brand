@@ -16,9 +16,9 @@ export const GROUPS: [string, string[]][] = [
   ["Forms", ["input", "input-group", "input-otp", "textarea", "label", "field", "checkbox", "radio-group", "switch", "select", "native-select", "combobox", "slider", "calendar", "questionnaire"]],
   ["Overlays", ["dialog", "alert-dialog", "sheet", "drawer", "popover", "hover-card", "tooltip", "dropdown-menu", "context-menu", "menubar", "navigation-menu", "command", "toast"]],
   ["Disclosure", ["accordion", "collapsible", "tabs"]],
-  ["Feedback", ["alert", "note", "badge", "status-dot", "progress", "gauge", "spinner", "skeleton", "empty", "marker"]],
-  ["Data", ["table", "chart", "description", "entity", "snippet", "pagination", "breadcrumb", "avatar", "card", "item", "carousel"]],
-  ["Layout", ["stack", "separator", "aspect-ratio", "scroll-area", "resizable", "sidebar", "direction"]],
+  ["Feedback", ["alert", "badge", "status-dot", "progress", "gauge", "spinner", "skeleton", "empty", "marker"]],
+  ["Data", ["table", "chart", "description", "snippet", "pagination", "breadcrumb", "avatar", "card", "item", "carousel"]],
+  ["Layout", ["separator", "aspect-ratio", "scroll-area", "resizable", "sidebar", "direction"]],
   ["Chat", ["message", "message-scroller", "bubble", "attachment"]],
 ];
 export const groupOf = new Map(GROUPS.flatMap(([g, slugs]) => slugs.map((s) => [s, g] as const)));

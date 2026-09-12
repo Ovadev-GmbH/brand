@@ -8,12 +8,22 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: "border-divider bg-surface-primary text-content-primary",
+        success: "border-status-success/20 bg-surface-success text-content-primary *:[svg]:text-status-success",
+        warning: "border-status-warning/20 bg-surface-warning text-content-primary *:[svg]:text-status-warning",
+        info: "border-status-info/20 bg-surface-info text-content-primary *:[svg]:text-status-info",
         destructive:
           "border-status-danger/20 bg-surface-danger text-status-danger *:data-[slot=alert-description]:text-status-danger/90 *:[svg]:text-current",
+      },
+      /** `sm` is the inline note: one line beside its field or section, the
+       *  icon, the words and an optional action on one row. */
+      size: {
+        default: "",
+        sm: "flex items-center gap-2.5 px-3 py-2 text-label-13 has-data-[slot=alert-action]:pr-3 *:[svg]:translate-y-0 *:[svg:not([class*='size-'])]:size-3.5 *:data-[slot=alert-title]:text-label-13 *:data-[slot=alert-description]:text-label-13 *:data-[slot=alert-action]:static *:data-[slot=alert-action]:ml-auto",
       },
     },
     defaultVariants: {
       variant: "default",
+      size: "default",
     },
   }
 )
@@ -21,13 +31,15 @@ const alertVariants = cva(
 function Alert({
   className,
   variant,
+  size,
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
   return (
     <div
       data-slot="alert"
       role="alert"
-      className={cn(alertVariants({ variant }), className)}
+      data-size={size}
+      className={cn(alertVariants({ variant, size }), className)}
       {...props}
     />
   )

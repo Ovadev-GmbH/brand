@@ -21,4 +21,4 @@ import { Calendar03Icon } from "@hugeicons/core-free-icons";
 
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. Keep screens static except where a control holds state.
 
-When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell, its `Stack` and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API.
+When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API.

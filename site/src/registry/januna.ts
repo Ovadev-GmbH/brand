@@ -40,7 +40,6 @@ import AccordionDemoSrc from "../examples/januna/AccordionDemo.tsx?raw";
 import CollapsibleDemoSrc from "../examples/januna/CollapsibleDemo.tsx?raw";
 import TabsDemoSrc from "../examples/januna/TabsDemo.tsx?raw";
 import AlertDemoSrc from "../examples/januna/AlertDemo.tsx?raw";
-import NoteDemoSrc from "../examples/januna/NoteDemo.tsx?raw";
 import BadgeDemoSrc from "../examples/januna/BadgeDemo.tsx?raw";
 import StatusDotDemoSrc from "../examples/januna/StatusDotDemo.tsx?raw";
 import ProgressDemoSrc from "../examples/januna/ProgressDemo.tsx?raw";
@@ -52,7 +51,6 @@ import MarkerDemoSrc from "../examples/januna/MarkerDemo.tsx?raw";
 import TableDemoSrc from "../examples/januna/TableDemo.tsx?raw";
 import ChartDemoSrc from "../examples/januna/ChartDemo.tsx?raw";
 import DescriptionDemoSrc from "../examples/januna/DescriptionDemo.tsx?raw";
-import EntityDemoSrc from "../examples/januna/EntityDemo.tsx?raw";
 import SnippetDemoSrc from "../examples/januna/SnippetDemo.tsx?raw";
 import PaginationDemoSrc from "../examples/januna/PaginationDemo.tsx?raw";
 import BreadcrumbDemoSrc from "../examples/januna/BreadcrumbDemo.tsx?raw";
@@ -60,7 +58,6 @@ import AvatarDemoSrc from "../examples/januna/AvatarDemo.tsx?raw";
 import CardDemoSrc from "../examples/januna/CardDemo.tsx?raw";
 import ItemDemoSrc from "../examples/januna/ItemDemo.tsx?raw";
 import CarouselDemoSrc from "../examples/januna/CarouselDemo.tsx?raw";
-import StackDemoSrc from "../examples/januna/StackDemo.tsx?raw";
 import SeparatorDemoSrc from "../examples/januna/SeparatorDemo.tsx?raw";
 import AspectRatioDemoSrc from "../examples/januna/AspectRatioDemo.tsx?raw";
 import ScrollAreaDemoSrc from "../examples/januna/ScrollAreaDemo.tsx?raw";
@@ -339,13 +336,6 @@ export const januna: Pkg = {
       examples: [{ Component: lazy(() => import("../examples/januna/AlertDemo")), source: AlertDemoSrc }],
     },
     {
-      name: "Note",
-      slug: "note",
-      group: "Feedback",
-      imports: ["Note","NoteIcon","NoteContent","NoteLabel","NoteAction"],
-      examples: [{ Component: lazy(() => import("../examples/januna/NoteDemo")), source: NoteDemoSrc }],
-    },
-    {
       name: "Badge",
       slug: "badge",
       group: "Feedback",
@@ -423,13 +413,6 @@ export const januna: Pkg = {
       examples: [{ Component: lazy(() => import("../examples/januna/DescriptionDemo")), source: DescriptionDemoSrc }],
     },
     {
-      name: "Entity",
-      slug: "entity",
-      group: "Data",
-      imports: ["Entity","EntityContent","EntityList"],
-      examples: [{ Component: lazy(() => import("../examples/januna/EntityDemo")), source: EntityDemoSrc }],
-    },
-    {
       name: "Snippet",
       slug: "snippet",
       group: "Data",
@@ -477,13 +460,6 @@ export const januna: Pkg = {
       group: "Data",
       imports: ["CarouselApi","Carousel","CarouselContent","CarouselItem","CarouselPrevious","CarouselNext"],
       examples: [{ Component: lazy(() => import("../examples/januna/CarouselDemo")), source: CarouselDemoSrc }],
-    },
-    {
-      name: "Stack",
-      slug: "stack",
-      group: "Layout",
-      imports: ["Stack"],
-      examples: [{ Component: lazy(() => import("../examples/januna/StackDemo")), source: StackDemoSrc }],
     },
     {
       name: "Separator",

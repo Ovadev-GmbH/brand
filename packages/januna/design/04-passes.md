@@ -12,7 +12,7 @@ Say aloud the layout the screen type suggests, then ask whether the material ear
 
 Match the opening to the job. A decision screen puts the decision and its basis together at the top. A comparison puts alternatives on the same visual basis. An overview leads with the state, not with navigation. A form leads with the field the person came to fill.
 
-Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Entity`. Never encode with colour alone.
+Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Item`. Never encode with colour alone.
 
 ### Authoritative Januna visual system
 
@@ -32,7 +32,7 @@ Headings are sentence case and say what the screen is about: "Tonight's bookings
 
 #### Rhythm and measure
 
-Give every gap one owner: the `Stack`, the grid, or the page wrapper, never the children's margins. Inside a group use `space-2` to `space-4`; between groups `space-6` to `space-8`; between chapters of a page `space-12`. Controls are 40px tall; the small size, 32px, is for dense rows and toolbars only. Corners are `rounded-regular` (12px) on what acts and holds, `rounded-small` (8px) on the small things inside, `rounded-pill` only on badges, switches, chips and avatars. A page's content column is 6 to 8 of 12 desktop columns for prose and forms; tables and the floor plan may take all 12.
+Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group use `space-2` to `space-4`; between groups `space-6` to `space-8`; between chapters of a page `space-12`. Controls are 40px tall; the small size, 32px, is for dense rows and toolbars only. Corners are `rounded-regular` (12px) on what acts and holds, `rounded-small` (8px) on the small things inside, `rounded-pill` only on badges, switches, chips and avatars. A page's content column is 6 to 8 of 12 desktop columns for prose and forms; tables and the floor plan may take all 12.
 
 #### Surfaces and edges
 
