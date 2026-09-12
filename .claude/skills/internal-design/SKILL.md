@@ -1,5 +1,5 @@
 ---
-name: intern-design
+name: internal-design
 description: Design and build UI for Intern (Ovadev's internal tools: operations, billing, deployments, support, audit) with the @ovadev-gmbh/ui-internal design system. Use whenever a task touches an internal admin screen, table, form, console or panel — building new UI, restyling, reviewing a PR for brand fit, or answering "how should this look". Loads DESIGN.md (priorities, visual system, anti-patterns, the published API) and points at the catalog's Markdown pages.
 ---
 

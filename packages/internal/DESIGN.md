@@ -1,5 +1,5 @@
 ---
-name: intern-design-system
+name: internal-design-system
 description: "Design, build, or substantially improve an Intern surface: Ovadev's internal tools for operations, billing, deployments, support and audit. Use for any admin screen, table, form, panel, console or report that staff use daily, whenever the result must look and behave like Intern: black on white, dense, exact, quiet."
 ---
 
