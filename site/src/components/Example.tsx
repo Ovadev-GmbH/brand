@@ -22,7 +22,7 @@ export function Example({
 }: {
   example: ExampleData;
   anchor: string;
-  /** Set for a package whose demos run in preview.html. */
+  /** Set for a package whose demos run in preview-<id>.html. */
   frame?: { pkg: PkgId; slug: string; index: number };
 }) {
   const [open, setOpen] = React.useState(false);

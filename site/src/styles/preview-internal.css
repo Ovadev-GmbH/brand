@@ -1,0 +1,16 @@
+/* The Internal preview frame's stylesheet: exactly what an app wearing the
+   brand imports, and nothing of the catalog. One document per brand: two
+   packages' utilities (material-base, text-heading-16, the font variable)
+   are global class names and would overwrite each other in one document. */
+@import "@ovadev-gmbh/ui-internal/styles.css";
+
+html,
+body {
+  margin: 0;
+}
+
+/* Embedded as a card's preview (?thumb=1): the card's ground shows through. */
+html.thumb,
+html.thumb body {
+  background: transparent;
+}

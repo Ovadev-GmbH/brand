@@ -1,32 +1,25 @@
 /* The preview frame: one demo at a time, in the package's own stylesheet,
- * with nothing of the catalog around it. The catalog embeds this document in
- * an iframe (components/DemoFrame.tsx) for every package whose demos are
- * Tailwind — their classes need their own Tailwind build, and their theme
- * would collide with the catalog's.
+ * with nothing of the catalog around it. The catalog embeds one such
+ * document per brand (preview-<id>.html, see components/DemoFrame.tsx):
+ * the demos are Tailwind, their classes need their own Tailwind build, and
+ * two brands' utilities share names and cannot live in one document.
  *
- *   preview.html?pkg=januna&slug=button&i=0
+ *   preview-januna.html?pkg=januna&slug=button&i=0
  *
  * The document is loaded once per visit to the catalog and then told which
  * demo to show by message, so paging through components never reloads it.
  * It reports its height to the parent as it changes, so the frame is
- * exactly as tall as the demo, popups included. */
+ * exactly as tall as the demo, popups included. Each brand's entry
+ * (preview-<id>.tsx) imports its stylesheet and calls mountPreview. */
 import * as React from "react";
 import { StrictMode, Suspense, lazy, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import type { Pkg } from "./types";
-import { januna } from "./registry/januna";
-import { internal } from "./registry/internal";
-import "./styles/preview.css";
 
-/* Demos that are not a component's page: the introduction's card. */
-const EXTRA: Record<string, Record<string, React.LazyExoticComponent<React.ComponentType>>> = {
-  januna: { intro: lazy(() => import("./examples/januna/IntroDemo")) },
-  internal: { intro: lazy(() => import("./examples/internal/IntroDemo")) },
-};
-
-/* Only the packages whose demos are framed — not the registry index, which
-   would carry every other package's stylesheet into this document. */
-const FRAMED: Pkg[] = [januna, internal];
+type Lazy = React.LazyExoticComponent<React.ComponentType>;
+/** Demos that are not a component's page: the introduction's card. */
+export type Extra = Record<string, Lazy>;
+export const lazyDemo = (load: () => Promise<{ default: React.ComponentType }>): Lazy => lazy(load);
 
 type Shown = { pkg: string; slug: string; index: number };
 
@@ -80,14 +73,13 @@ function Report({ id }: { id: string }) {
   return null;
 }
 
-/** Every demo, fetched in idle time after the first one is up, so paging
- *  through the catalog finds each chunk already in the cache. */
-const DEMOS = import.meta.glob("./examples/*/*Demo.tsx");
 /** Safari has no requestIdleCallback; a short timeout is idle enough. */
 const idle = (cb: () => void) =>
   typeof requestIdleCallback === "function" ? requestIdleCallback(cb) : setTimeout(cb, 150);
-function prefetch() {
-  const loaders = Object.values(DEMOS);
+/** Every demo of the brand, fetched in idle time after the first one is up,
+ *  so paging through the catalog finds each chunk already in the cache. */
+function prefetch(demos: Record<string, () => Promise<unknown>>) {
+  const loaders = Object.values(demos);
   const next = () => {
     const load = loaders.shift();
     if (!load) return;
@@ -98,7 +90,7 @@ function prefetch() {
   idle(next);
 }
 
-function Preview() {
+function Preview({ pkg, extra, demos }: { pkg: Pkg; extra: Extra; demos: Record<string, () => Promise<unknown>> }) {
   const [shown, setShown] = useState<Shown>(fromUrl);
   useEffect(() => {
     const onMessage = (e: MessageEvent) => {
@@ -107,14 +99,13 @@ function Preview() {
     };
     window.addEventListener("message", onMessage);
     parent.postMessage({ type: "demo-ready" }, "*");
-    prefetch();
+    prefetch(demos);
     return () => window.removeEventListener("message", onMessage);
-  }, []);
+  }, [demos]);
 
-  const pkg = FRAMED.find((p) => p.id === shown.pkg);
-  const Demo = pkg?.entries.find((e) => e.slug === shown.slug)?.examples[shown.index]?.Component ?? EXTRA[shown.pkg]?.[shown.slug];
+  const Demo = pkg.entries.find((e) => e.slug === shown.slug)?.examples[shown.index]?.Component ?? extra[shown.slug];
   const id = `${shown.pkg}/${shown.slug}/${shown.index}`;
-  if (!pkg || !Demo) return <p className="p-6 text-sm">No such demo.</p>;
+  if (shown.pkg !== pkg.id || !Demo) return <p className="p-6 text-sm">No such demo.</p>;
   return (
     <div
       data-brand={pkg.id}
@@ -132,8 +123,10 @@ function Preview() {
   );
 }
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <Preview />
-  </StrictMode>,
-);
+export function mountPreview(pkg: Pkg, extra: Extra, demos: Record<string, () => Promise<unknown>>) {
+  createRoot(document.getElementById("root")!).render(
+    <StrictMode>
+      <Preview pkg={pkg} extra={extra} demos={demos} />
+    </StrictMode>,
+  );
+}

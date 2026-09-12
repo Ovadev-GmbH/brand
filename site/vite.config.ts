@@ -9,9 +9,9 @@ import { defineConfig } from "vite";
 // for every unknown path, which is what lets /ticketova/button deep-link into
 // a client-routed app.
 //
-// preview.html is the second document: the frame the Tailwind packages'
-// demos render in (src/preview.tsx), with their stylesheet and not the
-// catalog's.
+// preview-<brand>.html are the frames the Tailwind packages' demos render
+// in (src/preview.tsx), one per brand: each carries only its own stylesheet,
+// because two brands' utilities share class names.
 export default defineConfig({
   base: process.env.BASE_PATH ?? "/",
   plugins: [react(), tailwindcss()],
@@ -19,7 +19,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, "index.html"),
-        preview: resolve(import.meta.dirname, "preview.html"),
+        "preview-januna": resolve(import.meta.dirname, "preview-januna.html"),
+        "preview-internal": resolve(import.meta.dirname, "preview-internal.html"),
       },
     },
   },

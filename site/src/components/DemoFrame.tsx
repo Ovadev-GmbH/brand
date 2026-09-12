@@ -1,7 +1,7 @@
 import * as React from "react";
 import type { PkgId } from "../types";
 
-/** A demo from a Tailwind package, embedded from preview.html.
+/** A demo from a Tailwind package, embedded from preview-<brand>.html.
  *
  *  The document inside is loaded once and kept: moving from one component's
  *  page to the next changes the demo by message, not by a new page load, so
@@ -28,7 +28,7 @@ export function DemoFrame({
   const [ready, setReady] = React.useState(false);
   const [height, setHeight] = React.useState(min);
   const [src] = React.useState(
-    () => `${import.meta.env.BASE_URL}preview.html?pkg=${pkg}&slug=${slug}&i=${index}${thumb ? "&thumb=1" : ""}`,
+    () => `${import.meta.env.BASE_URL}preview-${pkg}.html?pkg=${pkg}&slug=${slug}&i=${index}${thumb ? "&thumb=1" : ""}`,
   );
 
   React.useEffect(() => {
