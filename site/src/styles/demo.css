@@ -128,7 +128,10 @@
 [class*="-popover-description"] { margin: 0 0 16px; font-size: 14px; color: var(--color-gray-900); }
 [class*="-popover-title"] { margin: 0 0 6px; font-size: 14px; font-weight: 600; }
 
-[class*="-arrow"] { display: none; }
+/* The popups' pointer parts (.ova-popover-arrow, .ova-select-scroll-up-arrow).
+   Not an svg: Lucide names its icons lucide-arrow-down, and this stylesheet is
+   global, so an unqualified match hid every arrow on the Icons page. */
+[class*="-arrow"]:not(svg) { display: none; }
 
 /* --- lists inside popups ----------------------------------------------- */
 
