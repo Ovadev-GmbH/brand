@@ -19,17 +19,22 @@ const CDN_BASE = "https://cdn.intern.ova.dev/conventions/imagery/";
 
 /** The page can let a currentColor mark follow the page's ink; a file cannot,
  *  so what leaves here is set in ink. */
-const inkFor = (svg: string) =>
-  svg.replace(/<svg([^>]*?)>/, (_m, a: string) => `<svg${a.replace(/\scolor="[^"]*"/g, "")} color="#000000">`);
+const inkFor = (svg: string) => inked(svg, "#000000");
 
-function sizeOf(svg: string): { W: number; H: number } {
+/** The mark set in one colour: the root's `color`, which is what its
+ *  currentColor fills read. */
+export function inked(svg: string, color: string): string {
+  return svg.replace(/<svg([^>]*?)>/, (_m, a: string) => `<svg${a.replace(/\scolor="[^"]*"/g, "")} color="${color}">`);
+}
+
+export function sizeOf(svg: string): { W: number; H: number } {
   const m = /viewBox="([\d.\s-]+)"/.exec(svg);
   if (!m?.[1]) return { W: 1000, H: 1000 };
   const p = m[1].trim().split(/\s+/).map(Number);
   return { W: p[2] || 1000, H: p[3] || 1000 };
 }
 
-async function rasterize(svg: string, W: number, H: number, outW: number, mime: string): Promise<Blob> {
+export async function rasterize(svg: string, W: number, H: number, outW: number, mime: string): Promise<Blob> {
   const outH = Math.round((outW * H) / W);
   const sized = svg.replace(/<svg([^>]*?)>/, (_m, a: string) => `<svg width="${outW}" height="${outH}"${a}>`);
   const url = URL.createObjectURL(new Blob([sized], { type: "image/svg+xml;charset=utf-8" }));
@@ -50,7 +55,7 @@ async function rasterize(svg: string, W: number, H: number, outW: number, mime: 
   }
 }
 
-function save(blob: Blob, filename: string) {
+export function save(blob: Blob, filename: string) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -59,6 +64,26 @@ function save(blob: Blob, filename: string) {
   a.click();
   a.remove();
   URL.revokeObjectURL(url);
+}
+
+/** The mark on a badge: a 1000-wide box, a ground with rounded corners, and
+ *  the drawing inside at a padding taken from the shorter side, so a wide
+ *  mark and a square one get the same room. `radF` of 0.5 is the circle. */
+export function badge(svg: string, opts: { bg: string; padF: number; radF: number }): { svg: string; W: number; H: number } {
+  const { W: iw, H: ih } = sizeOf(svg);
+  const ratio = ih / iw;
+  const W = 1000;
+  const pad = Math.round(opts.padF * W * Math.min(1, ratio));
+  const innerW = W - 2 * pad;
+  const innerH = Math.round(innerW * ratio);
+  const H = innerH + 2 * pad;
+  const rr = opts.radF >= 0.5 ? Math.min(W, H) / 2 : Math.round(opts.radF * Math.min(W, H));
+  const inner = svg.replace(/<svg([^>]*?)>/, (_m, a: string) => {
+    const c = a.replace(/\s(width|height|x|y)="[^"]*"/g, "");
+    return `<svg${c} x="${pad}" y="${pad}" width="${innerW}" height="${innerH}">`;
+  });
+  const ground = `<rect x="0" y="0" width="${W}" height="${H}" rx="${rr}" ry="${rr}" fill="${opts.bg}"/>`;
+  return { svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}">${ground}${inner}</svg>`, W, H };
 }
 
 /* ── one mark ──────────────────────────────────────────────────────────── */

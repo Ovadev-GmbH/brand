@@ -62,6 +62,9 @@ export type BrandChrome = {
   source: string;
   /** Absent for internal, which has no marks of its own — it wears Ovadev's. */
   marks?: Mark[];
+  /** public/brand/<og>.png — the brand's social card, 1200 × 630, as it
+   *  ships. Absent until the brand has one. */
+  og?: string;
   /** Only for a brand whose components ship with an icon set. */
   icons?: IconSet;
   /** One line per door on the introduction, where the brand has its own
@@ -106,6 +109,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       { file: "ticketova-logo", name: "Logo", kind: "logo", note: "The wordmark between its two rules." },
       { file: "ticketova-icon", name: "Icon", kind: "icon", note: "The T, between the same two rules." },
     ],
+    og: "ticketova-og",
     mark: "TICKETOVA",
     source: "packages/ticketova/src/tokens.css — taken from Landing/apps/ticketova/src/globals.css",
     swatches: [
