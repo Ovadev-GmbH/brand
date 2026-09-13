@@ -5,6 +5,7 @@ dist/
 site/src/versions.json
 
 packages/*/src/shadcn.generated.css
+site/public/*.md
 site/public/*/*.md
 site/public/*/llms.txt
 site/public/llms.txt

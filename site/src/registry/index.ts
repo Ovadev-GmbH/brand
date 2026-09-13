@@ -20,11 +20,22 @@ export function href(pkg: PkgId, slug?: string): string {
   return slug ? `/${pkg}/${slug}` : `/${pkg}`;
 }
 
-/** The Markdown twin of a page, where the catalog publishes one (the
- *  packages whose demos are framed have a generated mirror under
- *  public/<id>/). */
-export function mdHref(pkg: Pkg, slug: string): string | undefined {
-  return pkg.frame ? `${import.meta.env.BASE_URL}${pkg.id}/${slug}.md` : undefined;
+/** The Markdown twin of a page: the same path with `.md`, generated into
+ *  public/<id>/ by scripts/gen-catalog-md.ts for every brand. */
+export function mdHref(pkg: Pkg, slug: string): string {
+  return `${import.meta.env.BASE_URL}${pkg.id}/${slug}.md`;
+}
+
+/** The brand's introduction as Markdown: /<id>.md, beside its folder. */
+export function introMdHref(pkg: Pkg): string {
+  return `${import.meta.env.BASE_URL}${pkg.id}.md`;
+}
+
+/** The chooser as Markdown. Under a base it is the base with `.md`
+ *  (/brand.md); at the root, where that would be "/.md", it is /index.md. */
+export function indexMdHref(): string {
+  const base = import.meta.env.BASE_URL;
+  return base === "/" ? "/index.md" : `${base.replace(/\/$/, "")}.md`;
 }
 
 /** Entries grouped in the package's declared order, empty groups dropped. */

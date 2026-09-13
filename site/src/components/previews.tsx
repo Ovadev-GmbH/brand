@@ -47,12 +47,12 @@ export function TypePanel({ type }: { type: TypeSystem }) {
   );
 }
 
-export function MaterialStack({ materials }: { materials: MaterialSystem }) {
+export function MaterialStack({ materials, vars }: { materials: MaterialSystem; vars?: Record<string, string> }) {
   const [base, small, , large] = materials.SURFACE;
   const menu = materials.FLOATING[1];
   const layers = [base, small, large, menu].filter(Boolean) as MaterialSystem["SURFACE"];
   return (
-    <div className="relative h-28 w-64">
+    <div className="relative h-28 w-64" style={vars}>
       {layers.map((m, i) => (
         <div
           key={m.cls}

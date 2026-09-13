@@ -5,7 +5,7 @@
    the card answers both "whose is this" and "what do I type". */
 
 import { Link } from "react-router";
-import { PACKAGES, href } from "../registry";
+import { PACKAGES, href, indexMdHref } from "../registry";
 import { pkgVersion } from "../versions";
 import { Grid, Cell } from "../components/Grid";
 import { GitHubIcon } from "../components/icons";
@@ -28,6 +28,13 @@ export function HomePage() {
               .
             </p>
           </div>
+          <a
+            href={indexMdHref()}
+            className="mt-2 shrink-0 font-mono text-[12px] text-gray-700 no-underline hover:text-gray-1000"
+            title="This page as Markdown, for agents"
+          >
+            .md
+          </a>
         </div>
       </header>
       <Grid cols={2}>

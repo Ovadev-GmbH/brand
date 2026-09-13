@@ -6,7 +6,7 @@
  *
  *   bun run scripts/gen-design-md.ts januna */
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
-import { BRANDS, ROOT, componentsOf } from "./lib/catalog";
+import { BRANDS, ROOT, SITE, componentsOf } from "./lib/catalog";
 import { colorsMd, layoutMd, loadFoundations, materialsMd, typographyMd } from "./lib/foundations-md";
 
 const ID = process.argv[2];
@@ -27,13 +27,13 @@ const api = [
   `Every colour, type style, material and layout token below is a Tailwind class in the app. Tailwind's own palette is cleared: \`bg-zinc-500\` does not exist, and that is the point.`, ``,
   colorsMd(ID, f.colors), typographyMd(f.typography), materialsMd(f.materials), layoutMd(ID, f.layout),
   `### Components`, ``,
-  `${components.length} components on Base UI. Each is documented with a live demo and its source at https://ovadev-gmbh.github.io/brand/${ID}/<slug>, and as Markdown at the same path with \`.md\`. The exported names are the parts you compose.`, ``,
+  `${components.length} components on Base UI. Each is documented with a live demo and its source at ${SITE}/${ID}/<slug>, and as Markdown at the same path with \`.md\`. The exported names are the parts you compose.`, ``,
   ...(() => {
     const byGroup = new Map<string, typeof components>();
     for (const c of components) byGroup.set(c.group, [...(byGroup.get(c.group) ?? []), c]);
     return [...byGroup].flatMap(([g, cs]) => [`**${g}.**`, ``, ...cs.map((c) => `- ${c.name} (\`${c.slug}\`): ${c.exports.join(", ")}`), ``]);
   })(),
-  `### Icons`, ``, `${brand.icons.library}. ${brand.icons.note} The full set: https://ovadev-gmbh.github.io/brand/${ID}/icons`, ``, "```tsx", brand.icons.usage, "```", ``,
+  `### Icons`, ``, `${brand.icons.library}. ${brand.icons.note} The full set: ${SITE}/${ID}/icons`, ``, "```tsx", brand.icons.usage, "```", ``,
 ].join("\n");
 
 const doc = parts.map((p) => readFileSync(`${dir}/${p}`, "utf8").trim()).flatMap((s, i) => (parts[i]!.startsWith("05") ? [s, api] : [s])).join("\n\n") + "\n";

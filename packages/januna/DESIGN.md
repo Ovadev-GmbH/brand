@@ -382,7 +382,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 ### Components
 
-65 components on Base UI. Each is documented with a live demo and its source at https://ovadev-gmbh.github.io/brand/januna/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
+65 components on Base UI. Each is documented with a live demo and its source at https://intern.ova.dev/brand/januna/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
 
 **Actions.**
 
@@ -475,7 +475,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 ### Icons
 
-Hugeicons. The free set, 6,704 icons, stroke rounded. Inside a button it is 16px at stroke 2; standalone 24px at stroke 1.5. Names end in `Icon`. The full set: https://ovadev-gmbh.github.io/brand/januna/icons
+Hugeicons. The free set, 6,704 icons, stroke rounded. Inside a button it is 16px at stroke 2; standalone 24px at stroke 1.5. Names end in `Icon`. The full set: https://intern.ova.dev/brand/januna/icons
 
 ```tsx
 import { HugeiconsIcon } from "@hugeicons/react";

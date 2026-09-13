@@ -8,8 +8,8 @@
 
 import { Link } from "react-router";
 import type { Pkg } from "../types";
-import { href } from "../registry";
-import { CHROME } from "../brands";
+import { href, introMdHref } from "../registry";
+import { CHROME, tokenVars } from "../brands";
 import { Grid, Cell } from "../components/Grid";
 import { PageHeader } from "../components/PageHeader";
 import { MarkRow } from "../components/MarkRow";
@@ -42,13 +42,13 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
       to: at("typography"),
       preview: chrome.typography ? <TypePanel type={chrome.typography} /> : undefined,
     },
-    ...(chrome.materials ? [{ name: "Materials", line: "Radius, stroke and shadow, by elevation.", to: at("materials"), preview: <MaterialStack materials={chrome.materials} /> }] : []),
+    ...(chrome.materials ? [{ name: "Materials", line: "Radius, stroke and shadow, by elevation.", to: at("materials"), preview: <MaterialStack materials={chrome.materials} vars={tokenVars(pkg.id)} /> }] : []),
     ...(chrome.layout ? [{ name: "Layout", line: "Spacing, corners and motion.", to: at("layout"), preview: <GridPreview layout={chrome.layout} /> }] : []),
   ];
 
   return (
     <article>
-      <PageHeader title={`${pkg.name} Design System`} />
+      <PageHeader title={`${pkg.name} Design System`} md={introMdHref(pkg)} />
 
       <div className="-mx-6 lg:-mx-12">
         <Grid cols={2}>

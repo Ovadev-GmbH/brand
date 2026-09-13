@@ -195,3 +195,24 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     },
   },
 };
+
+const TOKEN_PREFIX: Partial<Record<PkgId, string>> = { internal: "int", januna: "jan" };
+
+/** A brand's colour tokens as custom properties, for the element that draws
+ *  with them. The catalog's pages do not load the packages' stylesheets (two
+ *  brands' utilities share class names), so a material whose stroke is
+ *  var(--int-gray-300) would otherwise resolve to nothing and draw nothing. */
+export function tokenVars(id: PkgId): Record<string, string> {
+  const colors = CHROME[id].colors;
+  const p = TOKEN_PREFIX[id];
+  if (!colors || !p) return {};
+  const vars: Record<string, string> = {};
+  for (const [step, bg] of Object.entries(colors.BACKGROUNDS)) vars[`--${p}-background-${step}`] = (bg as { value: string }).value;
+  for (const scale of colors.SCALES) {
+    for (const [step, value] of Object.entries(scale.steps)) vars[`--${p}-${scale.id}-${step}`] = value as string;
+  }
+  for (const group of colors.SEMANTIC) {
+    for (const t of group.tokens) vars[`--${p}-${t.token}`] = `var(--${p}-${t.ref})`;
+  }
+  return vars;
+}

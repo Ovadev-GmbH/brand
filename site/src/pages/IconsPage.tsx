@@ -21,7 +21,9 @@ async function loadIcons(kind: "hugeicons" | "lucide"): Promise<Icon[]> {
   if (kind === "lucide") {
     const mod = await import("lucide-react");
     return Object.entries(mod)
-      .filter(([name, v]) => name.endsWith("Icon") && name !== "Icon" && name !== "LucideIcon" && (typeof v === "object" || typeof v === "function") && v !== null)
+      /* Capitalised only: createLucideIcon also ends in "Icon", and rendering
+         that factory as a component hands React an object and blanks the page. */
+      .filter(([name, v]) => /^[A-Z]/.test(name) && name.endsWith("Icon") && name !== "Icon" && name !== "LucideIcon" && (typeof v === "object" || typeof v === "function") && v !== null)
       .map(([name, Cmp]) => {
         const C = Cmp as React.ComponentType<{ size?: number; color?: string; "aria-hidden"?: boolean }>;
         return { name, render: (color: string) => <C size={24} color={color} aria-hidden /> };

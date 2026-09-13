@@ -13,6 +13,7 @@ import { join, resolve, sep } from "node:path";
 
 const DIST = resolve(import.meta.dir, "dist");
 const INDEX = join(DIST, "index.html");
+const MARKDOWN = { "content-type": "text/markdown; charset=utf-8" };
 
 async function isFile(path: string): Promise<boolean> {
   try {
@@ -44,12 +45,22 @@ const server = Bun.serve({
         headers: {
           /* Vite fingerprints everything under assets/; the rest keeps its name. */
           "cache-control": pathname.startsWith("/assets/") ? "public, max-age=31536000, immutable" : "no-cache",
+          ...(path.endsWith(".md") ? MARKDOWN : {}),
         },
       });
     }
 
     if ((pathname.split("/").pop() ?? "").includes(".")) {
       return new Response("Not found", { status: 404 });
+    }
+
+    /* A page asked for as Markdown gets its twin: /internal/button is
+       /internal/button.md, the root is index.md. */
+    if (request.headers.get("accept")?.includes("text/markdown")) {
+      const twin = resolve(DIST, `.${pathname === "/" ? "/index" : pathname.replace(/\/$/, "")}.md`);
+      if (twin.startsWith(DIST + sep) && (await isFile(twin))) {
+        return new Response(Bun.file(twin), { headers: { ...MARKDOWN, "cache-control": "no-cache", vary: "accept" } });
+      }
     }
 
     return new Response(Bun.file(INDEX), {

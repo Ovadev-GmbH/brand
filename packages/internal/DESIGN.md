@@ -374,7 +374,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 ### Components
 
-65 components on Base UI. Each is documented with a live demo and its source at https://ovadev-gmbh.github.io/brand/internal/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
+65 components on Base UI. Each is documented with a live demo and its source at https://intern.ova.dev/brand/internal/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
 
 **Actions.**
 
@@ -467,7 +467,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 ### Icons
 
-Lucide. 2,000 icons, stroke 2 at 16px inside controls, 1.75 at 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling. The full set: https://ovadev-gmbh.github.io/brand/internal/icons
+Lucide. 2,000 icons, stroke 2 at 16px inside controls, 1.75 at 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling. The full set: https://intern.ova.dev/brand/internal/icons
 
 ```tsx
 import { PlusIcon, SearchIcon } from "lucide-react";

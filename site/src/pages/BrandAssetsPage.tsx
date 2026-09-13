@@ -9,6 +9,7 @@ import { OgCard } from "../components/OgCard";
 import { FaviconStudio } from "../components/FaviconStudio";
 import { Grid, Cell } from "../components/Grid";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
+import { mdHref } from "../registry";
 
 export function BrandAssetsPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
@@ -16,7 +17,7 @@ export function BrandAssetsPage({ pkg }: { pkg: Pkg }) {
   const icon = marks.find((m) => m.kind === "icon");
   return (
     <article>
-      <PageHeader title="Brand Assets" />
+      <PageHeader title="Brand Assets" md={mdHref(pkg, "brand-assets")} />
 
       {marks.length ? (
         <div className="-mx-6 lg:-mx-12">

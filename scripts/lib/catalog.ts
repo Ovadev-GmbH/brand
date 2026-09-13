@@ -5,6 +5,10 @@ import { readdirSync, readFileSync } from "node:fs";
 
 export const ROOT = new URL("../..", import.meta.url).pathname.replace(/\/$/, "");
 
+/** Where the catalog is served: the brand service behind intern.ova.dev.
+ *  Every absolute link the generators write starts here. */
+export const SITE = "https://intern.ova.dev/brand";
+
 export type Brand = {
   name: string;
   pkg: string;
@@ -20,6 +24,10 @@ export const BRANDS: Record<string, Brand> = {
       usage: 'import { HugeiconsIcon } from "@hugeicons/react";\nimport { Add01Icon } from "@hugeicons/core-free-icons";\n\n<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />',
       note: "The free set, 6,704 icons, stroke rounded. Inside a button it is 16px at stroke 2; standalone 24px at stroke 1.5. Names end in `Icon`.",
     },
+  },
+  ovadev: {
+    name: "Ovadev", pkg: "@ovadev-gmbh/ui-ovadev", prefix: "ova",
+    icons: { library: "", usage: "", note: "" },
   },
   ticketova: {
     name: "TICKETOVA", pkg: "@ovadev-gmbh/ui-ticketova", prefix: "tova",
