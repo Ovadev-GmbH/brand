@@ -43,8 +43,10 @@ jobs:
 
       # --ignore-scripts keeps a package's own build from running at install.
       - run: bun install --frozen-lockfile --ignore-scripts
+      # The site type-checks against every package's dist, so all of them
+      # are built before anything is checked — the same order ci.yml uses.
+      - run: bun run --filter '@ovadev-gmbh/*' build
       - run: bun run check-types
-      - run: bun run --filter "@ovadev-gmbh/ui-${{ steps.tag.outputs.pkg }}" build
 
       - run: bun publish --access restricted
         working-directory: packages/${{ steps.tag.outputs.pkg }}
