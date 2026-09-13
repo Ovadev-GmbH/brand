@@ -10,6 +10,7 @@
  *
  *   bun run scripts/gen-catalog-md.ts januna */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import type { Doc } from "../site/src/types";
 import { BRANDS, ROOT, SITE, componentsOf, demoOf } from "./lib/catalog";
 import { colorsMd, layoutMd, loadFoundations, materialsMd, typographyMd } from "./lib/foundations-md";
 
@@ -108,14 +109,65 @@ if (chrome.icons && brand.icons.note) {
 
 if (existsSync(`${ROOT}/packages/${ID}/src/components/ui`)) {
   const cs = componentsOf(ID);
+  /* A doc's text links catalog pages as /<id>/<slug>; in Markdown they point
+     at the page's own twin. Pipes in a type would split a table cell. */
+  const prose = (text: string) => text.replace(/\]\((\/[^)]+)\)/g, (_, path: string) => `](${SITE}${path}.md)`);
+  const cell = (text: string) => text.replace(/\|/g, "\\|");
+  const fence = (lang: string, code: string) => ["```" + lang, code.trim(), "```", ``];
+
   for (const c of cs) {
     const demo = demoOf(ID, c.slug);
+    const oneLine = `import { ${c.exports.join(", ")} } from "${brand.pkg}";`;
+    const importLine = oneLine.length <= 80 ? oneLine : `import {\n${c.exports.map((n) => `  ${n},`).join("\n")}\n} from "${brand.pkg}";`;
+    const source = [`## Source`, ``, `The component as the package ships it, Base UI beneath, styled with the system's classes.`, ``, ...fence("tsx", c.source)];
+    const docPath = `${ROOT}/site/src/docs/${ID}/${c.slug}.ts`;
+
+    if (!existsSync(docPath)) {
+      write(c.slug, [
+        `# ${c.name}`, ``,
+        `Group: ${c.group}. Package: \`${brand.pkg}\`. Live: ${BASE}/${c.slug}`, ``,
+        ...fence("tsx", importLine),
+        ...(demo ? [`## Example`, ``, ...fence("tsx", demo)] : []),
+        ...source,
+      ].join("\n"));
+      continue;
+    }
+
+    /* The same page as the catalog shows, in the same order. */
+    const doc = (await import(docPath)).default as Doc;
+    const example = (name: string) => readFileSync(`${ROOT}/site/src/examples/${ID}/${c.slug}/${name}.tsx`, "utf8");
     write(c.slug, [
       `# ${c.name}`, ``,
+      prose(doc.description), ``,
       `Group: ${c.group}. Package: \`${brand.pkg}\`. Live: ${BASE}/${c.slug}`, ``,
-      "```tsx", `import { ${c.exports.join(", ")} } from "${brand.pkg}";`, "```", ``,
-      ...(demo ? [`## Example`, ``, "```tsx", demo.trim(), "```", ``] : []),
-      `## Source`, ``, `The component as the package ships it, Base UI beneath, styled with the system's classes.`, ``, "```tsx", c.source.trim(), "```", ``,
+      ...(demo ? fence("tsx", demo) : []),
+      `## Installation`, ``,
+      `Add the package and Base UI, which it is built on. The \`@ovadev-gmbh\` scope is served from GitHub Packages, so the registry needs a token that can read packages.`, ``,
+      ...fence("bash", `bun add ${brand.pkg} @base-ui/react`),
+      `Import the stylesheet as the app's Tailwind entry.`, ``,
+      ...fence("css", `@import "${brand.pkg}/styles.css";`),
+      `## Usage`, ``,
+      ...fence("tsx", importLine),
+      ...fence("tsx", doc.usage),
+      ...(doc.composition ? [`## Composition`, ``, `The parts nest like this:`, ``, ...fence("text", doc.composition)] : []),
+      ...doc.sections.flatMap((s) => [
+        `## ${s.title}`, ``,
+        ...(s.text ? [prose(s.text), ``] : []),
+        ...(s.code ? fence("tsx", s.code) : []),
+        ...(s.example ? fence("tsx", example(s.example)) : []),
+      ]),
+      ...(doc.api?.length
+        ? [
+            `## API Reference`, ``,
+            ...doc.api.flatMap((part) => [
+              `### ${part.name}`, ``,
+              prose(part.text), ``,
+              ...(part.props?.length ? [table(["Prop", "Type", "Default"], part.props.map((row) => row.map((v) => `\`${cell(v)}\``))), ``] : []),
+            ]),
+            ...(doc.links?.api ? [`Everything else is Base UI's: ${doc.links.api}`, ``] : []),
+          ]
+        : []),
+      ...source,
     ].join("\n"));
   }
   components = cs;
