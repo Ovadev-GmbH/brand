@@ -149,7 +149,7 @@ function NavigationMenuIndicator({
       )}
       {...props}
     >
-      <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-small bg-surface-primary shadow-base" />
+      <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-small border border-divider-strong bg-surface-primary" />
     </NavigationMenuPrimitive.Icon>
   )
 }

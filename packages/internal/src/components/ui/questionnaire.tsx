@@ -109,7 +109,7 @@ function QuestionnaireChoice({
     <QuestionnairePrimitive.Choice
       data-slot="questionnaire-choice"
       className={cn(
-        "group/questionnaire-choice relative flex min-h-11 cursor-pointer items-start gap-2.5 rounded-regular border border-transparent bg-surface-primary shadow-base px-3 py-2.5 text-start text-label-13 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none select-none hover:bg-surface-hover has-[>input:focus-visible]:ring-1 has-[>input:focus-visible]:ring-brand-bright data-invalid:ring-1 data-invalid:ring-status-danger data-checked:bg-surface-active",
+        "group/questionnaire-choice relative flex min-h-11 cursor-pointer items-start gap-2.5 rounded-regular border border-divider-strong bg-surface-primary px-3 py-2.5 text-start text-label-13 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none select-none hover:bg-surface-hover has-[>input:focus-visible]:ring-1 has-[>input:focus-visible]:ring-brand-bright data-invalid:ring-1 data-invalid:ring-status-danger data-checked:bg-surface-active",
         "data-disabled:pointer-events-none data-disabled:cursor-not-allowed data-disabled:opacity-50",
         className
       )}
@@ -169,7 +169,7 @@ function QuestionnaireInput({
       <QuestionnairePrimitive.Input
         data-slot="questionnaire-input"
         className={cn(
-          "h-8 min-h-11 w-full min-w-0 rounded-regular border border-transparent bg-surface-primary shadow-base px-2.5 py-1 text-label-13 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none focus-visible:ring-1 focus-visible:ring-brand-bright disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-1 aria-invalid:ring-status-danger sm:min-h-0",
+          "h-8 min-h-11 w-full min-w-0 rounded-regular border border-divider-strong bg-surface-primary px-2.5 py-1 text-label-13 transition-[color,background-color,border-color,box-shadow,transform] duration-fast ease-brand outline-none focus-visible:ring-1 focus-visible:ring-brand-bright disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-1 aria-invalid:ring-status-danger sm:min-h-0",
           "selection:bg-brand selection:text-content-inverse placeholder:text-content-tertiary",
           className
         )}

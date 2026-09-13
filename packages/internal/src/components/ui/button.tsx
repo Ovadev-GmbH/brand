@@ -9,7 +9,7 @@ const buttonVariants = cva(
       variant: {
         default: "bg-brand text-content-inverse hover:bg-brand-hover",
         outline:
-          "bg-surface-primary shadow-base text-content-primary hover:bg-surface-hover aria-expanded:bg-surface-hover",
+          "border-divider-strong bg-surface-primary text-content-primary hover:bg-surface-hover aria-expanded:bg-surface-hover",
         secondary:
           "bg-gray-alpha-200 text-content-primary hover:bg-gray-alpha-300 aria-expanded:bg-gray-alpha-300",
         ghost:
