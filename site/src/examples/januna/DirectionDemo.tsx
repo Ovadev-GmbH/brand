@@ -1,64 +1,45 @@
 import { useState } from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 import {
   Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
   DirectionProvider,
-  Item,
-  ItemActions,
-  ItemContent,
-  ItemDescription,
-  ItemTitle,
-  useDirection,
+  Label,
+  Slider,
 } from "@ovadev-gmbh/ui-januna";
 
-type Direction = "ltr" | "rtl";
-
-function BookingRow() {
-  const direction = useDirection();
-
-  return (
-    <div dir={direction} className="flex flex-col gap-2">
-      <Item variant="outline">
-        <ItemContent>
-          <ItemTitle>Table 7, party of 4</ItemTitle>
-          <ItemDescription>Tonight 18:30. Reading direction: {direction}.</ItemDescription>
-        </ItemContent>
-        <ItemActions>
-          <Button variant="outline" size="sm">
-            Seat
-            <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} data-icon="inline-end" />
-          </Button>
-        </ItemActions>
-      </Item>
-    </div>
-  );
-}
-
+// A guest books in Arabic: the card, the slider and its arrow keys all read right to left.
 export default function DirectionDemo() {
-  const [direction, setDirection] = useState<Direction>("ltr");
+  const [party, setParty] = useState(6);
 
   return (
-    <div className="flex w-full max-w-md flex-col gap-4">
-      <div className="flex gap-2">
-        <Button
-          variant={direction === "ltr" ? "default" : "outline"}
-          size="sm"
-          onClick={() => setDirection("ltr")}
-        >
-          Left to right
-        </Button>
-        <Button
-          variant={direction === "rtl" ? "default" : "outline"}
-          size="sm"
-          onClick={() => setDirection("rtl")}
-        >
-          Right to left
-        </Button>
-      </div>
-      <DirectionProvider direction={direction}>
-        <BookingRow />
-      </DirectionProvider>
-    </div>
+    <DirectionProvider direction="rtl">
+      <Card dir="rtl" lang="ar" className="w-full max-w-sm">
+        <CardHeader>
+          <CardTitle>احجز طاولة</CardTitle>
+          <CardDescription>Trattoria Sole، الليلة الساعة 19:30</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-4">
+          <div className="flex items-center justify-between gap-2">
+            <Label id="direction-party">عدد الضيوف</Label>
+            <span className="text-label-14">{party}</span>
+          </div>
+          <Slider
+            aria-labelledby="direction-party"
+            value={[party]}
+            onValueChange={(value) => setParty(Array.isArray(value) ? value[0]! : value)}
+            min={2}
+            max={16}
+          />
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full">تأكيد الحجز</Button>
+        </CardFooter>
+      </Card>
+    </DirectionProvider>
   );
 }

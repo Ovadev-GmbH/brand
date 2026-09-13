@@ -1,31 +1,30 @@
 import {
   Button,
   ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@ovadev-gmbh/ui-internal";
-import { ChevronDownIcon, GitBranchIcon } from "lucide-react";
+import { EllipsisIcon } from "lucide-react";
 
 export default function ButtonGroupDemo() {
   return (
-    <div className="flex w-full max-w-xl flex-wrap items-center gap-3">
-      <ButtonGroup>
-        <Button variant="outline">1h</Button>
-        <Button variant="outline">24h</Button>
-        <Button variant="outline">7d</Button>
-        <Button variant="outline">30d</Button>
-      </ButtonGroup>
-      <ButtonGroup>
-        <ButtonGroupText>
-          <GitBranchIcon />
-          main
-        </ButtonGroupText>
-        <Button variant="outline">Deploy</Button>
-        <ButtonGroupSeparator />
-        <Button variant="outline" size="icon" aria-label="More deploy options">
-          <ChevronDownIcon />
-        </Button>
-      </ButtonGroup>
-    </div>
+    <ButtonGroup aria-label="Invoice INV-2026-0142">
+      <Button variant="outline">Download PDF</Button>
+      <Button variant="outline">Send reminder</Button>
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" size="icon" aria-label="More actions" />}>
+          <EllipsisIcon />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-48">
+          <DropdownMenuItem>Issue credit note</DropdownMenuItem>
+          <DropdownMenuItem>Copy invoice ID</DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem variant="destructive">Void invoice</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </ButtonGroup>
   );
 }

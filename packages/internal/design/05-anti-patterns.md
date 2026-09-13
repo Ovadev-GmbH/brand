@@ -12,7 +12,7 @@ Do not ship any of these recognisable defaults:
 - `font-medium` or `font-semibold` beside a type style.
 - Proportional figures in a column of numbers. Figures are mono and right-aligned.
 - Relative times without the exact one; amounts without currency; IDs truncated without a way to copy them.
-- A badge for ordinary metadata; a status dot without its word.
+- A badge for ordinary metadata; a state shown as a colour, a dot or an empty badge without its word.
 - Icons as decoration: a tile per feature, an icon per heading, mixed weights.
 - Empty states with an illustration. An empty state says what is empty and offers the one action.
 - Dismiss buttons on notes; toasts for things the screen already shows.

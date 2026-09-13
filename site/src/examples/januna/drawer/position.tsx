@@ -1,7 +1,5 @@
 import {
   Button,
-  Description,
-  DescriptionList,
   Drawer,
   DrawerClose,
   DrawerContent,
@@ -19,6 +17,13 @@ const directions = [
   { value: "right", label: "Right" },
 ] as const;
 
+const fields = [
+  { term: "Seats", value: "4", mono: true },
+  { term: "Section", value: "Terrace" },
+  { term: "Server", value: "Jonas Meier" },
+  { term: "Guest", value: "Nora Keller" },
+];
+
 export default function DrawerPosition() {
   return (
     <div className="flex flex-wrap items-center gap-2">
@@ -30,12 +35,16 @@ export default function DrawerPosition() {
               <DrawerTitle>Terrace 3</DrawerTitle>
               <DrawerDescription>Next booking tonight at 19:30.</DrawerDescription>
             </DrawerHeader>
-            <DescriptionList className="p-4">
-              <Description title="Seats" content="4" />
-              <Description title="Section" content="Terrace" />
-              <Description title="Server" content="Jonas Meier" />
-              <Description title="Guest" content="Nora Keller" />
-            </DescriptionList>
+            <dl className="m-0 grid grid-cols-2 gap-x-6 gap-y-4 p-4">
+              {fields.map((field) => (
+                <div key={field.term} className="flex min-w-0 flex-col gap-1">
+                  <dt className="text-label-13 text-content-secondary">{field.term}</dt>
+                  <dd className={`m-0 text-content-primary ${field.mono ? "text-label-13-mono" : "text-label-14"}`}>
+                    {field.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
             <DrawerFooter>
               <DrawerClose render={<Button variant="outline" />}>Close</DrawerClose>
             </DrawerFooter>

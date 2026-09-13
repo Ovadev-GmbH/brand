@@ -12,7 +12,7 @@ Do not ship any of these recognisable defaults:
 - `font-medium` or `font-semibold` beside a type style. The style carries the weight.
 - A centred hero with a subtitle followed by a grid of three cards.
 - Repeated metric tiles where one composed row would say more.
-- A badge for ordinary metadata; a status dot without its word.
+- A badge for ordinary metadata; a state shown as a colour, a dot or an empty badge without its word.
 - Icons as decoration: a tile per feature, an icon per heading, mixed icon sets.
 - Empty states with an illustration and a joke. An empty state says what is empty and offers the one action.
 - Dismiss buttons on notes; toasts for things the screen already shows.

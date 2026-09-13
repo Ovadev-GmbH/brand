@@ -6,29 +6,20 @@ import {
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
-  AlertDialogMedia,
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
 } from "@ovadev-gmbh/ui-januna";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Alert02Icon } from "@hugeicons/core-free-icons";
 
 export default function AlertDialogDemo() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="outline" />}>
-        Cancel booking
-      </AlertDialogTrigger>
+      <AlertDialogTrigger render={<Button variant="outline" />}>Cancel booking</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogMedia>
-            <HugeiconsIcon icon={Alert02Icon} strokeWidth={2} />
-          </AlertDialogMedia>
           <AlertDialogTitle>Cancel this booking?</AlertDialogTitle>
           <AlertDialogDescription>
-            Table 12 for Nora Keller, 4 guests at 19:30, will be released to
-            the waitlist and the guest will be notified. This cannot be undone.
+            Nora Keller, party of 6 at 19:30 on T12. The table goes back to the waitlist and she gets a text.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

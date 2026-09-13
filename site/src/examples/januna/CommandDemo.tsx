@@ -5,44 +5,42 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@ovadev-gmbh/ui-januna";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Add01Icon, PrinterIcon, Table01Icon, UserIcon } from "@hugeicons/core-free-icons";
+import {
+  Calendar03Icon,
+  Clock01Icon,
+  Settings01Icon,
+  Table01Icon,
+  UserGroupIcon,
+} from "@hugeicons/core-free-icons";
 
 export default function CommandDemo() {
   return (
-    <Command className="w-full max-w-md">
-      <CommandInput placeholder="Search bookings, tables or guests…" />
+    <Command className="w-96 max-w-full">
+      <CommandInput placeholder="Go to a page" />
       <CommandList>
-        <CommandEmpty>No results found.</CommandEmpty>
-        <CommandGroup heading="Actions">
+        <CommandEmpty>No page matches.</CommandEmpty>
+        <CommandGroup heading="Pages">
           <CommandItem>
-            <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
-            New booking
-            <CommandShortcut>⌘N</CommandShortcut>
-          </CommandItem>
-          <CommandItem>
-            <HugeiconsIcon icon={UserIcon} strokeWidth={2} />
-            Add walk-in
-            <CommandShortcut>⌘W</CommandShortcut>
-          </CommandItem>
-          <CommandItem>
-            <HugeiconsIcon icon={PrinterIcon} strokeWidth={2} />
-            Print run sheet
-            <CommandShortcut>⌘P</CommandShortcut>
-          </CommandItem>
-        </CommandGroup>
-        <CommandSeparator />
-        <CommandGroup heading="Tonight">
-          <CommandItem>
-            <HugeiconsIcon icon={Table01Icon} strokeWidth={2} />
-            Table 4 · Amir Haddad · 18:00
+            <HugeiconsIcon icon={Calendar03Icon} strokeWidth={2} />
+            Tonight&apos;s bookings
           </CommandItem>
           <CommandItem>
             <HugeiconsIcon icon={Table01Icon} strokeWidth={2} />
-            Table 12 · Nora Keller · 19:30
+            Floor plan
+          </CommandItem>
+          <CommandItem>
+            <HugeiconsIcon icon={Clock01Icon} strokeWidth={2} />
+            Waitlist
+          </CommandItem>
+          <CommandItem>
+            <HugeiconsIcon icon={UserGroupIcon} strokeWidth={2} />
+            Guests
+          </CommandItem>
+          <CommandItem>
+            <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
+            Settings
           </CommandItem>
         </CommandGroup>
       </CommandList>

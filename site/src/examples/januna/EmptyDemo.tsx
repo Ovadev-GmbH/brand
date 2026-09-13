@@ -12,25 +12,21 @@ import { Add01Icon, Calendar03Icon } from "@hugeicons/core-free-icons";
 
 export default function EmptyDemo() {
   return (
-    <Empty className="max-w-xl border">
+    <Empty className="w-full max-w-md">
       <EmptyHeader>
         <EmptyMedia variant="icon">
           <HugeiconsIcon icon={Calendar03Icon} strokeWidth={2} />
         </EmptyMedia>
-        <EmptyTitle>No bookings yet</EmptyTitle>
+        <EmptyTitle>No bookings tonight yet</EmptyTitle>
         <EmptyDescription>
-          Tonight's dinner shift is empty. Add a booking by hand or share your
-          reservation link with guests.
+          Share your booking link with guests, or add the first booking by hand.
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
-        <div className="flex flex-wrap justify-center gap-2">
-          <Button>
-            <HugeiconsIcon icon={Add01Icon} strokeWidth={2} data-icon="inline-start" />
-            Add booking
-          </Button>
-          <Button variant="outline">Copy link</Button>
-        </div>
+        <Button>
+          <HugeiconsIcon icon={Add01Icon} strokeWidth={2} data-icon="inline-start" />
+          Add booking
+        </Button>
       </EmptyContent>
     </Empty>
   );

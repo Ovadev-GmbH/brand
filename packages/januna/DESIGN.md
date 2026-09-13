@@ -59,7 +59,7 @@ When the host already uses the package, reuse what is applied: its providers (`T
 
 Before laying anything out, answer: who is looking at this, what are they deciding, and what is the one thing they must not miss. Name the states the screen can be in: empty, loading, the common case, the edge, the error. Normalise the material: every time has a date, every count has a unit, every status has one of the system's names. Distinguish what the system knows from what it guesses; never invent urgency.
 
-Support two speeds of reading. The glance: title, the decisive value, the status dot, the one button. The look: the table, the description list, the caveat, the timestamp. Both must be true at once.
+Support two speeds of reading. The glance: title, the decisive value, the state in its word, the one button. The look: the table, the description list, the caveat, the timestamp. Both must be true at once.
 
 ### Choose the composition
 
@@ -67,7 +67,7 @@ Say aloud the layout the screen type suggests, then ask whether the material ear
 
 Match the opening to the job. A decision screen puts the decision and its basis together at the top. A comparison puts alternatives on the same visual basis. An overview leads with the state, not with navigation. A form leads with the field the person came to fill.
 
-Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Item`. Never encode with colour alone.
+Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Progress` with its `ProgressLabel` and `ProgressValue`. A state is a `Badge` with its word, or the word alone in its status colour where a badge would be too loud. Metadata is a plain `<dl>`: each `<dt>` in `text-label-13` and the secondary ink, each `<dd>` in `text-label-14`, times, amounts and references in `text-label-13-mono`. A row with one or two controls is an `Item`. A value to copy is an `InputGroup` holding a read-only `InputGroupInput` in mono and an `InputGroupButton` that copies it, labelled for what it copies. Never encode with colour alone.
 
 ### Authoritative Januna visual system
 
@@ -95,7 +95,7 @@ A surface is a material, and a material is a class: `material-base` for a restin
 
 #### Motion
 
-Default to stillness. Use the one easing, `ease-brand`, and the three durations: `duration-fast` for a colour or a press, `duration-base` for a popover or a row appearing, `duration-slow` for a dialog or a page section. Motion explains a state change, preserves continuity, or confirms an action; it never decorates. Nothing pulses except a status dot that is genuinely in progress. Reduced motion is honoured by the tokens; do not override it.
+Default to stillness. Use the one easing, `ease-brand`, and the three durations: `duration-fast` for a colour or a press, `duration-base` for a popover or a row appearing, `duration-slow` for a dialog or a page section. Motion explains a state change, preserves continuity, or confirms an action; it never decorates. Nothing moves at rest except a `Spinner` beside the word of a state that is genuinely in progress. Reduced motion is honoured by the tokens; do not override it.
 
 #### Icons
 
@@ -134,7 +134,7 @@ Do not ship any of these recognisable defaults:
 - `font-medium` or `font-semibold` beside a type style. The style carries the weight.
 - A centred hero with a subtitle followed by a grid of three cards.
 - Repeated metric tiles where one composed row would say more.
-- A badge for ordinary metadata; a status dot without its word.
+- A badge for ordinary metadata; a state shown as a colour, a dot or an empty badge without its word.
 - Icons as decoration: a tile per feature, an icon per heading, mixed icon sets.
 - Empty states with an illustration and a joke. An empty state says what is empty and offers the one action.
 - Dismiss buttons on notes; toasts for things the screen already shows.
@@ -382,7 +382,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 ### Components
 
-65 components on Base UI. Each is documented with a live demo and its source at https://intern.ova.dev/brand/januna/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
+61 components on Base UI. Each is documented with a live demo and its source at https://intern.ova.dev/brand/januna/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
 
 **Actions.**
 
@@ -436,9 +436,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 - Alert (`alert`): Alert, AlertTitle, AlertDescription, AlertAction
 - Badge (`badge`): Badge
-- Status Dot (`status-dot`): StatusDot
 - Progress (`progress`): Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue
-- Gauge (`gauge`): Gauge
 - Spinner (`spinner`): Spinner
 - Skeleton (`skeleton`): Skeleton
 - Empty (`empty`): Empty, EmptyHeader, EmptyTitle, EmptyDescription, EmptyContent, EmptyMedia
@@ -448,8 +446,6 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 - Table (`table`): Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption
 - Chart (`chart`): ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, ChartStyle
-- Description (`description`): Description, DescriptionList
-- Snippet (`snippet`): Snippet, SecretValue
 - Pagination (`pagination`): Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious
 - Breadcrumb (`breadcrumb`): Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis
 - Avatar (`avatar`): Avatar, AvatarImage, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarBadge

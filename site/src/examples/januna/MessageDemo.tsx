@@ -1,40 +1,45 @@
 import {
+  Avatar,
+  AvatarFallback,
   Bubble,
   BubbleContent,
   Message,
   MessageAvatar,
   MessageContent,
   MessageFooter,
-  MessageGroup,
-  MessageHeader,
 } from "@ovadev-gmbh/ui-januna";
 
 export default function MessageDemo() {
   return (
-    <MessageGroup className="w-full max-w-md">
+    <div className="flex w-full max-w-md flex-col gap-4">
       <Message>
-        <MessageAvatar className="size-8 text-label-12">AR</MessageAvatar>
+        <MessageAvatar>
+          <Avatar>
+            <AvatarFallback>LB</AvatarFallback>
+          </Avatar>
+        </MessageAvatar>
         <MessageContent>
-          <MessageHeader>Anna Rossi</MessageHeader>
           <Bubble variant="muted">
-            <BubbleContent>
-              Hi, could we move our booking tonight from 18:30 to 19:00? We are running late.
-            </BubbleContent>
+            <BubbleContent>Hello, we booked for 6 at 19:30. Could we sit outside if it stays dry?</BubbleContent>
           </Bubble>
-          <MessageFooter>17:42</MessageFooter>
         </MessageContent>
       </Message>
       <Message align="end">
+        <MessageAvatar>
+          <Avatar>
+            <AvatarFallback>TS</AvatarFallback>
+          </Avatar>
+        </MessageAvatar>
         <MessageContent>
-          <MessageHeader>Januna, Trattoria Sole</MessageHeader>
-          <Bubble align="end">
-            <BubbleContent>
-              Of course. Table 7 is now held for 4 guests at 19:00. See you then.
-            </BubbleContent>
+          <Bubble>
+            <BubbleContent>Of course. Terrace 3 is set for you, and we will move you inside if it rains.</BubbleContent>
           </Bubble>
-          <MessageFooter>17:44, delivered</MessageFooter>
+          <MessageFooter className="gap-1">
+            <span>Read</span>
+            <time dateTime="2026-09-12T17:44+02:00">17:44</time>
+          </MessageFooter>
         </MessageContent>
       </Message>
-    </MessageGroup>
+    </div>
   );
 }

@@ -34,8 +34,8 @@ export default {
       example: "bordered",
     },
     {
-      title: "With Description",
-      text: "A `DescriptionList` in each panel sets out a record's fields, grouped by topic. See [Description](/internal/description).",
+      title: "With Details",
+      text: "A plain `<dl>` in each panel sets out a record's fields, grouped by topic: each `<dt>` in Label 12 and the secondary ink above its `<dd>`, with figures and IDs in mono. It needs no component.",
       example: "description",
     },
     {

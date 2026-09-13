@@ -1,5 +1,4 @@
 import {
-  StatusDot,
   Table,
   TableBody,
   TableCell,
@@ -51,8 +50,8 @@ export default function TabsWithTable() {
                   <TableCell className="text-label-13-mono">{d.id}</TableCell>
                   <TableCell>{d.service}</TableCell>
                   <TableCell className="text-label-13-mono text-content-secondary">{d.region}</TableCell>
-                  <TableCell>
-                    <StatusDot state={d.live ? "ready" : "error"} label titlePrefix={`Deployment ${d.id}`} />
+                  <TableCell className={d.live ? "text-status-success" : "text-status-danger"}>
+                    {d.live ? "Live" : "Failed"}
                   </TableCell>
                   <TableCell className="text-right text-label-13-mono">{d.duration}</TableCell>
                 </TableRow>

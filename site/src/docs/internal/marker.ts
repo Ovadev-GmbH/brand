@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A small secondary line that annotates what sits around it: a sync time under a table, a day between audit events, a deployment that is still rolling out. A state of its own belongs in a [Status Dot](/internal/status-dot).",
+    "A small secondary line that annotates what sits around it: a sync time under a table, a day between audit events, a deployment that is still rolling out. A state of its own belongs in a [Badge](/internal/badge) with its word.",
   usage: `<Marker>
   <MarkerContent>Last synced 2026-09-13 14:02 UTC</MarkerContent>
 </Marker>`,

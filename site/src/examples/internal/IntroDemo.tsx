@@ -1,4 +1,4 @@
-import { Badge, Button, Input, InputGroup, InputGroupAddon, InputGroupInput, StatusDot } from "@ovadev-gmbh/ui-internal";
+import { Badge, Button, Input, InputGroup, InputGroupAddon, InputGroupInput } from "@ovadev-gmbh/ui-internal";
 import { SearchIcon, PlusIcon } from "lucide-react";
 
 /** The introduction's Components card: a few of the parts, side by side. */
@@ -19,9 +19,7 @@ export default function IntroDemo() {
       </div>
       <div className="flex items-center gap-3">
         <Input placeholder="inv_2026_004812" className="w-44 text-label-13-mono" readOnly />
-        <Badge variant="outline">
-          <StatusDot state="ready" /> Live
-        </Badge>
+        <Badge variant="outline">Live</Badge>
         <Badge variant="secondary">v2.14.0</Badge>
       </div>
     </div>

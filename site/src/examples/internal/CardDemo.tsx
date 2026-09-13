@@ -1,9 +1,6 @@
-import { ExternalLinkIcon } from "lucide-react";
 import {
-  Badge,
   Button,
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
@@ -11,33 +8,35 @@ import {
   CardTitle,
 } from "@ovadev-gmbh/ui-internal";
 
+const figures = [
+  { label: "Seats", value: "42 / 50" },
+  { label: "Open balance", value: "CHF 1'240.00" },
+  { label: "Next invoice", value: "2026-10-01" },
+];
+
 export default function CardDemo() {
   return (
-    <Card className="w-full max-w-xl">
+    <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>acme-gmbh</CardTitle>
-        <CardDescription>Scale plan, billed monthly, eu-central-1</CardDescription>
-        <CardAction>
-          <Badge variant="outline">Active</Badge>
-        </CardAction>
+        <CardTitle>acme-logistics</CardTitle>
+        <CardDescription>Scale plan, billed monthly, ch-zrh-1</CardDescription>
       </CardHeader>
       <CardContent>
-        <dl className="grid grid-cols-3 gap-x-4 gap-y-1">
-          <dt className="text-label-12 text-content-secondary">Seats</dt>
-          <dt className="text-label-12 text-content-secondary">API calls, 30d</dt>
-          <dt className="text-label-12 text-content-secondary">Next invoice</dt>
-          <dd className="text-label-13-mono">24 / 50</dd>
-          <dd className="text-label-13-mono">1 284 902</dd>
-          <dd className="text-label-13-mono">2026-10-01</dd>
+        <dl className="grid grid-cols-3 gap-4">
+          {figures.map((figure) => (
+            <div key={figure.label} className="flex min-w-0 flex-col gap-1">
+              <dt className="text-label-12 text-content-secondary">{figure.label}</dt>
+              <dd className="text-label-13-mono">{figure.value}</dd>
+            </div>
+          ))}
         </dl>
       </CardContent>
       <CardFooter className="gap-2">
         <Button variant="outline" size="sm">
-          <ExternalLinkIcon data-icon="inline-start" />
           Open tenant
         </Button>
         <Button variant="ghost" size="sm">
-          Audit log
+          View invoices
         </Button>
       </CardFooter>
     </Card>

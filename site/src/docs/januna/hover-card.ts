@@ -28,7 +28,7 @@ export default {
     },
     {
       title: "Booking",
-      text: "A `StatusDot` with its word, and the facts the host checks first. Times, references and amounts sit in mono so they line up.",
+      text: "A `Badge` with the booking's state in its word, and the facts the host checks first. Times, references and amounts sit in mono so they line up.",
       example: "booking",
     },
     {

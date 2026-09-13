@@ -1,39 +1,48 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-  Description,
-  DescriptionList,
-} from "@ovadev-gmbh/ui-januna";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@ovadev-gmbh/ui-januna";
 
-const mono = (value: string) => <span className="text-label-13-mono">{value}</span>;
+const sections = [
+  {
+    value: "guest",
+    title: "Guest",
+    fields: [
+      { term: "Name", value: "Anna Keller" },
+      { term: "Party", value: "6", mono: true },
+      { term: "Arrival", value: "19:30", mono: true },
+      { term: "Table", value: "T12" },
+    ],
+  },
+  {
+    value: "deposit",
+    title: "Deposit",
+    fields: [
+      { term: "Amount", value: "CHF 120.00", mono: true },
+      { term: "Paid", value: "2026-09-10 14:02", mono: true },
+      { term: "Refund Until", value: "2026-09-13 17:30", mono: true },
+      { term: "Method", value: "Card" },
+    ],
+  },
+];
 
 export default function AccordionWithDescription() {
   return (
     <Accordion defaultValue={["guest"]} className="w-[28rem]">
-      <AccordionItem value="guest">
-        <AccordionTrigger>Guest</AccordionTrigger>
-        <AccordionContent>
-          <DescriptionList>
-            <Description title="Name" content="Anna Keller" />
-            <Description title="Party" content={mono("6")} />
-            <Description title="Arrival" content={mono("19:30")} />
-            <Description title="Table" content="T12" />
-          </DescriptionList>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="deposit">
-        <AccordionTrigger>Deposit</AccordionTrigger>
-        <AccordionContent>
-          <DescriptionList>
-            <Description title="Amount" content={mono("CHF 120.00")} />
-            <Description title="Paid" content={mono("2026-09-10 14:02")} />
-            <Description title="Refund Until" content={mono("2026-09-13 17:30")} />
-            <Description title="Method" content="Card" />
-          </DescriptionList>
-        </AccordionContent>
-      </AccordionItem>
+      {sections.map((section) => (
+        <AccordionItem key={section.value} value={section.value}>
+          <AccordionTrigger>{section.title}</AccordionTrigger>
+          <AccordionContent>
+            <dl className="m-0 grid grid-cols-2 gap-x-6 gap-y-4">
+              {section.fields.map((field) => (
+                <div key={field.term} className="flex min-w-0 flex-col gap-1">
+                  <dt className="text-label-13 text-content-secondary">{field.term}</dt>
+                  <dd className={`m-0 text-content-primary ${field.mono ? "text-label-13-mono" : "text-label-14"}`}>
+                    {field.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </AccordionContent>
+        </AccordionItem>
+      ))}
     </Accordion>
   );
 }

@@ -4,7 +4,7 @@
 
 Before laying anything out, answer: who is looking at this, what are they deciding, and what is the one thing they must not miss. Name the states the screen can be in: empty, loading, the common case, the edge, the error. Normalise the material: every time has a date, every count has a unit, every status has one of the system's names. Distinguish what the system knows from what it guesses; never invent urgency.
 
-Support two speeds of reading. The glance: title, the decisive value, the status dot, the one button. The look: the table, the description list, the caveat, the timestamp. Both must be true at once.
+Support two speeds of reading. The glance: title, the decisive value, the state in its word, the one button. The look: the table, the description list, the caveat, the timestamp. Both must be true at once.
 
 ### Choose the composition
 
@@ -12,7 +12,7 @@ Say aloud the layout the screen type suggests, then ask whether the material ear
 
 Match the opening to the job. A decision screen puts the decision and its basis together at the top. A comparison puts alternatives on the same visual basis. An overview leads with the state, not with navigation. A form leads with the field the person came to fill.
 
-Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Item`. Never encode with colour alone.
+Map the material to the right primitive. Precise lookup is a `Table`. One conclusion is a sentence. A ratio is a `Progress` with its `ProgressLabel` and `ProgressValue`. A state is a `Badge` with its word, or the word alone in its status colour where a badge would be too loud. Metadata is a plain `<dl>`: each `<dt>` in `text-label-13` and the secondary ink, each `<dd>` in `text-label-14`, times, amounts and references in `text-label-13-mono`. A row with one or two controls is an `Item`. A value to copy is an `InputGroup` holding a read-only `InputGroupInput` in mono and an `InputGroupButton` that copies it, labelled for what it copies. Never encode with colour alone.
 
 ### Authoritative Januna visual system
 
@@ -40,7 +40,7 @@ A surface is a material, and a material is a class: `material-base` for a restin
 
 #### Motion
 
-Default to stillness. Use the one easing, `ease-brand`, and the three durations: `duration-fast` for a colour or a press, `duration-base` for a popover or a row appearing, `duration-slow` for a dialog or a page section. Motion explains a state change, preserves continuity, or confirms an action; it never decorates. Nothing pulses except a status dot that is genuinely in progress. Reduced motion is honoured by the tokens; do not override it.
+Default to stillness. Use the one easing, `ease-brand`, and the three durations: `duration-fast` for a colour or a press, `duration-base` for a popover or a row appearing, `duration-slow` for a dialog or a page section. Motion explains a state change, preserves continuity, or confirms an action; it never decorates. Nothing moves at rest except a `Spinner` beside the word of a state that is genuinely in progress. Reduced motion is honoured by the tokens; do not override it.
 
 #### Icons
 

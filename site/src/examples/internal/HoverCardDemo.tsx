@@ -1,36 +1,21 @@
-import {
-  Avatar,
-  AvatarFallback,
-  Button,
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@ovadev-gmbh/ui-internal";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@ovadev-gmbh/ui-internal";
 
 export default function HoverCardDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <HoverCard>
-        <HoverCardTrigger render={<Button variant="link" />}>
-          acme-logistics
-        </HoverCardTrigger>
-        <HoverCardContent align="start">
-          <div className="flex items-start gap-3">
-            <Avatar>
-              <AvatarFallback>AL</AvatarFallback>
-            </Avatar>
-            <div className="grid gap-1">
-              <div className="text-label-13">Acme Logistics AG</div>
-              <div className="text-copy-13 text-content-secondary">
-                Scale plan since 2025-03. 38 of 40 seats in use.
-              </div>
-              <div className="text-label-12-mono text-content-tertiary">
-                ten_8f3a2c · eu-central-1
-              </div>
-            </div>
-          </div>
-        </HoverCardContent>
-      </HoverCard>
-    </div>
+    <HoverCard>
+      <HoverCardTrigger
+        href="#tenants/acme-logistics"
+        className="text-label-13-mono text-content-brand underline-offset-4 hover:underline"
+      >
+        acme-logistics
+      </HoverCardTrigger>
+      <HoverCardContent align="start">
+        <div className="flex flex-col gap-1">
+          <span className="text-label-13">Acme Logistics AG</span>
+          <span className="text-copy-13 text-content-secondary">Scale plan, 38 of 40 seats in use.</span>
+          <span className="text-label-12-mono text-content-tertiary">ch-zrh-1 · customer since 2025-03-14</span>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
   );
 }

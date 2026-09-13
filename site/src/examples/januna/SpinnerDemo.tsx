@@ -1,19 +1,17 @@
-import { Badge, Button, Spinner } from "@ovadev-gmbh/ui-januna";
+import { Item, ItemContent, ItemMedia, ItemTitle, Spinner } from "@ovadev-gmbh/ui-januna";
 
 export default function SpinnerDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-4">
-      <Spinner />
-      <Spinner className="size-6" />
-      <Spinner className="size-8 text-content-brand" />
-      <Button disabled>
-        <Spinner />
-        Saving booking
-      </Button>
-      <Badge variant="secondary">
-        <Spinner />
-        Syncing
-      </Badge>
-    </div>
+    <Item variant="muted" role="status" className="w-full max-w-sm">
+      <ItemMedia>
+        <Spinner aria-hidden />
+      </ItemMedia>
+      <ItemContent>
+        <ItemTitle>Charging the deposit for Keller</ItemTitle>
+      </ItemContent>
+      <ItemContent className="items-end">
+        <span className="text-label-13-mono">CHF 1&apos;240.00</span>
+      </ItemContent>
+    </Item>
   );
 }

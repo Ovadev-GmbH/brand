@@ -1,22 +1,15 @@
 import { Badge } from "@ovadev-gmbh/ui-internal";
-import { CircleCheckIcon } from "lucide-react";
 
 export default function BadgeDemo() {
   return (
-    <div className="flex w-full max-w-xl flex-wrap items-center gap-3">
-      <Badge>Active</Badge>
-      <Badge variant="secondary">Trial</Badge>
-      <Badge variant="outline">eu-central-1</Badge>
-      <Badge variant="destructive">Overdue</Badge>
-      <Badge variant="ghost">Draft</Badge>
-      <Badge variant="link">View invoice</Badge>
-      <Badge variant="outline">
-        <CircleCheckIcon data-icon="inline-start" />
-        Paid
-      </Badge>
-      <Badge variant="secondary" className="text-label-12-mono">
-        v2.14.0
-      </Badge>
+    <div className="flex flex-col gap-1">
+      <div className="flex items-center gap-2">
+        <span className="text-heading-16">helvetia-labs</span>
+        <Badge variant="secondary">Trial</Badge>
+      </div>
+      <span className="text-label-13 text-content-secondary">
+        Scale plan, trial ends <span className="text-label-13-mono">2026-09-30</span>
+      </span>
     </div>
   );
 }

@@ -7,9 +7,10 @@ export default function CalendarDemo() {
   return (
     <Calendar
       mode="single"
+      weekStartsOn={1}
       selected={dueDate}
       onSelect={setDueDate}
-      className="border"
+      className="material-base"
     />
   );
 }

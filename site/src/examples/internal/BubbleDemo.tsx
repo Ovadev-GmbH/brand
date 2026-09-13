@@ -1,27 +1,22 @@
-import { CheckIcon } from "lucide-react";
-import { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from "@ovadev-gmbh/ui-internal";
+import { Bubble, BubbleContent } from "@ovadev-gmbh/ui-internal";
 
 export default function BubbleDemo() {
   return (
-    <BubbleGroup className="w-full max-w-xl">
+    <div className="flex w-full max-w-md flex-col gap-4">
       <Bubble variant="muted">
-        <BubbleContent>Can you rotate the API key for nordlicht? Their old one leaked in a CI log.</BubbleContent>
+        <BubbleContent>
+          Is the maintenance on <span className="text-copy-13-mono">ch-zrh-1</span> still on for Saturday?
+        </BubbleContent>
       </Bubble>
       <Bubble align="end">
         <BubbleContent>
-          Rotated. New key ends in <span className="text-label-12-mono">…c31e</span>, old one revoked.
+          Yes, <span className="text-copy-13-mono">02:00</span> to <span className="text-copy-13-mono">04:00</span> CEST.
+          The API stays read-only meanwhile.
         </BubbleContent>
-        <BubbleReactions>
-          <CheckIcon className="size-3.5" />
-          <span className="text-label-12">1</span>
-        </BubbleReactions>
       </Bubble>
-      <Bubble variant="outline">
-        <BubbleContent>Thanks. Please add a note to the audit log as well.</BubbleContent>
+      <Bubble variant="muted">
+        <BubbleContent>Thanks, we will pause our imports until then.</BubbleContent>
       </Bubble>
-      <Bubble variant="secondary" align="end">
-        <BubbleContent>Logged as api_key.rotated at 09:12.</BubbleContent>
-      </Bubble>
-    </BubbleGroup>
+    </div>
   );
 }

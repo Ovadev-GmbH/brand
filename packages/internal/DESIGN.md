@@ -58,7 +58,7 @@ When the host already uses the package, reuse what is applied: its providers (`T
 
 Before laying anything out, answer: who is working here, what are they looking for, and what must they not misread. Name the states the screen can be in: empty, loading, the common case, a lot of rows, the error. Normalise the material: every amount has a currency, every time has a zone and a date, every ID is shown as the system shows it, every status has one of the system's names. Distinguish what the system knows from what it derives.
 
-Support two speeds of reading. The scan: the table, the status dots, the mono figures lined up. The check: the description list of one record, the audit trail, the exact timestamp.
+Support two speeds of reading. The scan: the table, the state words, the mono figures lined up. The check: the description list of one record, the audit trail, the exact timestamp.
 
 ### Choose the composition
 
@@ -66,7 +66,7 @@ Say aloud the layout the screen type suggests, then ask whether the material ear
 
 Match the opening to the job. A list screen opens with the filter and the table. A record screen opens with the identifier, the status, and the actions. A form opens with the field the operator came to fill. A console opens with the log.
 
-Map the material to the right primitive. Precise lookup is a `Table`. A ratio is a `Gauge` with its label. A state is a `StatusDot` with its word. Metadata is a `Description` list. A row with one or two controls is an `Item`. A value to copy is a `Snippet`. Never encode with colour alone.
+Map the material to the right primitive. Precise lookup is a `Table`. A ratio is a `Progress` with its `ProgressLabel` and `ProgressValue`. A state is a `Badge` with its word, or the word alone in its status colour where a badge would be too loud. Metadata is a plain `<dl>`: each `<dt>` in `text-label-12` and the secondary ink, each `<dd>` in `text-label-13`, figures and IDs in `text-label-13-mono`. A row with one or two controls is an `Item`. A value to copy is an `InputGroup` holding a read-only `InputGroupInput` in mono and an `InputGroupButton` that copies it, labelled for what it copies. Never encode with colour alone.
 
 ### Authoritative Internal visual system
 
@@ -86,7 +86,7 @@ Headings are sentence case and name the thing: "Invoices", "Deployment 4f2c", "A
 
 #### Rhythm and measure
 
-Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group `space-2` to `space-3`; between groups `space-4` to `space-6`; between chapters `space-8`. Controls are 32px tall; 28px in dense rows and toolbars; 40px only for the one primary action on a form. Corners are square: `rounded-regular` and `rounded-small` are both 0, `rounded-pill` only on status dots, avatars and switches. Tables take the full width; forms sit in a column of 480 to 640px.
+Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group `space-2` to `space-3`; between groups `space-4` to `space-6`; between chapters `space-8`. Controls are 32px tall; 28px in dense rows and toolbars; 40px only for the one primary action on a form. Corners are square: `rounded-regular` and `rounded-small` are both 0, `rounded-pill` only on avatars and switches. Tables take the full width; forms sit in a column of 480 to 640px.
 
 #### Surfaces and edges
 
@@ -94,7 +94,7 @@ A surface is a material: `material-base` for cards, inputs and containers, a sin
 
 #### Motion
 
-Default to stillness. Use `ease-brand` and the three durations, none longer than a quarter second. Motion explains a state change or confirms an action; a tool never animates for pleasure. Nothing pulses except a status dot that is genuinely in progress. Reduced motion is honoured by the tokens.
+Default to stillness. Use `ease-brand` and the three durations, none longer than a quarter second. Motion explains a state change or confirms an action; a tool never animates for pleasure. Nothing moves at rest except a `Spinner` beside the word of a state that is genuinely in progress. Reduced motion is honoured by the tokens.
 
 #### Icons
 
@@ -133,7 +133,7 @@ Do not ship any of these recognisable defaults:
 - `font-medium` or `font-semibold` beside a type style.
 - Proportional figures in a column of numbers. Figures are mono and right-aligned.
 - Relative times without the exact one; amounts without currency; IDs truncated without a way to copy them.
-- A badge for ordinary metadata; a status dot without its word.
+- A badge for ordinary metadata; a state shown as a colour, a dot or an empty badge without its word.
 - Icons as decoration: a tile per feature, an icon per heading, mixed weights.
 - Empty states with an illustration. An empty state says what is empty and offers the one action.
 - Dismiss buttons on notes; toasts for things the screen already shows.
@@ -357,7 +357,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 | `--int-radius-large` | `rounded-large` | `0px` | Menus, larger cards: square. |
 | `--int-radius-modal` | `rounded-modal` | `0px` | Dialogs and sheets: square. |
 | `--int-radius-section` | `rounded-section` | `0px` | Sections and panels: square. |
-| `--int-radius-pill` | `rounded-pill` | `9999px` | Status dots, avatars, switches. Nothing else. |
+| `--int-radius-pill` | `rounded-pill` | `9999px` | Avatars and switches. Nothing else. |
 
 **Motion.**
 
@@ -374,7 +374,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 ### Components
 
-65 components on Base UI. Each is documented with a live demo and its source at https://intern.ova.dev/brand/internal/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
+61 components on Base UI. Each is documented with a live demo and its source at https://intern.ova.dev/brand/internal/<slug>, and as Markdown at the same path with `.md`. The exported names are the parts you compose.
 
 **Actions.**
 
@@ -428,9 +428,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 - Alert (`alert`): Alert, AlertTitle, AlertDescription, AlertAction
 - Badge (`badge`): Badge
-- Status Dot (`status-dot`): StatusDot
 - Progress (`progress`): Progress, ProgressTrack, ProgressIndicator, ProgressLabel, ProgressValue
-- Gauge (`gauge`): Gauge
 - Spinner (`spinner`): Spinner
 - Skeleton (`skeleton`): Skeleton
 - Empty (`empty`): Empty, EmptyHeader, EmptyTitle, EmptyDescription, EmptyContent, EmptyMedia
@@ -440,8 +438,6 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 
 - Table (`table`): Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption
 - Chart (`chart`): ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, ChartStyle
-- Description (`description`): Description, DescriptionList
-- Snippet (`snippet`): Snippet, SecretValue
 - Pagination (`pagination`): Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious
 - Breadcrumb (`breadcrumb`): Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbPage, BreadcrumbSeparator, BreadcrumbEllipsis
 - Avatar (`avatar`): Avatar, AvatarImage, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarBadge

@@ -1,42 +1,47 @@
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Cancel01Icon, Csv01Icon, Pdf01Icon } from "@hugeicons/core-free-icons";
+import { Cancel01Icon, Pdf01Icon } from "@hugeicons/core-free-icons";
 import {
   Attachment,
   AttachmentAction,
   AttachmentActions,
   AttachmentContent,
   AttachmentDescription,
-  AttachmentGroup,
   AttachmentMedia,
   AttachmentTitle,
+  Spinner,
 } from "@ovadev-gmbh/ui-januna";
 
 export default function AttachmentDemo() {
   return (
-    <AttachmentGroup className="w-full max-w-xl">
-      <Attachment>
+    <div className="flex w-full max-w-sm flex-col gap-2">
+      <Attachment className="w-full">
         <AttachmentMedia>
           <HugeiconsIcon icon={Pdf01Icon} strokeWidth={2} />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>floor-plan-patio.pdf</AttachmentTitle>
-          <AttachmentDescription>1.2 MB</AttachmentDescription>
+          <AttachmentTitle>menu-birthday-keller.pdf</AttachmentTitle>
+          <AttachmentDescription>240 KB</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Remove floor-plan-patio.pdf">
+          <AttachmentAction aria-label="Remove menu-birthday-keller.pdf">
             <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} />
           </AttachmentAction>
         </AttachmentActions>
       </Attachment>
-      <Attachment state="uploading">
+      <Attachment state="uploading" className="w-full">
         <AttachmentMedia>
-          <HugeiconsIcon icon={Csv01Icon} strokeWidth={2} />
+          <Spinner />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>bookings-september.csv</AttachmentTitle>
+          <AttachmentTitle>seating-plan-terrace.pdf</AttachmentTitle>
           <AttachmentDescription>Uploading, 64%</AttachmentDescription>
         </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Cancel upload of seating-plan-terrace.pdf">
+            <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} />
+          </AttachmentAction>
+        </AttachmentActions>
       </Attachment>
-    </AttachmentGroup>
+    </div>
   );
 }

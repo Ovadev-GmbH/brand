@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A secondary line that annotates what sits around it: when a count was last updated, the shift between two groups of bookings, reminders still being sent. A state of its own belongs in a [Status Dot](/januna/status-dot).",
+    "A secondary line that annotates what sits around it: when a count was last updated, the shift between two groups of bookings, reminders still being sent. A state of its own belongs in a [Badge](/januna/badge) with its word.",
   usage: `<Marker>
   <MarkerContent>Updated at 18:42</MarkerContent>
 </Marker>`,

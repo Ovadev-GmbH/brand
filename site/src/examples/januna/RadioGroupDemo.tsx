@@ -1,25 +1,18 @@
 import { Label, RadioGroup, RadioGroupItem } from "@ovadev-gmbh/ui-januna";
 
 const shifts = [
-  { value: "lunch", label: "Lunch", hint: "11:30 to 14:30" },
-  { value: "dinner", label: "Dinner", hint: "18:00 to 23:00" },
-  { value: "late", label: "Late night", hint: "23:00 to 01:00", disabled: true },
+  { value: "lunch", label: "Lunch" },
+  { value: "dinner", label: "Dinner" },
+  { value: "late", label: "Late night" },
 ];
 
 export default function RadioGroupDemo() {
   return (
-    <RadioGroup aria-label="Shift" defaultValue="dinner">
-      {shifts.map((item) => (
-        <div key={item.value} className="flex items-center gap-3">
-          <RadioGroupItem
-            id={`shift-${item.value}`}
-            value={item.value}
-            disabled={item.disabled}
-          />
-          <Label htmlFor={`shift-${item.value}`}>
-            {item.label}
-            <span className="text-label-13 text-content-secondary">{item.hint}</span>
-          </Label>
+    <RadioGroup defaultValue="dinner" aria-label="Shift" className="w-fit">
+      {shifts.map((shift) => (
+        <div key={shift.value} className="flex items-center gap-3">
+          <RadioGroupItem id={`radio-group-${shift.value}`} value={shift.value} />
+          <Label htmlFor={`radio-group-${shift.value}`}>{shift.label}</Label>
         </div>
       ))}
     </RadioGroup>

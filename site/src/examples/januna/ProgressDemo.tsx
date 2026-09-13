@@ -10,18 +10,9 @@ export default function ProgressDemo() {
   }, []);
 
   return (
-    <div className="flex w-full max-w-sm flex-col gap-6">
-      <Progress value={value}>
-        <ProgressLabel>Tables seated</ProgressLabel>
-        <ProgressValue />
-      </Progress>
-      <Progress value={38} max={50}>
-        <ProgressLabel>Guests arrived</ProgressLabel>
-        <ProgressValue>{(_, v) => `${v ?? 0} of 50`}</ProgressValue>
-      </Progress>
-      <Progress value={null}>
-        <ProgressLabel>Syncing bookings</ProgressLabel>
-      </Progress>
-    </div>
+    <Progress value={value} className="w-full max-w-sm">
+      <ProgressLabel>Reminders sent for Saturday dinner</ProgressLabel>
+      <ProgressValue />
+    </Progress>
   );
 }

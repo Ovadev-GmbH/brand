@@ -1,5 +1,6 @@
 import * as React from "react";
 import {
+  Badge,
   Item,
   ItemActions,
   ItemContent,
@@ -7,13 +8,12 @@ import {
   ItemGroup,
   ItemSeparator,
   ItemTitle,
-  StatusDot,
 } from "@ovadev-gmbh/ui-internal";
 
 const environments = [
-  { name: "Production", host: "acme-logistics.ova.dev", state: "ready" },
-  { name: "Staging", host: "acme-logistics.staging.ova.dev", state: "active" },
-  { name: "Preview", host: "pr-412.acme-logistics.preview.ova.dev", state: "error" },
+  { name: "Production", host: "acme-logistics.ova.dev", state: "Ready", variant: "secondary" },
+  { name: "Staging", host: "acme-logistics.staging.ova.dev", state: "Building", variant: "secondary" },
+  { name: "Preview", host: "pr-412.acme-logistics.preview.ova.dev", state: "Failed", variant: "destructive" },
 ] as const;
 
 export default function ItemGroupExample() {
@@ -28,7 +28,7 @@ export default function ItemGroupExample() {
               <ItemDescription className="text-label-12-mono">{env.host}</ItemDescription>
             </ItemContent>
             <ItemActions>
-              <StatusDot state={env.state} label titlePrefix={env.name} />
+              <Badge variant={env.variant}>{env.state}</Badge>
             </ItemActions>
           </Item>
         </React.Fragment>

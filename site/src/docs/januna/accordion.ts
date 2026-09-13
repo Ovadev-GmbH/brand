@@ -29,8 +29,8 @@ export default {
       example: "disabled",
     },
     {
-      title: "With Description",
-      text: "A `DescriptionList` in each panel sets out a booking's fields, grouped by topic, with times and amounts in mono. See [Description](/januna/description).",
+      title: "With Details",
+      text: "A plain `<dl>` in each panel sets out a booking's fields, grouped by topic: each `<dt>` in Label 13 and the secondary ink above its `<dd>`, with times and amounts in mono. It needs no component.",
       example: "description",
     },
     {

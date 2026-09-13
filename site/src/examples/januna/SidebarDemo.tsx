@@ -1,75 +1,85 @@
 import { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
+  BubbleChatIcon,
   Calendar03Icon,
-  Home01Icon,
+  Clock01Icon,
   RestaurantTableIcon,
-  Settings01Icon,
   UserGroupIcon,
 } from "@hugeicons/core-free-icons";
 import {
+  Separator,
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
+  SidebarInset,
   SidebarMenu,
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
+  SidebarTrigger,
 } from "@ovadev-gmbh/ui-januna";
 
-const items = [
-  { title: "Overview", icon: Home01Icon },
-  { title: "Bookings", icon: Calendar03Icon, badge: "42" },
-  { title: "Tables", icon: RestaurantTableIcon },
-  { title: "Guests", icon: UserGroupIcon },
-  { title: "Settings", icon: Settings01Icon },
+const groups = [
+  {
+    label: "Tonight",
+    pages: [
+      { title: "Bookings", icon: Calendar03Icon, badge: "42" },
+      { title: "Floor plan", icon: RestaurantTableIcon },
+      { title: "Waitlist", icon: Clock01Icon, badge: "3" },
+    ],
+  },
+  {
+    label: "Guests",
+    pages: [
+      { title: "Guest book", icon: UserGroupIcon },
+      { title: "Messages", icon: BubbleChatIcon, badge: "2" },
+    ],
+  },
 ];
 
 export default function SidebarDemo() {
   const [active, setActive] = useState("Bookings");
 
   return (
-    <SidebarProvider
-      style={{ minHeight: 0 }}
-      className="h-80 w-full max-w-xl overflow-hidden material-base"
-    >
-      <Sidebar collapsible="none" className="border-r border-divider">
+    // The sidebar is fixed to the viewport by default; absolute keeps it in this box.
+    <SidebarProvider className="relative h-96 min-h-0 w-full max-w-2xl overflow-hidden material-base">
+      <Sidebar className="absolute h-full">
         <SidebarHeader>
-          <div className="px-3 py-1 text-heading-14">Januna</div>
+          <span className="px-3 py-1 text-heading-14">Trattoria Sole</span>
         </SidebarHeader>
         <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Restaurant</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton
-                      isActive={active === item.title}
-                      onClick={() => setActive(item.title)}
-                    >
-                      <HugeiconsIcon icon={item.icon} strokeWidth={2} />
-                      <span>{item.title}</span>
-                    </SidebarMenuButton>
-                    {item.badge ? <SidebarMenuBadge>{item.badge}</SidebarMenuBadge> : null}
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+          {groups.map((group) => (
+            <SidebarGroup key={group.label}>
+              <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {group.pages.map((page) => (
+                    <SidebarMenuItem key={page.title}>
+                      <SidebarMenuButton isActive={page.title === active} onClick={() => setActive(page.title)}>
+                        <HugeiconsIcon icon={page.icon} strokeWidth={2} />
+                        <span>{page.title}</span>
+                      </SidebarMenuButton>
+                      {page.badge ? <SidebarMenuBadge>{page.badge}</SidebarMenuBadge> : null}
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          ))}
         </SidebarContent>
-        <SidebarFooter>
-          <div className="px-3 py-1 text-label-12 text-content-secondary">Trattoria Sole, Zurich</div>
-        </SidebarFooter>
       </Sidebar>
-      <main className="flex flex-1 items-center justify-center bg-surface-primary p-6">
-        <span className="text-label-13 text-content-secondary">{active}</span>
-      </main>
+      <SidebarInset>
+        <header className="flex h-14 items-center gap-2 border-b border-divider px-4">
+          <SidebarTrigger />
+          <Separator orientation="vertical" className="data-vertical:h-4 data-vertical:self-auto" />
+          <h2 className="text-heading-16">{active}</h2>
+        </header>
+      </SidebarInset>
     </SidebarProvider>
   );
 }

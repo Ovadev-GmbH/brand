@@ -2,21 +2,15 @@ import { Separator } from "@ovadev-gmbh/ui-januna";
 
 export default function SeparatorDemo() {
   return (
-    <div className="w-full max-w-sm">
-      <div className="grid gap-1">
-        <span className="text-heading-14">Dinner shift</span>
-        <p className="text-copy-13 text-content-secondary">
-          Friday, 18:00 to 23:00. 42 bookings, 118 covers.
-        </p>
+    <div className="flex w-full max-w-sm flex-col gap-4">
+      <div className="flex flex-col gap-1">
+        <h3 className="text-heading-16">Friday dinner</h3>
+        <p className="text-copy-14 text-content-secondary">The evening's service, 18:00 to 23:00.</p>
       </div>
-      <Separator className="my-4" />
-      <div className="flex h-5 items-center gap-4 text-label-13">
-        <span>Floor plan</span>
-        <Separator orientation="vertical" />
-        <span>Waitlist</span>
-        <Separator orientation="vertical" />
-        <span>No-shows</span>
-      </div>
+      <Separator />
+      <p className="text-copy-14">
+        Marta hosts tonight. The terrace opens at 19:00 if it stays dry, and T12 is held for the Keller party of 6.
+      </p>
     </div>
   );
 }

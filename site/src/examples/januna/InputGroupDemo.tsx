@@ -1,53 +1,17 @@
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "@ovadev-gmbh/ui-januna";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { ArrowRight01Icon, Mail01Icon, Search01Icon } from "@hugeicons/core-free-icons";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-  InputGroupText,
-  InputGroupTextarea,
-} from "@ovadev-gmbh/ui-januna";
+import { Search01Icon } from "@hugeicons/core-free-icons";
 
 export default function InputGroupDemo() {
   return (
-    <div className="grid w-full max-w-xl gap-4">
-      <InputGroup>
-        <InputGroupInput
-          aria-label="Search bookings"
-          placeholder="Search bookings, guests, tables…"
-        />
-        <InputGroupAddon>
-          <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
-        </InputGroupAddon>
-        <InputGroupAddon align="inline-end">
-          <InputGroupText>128 results</InputGroupText>
-        </InputGroupAddon>
-      </InputGroup>
-      <InputGroup>
-        <InputGroupInput type="email" aria-label="Guest email" placeholder="guest@example.com" />
-        <InputGroupAddon>
-          <HugeiconsIcon icon={Mail01Icon} strokeWidth={2} />
-        </InputGroupAddon>
-        <InputGroupAddon align="inline-end">
-          <InputGroupButton>
-            Invite
-            <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} />
-          </InputGroupButton>
-        </InputGroupAddon>
-      </InputGroup>
-      <InputGroup>
-        <InputGroupTextarea
-          aria-label="Note for the kitchen"
-          placeholder="Note for the kitchen: allergies, a birthday, a window table…"
-        />
-        <InputGroupAddon align="block-end">
-          <InputGroupText>0 / 280</InputGroupText>
-          <InputGroupButton className="ml-auto" variant="default" size="xs">
-            Save note
-          </InputGroupButton>
-        </InputGroupAddon>
-      </InputGroup>
-    </div>
+    <InputGroup className="w-full max-w-sm">
+      <InputGroupInput aria-label="Search tonight's guests" placeholder="Search tonight's guests" />
+      <InputGroupAddon>
+        <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
+      </InputGroupAddon>
+      <InputGroupAddon align="inline-end">
+        <InputGroupText>12 guests</InputGroupText>
+      </InputGroupAddon>
+    </InputGroup>
   );
 }

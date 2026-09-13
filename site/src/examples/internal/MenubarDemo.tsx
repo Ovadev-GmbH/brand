@@ -1,11 +1,8 @@
 import {
   Menubar,
-  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
   MenubarSeparator,
   MenubarShortcut,
   MenubarTrigger,
@@ -15,39 +12,40 @@ export default function MenubarDemo() {
   return (
     <Menubar className="w-max">
       <MenubarMenu>
-        <MenubarTrigger>Tenants</MenubarTrigger>
+        <MenubarTrigger>Invoice</MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
-            New tenant
-            <MenubarShortcut>⌘N</MenubarShortcut>
+            New invoice <MenubarShortcut>⌘N</MenubarShortcut>
           </MenubarItem>
-          <MenubarItem>Import from CSV</MenubarItem>
+          <MenubarItem>
+            Duplicate <MenubarShortcut>⌘D</MenubarShortcut>
+          </MenubarItem>
           <MenubarSeparator />
-          <MenubarItem>Export list</MenubarItem>
+          <MenubarItem>Download PDF</MenubarItem>
+          <MenubarItem>Send to tenant</MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger>Edit</MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem>
+            Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>
+            Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+          </MenubarItem>
+          <MenubarSeparator />
+          <MenubarItem>Add line item</MenubarItem>
+          <MenubarItem>Apply credit</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
         <MenubarTrigger>View</MenubarTrigger>
         <MenubarContent>
-          <MenubarCheckboxItem defaultChecked>Show archived</MenubarCheckboxItem>
-          <MenubarCheckboxItem>Show trial tenants</MenubarCheckboxItem>
-          <MenubarSeparator />
-          <MenubarRadioGroup defaultValue="compact">
-            <MenubarRadioItem value="compact">Compact rows</MenubarRadioItem>
-            <MenubarRadioItem value="comfortable">Comfortable rows</MenubarRadioItem>
-          </MenubarRadioGroup>
-        </MenubarContent>
-      </MenubarMenu>
-      <MenubarMenu>
-        <MenubarTrigger>Deploy</MenubarTrigger>
-        <MenubarContent>
           <MenubarItem>
-            Redeploy
-            <MenubarShortcut>⌘R</MenubarShortcut>
+            PDF preview <MenubarShortcut>⌘P</MenubarShortcut>
           </MenubarItem>
-          <MenubarItem>Roll back</MenubarItem>
-          <MenubarSeparator />
-          <MenubarItem variant="destructive">Cancel running build</MenubarItem>
+          <MenubarItem>Audit trail</MenubarItem>
         </MenubarContent>
       </MenubarMenu>
     </Menubar>

@@ -1,7 +1,5 @@
 import {
   Button,
-  Input,
-  Label,
   Sheet,
   SheetClose,
   SheetContent,
@@ -10,50 +8,35 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-  Textarea,
 } from "@ovadev-gmbh/ui-januna";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { UserIcon } from "@hugeicons/core-free-icons";
+
+const facts = [
+  ["Time", "19:30"],
+  ["Table", "T12"],
+  ["Party", "6"],
+  ["Deposit", "CHF 120.00"],
+] as const;
 
 export default function SheetDemo() {
   return (
     <Sheet>
-      <SheetTrigger render={<Button variant="outline" />}>
-        <HugeiconsIcon icon={UserIcon} strokeWidth={2} />
-        Edit guest
-      </SheetTrigger>
+      <SheetTrigger render={<Button variant="outline" />}>Open booking</SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>Guest profile</SheetTitle>
-          <SheetDescription>
-            Details, preferences and allergies travel with every booking this
-            guest makes.
-          </SheetDescription>
+          <SheetTitle>Nora Keller, party of 6</SheetTitle>
+          <SheetDescription>Tonight on the terrace. A birthday, and one guest has a nut allergy.</SheetDescription>
         </SheetHeader>
-        <div className="grid flex-1 auto-rows-min gap-5 px-8">
-          <div className="grid gap-2">
-            <Label htmlFor="sheet-name">Name</Label>
-            <Input id="sheet-name" defaultValue="Nora Keller" />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="sheet-email">Email</Label>
-            <Input
-              id="sheet-email"
-              type="email"
-              defaultValue="nora.keller@example.com"
-            />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="sheet-notes">Notes for the floor</Label>
-            <Textarea
-              id="sheet-notes"
-              defaultValue="Prefers the window tables. Nut allergy."
-            />
-          </div>
-        </div>
+        <dl className="m-0 grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 px-8">
+          {facts.map(([term, value]) => (
+            <div key={term} className="contents">
+              <dt className="text-label-14 text-content-secondary">{term}</dt>
+              <dd className="m-0 text-label-14-mono">{value}</dd>
+            </div>
+          ))}
+        </dl>
         <SheetFooter>
-          <Button>Save changes</Button>
-          <SheetClose render={<Button variant="outline" />}>Cancel</SheetClose>
+          <Button>Seat guests</Button>
+          <SheetClose render={<Button variant="outline" />}>Close</SheetClose>
         </SheetFooter>
       </SheetContent>
     </Sheet>

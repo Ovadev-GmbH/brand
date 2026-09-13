@@ -1,47 +1,31 @@
 import {
   Button,
   ButtonGroup,
-  ButtonGroupSeparator,
-  ButtonGroupText,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@ovadev-gmbh/ui-januna";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Add01Icon, ArrowDown01Icon, UserGroupIcon } from "@hugeicons/core-free-icons";
+import { MoreHorizontalIcon } from "@hugeicons/core-free-icons";
 
 export default function ButtonGroupDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <ButtonGroup>
-        <Button variant="outline">Lunch</Button>
-        <Button variant="outline">Dinner</Button>
-        <Button variant="outline">Late</Button>
-      </ButtonGroup>
-      <ButtonGroup>
-        <ButtonGroupText>
-          <HugeiconsIcon icon={UserGroupIcon} strokeWidth={2} />
-          Guests
-        </ButtonGroupText>
-        <Button variant="outline" size="icon" aria-label="Add guest">
-          <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
-        </Button>
-      </ButtonGroup>
-      <ButtonGroup>
-        <Button>Confirm booking</Button>
-        <ButtonGroupSeparator />
-        <DropdownMenu>
-          <DropdownMenuTrigger render={<Button size="icon" aria-label="More ways to confirm" />}>
-            <HugeiconsIcon icon={ArrowDown01Icon} strokeWidth={2} />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuItem>Confirm and send SMS</DropdownMenuItem>
-            <DropdownMenuItem>Confirm and seat now</DropdownMenuItem>
-            <DropdownMenuItem>Confirm without notifying</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </ButtonGroup>
-    </div>
+    <ButtonGroup aria-label="Table T12">
+      <Button variant="outline">Seat</Button>
+      <Button variant="outline">Release</Button>
+      <DropdownMenu>
+        <DropdownMenuTrigger render={<Button variant="outline" size="icon" aria-label="More for T12" />}>
+          <HugeiconsIcon icon={MoreHorizontalIcon} strokeWidth={2} />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end" className="w-56">
+          <DropdownMenuItem>Move to another table</DropdownMenuItem>
+          <DropdownMenuItem>Add a note</DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem variant="destructive">Mark as no-show</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </ButtonGroup>
   );
 }

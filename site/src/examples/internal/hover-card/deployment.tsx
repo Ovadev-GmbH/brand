@@ -1,4 +1,4 @@
-import { HoverCard, HoverCardContent, HoverCardTrigger, StatusDot } from "@ovadev-gmbh/ui-internal";
+import { Badge, HoverCard, HoverCardContent, HoverCardTrigger } from "@ovadev-gmbh/ui-internal";
 
 const facts = [
   ["Commit", "8e1b3d7"],
@@ -23,7 +23,7 @@ export default function HoverCardDeployment() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <span className="text-label-13-mono">dpl_4f2c91</span>
-              <StatusDot state="ready" label titlePrefix="This deployment" />
+              <Badge variant="secondary">Ready</Badge>
             </div>
             <dl className="m-0 flex flex-col gap-1.5">
               {facts.map(([term, value]) => (

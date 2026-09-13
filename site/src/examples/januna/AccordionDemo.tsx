@@ -7,32 +7,26 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <Accordion className="max-w-xl" defaultValue={["tables"]}>
-      <AccordionItem value="tables">
-        <AccordionTrigger>How do I assign a table?</AccordionTrigger>
+    <Accordion defaultValue={["cancellations"]} className="w-full max-w-md">
+      <AccordionItem value="cancellations">
+        <AccordionTrigger>Cancellations</AccordionTrigger>
         <AccordionContent>
-          <p>
-            Open the booking and pick a table from the floor plan. Januna only
-            shows tables that fit the party size and are free for the whole slot.
-          </p>
+          Guests can cancel free of charge until 24 hours before their booking. After that, the deposit
+          stays with the restaurant.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="guests">
-        <AccordionTrigger>Can guests change their own booking?</AccordionTrigger>
+      <AccordionItem value="deposits">
+        <AccordionTrigger>Deposits</AccordionTrigger>
         <AccordionContent>
-          <p>
-            Yes. The confirmation email carries a link where guests can move the
-            time, adjust the party size or cancel up to two hours before service.
-          </p>
+          Parties of six or more pay CHF 20.00 per guest when they book. It comes off the bill on the
+          evening.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="shifts">
-        <AccordionTrigger>What is a shift?</AccordionTrigger>
+      <AccordionItem value="late">
+        <AccordionTrigger>Late arrivals</AccordionTrigger>
         <AccordionContent>
-          <p>
-            A shift is a block of service such as lunch or dinner. Each shift has
-            its own opening hours, capacity and turn time.
-          </p>
+          We hold the table for 15 minutes. After that it may go to the waitlist, and the guest gets a
+          short message.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

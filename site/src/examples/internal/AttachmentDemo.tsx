@@ -1,19 +1,19 @@
-import { FileSpreadsheetIcon, FileTextIcon, FileArchiveIcon, XIcon } from "lucide-react";
+import { FileTextIcon, XIcon } from "lucide-react";
 import {
   Attachment,
   AttachmentAction,
   AttachmentActions,
   AttachmentContent,
   AttachmentDescription,
-  AttachmentGroup,
   AttachmentMedia,
   AttachmentTitle,
+  Spinner,
 } from "@ovadev-gmbh/ui-internal";
 
 export default function AttachmentDemo() {
   return (
-    <AttachmentGroup className="w-full max-w-xl">
-      <Attachment>
+    <div className="flex w-full max-w-sm flex-col gap-2">
+      <Attachment className="w-full">
         <AttachmentMedia>
           <FileTextIcon />
         </AttachmentMedia>
@@ -22,29 +22,27 @@ export default function AttachmentDemo() {
           <AttachmentDescription className="text-label-12-mono">84 KB</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Remove">
+          <AttachmentAction aria-label="Remove INV-2026-0142.pdf">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>
       </Attachment>
-      <Attachment state="uploading">
+      <Attachment state="uploading" className="w-full">
         <AttachmentMedia>
-          <FileSpreadsheetIcon />
+          <Spinner />
         </AttachmentMedia>
         <AttachmentContent>
           <AttachmentTitle>audit-log-2026-09.csv</AttachmentTitle>
-          <AttachmentDescription className="text-label-12-mono">Uploading, 64%</AttachmentDescription>
+          <AttachmentDescription>
+            Uploading, <span className="text-label-12-mono">64%</span>
+          </AttachmentDescription>
         </AttachmentContent>
+        <AttachmentActions>
+          <AttachmentAction aria-label="Cancel upload of audit-log-2026-09.csv">
+            <XIcon />
+          </AttachmentAction>
+        </AttachmentActions>
       </Attachment>
-      <Attachment size="sm">
-        <AttachmentMedia>
-          <FileArchiveIcon />
-        </AttachmentMedia>
-        <AttachmentContent>
-          <AttachmentTitle>d-8f3a21c-logs.zip</AttachmentTitle>
-          <AttachmentDescription className="text-label-12-mono">2.3 MB</AttachmentDescription>
-        </AttachmentContent>
-      </Attachment>
-    </AttachmentGroup>
+    </div>
   );
 }

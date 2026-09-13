@@ -4,34 +4,21 @@ import {
   QuestionnaireChoice,
   QuestionnaireChoiceDescription,
   QuestionnaireChoices,
-  QuestionnaireDescription,
   QuestionnaireError,
-  QuestionnaireInput,
   QuestionnaireItem,
   QuestionnaireNext,
   QuestionnairePrevious,
   QuestionnaireProgress,
-  QuestionnaireSkip,
   QuestionnaireSubmit,
   QuestionnaireTitle,
 } from "@ovadev-gmbh/ui-internal";
 
 export default function QuestionnaireDemo() {
   return (
-    <Questionnaire
-      className="w-full max-w-xl"
-      shortcuts="letters"
-      onSubmit={(event) => {
-        event.preventDefault();
-      }}
-    >
+    <Questionnaire className="w-full max-w-md" onSubmit={(event) => event.preventDefault()}>
       <QuestionnaireProgress />
-
       <QuestionnaireItem name="severity" required>
         <QuestionnaireTitle>How severe is the incident?</QuestionnaireTitle>
-        <QuestionnaireDescription>
-          P1 pages the on-call engineer immediately.
-        </QuestionnaireDescription>
         <QuestionnaireChoices>
           <QuestionnaireChoice value="p1">
             P1
@@ -41,39 +28,26 @@ export default function QuestionnaireDemo() {
             P2
             <QuestionnaireChoiceDescription>Degraded, with a workaround.</QuestionnaireChoiceDescription>
           </QuestionnaireChoice>
-          <QuestionnaireChoice value="p3">P3</QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>Pick a severity to continue.</QuestionnaireError>
-        <QuestionnaireActions>
-          <QuestionnairePrevious />
-          <QuestionnaireNext />
-        </QuestionnaireActions>
+        <QuestionnaireError>Choose a severity.</QuestionnaireError>
       </QuestionnaireItem>
-
-      <QuestionnaireItem name="affected" multiple>
-        <QuestionnaireTitle>Which systems are affected?</QuestionnaireTitle>
-        <QuestionnaireDescription>Pick all that apply.</QuestionnaireDescription>
+      <QuestionnaireItem name="region" required>
+        <QuestionnaireTitle>Which region is affected?</QuestionnaireTitle>
         <QuestionnaireChoices>
-          <QuestionnaireChoice value="api">Public API</QuestionnaireChoice>
-          <QuestionnaireChoice value="billing">Billing and invoices</QuestionnaireChoice>
-          <QuestionnaireChoice value="deploys">Deployments</QuestionnaireChoice>
+          <QuestionnaireChoice value="ch-zrh-1">
+            <span className="text-label-13-mono">ch-zrh-1</span>
+          </QuestionnaireChoice>
+          <QuestionnaireChoice value="eu-central-1">
+            <span className="text-label-13-mono">eu-central-1</span>
+          </QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireActions>
-          <QuestionnairePrevious />
-          <QuestionnaireSkip />
-          <QuestionnaireNext />
-        </QuestionnaireActions>
+        <QuestionnaireError>Choose a region.</QuestionnaireError>
       </QuestionnaireItem>
-
-      <QuestionnaireItem name="tenant" required>
-        <QuestionnaireTitle>Which tenant reported it?</QuestionnaireTitle>
-        <QuestionnaireInput placeholder="acme-gmbh" autoComplete="off" />
-        <QuestionnaireError>Name the tenant so support can follow up.</QuestionnaireError>
-        <QuestionnaireActions>
-          <QuestionnairePrevious />
-          <QuestionnaireSubmit>Open incident</QuestionnaireSubmit>
-        </QuestionnaireActions>
-      </QuestionnaireItem>
+      <QuestionnaireActions>
+        <QuestionnairePrevious />
+        <QuestionnaireNext />
+        <QuestionnaireSubmit>Open incident</QuestionnaireSubmit>
+      </QuestionnaireActions>
     </Questionnaire>
   );
 }

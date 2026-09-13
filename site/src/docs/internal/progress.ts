@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "How far a job with a known end has come: an invoice run, a migration, an export. For how much of a limit is used, a ratio rather than a job, use [Gauge](/internal/gauge).",
+    "How far a job with a known end has come: an invoice run, a migration, an export. How much of a limit is used, a ratio rather than a job, is a progress bar too: the label names the limit and the value prints the count against it, such as 38 of 40 seats.",
   usage: `<Progress value={64}>
   <ProgressLabel>Invoice run, September 2026</ProgressLabel>
   <ProgressValue />

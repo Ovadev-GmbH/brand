@@ -7,49 +7,46 @@ import {
   MessageAvatar,
   MessageContent,
   MessageFooter,
-  MessageGroup,
-  MessageHeader,
 } from "@ovadev-gmbh/ui-internal";
 
 export default function MessageDemo() {
   return (
-    <MessageGroup className="w-full max-w-xl">
+    <div className="flex w-full max-w-md flex-col gap-4">
       <Message>
+        <MessageAvatar>
+          <Avatar>
+            <AvatarFallback>AR</AvatarFallback>
+          </Avatar>
+        </MessageAvatar>
+        <MessageContent>
+          <Bubble variant="muted">
+            <BubbleContent>
+              Invoice <span className="text-copy-13-mono">INV-2026-0142</span> lists 14 seats. We only have 12.
+            </BubbleContent>
+          </Bubble>
+        </MessageContent>
+      </Message>
+      <Message align="end">
         <MessageAvatar>
           <Avatar>
             <AvatarFallback>LK</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
-          <MessageHeader>l.keller, support</MessageHeader>
-          <Bubble variant="muted">
+          <Bubble>
             <BubbleContent>
-              Tenant acme-gmbh reports 502s on the invoices endpoint since the 08:30 deploy.
+              You are right. Credit note <span className="text-copy-13-mono">CN-2026-0031</span> for{" "}
+              <span className="text-copy-13-mono">CHF 177.14</span> is on its way.
             </BubbleContent>
           </Bubble>
-          <MessageFooter>
-            <span className="text-label-12-mono">08:41</span>
+          <MessageFooter className="gap-1">
+            <span>Read</span>
+            <time dateTime="2026-09-14T09:15+02:00" className="text-label-12-mono">
+              09:15
+            </time>
           </MessageFooter>
         </MessageContent>
       </Message>
-      <Message align="end">
-        <MessageAvatar>
-          <Avatar>
-            <AvatarFallback>RM</AvatarFallback>
-          </Avatar>
-        </MessageAvatar>
-        <MessageContent>
-          <MessageHeader>r.markant, ops</MessageHeader>
-          <Bubble align="end">
-            <BubbleContent>
-              Confirmed, d-8f3a21c is being rolled back. Opening INC-0413.
-            </BubbleContent>
-          </Bubble>
-          <MessageFooter>
-            <span className="text-label-12-mono">08:44</span>
-          </MessageFooter>
-        </MessageContent>
-      </Message>
-    </MessageGroup>
+    </div>
   );
 }

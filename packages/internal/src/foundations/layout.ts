@@ -19,7 +19,7 @@ export const RADIUS: Token[] = [
   { token: "radius-large", value: "0px", use: "Menus, larger cards: square." },
   { token: "radius-modal", value: "0px", use: "Dialogs and sheets: square." },
   { token: "radius-section", value: "0px", use: "Sections and panels: square." },
-  { token: "radius-pill", value: "9999px", use: "Status dots, avatars, switches. Nothing else." },
+  { token: "radius-pill", value: "9999px", use: "Avatars and switches. Nothing else." },
 ];
 
 export const MOTION: Token[] = [

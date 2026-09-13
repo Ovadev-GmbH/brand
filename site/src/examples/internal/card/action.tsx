@@ -1,4 +1,5 @@
 import {
+  Badge,
   Button,
   Card,
   CardAction,
@@ -11,7 +12,6 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  StatusDot,
 } from "@ovadev-gmbh/ui-internal";
 import { EllipsisIcon } from "lucide-react";
 
@@ -36,7 +36,7 @@ export default function CardWithAction() {
         </CardAction>
       </CardHeader>
       <CardContent className="flex items-center justify-between gap-3">
-        <StatusDot state="ready" label titlePrefix="The last delivery" />
+        <Badge variant="secondary">Delivered</Badge>
         <span className="text-label-13-mono text-content-secondary">2026-09-13 14:02 UTC, 200 in 184 ms</span>
       </CardContent>
     </Card>

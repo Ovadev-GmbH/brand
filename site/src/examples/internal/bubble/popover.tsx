@@ -1,7 +1,6 @@
 import {
   Bubble,
   BubbleContent,
-  Description,
   Popover,
   PopoverContent,
   PopoverDescription,
@@ -27,15 +26,20 @@ export default function BubblePopover() {
               <PopoverTitle>Delivery failed</PopoverTitle>
               <PopoverDescription>The receiving server refused the message.</PopoverDescription>
             </PopoverHeader>
-            <div className="grid grid-cols-2 gap-3">
-              <Description title="SMTP code" content={<span className="text-label-13-mono">552</span>} />
-              <Description title="Attempts" content={<span className="text-label-13-mono">3</span>} />
-              <Description
-                className="col-span-2"
-                title="Last attempt"
-                content={<span className="text-label-13-mono">2026-09-13 08:14 CEST</span>}
-              />
-            </div>
+            <dl className="m-0 grid grid-cols-2 gap-3">
+              <div className="flex flex-col gap-1">
+                <dt className="text-label-12 text-content-secondary">SMTP code</dt>
+                <dd className="m-0 text-label-13-mono text-content-primary">552</dd>
+              </div>
+              <div className="flex flex-col gap-1">
+                <dt className="text-label-12 text-content-secondary">Attempts</dt>
+                <dd className="m-0 text-label-13-mono text-content-primary">3</dd>
+              </div>
+              <div className="col-span-2 flex flex-col gap-1">
+                <dt className="text-label-12 text-content-secondary">Last attempt</dt>
+                <dd className="m-0 text-label-13-mono text-content-primary">2026-09-13 08:14 CEST</dd>
+              </div>
+            </dl>
           </PopoverContent>
         </Popover>
       </Bubble>

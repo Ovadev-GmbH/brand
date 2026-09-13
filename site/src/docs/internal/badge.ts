@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A short label on something unlike its neighbours: Beta, Trial, Overdue. A state that every row has is a [Status Dot](/internal/status-dot) with its word, not a column of badges.",
+    "A short label on something unlike its neighbours: Beta, Trial, Overdue. A record's state is a badge with its word, such as Building or Failed; in a table where every row has one, write the word in its status colour rather than a column of badges.",
   usage: `<Badge variant="secondary">Beta</Badge>`,
   sections: [
     { title: "Default", text: "Black carrying white, for the one label in view that must be read first.", example: "default" },

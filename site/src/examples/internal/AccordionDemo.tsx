@@ -7,35 +7,25 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <Accordion className="max-w-xl" defaultValue={["timeline"]}>
-      <AccordionItem value="timeline">
-        <AccordionTrigger>Timeline</AccordionTrigger>
+    <Accordion defaultValue={["deployment"]} className="w-full max-w-md">
+      <AccordionItem value="deployment">
+        <AccordionTrigger>A deployment failed</AccordionTrigger>
         <AccordionContent>
-          <p className="text-content-secondary">
-            <span className="text-label-13-mono">09:14</span> Alert fired on
-            api-eu-1 p99 latency. <span className="text-label-13-mono">09:21</span>{" "}
-            Traffic drained to api-eu-2.{" "}
-            <span className="text-label-13-mono">09:48</span> Rollback of
-            deploy #4821 complete.
-          </p>
+          Open the build log from the deployment. If a migration failed, roll back to the last live
+          deployment before you retry.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="root-cause">
-        <AccordionTrigger>Root cause</AccordionTrigger>
+      <AccordionItem value="quota">
+        <AccordionTrigger>A tenant hit its API quota</AccordionTrigger>
         <AccordionContent>
-          <p className="text-content-secondary">
-            A migration added an unindexed column filter to the invoices query.
-            Under load the planner fell back to a sequential scan.
-          </p>
+          Requests return <span className="text-label-13-mono">429</span> until the window resets at{" "}
+          <span className="text-label-13-mono">00:00 UTC</span>. Raise the quota only once billing has agreed.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="action-items">
-        <AccordionTrigger>Action items</AccordionTrigger>
+      <AccordionItem value="invoices">
+        <AccordionTrigger>An invoice run stopped</AccordionTrigger>
         <AccordionContent>
-          <p className="text-content-secondary">
-            Add the index before the next invoice run. Gate migrations on an
-            EXPLAIN check in CI. Owner: platform team, due 19 Sep.
-          </p>
+          Restart it from Billing. The run resumes after the last invoice it wrote, so no number is skipped.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

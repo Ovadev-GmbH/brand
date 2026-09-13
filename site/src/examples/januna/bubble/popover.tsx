@@ -3,7 +3,6 @@ import { AlertCircleIcon } from "@hugeicons/core-free-icons";
 import {
   Bubble,
   BubbleContent,
-  Description,
   Popover,
   PopoverContent,
   PopoverDescription,
@@ -28,11 +27,20 @@ export default function BubblePopover() {
               <PopoverTitle>Text message not delivered</PopoverTitle>
               <PopoverDescription>The phone network did not accept the message.</PopoverDescription>
             </PopoverHeader>
-            <div className="grid grid-cols-2 gap-3">
-              <Description title="Channel" content="Text message" />
-              <Description title="Attempts" content="3" />
-              <Description className="col-span-2" title="Last attempt" content="Friday 12 September, 18:04" />
-            </div>
+            <dl className="m-0 grid grid-cols-2 gap-3">
+              <div className="flex flex-col gap-1">
+                <dt className="text-label-13 text-content-secondary">Channel</dt>
+                <dd className="m-0 text-label-14 text-content-primary">Text message</dd>
+              </div>
+              <div className="flex flex-col gap-1">
+                <dt className="text-label-13 text-content-secondary">Attempts</dt>
+                <dd className="m-0 text-label-13-mono text-content-primary">3</dd>
+              </div>
+              <div className="col-span-2 flex flex-col gap-1">
+                <dt className="text-label-13 text-content-secondary">Last attempt</dt>
+                <dd className="m-0 text-label-14 text-content-primary">Friday 12 September, 18:04</dd>
+              </div>
+            </dl>
           </PopoverContent>
         </Popover>
       </Bubble>

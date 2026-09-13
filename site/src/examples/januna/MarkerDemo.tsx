@@ -1,24 +1,33 @@
 import { Marker, MarkerContent, MarkerIcon } from "@ovadev-gmbh/ui-januna";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Clock01Icon, UserGroupIcon } from "@hugeicons/core-free-icons";
+import { Calendar03Icon, CheckmarkCircle02Icon, SmartPhone01Icon } from "@hugeicons/core-free-icons";
 
 export default function MarkerDemo() {
   return (
-    <div className="flex w-full max-w-sm flex-col gap-6">
+    <div className="flex w-full max-w-md flex-col gap-3">
       <Marker>
         <MarkerIcon>
-          <HugeiconsIcon icon={UserGroupIcon} strokeWidth={2} />
+          <HugeiconsIcon icon={Calendar03Icon} strokeWidth={2} />
         </MarkerIcon>
-        <MarkerContent>Party of 6, patio requested</MarkerContent>
+        <MarkerContent>
+          Booked online on Monday for <span className="text-label-13-mono">19:30</span>, party of 6
+        </MarkerContent>
       </Marker>
-      <Marker variant="separator">
-        <MarkerContent>Dinner shift · 18:00</MarkerContent>
-      </Marker>
-      <Marker variant="border">
+      <Marker>
         <MarkerIcon>
-          <HugeiconsIcon icon={Clock01Icon} strokeWidth={2} />
+          <HugeiconsIcon icon={SmartPhone01Icon} strokeWidth={2} />
         </MarkerIcon>
-        <MarkerContent>Last seating at 21:30</MarkerContent>
+        <MarkerContent>
+          Reminder sent by SMS at <span className="text-label-13-mono">12:00</span>
+        </MarkerContent>
+      </Marker>
+      <Marker>
+        <MarkerIcon>
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} strokeWidth={2} />
+        </MarkerIcon>
+        <MarkerContent>
+          Seated at T12 at <span className="text-label-13-mono">19:34</span>
+        </MarkerContent>
       </Marker>
     </div>
   );

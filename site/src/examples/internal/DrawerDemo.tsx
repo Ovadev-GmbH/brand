@@ -12,25 +12,22 @@ import {
 
 export default function DrawerDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <Drawer showSwipeHandle>
-        <DrawerTrigger render={<Button variant="outline" />}>
-          Rollback deployment
-        </DrawerTrigger>
-        <DrawerContent>
+    <Drawer>
+      <DrawerTrigger render={<Button variant="outline" />}>Roll back</DrawerTrigger>
+      <DrawerContent>
+        <div className="mx-auto flex w-full max-w-sm flex-col gap-4">
           <DrawerHeader>
             <DrawerTitle>Roll back to dpl_7c21?</DrawerTitle>
             <DrawerDescription>
-              Production for acme-logistics returns to the build from
-              2026-09-11 14:02. Traffic switches over in about 20 seconds.
+              Production for acme-logistics in ch-zrh-1 returns to the build from 2026-09-11 14:02 CEST.
             </DrawerDescription>
           </DrawerHeader>
           <DrawerFooter>
             <Button>Roll back</Button>
             <DrawerClose render={<Button variant="outline" />}>Cancel</DrawerClose>
           </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-    </div>
+        </div>
+      </DrawerContent>
+    </Drawer>
   );
 }

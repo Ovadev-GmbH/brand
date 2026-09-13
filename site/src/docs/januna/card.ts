@@ -56,7 +56,7 @@ export default {
     },
     {
       title: "When Not to Use",
-      text: "Do not put a card in a card, or a card around a table or a section that a heading and air already set apart. Figures above a table are one row of `Description`s, not a row of cards.",
+      text: "Do not put a card in a card, or a card around a table or a section that a heading and air already set apart. Figures above a table are one `<dl>` laid out in a row, not a row of cards.",
     },
   ],
   api: [

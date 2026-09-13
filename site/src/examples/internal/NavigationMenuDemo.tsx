@@ -8,54 +8,45 @@ import {
   navigationMenuTriggerStyle,
 } from "@ovadev-gmbh/ui-internal";
 
-const tenantLinks = [
-  ["All tenants", "412 active"],
-  ["Trials", "27 expiring this week"],
-  ["Suspended", "3 past due"],
-] as const;
-
-const billingLinks = [
-  ["Invoices", "18 open"],
-  ["Plans", "Starter, Scale, Enterprise"],
-  ["Payouts", "Next run 2026-09-15"],
-] as const;
+const sections = [
+  {
+    label: "Tenants",
+    links: [
+      { href: "#tenants", name: "All tenants" },
+      { href: "#trials", name: "Trials" },
+      { href: "#suspended", name: "Suspended" },
+    ],
+  },
+  {
+    label: "Billing",
+    links: [
+      { href: "#invoices", name: "Invoices" },
+      { href: "#plans", name: "Plans" },
+      { href: "#payouts", name: "Payouts" },
+    ],
+  },
+];
 
 export default function NavigationMenuDemo() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
+        {sections.map((section) => (
+          <NavigationMenuItem key={section.label}>
+            <NavigationMenuTrigger>{section.label}</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="m-0 grid w-48 list-none gap-0.5 p-0">
+                {section.links.map((link) => (
+                  <li key={link.href}>
+                    <NavigationMenuLink href={link.href}>{link.name}</NavigationMenuLink>
+                  </li>
+                ))}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        ))}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Tenants</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-56 gap-0.5">
-              {tenantLinks.map(([label, meta]) => (
-                <li key={label}>
-                  <NavigationMenuLink href="#" className="flex-col items-start gap-0.5">
-                    <span className="text-label-13">{label}</span>
-                    <span className="text-copy-13 text-content-secondary">{meta}</span>
-                  </NavigationMenuLink>
-                </li>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Billing</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-56 gap-0.5">
-              {billingLinks.map(([label, meta]) => (
-                <li key={label}>
-                  <NavigationMenuLink href="#" className="flex-col items-start gap-0.5">
-                    <span className="text-label-13">{label}</span>
-                    <span className="text-copy-13 text-content-secondary">{meta}</span>
-                  </NavigationMenuLink>
-                </li>
-              ))}
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink href="#" className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink href="#audit-log" className={navigationMenuTriggerStyle()}>
             Audit log
           </NavigationMenuLink>
         </NavigationMenuItem>

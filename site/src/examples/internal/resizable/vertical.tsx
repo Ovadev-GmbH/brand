@@ -1,4 +1,4 @@
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup, StatusDot } from "@ovadev-gmbh/ui-internal";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@ovadev-gmbh/ui-internal";
 
 const log = [
   "14:03:04 rollout ch-zrh-1/billing-c3d8 GET /healthz 200",
@@ -14,8 +14,7 @@ export default function ResizableVertical() {
         <div className="flex h-full flex-col gap-2 p-4">
           <h3 className="text-heading-16">Deployment d-8f3a21c</h3>
           <div className="flex items-center gap-2 text-label-13">
-            <StatusDot state="ready" />
-            <span>Live in production</span>
+            <span className="text-status-success">Live in production</span>
             <span className="text-label-13-mono text-content-secondary">ch-zrh-1</span>
           </div>
         </div>

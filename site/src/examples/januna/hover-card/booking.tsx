@@ -1,4 +1,4 @@
-import { HoverCard, HoverCardContent, HoverCardTrigger, StatusDot } from "@ovadev-gmbh/ui-januna";
+import { Badge, HoverCard, HoverCardContent, HoverCardTrigger } from "@ovadev-gmbh/ui-januna";
 
 const facts = [
   ["Time", "20:15"],
@@ -23,7 +23,7 @@ export default function HoverCardBooking() {
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between gap-4">
               <span className="text-heading-14">Lina Brunner</span>
-              <StatusDot state="pending" label />
+              <Badge variant="secondary">Pending</Badge>
             </div>
             <dl className="m-0 flex flex-col gap-1.5">
               {facts.map(([term, value]) => (

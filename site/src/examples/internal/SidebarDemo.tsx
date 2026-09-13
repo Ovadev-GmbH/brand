@@ -1,68 +1,78 @@
 import { useState } from "react";
-import { Building2Icon, SettingsIcon, KeyIcon, ReceiptIcon, RocketIcon, TriangleAlertIcon } from "lucide-react";
+import { Building2Icon, FileMinusIcon, ReceiptIcon, RocketIcon, TriangleAlertIcon } from "lucide-react";
 import {
+  Separator,
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
+  SidebarInset,
   SidebarMenu,
   SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
+  SidebarTrigger,
 } from "@ovadev-gmbh/ui-internal";
 
-const items = [
-  { title: "Tenants", icon: Building2Icon },
-  { title: "Invoices", icon: ReceiptIcon, badge: "12" },
-  { title: "Deployments", icon: RocketIcon },
-  { title: "Incidents", icon: TriangleAlertIcon, badge: "1" },
-  { title: "API keys", icon: KeyIcon },
-  { title: "Settings", icon: SettingsIcon },
+const groups = [
+  {
+    label: "Operations",
+    pages: [
+      { title: "Tenants", icon: Building2Icon },
+      { title: "Deployments", icon: RocketIcon },
+      { title: "Incidents", icon: TriangleAlertIcon, badge: "1" },
+    ],
+  },
+  {
+    label: "Billing",
+    pages: [
+      { title: "Invoices", icon: ReceiptIcon, badge: "12" },
+      { title: "Credit notes", icon: FileMinusIcon },
+    ],
+  },
 ];
 
 export default function SidebarDemo() {
   const [active, setActive] = useState("Invoices");
 
   return (
-    <SidebarProvider style={{ minHeight: 0 }} className="h-72 w-full max-w-xl overflow-hidden border">
-      <Sidebar collapsible="none" className="border-r">
+    // The sidebar is fixed to the viewport by default; absolute keeps it in this box.
+    <SidebarProvider className="relative h-96 min-h-0 w-full max-w-2xl overflow-hidden material-base">
+      <Sidebar className="absolute h-full">
         <SidebarHeader>
-          <div className="px-2 py-1 text-label-13">Ovadev Internal</div>
+          <span className="px-2 py-1 text-label-13">Ovadev Internal</span>
         </SidebarHeader>
         <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Operations</SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton
-                      isActive={active === item.title}
-                      onClick={() => setActive(item.title)}
-                    >
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </SidebarMenuButton>
-                    {item.badge ? (
-                      <SidebarMenuBadge className="text-label-12-mono">{item.badge}</SidebarMenuBadge>
-                    ) : null}
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
+          {groups.map((group) => (
+            <SidebarGroup key={group.label}>
+              <SidebarGroupLabel>{group.label}</SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {group.pages.map((page) => (
+                    <SidebarMenuItem key={page.title}>
+                      <SidebarMenuButton isActive={page.title === active} onClick={() => setActive(page.title)}>
+                        <page.icon />
+                        <span>{page.title}</span>
+                      </SidebarMenuButton>
+                      {page.badge ? <SidebarMenuBadge>{page.badge}</SidebarMenuBadge> : null}
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          ))}
         </SidebarContent>
-        <SidebarFooter>
-          <div className="px-2 py-1 text-label-12 text-content-secondary">r.markant, admin</div>
-        </SidebarFooter>
       </Sidebar>
-      <main className="flex flex-1 items-center justify-center bg-surface-primary p-4">
-        <span className="text-label-13 text-content-secondary">{active}</span>
-      </main>
+      <SidebarInset>
+        <header className="flex h-12 items-center gap-2 border-b border-divider px-3">
+          <SidebarTrigger />
+          <Separator orientation="vertical" className="data-vertical:h-4 data-vertical:self-auto" />
+          <h2 className="text-label-13">{active}</h2>
+        </header>
+      </SidebarInset>
     </SidebarProvider>
   );
 }

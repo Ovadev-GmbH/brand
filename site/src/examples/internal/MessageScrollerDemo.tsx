@@ -1,8 +1,7 @@
-import { useState } from "react";
+import type { ReactNode } from "react";
 import {
   Bubble,
   BubbleContent,
-  Button,
   Message,
   MessageContent,
   MessageScroller,
@@ -13,59 +12,41 @@ import {
   MessageScrollerViewport,
 } from "@ovadev-gmbh/ui-internal";
 
-type Entry = { id: number; from: "tenant" | "ops"; text: string };
+const mono = (text: string) => <span className="text-copy-13-mono">{text}</span>;
 
-const seed: Entry[] = Array.from({ length: 12 }, (_, i) => ({
-  id: i + 1,
-  from: i % 2 === 0 ? "tenant" : "ops",
-  text:
-    i % 2 === 0
-      ? `Invoice INV-2026-01${String(30 + i).padStart(2, "0")} still shows as unpaid on our side.`
-      : `Checked, the payment landed on ${1 + (i % 9)} September. Marking it as settled now.`,
-}));
+const thread: { id: string; from: "tenant" | "ops"; text: ReactNode }[] = [
+  { id: "m1", from: "tenant", text: "Hi, the invoices page returns 502s since this morning." },
+  { id: "m2", from: "ops", text: "Thanks, Anna. Which tenant, and since when?" },
+  { id: "m3", from: "tenant", text: <>{mono("acme-logistics")}, from about {mono("08:35")}.</> },
+  { id: "m4", from: "ops", text: <>That matches deployment {mono("d-8f3a21c")} in {mono("ch-zrh-1")}.</> },
+  { id: "m5", from: "ops", text: <>We are rolling it back and have opened {mono("INC-0413")}.</> },
+  { id: "m6", from: "tenant", text: "Do we need to resend anything?" },
+  { id: "m7", from: "ops", text: "No. Failed requests were not stored, and your integration retries them." },
+  { id: "m8", from: "ops", text: <>The rollback finished at {mono("08:52")}. The page loads again.</> },
+  { id: "m9", from: "tenant", text: "Confirmed on our side. Thank you." },
+];
 
 export default function MessageScrollerDemo() {
-  const [entries, setEntries] = useState(seed);
-
-  const add = () => {
-    setEntries((current) => [
-      ...current,
-      {
-        id: current.length + 1,
-        from: current.length % 2 === 0 ? "tenant" : "ops",
-        text: current.length % 2 === 0 ? "Thanks, that matches our ledger." : "Done. Ticket closed.",
-      },
-    ]);
-  };
-
   return (
-    <div className="flex w-full max-w-xl flex-col gap-3">
-      <MessageScrollerProvider>
-        <MessageScroller className="h-56 border">
-          <MessageScrollerViewport className="p-3">
-            <MessageScrollerContent className="gap-2">
-              {entries.map((entry) => (
-                <MessageScrollerItem key={entry.id} messageId={String(entry.id)}>
-                  <Message align={entry.from === "ops" ? "end" : "start"}>
-                    <MessageContent>
-                      <Bubble
-                        variant={entry.from === "ops" ? "default" : "muted"}
-                        align={entry.from === "ops" ? "end" : "start"}
-                      >
-                        <BubbleContent>{entry.text}</BubbleContent>
-                      </Bubble>
-                    </MessageContent>
-                  </Message>
-                </MessageScrollerItem>
-              ))}
-            </MessageScrollerContent>
-          </MessageScrollerViewport>
-          <MessageScrollerButton />
-        </MessageScroller>
-      </MessageScrollerProvider>
-      <Button variant="outline" size="sm" className="self-start" onClick={add}>
-        Add message
-      </Button>
-    </div>
+    <MessageScrollerProvider>
+      <MessageScroller className="h-80 w-full max-w-md material-base">
+        <MessageScrollerViewport aria-label="Support conversation with acme-logistics" className="p-3">
+          <MessageScrollerContent className="gap-2">
+            {thread.map((message) => (
+              <MessageScrollerItem key={message.id} messageId={message.id}>
+                <Message align={message.from === "ops" ? "end" : "start"}>
+                  <MessageContent>
+                    <Bubble variant={message.from === "ops" ? "default" : "muted"}>
+                      <BubbleContent>{message.text}</BubbleContent>
+                    </Bubble>
+                  </MessageContent>
+                </Message>
+              </MessageScrollerItem>
+            ))}
+          </MessageScrollerContent>
+        </MessageScrollerViewport>
+        <MessageScrollerButton />
+      </MessageScroller>
+    </MessageScrollerProvider>
   );
 }

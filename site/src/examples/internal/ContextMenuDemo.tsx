@@ -1,32 +1,22 @@
 import {
   ContextMenu,
-  ContextMenuCheckboxItem,
   ContextMenuContent,
   ContextMenuItem,
   ContextMenuSeparator,
-  ContextMenuShortcut,
   ContextMenuTrigger,
 } from "@ovadev-gmbh/ui-internal";
 
 export default function ContextMenuDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger className="flex h-24 max-w-xl items-center justify-center border border-dashed border-divider text-copy-13 text-content-secondary">
-        Right-click invoice INV-2041
+      <ContextMenuTrigger className="flex h-32 w-full max-w-sm flex-col items-center justify-center gap-1 border border-dashed border-divider-strong">
+        <span className="text-label-13-mono">INV-2026-0142</span>
+        <span className="text-label-12 text-content-secondary">Right-click or long press</span>
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-52">
-        <ContextMenuItem>
-          Open
-          <ContextMenuShortcut>⏎</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem>
-          Copy invoice number
-          <ContextMenuShortcut>⌘C</ContextMenuShortcut>
-        </ContextMenuItem>
+      <ContextMenuContent className="w-48">
+        <ContextMenuItem>Open invoice</ContextMenuItem>
+        <ContextMenuItem>Copy invoice number</ContextMenuItem>
         <ContextMenuItem>Download PDF</ContextMenuItem>
-        <ContextMenuSeparator />
-        <ContextMenuCheckboxItem defaultChecked>Mark as paid</ContextMenuCheckboxItem>
-        <ContextMenuCheckboxItem>Flag for review</ContextMenuCheckboxItem>
         <ContextMenuSeparator />
         <ContextMenuItem variant="destructive">Void invoice</ContextMenuItem>
       </ContextMenuContent>

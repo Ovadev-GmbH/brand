@@ -4,6 +4,15 @@
 shadcn`). Running it again rewrites every file below and silently drops these
 changes. After a regeneration, compare against this list and put them back.
 
+## 0.4.0
+
+- **Removed:** `description.tsx`, `gauge.tsx`, `snippet.tsx`, `status-dot.tsx`,
+  and their exports from `src/index.ts`. They were written here, not added by
+  shadcn, and the package now ships only shadcn's components. Their
+  replacements: a `Badge` with the state's word for a status dot, `Progress`
+  for a gauge, an `InputGroup` with a read-only input and a copy button for a
+  snippet, a plain `<dl>` for a description list.
+
 ## 0.3.0
 
 - **alert-dialog.tsx:** `AlertDialogAction` renders `AlertDialogPrimitive.Close`

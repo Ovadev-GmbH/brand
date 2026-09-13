@@ -2,43 +2,22 @@ import * as React from "react";
 import { Label, Slider } from "@ovadev-gmbh/ui-januna";
 
 export default function SliderDemo() {
-  const [partySize, setPartySize] = React.useState<number[]>([4]);
-  const [hours, setHours] = React.useState<number[]>([18, 21]);
+  const [minutes, setMinutes] = React.useState(15);
 
   return (
-    <div className="grid w-full max-w-xl gap-6">
-      <div className="grid gap-3">
-        <div className="flex items-center justify-between">
-          <Label id="slider-party-label">Party size</Label>
-          <span className="text-label-13-mono text-content-secondary">
-            {partySize[0] ?? 0} guests
-          </span>
-        </div>
-        <Slider
-          aria-labelledby="slider-party-label"
-          min={1}
-          max={12}
-          step={1}
-          value={partySize}
-          onValueChange={(value) => setPartySize(Array.isArray(value) ? [...value] : [Number(value)])}
-        />
+    <div className="flex w-full max-w-sm flex-col gap-3">
+      <div className="flex items-center justify-between">
+        <Label id="slider-hold-label">Hold the table for late guests</Label>
+        <span className="text-label-13-mono text-content-secondary">{minutes} min</span>
       </div>
-      <div className="grid gap-3">
-        <div className="flex items-center justify-between">
-          <Label id="slider-window-label">Booking window</Label>
-          <span className="text-label-13-mono text-content-secondary">
-            {hours[0] ?? 0}:00 to {hours[1] ?? 0}:00
-          </span>
-        </div>
-        <Slider
-          aria-labelledby="slider-window-label"
-          min={11}
-          max={24}
-          step={1}
-          value={hours}
-          onValueChange={(value) => setHours(Array.isArray(value) ? [...value] : [Number(value)])}
-        />
-      </div>
+      <Slider
+        value={minutes}
+        onValueChange={(value) => setMinutes(typeof value === "number" ? value : (value[0] ?? 0))}
+        min={0}
+        max={60}
+        step={5}
+        aria-labelledby="slider-hold-label"
+      />
     </div>
   );
 }

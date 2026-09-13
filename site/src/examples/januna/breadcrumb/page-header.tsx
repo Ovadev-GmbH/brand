@@ -1,4 +1,5 @@
 import {
+  Badge,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -6,7 +7,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   Button,
-  StatusDot,
 } from "@ovadev-gmbh/ui-januna";
 
 export default function BreadcrumbPageHeader() {
@@ -34,7 +34,7 @@ export default function BreadcrumbPageHeader() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <h3 className="m-0 text-heading-16">Friday 19:30, party of 6</h3>
-          <StatusDot state="pending" label />
+          <Badge variant="secondary">Pending</Badge>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm">

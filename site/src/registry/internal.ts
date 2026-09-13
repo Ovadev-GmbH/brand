@@ -42,17 +42,13 @@ import CollapsibleDemoSrc from "../examples/internal/CollapsibleDemo.tsx?raw";
 import TabsDemoSrc from "../examples/internal/TabsDemo.tsx?raw";
 import AlertDemoSrc from "../examples/internal/AlertDemo.tsx?raw";
 import BadgeDemoSrc from "../examples/internal/BadgeDemo.tsx?raw";
-import StatusDotDemoSrc from "../examples/internal/StatusDotDemo.tsx?raw";
 import ProgressDemoSrc from "../examples/internal/ProgressDemo.tsx?raw";
-import GaugeDemoSrc from "../examples/internal/GaugeDemo.tsx?raw";
 import SpinnerDemoSrc from "../examples/internal/SpinnerDemo.tsx?raw";
 import SkeletonDemoSrc from "../examples/internal/SkeletonDemo.tsx?raw";
 import EmptyDemoSrc from "../examples/internal/EmptyDemo.tsx?raw";
 import MarkerDemoSrc from "../examples/internal/MarkerDemo.tsx?raw";
 import TableDemoSrc from "../examples/internal/TableDemo.tsx?raw";
 import ChartDemoSrc from "../examples/internal/ChartDemo.tsx?raw";
-import DescriptionDemoSrc from "../examples/internal/DescriptionDemo.tsx?raw";
-import SnippetDemoSrc from "../examples/internal/SnippetDemo.tsx?raw";
 import PaginationDemoSrc from "../examples/internal/PaginationDemo.tsx?raw";
 import BreadcrumbDemoSrc from "../examples/internal/BreadcrumbDemo.tsx?raw";
 import AvatarDemoSrc from "../examples/internal/AvatarDemo.tsx?raw";
@@ -370,12 +366,6 @@ import BadgeLinkSrc from "../examples/internal/badge/link.tsx?raw";
 import BadgeWithIconSrc from "../examples/internal/badge/with-icon.tsx?raw";
 import BadgeWithSpinnerSrc from "../examples/internal/badge/with-spinner.tsx?raw";
 import BadgeTableSrc from "../examples/internal/badge/table.tsx?raw";
-import StatusDotDoc from "../docs/internal/status-dot";
-import StatusDotStatesSrc from "../examples/internal/status-dot/states.tsx?raw";
-import StatusDotSizeSrc from "../examples/internal/status-dot/size.tsx?raw";
-import StatusDotLabelSrc from "../examples/internal/status-dot/label.tsx?raw";
-import StatusDotOwnWordsSrc from "../examples/internal/status-dot/own-words.tsx?raw";
-import StatusDotTableSrc from "../examples/internal/status-dot/table.tsx?raw";
 import ProgressDoc from "../docs/internal/progress";
 import ProgressLabelAndValueSrc from "../examples/internal/progress/label-and-value.tsx?raw";
 import ProgressCustomValueSrc from "../examples/internal/progress/custom-value.tsx?raw";
@@ -383,15 +373,6 @@ import ProgressFormatSrc from "../examples/internal/progress/format.tsx?raw";
 import ProgressIndeterminateSrc from "../examples/internal/progress/indeterminate.tsx?raw";
 import ProgressTableSrc from "../examples/internal/progress/table.tsx?raw";
 import ProgressControlledSrc from "../examples/internal/progress/controlled.tsx?raw";
-import GaugeDoc from "../docs/internal/gauge";
-import GaugeSizeSrc from "../examples/internal/gauge/size.tsx?raw";
-import GaugeShowValueSrc from "../examples/internal/gauge/show-value.tsx?raw";
-import GaugeWithLabelSrc from "../examples/internal/gauge/with-label.tsx?raw";
-import GaugeThresholdsSrc from "../examples/internal/gauge/thresholds.tsx?raw";
-import GaugeFixedColorsSrc from "../examples/internal/gauge/fixed-colors.tsx?raw";
-import GaugeEqualArcsSrc from "../examples/internal/gauge/equal-arcs.tsx?raw";
-import GaugeIndeterminateSrc from "../examples/internal/gauge/indeterminate.tsx?raw";
-import GaugeTableSrc from "../examples/internal/gauge/table.tsx?raw";
 import SpinnerDoc from "../docs/internal/spinner";
 import SpinnerSizeSrc from "../examples/internal/spinner/size.tsx?raw";
 import SpinnerWithTextSrc from "../examples/internal/spinner/with-text.tsx?raw";
@@ -430,21 +411,6 @@ import ChartLineSrc from "../examples/internal/chart/line.tsx?raw";
 import ChartAreaSrc from "../examples/internal/chart/area.tsx?raw";
 import ChartTooltipSrc from "../examples/internal/chart/tooltip.tsx?raw";
 import ChartLegendSrc from "../examples/internal/chart/legend.tsx?raw";
-import DescriptionDoc from "../docs/internal/description";
-import DescriptionColumnsSrc from "../examples/internal/description/columns.tsx?raw";
-import DescriptionTooltipSrc from "../examples/internal/description/tooltip.tsx?raw";
-import DescriptionRightSrc from "../examples/internal/description/right.tsx?raw";
-import DescriptionEllipsisSrc from "../examples/internal/description/ellipsis.tsx?raw";
-import DescriptionContentSrc from "../examples/internal/description/content.tsx?raw";
-import DescriptionRecordSrc from "../examples/internal/description/record.tsx?raw";
-import SnippetDoc from "../docs/internal/snippet";
-import SnippetStatusSrc from "../examples/internal/snippet/status.tsx?raw";
-import SnippetMultipleLinesSrc from "../examples/internal/snippet/multiple-lines.tsx?raw";
-import SnippetWithoutPromptSrc from "../examples/internal/snippet/without-prompt.tsx?raw";
-import SnippetCopyTextSrc from "../examples/internal/snippet/copy-text.tsx?raw";
-import SnippetEmptySrc from "../examples/internal/snippet/empty.tsx?raw";
-import SnippetSecretValueSrc from "../examples/internal/snippet/secret-value.tsx?raw";
-import SnippetControlledSrc from "../examples/internal/snippet/controlled.tsx?raw";
 import PaginationDoc from "../docs/internal/pagination";
 import PaginationPreviousNextSrc from "../examples/internal/pagination/previous-next.tsx?raw";
 import PaginationIconsOnlySrc from "../examples/internal/pagination/icons-only.tsx?raw";
@@ -1204,21 +1170,6 @@ export const internal: Pkg = {
       doc: BadgeDoc,
     },
     {
-      name: "Status Dot",
-      slug: "status-dot",
-      group: "Feedback",
-      imports: ["StatusDot"],
-      examples: [
-        { Component: lazy(() => import("../examples/internal/StatusDotDemo")), source: StatusDotDemoSrc },
-        { name: "states", Component: lazy(() => import("../examples/internal/status-dot/states")), source: StatusDotStatesSrc },
-        { name: "size", Component: lazy(() => import("../examples/internal/status-dot/size")), source: StatusDotSizeSrc },
-        { name: "label", Component: lazy(() => import("../examples/internal/status-dot/label")), source: StatusDotLabelSrc },
-        { name: "own-words", Component: lazy(() => import("../examples/internal/status-dot/own-words")), source: StatusDotOwnWordsSrc },
-        { name: "table", Component: lazy(() => import("../examples/internal/status-dot/table")), source: StatusDotTableSrc },
-      ],
-      doc: StatusDotDoc,
-    },
-    {
       name: "Progress",
       slug: "progress",
       group: "Feedback",
@@ -1233,24 +1184,6 @@ export const internal: Pkg = {
         { name: "controlled", Component: lazy(() => import("../examples/internal/progress/controlled")), source: ProgressControlledSrc },
       ],
       doc: ProgressDoc,
-    },
-    {
-      name: "Gauge",
-      slug: "gauge",
-      group: "Feedback",
-      imports: ["Gauge"],
-      examples: [
-        { Component: lazy(() => import("../examples/internal/GaugeDemo")), source: GaugeDemoSrc },
-        { name: "size", Component: lazy(() => import("../examples/internal/gauge/size")), source: GaugeSizeSrc },
-        { name: "show-value", Component: lazy(() => import("../examples/internal/gauge/show-value")), source: GaugeShowValueSrc },
-        { name: "with-label", Component: lazy(() => import("../examples/internal/gauge/with-label")), source: GaugeWithLabelSrc },
-        { name: "thresholds", Component: lazy(() => import("../examples/internal/gauge/thresholds")), source: GaugeThresholdsSrc },
-        { name: "fixed-colors", Component: lazy(() => import("../examples/internal/gauge/fixed-colors")), source: GaugeFixedColorsSrc },
-        { name: "equal-arcs", Component: lazy(() => import("../examples/internal/gauge/equal-arcs")), source: GaugeEqualArcsSrc },
-        { name: "indeterminate", Component: lazy(() => import("../examples/internal/gauge/indeterminate")), source: GaugeIndeterminateSrc },
-        { name: "table", Component: lazy(() => import("../examples/internal/gauge/table")), source: GaugeTableSrc },
-      ],
-      doc: GaugeDoc,
     },
     {
       name: "Spinner",
@@ -1343,39 +1276,6 @@ export const internal: Pkg = {
         { name: "legend", Component: lazy(() => import("../examples/internal/chart/legend")), source: ChartLegendSrc },
       ],
       doc: ChartDoc,
-    },
-    {
-      name: "Description",
-      slug: "description",
-      group: "Data",
-      imports: ["Description","DescriptionList"],
-      examples: [
-        { Component: lazy(() => import("../examples/internal/DescriptionDemo")), source: DescriptionDemoSrc },
-        { name: "columns", Component: lazy(() => import("../examples/internal/description/columns")), source: DescriptionColumnsSrc },
-        { name: "tooltip", Component: lazy(() => import("../examples/internal/description/tooltip")), source: DescriptionTooltipSrc },
-        { name: "right", Component: lazy(() => import("../examples/internal/description/right")), source: DescriptionRightSrc },
-        { name: "ellipsis", Component: lazy(() => import("../examples/internal/description/ellipsis")), source: DescriptionEllipsisSrc },
-        { name: "content", Component: lazy(() => import("../examples/internal/description/content")), source: DescriptionContentSrc },
-        { name: "record", Component: lazy(() => import("../examples/internal/description/record")), source: DescriptionRecordSrc },
-      ],
-      doc: DescriptionDoc,
-    },
-    {
-      name: "Snippet",
-      slug: "snippet",
-      group: "Data",
-      imports: ["Snippet","SecretValue"],
-      examples: [
-        { Component: lazy(() => import("../examples/internal/SnippetDemo")), source: SnippetDemoSrc },
-        { name: "status", Component: lazy(() => import("../examples/internal/snippet/status")), source: SnippetStatusSrc },
-        { name: "multiple-lines", Component: lazy(() => import("../examples/internal/snippet/multiple-lines")), source: SnippetMultipleLinesSrc },
-        { name: "without-prompt", Component: lazy(() => import("../examples/internal/snippet/without-prompt")), source: SnippetWithoutPromptSrc },
-        { name: "copy-text", Component: lazy(() => import("../examples/internal/snippet/copy-text")), source: SnippetCopyTextSrc },
-        { name: "empty", Component: lazy(() => import("../examples/internal/snippet/empty")), source: SnippetEmptySrc },
-        { name: "secret-value", Component: lazy(() => import("../examples/internal/snippet/secret-value")), source: SnippetSecretValueSrc },
-        { name: "controlled", Component: lazy(() => import("../examples/internal/snippet/controlled")), source: SnippetControlledSrc },
-      ],
-      doc: SnippetDoc,
     },
     {
       name: "Pagination",

@@ -1,25 +1,32 @@
-import { Marker, MarkerContent, MarkerIcon } from "@ovadev-gmbh/ui-internal";
-import { RocketIcon } from "lucide-react";
+import { Marker, MarkerContent, MarkerIcon, Spinner } from "@ovadev-gmbh/ui-internal";
+import { CircleCheckIcon, GitCommitHorizontalIcon } from "lucide-react";
 
 export default function MarkerDemo() {
   return (
-    <div className="grid w-full max-w-xl gap-3">
+    <div className="flex w-full max-w-md flex-col gap-3">
       <Marker>
         <MarkerIcon>
-          <RocketIcon />
+          <GitCommitHorizontalIcon />
         </MarkerIcon>
         <MarkerContent>
-          Deploy #4821 by robin ·{" "}
-          <span className="text-label-13-mono">14:02</span>
+          <span className="text-label-12-mono">8f3a21c</span> pushed to main by robin@ova.dev at{" "}
+          <span className="text-label-12-mono">14:02 UTC</span>
         </MarkerContent>
       </Marker>
-      <Marker variant="separator">
-        <MarkerContent>Today</MarkerContent>
-      </Marker>
-      <Marker variant="border">
+      <Marker>
+        <MarkerIcon>
+          <CircleCheckIcon />
+        </MarkerIcon>
         <MarkerContent>
-          Audit log · <span className="text-label-13-mono">12 Sep</span> ·
-          48 events
+          Build passed in <span className="text-label-12-mono">2 min 14 s</span>
+        </MarkerContent>
+      </Marker>
+      <Marker role="status">
+        <MarkerIcon>
+          <Spinner />
+        </MarkerIcon>
+        <MarkerContent>
+          Deploying api-gateway to <span className="text-label-12-mono">ch-zrh-1</span>
         </MarkerContent>
       </Marker>
     </div>

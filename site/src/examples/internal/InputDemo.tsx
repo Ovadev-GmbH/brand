@@ -1,17 +1,11 @@
-import { Input } from "@ovadev-gmbh/ui-internal";
+import { Field, FieldDescription, FieldLabel, Input } from "@ovadev-gmbh/ui-internal";
 
 export default function InputDemo() {
   return (
-    <div className="flex w-full max-w-xl flex-wrap items-center gap-3">
-      <Input className="w-48" placeholder="Tenant slug" autoComplete="off" />
-      <Input className="w-48" type="email" placeholder="ops@ovadev.dev" />
-      <Input
-        className="w-48 text-label-13-mono"
-        defaultValue="inv_2026_004812"
-        readOnly
-        aria-label="Invoice ID"
-      />
-      <Input className="w-48" placeholder="Region" disabled />
-    </div>
+    <Field className="w-full max-w-sm">
+      <FieldLabel htmlFor="input-demo-domain">Custom domain</FieldLabel>
+      <Input id="input-demo-domain" placeholder="status.acme.ch" autoComplete="off" spellCheck={false} />
+      <FieldDescription>Point a CNAME at edge.ch-zrh-1.ova.dev before you save.</FieldDescription>
+    </Field>
   );
 }

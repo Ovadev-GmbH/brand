@@ -42,17 +42,13 @@ import CollapsibleDemoSrc from "../examples/januna/CollapsibleDemo.tsx?raw";
 import TabsDemoSrc from "../examples/januna/TabsDemo.tsx?raw";
 import AlertDemoSrc from "../examples/januna/AlertDemo.tsx?raw";
 import BadgeDemoSrc from "../examples/januna/BadgeDemo.tsx?raw";
-import StatusDotDemoSrc from "../examples/januna/StatusDotDemo.tsx?raw";
 import ProgressDemoSrc from "../examples/januna/ProgressDemo.tsx?raw";
-import GaugeDemoSrc from "../examples/januna/GaugeDemo.tsx?raw";
 import SpinnerDemoSrc from "../examples/januna/SpinnerDemo.tsx?raw";
 import SkeletonDemoSrc from "../examples/januna/SkeletonDemo.tsx?raw";
 import EmptyDemoSrc from "../examples/januna/EmptyDemo.tsx?raw";
 import MarkerDemoSrc from "../examples/januna/MarkerDemo.tsx?raw";
 import TableDemoSrc from "../examples/januna/TableDemo.tsx?raw";
 import ChartDemoSrc from "../examples/januna/ChartDemo.tsx?raw";
-import DescriptionDemoSrc from "../examples/januna/DescriptionDemo.tsx?raw";
-import SnippetDemoSrc from "../examples/januna/SnippetDemo.tsx?raw";
 import PaginationDemoSrc from "../examples/januna/PaginationDemo.tsx?raw";
 import BreadcrumbDemoSrc from "../examples/januna/BreadcrumbDemo.tsx?raw";
 import AvatarDemoSrc from "../examples/januna/AvatarDemo.tsx?raw";
@@ -372,12 +368,6 @@ import BadgeLinkSrc from "../examples/januna/badge/link.tsx?raw";
 import BadgeWithIconSrc from "../examples/januna/badge/with-icon.tsx?raw";
 import BadgeWithSpinnerSrc from "../examples/januna/badge/with-spinner.tsx?raw";
 import BadgeTableSrc from "../examples/januna/badge/table.tsx?raw";
-import StatusDotDoc from "../docs/januna/status-dot";
-import StatusDotStatesSrc from "../examples/januna/status-dot/states.tsx?raw";
-import StatusDotSizeSrc from "../examples/januna/status-dot/size.tsx?raw";
-import StatusDotLabelSrc from "../examples/januna/status-dot/label.tsx?raw";
-import StatusDotOwnWordsSrc from "../examples/januna/status-dot/own-words.tsx?raw";
-import StatusDotTableSrc from "../examples/januna/status-dot/table.tsx?raw";
 import ProgressDoc from "../docs/januna/progress";
 import ProgressLabelAndValueSrc from "../examples/januna/progress/label-and-value.tsx?raw";
 import ProgressCustomValueSrc from "../examples/januna/progress/custom-value.tsx?raw";
@@ -385,15 +375,6 @@ import ProgressFormatSrc from "../examples/januna/progress/format.tsx?raw";
 import ProgressIndeterminateSrc from "../examples/januna/progress/indeterminate.tsx?raw";
 import ProgressTableSrc from "../examples/januna/progress/table.tsx?raw";
 import ProgressControlledSrc from "../examples/januna/progress/controlled.tsx?raw";
-import GaugeDoc from "../docs/januna/gauge";
-import GaugeSizeSrc from "../examples/januna/gauge/size.tsx?raw";
-import GaugeShowValueSrc from "../examples/januna/gauge/show-value.tsx?raw";
-import GaugeWithLabelSrc from "../examples/januna/gauge/with-label.tsx?raw";
-import GaugeThresholdsSrc from "../examples/januna/gauge/thresholds.tsx?raw";
-import GaugeFixedColorsSrc from "../examples/januna/gauge/fixed-colors.tsx?raw";
-import GaugeEqualArcsSrc from "../examples/januna/gauge/equal-arcs.tsx?raw";
-import GaugeIndeterminateSrc from "../examples/januna/gauge/indeterminate.tsx?raw";
-import GaugeTableSrc from "../examples/januna/gauge/table.tsx?raw";
 import SpinnerDoc from "../docs/januna/spinner";
 import SpinnerSizeSrc from "../examples/januna/spinner/size.tsx?raw";
 import SpinnerWithTextSrc from "../examples/januna/spinner/with-text.tsx?raw";
@@ -432,21 +413,6 @@ import ChartLineSrc from "../examples/januna/chart/line.tsx?raw";
 import ChartAreaSrc from "../examples/januna/chart/area.tsx?raw";
 import ChartTooltipSrc from "../examples/januna/chart/tooltip.tsx?raw";
 import ChartLegendSrc from "../examples/januna/chart/legend.tsx?raw";
-import DescriptionDoc from "../docs/januna/description";
-import DescriptionColumnsSrc from "../examples/januna/description/columns.tsx?raw";
-import DescriptionTooltipSrc from "../examples/januna/description/tooltip.tsx?raw";
-import DescriptionRightSrc from "../examples/januna/description/right.tsx?raw";
-import DescriptionEllipsisSrc from "../examples/januna/description/ellipsis.tsx?raw";
-import DescriptionContentSrc from "../examples/januna/description/content.tsx?raw";
-import DescriptionRecordSrc from "../examples/januna/description/record.tsx?raw";
-import SnippetDoc from "../docs/januna/snippet";
-import SnippetStatusSrc from "../examples/januna/snippet/status.tsx?raw";
-import SnippetMultipleLinesSrc from "../examples/januna/snippet/multiple-lines.tsx?raw";
-import SnippetWithoutPromptSrc from "../examples/januna/snippet/without-prompt.tsx?raw";
-import SnippetCopyTextSrc from "../examples/januna/snippet/copy-text.tsx?raw";
-import SnippetEmptySrc from "../examples/januna/snippet/empty.tsx?raw";
-import SnippetSecretValueSrc from "../examples/januna/snippet/secret-value.tsx?raw";
-import SnippetControlledSrc from "../examples/januna/snippet/controlled.tsx?raw";
 import PaginationDoc from "../docs/januna/pagination";
 import PaginationPreviousNextSrc from "../examples/januna/pagination/previous-next.tsx?raw";
 import PaginationIconsOnlySrc from "../examples/januna/pagination/icons-only.tsx?raw";
@@ -1208,21 +1174,6 @@ export const januna: Pkg = {
       doc: BadgeDoc,
     },
     {
-      name: "Status Dot",
-      slug: "status-dot",
-      group: "Feedback",
-      imports: ["StatusDot"],
-      examples: [
-        { Component: lazy(() => import("../examples/januna/StatusDotDemo")), source: StatusDotDemoSrc },
-        { name: "states", Component: lazy(() => import("../examples/januna/status-dot/states")), source: StatusDotStatesSrc },
-        { name: "size", Component: lazy(() => import("../examples/januna/status-dot/size")), source: StatusDotSizeSrc },
-        { name: "label", Component: lazy(() => import("../examples/januna/status-dot/label")), source: StatusDotLabelSrc },
-        { name: "own-words", Component: lazy(() => import("../examples/januna/status-dot/own-words")), source: StatusDotOwnWordsSrc },
-        { name: "table", Component: lazy(() => import("../examples/januna/status-dot/table")), source: StatusDotTableSrc },
-      ],
-      doc: StatusDotDoc,
-    },
-    {
       name: "Progress",
       slug: "progress",
       group: "Feedback",
@@ -1237,24 +1188,6 @@ export const januna: Pkg = {
         { name: "controlled", Component: lazy(() => import("../examples/januna/progress/controlled")), source: ProgressControlledSrc },
       ],
       doc: ProgressDoc,
-    },
-    {
-      name: "Gauge",
-      slug: "gauge",
-      group: "Feedback",
-      imports: ["Gauge"],
-      examples: [
-        { Component: lazy(() => import("../examples/januna/GaugeDemo")), source: GaugeDemoSrc },
-        { name: "size", Component: lazy(() => import("../examples/januna/gauge/size")), source: GaugeSizeSrc },
-        { name: "show-value", Component: lazy(() => import("../examples/januna/gauge/show-value")), source: GaugeShowValueSrc },
-        { name: "with-label", Component: lazy(() => import("../examples/januna/gauge/with-label")), source: GaugeWithLabelSrc },
-        { name: "thresholds", Component: lazy(() => import("../examples/januna/gauge/thresholds")), source: GaugeThresholdsSrc },
-        { name: "fixed-colors", Component: lazy(() => import("../examples/januna/gauge/fixed-colors")), source: GaugeFixedColorsSrc },
-        { name: "equal-arcs", Component: lazy(() => import("../examples/januna/gauge/equal-arcs")), source: GaugeEqualArcsSrc },
-        { name: "indeterminate", Component: lazy(() => import("../examples/januna/gauge/indeterminate")), source: GaugeIndeterminateSrc },
-        { name: "table", Component: lazy(() => import("../examples/januna/gauge/table")), source: GaugeTableSrc },
-      ],
-      doc: GaugeDoc,
     },
     {
       name: "Spinner",
@@ -1347,39 +1280,6 @@ export const januna: Pkg = {
         { name: "legend", Component: lazy(() => import("../examples/januna/chart/legend")), source: ChartLegendSrc },
       ],
       doc: ChartDoc,
-    },
-    {
-      name: "Description",
-      slug: "description",
-      group: "Data",
-      imports: ["Description","DescriptionList"],
-      examples: [
-        { Component: lazy(() => import("../examples/januna/DescriptionDemo")), source: DescriptionDemoSrc },
-        { name: "columns", Component: lazy(() => import("../examples/januna/description/columns")), source: DescriptionColumnsSrc },
-        { name: "tooltip", Component: lazy(() => import("../examples/januna/description/tooltip")), source: DescriptionTooltipSrc },
-        { name: "right", Component: lazy(() => import("../examples/januna/description/right")), source: DescriptionRightSrc },
-        { name: "ellipsis", Component: lazy(() => import("../examples/januna/description/ellipsis")), source: DescriptionEllipsisSrc },
-        { name: "content", Component: lazy(() => import("../examples/januna/description/content")), source: DescriptionContentSrc },
-        { name: "record", Component: lazy(() => import("../examples/januna/description/record")), source: DescriptionRecordSrc },
-      ],
-      doc: DescriptionDoc,
-    },
-    {
-      name: "Snippet",
-      slug: "snippet",
-      group: "Data",
-      imports: ["Snippet","SecretValue"],
-      examples: [
-        { Component: lazy(() => import("../examples/januna/SnippetDemo")), source: SnippetDemoSrc },
-        { name: "status", Component: lazy(() => import("../examples/januna/snippet/status")), source: SnippetStatusSrc },
-        { name: "multiple-lines", Component: lazy(() => import("../examples/januna/snippet/multiple-lines")), source: SnippetMultipleLinesSrc },
-        { name: "without-prompt", Component: lazy(() => import("../examples/januna/snippet/without-prompt")), source: SnippetWithoutPromptSrc },
-        { name: "copy-text", Component: lazy(() => import("../examples/januna/snippet/copy-text")), source: SnippetCopyTextSrc },
-        { name: "empty", Component: lazy(() => import("../examples/januna/snippet/empty")), source: SnippetEmptySrc },
-        { name: "secret-value", Component: lazy(() => import("../examples/januna/snippet/secret-value")), source: SnippetSecretValueSrc },
-        { name: "controlled", Component: lazy(() => import("../examples/januna/snippet/controlled")), source: SnippetControlledSrc },
-      ],
-      doc: SnippetDoc,
     },
     {
       name: "Pagination",

@@ -1,46 +1,15 @@
-import {
-  Avatar,
-  AvatarBadge,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-} from "@ovadev-gmbh/ui-januna";
-
-const party = [
-  { name: "Mara Keller", initials: "MK" },
-  { name: "Anna Rossi", initials: "AR" },
-  { name: "Luca Brunner", initials: "LB" },
-];
+import { Avatar, AvatarFallback } from "@ovadev-gmbh/ui-januna";
 
 export default function AvatarDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <Avatar size="sm">
-        <AvatarFallback>MK</AvatarFallback>
+    <div className="flex items-center gap-3">
+      <Avatar aria-hidden="true">
+        <AvatarFallback>LB</AvatarFallback>
       </Avatar>
-      <Avatar>
-        <AvatarFallback>AR</AvatarFallback>
-      </Avatar>
-      <div className="flex items-center gap-2">
-        <Avatar size="lg">
-          <AvatarFallback>SM</AvatarFallback>
-          <AvatarBadge aria-hidden="true" />
-        </Avatar>
-        <div className="grid">
-          <span className="text-label-14">Sofia Meier</span>
-          <span className="text-label-12 text-content-secondary">Seated</span>
-        </div>
+      <div className="flex flex-col">
+        <span className="text-label-14">Luca Brunner</span>
+        <span className="text-label-13 text-content-secondary">Fourth visit, party of 4 at 19:00</span>
       </div>
-      <AvatarGroup className="ml-3">
-        {party.map((guest) => (
-          <Avatar key={guest.initials} role="img" aria-label={guest.name}>
-            <AvatarFallback>{guest.initials}</AvatarFallback>
-          </Avatar>
-        ))}
-        <AvatarGroupCount>
-          +3<span className="sr-only"> more guests</span>
-        </AvatarGroupCount>
-      </AvatarGroup>
     </div>
   );
 }

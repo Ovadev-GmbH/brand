@@ -1,8 +1,6 @@
-import { useState } from "react";
 import {
   Bubble,
   BubbleContent,
-  Button,
   Message,
   MessageContent,
   MessageScroller,
@@ -13,59 +11,39 @@ import {
   MessageScrollerViewport,
 } from "@ovadev-gmbh/ui-januna";
 
-type Entry = { id: number; from: "guest" | "host"; text: string };
-
-const seed: Entry[] = Array.from({ length: 12 }, (_, i) => ({
-  id: i + 1,
-  from: i % 2 === 0 ? "guest" : "host",
-  text:
-    i % 2 === 0
-      ? `Is a table for ${2 + (i % 4)} free at ${18 + (i % 4)}:00 tonight?`
-      : `Yes, Table ${3 + i} is available. Shall I hold it for you?`,
-}));
+const conversation = [
+  { id: "m1", from: "guest", text: "Good evening, we have a table for 6 at 19:30, under Keller." },
+  { id: "m2", from: "host", text: "Good evening, Ms Keller. T12 on the terrace is ready for you." },
+  { id: "m3", from: "guest", text: "Lovely. One of us is vegan, is that alright?" },
+  { id: "m4", from: "host", text: "Of course. The kitchen has a vegan risotto and a sorbet tonight." },
+  { id: "m5", from: "guest", text: "It is also my mother's birthday. Could you bring a candle with dessert?" },
+  { id: "m6", from: "host", text: "With pleasure. We will bring it out at 21:00." },
+  { id: "m7", from: "guest", text: "We are running about ten minutes late, sorry." },
+  { id: "m8", from: "host", text: "No trouble at all. We will hold T12 for you until 19:45." },
+  { id: "m9", from: "guest", text: "Thank you, see you soon." },
+];
 
 export default function MessageScrollerDemo() {
-  const [entries, setEntries] = useState(seed);
-
-  const add = () => {
-    setEntries((current) => [
-      ...current,
-      {
-        id: current.length + 1,
-        from: current.length % 2 === 0 ? "guest" : "host",
-        text: current.length % 2 === 0 ? "Great, please hold it." : "Done. Booking confirmed.",
-      },
-    ]);
-  };
-
   return (
-    <div className="flex w-full max-w-md flex-col gap-3">
-      <MessageScrollerProvider>
-        <MessageScroller className="h-64 material-base">
-          <MessageScrollerViewport className="p-4">
-            <MessageScrollerContent className="gap-3">
-              {entries.map((entry) => (
-                <MessageScrollerItem key={entry.id} messageId={String(entry.id)}>
-                  <Message align={entry.from === "host" ? "end" : "start"}>
-                    <MessageContent>
-                      <Bubble
-                        variant={entry.from === "host" ? "default" : "muted"}
-                        align={entry.from === "host" ? "end" : "start"}
-                      >
-                        <BubbleContent>{entry.text}</BubbleContent>
-                      </Bubble>
-                    </MessageContent>
-                  </Message>
-                </MessageScrollerItem>
-              ))}
-            </MessageScrollerContent>
-          </MessageScrollerViewport>
-          <MessageScrollerButton />
-        </MessageScroller>
-      </MessageScrollerProvider>
-      <Button variant="outline" size="sm" className="self-start" onClick={add}>
-        Add message
-      </Button>
-    </div>
+    <MessageScrollerProvider>
+      <MessageScroller className="h-80 w-full max-w-md material-base">
+        <MessageScrollerViewport aria-label="Conversation with Nina Keller" className="p-4">
+          <MessageScrollerContent className="gap-3">
+            {conversation.map((message) => (
+              <MessageScrollerItem key={message.id} messageId={message.id}>
+                <Message align={message.from === "host" ? "end" : "start"}>
+                  <MessageContent>
+                    <Bubble variant={message.from === "host" ? "default" : "muted"}>
+                      <BubbleContent>{message.text}</BubbleContent>
+                    </Bubble>
+                  </MessageContent>
+                </Message>
+              </MessageScrollerItem>
+            ))}
+          </MessageScrollerContent>
+        </MessageScrollerViewport>
+        <MessageScrollerButton />
+      </MessageScroller>
+    </MessageScrollerProvider>
   );
 }

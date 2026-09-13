@@ -28,7 +28,7 @@ export default {
     },
     {
       title: "Deployment",
-      text: "A `StatusDot` with its word, and the facts an operator checks first, in mono.",
+      text: "A `Badge` with the deployment's state in its word, and the facts an operator checks first, in mono.",
       example: "deployment",
     },
     {

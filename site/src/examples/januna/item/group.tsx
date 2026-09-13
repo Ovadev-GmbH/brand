@@ -1,5 +1,6 @@
 import * as React from "react";
 import {
+  Badge,
   Item,
   ItemActions,
   ItemContent,
@@ -7,14 +8,13 @@ import {
   ItemGroup,
   ItemSeparator,
   ItemTitle,
-  StatusDot,
 } from "@ovadev-gmbh/ui-januna";
 
 const tables = [
-  { name: "T4", detail: "2 seats, set and free until 21:00", state: "ready" },
-  { name: "T12", detail: "Party of 6 seated at 19:02", state: "active" },
-  { name: "Terrace 3", detail: "Being cleared after the 18:00 seating", state: "pending" },
-] as const;
+  { name: "T4", detail: "2 seats, set and free until 21:00", state: "Free" },
+  { name: "T12", detail: "Party of 6 seated at 19:02", state: "Seated" },
+  { name: "Terrace 3", detail: "Being cleared after the 18:00 seating", state: "Clearing" },
+];
 
 export default function ItemGroupExample() {
   return (
@@ -28,7 +28,7 @@ export default function ItemGroupExample() {
               <ItemDescription>{table.detail}</ItemDescription>
             </ItemContent>
             <ItemActions>
-              <StatusDot state={table.state} label titlePrefix={table.name} />
+              <Badge variant="secondary">{table.state}</Badge>
             </ItemActions>
           </Item>
         </React.Fragment>

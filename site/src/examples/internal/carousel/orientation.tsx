@@ -1,4 +1,5 @@
 import {
+  Badge,
   Card,
   CardContent,
   Carousel,
@@ -6,14 +7,13 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-  StatusDot,
 } from "@ovadev-gmbh/ui-internal";
 
 const incidents = [
-  { id: "INC-0414", summary: "Slow invoice exports for bergwerk-ag", state: "active" },
-  { id: "INC-0413", summary: "Elevated 5xx on billing-worker", state: "ready" },
-  { id: "INC-0412", summary: "Delayed webhooks in eu-central-1", state: "ready" },
-  { id: "INC-0411", summary: "Certificate renewal failed for helvetia-labs", state: "error" },
+  { id: "INC-0414", summary: "Slow invoice exports for bergwerk-ag", state: "Investigating", variant: "secondary" },
+  { id: "INC-0413", summary: "Elevated 5xx on billing-worker", state: "Resolved", variant: "outline" },
+  { id: "INC-0412", summary: "Delayed webhooks in eu-central-1", state: "Resolved", variant: "outline" },
+  { id: "INC-0411", summary: "Certificate renewal failed for helvetia-labs", state: "Failed", variant: "destructive" },
 ] as const;
 
 export default function CarouselOrientation() {
@@ -27,7 +27,7 @@ export default function CarouselOrientation() {
                 <CardContent className="flex flex-col gap-1">
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-label-13-mono">{incident.id}</span>
-                    <StatusDot state={incident.state} label titlePrefix={incident.id} />
+                    <Badge variant={incident.variant}>{incident.state}</Badge>
                   </div>
                   <span className="text-label-12 text-content-secondary">{incident.summary}</span>
                 </CardContent>

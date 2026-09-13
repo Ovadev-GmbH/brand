@@ -1,27 +1,26 @@
-import { Button, Kbd, KbdGroup } from "@ovadev-gmbh/ui-internal";
+import { Kbd, KbdGroup } from "@ovadev-gmbh/ui-internal";
+
+const shortcuts = [
+  { action: "Open the command menu", keys: ["⌘", "K"] },
+  { action: "Search the audit log", keys: ["/"] },
+  { action: "Copy the tenant ID", keys: ["⌘", "⇧", "C"] },
+];
 
 export default function KbdDemo() {
   return (
-    <div className="flex w-full max-w-xl flex-wrap items-center gap-3">
-      <KbdGroup>
-        <Kbd>⌘</Kbd>
-        <Kbd>K</Kbd>
-      </KbdGroup>
-      <KbdGroup className="text-label-13 text-content-tertiary">
-        <Kbd>Ctrl</Kbd>
-        <span>+</span>
-        <Kbd>Shift</Kbd>
-        <span>+</span>
-        <Kbd>D</Kbd>
-      </KbdGroup>
-      <Kbd>Esc</Kbd>
-      <span className="text-label-13 text-content-secondary">
-        Search audit log <Kbd>/</Kbd>
-      </span>
-      <Button variant="outline">
-        Deploy
-        <Kbd>⏎</Kbd>
-      </Button>
-    </div>
+    <dl className="grid w-full max-w-xs gap-3 text-label-13">
+      {shortcuts.map((shortcut) => (
+        <div key={shortcut.action} className="flex items-center justify-between gap-4">
+          <dt className="text-content-secondary">{shortcut.action}</dt>
+          <dd>
+            <KbdGroup>
+              {shortcut.keys.map((key) => (
+                <Kbd key={key}>{key}</Kbd>
+              ))}
+            </KbdGroup>
+          </dd>
+        </div>
+      ))}
+    </dl>
   );
 }

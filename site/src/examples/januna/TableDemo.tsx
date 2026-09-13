@@ -1,55 +1,39 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@ovadev-gmbh/ui-januna";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@ovadev-gmbh/ui-januna";
 
 const bookings = [
-  { time: "18:00", table: "Table 3", guest: "M. Keller", covers: 2, status: "Seated" },
-  { time: "18:30", table: "Table 7", guest: "A. Rossi", covers: 4, status: "Confirmed" },
-  { time: "19:00", table: "Patio 2", guest: "L. Brunner", covers: 6, status: "Confirmed" },
-  { time: "19:30", table: "Table 12", guest: "S. Meier", covers: 2, status: "No-show" },
-  { time: "20:15", table: "Table 5", guest: "J. Huber", covers: 3, status: "Pending" },
+  { time: "18:30", guest: "Nina Weber", table: "T4", party: 2, deposit: null },
+  { time: "19:00", guest: "Luca Brunner", table: "T9", party: 4, deposit: "80.00" },
+  { time: "19:30", guest: "Anna Keller", table: "T12", party: 6, deposit: "120.00" },
+  { time: "20:00", guest: "Marco Rossi", table: "Terrace 3", party: 3, deposit: null },
+  { time: "20:15", guest: "Meier AG", table: "Private dining", party: 12, deposit: "1'240.00" },
 ];
 
 export default function TableDemo() {
-  const covers = bookings.reduce((sum, booking) => sum + booking.covers, 0);
-
   return (
     <div className="w-full max-w-xl">
       <Table>
-        <TableCaption>Bookings for tonight's dinner shift.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-20">Time</TableHead>
-            <TableHead>Table</TableHead>
+            <TableHead>Time</TableHead>
             <TableHead>Guest</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead className="text-right">Covers</TableHead>
+            <TableHead>Table</TableHead>
+            <TableHead className="text-right">Party</TableHead>
+            <TableHead className="text-right">Deposit, CHF</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {bookings.map((booking) => (
-            <TableRow key={`${booking.time}-${booking.table}`}>
+            <TableRow key={booking.time}>
               <TableCell className="text-label-13-mono">{booking.time}</TableCell>
-              <TableCell>{booking.table}</TableCell>
               <TableCell>{booking.guest}</TableCell>
-              <TableCell className="text-content-secondary">{booking.status}</TableCell>
-              <TableCell className="text-right text-label-13-mono">{booking.covers}</TableCell>
+              <TableCell className="text-content-secondary">{booking.table}</TableCell>
+              <TableCell className="text-right text-label-13-mono">{booking.party}</TableCell>
+              <TableCell className="text-right text-label-13-mono">
+                {booking.deposit ?? <span className="text-content-tertiary">None</span>}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TableCell colSpan={4}>Total covers</TableCell>
-            <TableCell className="text-right text-label-13-mono">{covers}</TableCell>
-          </TableRow>
-        </TableFooter>
       </Table>
     </div>
   );

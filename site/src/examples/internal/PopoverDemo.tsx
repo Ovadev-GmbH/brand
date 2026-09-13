@@ -1,7 +1,8 @@
 import {
   Button,
+  Field,
+  FieldLabel,
   Input,
-  Label,
   Popover,
   PopoverContent,
   PopoverDescription,
@@ -12,27 +13,21 @@ import {
 
 export default function PopoverDemo() {
   return (
-    <div className="flex flex-wrap items-center gap-3">
-      <Popover>
-        <PopoverTrigger render={<Button variant="outline" />}>
-          Adjust seat limit
-        </PopoverTrigger>
-        <PopoverContent align="start">
-          <PopoverHeader>
-            <PopoverTitle>Seat limit</PopoverTitle>
-            <PopoverDescription>
-              Overrides the Scale plan default of 25 for this tenant.
-            </PopoverDescription>
-          </PopoverHeader>
-          <div className="grid gap-1.5">
-            <Label htmlFor="popover-seats">Seats</Label>
-            <Input id="popover-seats" type="number" defaultValue={40} />
-          </div>
-          <Button size="sm" className="self-end">
-            Apply
-          </Button>
-        </PopoverContent>
-      </Popover>
-    </div>
+    <Popover>
+      <PopoverTrigger render={<Button variant="outline" />}>Seat limit</PopoverTrigger>
+      <PopoverContent align="start">
+        <PopoverHeader>
+          <PopoverTitle>Seat limit</PopoverTitle>
+          <PopoverDescription>Overrides the Scale plan default of 25 for acme-logistics.</PopoverDescription>
+        </PopoverHeader>
+        <Field>
+          <FieldLabel htmlFor="popover-seats">Seats</FieldLabel>
+          <Input id="popover-seats" type="number" min={1} defaultValue={40} className="text-label-13-mono" />
+        </Field>
+        <Button size="sm" className="self-end">
+          Save limit
+        </Button>
+      </PopoverContent>
+    </Popover>
   );
 }

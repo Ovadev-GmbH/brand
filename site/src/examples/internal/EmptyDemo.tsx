@@ -11,25 +11,21 @@ import { KeyIcon, PlusIcon } from "lucide-react";
 
 export default function EmptyDemo() {
   return (
-    <Empty className="max-w-xl border border-divider">
+    <Empty className="w-full max-w-md">
       <EmptyHeader>
         <EmptyMedia variant="icon">
           <KeyIcon />
         </EmptyMedia>
         <EmptyTitle>No API keys</EmptyTitle>
         <EmptyDescription>
-          acme-gmbh has no active keys. Create one to let their integration
-          reach the billing API.
+          acme-logistics has no active keys. Create one so their integration can reach the billing API.
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
-        <div className="flex flex-wrap justify-center gap-2">
-          <Button>
-            <PlusIcon data-icon="inline-start" />
-            Create key
-          </Button>
-          <Button variant="outline">View revoked</Button>
-        </div>
+        <Button>
+          <PlusIcon data-icon="inline-start" />
+          Create key
+        </Button>
       </EmptyContent>
     </Empty>
   );

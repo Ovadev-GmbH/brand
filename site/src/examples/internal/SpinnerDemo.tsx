@@ -1,22 +1,19 @@
-import { Button, Spinner } from "@ovadev-gmbh/ui-internal";
+import { Item, ItemContent, ItemMedia, ItemTitle, Spinner } from "@ovadev-gmbh/ui-internal";
 
 export default function SpinnerDemo() {
   return (
-    <div className="flex w-full max-w-xl flex-wrap items-center gap-3">
-      <Spinner className="size-3" />
-      <Spinner />
-      <Spinner className="size-6" />
-      <span className="flex items-center gap-2 text-label-13 text-content-secondary">
-        <Spinner />
-        Fetching audit log
-      </span>
-      <Button disabled>
-        <Spinner data-icon="inline-start" />
-        Deploying
-      </Button>
-      <Button variant="outline" size="icon" disabled aria-label="Refreshing">
-        <Spinner />
-      </Button>
-    </div>
+    <Item variant="muted" role="status" className="w-full max-w-sm">
+      <ItemMedia>
+        <Spinner aria-hidden />
+      </ItemMedia>
+      <ItemContent>
+        <ItemTitle>
+          Charging <span className="text-label-13-mono">INV-2026-0142</span>
+        </ItemTitle>
+      </ItemContent>
+      <ItemContent className="items-end">
+        <span className="text-label-13-mono">CHF 1&apos;240.00</span>
+      </ItemContent>
+    </Item>
   );
 }

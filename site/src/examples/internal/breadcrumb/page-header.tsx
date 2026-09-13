@@ -1,4 +1,5 @@
 import {
+  Badge,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -6,7 +7,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
   Button,
-  StatusDot,
 } from "@ovadev-gmbh/ui-internal";
 
 export default function BreadcrumbPageHeader() {
@@ -36,7 +36,7 @@ export default function BreadcrumbPageHeader() {
           <h3 className="m-0 text-heading-16">
             Invoice <span className="text-label-14-mono">INV-2026-0142</span>
           </h3>
-          <StatusDot state="pending" label titlePrefix="This invoice" />
+          <Badge variant="secondary">Pending</Badge>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm">

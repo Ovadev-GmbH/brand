@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A short pill-shaped label on something unlike its neighbours: Walk-in, Large party, No-show. A state that every booking has is a [Status Dot](/januna/status-dot) with its word, not a column of badges.",
+    "A short pill-shaped label on something unlike its neighbours: Walk-in, Large party, No-show. A booking's state is a badge with its word, such as Pending or Seated; in a table where every booking has one, write the word in its status colour rather than a column of badges.",
   usage: `<Badge variant="secondary">Walk-in</Badge>`,
   sections: [
     {
