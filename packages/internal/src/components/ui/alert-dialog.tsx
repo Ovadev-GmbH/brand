@@ -139,14 +139,20 @@ function AlertDialogDescription({
   )
 }
 
+/* Closes the dialog like Cancel does. For an action that must finish before
+   the dialog goes away, hold `open` yourself and use a plain Button. */
 function AlertDialogAction({
   className,
+  variant = "default",
+  size = "default",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: AlertDialogPrimitive.Close.Props &
+  Pick<React.ComponentProps<typeof Button>, "variant" | "size">) {
   return (
-    <Button
+    <AlertDialogPrimitive.Close
       data-slot="alert-dialog-action"
       className={cn(className)}
+      render={<Button variant={variant} size={size} />}
       {...props}
     />
   )

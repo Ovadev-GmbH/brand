@@ -7,6 +7,12 @@ import type { TooltipValueType } from "recharts"
 const THEMES = { light: "", dark: ".dark" } as const
 
 const INITIAL_DIMENSION = { width: 320, height: 200 } as const
+
+/* Figures group with the apostrophe the system writes (1'240.5), whatever the
+   reader's locale. de-CH groups with U+2019; the design system uses ASCII. */
+function formatValue(value: number) {
+  return value.toLocaleString("de-CH").replace(/’/g, "'")
+}
 type TooltipNameType = number | string
 
 export type ChartConfig = Record<
@@ -158,7 +164,7 @@ function ChartTooltipContent({
 
     if (labelFormatter) {
       return (
-        <div className={cn("font-medium", labelClassName)}>
+        <div className={cn(labelClassName)}>
           {labelFormatter(value, payload)}
         </div>
       )
@@ -168,7 +174,7 @@ function ChartTooltipContent({
       return null
     }
 
-    return <div className={cn("font-medium", labelClassName)}>{value}</div>
+    return <div className={cn(labelClassName)}>{value}</div>
   }, [
     label,
     labelFormatter,
@@ -252,7 +258,7 @@ function ChartTooltipContent({
                       {item.value != null && (
                         <span className="text-label-12-mono text-content-inverse">
                           {typeof item.value === "number"
-                            ? item.value.toLocaleString()
+                            ? formatValue(item.value)
                             : String(item.value)}
                         </span>
                       )}

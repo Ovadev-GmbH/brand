@@ -12,7 +12,7 @@ export default {
   sections: [
     {
       title: "Value",
-      text: "Give `defaultValue` or `value` as an array, even for one thumb. The slider draws one thumb per entry; a plain number, or no value at all, draws two, at `min` and `max`.",
+      text: "`defaultValue` or `value` is a number for one thumb, or an array with one entry per thumb. A slider given no value at all draws two, at `min` and `max`.",
       code: `<Slider defaultValue={[4]} min={1} max={12} aria-label="Party size" />`,
     },
     {

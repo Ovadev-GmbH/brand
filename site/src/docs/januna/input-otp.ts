@@ -27,7 +27,7 @@ export default {
     },
     {
       title: "Separator",
-      text: "`InputOTPSeparator` between two `InputOTPGroup`s splits a code into the halves people read it in. The row has no gap of its own; give it one with `containerClassName`.",
+      text: "`InputOTPSeparator` between two `InputOTPGroup`s splits a code into the halves people read it in. The row keeps 8px between groups and separator; `containerClassName` changes it.",
       example: "separator",
     },
     {

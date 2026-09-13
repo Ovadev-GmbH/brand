@@ -9,11 +9,17 @@ function Slider({
   max = 100,
   ...props
 }: SliderPrimitive.Root.Props) {
+  /* One thumb per value. A single number is one thumb, not a range: only
+     with no value at all does the slider fall back to [min, max]. */
   const _values = Array.isArray(value)
     ? value
-    : Array.isArray(defaultValue)
-      ? defaultValue
-      : [min, max]
+    : typeof value === "number"
+      ? [value]
+      : Array.isArray(defaultValue)
+        ? defaultValue
+        : typeof defaultValue === "number"
+          ? [defaultValue]
+          : [min, max]
 
   return (
     <SliderPrimitive.Root

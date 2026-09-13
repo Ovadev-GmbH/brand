@@ -30,7 +30,7 @@ export default {
     },
     {
       title: "Vertical",
-      text: '`orientation="vertical"` stacks the items and stretches them to the width of the group.',
+      text: '`orientation="vertical"` stacks the items, stretches them to the width of the group, and moves between them with the up and down arrow keys.',
       example: "vertical",
     },
     { title: "Disabled", text: "`disabled` on `ToggleGroup` for every item, on `ToggleGroupItem` for one.", example: "disabled" },

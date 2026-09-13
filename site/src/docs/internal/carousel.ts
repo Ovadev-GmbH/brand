@@ -50,7 +50,7 @@ export default {
   api: [
     {
       name: "Carousel",
-      text: 'A `<div>` with `aria-roledescription="carousel"` that moves with the left and right arrow keys.',
+      text: 'A `<div>` with `aria-roledescription="carousel"` that moves with the arrow keys of its orientation: left and right, or up and down when vertical.',
       props: [
         ["orientation", `"horizontal" | "vertical"`, `"horizontal"`],
         ["opts", "EmblaOptionsType", "–"],

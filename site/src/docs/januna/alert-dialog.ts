@@ -29,7 +29,7 @@ export default {
   sections: [
     {
       title: "Closing",
-      text: "`AlertDialogCancel` closes the dialog. `AlertDialogAction` is a plain `Button`: it runs its `onClick` and leaves the dialog open, so close it yourself through `open` once the action is done. Every example below does.",
+      text: "`AlertDialogCancel` and `AlertDialogAction` both close the dialog: the action runs its `onClick`, then the dialog goes. When the answer depends on a request, hold `open` yourself and use a plain `Button`, so the dialog stays until the request has gone through, as the examples below do.",
     },
     {
       title: "Small",
@@ -74,7 +74,11 @@ export default {
     },
     {
       name: "AlertDialogAction",
-      text: "A `Button`, with all of its props. It does not close the dialog.",
+      text: "Base UI's Close, rendered as a `Button`, like `AlertDialogCancel`: it closes the dialog.",
+      props: [
+        ["variant", `"default" | "outline" | "secondary" | "ghost" | "destructive" | "link"`, `"default"`],
+        ["size", `"default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg"`, `"default"`],
+      ],
     },
     { name: "AlertDialogMedia", text: "A 64px circle on the secondary surface in the header, for one icon, which it draws at 32px." },
   ],

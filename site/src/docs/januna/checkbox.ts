@@ -33,7 +33,7 @@ export default {
     },
     {
       title: "Disabled",
-      text: "`disabled` on the checkbox and `data-disabled` on its `Field`, which dims the box and the label together. Say why it is locked.",
+      text: "`disabled` dims the checkbox and stops it; `data-disabled` on its `Field` dims the label with it. Say why it is locked.",
       example: "disabled",
     },
     {
