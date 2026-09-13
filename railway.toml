@@ -1,0 +1,19 @@
+# Railway service config for `brand` in the INTERN project: this repo's
+# catalog site, served at intern.ova.dev/brand. GitHub Pages
+# (.github/workflows/pages.yml) keeps serving the same build publicly.
+#
+# The service has no public domain. intern's server forwards /brand/* to
+# http://brand.railway.internal:8080 with the prefix taken off, which is
+# why the build's base is /brand/ and site/serve.ts serves dist/ from /.
+
+[build]
+builder = "RAILPACK"
+# Same order as ci.yml: the libraries first, because the site imports them
+# through their package exports, which point at dist/.
+buildCommand = "bun install --frozen-lockfile --ignore-scripts && BASE_PATH=/brand/ bun run build"
+
+[deploy]
+startCommand = "PORT=8080 bun site/serve.ts"
+restartPolicyType = "ON_FAILURE"
+healthcheckPath = "/"
+healthcheckTimeout = 30
