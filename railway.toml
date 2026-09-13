@@ -1,6 +1,6 @@
 # Railway service config for `brand` in the INTERN project: this repo's
-# catalog site, served at intern.ova.dev/brand. GitHub Pages
-# (.github/workflows/pages.yml) keeps serving the same build publicly.
+# catalog site, served at intern.ova.dev/brand. That is its only address;
+# GitHub Pages is no longer used.
 #
 # The service has no public domain. intern's server forwards /brand/* to
 # http://brand.railway.internal:8080 with the prefix taken off, which is

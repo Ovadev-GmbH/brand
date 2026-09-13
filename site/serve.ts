@@ -2,12 +2,11 @@
  * The catalog as a process: the Railway service `brand` in the INTERN
  * project, reached only at intern.ova.dev/brand.
  *
- * GitHub Pages serves this same site at ovadev-gmbh.github.io/brand. On
- * Railway there is no public domain: intern's server forwards /brand/*
- * over the private network with the prefix taken off, so dist/ (built
- * with BASE_PATH=/brand/) is served from the root here. An address with
- * no file behind it gets index.html, which is what 404.html does on
- * Pages, unless its last segment has a dot: that is a missing file.
+ * There is no public domain: intern's server forwards /brand/* over the
+ * private network with the prefix taken off, so dist/ (built with
+ * BASE_PATH=/brand/) is served from the root here. An address with no
+ * file behind it gets index.html, so the client router can take it,
+ * unless its last segment has a dot: that is a missing file.
  * ------------------------------------------------------------------ */
 import { stat } from "node:fs/promises";
 import { join, resolve, sep } from "node:path";

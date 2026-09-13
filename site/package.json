@@ -3,11 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "description": "brand.ova.dev: one catalog per component library, statically built and served from GitHub Pages.",
+  "description": "intern.ova.dev/brand: one catalog per component library, statically built and served on Railway.",
   "scripts": {
     "versions": "bun scripts/gen-versions.mjs",
     "dev": "bun scripts/gen-versions.mjs && bun run docs && vite",
-    "build": "bun scripts/gen-versions.mjs && bun run docs && vite build && cp dist/index.html dist/404.html",
+    "build": "bun scripts/gen-versions.mjs && bun run docs && vite build",
     "check-types": "bun scripts/gen-versions.mjs && tsc --noEmit",
     "preview": "vite preview",
     "docs": "bun run ../scripts/gen-design-md.ts januna && bun run ../scripts/gen-catalog-md.ts januna && bun run ../scripts/gen-design-md.ts internal && bun run ../scripts/gen-catalog-md.ts internal"
