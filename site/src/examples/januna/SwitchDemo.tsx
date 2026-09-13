@@ -14,7 +14,7 @@ export default function SwitchDemo() {
         <Switch id="waitlist" size="sm" defaultChecked />
         <Label htmlFor="waitlist">Waitlist when the shift is full</Label>
       </div>
-      <div className="flex items-center justify-between rounded-2xl border p-4">
+      <div className="flex items-center justify-between gap-4 material-base p-4">
         <div className="grid gap-1">
           <Label htmlFor="deposit">Require a deposit</Label>
           <p className="text-copy-13 text-content-secondary">

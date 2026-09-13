@@ -13,7 +13,7 @@ export default function MessageDemo() {
   return (
     <MessageGroup className="w-full max-w-md">
       <Message>
-        <MessageAvatar className="size-8 text-label-12 font-medium">AR</MessageAvatar>
+        <MessageAvatar className="size-8 text-label-12">AR</MessageAvatar>
         <MessageContent>
           <MessageHeader>Anna Rossi</MessageHeader>
           <Bubble variant="muted">
@@ -29,7 +29,7 @@ export default function MessageDemo() {
           <MessageHeader>Januna, Trattoria Sole</MessageHeader>
           <Bubble align="end">
             <BubbleContent>
-              Of course. Table 7 is now held for 4 guests at 19:00. See you soon!
+              Of course. Table 7 is now held for 4 guests at 19:00. See you then.
             </BubbleContent>
           </Bubble>
           <MessageFooter>17:44, delivered</MessageFooter>

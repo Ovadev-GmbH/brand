@@ -11,7 +11,7 @@ export default function IntroDemo() {
           <InputGroupAddon>
             <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
           </InputGroupAddon>
-          <InputGroupInput placeholder="Find a booking" readOnly />
+          <InputGroupInput aria-label="Find a booking" placeholder="Find a booking" readOnly />
         </InputGroup>
         <Button>
           <HugeiconsIcon icon={Add01Icon} strokeWidth={2} data-icon="inline-start" />
@@ -19,7 +19,7 @@ export default function IntroDemo() {
         </Button>
       </div>
       <div className="flex items-center gap-3">
-        <Button variant="outline" size="icon" aria-label="Calendar">
+        <Button variant="outline" size="icon" aria-label="Pick a date">
           <HugeiconsIcon icon={Calendar03Icon} strokeWidth={2} />
         </Button>
         <ToggleGroup value={["grid"]} aria-label="View">
@@ -30,7 +30,7 @@ export default function IntroDemo() {
             <HugeiconsIcon icon={LeftToRightListBulletIcon} strokeWidth={2} />
           </ToggleGroupItem>
         </ToggleGroup>
-        <Input placeholder="Guests" className="w-28" readOnly />
+        <Input aria-label="Party size" placeholder="Guests" className="w-28" readOnly />
       </div>
     </div>
   );

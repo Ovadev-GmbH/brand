@@ -21,7 +21,7 @@ export default function HoverCardDemo() {
               <AvatarFallback>NK</AvatarFallback>
             </Avatar>
             <div className="grid gap-1">
-              <p className="text-label-14 font-medium">Nora Keller</p>
+              <p className="text-heading-14">Nora Keller</p>
               <p className="text-copy-13 text-content-secondary">
                 Regular guest since 2023. 14 visits, never a no-show.
               </p>

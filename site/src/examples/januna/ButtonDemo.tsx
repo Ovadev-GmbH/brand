@@ -7,18 +7,18 @@ export default function ButtonDemo() {
     <div className="grid w-full max-w-xl gap-3">
       <div className="flex flex-wrap items-center gap-3">
         <Button>Book a table</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="outline">Outline</Button>
-        <Button variant="ghost">Ghost</Button>
-        <Button variant="link">Link</Button>
+        <Button variant="secondary">Add to waitlist</Button>
+        <Button variant="outline">Print run sheet</Button>
+        <Button variant="ghost">Clear filters</Button>
+        <Button variant="link">View guest profile</Button>
         <Button variant="destructive">
           <HugeiconsIcon icon={Delete02Icon} strokeWidth={2} data-icon="inline-start" />
           Cancel booking
         </Button>
       </div>
       <div className="flex flex-wrap items-center gap-3">
-        <Button size="sm">Small</Button>
-        <Button size="lg">Large</Button>
+        <Button size="sm">Seat now</Button>
+        <Button size="lg">Confirm booking</Button>
         <Button variant="outline">
           Next shift
           <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} data-icon="inline-end" />
@@ -26,7 +26,7 @@ export default function ButtonDemo() {
         <Button size="icon" variant="outline" aria-label="Add guest">
           <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
         </Button>
-        <Button disabled>Disabled</Button>
+        <Button disabled>Fully booked</Button>
       </div>
     </div>
   );

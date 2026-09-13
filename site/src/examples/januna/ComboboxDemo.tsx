@@ -15,12 +15,12 @@ import {
 } from "@ovadev-gmbh/ui-januna";
 
 const guests = [
-  "Ada Lovelace",
-  "Grace Hopper",
-  "Alan Turing",
-  "Katherine Johnson",
-  "Linus Torvalds",
-  "Margaret Hamilton",
+  "Nora Keller",
+  "Luca Brunner",
+  "Meier-Rossi family",
+  "Chidi Okafor",
+  "Elin Lindqvist",
+  "Sofia Huber",
 ];
 
 const tags = ["Birthday", "Anniversary", "Window seat", "High chair", "Vegan", "Allergy"];

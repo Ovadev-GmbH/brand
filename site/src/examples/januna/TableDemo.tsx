@@ -36,18 +36,18 @@ export default function TableDemo() {
         <TableBody>
           {bookings.map((booking) => (
             <TableRow key={`${booking.time}-${booking.table}`}>
-              <TableCell className="font-medium">{booking.time}</TableCell>
+              <TableCell className="text-label-13-mono">{booking.time}</TableCell>
               <TableCell>{booking.table}</TableCell>
               <TableCell>{booking.guest}</TableCell>
               <TableCell className="text-content-secondary">{booking.status}</TableCell>
-              <TableCell className="text-right">{booking.covers}</TableCell>
+              <TableCell className="text-right text-label-13-mono">{booking.covers}</TableCell>
             </TableRow>
           ))}
         </TableBody>
         <TableFooter>
           <TableRow>
             <TableCell colSpan={4}>Total covers</TableCell>
-            <TableCell className="text-right">{covers}</TableCell>
+            <TableCell className="text-right text-label-13-mono">{covers}</TableCell>
           </TableRow>
         </TableFooter>
       </Table>

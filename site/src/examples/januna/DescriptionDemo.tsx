@@ -10,7 +10,7 @@ export default function DescriptionDemo() {
     <TooltipProvider>
       <DescriptionList columns={3} className="w-full max-w-lg">
         <Description title="Guest" content="Anna Keller" />
-        <Description title="Table" content="12 — Terrace" />
+        <Description title="Table" content="12, Terrace" />
         <Description
           title="Party"
           content="6 guests"

@@ -31,7 +31,7 @@ export default function FieldDemo() {
           <FieldGroup>
             <Field>
               <FieldLabel htmlFor="field-name">Guest name</FieldLabel>
-              <Input id="field-name" placeholder="Ada Lovelace" autoComplete="off" />
+              <Input id="field-name" placeholder="Nora Keller" autoComplete="off" />
               <FieldDescription>Shown on the floor plan and the door list.</FieldDescription>
             </Field>
             <Field data-invalid={tooLarge}>

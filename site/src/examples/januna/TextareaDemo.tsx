@@ -14,7 +14,10 @@ export default function TextareaDemo() {
         </p>
       </div>
       <div className="grid gap-2">
-        <Textarea placeholder="Message to all guests booked tonight" />
+        <Textarea
+          aria-label="Message to all guests booked tonight"
+          placeholder="Message to all guests booked tonight"
+        />
         <Button type="button" className="w-fit">
           Send message
         </Button>

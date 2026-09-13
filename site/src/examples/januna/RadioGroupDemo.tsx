@@ -1,9 +1,9 @@
 import { Label, RadioGroup, RadioGroupItem } from "@ovadev-gmbh/ui-januna";
 
 const shifts = [
-  { value: "lunch", label: "Lunch", hint: "11:30 – 14:30" },
-  { value: "dinner", label: "Dinner", hint: "18:00 – 23:00" },
-  { value: "late", label: "Late night", hint: "23:00 – 01:00", disabled: true },
+  { value: "lunch", label: "Lunch", hint: "11:30 to 14:30" },
+  { value: "dinner", label: "Dinner", hint: "18:00 to 23:00" },
+  { value: "late", label: "Late night", hint: "23:00 to 01:00", disabled: true },
 ];
 
 export default function RadioGroupDemo() {
@@ -18,7 +18,7 @@ export default function RadioGroupDemo() {
           />
           <Label htmlFor={`shift-${item.value}`}>
             {item.label}
-            <span className="font-normal text-content-secondary">{item.hint}</span>
+            <span className="text-label-13 text-content-secondary">{item.hint}</span>
           </Label>
         </div>
       ))}

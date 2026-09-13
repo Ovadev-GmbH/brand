@@ -23,7 +23,7 @@ export default function AttachmentDemo() {
           <AttachmentDescription>1.2 MB</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Remove">
+          <AttachmentAction aria-label="Remove floor-plan-patio.pdf">
             <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} />
           </AttachmentAction>
         </AttachmentActions>

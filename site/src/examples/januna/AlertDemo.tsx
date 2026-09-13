@@ -19,7 +19,7 @@ export default function AlertDemo() {
         </AlertDescription>
         <AlertAction>
           <Button size="xs" variant="outline">
-            View
+            View booking
           </Button>
         </AlertAction>
       </Alert>

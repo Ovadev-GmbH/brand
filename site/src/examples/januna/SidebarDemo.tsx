@@ -36,11 +36,11 @@ export default function SidebarDemo() {
   return (
     <SidebarProvider
       style={{ minHeight: 0 }}
-      className="h-80 w-full max-w-xl overflow-hidden rounded-2xl border"
+      className="h-80 w-full max-w-xl overflow-hidden material-base"
     >
-      <Sidebar collapsible="none" className="border-r">
+      <Sidebar collapsible="none" className="border-r border-divider">
         <SidebarHeader>
-          <div className="px-3 py-1 font-heading text-label-14 font-medium">Januna</div>
+          <div className="px-3 py-1 text-heading-14">Januna</div>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>

@@ -21,17 +21,25 @@ export default function AvatarDemo() {
       <Avatar>
         <AvatarFallback>AR</AvatarFallback>
       </Avatar>
-      <Avatar size="lg">
-        <AvatarFallback>SM</AvatarFallback>
-        <AvatarBadge aria-label="Seated" />
-      </Avatar>
+      <div className="flex items-center gap-2">
+        <Avatar size="lg">
+          <AvatarFallback>SM</AvatarFallback>
+          <AvatarBadge aria-hidden="true" />
+        </Avatar>
+        <div className="grid">
+          <span className="text-label-14">Sofia Meier</span>
+          <span className="text-label-12 text-content-secondary">Seated</span>
+        </div>
+      </div>
       <AvatarGroup className="ml-3">
         {party.map((guest) => (
-          <Avatar key={guest.initials} aria-label={guest.name}>
+          <Avatar key={guest.initials} role="img" aria-label={guest.name}>
             <AvatarFallback>{guest.initials}</AvatarFallback>
           </Avatar>
         ))}
-        <AvatarGroupCount>+3</AvatarGroupCount>
+        <AvatarGroupCount>
+          +3<span className="sr-only"> more guests</span>
+        </AvatarGroupCount>
       </AvatarGroup>
     </div>
   );

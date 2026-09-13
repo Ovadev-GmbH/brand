@@ -25,7 +25,7 @@ export default function GaugeDemo() {
           value={88}
           size="lg"
           showValue
-          colors={{ primary: "var(--jan-green-1000)", secondary: "var(--jan-green-200)" }}
+          colors={{ primary: "var(--jan-brand)", secondary: "var(--jan-brand-subtle)" }}
           aria-label="Tonight's occupancy"
         />
         <span className="text-label-13 text-content-secondary">Tonight</span>

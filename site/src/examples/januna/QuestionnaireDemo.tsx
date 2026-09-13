@@ -64,7 +64,11 @@ export default function QuestionnaireDemo() {
 
       <QuestionnaireItem name="email" required>
         <QuestionnaireTitle>Where should the confirmation go?</QuestionnaireTitle>
-        <QuestionnaireInput type="email" placeholder="guest@example.com" />
+        <QuestionnaireInput
+          type="email"
+          aria-label="Email address"
+          placeholder="guest@example.com"
+        />
         <QuestionnaireError>We need an email address to confirm the booking.</QuestionnaireError>
         <QuestionnaireActions>
           <QuestionnairePrevious />

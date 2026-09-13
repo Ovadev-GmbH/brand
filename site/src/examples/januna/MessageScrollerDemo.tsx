@@ -41,7 +41,7 @@ export default function MessageScrollerDemo() {
   return (
     <div className="flex w-full max-w-md flex-col gap-3">
       <MessageScrollerProvider>
-        <MessageScroller className="h-64 rounded-2xl border">
+        <MessageScroller className="h-64 material-base">
           <MessageScrollerViewport className="p-4">
             <MessageScrollerContent className="gap-3">
               {entries.map((entry) => (

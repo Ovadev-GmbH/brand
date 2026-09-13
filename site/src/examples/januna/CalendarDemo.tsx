@@ -9,7 +9,7 @@ export default function CalendarDemo() {
       mode="single"
       selected={booking}
       onSelect={setBooking}
-      className="rounded-2xl border"
+      className="material-base"
     />
   );
 }

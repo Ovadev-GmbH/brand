@@ -4,7 +4,7 @@ export default function SeparatorDemo() {
   return (
     <div className="w-full max-w-sm">
       <div className="grid gap-1">
-        <span className="text-label-14 font-medium">Dinner shift</span>
+        <span className="text-heading-14">Dinner shift</span>
         <p className="text-copy-13 text-content-secondary">
           Friday, 18:00 to 23:00. 42 bookings, 118 covers.
         </p>

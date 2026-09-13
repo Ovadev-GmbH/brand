@@ -5,7 +5,7 @@ export default function LabelDemo() {
     <div className="grid w-full max-w-xl gap-4">
       <div className="grid gap-2">
         <Label htmlFor="guest-name">Guest name</Label>
-        <Input id="guest-name" placeholder="Ada Lovelace" />
+        <Input id="guest-name" placeholder="Nora Keller" />
       </div>
       <div className="flex items-center gap-3">
         <Checkbox id="terms" />

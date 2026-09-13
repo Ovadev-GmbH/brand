@@ -13,7 +13,7 @@ import { Add01Icon, PrinterIcon, Table01Icon, UserIcon } from "@hugeicons/core-f
 
 export default function CommandDemo() {
   return (
-    <Command className="w-full max-w-md border shadow-md">
+    <Command className="w-full max-w-md">
       <CommandInput placeholder="Search bookings, tables or guests…" />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>

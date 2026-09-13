@@ -25,7 +25,7 @@ export default function CarouselDemo() {
             <CarouselItem key={shift.name}>
               <Card size="sm">
                 <CardContent className="flex aspect-video flex-col items-center justify-center gap-1">
-                  <span className="text-heading-32 tabular-nums">{shift.covers}</span>
+                  <span className="text-heading-32">{shift.covers}</span>
                   <span className="text-label-13 text-content-secondary">covers, {shift.name}</span>
                 </CardContent>
               </Card>

@@ -5,6 +5,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@ovadev-gmbh/ui-januna";
 
 const product = [
@@ -34,7 +35,7 @@ function Links({ entries }: { entries: typeof product }) {
       {entries.map((entry) => (
         <li key={entry.title}>
           <NavigationMenuLink href="#" className="flex-col items-start gap-0.5">
-            <span className="text-label-14 font-medium">{entry.title}</span>
+            <span className="text-label-14">{entry.title}</span>
             <span className="text-label-12 text-content-secondary">{entry.description}</span>
           </NavigationMenuLink>
         </li>
@@ -60,7 +61,9 @@ export default function NavigationMenuDemo() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="#">Pricing</NavigationMenuLink>
+          <NavigationMenuLink href="#" className={navigationMenuTriggerStyle()}>
+            Pricing
+          </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

@@ -3,9 +3,13 @@ import {
   ButtonGroup,
   ButtonGroupSeparator,
   ButtonGroupText,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
 } from "@ovadev-gmbh/ui-januna";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Add01Icon, ArrowRight01Icon, UserGroupIcon } from "@hugeicons/core-free-icons";
+import { Add01Icon, ArrowDown01Icon, UserGroupIcon } from "@hugeicons/core-free-icons";
 
 export default function ButtonGroupDemo() {
   return (
@@ -27,9 +31,16 @@ export default function ButtonGroupDemo() {
       <ButtonGroup>
         <Button>Confirm booking</Button>
         <ButtonGroupSeparator />
-        <Button size="icon" aria-label="More">
-          <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} />
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger render={<Button size="icon" aria-label="More ways to confirm" />}>
+            <HugeiconsIcon icon={ArrowDown01Icon} strokeWidth={2} />
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            <DropdownMenuItem>Confirm and send SMS</DropdownMenuItem>
+            <DropdownMenuItem>Confirm and seat now</DropdownMenuItem>
+            <DropdownMenuItem>Confirm without notifying</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </ButtonGroup>
     </div>
   );

@@ -24,7 +24,7 @@ export default function CardDemo() {
         <CardTitle>Dinner shift</CardTitle>
         <CardDescription>Friday, 18:00 to 23:00</CardDescription>
         <CardAction>
-          <Button variant="ghost" size="icon-sm" aria-label="More">
+          <Button variant="ghost" size="icon-sm" aria-label="More shift actions">
             <HugeiconsIcon icon={MoreHorizontalIcon} strokeWidth={2} />
           </Button>
         </CardAction>
@@ -34,7 +34,7 @@ export default function CardDemo() {
           {stats.map((stat) => (
             <div key={stat.label}>
               <dt className="text-label-12 text-content-secondary">{stat.label}</dt>
-              <dd className="text-heading-24 tabular-nums">{stat.value}</dd>
+              <dd className="text-heading-24">{stat.value}</dd>
             </div>
           ))}
         </dl>

@@ -6,7 +6,7 @@ export default function InputDemo() {
       <div className="grid grid-cols-2 gap-4">
         <div className="grid gap-2">
           <Label htmlFor="guest-name">Guest name</Label>
-          <Input id="guest-name" placeholder="Ada Lovelace" />
+          <Input id="guest-name" placeholder="Nora Keller" />
         </div>
         <div className="grid gap-2">
           <Label htmlFor="party-size">Party size</Label>
@@ -14,10 +14,10 @@ export default function InputDemo() {
         </div>
       </div>
       <div className="flex gap-2">
-        <Input type="tel" placeholder="Phone number" />
+        <Input type="tel" placeholder="Phone number" aria-label="Phone number" />
         <Button type="button">Look up guest</Button>
       </div>
-      <Input disabled placeholder="Table 12 (assigned automatically)" />
+      <Input disabled aria-label="Table" placeholder="Table 12 (assigned automatically)" />
     </div>
   );
 }
