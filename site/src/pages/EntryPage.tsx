@@ -96,7 +96,7 @@ export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
             ))}
             {doc.links?.api ? (
               <p>
-                <Rich text={`Everything else is Base UI's: [the ${entry.name} API reference](${doc.links.api}).`} />
+                <Rich text={`Everything else comes from ${doc.links.lib ?? "Base UI"}: [its ${entry.name} API reference](${doc.links.api}).`} />
               </p>
             ) : null}
           </DocSection>

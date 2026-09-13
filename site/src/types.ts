@@ -28,7 +28,8 @@ export type Doc = {
   composition?: string;
   sections: { title: string; text?: string; example?: string; code?: string }[];
   api?: { name: string; text: string; props?: [prop: string, type: string, fallback: string][] }[];
-  links?: { doc?: string; api?: string };
+  /** Where the rest of the API is documented. `lib` names it; Base UI when absent. */
+  links?: { doc?: string; api?: string; lib?: string };
 };
 
 export type Entry = {

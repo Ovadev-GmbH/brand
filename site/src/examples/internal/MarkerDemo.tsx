@@ -10,7 +10,7 @@ export default function MarkerDemo() {
         </MarkerIcon>
         <MarkerContent>
           Deploy #4821 by robin ·{" "}
-          <span className="font-mono tabular-nums">14:02</span>
+          <span className="text-label-13-mono">14:02</span>
         </MarkerContent>
       </Marker>
       <Marker variant="separator">
@@ -18,7 +18,7 @@ export default function MarkerDemo() {
       </Marker>
       <Marker variant="border">
         <MarkerContent>
-          Audit log · <span className="font-mono tabular-nums">12 Sep</span> ·
+          Audit log · <span className="text-label-13-mono">12 Sep</span> ·
           48 events
         </MarkerContent>
       </Marker>

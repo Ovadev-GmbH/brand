@@ -25,7 +25,7 @@ export default function CarouselDemo() {
             <CarouselItem key={region.name}>
               <Card size="sm">
                 <CardContent className="flex aspect-video flex-col items-center justify-center gap-1">
-                  <span className="text-heading-32 font-mono tabular-nums">{region.deployments}</span>
+                  <span className="text-label-14-mono">{region.deployments}</span>
                   <span className="text-label-13 text-content-secondary">deployments, {region.name}</span>
                 </CardContent>
               </Card>

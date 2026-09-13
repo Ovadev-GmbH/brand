@@ -12,10 +12,10 @@ export default function AccordionDemo() {
         <AccordionTrigger>Timeline</AccordionTrigger>
         <AccordionContent>
           <p className="text-content-secondary">
-            <span className="font-mono tabular-nums">09:14</span> Alert fired on
-            api-eu-1 p99 latency. <span className="font-mono tabular-nums">09:21</span>{" "}
+            <span className="text-label-13-mono">09:14</span> Alert fired on
+            api-eu-1 p99 latency. <span className="text-label-13-mono">09:21</span>{" "}
             Traffic drained to api-eu-2.{" "}
-            <span className="font-mono tabular-nums">09:48</span> Rollback of
+            <span className="text-label-13-mono">09:48</span> Rollback of
             deploy #4821 complete.
           </p>
         </AccordionContent>

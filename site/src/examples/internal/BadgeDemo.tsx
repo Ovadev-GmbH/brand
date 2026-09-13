@@ -14,7 +14,7 @@ export default function BadgeDemo() {
         <CircleCheckIcon data-icon="inline-start" />
         Paid
       </Badge>
-      <Badge variant="secondary" className="font-mono tabular-nums">
+      <Badge variant="secondary" className="text-label-12-mono">
         v2.14.0
       </Badge>
     </div>

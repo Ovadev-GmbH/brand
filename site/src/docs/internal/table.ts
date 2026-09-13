@@ -13,7 +13,7 @@ export default {
   <TableBody>
     <TableRow>
       <TableCell className="text-label-13-mono">INV-2026-0142</TableCell>
-      <TableCell className="text-right text-label-13-mono">1,240.00</TableCell>
+      <TableCell className="text-right text-label-13-mono">1'240.00</TableCell>
     </TableRow>
   </TableBody>
 </Table>`,

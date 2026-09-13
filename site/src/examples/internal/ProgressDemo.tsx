@@ -13,11 +13,11 @@ export default function ProgressDemo() {
     <div className="flex w-full max-w-xl flex-col gap-4">
       <Progress value={value}>
         <ProgressLabel>Invoice run · September</ProgressLabel>
-        <ProgressValue className="font-mono" />
+        <ProgressValue className="text-label-13-mono" />
       </Progress>
       <Progress value={184} max={312}>
         <ProgressLabel>Tenants migrated</ProgressLabel>
-        <ProgressValue className="font-mono">
+        <ProgressValue className="text-label-13-mono">
           {(_, v) => `${v ?? 0} / 312`}
         </ProgressValue>
       </Progress>

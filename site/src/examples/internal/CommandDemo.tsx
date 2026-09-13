@@ -12,7 +12,7 @@ import { RefreshCwIcon, Building2Icon, KeyIcon, ReceiptIcon } from "lucide-react
 
 export default function CommandDemo() {
   return (
-    <Command className="max-w-md border border-divider">
+    <Command className="max-w-md">
       <CommandInput placeholder="Search tenants, invoices, commands…" />
       <CommandList>
         <CommandEmpty>No results.</CommandEmpty>
@@ -29,7 +29,7 @@ export default function CommandDemo() {
           </CommandItem>
           <CommandItem>
             <ReceiptIcon />
-            INV-2041 · CHF 1,240.00
+            INV-2041 · CHF 1'240.00
             <span className="ml-auto text-label-12-mono text-content-tertiary">open</span>
           </CommandItem>
         </CommandGroup>

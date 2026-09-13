@@ -164,7 +164,7 @@ if (existsSync(`${ROOT}/packages/${ID}/src/components/ui`)) {
               prose(part.text), ``,
               ...(part.props?.length ? [table(["Prop", "Type", "Default"], part.props.map((row) => row.map((v) => `\`${cell(v)}\``))), ``] : []),
             ]),
-            ...(doc.links?.api ? [`Everything else is Base UI's: ${doc.links.api}`, ``] : []),
+            ...(doc.links?.api ? [`Everything else comes from ${doc.links.lib ?? "Base UI"}: ${doc.links.api}`, ``] : []),
           ]
         : []),
       ...source,

@@ -13,7 +13,7 @@ import {
 const rows = [
   ["Tenant", "acme-logistics"],
   ["Plan", "Scale"],
-  ["Amount", "CHF 1,240.00"],
+  ["Amount", "CHF 1'240.00"],
   ["Due", "2026-09-30"],
   ["Status", "open"],
 ] as const;

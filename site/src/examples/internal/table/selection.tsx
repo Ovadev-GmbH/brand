@@ -11,7 +11,7 @@ import {
 } from "@ovadev-gmbh/ui-internal";
 
 const invoices = [
-  { id: "INV-2026-0142", tenant: "acme-logistics", due: "2026-09-30", amount: "1,240.00" },
+  { id: "INV-2026-0142", tenant: "acme-logistics", due: "2026-09-30", amount: "1'240.00" },
   { id: "INV-2026-0141", tenant: "nordlicht", due: "2026-09-30", amount: "390.00" },
   { id: "INV-2026-0139", tenant: "kaffeehaus", due: "2026-09-15", amount: "49.00" },
   { id: "INV-2026-0138", tenant: "helvetia-labs", due: "2026-09-14", amount: "585.00" },
