@@ -21,7 +21,7 @@ export const BRANDS: Record<string, Brand> = {
     name: "Januna", pkg: "@ovadev-gmbh/ui-januna", prefix: "jan",
     icons: {
       library: "Hugeicons",
-      usage: 'import { HugeiconsIcon } from "@hugeicons/react";\nimport { Add01Icon } from "@hugeicons/core-free-icons";\n\n<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />',
+      usage: 'import { HugeiconsIcon, Add01Icon } from "@ovadev-gmbh/ui-januna/icons";\n\n<HugeiconsIcon icon={Add01Icon} strokeWidth={2} />',
       note: "The free set, 6,704 icons, stroke rounded. Inside a button it is 16px at stroke 2; standalone 24px at stroke 1.5. Names end in `Icon`.",
     },
   },
@@ -37,7 +37,7 @@ export const BRANDS: Record<string, Brand> = {
     name: "Internal", pkg: "@ovadev-gmbh/ui-internal", prefix: "int",
     icons: {
       library: "Lucide",
-      usage: 'import { PlusIcon, SearchIcon } from "lucide-react";\n\n<PlusIcon className="size-4" />',
+      usage: 'import { PlusIcon, SearchIcon } from "@ovadev-gmbh/ui-internal/icons";\n\n<PlusIcon className="size-4" />',
       note: "2,000 icons, stroke 2 at 16px inside controls, 1.75 at 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling.",
     },
   },

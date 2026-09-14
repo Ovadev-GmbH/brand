@@ -41,15 +41,14 @@ The system is one package: `@ovadev-gmbh/ui-januna`, on the GitHub Packages regi
 
 That line brings Tailwind, the theme, the type styles, the materials, Geist and Geist Mono. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
 
-Import components from the package root and icons from Hugeicons:
+Import components from the package root and icons from its `icons` subpath (Hugeicons, re-exported):
 
 ```tsx
 import { Button, Dialog, DialogTrigger, DialogContent } from "@ovadev-gmbh/ui-januna";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Calendar03Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, Calendar03Icon } from "@ovadev-gmbh/ui-januna/icons";
 ```
 
-The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. Keep screens static except where a control holds state.
+The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. It brings its own Base UI and icon set; the app supplies only React and Tailwind, and never installs or imports either library itself. Keep screens static except where a control holds state.
 
 When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API.
 
@@ -474,8 +473,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 Hugeicons. The free set, 6,704 icons, stroke rounded. Inside a button it is 16px at stroke 2; standalone 24px at stroke 1.5. Names end in `Icon`. The full set: https://intern.ova.dev/brand/januna/icons
 
 ```tsx
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Add01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, Add01Icon } from "@ovadev-gmbh/ui-januna/icons";
 
 <HugeiconsIcon icon={Add01Icon} strokeWidth={2} />
 ```

@@ -41,14 +41,14 @@ The system is one package: `@ovadev-gmbh/ui-internal`, on the GitHub Packages re
 
 That line brings Tailwind, the theme, the type styles, the materials, Geist and Geist Mono. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
 
-Import components from the package root and icons from Lucide:
+Import components from the package root and icons from its `icons` subpath (Lucide, re-exported):
 
 ```tsx
 import { Button, Table, TableRow, DropdownMenu } from "@ovadev-gmbh/ui-internal";
-import { PlusIcon, SearchIcon } from "lucide-react";
+import { PlusIcon, SearchIcon } from "@ovadev-gmbh/ui-internal/icons";
 ```
 
-The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. Keep screens static except where a control holds state.
+The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. It brings its own Base UI and icon set; the app supplies only React and Tailwind, and never installs or imports either library itself. Keep screens static except where a control holds state.
 
 When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API. Internal shares its class vocabulary with Januna; a screen written for one reads in the other, only the values differ.
 
@@ -466,7 +466,7 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 Lucide. 2,000 icons, stroke 2 at 16px inside controls, 1.75 at 20px standalone. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling. The full set: https://intern.ova.dev/brand/internal/icons
 
 ```tsx
-import { PlusIcon, SearchIcon } from "lucide-react";
+import { PlusIcon, SearchIcon } from "@ovadev-gmbh/ui-internal/icons";
 
 <PlusIcon className="size-4" />
 ```
