@@ -5,18 +5,18 @@ export default function InputFieldGroup() {
     <FieldGroup className="w-80">
       <Field>
         <FieldLabel htmlFor="field-group-company">Company</FieldLabel>
-        <Input id="field-group-company" placeholder="Acme Logistics AG" />
+        <Input id="field-group-company" placeholder="Strandbad Türlersee AG" />
       </Field>
       <Field>
-        <FieldLabel htmlFor="field-group-email">Billing e-mail</FieldLabel>
-        <Input id="field-group-email" type="email" placeholder="billing@acme.ch" />
-        <FieldDescription>Invoices go here, not to the account owner.</FieldDescription>
+        <FieldLabel htmlFor="field-group-email">E-mail</FieldLabel>
+        <Input id="field-group-email" type="email" placeholder="info@tuerlersee.ch" />
+        <FieldDescription>We answer here, usually within a working day.</FieldDescription>
       </Field>
       <Field orientation="horizontal">
         <Button type="reset" variant="outline">
           Reset
         </Button>
-        <Button type="submit">Save</Button>
+        <Button type="submit">Send</Button>
       </Field>
     </FieldGroup>
   );

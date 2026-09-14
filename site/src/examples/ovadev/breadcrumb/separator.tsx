@@ -13,19 +13,19 @@ export default function BreadcrumbCustomSeparator() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#tenants">Tenants</BreadcrumbLink>
+          <BreadcrumbLink href="#brand">Brand</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
           <SlashIcon />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#helvetia-labs">helvetia-labs</BreadcrumbLink>
+          <BreadcrumbLink href="#ovadev">Ovadev</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator>
           <SlashIcon />
         </BreadcrumbSeparator>
         <BreadcrumbItem>
-          <BreadcrumbPage>API keys</BreadcrumbPage>
+          <BreadcrumbPage>Typography</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

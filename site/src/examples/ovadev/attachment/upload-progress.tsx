@@ -41,7 +41,7 @@ export default function AttachmentUploadProgress() {
     idle: "Not uploaded yet",
     uploading: `Uploading, ${progress}%`,
     processing: "Checking for malware",
-    done: "1.2 MB, stored in ch-zrh-1",
+    done: "12 KB, stored in Switzerland",
   }[state];
   const working = state === "uploading" || state === "processing";
 
@@ -50,7 +50,7 @@ export default function AttachmentUploadProgress() {
       <Attachment state={state} className="w-full">
         <AttachmentMedia>{working ? <Spinner /> : <FileSpreadsheetIcon />}</AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>audit-log-2026-09.csv</AttachmentTitle>
+          <AttachmentTitle>season-passes-2026.csv</AttachmentTitle>
           <AttachmentDescription role="status">{note}</AttachmentDescription>
         </AttachmentContent>
       </Attachment>

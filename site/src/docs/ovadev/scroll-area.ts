@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A region with a scroll position of its own and a thin grey scrollbar, for a long list inside a panel of fixed height. For a conversation that should follow new messages, use [Message Scroller](/internal/message-scroller).",
+    "A region with a scroll position of its own and a thin grey scrollbar, for a long list inside a panel of fixed height. For a conversation that should follow new messages, use [Message Scroller](/ovadev/message-scroller).",
   usage: `<ScrollArea className="h-48 w-72">
   {events.map((event) => (
     <div key={event.id} className="px-3 py-2 text-label-13">

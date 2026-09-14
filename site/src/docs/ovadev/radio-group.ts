@@ -2,15 +2,15 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "One answer from a few options that should all be in view at once: a plan, a region, a deployment strategy. When the options would not fit, use [Select](/internal/select).",
-  usage: `<RadioGroup defaultValue="team" aria-label="Plan">
+    "One answer from a few options that should all be in view at once: a language, a canton, a product. When the options would not fit, use [Select](/ovadev/select).",
+  usage: `<RadioGroup defaultValue="de" aria-label="Language">
   <div className="flex items-center gap-3">
-    <RadioGroupItem id="plan-starter" value="starter" />
-    <Label htmlFor="plan-starter">Starter</Label>
+    <RadioGroupItem id="language-de" value="de" />
+    <Label htmlFor="language-de">Deutsch</Label>
   </div>
   <div className="flex items-center gap-3">
-    <RadioGroupItem id="plan-team" value="team" />
-    <Label htmlFor="plan-team">Team</Label>
+    <RadioGroupItem id="language-en" value="en" />
+    <Label htmlFor="language-en">English</Label>
   </div>
 </RadioGroup>`,
   sections: [
@@ -41,7 +41,7 @@ export default {
     },
     {
       title: "Controlled",
-      text: "`value` and `onValueChange` when the answer changes something else on the screen, such as the amount that will be invoiced.",
+      text: "`value` and `onValueChange` when the answer changes something else on the screen, such as the language the confirmation is sent in.",
       example: "controlled",
     },
   ],
@@ -52,7 +52,7 @@ export default {
     },
     {
       name: "RadioGroupItem",
-      text: "Base UI's Radio with its indicator inside: a 16px circle, black with a white dot when chosen.",
+      text: "Base UI's Radio with its indicator inside: a 16px circle, ink with a paper dot when chosen.",
     },
   ],
   links: {

@@ -2,12 +2,12 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A row of menus for a workspace with many commands, the way a desktop application has one: an editor, a console, a log viewer. A page with a handful of actions needs a [Dropdown Menu](/internal/dropdown-menu) instead.",
+    "A row of menus for a screen with many commands, the way a desktop application has one: an editor, a console, a log viewer. A page with a handful of actions needs a [Dropdown Menu](/ovadev/dropdown-menu) instead.",
   usage: `<Menubar>
   <MenubarMenu>
-    <MenubarTrigger>Invoice</MenubarTrigger>
+    <MenubarTrigger>Post</MenubarTrigger>
     <MenubarContent>
-      <MenubarItem>New invoice</MenubarItem>
+      <MenubarItem>New post</MenubarItem>
       <MenubarItem>Duplicate</MenubarItem>
     </MenubarContent>
   </MenubarMenu>

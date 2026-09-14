@@ -18,7 +18,7 @@ import {
 export default function DialogControlled() {
   const [open, setOpen] = React.useState(false);
   const [saving, setSaving] = React.useState(false);
-  const [name, setName] = React.useState("Acme Logistics AG");
+  const [name, setName] = React.useState("About us");
 
   function save(e: React.FormEvent) {
     e.preventDefault();
@@ -33,15 +33,15 @@ export default function DialogControlled() {
   return (
     <div className="flex items-center gap-3">
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger render={<Button variant="outline" />}>Rename tenant</DialogTrigger>
+        <DialogTrigger render={<Button variant="outline" />}>Rename page</DialogTrigger>
         <DialogContent>
           <form onSubmit={save} className="grid gap-4">
             <DialogHeader>
-              <DialogTitle>Rename tenant</DialogTitle>
+              <DialogTitle>Rename page</DialogTitle>
               <DialogDescription>The dialog stays open until the change is saved.</DialogDescription>
             </DialogHeader>
             <Field>
-              <FieldLabel htmlFor="dialog-controlled-name">Display name</FieldLabel>
+              <FieldLabel htmlFor="dialog-controlled-name">Page title</FieldLabel>
               <Input id="dialog-controlled-name" value={name} onChange={(e) => setName(e.target.value)} />
             </Field>
             <DialogFooter>

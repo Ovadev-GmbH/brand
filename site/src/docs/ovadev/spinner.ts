@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Work that has started and has no measurable end yet: a request, a refresh, a check. When the end is known, show [Progress](/internal/progress); when the shape of the content is known, a [Skeleton](/internal/skeleton).",
+    "Work that has started and has no measurable end yet: a request, a refresh, a check. When the end is known, show [Progress](/ovadev/progress); when the shape of the content is known, a [Skeleton](/ovadev/skeleton).",
   usage: `<Spinner />`,
   sections: [
     {
@@ -17,7 +17,7 @@ export default {
     },
     {
       title: "Button",
-      text: 'Disable the button while the action runs and put the spinner where its icon would be, marked `data-icon="inline-start"`. See [Button](/internal/button).',
+      text: 'Disable the button while the action runs and put the spinner where its icon would be, marked `data-icon="inline-start"`. See [Button](/ovadev/button).',
       example: "button",
     },
     {

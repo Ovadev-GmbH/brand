@@ -13,17 +13,17 @@ import {
 export default function DrawerDemo() {
   return (
     <Drawer>
-      <DrawerTrigger render={<Button variant="outline" />}>Roll back</DrawerTrigger>
+      <DrawerTrigger render={<Button variant="outline" />}>Restore version</DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto flex w-full max-w-sm flex-col gap-4">
           <DrawerHeader>
-            <DrawerTitle>Roll back to dpl_7c21?</DrawerTitle>
+            <DrawerTitle>Restore the version from 2026-09-11?</DrawerTitle>
             <DrawerDescription>
-              Production for acme-logistics in ch-zrh-1 returns to the build from 2026-09-11 14:02 CEST.
+              The About us page on ova.dev returns to the version saved 2026-09-11 14:02 CEST, in DE and EN.
             </DrawerDescription>
           </DrawerHeader>
           <DrawerFooter>
-            <Button>Roll back</Button>
+            <Button>Restore</Button>
             <DrawerClose render={<Button variant="outline" />}>Cancel</DrawerClose>
           </DrawerFooter>
         </div>

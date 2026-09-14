@@ -17,32 +17,32 @@ import {
 import { AppShell, AppShellContent, AppShellHeader } from "@ovadev-gmbh/ui-ovadev/blocks";
 import {
   BellIcon,
-  Building2Icon,
-  KeyRoundIcon,
-  ReceiptIcon,
-  RocketIcon,
-  ScrollTextIcon,
+  FileTextIcon,
+  GlobeIcon,
+  MailIcon,
+  NewspaperIcon,
   SettingsIcon,
+  SwatchBookIcon,
   UsersIcon,
 } from "@ovadev-gmbh/ui-ovadev/icons";
 
 const nav = [
   {
-    label: "Operations",
+    label: "Site",
     items: [
-      { title: "Tenants", icon: Building2Icon, href: "/tenants" },
-      { title: "Deployments", icon: RocketIcon, href: "/deployments" },
-      { title: "Invoices", icon: ReceiptIcon, href: "/invoices", badge: "12" },
+      { title: "Pages", icon: FileTextIcon, href: "/pages" },
+      { title: "Blog", icon: NewspaperIcon, href: "/blog" },
+      { title: "Brand", icon: SwatchBookIcon, href: "/brand" },
     ],
   },
   {
-    label: "Workspace",
+    label: "Settings",
     items: [
       { title: "General", icon: SettingsIcon, href: "/settings", active: true },
-      { title: "Members", icon: UsersIcon, href: "/settings/members" },
+      { title: "People", icon: UsersIcon, href: "/settings/people" },
+      { title: "Contact", icon: MailIcon, href: "/settings/contact", badge: "3" },
       { title: "Notifications", icon: BellIcon, href: "/settings/notifications" },
-      { title: "API keys", icon: KeyRoundIcon, href: "/settings/api-keys" },
-      { title: "Audit log", icon: ScrollTextIcon, href: "/settings/audit" },
+      { title: "Domains", icon: GlobeIcon, href: "/settings/domains" },
     ],
   },
 ];
@@ -54,33 +54,33 @@ export default function SettingsExample() {
       className="relative h-[720px] min-h-0 overflow-hidden"
       sidebarClassName="absolute h-full"
       nav={nav}
-      brand="Ovadev Internal"
+      brand="Ovadev"
       user={{ name: "Robin Markant", email: "robin@ova.dev" }}
     >
-      <AppShellHeader crumbs={["Workspace", "General"]} />
+      <AppShellHeader crumbs={["Settings", "General"]} />
       <AppShellContent>
         <h1 className="text-heading-20">General</h1>
         <form className="flex max-w-2xl flex-col gap-space-6" onSubmit={(event) => event.preventDefault()}>
           <Card>
             <CardHeader>
-              <CardTitle>Profile</CardTitle>
-              <CardDescription>How the workspace appears in invoices, e-mails and the audit log.</CardDescription>
+              <CardTitle>Site</CardTitle>
+              <CardDescription>How the site names itself in the browser tab, in e-mails and in the imprint.</CardDescription>
             </CardHeader>
             <CardContent>
               <FieldGroup>
                 <Field>
-                  <FieldLabel htmlFor="settings-name">Workspace name</FieldLabel>
-                  <Input id="settings-name" name="name" defaultValue="Ovadev GmbH" />
+                  <FieldLabel htmlFor="settings-name">Site name</FieldLabel>
+                  <Input id="settings-name" name="name" defaultValue="Ovadev" />
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="settings-slug">Slug</FieldLabel>
-                  <Input id="settings-slug" name="slug" defaultValue="ovadev" className="text-label-13-mono" spellCheck={false} />
-                  <FieldDescription>Part of every URL: intern.ova.dev/ovadev/… Changing it breaks old links.</FieldDescription>
+                  <FieldLabel htmlFor="settings-language">Default language</FieldLabel>
+                  <Input id="settings-language" name="language" defaultValue="DE" className="text-label-13-mono" spellCheck={false} />
+                  <FieldDescription>DE or EN. The other language is reached through the switch in the header: ova.dev/en/…</FieldDescription>
                 </Field>
                 <Field>
-                  <FieldLabel htmlFor="settings-billing-email">Billing e-mail</FieldLabel>
-                  <Input id="settings-billing-email" name="billingEmail" type="email" defaultValue="finance@ova.dev" />
-                  <FieldDescription>Receives every invoice and dunning notice.</FieldDescription>
+                  <FieldLabel htmlFor="settings-contact-email">Contact e-mail</FieldLabel>
+                  <Input id="settings-contact-email" name="contactEmail" type="email" defaultValue="hello@ova.dev" />
+                  <FieldDescription>Receives every request from the contact form and the replies to the newsletter.</FieldDescription>
                 </Field>
               </FieldGroup>
             </CardContent>
@@ -93,38 +93,38 @@ export default function SettingsExample() {
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Deployments</CardTitle>
+              <CardTitle>Blog</CardTitle>
             </CardHeader>
             <CardContent>
               <FieldGroup>
                 <Field orientation="horizontal">
                   <FieldContent>
-                    <FieldLabel htmlFor="settings-auto-deploy">Auto-deploy main</FieldLabel>
-                    <FieldDescription>Every push to main goes to production after the checks pass.</FieldDescription>
+                    <FieldLabel htmlFor="settings-publish-blog">Publish blog</FieldLabel>
+                    <FieldDescription>The blog is linked from the header and listed in the sitemap.</FieldDescription>
                   </FieldContent>
-                  <Switch id="settings-auto-deploy" name="autoDeploy" defaultChecked />
+                  <Switch id="settings-publish-blog" name="publishBlog" defaultChecked />
                 </Field>
                 <Field orientation="horizontal">
                   <FieldContent>
-                    <FieldLabel htmlFor="settings-require-approval">Require approval outside office hours</FieldLabel>
-                    <FieldDescription>Between 18:00 and 07:00 CET a second person confirms each deployment.</FieldDescription>
+                    <FieldLabel htmlFor="settings-newsletter">Newsletter sign-up</FieldLabel>
+                    <FieldDescription>Shows the sign-up form at the end of every post.</FieldDescription>
                   </FieldContent>
-                  <Switch id="settings-require-approval" name="requireApproval" />
+                  <Switch id="settings-newsletter" name="newsletter" />
                 </Field>
               </FieldGroup>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Delete workspace</CardTitle>
+              <CardTitle>Reset site</CardTitle>
               <CardDescription>
-                Removes every tenant, deployment and invoice in ovadev after 30 days. The audit log is kept for 10 years as
-                the law requires.
+                Removes every page, post and contact request and restores the defaults. The imprint and the privacy notice
+                are kept, as the law requires.
               </CardDescription>
             </CardHeader>
             <CardFooter className="justify-end">
               <Button type="button" variant="destructive">
-                Delete workspace
+                Reset site
               </Button>
             </CardFooter>
           </Card>

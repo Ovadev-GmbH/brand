@@ -15,7 +15,7 @@ import {
   Switch,
   useSidebar,
 } from "@ovadev-gmbh/ui-ovadev";
-import { SirenIcon, TriangleAlertIcon } from "lucide-react";
+import { FileTextIcon, InboxIcon } from "lucide-react";
 
 function Header() {
   const { state } = useSidebar();
@@ -23,7 +23,7 @@ function Header() {
   return (
     <header className="flex h-12 items-center gap-2 border-b border-divider px-3">
       <SidebarTrigger />
-      <h2 className="text-label-14">Incidents</h2>
+      <h2 className="text-label-14">Messages</h2>
       <span className="ml-auto text-label-12-mono text-content-secondary">{state}</span>
     </header>
   );
@@ -43,19 +43,19 @@ export default function SidebarControlled() {
         <Sidebar className="absolute h-full">
           <SidebarContent>
             <SidebarGroup>
-              <SidebarGroupLabel>Operations</SidebarGroupLabel>
+              <SidebarGroupLabel>Contact</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
                   <SidebarMenuItem>
                     <SidebarMenuButton isActive>
-                      <SirenIcon />
-                      <span>Incidents</span>
+                      <InboxIcon />
+                      <span>Messages</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                   <SidebarMenuItem>
                     <SidebarMenuButton>
-                      <TriangleAlertIcon />
-                      <span>Alerts</span>
+                      <FileTextIcon />
+                      <span>Quote requests</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>

@@ -2,7 +2,7 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "@ovadev-gmbh/ui-ovadev";
 
 export default function InputOtpFourDigits() {
   return (
-    <InputOTP maxLength={4} pattern="^\d+$" aria-label="Support PIN">
+    <InputOTP maxLength={4} pattern="^\d+$" aria-label="Press kit PIN">
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />

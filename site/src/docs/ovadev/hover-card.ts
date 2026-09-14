@@ -2,10 +2,10 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A preview of what a link leads to, shown while the pointer rests on it: a tenant, a colleague, a deployment. For content that is clicked open or holds controls, use [Popover](/internal/popover).",
+    "A preview of what a link leads to, shown while the pointer rests on it: a product, a colleague, a blog post. For content that is clicked open or holds controls, use [Popover](/ovadev/popover).",
   usage: `<HoverCard>
-  <HoverCardTrigger href="/tenants/acme-logistics">acme-logistics</HoverCardTrigger>
-  <HoverCardContent>Acme Logistics AG, Scale plan, 38 of 40 seats in use.</HoverCardContent>
+  <HoverCardTrigger href="/products/ticketova">TICKETOVA</HoverCardTrigger>
+  <HoverCardContent>Online ticketing for swimming pools and venues. 14 customers, live since 2024.</HoverCardContent>
 </HoverCard>`,
   composition: `HoverCard
 ├── HoverCardTrigger
@@ -23,12 +23,12 @@ export default {
     },
     {
       title: "Team Member",
-      text: "Where an address appears in the audit log, an `Avatar`, the role and the last time the person was active.",
+      text: "Where a name appears on a post or a page, an `Avatar`, the role and the last time the person was active.",
       example: "team-member",
     },
     {
       title: "Deployment",
-      text: "A `Badge` with the deployment's state in its word, and the facts an operator checks first, in mono.",
+      text: "A `Badge` with the state of the site's last deployment in its word, and the facts an editor checks first, in mono.",
       example: "deployment",
     },
     {

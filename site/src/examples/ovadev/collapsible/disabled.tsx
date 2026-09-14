@@ -5,14 +5,14 @@ export default function CollapsibleDisabled() {
     <Collapsible disabled className="flex w-96 flex-col gap-2">
       <div className="flex items-center justify-between gap-4">
         <div className="flex flex-col">
-          <span className="text-label-13">Build logs</span>
+          <span className="text-label-13">Press kit</span>
           <span className="text-label-12 text-content-tertiary">
-            Deployment <span className="text-label-12-mono">b31e07d</span> is queued behind 2 builds.
+            The ZIP for release <span className="text-label-12-mono">2026.9</span> is still being written.
           </span>
         </div>
-        <CollapsibleTrigger render={<Button variant="outline" size="sm" />}>Show logs</CollapsibleTrigger>
+        <CollapsibleTrigger render={<Button variant="outline" size="sm" />}>Show files</CollapsibleTrigger>
       </div>
-      <CollapsibleContent className="text-label-13-mono text-content-secondary">No output yet.</CollapsibleContent>
+      <CollapsibleContent className="text-label-13-mono text-content-secondary">No files yet.</CollapsibleContent>
     </Collapsible>
   );
 }

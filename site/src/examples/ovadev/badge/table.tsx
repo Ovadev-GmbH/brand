@@ -1,9 +1,9 @@
 import { Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@ovadev-gmbh/ui-ovadev";
 
-const tenants = [
-  { slug: "acme-logistics", plan: "Scale", seats: 42, trial: false },
-  { slug: "bergwerk-ag", plan: "Team", seats: 18, trial: false },
-  { slug: "helvetia-labs", plan: "Scale", seats: 97, trial: true },
+const posts = [
+  { title: "Admission control at the turnstile", tag: "Engineering", minutes: 6, draft: false },
+  { title: "A season at Türlersee in numbers", tag: "Customers", minutes: 4, draft: false },
+  { title: "What JANUNA is", tag: "Products", minutes: 3, draft: true },
 ];
 
 export default function BadgeInTable() {
@@ -12,22 +12,22 @@ export default function BadgeInTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Tenant</TableHead>
-            <TableHead>Plan</TableHead>
-            <TableHead className="text-right">Seats</TableHead>
+            <TableHead>Post</TableHead>
+            <TableHead>Tag</TableHead>
+            <TableHead className="text-right">Min</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {tenants.map((t) => (
-            <TableRow key={t.slug}>
+          {posts.map((p) => (
+            <TableRow key={p.title}>
               <TableCell>
                 <span className="flex items-center gap-2">
-                  {t.slug}
-                  {t.trial ? <Badge variant="secondary">Trial</Badge> : null}
+                  {p.title}
+                  {p.draft ? <Badge variant="secondary">Draft</Badge> : null}
                 </span>
               </TableCell>
-              <TableCell className="text-content-secondary">{t.plan}</TableCell>
-              <TableCell className="text-right text-label-13-mono">{t.seats}</TableCell>
+              <TableCell className="text-content-secondary">{p.tag}</TableCell>
+              <TableCell className="text-right text-label-13-mono">{p.minutes}</TableCell>
             </TableRow>
           ))}
         </TableBody>

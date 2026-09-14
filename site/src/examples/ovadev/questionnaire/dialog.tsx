@@ -32,32 +32,32 @@ export default function QuestionnaireInDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger render={<Button variant="outline" />}>Request rollback</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>Request a demo</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Request rollback</DialogTitle>
-          <DialogDescription>Production for acme-logistics. On-call approves the request.</DialogDescription>
+          <DialogTitle>Request a demo</DialogTitle>
+          <DialogDescription>At your venue or over a call. Philip confirms within a working day.</DialogDescription>
         </DialogHeader>
         <Questionnaire onSubmit={submit}>
           <QuestionnaireProgress />
-          <QuestionnaireItem name="target" required>
-            <QuestionnaireTitle>Which deployment should production return to?</QuestionnaireTitle>
+          <QuestionnaireItem name="product" required>
+            <QuestionnaireTitle>Which product should the demo show?</QuestionnaireTitle>
             <QuestionnaireChoices>
-              <QuestionnaireChoice value="dpl_7c21">
-                <span className="text-label-13-mono">dpl_7c21</span>
-                <QuestionnaireChoiceDescription>2026-09-11 14:02, robin@ova.dev</QuestionnaireChoiceDescription>
+              <QuestionnaireChoice value="ticketova.ch">
+                <span className="text-label-13-mono">ticketova.ch</span>
+                <QuestionnaireChoiceDescription>Shop, admission control, real-time reporting</QuestionnaireChoiceDescription>
               </QuestionnaireChoice>
-              <QuestionnaireChoice value="dpl_66b0">
-                <span className="text-label-13-mono">dpl_66b0</span>
-                <QuestionnaireChoiceDescription>2026-09-08 16:45, philip@ova.dev</QuestionnaireChoiceDescription>
+              <QuestionnaireChoice value="januna.ch">
+                <span className="text-label-13-mono">januna.ch</span>
+                <QuestionnaireChoiceDescription>Till, kitchen displays, orders; early access</QuestionnaireChoiceDescription>
               </QuestionnaireChoice>
             </QuestionnaireChoices>
-            <QuestionnaireError>Choose a deployment.</QuestionnaireError>
+            <QuestionnaireError>Choose a product.</QuestionnaireError>
           </QuestionnaireItem>
-          <QuestionnaireItem name="reason" required>
-            <QuestionnaireTitle>Why roll back?</QuestionnaireTitle>
-            <QuestionnaireInput aria-label="Reason" placeholder="Checkout returns 502 since dpl_8a4f" autoComplete="off" />
-            <QuestionnaireError>Write a reason for the audit log.</QuestionnaireError>
+          <QuestionnaireItem name="focus" required>
+            <QuestionnaireTitle>What should the demo cover?</QuestionnaireTitle>
+            <QuestionnaireInput aria-label="Focus" placeholder="Season passes and admission at two entrances" autoComplete="off" />
+            <QuestionnaireError>Write one line so the demo fits.</QuestionnaireError>
           </QuestionnaireItem>
           <QuestionnaireActions>
             <QuestionnairePrevious />

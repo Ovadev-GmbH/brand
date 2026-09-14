@@ -17,36 +17,36 @@ export default function QuestionnaireDemo() {
   return (
     <Questionnaire className="w-full max-w-md" onSubmit={(event) => event.preventDefault()}>
       <QuestionnaireProgress />
-      <QuestionnaireItem name="severity" required>
-        <QuestionnaireTitle>How severe is the incident?</QuestionnaireTitle>
+      <QuestionnaireItem name="reason" required>
+        <QuestionnaireTitle>What is the message about?</QuestionnaireTitle>
         <QuestionnaireChoices>
-          <QuestionnaireChoice value="p1">
-            P1
-            <QuestionnaireChoiceDescription>Tenants cannot log in or pay.</QuestionnaireChoiceDescription>
+          <QuestionnaireChoice value="quote">
+            Quote
+            <QuestionnaireChoiceDescription>For a pool, a venue or a restaurant.</QuestionnaireChoiceDescription>
           </QuestionnaireChoice>
-          <QuestionnaireChoice value="p2">
-            P2
-            <QuestionnaireChoiceDescription>Degraded, with a workaround.</QuestionnaireChoiceDescription>
+          <QuestionnaireChoice value="support">
+            Support
+            <QuestionnaireChoiceDescription>For a running installation.</QuestionnaireChoiceDescription>
           </QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>Choose a severity.</QuestionnaireError>
+        <QuestionnaireError>Choose a reason.</QuestionnaireError>
       </QuestionnaireItem>
-      <QuestionnaireItem name="region" required>
-        <QuestionnaireTitle>Which region is affected?</QuestionnaireTitle>
+      <QuestionnaireItem name="product" required>
+        <QuestionnaireTitle>Which product is it about?</QuestionnaireTitle>
         <QuestionnaireChoices>
-          <QuestionnaireChoice value="ch-zrh-1">
-            <span className="text-label-13-mono">ch-zrh-1</span>
+          <QuestionnaireChoice value="ticketova.ch">
+            <span className="text-label-13-mono">ticketova.ch</span>
           </QuestionnaireChoice>
-          <QuestionnaireChoice value="eu-central-1">
-            <span className="text-label-13-mono">eu-central-1</span>
+          <QuestionnaireChoice value="januna.ch">
+            <span className="text-label-13-mono">januna.ch</span>
           </QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>Choose a region.</QuestionnaireError>
+        <QuestionnaireError>Choose a product.</QuestionnaireError>
       </QuestionnaireItem>
       <QuestionnaireActions>
         <QuestionnairePrevious />
         <QuestionnaireNext />
-        <QuestionnaireSubmit>Open incident</QuestionnaireSubmit>
+        <QuestionnaireSubmit>Send message</QuestionnaireSubmit>
       </QuestionnaireActions>
     </Questionnaire>
   );

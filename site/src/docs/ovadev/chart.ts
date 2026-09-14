@@ -2,16 +2,16 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Recharts, drawn in the system's ink: a trend over time, or how a total splits. When the operator needs the exact figure rather than the shape, use a [Table](/internal/table).",
+    "Recharts, drawn in the system's ink: a trend over time, or how a total splits. When the reader needs the exact figure rather than the shape, use a [Table](/ovadev/table).",
   usage: `const config = {
-  requests: { label: "API requests", color: "var(--chart-1)" },
+  visitors: { label: "Visitors", color: "var(--chart-1)" },
 } satisfies ChartConfig;
 
 <ChartContainer config={config} className="max-h-56 w-full">
   <BarChart accessibilityLayer data={data}>
     <XAxis dataKey="month" tickLine={false} axisLine={false} />
     <ChartTooltip content={<ChartTooltipContent />} />
-    <Bar dataKey="requests" fill="var(--color-requests)" />
+    <Bar dataKey="visitors" fill="var(--color-visitors)" />
   </BarChart>
 </ChartContainer>`,
   composition: `ChartContainer
@@ -25,13 +25,13 @@ export default {
   sections: [
     {
       title: "Chart Config",
-      text: "`config` names each data key and gives it a colour, which `ChartContainer` publishes as `--color-<key>`. Take colours from `--chart-1` to `--chart-5` (black, blue, grey, green, red), and keep green and red for series that are a state.",
+      text: "`config` names each data key and gives it a colour, which `ChartContainer` publishes as `--color-<key>`. Take colours from `--chart-1` to `--chart-5`: the ink, the red, then three steps of grey. Keep the red for the one series that is a state.",
       code: `const config = {
-  succeeded: { label: "Deployed", color: "var(--chart-1)" },
-  failed: { label: "Failed", color: "var(--chart-5)" },
+  delivered: { label: "Delivered", color: "var(--chart-1)" },
+  bounced: { label: "Bounced", color: "var(--chart-2)" },
 } satisfies ChartConfig;
 
-<Bar dataKey="failed" fill="var(--color-failed)" />`,
+<Bar dataKey="bounced" fill="var(--color-bounced)" />`,
     },
     {
       title: "Bar Chart",
@@ -40,7 +40,7 @@ export default {
     },
     {
       title: "Line Chart",
-      text: 'A `Line` per series with `dot={false}` and `type="linear"`: a tool plots the measurements it has, not a smoothed guess between them.',
+      text: 'A `Line` per series with `dot={false}` and `type="linear"`: the chart plots the measurements it has, not a smoothed guess between them.',
       example: "line",
     },
     {

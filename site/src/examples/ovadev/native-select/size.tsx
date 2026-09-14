@@ -9,14 +9,14 @@ const ranges = [
 export default function NativeSelectSize() {
   return (
     <div className="flex items-center gap-3">
-      <NativeSelect size="sm" defaultValue="24h" aria-label="Time range, small">
+      <NativeSelect size="sm" defaultValue="24h" aria-label="Uptime range, small">
         {ranges.map((range) => (
           <NativeSelectOption key={range.value} value={range.value}>
             {range.label}
           </NativeSelectOption>
         ))}
       </NativeSelect>
-      <NativeSelect defaultValue="24h" aria-label="Time range">
+      <NativeSelect defaultValue="24h" aria-label="Uptime range">
         {ranges.map((range) => (
           <NativeSelectOption key={range.value} value={range.value}>
             {range.label}

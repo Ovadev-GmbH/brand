@@ -1,5 +1,5 @@
 import { Button, Item, ItemActions, ItemContent, ItemDescription, ItemMedia, ItemTitle } from "@ovadev-gmbh/ui-ovadev";
-import { RocketIcon } from "lucide-react";
+import { CalendarIcon } from "lucide-react";
 
 const sizes = ["default", "sm", "xs"] as const;
 
@@ -9,17 +9,17 @@ export default function ItemSize() {
       {sizes.map((size) => (
         <Item key={size} variant="outline" size={size}>
           <ItemMedia variant="icon">
-            <RocketIcon />
+            <CalendarIcon />
           </ItemMedia>
           <ItemContent>
             <ItemTitle>
-              Deployment <span className="text-label-13-mono">d-8f3a21c</span>
+              Season opening <span className="text-label-13-mono">2027-05-01</span>
             </ItemTitle>
-            <ItemDescription>api-gateway to ch-zrh-1, 12 of 12 pods ready</ItemDescription>
+            <ItemDescription>Strandbad Türlersee, shop opens 2027-04-01</ItemDescription>
           </ItemContent>
           <ItemActions>
             <Button variant="outline" size={size === "xs" ? "xs" : "sm"}>
-              Logs
+              Details
             </Button>
           </ItemActions>
         </Item>

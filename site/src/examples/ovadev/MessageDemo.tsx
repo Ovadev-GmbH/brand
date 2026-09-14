@@ -15,13 +15,13 @@ export default function MessageDemo() {
       <Message>
         <MessageAvatar>
           <Avatar>
-            <AvatarFallback>AR</AvatarFallback>
+            <AvatarFallback>NB</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <Bubble variant="muted">
             <BubbleContent>
-              Invoice <span className="text-copy-13-mono">INV-2026-0142</span> lists 14 seats. We only have 12.
+              The reporting page shows <span className="text-copy-13-mono">412</span> season passes. Our till says 418.
             </BubbleContent>
           </Bubble>
         </MessageContent>
@@ -29,14 +29,15 @@ export default function MessageDemo() {
       <Message align="end">
         <MessageAvatar>
           <Avatar>
-            <AvatarFallback>LK</AvatarFallback>
+            <AvatarFallback>PH</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <Bubble>
             <BubbleContent>
-              You are right. Credit note <span className="text-copy-13-mono">CN-2026-0031</span> for{" "}
-              <span className="text-copy-13-mono">CHF 177.14</span> is on its way.
+              Six were sold at the door and paid in cash. The till syncs at{" "}
+              <span className="text-copy-13-mono">18:00</span>, then the page lists{" "}
+              <span className="text-copy-13-mono">418</span>.
             </BubbleContent>
           </Bubble>
           <MessageFooter className="gap-1">

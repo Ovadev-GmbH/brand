@@ -29,8 +29,8 @@ export default function ButtonGroupWithSelect() {
           ))}
         </SelectContent>
       </Select>
-      <Input aria-label="Credit amount" className="text-right text-label-13-mono" defaultValue="150.00" />
-      <Button variant="outline">Add credit</Button>
+      <Input aria-label="Budget" className="text-right text-label-13-mono" defaultValue="15'000.00" />
+      <Button variant="outline">Request quote</Button>
     </ButtonGroup>
   );
 }

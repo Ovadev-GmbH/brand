@@ -14,18 +14,18 @@ import {
 export default function AlertDialogDemo() {
   return (
     <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="outline" />}>Revoke key</AlertDialogTrigger>
+      <AlertDialogTrigger render={<Button variant="outline" />}>Unpublish post</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Revoke this API key?</AlertDialogTitle>
+          <AlertDialogTitle>Unpublish this post?</AlertDialogTitle>
           <AlertDialogDescription>
-            <span className="text-label-13-mono">ok_live_…4f9c</span> stops working at once. Requests from
-            acme-logistics that still use it are refused.
+            <span className="text-label-13-mono">/blog/tuerlersee-season</span> disappears from ova.dev at once. Links
+            to it return 404.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Keep key</AlertDialogCancel>
-          <AlertDialogAction variant="destructive">Revoke key</AlertDialogAction>
+          <AlertDialogCancel>Keep post</AlertDialogCancel>
+          <AlertDialogAction variant="destructive">Unpublish</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

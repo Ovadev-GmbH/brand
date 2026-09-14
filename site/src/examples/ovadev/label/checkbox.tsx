@@ -5,11 +5,11 @@ export default function LabelWithCheckbox() {
     <div className="grid gap-3">
       <div className="flex items-center gap-2">
         <Checkbox id="label-checkbox-reminders" defaultChecked />
-        <Label htmlFor="label-checkbox-reminders">Send payment reminders</Label>
+        <Label htmlFor="label-checkbox-reminders">Send me the newsletter</Label>
       </div>
       <div className="flex items-center gap-2">
         <Checkbox id="label-checkbox-pdf" />
-        <Label htmlFor="label-checkbox-pdf">Attach the invoice as PDF</Label>
+        <Label htmlFor="label-checkbox-pdf">Send the quote as PDF</Label>
       </div>
     </div>
   );

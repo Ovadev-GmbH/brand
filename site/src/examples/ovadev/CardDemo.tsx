@@ -9,17 +9,17 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const figures = [
-  { label: "Seats", value: "42 / 50" },
-  { label: "Open balance", value: "CHF 1'240.00" },
-  { label: "Next invoice", value: "2026-10-01" },
+  { label: "Gates", value: "2" },
+  { label: "Tickets, season", value: "77'574" },
+  { label: "Season ends", value: "2026-09-20" },
 ];
 
 export default function CardDemo() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>acme-logistics</CardTitle>
-        <CardDescription>Scale plan, billed monthly, ch-zrh-1</CardDescription>
+        <CardTitle>Strandbad Türlersee</CardTitle>
+        <CardDescription>TICKETOVA, shop and admission control, Hausen am Albis ZH</CardDescription>
       </CardHeader>
       <CardContent>
         <dl className="grid grid-cols-3 gap-4">
@@ -33,10 +33,10 @@ export default function CardDemo() {
       </CardContent>
       <CardFooter className="gap-2">
         <Button variant="outline" size="sm">
-          Open tenant
+          Open shop
         </Button>
         <Button variant="ghost" size="sm">
-          View invoices
+          Season report
         </Button>
       </CardFooter>
     </Card>

@@ -1,14 +1,14 @@
 import { Badge, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@ovadev-gmbh/ui-ovadev";
 
-const invoices = [
-  { id: "INV-2026-0142", tenant: "acme-logistics", due: "2026-10-01", status: "Open", amount: "1'240.00" },
-  { id: "INV-2026-0141", tenant: "nordlicht", due: "2026-09-30", status: "Open", amount: "390.00" },
-  { id: "INV-2026-0139", tenant: "kaffeehaus", due: "2026-09-10", status: "Overdue", amount: "49.00" },
-  { id: "INV-2026-0138", tenant: "helvetia-labs", due: "2026-09-15", status: "Paid", amount: "585.00" },
-  { id: "INV-2026-0137", tenant: "bergwerk-ag", due: "2026-09-01", status: "Paid", amount: "3'480.00" },
+const posts = [
+  { id: "2026-09-08", title: "Admission control at the Türlersee lido", author: "Beni", status: "Draft", minutes: "6 min" },
+  { id: "2026-08-24", title: "What a pool season taught us about queues", author: "Robin", status: "Review", minutes: "9 min" },
+  { id: "2026-07-30", title: "JANUNA, a first look at the till", author: "Beni", status: "Published", minutes: "4 min" },
+  { id: "2026-06-18", title: "Why TICKETOVA has no app", author: "Philip", status: "Published", minutes: "5 min" },
+  { id: "2026-05-02", title: "Ovadev moves to Baar", author: "Robin", status: "Published", minutes: "2 min" },
 ] as const;
 
-const badgeVariant = { Open: "outline", Overdue: "destructive", Paid: "secondary" } as const;
+const badgeVariant = { Draft: "outline", Review: "destructive", Published: "secondary" } as const;
 
 export default function TableDemo() {
   return (
@@ -16,23 +16,23 @@ export default function TableDemo() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Invoice</TableHead>
-            <TableHead>Tenant</TableHead>
-            <TableHead>Due</TableHead>
+            <TableHead>Date</TableHead>
+            <TableHead>Post</TableHead>
+            <TableHead>Author</TableHead>
             <TableHead>Status</TableHead>
-            <TableHead className="text-right">CHF</TableHead>
+            <TableHead className="text-right">Reading time</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {invoices.map((invoice) => (
-            <TableRow key={invoice.id}>
-              <TableCell className="text-label-13-mono">{invoice.id}</TableCell>
-              <TableCell>{invoice.tenant}</TableCell>
-              <TableCell className="text-label-13-mono text-content-secondary">{invoice.due}</TableCell>
+          {posts.map((post) => (
+            <TableRow key={post.id}>
+              <TableCell className="text-label-13-mono">{post.id}</TableCell>
+              <TableCell>{post.title}</TableCell>
+              <TableCell className="text-content-secondary">{post.author}</TableCell>
               <TableCell>
-                <Badge variant={badgeVariant[invoice.status]}>{invoice.status}</Badge>
+                <Badge variant={badgeVariant[post.status]}>{post.status}</Badge>
               </TableCell>
-              <TableCell className="text-right text-label-13-mono">{invoice.amount}</TableCell>
+              <TableCell className="text-right text-label-13-mono">{post.minutes}</TableCell>
             </TableRow>
           ))}
         </TableBody>

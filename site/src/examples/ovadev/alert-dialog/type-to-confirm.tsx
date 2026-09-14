@@ -15,7 +15,7 @@ import {
   Input,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const slug = "bergwerk-ag";
+const slug = "tuerlersee-season";
 
 export default function AlertDialogTypeToConfirm() {
   const [open, setOpen] = React.useState(false);
@@ -28,12 +28,12 @@ export default function AlertDialogTypeToConfirm() {
 
   return (
     <AlertDialog open={open} onOpenChange={openChange}>
-      <AlertDialogTrigger render={<Button variant="destructive" />}>Delete tenant</AlertDialogTrigger>
+      <AlertDialogTrigger render={<Button variant="destructive" />}>Delete post</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Delete {slug}?</AlertDialogTitle>
           <AlertDialogDescription>
-            12 members lose access, 4 API keys are revoked and every deployment is removed. Invoices stay in the ledger.
+            The post, its 3 images and both translations are removed. Links to it return 404.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <Field>
@@ -51,7 +51,7 @@ export default function AlertDialogTypeToConfirm() {
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction variant="destructive" disabled={typed !== slug} onClick={() => openChange(false)}>
-            Delete tenant
+            Delete post
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

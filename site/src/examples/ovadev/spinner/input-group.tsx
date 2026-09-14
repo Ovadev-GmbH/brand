@@ -12,15 +12,15 @@ import {
 export default function SpinnerInputGroup() {
   return (
     <Field className="w-80">
-      <FieldLabel htmlFor="spinner-input-group-subdomain">Subdomain</FieldLabel>
+      <FieldLabel htmlFor="spinner-input-group-subdomain">Shop address</FieldLabel>
       <InputGroup>
-        <InputGroupInput id="spinner-input-group-subdomain" defaultValue="bergwerk" />
+        <InputGroupInput id="spinner-input-group-subdomain" defaultValue="tuerlersee" />
         <InputGroupAddon align="inline-end">
-          <InputGroupText>.ova.dev</InputGroupText>
+          <InputGroupText>.ticketova.ch</InputGroupText>
           <Spinner aria-label="Checking availability" />
         </InputGroupAddon>
       </InputGroup>
-      <FieldDescription>Checking whether bergwerk.ova.dev is free.</FieldDescription>
+      <FieldDescription>Checking whether tuerlersee.ticketova.ch is free.</FieldDescription>
     </Field>
   );
 }

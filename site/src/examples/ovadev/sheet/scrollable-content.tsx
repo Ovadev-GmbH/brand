@@ -10,7 +10,7 @@ import {
   SheetTrigger,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const actions = ["Sent INV-2026-0142", "Rotated sk_live_4f9a", "Changed the plan to Scale", "Invited lena@ova.dev"];
+const actions = ["Published the September post", "Updated the brand page", "Answered a quote request", "Added a job posting"];
 
 const events = Array.from({ length: 24 }, (_, i) => ({
   id: `evt_${(4096 - i * 37).toString(16)}`,
@@ -25,7 +25,7 @@ export default function SheetScrollableContent() {
       <SheetContent>
         <SheetHeader>
           <SheetTitle>Activity</SheetTitle>
-          <SheetDescription>The last 24 events on acme-logistics.</SheetDescription>
+          <SheetDescription>The last 24 changes on ova.dev.</SheetDescription>
         </SheetHeader>
         <ul className="m-0 min-h-0 flex-1 list-none overflow-y-auto border-y border-divider px-4 py-0">
           {events.map((e) => (

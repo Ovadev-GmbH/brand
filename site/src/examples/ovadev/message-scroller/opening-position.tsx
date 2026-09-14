@@ -15,14 +15,14 @@ import {
 const positions = ["end", "last-anchor", "start"] as const;
 
 const thread = [
-  { id: "t-1", from: "customer", text: "We are moving helvetia-labs to ch-zrh-1." },
-  { id: "t-2", from: "support", text: "Noted. Which week suits you?" },
+  { id: "t-1", from: "customer", text: "We are opening the Hallenbad Cham on 2026-10-03." },
+  { id: "t-2", from: "support", text: "Noted. Which week suits you for the setup?" },
   { id: "t-3", from: "customer", text: "The week of 2026-09-21." },
-  { id: "t-4", from: "support", text: "Booked for Saturday 2026-09-26, 02:00 CEST. What do you need from us before then?" },
-  { id: "t-5", from: "customer", text: "A list of the API keys in use." },
-  { id: "t-6", from: "customer", text: "And the IP ranges of ch-zrh-1 for our firewall." },
-  { id: "t-7", from: "customer", text: "Also, does the tenant slug stay the same?" },
-  { id: "t-8", from: "customer", text: "Our webhooks point at the old region's hostname." },
+  { id: "t-4", from: "support", text: "Booked for Monday 2026-09-21, 09:00. What do you need from us before then?" },
+  { id: "t-5", from: "customer", text: "A list of the ticket types and prices." },
+  { id: "t-6", from: "customer", text: "And the floor plan for the scanners at the entrance." },
+  { id: "t-7", from: "customer", text: "Also, does the shop address stay the same?" },
+  { id: "t-8", from: "customer", text: "Our website links to the old shop address." },
   { id: "t-9", from: "customer", text: "Thanks, that is everything for now." },
 ] as const;
 
@@ -41,7 +41,7 @@ export default function MessageScrollerOpeningPosition() {
       {/* A new key remounts the scroller, which is when the opening position applies. */}
       <MessageScrollerProvider key={position} defaultScrollPosition={position}>
         <MessageScroller className="h-56 border border-divider">
-          <MessageScrollerViewport aria-label="Conversation with helvetia-labs" className="p-3">
+          <MessageScrollerViewport aria-label="Conversation with Gemeinde Cham" className="p-3">
             <MessageScrollerContent className="gap-2">
               {thread.map((row) => (
                 <MessageScrollerItem key={row.id} messageId={row.id} scrollAnchor={row.from === "support"}>

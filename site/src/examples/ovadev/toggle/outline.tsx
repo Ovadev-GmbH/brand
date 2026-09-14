@@ -3,9 +3,9 @@ import { Toggle } from "@ovadev-gmbh/ui-ovadev";
 export default function ToggleOutline() {
   return (
     <div className="flex items-center gap-2">
-      <Toggle variant="outline">Archived</Toggle>
+      <Toggle variant="outline">Drafts</Toggle>
       <Toggle variant="outline" defaultPressed>
-        Overdue only
+        German only
       </Toggle>
     </div>
   );

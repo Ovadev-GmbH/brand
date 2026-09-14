@@ -12,12 +12,12 @@ import {
 export default function DialogFooterClose() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>Show export status</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>Request press kit</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Export started</DialogTitle>
+          <DialogTitle>Press kit on its way</DialogTitle>
           <DialogDescription>
-            The September invoices are being exported. The CSV arrives by e-mail when it is ready, usually within a minute.
+            The logos, the mark and the team photos are being packed. The ZIP arrives by e-mail when it is ready, usually within a minute.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter showCloseButton />

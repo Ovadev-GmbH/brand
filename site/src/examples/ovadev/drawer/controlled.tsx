@@ -35,16 +35,16 @@ export default function DrawerControlled() {
   return (
     <div className="flex items-center gap-3">
       <Drawer open={open} onOpenChange={setOpen}>
-        <DrawerTrigger render={<Button variant="outline" />}>Scale production</DrawerTrigger>
+        <DrawerTrigger render={<Button variant="outline" />}>Posts per page</DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle>Scale acme-logistics</DrawerTitle>
-            <DrawerDescription>Production in ch-zrh-1. Each replica adds CHF 45.00 a month.</DrawerDescription>
+            <DrawerTitle>Posts per page</DrawerTitle>
+            <DrawerDescription>The blog index on ova.dev. Fewer posts per page means more pages.</DrawerDescription>
           </DrawerHeader>
           <div className="flex flex-col gap-3 p-4">
             <div className="flex items-center justify-between">
               <span id="drawer-controlled-replicas" className="text-label-13">
-                Replicas
+                Posts
               </span>
               <span className="text-label-13-mono">{count}</span>
             </div>
@@ -59,14 +59,14 @@ export default function DrawerControlled() {
           <DrawerFooter>
             <Button onClick={scale} disabled={saving}>
               {saving ? <Spinner data-icon="inline-start" /> : null}
-              Scale to {count}
+              Show {count} per page
             </Button>
             <DrawerClose render={<Button variant="outline" />}>Cancel</DrawerClose>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
       <span className="text-label-13 text-content-secondary">
-        <span className="text-label-13-mono">{applied}</span> replicas running
+        <span className="text-label-13-mono">{applied}</span> posts per page
       </span>
     </div>
   );

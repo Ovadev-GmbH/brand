@@ -12,7 +12,7 @@ export default function ResizableSizeLimits() {
       <ResizableHandle withHandle />
       <ResizablePanel minSize="40">
         <div className="flex h-full flex-col gap-1 p-4">
-          <span className="text-label-13">Invoices</span>
+          <span className="text-label-13">Posts</span>
           <span className="text-label-12-mono text-content-secondary">min 40%</span>
         </div>
       </ResizablePanel>

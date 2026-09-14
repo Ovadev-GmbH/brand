@@ -4,9 +4,9 @@ export default function EmptyWithoutMedia() {
   return (
     <Empty className="w-72 border">
       <EmptyHeader>
-        <EmptyTitle>No audit events today</EmptyTitle>
+        <EmptyTitle>No messages today</EmptyTitle>
         <EmptyDescription>
-          Nothing in helvetia-labs has changed since 00:00 UTC. <a href="#audit-log">Open the full log</a>.
+          Nothing has come in through the contact form since 00:00. <a href="#messages">Open all messages</a>.
         </EmptyDescription>
       </EmptyHeader>
     </Empty>

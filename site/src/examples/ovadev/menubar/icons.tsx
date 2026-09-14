@@ -1,41 +1,41 @@
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarTrigger } from "@ovadev-gmbh/ui-ovadev";
-import { FileTextIcon, KeyRoundIcon, PlusIcon, RocketIcon, RotateCcwIcon, RotateCwIcon } from "lucide-react";
+import { EyeIcon, FileTextIcon, LanguagesIcon, MailIcon, PlusIcon, SendIcon } from "lucide-react";
 
 export default function MenubarIcons() {
   return (
     <Menubar className="w-max">
       <MenubarMenu>
-        <MenubarTrigger>Deployments</MenubarTrigger>
+        <MenubarTrigger>Blog</MenubarTrigger>
         <MenubarContent className="w-52">
           <MenubarItem>
-            <RocketIcon />
-            Deploy main
+            <PlusIcon />
+            New post
           </MenubarItem>
           <MenubarItem>
-            <RotateCcwIcon />
-            Roll back
+            <LanguagesIcon />
+            Translate
           </MenubarItem>
           <MenubarSeparator />
           <MenubarItem>
             <FileTextIcon />
-            Build logs
+            Revision history
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Keys</MenubarTrigger>
+        <MenubarTrigger>Newsletter</MenubarTrigger>
         <MenubarContent className="w-52">
           <MenubarItem>
-            <PlusIcon />
-            Create key
+            <MailIcon />
+            Compose issue
           </MenubarItem>
           <MenubarItem>
-            <RotateCwIcon />
-            Rotate all keys
+            <EyeIcon />
+            Preview
           </MenubarItem>
           <MenubarItem>
-            <KeyRoundIcon />
-            Manage scopes
+            <SendIcon />
+            Send to subscribers
           </MenubarItem>
         </MenubarContent>
       </MenubarMenu>

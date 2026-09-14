@@ -11,15 +11,15 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 import { ChevronDownIcon } from "lucide-react";
 
-const environments = [
-  { value: "production", label: "Production", host: "acme.ova.dev" },
-  { value: "staging", label: "Staging", host: "acme.staging.ova.dev" },
-  { value: "preview", label: "Preview", host: "pr-412.acme.preview.ova.dev" },
+const sites = [
+  { value: "ova", label: "ova.dev", host: "ova.dev" },
+  { value: "ticketova", label: "TICKETOVA", host: "ticketova.ch" },
+  { value: "januna", label: "JANUNA", host: "januna.ch" },
 ];
 
 export default function DropdownMenuRadioGroupExample() {
-  const [environment, setEnvironment] = React.useState("production");
-  const current = environments.find((env) => env.value === environment)!;
+  const [site, setSite] = React.useState("ova");
+  const current = sites.find((s) => s.value === site)!;
 
   return (
     <div className="flex flex-col items-start gap-2">
@@ -30,11 +30,11 @@ export default function DropdownMenuRadioGroupExample() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-44">
           <DropdownMenuGroup>
-            <DropdownMenuLabel>Environment</DropdownMenuLabel>
-            <DropdownMenuRadioGroup value={environment} onValueChange={setEnvironment}>
-              {environments.map((env) => (
-                <DropdownMenuRadioItem key={env.value} value={env.value}>
-                  {env.label}
+            <DropdownMenuLabel>Site</DropdownMenuLabel>
+            <DropdownMenuRadioGroup value={site} onValueChange={setSite}>
+              {sites.map((s) => (
+                <DropdownMenuRadioItem key={s.value} value={s.value}>
+                  {s.label}
                 </DropdownMenuRadioItem>
               ))}
             </DropdownMenuRadioGroup>

@@ -12,16 +12,16 @@ import { InfoIcon } from "lucide-react";
 export default function PopoverWithHeader() {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-label-13">Net 30</span>
+      <span className="text-label-13">6 min read</span>
       <Popover>
-        <PopoverTrigger render={<Button variant="ghost" size="icon-xs" aria-label="About payment terms" />}>
+        <PopoverTrigger render={<Button variant="ghost" size="icon-xs" aria-label="About reading time" />}>
           <InfoIcon />
         </PopoverTrigger>
         <PopoverContent align="start">
           <PopoverHeader>
-            <PopoverTitle>Payment terms</PopoverTitle>
+            <PopoverTitle>Reading time</PopoverTitle>
             <PopoverDescription>
-              Invoices for acme-logistics are due 30 days after they are sent. A reminder goes out on day 31 and day 45.
+              Estimated from the word count at 200 words a minute. Code blocks and image captions do not count.
             </PopoverDescription>
           </PopoverHeader>
         </PopoverContent>

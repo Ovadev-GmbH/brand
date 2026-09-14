@@ -4,14 +4,14 @@ export default function ItemDemo() {
   return (
     <Item variant="outline" className="w-full max-w-md">
       <ItemContent>
-        <ItemTitle>Invoice export</ItemTitle>
+        <ItemTitle>Season report</ItemTitle>
         <ItemDescription>
-          Monthly CSV for acme-logistics, next run <span className="text-label-13-mono">2026-10-01 06:00 UTC</span>
+          PDF for Strandbad Türlersee, sent on <span className="text-label-13-mono">2026-09-21 06:00</span>
         </ItemDescription>
       </ItemContent>
       <ItemActions>
         <Button variant="outline" size="sm">
-          Run export
+          Send now
         </Button>
       </ItemActions>
     </Item>

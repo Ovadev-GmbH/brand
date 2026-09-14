@@ -15,13 +15,13 @@ export default function SkeletonTable() {
   return (
     <div className="w-full max-w-xl">
       <Table aria-busy="true">
-        <TableCaption>Loading invoices for September 2026.</TableCaption>
+        <TableCaption>Loading posts published in September 2026.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead>Invoice</TableHead>
-            <TableHead>Tenant</TableHead>
-            <TableHead>Due</TableHead>
-            <TableHead className="text-right">CHF</TableHead>
+            <TableHead>Post</TableHead>
+            <TableHead>Author</TableHead>
+            <TableHead>Published</TableHead>
+            <TableHead className="text-right">Readers</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>

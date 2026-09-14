@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Building2Icon, FileMinusIcon, ReceiptIcon, RocketIcon, TriangleAlertIcon } from "lucide-react";
+import { HouseIcon, MailIcon, NewspaperIcon, TicketIcon, UsersIcon, UtensilsIcon } from "lucide-react";
 import {
   Separator,
   Sidebar,
@@ -19,31 +19,32 @@ import {
 
 const groups = [
   {
-    label: "Operations",
+    label: "Site",
     pages: [
-      { title: "Tenants", icon: Building2Icon },
-      { title: "Deployments", icon: RocketIcon },
-      { title: "Incidents", icon: TriangleAlertIcon, badge: "1" },
+      { title: "Home", icon: HouseIcon },
+      { title: "About us", icon: UsersIcon },
+      { title: "Blog", icon: NewspaperIcon, badge: "3" },
+      { title: "Contact", icon: MailIcon, badge: "12" },
     ],
   },
   {
-    label: "Billing",
+    label: "Products",
     pages: [
-      { title: "Invoices", icon: ReceiptIcon, badge: "12" },
-      { title: "Credit notes", icon: FileMinusIcon },
+      { title: "TICKETOVA", icon: TicketIcon },
+      { title: "JANUNA", icon: UtensilsIcon },
     ],
   },
 ];
 
 export default function SidebarDemo() {
-  const [active, setActive] = useState("Invoices");
+  const [active, setActive] = useState("Blog");
 
   return (
     // The sidebar is fixed to the viewport by default; absolute keeps it in this box.
     <SidebarProvider className="relative h-96 min-h-0 w-full max-w-2xl overflow-hidden material-base">
       <Sidebar className="absolute h-full">
         <SidebarHeader>
-          <span className="px-2 py-1 text-label-13">Ovadev Internal</span>
+          <span className="px-2 py-1 text-label-13">ova.dev</span>
         </SidebarHeader>
         <SidebarContent>
           {groups.map((group) => (

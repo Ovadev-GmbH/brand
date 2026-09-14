@@ -10,31 +10,31 @@ import {
   DropdownMenuTrigger,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const regions = ["ch-zrh-1", "ch-gva-1", "eu-central-1"];
-const plans = ["Starter", "Team", "Scale"];
+const languages = ["de-CH", "en", "fr-CH"];
+const sections = ["Blog", "Brand", "Changelog"];
 
 export default function DropdownMenuSubmenu() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>helvetia-labs</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>Pool season 2026</DropdownMenuTrigger>
       <DropdownMenuContent className="w-52">
-        <DropdownMenuItem>Overview</DropdownMenuItem>
+        <DropdownMenuItem>Open post</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Move to region</DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger>Translate to</DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-            {regions.map((region) => (
-              <DropdownMenuItem key={region} className="text-label-13-mono">
-                {region}
+            {languages.map((language) => (
+              <DropdownMenuItem key={language} className="text-label-13-mono">
+                {language}
               </DropdownMenuItem>
             ))}
           </DropdownMenuSubContent>
         </DropdownMenuSub>
         <DropdownMenuSub>
-          <DropdownMenuSubTrigger>Change plan</DropdownMenuSubTrigger>
+          <DropdownMenuSubTrigger>Move to</DropdownMenuSubTrigger>
           <DropdownMenuSubContent>
-            {plans.map((plan) => (
-              <DropdownMenuItem key={plan}>{plan}</DropdownMenuItem>
+            {sections.map((section) => (
+              <DropdownMenuItem key={section}>{section}</DropdownMenuItem>
             ))}
           </DropdownMenuSubContent>
         </DropdownMenuSub>

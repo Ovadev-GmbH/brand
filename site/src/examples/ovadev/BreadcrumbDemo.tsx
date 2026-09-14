@@ -12,19 +12,19 @@ export default function BreadcrumbDemo() {
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#tenants">Tenants</BreadcrumbLink>
+          <BreadcrumbLink href="#blog">Blog</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="#acme-logistics">acme-logistics</BreadcrumbLink>
+          <BreadcrumbLink href="#engineering">Engineering</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="#invoices">Invoices</BreadcrumbLink>
+          <BreadcrumbLink href="#2026">2026</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage className="text-label-13-mono">INV-2026-0142</BreadcrumbPage>
+          <BreadcrumbPage>Why we run our own infra</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

@@ -4,13 +4,13 @@ const days = [
   {
     date: "2026-09-13",
     events: [
-      { at: "14:02", text: "robin@ova.dev rotated sk_live_4f9a" },
-      { at: "09:41", text: "Plan of bergwerk-ag changed to Scale" },
+      { at: "14:02", text: "robin@ova.dev published Admission control at the turnstile" },
+      { at: "09:41", text: "Press kit updated with the 2026 logo files" },
     ],
   },
   {
     date: "2026-09-12",
-    events: [{ at: "17:15", text: "INV-2026-0142 sent to acme-logistics" }],
+    events: [{ at: "17:15", text: "Quote request from Seebad Zug answered by philip@ova.dev" }],
   },
 ];
 

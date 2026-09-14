@@ -6,21 +6,21 @@ export default function AlertInForm() {
     <form className="flex w-80 flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
       <Alert variant="destructive">
         <CircleXIcon />
-        <AlertTitle>Tenant not created</AlertTitle>
-        <AlertDescription>ch-zrh-1 takes no new tenants until the maintenance ends at 02:30 UTC.</AlertDescription>
+        <AlertTitle>Not subscribed</AlertTitle>
+        <AlertDescription>The newsletter list is not taking new addresses until the maintenance ends at 02:30.</AlertDescription>
       </Alert>
       <FieldGroup>
         <Field>
-          <FieldLabel htmlFor="alert-in-form-name">Display name</FieldLabel>
-          <Input id="alert-in-form-name" defaultValue="Bergwerk AG" />
+          <FieldLabel htmlFor="alert-in-form-name">Name</FieldLabel>
+          <Input id="alert-in-form-name" defaultValue="Lea Brunner" />
         </Field>
         <Field>
-          <FieldLabel htmlFor="alert-in-form-slug">Slug</FieldLabel>
-          <Input id="alert-in-form-slug" className="text-label-13-mono" defaultValue="bergwerk-ag" />
+          <FieldLabel htmlFor="alert-in-form-slug">E-mail</FieldLabel>
+          <Input id="alert-in-form-slug" className="text-label-13-mono" defaultValue="lea.brunner@tuerlersee.ch" />
         </Field>
       </FieldGroup>
       <Button type="submit" className="self-start">
-        Create tenant
+        Subscribe
       </Button>
     </form>
   );

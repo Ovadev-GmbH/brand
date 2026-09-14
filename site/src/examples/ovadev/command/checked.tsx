@@ -1,30 +1,25 @@
 import * as React from "react";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@ovadev-gmbh/ui-ovadev";
 
-const environments = [
-  { value: "production", label: "Production", host: "acme.ova.dev" },
-  { value: "staging", label: "Staging", host: "acme.staging.ova.dev" },
-  { value: "preview", label: "Preview", host: "pr-412.acme.preview.ova.dev" },
+const sites = [
+  { value: "ova", label: "ova.dev", host: "ova.dev" },
+  { value: "ticketova", label: "TICKETOVA", host: "ticketova.ch" },
+  { value: "januna", label: "JANUNA", host: "januna.ch" },
 ];
 
 export default function CommandChecked() {
-  const [environment, setEnvironment] = React.useState("staging");
+  const [site, setSite] = React.useState("ticketova");
 
   return (
     <Command className="w-96">
-      <CommandInput placeholder="Switch environment…" />
+      <CommandInput placeholder="Switch site…" />
       <CommandList>
-        <CommandEmpty>No environment matches.</CommandEmpty>
-        <CommandGroup heading="Environment">
-          {environments.map((env) => (
-            <CommandItem
-              key={env.value}
-              value={env.value}
-              data-checked={environment === env.value}
-              onSelect={setEnvironment}
-            >
-              {env.label}
-              <span className="text-label-12-mono text-content-tertiary">{env.host}</span>
+        <CommandEmpty>No site matches.</CommandEmpty>
+        <CommandGroup heading="Site">
+          {sites.map((s) => (
+            <CommandItem key={s.value} value={s.value} data-checked={site === s.value} onSelect={setSite}>
+              {s.label}
+              <span className="text-label-12-mono text-content-tertiary">{s.host}</span>
             </CommandItem>
           ))}
         </CommandGroup>

@@ -15,13 +15,13 @@ export default function HoverCardTeamMember() {
               </Avatar>
               <div className="flex min-w-0 flex-col gap-1">
                 <span className="text-label-13">philip@ova.dev</span>
-                <span className="text-copy-13 text-content-secondary">Billing admin, two-factor on</span>
+                <span className="text-copy-13 text-content-secondary">Consulting &amp; Sales, Baar</span>
                 <span className="text-label-12-mono text-content-tertiary">Last active 2026-09-13 16:48 CEST</span>
               </div>
             </div>
           </HoverCardContent>
         </HoverCard>{" "}
-        changed the plan of bergwerk-ag to Scale.
+        answered the quote request from Gemeinde Hausen am Albis.
       </span>
       <span className="text-label-12-mono text-content-tertiary">2026-09-13 16:41 CEST</span>
     </div>

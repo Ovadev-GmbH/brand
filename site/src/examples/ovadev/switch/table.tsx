@@ -1,9 +1,9 @@
 import { Switch, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@ovadev-gmbh/ui-ovadev";
 
-const flags = [
-  { key: "invoice-pdf-v2", staging: true, production: false },
-  { key: "usage-alerts", staging: true, production: true },
-  { key: "sepa-direct-debit", staging: false, production: false },
+const pages = [
+  { key: "/blog/season-opening-tuerlersee", de: true, en: false },
+  { key: "/brand", de: true, en: true },
+  { key: "/jobs", de: false, en: false },
 ];
 
 export default function SwitchInTable() {
@@ -12,20 +12,20 @@ export default function SwitchInTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Flag</TableHead>
-            <TableHead className="w-28">Staging</TableHead>
-            <TableHead className="w-28">Production</TableHead>
+            <TableHead>Page</TableHead>
+            <TableHead className="w-28">German</TableHead>
+            <TableHead className="w-28">English</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {flags.map((flag) => (
-            <TableRow key={flag.key}>
-              <TableCell className="text-label-13-mono">{flag.key}</TableCell>
+          {pages.map((page) => (
+            <TableRow key={page.key}>
+              <TableCell className="text-label-13-mono">{page.key}</TableCell>
               <TableCell>
-                <Switch size="sm" defaultChecked={flag.staging} aria-label={`${flag.key} on staging`} />
+                <Switch size="sm" defaultChecked={page.de} aria-label={`${page.key} in German`} />
               </TableCell>
               <TableCell>
-                <Switch size="sm" defaultChecked={flag.production} aria-label={`${flag.key} on production`} />
+                <Switch size="sm" defaultChecked={page.en} aria-label={`${page.key} in English`} />
               </TableCell>
             </TableRow>
           ))}

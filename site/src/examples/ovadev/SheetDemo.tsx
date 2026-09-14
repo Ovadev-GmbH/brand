@@ -11,20 +11,20 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const facts = [
-  ["Tenant", "acme-logistics"],
-  ["Amount", "CHF 1'240.00"],
-  ["Period", "2026-08"],
-  ["Due", "2026-10-01"],
+  ["From", "Gemeinde Hausen am Albis"],
+  ["Product", "TICKETOVA"],
+  ["Received", "2026-09-12"],
+  ["Reply by", "2026-09-19"],
 ] as const;
 
 export default function SheetDemo() {
   return (
     <Sheet>
-      <SheetTrigger render={<Button variant="outline" />}>Open invoice</SheetTrigger>
+      <SheetTrigger render={<Button variant="outline" />}>Open request</SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle>INV-2026-0142</SheetTitle>
-          <SheetDescription>Issued 2026-09-01 to acme-logistics. Not paid yet.</SheetDescription>
+          <SheetTitle>REQ-2026-031</SheetTitle>
+          <SheetDescription>Quote request from ova.dev/contact. Not answered yet.</SheetDescription>
         </SheetHeader>
         <dl className="m-0 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 px-4">
           {facts.map(([term, value]) => (
@@ -35,7 +35,7 @@ export default function SheetDemo() {
           ))}
         </dl>
         <SheetFooter>
-          <Button>Mark as paid</Button>
+          <Button>Mark as answered</Button>
           <SheetClose render={<Button variant="outline" />}>Close</SheetClose>
         </SheetFooter>
       </SheetContent>

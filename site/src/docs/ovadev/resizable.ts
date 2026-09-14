@@ -2,11 +2,11 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Panels that share a group, with a handle between them the operator drags to change their split: a list beside its record, a console over its log.",
+    "Panels that share a group, with a handle between them the editor drags to change their split: a list beside its record, a console over its log.",
   usage: `<ResizablePanelGroup orientation="horizontal" className="h-64 material-base">
-  <ResizablePanel defaultSize="35">Tenants</ResizablePanel>
+  <ResizablePanel defaultSize="35">Posts</ResizablePanel>
   <ResizableHandle />
-  <ResizablePanel defaultSize="65">acme-logistics</ResizablePanel>
+  <ResizablePanel defaultSize="65">Season opening at Türlersee</ResizablePanel>
 </ResizablePanelGroup>`,
   composition: `ResizablePanelGroup
 ├── ResizablePanel

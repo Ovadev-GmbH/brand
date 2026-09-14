@@ -2,19 +2,19 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "The main sections of a site in a row, each opening a panel with the pages inside it. For actions rather than places, use [Menubar](/internal/menubar) or [Dropdown Menu](/internal/dropdown-menu).",
+    "The main sections of a site in a row, each opening a panel with the pages inside it. For actions rather than places, use [Menubar](/ovadev/menubar) or [Dropdown Menu](/ovadev/dropdown-menu).",
   usage: `<NavigationMenu>
   <NavigationMenuList>
     <NavigationMenuItem>
-      <NavigationMenuTrigger>Billing</NavigationMenuTrigger>
+      <NavigationMenuTrigger>Products</NavigationMenuTrigger>
       <NavigationMenuContent>
-        <NavigationMenuLink href="/invoices">Invoices</NavigationMenuLink>
-        <NavigationMenuLink href="/plans">Plans</NavigationMenuLink>
+        <NavigationMenuLink href="/products/ticketova">TICKETOVA</NavigationMenuLink>
+        <NavigationMenuLink href="/products/januna">JANUNA</NavigationMenuLink>
       </NavigationMenuContent>
     </NavigationMenuItem>
     <NavigationMenuItem>
-      <NavigationMenuLink href="/audit-log" className={navigationMenuTriggerStyle()}>
-        Audit log
+      <NavigationMenuLink href="/blog" className={navigationMenuTriggerStyle()}>
+        Blog
       </NavigationMenuLink>
     </NavigationMenuItem>
   </NavigationMenuList>
@@ -46,11 +46,11 @@ export default {
       title: "Router Link",
       text: "For client-side routing, pass the router's link as `render`. Add `closeOnClick`, or the panel stays open over the page it just opened.",
       code: `<NavigationMenuLink
-  render={<Link to="/invoices" />}
-  active={pathname === "/invoices"}
+  render={<Link to="/blog" />}
+  active={pathname === "/blog"}
   closeOnClick
 >
-  Invoices
+  Blog
 </NavigationMenuLink>`,
     },
   ],

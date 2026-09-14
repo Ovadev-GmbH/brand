@@ -8,7 +8,7 @@ import { cn } from "../lib/utils";
    term and its value. Columns fit the width: four on a laptop, two on a
    narrow screen; override them with a className. The hairlines are the
    cells' outlines meeting in a 1px gap, so a row that is not full ends
-   in an empty white cell, not a grey one. */
+   in an empty paper cell, not a grey one. */
 function StatGrid({ className, ...props }: React.ComponentProps<"dl">) {
   return (
     <dl

@@ -10,11 +10,11 @@ const errors = [
 export default function FieldErrors() {
   return (
     <Field data-invalid className="w-80">
-      <FieldLabel htmlFor="field-errors-slug">Tenant slug</FieldLabel>
+      <FieldLabel htmlFor="field-errors-slug">Post slug</FieldLabel>
       <Input
         id="field-errors-slug"
         className="text-label-13-mono"
-        defaultValue="Bergwerk_AG_Produktion_Zuerich_2026"
+        defaultValue="Saison_Eroeffnung_Tuerlersee_Mai_2026"
         aria-invalid
       />
       <FieldError errors={errors} />

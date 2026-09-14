@@ -26,7 +26,7 @@ export default function CalendarDisabled() {
       <p className="m-0 text-label-13 text-content-secondary">
         {day ? (
           <>
-            Maintenance for ch-zrh-1 on <span className="text-label-13-mono text-content-primary">{formatDate(day)}</span>
+            Demo at Strandbad Türlersee on <span className="text-label-13-mono text-content-primary">{formatDate(day)}</span>
           </>
         ) : (
           "Weekdays from tomorrow; two days are already booked."

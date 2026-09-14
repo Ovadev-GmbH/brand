@@ -3,16 +3,16 @@ import { Field, FieldError, FieldLabel, NativeSelect, NativeSelectOption } from 
 export default function NativeSelectInvalid() {
   return (
     <Field data-invalid className="w-56">
-      <FieldLabel htmlFor="native-select-invalid-env">Environment</FieldLabel>
+      <FieldLabel htmlFor="native-select-invalid-env">Product</FieldLabel>
       <NativeSelect id="native-select-invalid-env" className="w-full" defaultValue="" aria-invalid>
         <NativeSelectOption value="" disabled>
-          Choose an environment
+          Choose a product
         </NativeSelectOption>
-        <NativeSelectOption value="production">Production</NativeSelectOption>
-        <NativeSelectOption value="staging">Staging</NativeSelectOption>
-        <NativeSelectOption value="preview">Preview</NativeSelectOption>
+        <NativeSelectOption value="ticketova">TICKETOVA</NativeSelectOption>
+        <NativeSelectOption value="januna">JANUNA</NativeSelectOption>
+        <NativeSelectOption value="consulting">Consulting</NativeSelectOption>
       </NativeSelect>
-      <FieldError>Choose where the API key is valid.</FieldError>
+      <FieldError>Choose what the quote is for.</FieldError>
     </Field>
   );
 }

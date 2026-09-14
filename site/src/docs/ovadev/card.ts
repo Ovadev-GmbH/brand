@@ -2,11 +2,11 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A hairline box around one self-contained thing: a settings panel, a tenant's summary, a destructive action set apart. A list of records is a [Table](/internal/table), not a grid of cards.",
+    "A hairline box around one self-contained thing: a settings panel, a product's summary, a destructive action set apart. A list of records is a [Table](/ovadev/table), not a grid of cards.",
   usage: `<Card>
   <CardHeader>
-    <CardTitle>acme-logistics</CardTitle>
-    <CardDescription>Scale plan, ch-zrh-1</CardDescription>
+    <CardTitle>TICKETOVA</CardTitle>
+    <CardDescription>Online ticketing for swimming pools and venues</CardDescription>
   </CardHeader>
   <CardContent>…</CardContent>
 </Card>`,

@@ -4,10 +4,10 @@ export default function BubbleAlign() {
   return (
     <div className="flex w-full max-w-md flex-col gap-2">
       <Bubble variant="muted">
-        <BubbleContent>Is ch-zrh-1 affected by the incident?</BubbleContent>
+        <BubbleContent>Is the Türlersee shop affected by the outage?</BubbleContent>
       </Bubble>
       <Bubble align="end">
-        <BubbleContent>No, only eu-central-1. The status page is updated.</BubbleContent>
+        <BubbleContent>No, only the reporting page. The status page is updated.</BubbleContent>
       </Bubble>
     </div>
   );

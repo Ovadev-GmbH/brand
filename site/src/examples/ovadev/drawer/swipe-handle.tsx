@@ -14,14 +14,14 @@ import {
 export default function DrawerSwipeHandleExample() {
   return (
     <Drawer showSwipeHandle>
-      <DrawerTrigger render={<Button variant="outline" />}>Create key</DrawerTrigger>
+      <DrawerTrigger render={<Button variant="outline" />}>Get press kit</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Key created</DrawerTitle>
-          <DrawerDescription>Copy it now. It is shown only once.</DrawerDescription>
+          <DrawerTitle>Your download link</DrawerTitle>
+          <DrawerDescription>Copy it now. It works for 24 hours.</DrawerDescription>
         </DrawerHeader>
         <div className="p-4">
-          <Input className="text-label-13-mono" defaultValue="sk_live_9c2e41b7f0a3d85e" aria-label="New API key" readOnly />
+          <Input className="text-label-13-mono" defaultValue="https://ova.dev/press/kit-2026-09.zip?t=9c2e41b7" aria-label="Press kit link" readOnly />
         </div>
         <DrawerFooter>
           <DrawerClose render={<Button />}>Done</DrawerClose>

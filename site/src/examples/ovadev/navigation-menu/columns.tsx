@@ -10,19 +10,19 @@ import {
 
 const columns = [
   {
-    heading: "Receivables",
+    heading: "TICKETOVA",
     links: [
-      { href: "#invoices", name: "Invoices", detail: "18 open, CHF 24'310.00" },
-      { href: "#reminders", name: "Reminders", detail: "4 due today" },
-      { href: "#credit-notes", name: "Credit notes", detail: "2 this month" },
+      { href: "#shop", name: "Shop", detail: "Online tickets, season passes, vouchers" },
+      { href: "#admission", name: "Admission control", detail: "Turnstiles, scanners, day passes" },
+      { href: "#reporting", name: "Reporting", detail: "Visitors and revenue, in real time" },
     ],
   },
   {
-    heading: "Catalogue",
+    heading: "JANUNA",
     links: [
-      { href: "#plans", name: "Plans", detail: "Starter, Team, Scale" },
-      { href: "#add-ons", name: "Add-ons", detail: "Extra seats, SSO" },
-      { href: "#tax-rates", name: "Tax rates", detail: "CH 8.1%, EU reverse charge" },
+      { href: "#till", name: "Till", detail: "Coming soon" },
+      { href: "#kitchen", name: "Kitchen displays", detail: "Coming soon" },
+      { href: "#orders", name: "Orders", detail: "Table, counter, takeaway" },
     ],
   },
 ];
@@ -32,7 +32,7 @@ export default function NavigationMenuColumns() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Billing</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="grid w-[30rem] grid-cols-2 gap-2">
               {columns.map((column) => (
@@ -54,8 +54,8 @@ export default function NavigationMenuColumns() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="#payouts" className={navigationMenuTriggerStyle()}>
-            Payouts
+          <NavigationMenuLink href="#contact" className={navigationMenuTriggerStyle()}>
+            Contact
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

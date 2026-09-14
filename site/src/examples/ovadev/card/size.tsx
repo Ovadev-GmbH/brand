@@ -4,12 +4,12 @@ export default function CardSize() {
   return (
     <Card size="sm" className="w-72">
       <CardHeader>
-        <CardTitle>helvetia-labs</CardTitle>
-        <CardDescription>Starter plan, ch-zrh-1</CardDescription>
+        <CardTitle>Hallenbad Baar</CardTitle>
+        <CardDescription>TICKETOVA, Baar ZG</CardDescription>
       </CardHeader>
       <CardContent className="flex items-baseline justify-between">
-        <span className="text-label-13 text-content-secondary">Seats</span>
-        <span className="text-label-13-mono">3 / 5</span>
+        <span className="text-label-13 text-content-secondary">Gates open</span>
+        <span className="text-label-13-mono">2 / 3</span>
       </CardContent>
     </Card>
   );

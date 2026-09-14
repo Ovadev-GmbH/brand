@@ -3,9 +3,9 @@ import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText, Spinner }
 export default function InputGroupWithSpinner() {
   return (
     <InputGroup className="w-96">
-      <InputGroupInput aria-label="Custom domain" className="text-label-13-mono" defaultValue="billing.acme.ch" readOnly />
+      <InputGroupInput aria-label="Company website" className="text-label-13-mono" defaultValue="www.tuerlersee.ch" readOnly />
       <InputGroupAddon align="inline-end">
-        <InputGroupText>Checking DNS</InputGroupText>
+        <InputGroupText>Checking</InputGroupText>
         <Spinner />
       </InputGroupAddon>
     </InputGroup>

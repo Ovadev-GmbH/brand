@@ -2,17 +2,17 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A question that has to be answered before anything else happens, for an action that cannot be undone: revoking a key, voiding an invoice, deleting a tenant. For a task with fields, use [Dialog](/internal/dialog).",
+    "A question that has to be answered before anything else happens, for an action that cannot be undone: deleting a blog post, unpublishing a page, removing a person from the team. For a task with fields, use [Dialog](/ovadev/dialog).",
   usage: `<AlertDialog>
-  <AlertDialogTrigger render={<Button variant="outline" />}>Void invoice</AlertDialogTrigger>
+  <AlertDialogTrigger render={<Button variant="outline" />}>Delete post</AlertDialogTrigger>
   <AlertDialogContent>
     <AlertDialogHeader>
-      <AlertDialogTitle>Void INV-2026-0142?</AlertDialogTitle>
-      <AlertDialogDescription>The invoice stays in the ledger, marked void.</AlertDialogDescription>
+      <AlertDialogTitle>Delete "Season opening at Türlersee"?</AlertDialogTitle>
+      <AlertDialogDescription>The post leaves the blog and its URL stops working.</AlertDialogDescription>
     </AlertDialogHeader>
     <AlertDialogFooter>
-      <AlertDialogCancel>Keep invoice</AlertDialogCancel>
-      <AlertDialogAction variant="destructive">Void invoice</AlertDialogAction>
+      <AlertDialogCancel>Keep post</AlertDialogCancel>
+      <AlertDialogAction variant="destructive">Delete post</AlertDialogAction>
     </AlertDialogFooter>
   </AlertDialogContent>
 </AlertDialog>`,

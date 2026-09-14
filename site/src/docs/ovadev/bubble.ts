@@ -2,9 +2,9 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "The framed text of one message, as wide as its content and at most 80% of the row. Put it in a [Message](/internal/message) for the sender, the avatar and the time.",
+    "The framed text of one message, as wide as its content and at most 80% of the row. Put it in a [Message](/ovadev/message) for the sender, the avatar and the time.",
   usage: `<Bubble variant="muted">
-  <BubbleContent>Payment for INV-2026-0142 received.</BubbleContent>
+  <BubbleContent>Your request reached us. We answer within two working days.</BubbleContent>
 </Bubble>`,
   composition: `BubbleGroup
 └── Bubble
@@ -13,7 +13,7 @@ export default {
   sections: [
     {
       title: "Variant",
-      text: "`variant` sets the fill. `default` in black for the operator's own messages, `muted` or `secondary` for the other side, `outline` and `tinted` for what the system adds, `ghost` for unframed text, `destructive` for what failed.",
+      text: "`variant` sets the fill. `default` in ink for our own messages, `muted` or `secondary` for the other side, `outline` and `tinted` for what the system adds, `ghost` for unframed text, `destructive` for what failed.",
       example: "variant",
     },
     {

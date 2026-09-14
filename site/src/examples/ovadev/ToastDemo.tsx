@@ -7,12 +7,12 @@ export default function ToastDemo() {
         variant="outline"
         onClick={() =>
           toast.add({
-            title: "Invoice sent",
-            description: "INV-2026-0142 for CHF 1'240.00 went to billing@acme-logistics.ch.",
+            title: "Message sent",
+            description: "Your request went to hello@ova.dev. We answer within two working days.",
           })
         }
       >
-        Send invoice
+        Send message
       </Button>
     </Toaster>
   );

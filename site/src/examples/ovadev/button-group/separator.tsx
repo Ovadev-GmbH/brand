@@ -2,17 +2,17 @@ import { Button, ButtonGroup, ButtonGroupSeparator } from "@ovadev-gmbh/ui-ovade
 
 export default function ButtonGroupWithSeparator() {
   return (
-    <ButtonGroup aria-label="API key sk_live_4f9a">
+    <ButtonGroup aria-label="Logo ovadev-mark.svg">
       <Button variant="secondary" size="sm">
-        Copy prefix
+        Copy SVG
       </Button>
       <ButtonGroupSeparator />
       <Button variant="secondary" size="sm">
-        Rename
+        Download PNG
       </Button>
       <ButtonGroupSeparator />
       <Button variant="secondary" size="sm">
-        Rotate
+        Open guidelines
       </Button>
     </ButtonGroup>
   );

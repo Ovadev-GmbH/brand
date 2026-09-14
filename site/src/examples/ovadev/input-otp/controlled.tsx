@@ -17,7 +17,7 @@ export default function InputOtpControlled() {
   return (
     <form className="flex w-72 flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
       <Field>
-        <FieldLabel htmlFor="input-otp-controlled-code">Code to delete bergwerk-ag</FieldLabel>
+        <FieldLabel htmlFor="input-otp-controlled-code">Code to unsubscribe from the newsletter</FieldLabel>
         <InputOTP
           id="input-otp-controlled-code"
           maxLength={6}
@@ -46,7 +46,7 @@ export default function InputOtpControlled() {
         </FieldDescription>
       </Field>
       <Button type="submit" variant="destructive" disabled={!checked} className="self-start">
-        Delete tenant
+        Unsubscribe
       </Button>
     </form>
   );

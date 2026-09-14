@@ -14,29 +14,29 @@ export default function CommandGroups() {
       <CommandInput placeholder="Search…" />
       <CommandList>
         <CommandEmpty>Nothing matches.</CommandEmpty>
-        <CommandGroup heading="Tenants">
-          <CommandItem>acme-logistics</CommandItem>
-          <CommandItem>bergwerk-ag</CommandItem>
-          <CommandItem>helvetia-labs</CommandItem>
+        <CommandGroup heading="Pages">
+          <CommandItem>About us</CommandItem>
+          <CommandItem>Blog</CommandItem>
+          <CommandItem>Contact</CommandItem>
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading="Invoices">
+        <CommandGroup heading="Posts">
           <CommandItem>
-            <span className="text-label-13-mono">INV-2026-0142</span>
-            <span className="ml-auto text-label-13-mono text-content-secondary">CHF 1'240.00</span>
+            <span className="text-label-13-mono">2026-09-14</span>
+            <span className="ml-auto text-label-13-mono text-content-secondary">Pool season 2026</span>
           </CommandItem>
           <CommandItem>
-            <span className="text-label-13-mono">INV-2026-0141</span>
-            <span className="ml-auto text-label-13-mono text-content-secondary">CHF 390.00</span>
+            <span className="text-label-13-mono">2026-08-27</span>
+            <span className="ml-auto text-label-13-mono text-content-secondary">JANUNA kitchen display</span>
           </CommandItem>
         </CommandGroup>
         <CommandSeparator />
-        <CommandGroup heading="Regions">
+        <CommandGroup heading="Brand">
           <CommandItem>
-            <span className="text-label-13-mono">ch-zrh-1</span>
+            <span className="text-label-13-mono">/brand/colour</span>
           </CommandItem>
           <CommandItem>
-            <span className="text-label-13-mono">eu-central-1</span>
+            <span className="text-label-13-mono">/brand/type</span>
           </CommandItem>
         </CommandGroup>
       </CommandList>

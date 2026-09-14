@@ -16,12 +16,12 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const thread = [
-  "Hello, we would like to add a second billing contact.",
-  "Sure. Which address should receive invoices?",
-  "accounting@bergwerk.ch, in addition to the current one.",
-  "Added. Both receive INV-2026-0151 onwards.",
-  "Can reminders go only to accounting?",
-  "Yes, dunning now goes to accounting@bergwerk.ch only.",
+  "Hello, we would like to add a second contact for the shop.",
+  "Sure. Which address should receive the daily sales report?",
+  "bad@cham.ch, in addition to the current one.",
+  "Added. Both receive the report from 2026-09-03 onwards.",
+  "Can refund notices go only to bad@cham.ch?",
+  "Yes, refund notices now go to bad@cham.ch only.",
   "Thanks. One more thing: our VAT number changed.",
   "Please send the new one and the date it applies from.",
   "CHE-114.227.905 MWST, from 2026-09-01.",
@@ -29,7 +29,7 @@ const thread = [
   "Will August be reissued?",
   "No, August was issued before the change and stays as it is.",
   "Understood.",
-  "Anything else I can do for bergwerk-ag today?",
+  "Anything else I can do for Gemeinde Cham today?",
 ].map((text, index) => ({ id: `b-${index + 1}`, from: index % 2 === 0 ? "customer" : "support", text }));
 
 export default function MessageScrollerLoadingEarlier() {
@@ -38,7 +38,7 @@ export default function MessageScrollerLoadingEarlier() {
   return (
     <MessageScrollerProvider>
       <MessageScroller className="h-64 w-full max-w-xl border border-divider">
-        <MessageScrollerViewport aria-label="Conversation with bergwerk-ag" className="p-3">
+        <MessageScrollerViewport aria-label="Conversation with Gemeinde Cham" className="p-3">
           <MessageScrollerContent className="gap-2">
             {first > 0 ? (
               <Button variant="ghost" size="xs" className="self-center" onClick={() => setFirst((f) => Math.max(0, f - 4))}>

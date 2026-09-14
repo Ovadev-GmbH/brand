@@ -31,26 +31,26 @@ export default function AlertDialogControlled() {
   return (
     <div className="flex items-center gap-3">
       <AlertDialog open={open} onOpenChange={setOpen}>
-        <AlertDialogTrigger render={<Button variant="outline" />}>Void invoice</AlertDialogTrigger>
+        <AlertDialogTrigger render={<Button variant="outline" />}>Cancel issue</AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Void INV-2026-0142?</AlertDialogTitle>
+            <AlertDialogTitle>Cancel the September issue?</AlertDialogTitle>
             <AlertDialogDescription>
-              acme-logistics no longer owes <span className="text-label-13-mono">CHF 1'240.00</span>. The invoice stays in
-              the ledger, marked void.
+              <span className="text-label-13-mono">1'204</span> subscribers do not get it. The issue stays in the
+              archive, marked cancelled.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={voiding}>Keep invoice</AlertDialogCancel>
+            <AlertDialogCancel disabled={voiding}>Keep issue</AlertDialogCancel>
             <AlertDialogAction variant="destructive" disabled={voiding} onClick={voidInvoice}>
               {voiding ? <Spinner data-icon="inline-start" /> : null}
-              Void invoice
+              Cancel issue
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
       <span className="text-label-13 text-content-secondary">
-        <span className="text-label-13-mono">INV-2026-0142</span> {voided ? "void" : "open"}
+        <span className="text-label-13-mono">2026-09</span> {voided ? "cancelled" : "scheduled"}
       </span>
     </div>
   );

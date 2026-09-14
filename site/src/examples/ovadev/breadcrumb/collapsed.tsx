@@ -29,18 +29,18 @@ export default function BreadcrumbCollapsed() {
               <BreadcrumbEllipsis />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuItem render={<a href="#tenants" />}>Tenants</DropdownMenuItem>
-              <DropdownMenuItem render={<a href="#acme-logistics" />}>acme-logistics</DropdownMenuItem>
+              <DropdownMenuItem render={<a href="#brand" />}>Brand</DropdownMenuItem>
+              <DropdownMenuItem render={<a href="#foundations" />}>Foundations</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbLink href="#deployments">Deployments</BreadcrumbLink>
+          <BreadcrumbLink href="#colour">Colour</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage className="text-label-13-mono">d-8f3a21c</BreadcrumbPage>
+          <BreadcrumbPage className="text-label-13-mono">bg-brand-signal</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

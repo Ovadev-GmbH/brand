@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A button that stays pressed until it is pressed again: follow a log, watch an incident, show archived rows. For one choice among several, use [Toggle Group](/internal/toggle-group).",
+    "A button that stays pressed until it is pressed again: follow a log, watch a thread, show archived rows. For one choice among several, use [Toggle Group](/ovadev/toggle-group).",
   usage: `<Toggle variant="outline">Archived</Toggle>`,
   sections: [
     {

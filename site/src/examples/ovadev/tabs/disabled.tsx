@@ -2,22 +2,22 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ovadev-gmbh/ui-ovadev
 
 export default function TabsDisabled() {
   return (
-    <Tabs defaultValue="members" className="w-full max-w-md">
+    <Tabs defaultValue="overview" className="w-full max-w-md">
       <TabsList>
-        <TabsTrigger value="members">Members</TabsTrigger>
-        <TabsTrigger value="roles">Roles</TabsTrigger>
-        <TabsTrigger value="sso" disabled>
-          SSO
+        <TabsTrigger value="overview">Overview</TabsTrigger>
+        <TabsTrigger value="ticketova">TICKETOVA</TabsTrigger>
+        <TabsTrigger value="januna" disabled>
+          JANUNA
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="members" className="text-content-secondary">
-        bergwerk-ag has 18 members. SSO comes with the Scale plan.
+      <TabsContent value="overview" className="text-content-secondary">
+        Two products, built and run in Baar. JANUNA opens in 2027.
       </TabsContent>
-      <TabsContent value="roles" className="text-content-secondary">
-        Owner, Admin, Billing and Member.
+      <TabsContent value="ticketova" className="text-content-secondary">
+        Shop, admission control and reports for pools and venues.
       </TabsContent>
-      <TabsContent value="sso" className="text-content-secondary">
-        No identity provider connected.
+      <TabsContent value="januna" className="text-content-secondary">
+        Till, kitchen displays and orders for restaurants.
       </TabsContent>
     </Tabs>
   );

@@ -2,9 +2,9 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "How far a job with a known end has come: an invoice run, a migration, an export. How much of a limit is used, a ratio rather than a job, is a progress bar too: the label names the limit and the value prints the count against it, such as 38 of 40 seats.",
+    "How far a job with a known end has come: a newsletter send, a migration, an export. How much of a limit is used, a ratio rather than a job, is a progress bar too: the label names the limit and the value prints the count against it, such as 38 of 40 photos.",
   usage: `<Progress value={64}>
-  <ProgressLabel>Invoice run, September 2026</ProgressLabel>
+  <ProgressLabel>Newsletter, September 2026</ProgressLabel>
   <ProgressValue />
 </Progress>`,
   composition: `Progress
@@ -53,7 +53,7 @@ export default {
     },
     {
       name: "ProgressTrack",
-      text: "The 4px bar and, inside it, `ProgressIndicator`, its black fill. `Progress` already renders both.",
+      text: "The 4px bar and, inside it, `ProgressIndicator`, its ink fill. `Progress` already renders both.",
     },
   ],
   links: { doc: "https://base-ui.com/react/components/progress", api: "https://base-ui.com/react/components/progress#api-reference" },

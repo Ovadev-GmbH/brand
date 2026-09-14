@@ -2,13 +2,13 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A small panel that opens from a button and holds a few details or controls for it: a filter, a limit, a note on a term. For a preview on hover use [Hover Card](/internal/hover-card); for a task that needs full attention, [Dialog](/internal/dialog).",
+    "A small panel that opens from a button and holds a few details or controls for it: a filter, a limit, a note on a term. For a preview on hover use [Hover Card](/ovadev/hover-card); for a task that needs full attention, [Dialog](/ovadev/dialog).",
   usage: `<Popover>
-  <PopoverTrigger render={<Button variant="outline" />}>Seat limit</PopoverTrigger>
+  <PopoverTrigger render={<Button variant="outline" />}>Reading time</PopoverTrigger>
   <PopoverContent>
     <PopoverHeader>
-      <PopoverTitle>Seat limit</PopoverTitle>
-      <PopoverDescription>Overrides the plan's default for this tenant.</PopoverDescription>
+      <PopoverTitle>Reading time</PopoverTitle>
+      <PopoverDescription>Overrides the estimate from the word count.</PopoverDescription>
     </PopoverHeader>
   </PopoverContent>
 </Popover>`,

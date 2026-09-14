@@ -1,14 +1,14 @@
 import * as React from "react";
 import { Checkbox, Field, FieldGroup, FieldLabel } from "@ovadev-gmbh/ui-ovadev";
 
-const regions = ["ch-zrh-1", "ch-gva-1", "eu-central-1"];
+const services = ["shop.ticketova.ch", "admission.ticketova.ch", "api.januna.ch"];
 
 export default function CheckboxIndeterminate() {
-  const [selected, setSelected] = React.useState<string[]>(["ch-zrh-1"]);
-  const all = selected.length === regions.length;
+  const [selected, setSelected] = React.useState<string[]>(["shop.ticketova.ch"]);
+  const all = selected.length === services.length;
 
-  const toggle = (region: string, on: boolean) =>
-    setSelected((prev) => (on ? [...prev, region] : prev.filter((r) => r !== region)));
+  const toggle = (service: string, on: boolean) =>
+    setSelected((prev) => (on ? [...prev, service] : prev.filter((s) => s !== service)));
 
   return (
     <FieldGroup data-slot="checkbox-group" className="w-64">
@@ -17,20 +17,20 @@ export default function CheckboxIndeterminate() {
           id="checkbox-indeterminate-all"
           checked={all}
           indeterminate={selected.length > 0 && !all}
-          onCheckedChange={(on) => setSelected(on ? [...regions] : [])}
+          onCheckedChange={(on) => setSelected(on ? [...services] : [])}
         />
-        <FieldLabel htmlFor="checkbox-indeterminate-all">Back up to all regions</FieldLabel>
+        <FieldLabel htmlFor="checkbox-indeterminate-all">Status updates for all services</FieldLabel>
       </Field>
       <FieldGroup data-slot="checkbox-group" className="pl-6">
-        {regions.map((region) => (
-          <Field key={region} orientation="horizontal">
+        {services.map((service) => (
+          <Field key={service} orientation="horizontal">
             <Checkbox
-              id={`checkbox-indeterminate-${region}`}
-              checked={selected.includes(region)}
-              onCheckedChange={(on) => toggle(region, on)}
+              id={`checkbox-indeterminate-${service}`}
+              checked={selected.includes(service)}
+              onCheckedChange={(on) => toggle(service, on)}
             />
-            <FieldLabel htmlFor={`checkbox-indeterminate-${region}`} className="text-label-13-mono">
-              {region}
+            <FieldLabel htmlFor={`checkbox-indeterminate-${service}`} className="text-label-13-mono">
+              {service}
             </FieldLabel>
           </Field>
         ))}

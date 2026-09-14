@@ -2,15 +2,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 const plans = [
   { label: "Starter", value: "starter" },
-  { label: "Team", value: "team" },
-  { label: "Scale", value: "scale" },
+  { label: "Season", value: "season" },
+  { label: "Venue", value: "venue" },
   { label: "Enterprise", value: "enterprise", disabled: true },
 ];
 
 export default function SelectDisabled() {
   return (
     <div className="flex items-center gap-3">
-      <Select items={plans} defaultValue="team" disabled>
+      <Select items={plans} defaultValue="season" disabled>
         <SelectTrigger className="w-40" aria-label="Plan, locked">
           <SelectValue />
         </SelectTrigger>
@@ -22,7 +22,7 @@ export default function SelectDisabled() {
           ))}
         </SelectContent>
       </Select>
-      <Select items={plans} defaultValue="team">
+      <Select items={plans} defaultValue="season">
         <SelectTrigger className="w-40" aria-label="Plan">
           <SelectValue />
         </SelectTrigger>

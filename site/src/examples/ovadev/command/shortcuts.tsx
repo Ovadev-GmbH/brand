@@ -7,7 +7,7 @@ import {
   CommandList,
   CommandShortcut,
 } from "@ovadev-gmbh/ui-ovadev";
-import { KeyRoundIcon, PlusIcon, ReceiptIcon, ScrollTextIcon } from "lucide-react";
+import { LanguagesIcon, MailIcon, PlusIcon, SendIcon } from "lucide-react";
 
 export default function CommandShortcuts() {
   return (
@@ -18,23 +18,23 @@ export default function CommandShortcuts() {
         <CommandGroup heading="Commands">
           <CommandItem>
             <PlusIcon />
-            New tenant
+            New post
             <CommandShortcut>⌘N</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <ReceiptIcon />
-            Create invoice
+            <MailIcon />
+            Compose newsletter
             <CommandShortcut>⌘I</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <KeyRoundIcon />
-            Rotate API key
-            <CommandShortcut>⇧⌘K</CommandShortcut>
+            <LanguagesIcon />
+            Switch to German
+            <CommandShortcut>⇧⌘L</CommandShortcut>
           </CommandItem>
           <CommandItem>
-            <ScrollTextIcon />
-            Open audit log
-            <CommandShortcut>⌘L</CommandShortcut>
+            <SendIcon />
+            Open contact requests
+            <CommandShortcut>⌘R</CommandShortcut>
           </CommandItem>
         </CommandGroup>
       </CommandList>

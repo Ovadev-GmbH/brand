@@ -6,10 +6,10 @@ import {
   AttachmentTitle,
 } from "@ovadev-gmbh/ui-ovadev";
 
-// Stands in for the screenshot's <img>, which AttachmentMedia crops the same way.
-function Screenshot() {
+// Stands in for the photo's <img>, which AttachmentMedia crops the same way.
+function Photo() {
   return (
-    <svg viewBox="0 0 40 40" className="size-full" role="img" aria-label="Screenshot of the checkout error">
+    <svg viewBox="0 0 40 40" className="size-full" role="img" aria-label="Photo of the opening at Strandbad Türlersee">
       <rect width="40" height="40" className="fill-surface-quaternary" />
       <rect x="5" y="6" width="18" height="3" className="fill-content-tertiary" />
       <rect x="5" y="13" width="30" height="2" className="fill-divider-strong" />
@@ -24,20 +24,20 @@ export default function AttachmentImage() {
     <div className="flex flex-wrap items-start gap-4">
       <Attachment>
         <AttachmentMedia variant="image">
-          <Screenshot />
+          <Photo />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>checkout-error.png</AttachmentTitle>
+          <AttachmentTitle>tuerlersee-opening-2026.jpg</AttachmentTitle>
           <AttachmentDescription className="text-label-12-mono">412 KB</AttachmentDescription>
         </AttachmentContent>
       </Attachment>
       <Attachment orientation="vertical">
         <AttachmentMedia variant="image">
-          <Screenshot />
+          <Photo />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>checkout-error.png</AttachmentTitle>
-          <AttachmentDescription className="text-label-12-mono">1170 × 2532</AttachmentDescription>
+          <AttachmentTitle>tuerlersee-opening-2026.jpg</AttachmentTitle>
+          <AttachmentDescription className="text-label-12-mono">4032 × 3024</AttachmentDescription>
         </AttachmentContent>
       </Attachment>
     </div>

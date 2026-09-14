@@ -1,11 +1,11 @@
 import { Bubble, BubbleContent } from "@ovadev-gmbh/ui-ovadev";
 
 const variants = [
-  { variant: "default", text: "Rotated the key, the old one is revoked." },
-  { variant: "secondary", text: "Which plan is bergwerk-ag on?" },
-  { variant: "muted", text: "Invoice INV-2026-0142 is still open on our side." },
-  { variant: "tinted", text: "Pinned: maintenance on 2026-09-20, 02:00 to 04:00 CEST." },
-  { variant: "outline", text: "Forwarded from billing@ova.dev" },
+  { variant: "default", text: "Replaced the logo, the shop shows the new one." },
+  { variant: "secondary", text: "Which TICKETOVA package is Gemeinde Cham on?" },
+  { variant: "muted", text: "Quote Q-2026-0142 is still open on our side." },
+  { variant: "tinted", text: "Pinned: shop maintenance on 2026-09-20, 02:00 to 04:00 CEST." },
+  { variant: "outline", text: "Forwarded from hello@ova.dev" },
   { variant: "ghost", text: "Unframed text runs the full width of the row, for longer answers and notes." },
   { variant: "destructive", text: "Not delivered: the mailbox is full." },
 ] as const;

@@ -13,7 +13,7 @@ export default function CalendarDatePicker() {
 
   return (
     <Field className="w-56">
-      <FieldLabel htmlFor="calendar-date-picker">Contract end</FieldLabel>
+      <FieldLabel htmlFor="calendar-date-picker">Season opening</FieldLabel>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger render={<Button id="calendar-date-picker" variant="outline" className="justify-between" />}>
           {date ? (

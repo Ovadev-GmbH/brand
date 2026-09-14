@@ -13,21 +13,21 @@ export default function FieldDemo() {
     <form className="w-full max-w-sm" onSubmit={(event) => event.preventDefault()}>
       <FieldGroup>
         <Field>
-          <FieldLabel htmlFor="field-demo-name">Key name</FieldLabel>
-          <Input id="field-demo-name" placeholder="billing-sync" autoComplete="off" spellCheck={false} />
-          <FieldDescription>Appears in the audit log next to every request.</FieldDescription>
+          <FieldLabel htmlFor="field-demo-name">Job title</FieldLabel>
+          <Input id="field-demo-name" placeholder="Software engineer, Baar" autoComplete="off" spellCheck={false} />
+          <FieldDescription>Appears on the jobs page and in the newsletter.</FieldDescription>
         </Field>
         <Field>
-          <FieldLabel htmlFor="field-demo-expiry">Expires in (days)</FieldLabel>
+          <FieldLabel htmlFor="field-demo-expiry">Applications close in (days)</FieldLabel>
           <Input id="field-demo-expiry" type="number" min={1} max={90} defaultValue={90} className="text-label-13-mono" />
-          <FieldDescription>Up to 90 days. Rotate the key before it runs out.</FieldDescription>
+          <FieldDescription>Up to 90 days. The posting comes down by itself.</FieldDescription>
         </Field>
         <Field orientation="horizontal">
           <Checkbox id="field-demo-readonly" defaultChecked />
-          <FieldLabel htmlFor="field-demo-readonly">Read-only</FieldLabel>
+          <FieldLabel htmlFor="field-demo-readonly">Remote possible</FieldLabel>
         </Field>
         <Field orientation="horizontal">
-          <Button type="submit">Create key</Button>
+          <Button type="submit">Publish posting</Button>
           <Button type="button" variant="outline">
             Cancel
           </Button>

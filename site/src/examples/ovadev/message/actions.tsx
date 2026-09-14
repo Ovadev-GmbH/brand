@@ -8,9 +8,9 @@ import {
   MessageFooter,
   MessageHeader,
 } from "@ovadev-gmbh/ui-ovadev";
-import { CheckIcon, CopyIcon, ReceiptIcon, TicketIcon } from "lucide-react";
+import { ChartColumnIcon, CheckIcon, CopyIcon, MailIcon } from "lucide-react";
 
-const text = "Invoice INV-2026-0142 lists 14 seats, we only have 11.";
+const text = "The reporting page shows 412 season passes sold. Our till says 418.";
 
 export default function MessageActions() {
   const [copied, setCopied] = React.useState(false);
@@ -25,7 +25,7 @@ export default function MessageActions() {
   return (
     <Message className="w-full max-w-xl">
       <MessageContent>
-        <MessageHeader>Anna Roth, acme-logistics</MessageHeader>
+        <MessageHeader>Nina Baumann, Strandbad Türlersee</MessageHeader>
         <Bubble variant="muted">
           <BubbleContent>{text}</BubbleContent>
         </Bubble>
@@ -34,11 +34,11 @@ export default function MessageActions() {
           <Button variant="ghost" size="icon-xs" aria-label={copied ? "Copied" : "Copy message"} onClick={copy}>
             {copied ? <CheckIcon /> : <CopyIcon />}
           </Button>
-          <Button variant="ghost" size="icon-xs" aria-label="Open INV-2026-0142">
-            <ReceiptIcon />
+          <Button variant="ghost" size="icon-xs" aria-label="Open the reporting for Strandbad Türlersee">
+            <ChartColumnIcon />
           </Button>
-          <Button variant="ghost" size="icon-xs" aria-label="Create ticket">
-            <TicketIcon />
+          <Button variant="ghost" size="icon-xs" aria-label="Reply by e-mail">
+            <MailIcon />
           </Button>
         </MessageFooter>
       </MessageContent>

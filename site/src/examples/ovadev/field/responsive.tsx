@@ -5,17 +5,17 @@ export default function FieldResponsive() {
     <FieldGroup className="w-full max-w-xl">
       <Field orientation="responsive">
         <FieldContent>
-          <FieldLabel htmlFor="field-responsive-name">Display name</FieldLabel>
-          <FieldDescription>Shown in the tenant switcher.</FieldDescription>
+          <FieldLabel htmlFor="field-responsive-name">Company</FieldLabel>
+          <FieldDescription>Shown on the quote and the contract.</FieldDescription>
         </FieldContent>
-        <Input id="field-responsive-name" defaultValue="Bergwerk AG" />
+        <Input id="field-responsive-name" defaultValue="Gemeinde Hausen am Albis" />
       </Field>
       <Field orientation="responsive">
         <FieldContent>
           <FieldLabel htmlFor="field-responsive-email">Billing e-mail</FieldLabel>
-          <FieldDescription>Invoices go here, not to the owner.</FieldDescription>
+          <FieldDescription>Quotes go here, not to the contact person.</FieldDescription>
         </FieldContent>
-        <Input id="field-responsive-email" type="email" defaultValue="finance@bergwerk.ch" />
+        <Input id="field-responsive-email" type="email" defaultValue="finanzen@hausen.ch" />
       </Field>
     </FieldGroup>
   );

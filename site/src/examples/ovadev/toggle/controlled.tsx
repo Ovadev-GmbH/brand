@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Toggle } from "@ovadev-gmbh/ui-ovadev";
-import { ArrowDownToLineIcon } from "lucide-react";
+import { BellIcon } from "lucide-react";
 
 export default function ToggleControlled() {
   const [follow, setFollow] = React.useState(true);
@@ -8,12 +8,12 @@ export default function ToggleControlled() {
   return (
     <div className="flex w-80 items-center justify-between gap-4">
       <span className="text-label-13 text-content-secondary">
-        {follow ? "Following " : "Paused on "}
-        <span className="text-label-13-mono text-content-primary">dpl_9e02a</span>
+        {follow ? "Subscribed to " : "Not following "}
+        <span className="text-label-13-mono text-content-primary">status.ova.dev</span>
       </span>
       <Toggle variant="outline" size="sm" pressed={follow} onPressedChange={setFollow}>
-        <ArrowDownToLineIcon data-icon="inline-start" />
-        Follow log
+        <BellIcon data-icon="inline-start" />
+        Updates
       </Toggle>
     </div>
   );

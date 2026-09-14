@@ -8,7 +8,7 @@ export default function BubbleWithReactions() {
   return (
     <BubbleGroup className="w-full max-w-md gap-8 py-3">
       <Bubble variant="muted">
-        <BubbleContent>Deployment d-8f3a21c is live in ch-zrh-1.</BubbleContent>
+        <BubbleContent>The post "A season at Türlersee in numbers" is live on ova.dev/blog.</BubbleContent>
         <BubbleReactions>
           <CheckIcon className="size-3.5" aria-hidden />
           <span className="text-label-12-mono">2</span>
@@ -16,7 +16,7 @@ export default function BubbleWithReactions() {
         </BubbleReactions>
       </Bubble>
       <Bubble align="end">
-        <BubbleContent>Rolling back bergwerk-ag to d-77b0e19.</BubbleContent>
+        <BubbleContent>Reverting the Cham shop to version 2.13.2.</BubbleContent>
         <BubbleReactions side="top" align="start">
           <Button
             variant="ghost"

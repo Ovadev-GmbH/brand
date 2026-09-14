@@ -1,12 +1,12 @@
 import { AspectRatio } from "@ovadev-gmbh/ui-ovadev";
 
-// API requests per hour for acme-logistics, 08:00 to 19:00.
-const requests = [412, 438, 401, 466, 520, 498, 541, 603, 587, 612, 655, 640];
+// Tickets sold per hour at Badi Türlersee, 08:00 to 19:00, 2026-08-15.
+const tickets = [12, 38, 64, 121, 168, 143, 155, 172, 134, 96, 41, 18];
 
 export default function AspectRatioFill() {
-  const max = Math.max(...requests);
-  const points = requests
-    .map((value, hour) => `${(hour / (requests.length - 1)) * 100},${40 - (value / max) * 34}`)
+  const max = Math.max(...tickets);
+  const points = tickets
+    .map((value, hour) => `${(hour / (tickets.length - 1)) * 100},${40 - (value / max) * 34}`)
     .join(" ");
 
   return (
@@ -17,7 +17,7 @@ export default function AspectRatioFill() {
           preserveAspectRatio="none"
           className="absolute inset-0 size-full"
           role="img"
-          aria-label="API requests per hour for acme-logistics, rising from 412 to a peak of 655"
+          aria-label="Tickets sold per hour at Badi Türlersee, rising from 12 to a peak of 172 at 15:00"
         >
           <polyline
             points={points}
@@ -29,9 +29,9 @@ export default function AspectRatioFill() {
         </svg>
       </AspectRatio>
       <figcaption className="flex items-center justify-between gap-4 text-label-12 text-content-secondary">
-        <span>API requests per hour, 08:00 to 19:00</span>
+        <span>Tickets sold per hour, Badi Türlersee, 08:00 to 19:00</span>
         <span>
-          Peak <span className="text-label-12-mono text-content-primary">655</span>
+          Peak <span className="text-label-12-mono text-content-primary">172</span>
         </span>
       </figcaption>
     </figure>

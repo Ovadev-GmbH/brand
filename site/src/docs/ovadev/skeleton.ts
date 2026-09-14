@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A placeholder in the shape of content on its way, so the page does not move when it arrives. When the shape is not known, use a [Spinner](/internal/spinner).",
+    "A placeholder in the shape of content on its way, so the page does not move when it arrives. When the shape is not known, use a [Spinner](/ovadev/spinner).",
   usage: `<Skeleton className="h-4 w-40" />`,
   sections: [
     {

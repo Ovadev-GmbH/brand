@@ -18,7 +18,7 @@ export default function BubblePopover() {
           <BubbleContent render={<PopoverTrigger />}>
             <span className="flex items-center gap-1.5">
               <CircleAlertIcon className="size-3.5" aria-hidden />
-              Not delivered to billing@bergwerk.ch
+              Not delivered to info@tuerlersee.ch
             </span>
           </BubbleContent>
           <PopoverContent align="end" className="w-80">

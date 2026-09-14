@@ -1,29 +1,29 @@
 import { Badge, HoverCard, HoverCardContent, HoverCardTrigger } from "@ovadev-gmbh/ui-ovadev";
 
 const facts = [
-  ["Commit", "8e1b3d7"],
-  ["Branch", "main"],
-  ["Region", "ch-zrh-1"],
-  ["Build", "1m 42s"],
-  ["Finished", "2026-09-13 14:02 CEST"],
+  ["Author", "Robin"],
+  ["Languages", "EN, DE"],
+  ["Words", "1'420"],
+  ["Reading time", "6 min"],
+  ["Published", "2026-09-13 14:02 CEST"],
 ];
 
 export default function HoverCardDeployment() {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-label-13 text-content-secondary">Serving production</span>
+      <span className="text-label-13 text-content-secondary">Latest post</span>
       <HoverCard>
         <HoverCardTrigger
-          href="#deployments/dpl_4f2c91"
+          href="#blog/tuerlersee-season"
           className="text-label-13-mono text-content-brand underline-offset-4 hover:underline"
         >
-          dpl_4f2c91
+          tuerlersee-season
         </HoverCardTrigger>
         <HoverCardContent align="start" className="w-72">
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <span className="text-label-13-mono">dpl_4f2c91</span>
-              <Badge variant="secondary">Ready</Badge>
+              <span className="text-label-13-mono">tuerlersee-season</span>
+              <Badge variant="secondary">Published</Badge>
             </div>
             <dl className="m-0 flex flex-col gap-1.5">
               {facts.map(([term, value]) => (

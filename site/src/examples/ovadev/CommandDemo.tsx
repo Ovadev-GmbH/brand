@@ -6,7 +6,7 @@ import {
   CommandItem,
   CommandList,
 } from "@ovadev-gmbh/ui-ovadev";
-import { Building2Icon, KeyRoundIcon, ReceiptIcon, RocketIcon, ScrollTextIcon } from "lucide-react";
+import { HouseIcon, MailIcon, NewspaperIcon, PaletteIcon, UsersIcon } from "lucide-react";
 
 export default function CommandDemo() {
   return (
@@ -16,24 +16,24 @@ export default function CommandDemo() {
         <CommandEmpty>No page matches.</CommandEmpty>
         <CommandGroup heading="Pages">
           <CommandItem>
-            <Building2Icon />
-            Tenants
+            <HouseIcon />
+            Home
           </CommandItem>
           <CommandItem>
-            <ReceiptIcon />
-            Invoices
+            <UsersIcon />
+            About us
           </CommandItem>
           <CommandItem>
-            <RocketIcon />
-            Deployments
+            <NewspaperIcon />
+            Blog
           </CommandItem>
           <CommandItem>
-            <KeyRoundIcon />
-            API keys
+            <PaletteIcon />
+            Brand
           </CommandItem>
           <CommandItem>
-            <ScrollTextIcon />
-            Audit log
+            <MailIcon />
+            Contact
           </CommandItem>
         </CommandGroup>
       </CommandList>

@@ -2,15 +2,15 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "The navigation column of a tool: its sections, their pages and counts, collapsing to icons or off the edge. For a few views of one record, use [Tabs](/internal/tabs).",
+    "The navigation column of the site's admin: its sections, their pages and counts, collapsing to icons or off the edge. For a few views of one record, use [Tabs](/ovadev/tabs).",
   usage: `<SidebarProvider>
   <Sidebar>
     <SidebarContent>
       <SidebarGroup>
-        <SidebarGroupLabel>Billing</SidebarGroupLabel>
+        <SidebarGroupLabel>Site</SidebarGroupLabel>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton isActive>Invoices</SidebarMenuButton>
+            <SidebarMenuButton isActive>Pages</SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarGroup>
@@ -53,7 +53,7 @@ export default {
     },
     {
       title: "Header",
-      text: "`SidebarHeader` stays above the scrolling content: the place for what the whole tool is looking at, here the environment, chosen from a `DropdownMenu` on a large `SidebarMenuButton`.",
+      text: "`SidebarHeader` stays above the scrolling content: the place for what the whole admin is looking at, here the language, chosen from a `DropdownMenu` on a large `SidebarMenuButton`.",
       example: "header",
     },
     {
@@ -95,7 +95,7 @@ export default {
     },
     {
       title: "Mobile",
-      text: "Below 768px the sidebar leaves the layout and opens as a [Sheet](/internal/sheet) from its `side` when `SidebarTrigger` is pressed. `useSidebar` reports this as `isMobile`, with `openMobile` as its own state.",
+      text: "Below 768px the sidebar leaves the layout and opens as a [Sheet](/ovadev/sheet) from its `side` when `SidebarTrigger` is pressed. `useSidebar` reports this as `isMobile`, with `openMobile` as its own state.",
     },
     {
       title: "Controlled",

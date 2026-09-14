@@ -11,21 +11,21 @@ import {
 export default function FieldFieldSet() {
   return (
     <FieldSet className="w-96">
-      <FieldLegend>Billing address</FieldLegend>
-      <FieldDescription>Printed on every invoice for helvetia-labs.</FieldDescription>
+      <FieldLegend>Company address</FieldLegend>
+      <FieldDescription>Printed in the imprint and on every quote.</FieldDescription>
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="field-set-street">Street</FieldLabel>
-          <Input id="field-set-street" defaultValue="Bahnhofstrasse 12" />
+          <Input id="field-set-street" defaultValue="Sihlbruggstrasse 3" />
         </Field>
         <div className="grid grid-cols-[6rem_1fr] gap-4">
           <Field>
             <FieldLabel htmlFor="field-set-postcode">Postcode</FieldLabel>
-            <Input id="field-set-postcode" className="text-label-13-mono" defaultValue="8001" />
+            <Input id="field-set-postcode" className="text-label-13-mono" defaultValue="6340" />
           </Field>
           <Field>
             <FieldLabel htmlFor="field-set-city">City</FieldLabel>
-            <Input id="field-set-city" defaultValue="Zürich" />
+            <Input id="field-set-city" defaultValue="Baar" />
           </Field>
         </div>
       </FieldGroup>

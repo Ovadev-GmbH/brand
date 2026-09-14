@@ -1,31 +1,31 @@
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@ovadev-gmbh/ui-ovadev";
 
-const tenants = [
-  { slug: "acme-logistics", region: "ch-zrh-1", seats: 42, since: "2024-03-11" },
-  { slug: "bergwerk-ag", region: "ch-zrh-1", seats: 18, since: "2025-01-06" },
-  { slug: "helvetia-labs", region: "eu-central-1", seats: 97, since: "2023-11-20" },
+const customers = [
+  { name: "Strandbad Türlersee", canton: "ZH", gates: 2, since: "2024-05-01" },
+  { name: "Hallenbad Baar", canton: "ZG", gates: 3, since: "2025-01-06" },
+  { name: "Seebad Enge", canton: "ZH", gates: 4, since: "2023-06-12" },
 ];
 
 export default function TableWithCaption() {
   return (
     <div className="w-full max-w-xl">
       <Table>
-        <TableCaption>Tenants on the Scale plan, as of 13 September 2026.</TableCaption>
+        <TableCaption>Pools on TICKETOVA with admission control, as of 13 September 2026.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead>Tenant</TableHead>
-            <TableHead>Region</TableHead>
+            <TableHead>Pool</TableHead>
+            <TableHead>Canton</TableHead>
             <TableHead>Customer since</TableHead>
-            <TableHead className="text-right">Seats</TableHead>
+            <TableHead className="text-right">Gates</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {tenants.map((t) => (
-            <TableRow key={t.slug}>
-              <TableCell>{t.slug}</TableCell>
-              <TableCell className="text-label-13-mono text-content-secondary">{t.region}</TableCell>
-              <TableCell className="text-label-13-mono text-content-secondary">{t.since}</TableCell>
-              <TableCell className="text-right text-label-13-mono">{t.seats}</TableCell>
+          {customers.map((c) => (
+            <TableRow key={c.name}>
+              <TableCell>{c.name}</TableCell>
+              <TableCell className="text-label-13-mono text-content-secondary">{c.canton}</TableCell>
+              <TableCell className="text-label-13-mono text-content-secondary">{c.since}</TableCell>
+              <TableCell className="text-right text-label-13-mono">{c.gates}</TableCell>
             </TableRow>
           ))}
         </TableBody>

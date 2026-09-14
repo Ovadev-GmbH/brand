@@ -1,22 +1,22 @@
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@ovadev-gmbh/ui-ovadev";
 
-const tenants = [
-  { slug: "acme-logistics", id: "ten_8f3a2c", name: "Acme Logistics AG" },
-  { slug: "bergwerk-ag", id: "ten_1b77e0", name: "Bergwerk AG" },
-  { slug: "helvetia-labs", id: "ten_c40d19", name: "Helvetia Labs SA" },
+const people = [
+  { slug: "beni", role: "CEO & Engineering", name: "Beni" },
+  { slug: "robin", role: "CTO & Engineering", name: "Robin" },
+  { slug: "philip", role: "Consulting & Sales", name: "Philip" },
 ];
 
 export default function CommandKeywords() {
   return (
     <Command className="w-96">
-      <CommandInput placeholder="Slug, company or ID, e.g. ten_1b77" />
+      <CommandInput placeholder="Name or role, e.g. sales" />
       <CommandList>
-        <CommandEmpty>No tenant matches.</CommandEmpty>
-        <CommandGroup heading="Tenants">
-          {tenants.map((tenant) => (
-            <CommandItem key={tenant.id} value={tenant.slug} keywords={[tenant.id, tenant.name]}>
-              {tenant.slug}
-              <span className="ml-auto text-label-12-mono text-content-tertiary">{tenant.id}</span>
+        <CommandEmpty>Nobody matches.</CommandEmpty>
+        <CommandGroup heading="People">
+          {people.map((person) => (
+            <CommandItem key={person.slug} value={person.slug} keywords={[person.role, person.name]}>
+              {person.name}
+              <span className="ml-auto text-label-12-mono text-content-tertiary">{person.role}</span>
             </CommandItem>
           ))}
         </CommandGroup>

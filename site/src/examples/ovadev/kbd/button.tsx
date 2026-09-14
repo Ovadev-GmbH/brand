@@ -8,10 +8,10 @@ export default function KbdButton() {
         <Kbd>/</Kbd>
       </Button>
       <Button variant="outline">
-        Retry deployment
+        Publish post
         <KbdGroup>
           <Kbd>⌘</Kbd>
-          <Kbd>R</Kbd>
+          <Kbd>↵</Kbd>
         </KbdGroup>
       </Button>
     </div>

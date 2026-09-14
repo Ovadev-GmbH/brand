@@ -2,14 +2,14 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Views of one record that share a header: a tenant's overview, invoices and API keys. One panel shows at a time; for sections that can be open together, use [Accordion](/internal/accordion).",
+    "Views of one record that share a header: a product's overview, pages and customers. One panel shows at a time; for sections that can be open together, use [Accordion](/ovadev/accordion).",
   usage: `<Tabs defaultValue="overview">
   <TabsList>
     <TabsTrigger value="overview">Overview</TabsTrigger>
-    <TabsTrigger value="invoices">Invoices</TabsTrigger>
+    <TabsTrigger value="customers">Customers</TabsTrigger>
   </TabsList>
-  <TabsContent value="overview">Scale plan, 42 seats, ch-zrh-1.</TabsContent>
-  <TabsContent value="invoices">3 open invoices, CHF 1'679.00.</TabsContent>
+  <TabsContent value="overview">Online ticketing for pools and venues, live since 2024.</TabsContent>
+  <TabsContent value="customers">14 pools and venues, 3 of them in the canton of Zug.</TabsContent>
 </Tabs>`,
   composition: `Tabs
 ├── TabsList
@@ -18,7 +18,7 @@ export default {
   sections: [
     {
       title: "Line",
-      text: '`variant="line"` on `TabsList` drops the grey well and marks the current tab with a black rule beneath it. It suits the tabs right under a page title.',
+      text: '`variant="line"` on `TabsList` drops the grey well and marks the current tab with an ink rule beneath it. It suits the tabs right under a page title.',
       example: "line",
     },
     {

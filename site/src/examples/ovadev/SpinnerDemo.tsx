@@ -8,11 +8,11 @@ export default function SpinnerDemo() {
       </ItemMedia>
       <ItemContent>
         <ItemTitle>
-          Charging <span className="text-label-13-mono">INV-2026-0142</span>
+          Paying order <span className="text-label-13-mono">T-2026-48213</span>
         </ItemTitle>
       </ItemContent>
       <ItemContent className="items-end">
-        <span className="text-label-13-mono">CHF 1&apos;240.00</span>
+        <span className="text-label-13-mono">CHF 24.00</span>
       </ItemContent>
     </Item>
   );

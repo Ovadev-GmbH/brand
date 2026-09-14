@@ -17,15 +17,15 @@ const rows = Array.from({ length: 14 }, (_, index) => ({
   from: index % 2 === 0 ? "customer" : "support",
   text:
     index % 2 === 0
-      ? `Payment for INV-2026-01${String(20 + index).padStart(2, "0")} was sent on 2026-09-${String(1 + index).padStart(2, "0")}.`
-      : "Received and matched. The invoice is marked as paid.",
+      ? `Is the payout for 2026-09-${String(1 + index).padStart(2, "0")} already on its way?`
+      : "Yes. It left our bank this morning and arrives within one working day.",
 }));
 
 export default function MessageScrollerButtons() {
   return (
     <MessageScrollerProvider defaultScrollPosition="start">
       <MessageScroller className="h-64 w-full max-w-xl border border-divider">
-        <MessageScrollerViewport aria-label="Conversation with acme-logistics" className="p-3">
+        <MessageScrollerViewport aria-label="Conversation with Strandbad Türlersee" className="p-3">
           <MessageScrollerContent className="gap-2">
             {rows.map((row) => (
               <MessageScrollerItem key={row.id} messageId={row.id}>

@@ -11,7 +11,7 @@ export default function ProgressDemo() {
 
   return (
     <Progress value={value} className="w-full max-w-sm">
-      <ProgressLabel>Exporting the audit log of acme-logistics</ProgressLabel>
+      <ProgressLabel>Exporting the season report for Türlersee</ProgressLabel>
       <ProgressValue />
     </Progress>
   );

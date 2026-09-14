@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A key or a shortcut as it is pressed, for the keyboard paths through a tool. In a menu row, put the shortcut in `DropdownMenuShortcut` instead.",
+    "A key or a shortcut as it is pressed, for the keyboard paths through the admin. In a menu row, put the shortcut in `DropdownMenuShortcut` instead.",
   usage: `<KbdGroup>
   <Kbd>⌘</Kbd>
   <Kbd>K</Kbd>
@@ -21,12 +21,12 @@ export default {
     },
     {
       title: "Tooltip",
-      text: "Inside `TooltipContent` a `Kbd` turns light on the black by itself. See [Tooltip](/internal/tooltip).",
+      text: "Inside `TooltipContent` a `Kbd` inverts on the ink by itself. See [Tooltip](/ovadev/tooltip).",
       example: "tooltip",
     },
     {
       title: "Input Group",
-      text: "A `Kbd` in an `InputGroupAddon` names the key that focuses the field. See [Input Group](/internal/input-group).",
+      text: "A `Kbd` in an `InputGroupAddon` names the key that focuses the field. See [Input Group](/ovadev/input-group).",
       example: "input-group",
     },
   ],

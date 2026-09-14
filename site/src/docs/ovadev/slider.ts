@@ -2,13 +2,13 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A number chosen by dragging along a range, where the position says more than the digits: replicas, a retention window, a rate limit. Show the exact figure beside it, or use an [Input](/internal/input) when people will type it.",
+    "A number chosen by dragging along a range, where the position says more than the digits: a reading time, a retention window, a send rate. Show the exact figure beside it, or use an [Input](/ovadev/input) when people will type it.",
   usage: `<Slider defaultValue={[30]} min={7} max={90} aria-label="Log retention in days" />`,
   sections: [
     {
       title: "Value",
       text: "`defaultValue` or `value` is a number for one thumb, or an array with one entry per thumb. A slider given no value at all draws two, at `min` and `max`.",
-      code: `<Slider defaultValue={[3]} min={1} max={12} aria-label="Replicas" />`,
+      code: `<Slider defaultValue={[6]} min={3} max={24} aria-label="Posts per page" />`,
     },
     {
       title: "Range",

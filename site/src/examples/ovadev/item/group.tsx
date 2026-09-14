@@ -10,16 +10,16 @@ import {
   ItemTitle,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const environments = [
-  { name: "Production", host: "acme-logistics.ova.dev", state: "Ready", variant: "secondary" },
-  { name: "Staging", host: "acme-logistics.staging.ova.dev", state: "Building", variant: "secondary" },
-  { name: "Preview", host: "pr-412.acme-logistics.preview.ova.dev", state: "Failed", variant: "destructive" },
+const services = [
+  { name: "Website", host: "ova.dev", state: "Up", variant: "secondary" },
+  { name: "TICKETOVA shop", host: "shop.ticketova.ch", state: "Up", variant: "secondary" },
+  { name: "Admission control", host: "gate.ticketova.ch", state: "Down", variant: "destructive" },
 ] as const;
 
 export default function ItemGroupExample() {
   return (
-    <ItemGroup aria-label="Environments of acme-logistics" className="w-full max-w-md gap-0">
-      {environments.map((env, i) => (
+    <ItemGroup aria-label="Status of ova.dev services" className="w-full max-w-md gap-0">
+      {services.map((env, i) => (
         <React.Fragment key={env.name}>
           {i > 0 ? <ItemSeparator className="my-0" /> : null}
           <Item role="listitem">

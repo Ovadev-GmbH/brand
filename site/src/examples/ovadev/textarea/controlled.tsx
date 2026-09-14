@@ -4,12 +4,12 @@ import { Field, FieldDescription, FieldLabel, Textarea } from "@ovadev-gmbh/ui-o
 const limit = 160;
 
 export default function TextareaControlled() {
-  const [note, setNote] = React.useState("Your invoice INV-2026-0142 over CHF 1'240.00 is 14 days overdue.");
+  const [note, setNote] = React.useState("TICKETOVA now runs admission control at Strandbad Türlersee. Season opens 2026-05-09.");
   const over = note.length > limit;
 
   return (
     <Field data-invalid={over} className="w-96">
-      <FieldLabel htmlFor="textarea-controlled-note">Reminder text</FieldLabel>
+      <FieldLabel htmlFor="textarea-controlled-note">Post summary</FieldLabel>
       <Textarea
         id="textarea-controlled-note"
         value={note}

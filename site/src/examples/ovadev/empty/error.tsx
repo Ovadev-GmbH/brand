@@ -16,13 +16,13 @@ export default function EmptyError() {
         <EmptyMedia variant="icon" className="bg-surface-danger text-status-danger">
           <CircleAlertIcon />
         </EmptyMedia>
-        <EmptyTitle>Invoices did not load</EmptyTitle>
-        <EmptyDescription>The billing service in ch-zrh-1 did not answer within 10 s.</EmptyDescription>
+        <EmptyTitle>Posts did not load</EmptyTitle>
+        <EmptyDescription>The blog did not answer within 10 s.</EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
         <Button variant="outline" size="sm">
           <RotateCwIcon data-icon="inline-start" />
-          Reload invoices
+          Reload posts
         </Button>
       </EmptyContent>
     </Empty>

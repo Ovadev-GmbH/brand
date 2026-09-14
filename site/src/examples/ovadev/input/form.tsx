@@ -13,14 +13,14 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const plans = [
-  { label: "Starter", value: "starter" },
-  { label: "Team", value: "team" },
-  { label: "Scale", value: "scale" },
+  { label: "TICKETOVA", value: "ticketova" },
+  { label: "JANUNA", value: "januna" },
+  { label: "Consulting", value: "consulting" },
 ];
 
 const regions = [
-  { label: "ch-zrh-1", value: "ch-zrh-1" },
-  { label: "eu-central-1", value: "eu-central-1" },
+  { label: "de-CH", value: "de-CH" },
+  { label: "en-GB", value: "en-GB" },
 ];
 
 export default function InputForm() {
@@ -29,17 +29,17 @@ export default function InputForm() {
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="form-company">Company</FieldLabel>
-          <Input id="form-company" placeholder="Acme Logistics AG" required />
+          <Input id="form-company" placeholder="Strandbad Türlersee AG" required />
         </Field>
         <Field>
-          <FieldLabel htmlFor="form-email">Billing e-mail</FieldLabel>
-          <Input id="form-email" type="email" placeholder="billing@acme.ch" required />
-          <FieldDescription>Invoices go here, not to the account owner.</FieldDescription>
+          <FieldLabel htmlFor="form-email">E-mail</FieldLabel>
+          <Input id="form-email" type="email" placeholder="info@tuerlersee.ch" required />
+          <FieldDescription>We answer here, usually within a working day.</FieldDescription>
         </Field>
         <div className="grid grid-cols-2 gap-4">
           <Field>
-            <FieldLabel htmlFor="form-plan">Plan</FieldLabel>
-            <Select items={plans} defaultValue="team">
+            <FieldLabel htmlFor="form-plan">Product</FieldLabel>
+            <Select items={plans} defaultValue="ticketova">
               <SelectTrigger id="form-plan" className="w-full">
                 <SelectValue />
               </SelectTrigger>
@@ -53,8 +53,8 @@ export default function InputForm() {
             </Select>
           </Field>
           <Field>
-            <FieldLabel htmlFor="form-region">Region</FieldLabel>
-            <Select items={regions} defaultValue="ch-zrh-1">
+            <FieldLabel htmlFor="form-region">Language</FieldLabel>
+            <Select items={regions} defaultValue="de-CH">
               <SelectTrigger id="form-region" className="w-full text-label-13-mono">
                 <SelectValue />
               </SelectTrigger>
@@ -72,7 +72,7 @@ export default function InputForm() {
           <Button type="button" variant="outline">
             Cancel
           </Button>
-          <Button type="submit">Create tenant</Button>
+          <Button type="submit">Request a quote</Button>
         </Field>
       </FieldGroup>
     </form>

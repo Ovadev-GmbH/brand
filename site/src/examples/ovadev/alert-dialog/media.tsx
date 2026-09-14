@@ -12,28 +12,28 @@ import {
   AlertDialogTrigger,
   Button,
 } from "@ovadev-gmbh/ui-ovadev";
-import { KeyRoundIcon } from "lucide-react";
+import { GlobeIcon } from "lucide-react";
 
 export default function AlertDialogWithMedia() {
   const [open, setOpen] = React.useState(false);
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
-      <AlertDialogTrigger render={<Button variant="outline" />}>Rotate key</AlertDialogTrigger>
+      <AlertDialogTrigger render={<Button variant="outline" />}>Publish page</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogMedia>
-            <KeyRoundIcon />
+            <GlobeIcon />
           </AlertDialogMedia>
-          <AlertDialogTitle>Rotate the live key?</AlertDialogTitle>
+          <AlertDialogTitle>Publish the brand page?</AlertDialogTitle>
           <AlertDialogDescription>
-            <span className="text-label-13-mono">sk_live_4f9a…</span> keeps working for 24 hours. After that, only the
-            new key is accepted.
+            <span className="text-label-13-mono">/brand/colour</span> goes live on ova.dev in DE and EN. The previous
+            version stays in the history.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={() => setOpen(false)}>Rotate key</AlertDialogAction>
+          <AlertDialogAction onClick={() => setOpen(false)}>Publish</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

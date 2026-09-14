@@ -9,7 +9,7 @@ export default function ProgressFormat() {
       locale="de-CH"
       className="w-full max-w-sm"
     >
-      <ProgressLabel>Backup of helvetia-labs</ProgressLabel>
+      <ProgressLabel>Press kit download</ProgressLabel>
       <ProgressValue>{(formatted) => `${formatted} of 10 GB`}</ProgressValue>
     </Progress>
   );

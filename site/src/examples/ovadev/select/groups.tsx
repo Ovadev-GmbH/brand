@@ -9,36 +9,36 @@ import {
   SelectValue,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const switzerland = [
-  { label: "ch-zrh-1", value: "ch-zrh-1" },
-  { label: "ch-gva-1", value: "ch-gva-1" },
+const company = [
+  { label: "ova.dev", value: "ova.dev" },
+  { label: "status.ova.dev", value: "status.ova.dev" },
 ];
-const europe = [
-  { label: "eu-central-1", value: "eu-central-1" },
-  { label: "eu-west-1", value: "eu-west-1" },
+const products = [
+  { label: "ticketova.ch", value: "ticketova.ch" },
+  { label: "januna.ch", value: "januna.ch" },
 ];
 
 export default function SelectGroups() {
   return (
-    <Select items={[...switzerland, ...europe]}>
-      <SelectTrigger className="w-48 text-label-13-mono" aria-label="Region">
-        <SelectValue placeholder="Region" />
+    <Select items={[...company, ...products]}>
+      <SelectTrigger className="w-48 text-label-13-mono" aria-label="Site">
+        <SelectValue placeholder="Site" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Switzerland</SelectLabel>
-          {switzerland.map((region) => (
-            <SelectItem key={region.value} value={region.value}>
-              <span className="text-label-13-mono">{region.label}</span>
+          <SelectLabel>Ovadev</SelectLabel>
+          {company.map((site) => (
+            <SelectItem key={site.value} value={site.value}>
+              <span className="text-label-13-mono">{site.label}</span>
             </SelectItem>
           ))}
         </SelectGroup>
         <SelectSeparator />
         <SelectGroup>
-          <SelectLabel>European Union</SelectLabel>
-          {europe.map((region) => (
-            <SelectItem key={region.value} value={region.value}>
-              <span className="text-label-13-mono">{region.label}</span>
+          <SelectLabel>Products</SelectLabel>
+          {products.map((site) => (
+            <SelectItem key={site.value} value={site.value}>
+              <span className="text-label-13-mono">{site.label}</span>
             </SelectItem>
           ))}
         </SelectGroup>

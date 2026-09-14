@@ -10,7 +10,7 @@ export default function PopoverSide() {
           <PopoverTrigger render={<Button variant="outline" className="capitalize" />}>{side}</PopoverTrigger>
           <PopoverContent side={side} className="w-56">
             <p className="m-0 text-label-13 text-content-secondary">
-              Region <span className="text-label-13-mono text-content-primary">ch-zrh-1</span>, 3 availability zones.
+              Ovadev GmbH, <span className="text-label-13-mono text-content-primary">6340 Baar</span>, canton Zug.
             </p>
           </PopoverContent>
         </Popover>

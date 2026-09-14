@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A row of toggles whose pressed items are the current choice: a time range, an environment, the log levels to show. For actions that do not stay pressed, use [Button Group](/internal/button-group).",
+    "A row of toggles whose pressed items are the current choice: a time range, a language, the request types to show. For actions that do not stay pressed, use [Button Group](/ovadev/button-group).",
   usage: `<ToggleGroup variant="outline" defaultValue={["24h"]}>
   <ToggleGroupItem value="24h">24h</ToggleGroupItem>
   <ToggleGroupItem value="7d">7d</ToggleGroupItem>
@@ -21,7 +21,7 @@ export default {
     },
     {
       title: "Multiple",
-      text: "Without `multiple`, pressing an item releases the one before. With it, each item is on or off by itself, as for the log levels to show.",
+      text: "Without `multiple`, pressing an item releases the one before. With it, each item is on or off by itself, as for the request types to show.",
       example: "multiple",
     },
     {

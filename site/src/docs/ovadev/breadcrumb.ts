@@ -2,15 +2,15 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "The path from a list down to the record on screen: tenant, invoices, one invoice. Every level but the last is a link back up.",
+    "The path from a list down to the record on screen: blog, its posts, one post. Every level but the last is a link back up.",
   usage: `<Breadcrumb>
   <BreadcrumbList>
     <BreadcrumbItem>
-      <BreadcrumbLink href="/tenants">Tenants</BreadcrumbLink>
+      <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
     </BreadcrumbItem>
     <BreadcrumbSeparator />
     <BreadcrumbItem>
-      <BreadcrumbPage>acme-logistics</BreadcrumbPage>
+      <BreadcrumbPage>Season opening at Türlersee</BreadcrumbPage>
     </BreadcrumbItem>
   </BreadcrumbList>
 </Breadcrumb>`,
@@ -35,13 +35,13 @@ export default {
     },
     {
       title: "Dropdown",
-      text: "A level can switch to its siblings: a `DropdownMenu` on the tenant moves between tenants without going back to the list.",
+      text: "A level can switch to its siblings: a `DropdownMenu` on the product moves between TICKETOVA and JANUNA without going back to the list.",
       example: "dropdown",
     },
     {
       title: "Link Component",
       text: "`render` on `BreadcrumbLink` hands the element to your router's link, which keeps the breadcrumb's styles and gains client-side navigation.",
-      code: `<BreadcrumbLink render={<Link to="/tenants/acme-logistics" />}>acme-logistics</BreadcrumbLink>`,
+      code: `<BreadcrumbLink render={<Link to="/blog/season-opening-tuerlersee" />}>Season opening at Türlersee</BreadcrumbLink>`,
     },
     {
       title: "Page Header",

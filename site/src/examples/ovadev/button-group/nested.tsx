@@ -3,7 +3,7 @@ import { ChevronLeftIcon, ChevronRightIcon, DownloadIcon, LinkIcon } from "lucid
 
 export default function ButtonGroupNested() {
   return (
-    <ButtonGroup aria-label="Deployment log">
+    <ButtonGroup aria-label="Blog post">
       <ButtonGroup>
         <Button variant="outline" size="sm">
           <ChevronLeftIcon data-icon="inline-start" />
@@ -15,10 +15,10 @@ export default function ButtonGroupNested() {
         </Button>
       </ButtonGroup>
       <ButtonGroup>
-        <Button variant="outline" size="icon-sm" aria-label="Copy link to log">
+        <Button variant="outline" size="icon-sm" aria-label="Copy link to post">
           <LinkIcon />
         </Button>
-        <Button variant="outline" size="icon-sm" aria-label="Download log">
+        <Button variant="outline" size="icon-sm" aria-label="Download as PDF">
           <DownloadIcon />
         </Button>
       </ButtonGroup>

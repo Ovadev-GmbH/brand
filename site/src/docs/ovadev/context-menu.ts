@@ -2,14 +2,14 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Actions on the thing under the pointer, opened with a right-click or a long press. Nobody sees the menu before it opens, so offer the same actions somewhere visible too, such as a [Dropdown Menu](/internal/dropdown-menu) in the row.",
+    "Actions on the thing under the pointer, opened with a right-click or a long press. Nobody sees the menu before it opens, so offer the same actions somewhere visible too, such as a [Dropdown Menu](/ovadev/dropdown-menu) in the row.",
   usage: `<ContextMenu>
-  <ContextMenuTrigger>INV-2026-0142</ContextMenuTrigger>
+  <ContextMenuTrigger>Season opening at Türlersee</ContextMenuTrigger>
   <ContextMenuContent>
-    <ContextMenuItem>Open invoice</ContextMenuItem>
-    <ContextMenuItem>Download PDF</ContextMenuItem>
+    <ContextMenuItem>Open post</ContextMenuItem>
+    <ContextMenuItem>Copy link</ContextMenuItem>
     <ContextMenuSeparator />
-    <ContextMenuItem variant="destructive">Void invoice</ContextMenuItem>
+    <ContextMenuItem variant="destructive">Delete post</ContextMenuItem>
   </ContextMenuContent>
 </ContextMenu>`,
   composition: `ContextMenu

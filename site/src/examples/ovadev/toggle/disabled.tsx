@@ -7,7 +7,7 @@ export default function ToggleDisabled() {
         Archived
       </Toggle>
       <Toggle variant="outline" disabled defaultPressed>
-        Auto-renew
+        Published
       </Toggle>
     </div>
   );

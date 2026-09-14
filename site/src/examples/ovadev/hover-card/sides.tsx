@@ -7,13 +7,13 @@ export default function HoverCardSides() {
     <div className="grid grid-cols-2 gap-2">
       {sides.map((side) => (
         <HoverCard key={side}>
-          <HoverCardTrigger href="#regions/ch-zrh-1" className={buttonVariants({ variant: "outline", className: "capitalize" })}>
+          <HoverCardTrigger href="#contact" className={buttonVariants({ variant: "outline", className: "capitalize" })}>
             {side}
           </HoverCardTrigger>
           <HoverCardContent side={side}>
             <div className="flex flex-col gap-1">
-              <span className="text-label-13-mono">ch-zrh-1</span>
-              <span className="text-copy-13 text-content-secondary">Zurich, 3 availability zones, 214 tenants.</span>
+              <span className="text-label-13-mono">6340 Baar</span>
+              <span className="text-copy-13 text-content-secondary">Ovadev GmbH, canton Zug, three people.</span>
             </div>
           </HoverCardContent>
         </HoverCard>

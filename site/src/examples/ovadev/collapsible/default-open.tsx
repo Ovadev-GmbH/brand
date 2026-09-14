@@ -2,9 +2,9 @@ import { Badge, Button, Collapsible, CollapsibleContent, CollapsibleTrigger } fr
 import { ChevronDownIcon } from "lucide-react";
 
 const steps = [
-  { name: "Install dependencies", duration: "41 s", state: "Passed", tone: "text-status-success" },
-  { name: "Run migrations", duration: "12 s", state: "Failed", tone: "text-status-danger" },
-  { name: "Start instances", duration: "–", state: "Canceled", tone: "text-content-tertiary" },
+  { name: "Render the issue", duration: "41 s", state: "Passed", tone: "text-status-success" },
+  { name: "Send to 1'204 readers", duration: "12 s", state: "Failed", tone: "text-status-danger" },
+  { name: "Record opens", duration: "–", state: "Canceled", tone: "text-content-tertiary" },
 ] as const;
 
 export default function CollapsibleDefaultOpen() {
@@ -13,7 +13,7 @@ export default function CollapsibleDefaultOpen() {
       <div className="flex items-center justify-between gap-2">
         <span className="flex items-center gap-2 text-label-13">
           <span>
-            Deployment <span className="text-label-13-mono">9d02c5f</span>
+            Newsletter <span className="text-label-13-mono">2026-09</span>
           </span>
           <Badge variant="destructive">Failed</Badge>
         </span>
@@ -22,7 +22,7 @@ export default function CollapsibleDefaultOpen() {
             <Button
               variant="ghost"
               size="icon-sm"
-              aria-label="Toggle build steps"
+              aria-label="Toggle send steps"
               className="data-panel-open:[&_svg]:rotate-180"
             />
           }

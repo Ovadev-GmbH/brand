@@ -13,19 +13,19 @@ import {
 const snapPoints = ["18rem", 1];
 
 const updates = [
-  { at: "09:41", status: "Resolved", text: "Checkout error rate is back under 0.1%." },
-  { at: "09:28", status: "Monitoring", text: "Rolled production back to dpl_7c21." },
-  { at: "09:17", status: "Identified", text: "dpl_8a4f returns 502 on /checkout." },
-  { at: "09:12", status: "Investigating", text: "acme-logistics reports failed payments." },
+  { at: "09:41", status: "Resolved", text: "Card payments in the TICKETOVA shop go through again." },
+  { at: "09:28", status: "Monitoring", text: "The payment provider has applied a fix on its side." },
+  { at: "09:17", status: "Identified", text: "The provider rejects card payments from the shop." },
+  { at: "09:12", status: "Investigating", text: "Strandbad Türlersee reports failed card payments." },
 ];
 
 export default function DrawerSnapPoints() {
   return (
     <Drawer snapPoints={snapPoints} showSwipeHandle>
-      <DrawerTrigger render={<Button variant="outline" />}>View incident</DrawerTrigger>
+      <DrawerTrigger render={<Button variant="outline" />}>View status</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>INC-2026-031</DrawerTitle>
+          <DrawerTitle>Status, 2026-09-13</DrawerTitle>
           <DrawerDescription>Drag up for the whole timeline.</DrawerDescription>
         </DrawerHeader>
         <ol className="m-0 min-h-0 flex-1 list-none overflow-y-auto p-4">

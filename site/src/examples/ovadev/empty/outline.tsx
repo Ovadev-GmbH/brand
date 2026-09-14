@@ -5,13 +5,13 @@ export default function EmptyOutline() {
   return (
     <Empty className="w-full max-w-md border">
       <EmptyHeader>
-        <EmptyTitle>No webhook endpoints</EmptyTitle>
-        <EmptyDescription>bergwerk-ag receives no events. Add an endpoint to be told about invoices and deployments.</EmptyDescription>
+        <EmptyTitle>No press downloads</EmptyTitle>
+        <EmptyDescription>The press kit is empty. Add the logo files and a company description for journalists.</EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
         <Button variant="outline" size="sm">
           <PlusIcon data-icon="inline-start" />
-          Add endpoint
+          Add file
         </Button>
       </EmptyContent>
     </Empty>

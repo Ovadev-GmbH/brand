@@ -3,7 +3,7 @@ import { DirectionProvider, Label, Slider } from "@ovadev-gmbh/ui-ovadev";
 
 type Direction = "ltr" | "rtl";
 
-function UsageAlert({ direction }: { direction: Direction }) {
+function CapacityAlert({ direction }: { direction: Direction }) {
   const [threshold, setThreshold] = React.useState(80);
   const id = `direction-slider-${direction}`;
 
@@ -11,7 +11,7 @@ function UsageAlert({ direction }: { direction: Direction }) {
     <DirectionProvider direction={direction}>
       <div dir={direction} className="flex w-56 flex-col gap-3">
         <div className="flex items-center justify-between gap-2">
-          <Label id={id}>Usage alert, {direction}</Label>
+          <Label id={id}>Capacity alert, {direction}</Label>
           <span className="text-label-13-mono">{threshold}%</span>
         </div>
         <Slider
@@ -30,8 +30,8 @@ function UsageAlert({ direction }: { direction: Direction }) {
 export default function DirectionSlider() {
   return (
     <div className="flex flex-wrap gap-12">
-      <UsageAlert direction="ltr" />
-      <UsageAlert direction="rtl" />
+      <CapacityAlert direction="ltr" />
+      <CapacityAlert direction="rtl" />
     </div>
   );
 }

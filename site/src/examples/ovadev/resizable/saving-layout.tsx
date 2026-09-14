@@ -20,11 +20,11 @@ export default function ResizableSavingLayout() {
         className="h-40 material-base"
       >
         <ResizablePanel id="list" minSize="20">
-          <div className="flex h-full items-center justify-center text-label-13">Deployments</div>
+          <div className="flex h-full items-center justify-center text-label-13">Posts</div>
         </ResizablePanel>
         <ResizableHandle withHandle />
         <ResizablePanel id="record" minSize="20">
-          <div className="flex h-full items-center justify-center text-label-13-mono">d-8f3a21c</div>
+          <div className="flex h-full items-center justify-center text-label-13-mono">season-2026-in-numbers</div>
         </ResizablePanel>
       </ResizablePanelGroup>
       <dl className="flex gap-6 text-label-12 text-content-secondary">

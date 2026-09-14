@@ -12,34 +12,34 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 export default function QuestionnaireMultiple() {
-  const [modules, setModules] = React.useState<string[]>([]);
+  const [topics, setTopics] = React.useState<string[]>([]);
 
   function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setModules(new FormData(event.currentTarget).getAll("modules").map(String));
+    setTopics(new FormData(event.currentTarget).getAll("topics").map(String));
   }
 
   return (
     <div className="flex w-full max-w-md flex-col gap-4">
       <Questionnaire onSubmit={submit}>
-        <QuestionnaireItem name="modules" multiple required>
-          <QuestionnaireTitle>Which modules should bergwerk-ag get?</QuestionnaireTitle>
-          <QuestionnaireDescription>Pick all that apply. Each one is added to the next invoice.</QuestionnaireDescription>
+        <QuestionnaireItem name="topics" multiple required>
+          <QuestionnaireTitle>Which topics should the newsletter cover?</QuestionnaireTitle>
+          <QuestionnaireDescription>Pick all that apply. The footer of every e-mail changes it later.</QuestionnaireDescription>
           <QuestionnaireChoices>
-            <QuestionnaireChoice value="billing">Billing</QuestionnaireChoice>
-            <QuestionnaireChoice value="deployments">Deployments</QuestionnaireChoice>
-            <QuestionnaireChoice value="audit-log">Audit log</QuestionnaireChoice>
-            <QuestionnaireChoice value="sso">Single sign-on</QuestionnaireChoice>
+            <QuestionnaireChoice value="ticketova">TICKETOVA</QuestionnaireChoice>
+            <QuestionnaireChoice value="januna">JANUNA</QuestionnaireChoice>
+            <QuestionnaireChoice value="blog">Blog posts</QuestionnaireChoice>
+            <QuestionnaireChoice value="jobs">Jobs at Ovadev</QuestionnaireChoice>
           </QuestionnaireChoices>
-          <QuestionnaireError>Pick at least one module.</QuestionnaireError>
+          <QuestionnaireError>Pick at least one topic.</QuestionnaireError>
         </QuestionnaireItem>
         <QuestionnaireActions>
-          <QuestionnaireSubmit>Save modules</QuestionnaireSubmit>
+          <QuestionnaireSubmit>Save topics</QuestionnaireSubmit>
         </QuestionnaireActions>
       </Questionnaire>
-      {modules.length ? (
+      {topics.length ? (
         <p className="m-0 text-label-13 text-content-secondary">
-          Saved: <span className="text-label-13-mono text-content-primary">{modules.join(", ")}</span>
+          Saved: <span className="text-label-13-mono text-content-primary">{topics.join(", ")}</span>
         </p>
       ) : null}
     </div>

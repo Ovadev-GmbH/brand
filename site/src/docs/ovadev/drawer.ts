@@ -2,13 +2,13 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A panel that slides in from an edge and is swiped away, made for touch: a confirmation on a phone, a filter panel, a build log. On a screen used with a mouse, [Sheet](/internal/sheet) or [Dialog](/internal/dialog) is simpler.",
+    "A panel that slides in from an edge and is swiped away, made for touch: a confirmation on a phone, a filter panel, the language switch. On a screen used with a mouse, [Sheet](/ovadev/sheet) or [Dialog](/ovadev/dialog) is simpler.",
   usage: `<Drawer>
-  <DrawerTrigger render={<Button variant="outline" />}>Roll back</DrawerTrigger>
+  <DrawerTrigger render={<Button variant="outline" />}>Unpublish</DrawerTrigger>
   <DrawerContent>
     <DrawerHeader>
-      <DrawerTitle>Roll back to dpl_7c21?</DrawerTitle>
-      <DrawerDescription>Production returns to the build from 2026-09-11.</DrawerDescription>
+      <DrawerTitle>Unpublish this post?</DrawerTitle>
+      <DrawerDescription>It leaves the blog until it is published again.</DrawerDescription>
     </DrawerHeader>
     <DrawerFooter>
       <DrawerClose render={<Button variant="outline" />}>Cancel</DrawerClose>
@@ -46,7 +46,7 @@ export default {
     },
     {
       title: "Non Modal",
-      text: "`modal={false}` drops the backdrop and leaves the page usable behind the drawer; `disablePointerDismissal` keeps it open while the operator clicks elsewhere.",
+      text: "`modal={false}` drops the backdrop and leaves the page usable behind the drawer; `disablePointerDismissal` keeps it open while the editor clicks elsewhere.",
       example: "non-modal",
     },
     {

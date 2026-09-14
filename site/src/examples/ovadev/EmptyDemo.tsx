@@ -7,24 +7,24 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@ovadev-gmbh/ui-ovadev";
-import { KeyIcon, PlusIcon } from "lucide-react";
+import { NewspaperIcon, PlusIcon } from "lucide-react";
 
 export default function EmptyDemo() {
   return (
     <Empty className="w-full max-w-md">
       <EmptyHeader>
         <EmptyMedia variant="icon">
-          <KeyIcon />
+          <NewspaperIcon />
         </EmptyMedia>
-        <EmptyTitle>No API keys</EmptyTitle>
+        <EmptyTitle>No posts in German</EmptyTitle>
         <EmptyDescription>
-          acme-logistics has no active keys. Create one so their integration can reach the billing API.
+          The blog has 12 posts in English and none in German yet. Write one so the German site has a blog.
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
         <Button>
           <PlusIcon data-icon="inline-start" />
-          Create key
+          Write post
         </Button>
       </EmptyContent>
     </Empty>

@@ -2,11 +2,11 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A row that shows one thing and offers one or two actions on it: an API key with Rotate, an environment with its status, a pending invitation. For many rows with the same columns, use a [Table](/internal/table).",
+    "A row that shows one thing and offers one or two actions on it: a page with Edit, a product with its status, a pending invitation. For many rows with the same columns, use a [Table](/ovadev/table).",
   usage: `<Item variant="outline">
   <ItemContent>
-    <ItemTitle>acme-logistics</ItemTitle>
-    <ItemDescription>Scale plan, ch-zrh-1</ItemDescription>
+    <ItemTitle>TICKETOVA</ItemTitle>
+    <ItemDescription>Online ticketing, live since 2024</ItemDescription>
   </ItemContent>
   <ItemActions>
     <Button variant="outline" size="sm">Open</Button>
@@ -60,12 +60,12 @@ export default {
     },
     {
       title: "Dropdown",
-      text: 'An `Item` with `size="xs"` inside a `DropdownMenuItem` drops its own padding, for a menu of tenants with a line of detail each.',
+      text: 'An `Item` with `size="xs"` inside a `DropdownMenuItem` drops its own padding, for a menu of products with a line of detail each.',
       example: "dropdown",
     },
     {
       title: "Item or Field",
-      text: "An Item shows something and acts on it. When the control is the value itself, a switch or a checkbox, use a horizontal [Field](/internal/field), so its label is tied to the control.",
+      text: "An Item shows something and acts on it. When the control is the value itself, a switch or a checkbox, use a horizontal [Field](/ovadev/field), so its label is tied to the control.",
     },
   ],
   api: [

@@ -1,16 +1,16 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ovadev-gmbh/ui-ovadev";
 
 const sections = [
-  { value: "general", label: "General", text: "Acme Logistics AG, slug acme-logistics, created 2024-03-11." },
-  { value: "members", label: "Members", text: "42 seats, 3 of them admins. 2 invitations are open." },
-  { value: "billing", label: "Billing", text: "Scale plan, invoiced monthly in CHF to billing@acme.ch." },
-  { value: "api-keys", label: "API keys", text: "2 live keys and 1 test key. The oldest was rotated 2026-06-02." },
-  { value: "webhooks", label: "Webhooks", text: "1 endpoint receiving invoice and deployment events." },
+  { value: "general", label: "General", text: "Ovadev GmbH, Baar ZG, founded 2024. Three people, two products." },
+  { value: "logo", label: "Logo", text: "The pixel O with the red block in the lower right. Never rounded, rotated or recoloured." },
+  { value: "colours", label: "Colours", text: "Paper, ink and one red. The red appears once per screen and is never type." },
+  { value: "type", label: "Type", text: "Geist for everything. Headings 900 above 30 px, 700 below." },
+  { value: "motion", label: "Motion", text: "One axis, 260 ms. Reduced motion drops every duration to zero." },
 ];
 
 export default function TabsVertical() {
   return (
-    <Tabs orientation="vertical" defaultValue="billing" className="w-full max-w-xl gap-6">
+    <Tabs orientation="vertical" defaultValue="colours" className="w-full max-w-xl gap-6">
       <TabsList className="w-40">
         {sections.map((section) => (
           <TabsTrigger key={section.value} value={section.value}>

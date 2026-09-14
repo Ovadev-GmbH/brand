@@ -19,25 +19,25 @@ export default function CardWithAction() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Invoice webhook</CardTitle>
-        <CardDescription className="text-label-13-mono">https://hooks.acme-logistics.ch/ova/invoices</CardDescription>
+        <CardTitle>Türlersee shop</CardTitle>
+        <CardDescription className="text-label-13-mono">https://tuerlersee.ticketova.ch</CardDescription>
         <CardAction>
           <DropdownMenu>
-            <DropdownMenuTrigger render={<Button variant="ghost" size="icon-sm" aria-label="Actions for invoice webhook" />}>
+            <DropdownMenuTrigger render={<Button variant="ghost" size="icon-sm" aria-label="Actions for the Türlersee shop" />}>
               <EllipsisIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem>Send test event</DropdownMenuItem>
-              <DropdownMenuItem>Rotate signing secret</DropdownMenuItem>
+              <DropdownMenuItem>Open shop</DropdownMenuItem>
+              <DropdownMenuItem>Edit opening hours</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem variant="destructive">Delete webhook</DropdownMenuItem>
+              <DropdownMenuItem variant="destructive">Close for the season</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </CardAction>
       </CardHeader>
       <CardContent className="flex items-center justify-between gap-3">
-        <Badge variant="secondary">Delivered</Badge>
-        <span className="text-label-13-mono text-content-secondary">2026-09-13 14:02 UTC, 200 in 184 ms</span>
+        <Badge variant="secondary">Open</Badge>
+        <span className="text-label-13-mono text-content-secondary">Last sale 2026-09-13 14:02, CHF 8.00</span>
       </CardContent>
     </Card>
   );

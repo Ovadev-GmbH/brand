@@ -13,14 +13,14 @@ import {
   SidebarMenuSkeleton,
   SidebarProvider,
 } from "@ovadev-gmbh/ui-ovadev";
-import { Building2Icon } from "lucide-react";
+import { WavesIcon } from "lucide-react";
 
-const tenants = ["acme-logistics", "bergwerk-ag", "helvetia-labs", "nordlicht-energie"];
+const customers = ["badi-tuerlersee", "hallenbad-baar", "strandbad-zug", "freibad-cham"];
 
 export default function SidebarLoading() {
   const [loading, setLoading] = React.useState(true);
 
-  // Stands in for the request that loads the tenants.
+  // Stands in for the request that loads the customers.
   React.useEffect(() => {
     if (!loading) return;
     const timer = setTimeout(() => setLoading(false), 1500);
@@ -32,19 +32,19 @@ export default function SidebarLoading() {
       <Sidebar collapsible="none" className="border-r border-divider">
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Tenants</SidebarGroupLabel>
+            <SidebarGroupLabel>Customers</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu aria-busy={loading}>
                 {loading
-                  ? tenants.map((slug) => (
+                  ? customers.map((slug) => (
                       <SidebarMenuItem key={slug}>
                         <SidebarMenuSkeleton showIcon />
                       </SidebarMenuItem>
                     ))
-                  : tenants.map((slug) => (
+                  : customers.map((slug) => (
                       <SidebarMenuItem key={slug}>
                         <SidebarMenuButton>
-                          <Building2Icon />
+                          <WavesIcon />
                           <span className="text-label-13-mono">{slug}</span>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
@@ -56,7 +56,7 @@ export default function SidebarLoading() {
       </Sidebar>
       <SidebarInset className="items-start p-4">
         <Button variant="outline" size="sm" disabled={loading} onClick={() => setLoading(true)}>
-          Reload tenants
+          Reload customers
         </Button>
       </SidebarInset>
     </SidebarProvider>

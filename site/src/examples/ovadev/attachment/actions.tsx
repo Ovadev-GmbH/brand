@@ -12,8 +12,8 @@ import {
 import { DownloadIcon, FileTextIcon, XIcon } from "lucide-react";
 
 const initial = [
-  { name: "INV-2026-0142.pdf", size: "84 KB" },
-  { name: "credit-note-CN-2026-0031.pdf", size: "61 KB" },
+  { name: "quote-tuerlersee-2027.pdf", size: "84 KB" },
+  { name: "ticketova-factsheet-en.pdf", size: "61 KB" },
 ];
 
 export default function AttachmentWithActions() {

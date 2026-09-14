@@ -5,32 +5,32 @@ import {
   ContextMenuSeparator,
   ContextMenuTrigger,
 } from "@ovadev-gmbh/ui-ovadev";
-import { CopyIcon, PencilIcon, RotateCwIcon, Trash2Icon } from "lucide-react";
+import { CopyIcon, PencilIcon, RefreshCwIcon, Trash2Icon } from "lucide-react";
 
 export default function ContextMenuDestructive() {
   return (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-32 w-80 flex-col items-center justify-center gap-1 border border-dashed border-divider-strong">
-        <span className="text-label-13">Reporting export</span>
-        <span className="text-label-12-mono text-content-tertiary">sk_live_b21c…</span>
+        <span className="text-label-13">Press kit</span>
+        <span className="text-label-12-mono text-content-tertiary">ovadev-presskit-2026.zip</span>
       </ContextMenuTrigger>
       <ContextMenuContent className="w-48">
         <ContextMenuItem>
           <CopyIcon />
-          Copy key ID
+          Copy link
         </ContextMenuItem>
         <ContextMenuItem>
           <PencilIcon />
           Rename
         </ContextMenuItem>
         <ContextMenuItem>
-          <RotateCwIcon />
-          Rotate
+          <RefreshCwIcon />
+          Replace file
         </ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuItem variant="destructive">
           <Trash2Icon />
-          Revoke key
+          Delete file
         </ContextMenuItem>
       </ContextMenuContent>
     </ContextMenu>

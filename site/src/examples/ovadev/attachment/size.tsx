@@ -18,7 +18,7 @@ export default function AttachmentSize() {
             <FileTextIcon />
           </AttachmentMedia>
           <AttachmentContent>
-            <AttachmentTitle>INV-2026-0142.pdf</AttachmentTitle>
+            <AttachmentTitle>quote-tuerlersee-2027.pdf</AttachmentTitle>
             <AttachmentDescription className="text-label-12-mono">84 KB</AttachmentDescription>
           </AttachmentContent>
         </Attachment>

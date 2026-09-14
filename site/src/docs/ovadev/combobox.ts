@@ -2,17 +2,17 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A text field that filters a list as you type, for picking from more options than a menu can show: tenants, team members, time zones. For a short list known in advance, use [Select](/internal/select).",
-  usage: `const regions = ["ch-zrh-1", "ch-gva-1", "eu-central-1", "eu-west-1"];
+    "A text field that filters a list as you type, for picking from more options than a menu can show: customers, team members, time zones. For a short list known in advance, use [Select](/ovadev/select).",
+  usage: `const cantons = ["Zug", "Zürich", "Luzern", "Schwyz"];
 
-<Combobox items={regions}>
-  <ComboboxInput placeholder="Search regions" />
+<Combobox items={cantons}>
+  <ComboboxInput placeholder="Search cantons" />
   <ComboboxContent>
-    <ComboboxEmpty>No region matches.</ComboboxEmpty>
+    <ComboboxEmpty>No canton matches.</ComboboxEmpty>
     <ComboboxList>
-      {(region) => (
-        <ComboboxItem key={region} value={region}>
-          {region}
+      {(canton) => (
+        <ComboboxItem key={canton} value={canton}>
+          {canton}
         </ComboboxItem>
       )}
     </ComboboxList>

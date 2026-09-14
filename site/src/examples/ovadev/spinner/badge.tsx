@@ -3,10 +3,10 @@ import { Badge, Spinner } from "@ovadev-gmbh/ui-ovadev";
 export default function SpinnerBadge() {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-label-13">bergwerk-ag</span>
+      <span className="text-label-13">Seebad Zug</span>
       <Badge variant="outline">
         <Spinner data-icon="inline-start" />
-        Provisioning
+        Setting up shop
       </Badge>
     </div>
   );

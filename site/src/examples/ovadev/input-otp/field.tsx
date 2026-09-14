@@ -21,7 +21,7 @@ export default function InputOtpField() {
           <InputOTPSlot index={5} />
         </InputOTPGroup>
       </InputOTP>
-      <FieldDescription>Sent to ops@ova.dev. It is valid for 10 minutes.</FieldDescription>
+      <FieldDescription>Sent to robin@ova.dev. It is valid for 10 minutes.</FieldDescription>
     </Field>
   );
 }

@@ -17,13 +17,13 @@ import {
 import { ChevronDownIcon } from "lucide-react";
 
 const groups = [
-  { label: "Billing", open: true, pages: ["Invoices", "Payments", "Credit notes"] },
-  { label: "Platform", open: false, pages: ["Deployments", "Regions", "Incidents"] },
-  { label: "Access", open: false, pages: ["Team members", "API keys", "Audit log"] },
+  { label: "Blog", open: true, pages: ["Posts", "Drafts", "Tags"] },
+  { label: "Site", open: false, pages: ["Home", "About us", "Contact"] },
+  { label: "Brand", open: false, pages: ["Mark", "Colour", "Type"] },
 ];
 
 export default function SidebarCollapsibleGroup() {
-  const [active, setActive] = React.useState("Payments");
+  const [active, setActive] = React.useState("Drafts");
 
   return (
     <SidebarProvider className="h-96 min-h-0 w-full max-w-2xl overflow-hidden border border-divider">

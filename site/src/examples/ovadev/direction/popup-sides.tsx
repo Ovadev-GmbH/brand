@@ -3,13 +3,13 @@ import { CopyIcon } from "lucide-react";
 
 type Direction = "ltr" | "rtl";
 
-function CopyInvoice({ direction }: { direction: Direction }) {
+function CopyTicket({ direction }: { direction: Direction }) {
   return (
     <DirectionProvider direction={direction}>
       <div dir={direction} className="flex items-center gap-2">
-        <span className="text-label-13-mono">INV-2026-0142</span>
+        <span className="text-label-13-mono">T-2026-018231</span>
         <Tooltip>
-          <TooltipTrigger render={<Button variant="outline" size="icon-sm" aria-label={`Copy invoice number, ${direction}`} />}>
+          <TooltipTrigger render={<Button variant="outline" size="icon-sm" aria-label={`Copy ticket number, ${direction}`} />}>
             <CopyIcon />
           </TooltipTrigger>
           <TooltipContent side="inline-end">Copy, {direction}</TooltipContent>
@@ -22,8 +22,8 @@ function CopyInvoice({ direction }: { direction: Direction }) {
 export default function DirectionPopupSides() {
   return (
     <div className="flex flex-wrap gap-16">
-      <CopyInvoice direction="ltr" />
-      <CopyInvoice direction="rtl" />
+      <CopyTicket direction="ltr" />
+      <CopyTicket direction="rtl" />
     </div>
   );
 }

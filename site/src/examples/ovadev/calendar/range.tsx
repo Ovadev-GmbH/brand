@@ -27,7 +27,7 @@ export default function CalendarRange() {
         className="material-base"
       />
       <p className="m-0 text-label-13 text-content-secondary">
-        Usage report from <span className="text-label-13-mono text-content-primary">{formatDate(period?.from)}</span> to{" "}
+        Hallenbad Baar closed from <span className="text-label-13-mono text-content-primary">{formatDate(period?.from)}</span> to{" "}
         <span className="text-label-13-mono text-content-primary">{formatDate(period?.to)}</span>
       </p>
     </div>

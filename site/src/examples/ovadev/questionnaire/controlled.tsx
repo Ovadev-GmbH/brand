@@ -14,10 +14,10 @@ import {
   QuestionnaireTitle,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const labels: Record<string, string> = { plan: "Plan", region: "Region", owner: "Owner" };
+const labels: Record<string, string> = { product: "Product", canton: "Canton", contact: "Contact" };
 
 export default function QuestionnaireControlled() {
-  const [item, setItem] = React.useState("plan");
+  const [item, setItem] = React.useState("product");
 
   return (
     <div className="flex w-full max-w-md flex-col gap-4">
@@ -25,46 +25,46 @@ export default function QuestionnaireControlled() {
         <span className="text-label-13 text-content-secondary" role="status">
           Answering: {labels[item]}
         </span>
-        {item !== "plan" ? (
-          <Button variant="ghost" size="sm" onClick={() => setItem("plan")}>
-            Change plan
+        {item !== "product" ? (
+          <Button variant="ghost" size="sm" onClick={() => setItem("product")}>
+            Change product
           </Button>
         ) : null}
       </div>
       <Questionnaire item={item} onItemChange={setItem} onSubmit={(event) => event.preventDefault()}>
-        <QuestionnaireItem name="plan" required>
-          <QuestionnaireTitle>Which plan is the new tenant on?</QuestionnaireTitle>
+        <QuestionnaireItem name="product" required>
+          <QuestionnaireTitle>Which product is the quote for?</QuestionnaireTitle>
           <QuestionnaireChoices>
-            <QuestionnaireChoice value="starter">Starter</QuestionnaireChoice>
-            <QuestionnaireChoice value="team">Team</QuestionnaireChoice>
-            <QuestionnaireChoice value="scale">Scale</QuestionnaireChoice>
+            <QuestionnaireChoice value="ticketova">TICKETOVA</QuestionnaireChoice>
+            <QuestionnaireChoice value="januna">JANUNA</QuestionnaireChoice>
+            <QuestionnaireChoice value="consulting">Consulting</QuestionnaireChoice>
           </QuestionnaireChoices>
-          <QuestionnaireError>Choose a plan.</QuestionnaireError>
+          <QuestionnaireError>Choose a product.</QuestionnaireError>
         </QuestionnaireItem>
-        <QuestionnaireItem name="region" required>
-          <QuestionnaireTitle>Where does its data live?</QuestionnaireTitle>
+        <QuestionnaireItem name="canton" required>
+          <QuestionnaireTitle>Which canton is the venue in?</QuestionnaireTitle>
           <QuestionnaireChoices>
-            <QuestionnaireChoice value="ch-zrh-1">
-              <span className="text-label-13-mono">ch-zrh-1</span>
+            <QuestionnaireChoice value="ZH">
+              <span className="text-label-13-mono">ZH</span>
             </QuestionnaireChoice>
-            <QuestionnaireChoice value="ch-gva-1">
-              <span className="text-label-13-mono">ch-gva-1</span>
+            <QuestionnaireChoice value="ZG">
+              <span className="text-label-13-mono">ZG</span>
             </QuestionnaireChoice>
-            <QuestionnaireChoice value="eu-central-1">
-              <span className="text-label-13-mono">eu-central-1</span>
+            <QuestionnaireChoice value="LU">
+              <span className="text-label-13-mono">LU</span>
             </QuestionnaireChoice>
           </QuestionnaireChoices>
-          <QuestionnaireError>Choose a region.</QuestionnaireError>
+          <QuestionnaireError>Choose a canton.</QuestionnaireError>
         </QuestionnaireItem>
-        <QuestionnaireItem name="owner" required>
-          <QuestionnaireTitle>Who at Ovadev owns the account?</QuestionnaireTitle>
-          <QuestionnaireInput type="email" aria-label="Account owner" placeholder="lena@ova.dev" />
-          <QuestionnaireError>Enter the owner's e-mail address.</QuestionnaireError>
+        <QuestionnaireItem name="contact" required>
+          <QuestionnaireTitle>Who at the venue is the contact?</QuestionnaireTitle>
+          <QuestionnaireInput type="email" aria-label="Contact e-mail" placeholder="badi@tuerlersee.ch" />
+          <QuestionnaireError>Enter the contact's e-mail address.</QuestionnaireError>
         </QuestionnaireItem>
         <QuestionnaireActions>
           <QuestionnairePrevious />
           <QuestionnaireNext />
-          <QuestionnaireSubmit>Create tenant</QuestionnaireSubmit>
+          <QuestionnaireSubmit>Request quote</QuestionnaireSubmit>
         </QuestionnaireActions>
       </Questionnaire>
     </div>

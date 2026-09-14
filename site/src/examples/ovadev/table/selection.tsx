@@ -10,16 +10,16 @@ import {
   TableRow,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const invoices = [
-  { id: "INV-2026-0142", tenant: "acme-logistics", due: "2026-09-30", amount: "1'240.00" },
-  { id: "INV-2026-0141", tenant: "nordlicht", due: "2026-09-30", amount: "390.00" },
-  { id: "INV-2026-0139", tenant: "kaffeehaus", due: "2026-09-15", amount: "49.00" },
-  { id: "INV-2026-0138", tenant: "helvetia-labs", due: "2026-09-14", amount: "585.00" },
+const requests = [
+  { id: "QUO-2026-0142", from: "Gemeinde Hausen am Albis", received: "2026-09-12", amount: "12'400.00" },
+  { id: "QUO-2026-0141", from: "Restaurant Rössli, Zug", received: "2026-09-11", amount: "3'900.00" },
+  { id: "QUO-2026-0139", from: "Sportzentrum Herti", received: "2026-09-09", amount: "4'950.00" },
+  { id: "QUO-2026-0138", from: "Badi Cham", received: "2026-09-08", amount: "5'850.00" },
 ];
 
 export default function TableWithSelection() {
-  const [selected, setSelected] = React.useState<Set<string>>(new Set(["INV-2026-0139"]));
-  const all = selected.size === invoices.length;
+  const [selected, setSelected] = React.useState<Set<string>>(new Set(["QUO-2026-0139"]));
+  const all = selected.size === requests.length;
 
   const toggle = (id: string, on: boolean) =>
     setSelected((prev) => {
@@ -38,28 +38,28 @@ export default function TableWithSelection() {
               <Checkbox
                 checked={all}
                 indeterminate={selected.size > 0 && !all}
-                onCheckedChange={(on) => setSelected(on ? new Set(invoices.map((i) => i.id)) : new Set())}
-                aria-label="Select all invoices"
+                onCheckedChange={(on) => setSelected(on ? new Set(requests.map((r) => r.id)) : new Set())}
+                aria-label="Select all quotes"
               />
             </TableHead>
-            <TableHead>Invoice</TableHead>
-            <TableHead>Tenant</TableHead>
-            <TableHead>Due</TableHead>
+            <TableHead>Quote</TableHead>
+            <TableHead>From</TableHead>
+            <TableHead>Received</TableHead>
             <TableHead className="text-right">CHF</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {invoices.map((invoice) => {
-            const on = selected.has(invoice.id);
+          {requests.map((request) => {
+            const on = selected.has(request.id);
             return (
-              <TableRow key={invoice.id} data-state={on ? "selected" : undefined}>
+              <TableRow key={request.id} data-state={on ? "selected" : undefined}>
                 <TableCell>
-                  <Checkbox checked={on} onCheckedChange={(v) => toggle(invoice.id, v)} aria-label={`Select ${invoice.id}`} />
+                  <Checkbox checked={on} onCheckedChange={(v) => toggle(request.id, v)} aria-label={`Select ${request.id}`} />
                 </TableCell>
-                <TableCell className="text-label-13-mono">{invoice.id}</TableCell>
-                <TableCell>{invoice.tenant}</TableCell>
-                <TableCell className="text-label-13-mono text-content-secondary">{invoice.due}</TableCell>
-                <TableCell className="text-right text-label-13-mono">{invoice.amount}</TableCell>
+                <TableCell className="text-label-13-mono">{request.id}</TableCell>
+                <TableCell>{request.from}</TableCell>
+                <TableCell className="text-label-13-mono text-content-secondary">{request.received}</TableCell>
+                <TableCell className="text-right text-label-13-mono">{request.amount}</TableCell>
               </TableRow>
             );
           })}
@@ -68,7 +68,7 @@ export default function TableWithSelection() {
       <div className="flex items-center justify-between">
         <span className="text-label-13 text-content-secondary">{selected.size} selected</span>
         <Button variant="outline" size="sm" disabled={selected.size === 0}>
-          Send reminders
+          Send quotes
         </Button>
       </div>
     </div>

@@ -8,8 +8,8 @@ export default function ToastTimeout() {
         onClick={() =>
           toast.add({
             type: "error",
-            title: "Connection to ch-zrh-1 lost",
-            description: "Changes stay in this tab and are saved when the connection is back.",
+            title: "Connection lost",
+            description: "Your draft stays in this tab and is saved when the connection is back.",
             timeout: 0,
             priority: "high",
           })

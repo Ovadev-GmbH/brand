@@ -4,10 +4,10 @@ export default function InputBadge() {
   return (
     <Field className="w-80">
       <FieldLabel htmlFor="input-badge-webhook">
-        Webhook URL
-        <Badge variant="secondary">Beta</Badge>
+        Venue website
+        <Badge variant="secondary">Optional</Badge>
       </FieldLabel>
-      <Input id="input-badge-webhook" type="url" placeholder="https://hooks.acme.ch/billing" />
+      <Input id="input-badge-webhook" type="url" placeholder="https://www.tuerlersee.ch" />
     </Field>
   );
 }

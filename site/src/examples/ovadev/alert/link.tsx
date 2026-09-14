@@ -5,9 +5,9 @@ export default function AlertLink() {
   return (
     <Alert className="max-w-md">
       <MailWarningIcon />
-      <AlertTitle>Invoices to bergwerk-ag bounce</AlertTitle>
+      <AlertTitle>Newsletter to lea.brunner@tuerlersee.ch bounces</AlertTitle>
       <AlertDescription>
-        billing@bergwerk.ch has rejected the last 2 invoices. <a href="#billing-contact">Update the billing contact</a>.
+        The last 2 issues were rejected by the mail server. <a href="#newsletter-address">Update the address</a>.
       </AlertDescription>
     </Alert>
   );

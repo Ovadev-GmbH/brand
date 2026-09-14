@@ -9,11 +9,11 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const months = [
-  { month: "May 2026", amount: "11'370.00" },
-  { month: "June 2026", amount: "12'940.00" },
-  { month: "July 2026", amount: "13'270.00" },
-  { month: "August 2026", amount: "14'460.00" },
-  { month: "September 2026", amount: "14'860.00" },
+  { month: "May 2026", amount: "44'370.00" },
+  { month: "June 2026", amount: "128'884.00" },
+  { month: "July 2026", amount: "223'349.00" },
+  { month: "August 2026", amount: "190'785.00" },
+  { month: "September 2026", amount: "65'660.00" },
 ];
 
 export default function CarouselSpacing() {

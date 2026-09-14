@@ -5,8 +5,8 @@ export default function CheckboxInvalid() {
     <Field orientation="horizontal" data-invalid className="w-96">
       <Checkbox id="checkbox-invalid-dpa" aria-invalid />
       <FieldContent>
-        <FieldLabel htmlFor="checkbox-invalid-dpa">Accept the data processing agreement</FieldLabel>
-        <FieldError>helvetia-labs cannot go live on ch-zrh-1 without it.</FieldError>
+        <FieldLabel htmlFor="checkbox-invalid-dpa">Accept the privacy notice</FieldLabel>
+        <FieldError>The contact form cannot be sent without it.</FieldError>
       </FieldContent>
     </Field>
   );

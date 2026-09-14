@@ -13,10 +13,10 @@ import {
   TableRow,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const invoices = [
-  { id: "INV-2026-0142", tenant: "acme-logistics", amount: "1'240.00" },
-  { id: "INV-2026-0141", tenant: "bergwerk-ag", amount: "390.00" },
-  { id: "INV-2026-0138", tenant: "helvetia-labs", amount: "585.00" },
+const posts = [
+  { date: "2026-09-14", title: "Pool season 2026 in numbers", reading: "6 min" },
+  { date: "2026-08-27", title: "JANUNA: the kitchen display", reading: "4 min" },
+  { date: "2026-08-02", title: "Why the site is dark", reading: "3 min" },
 ];
 
 export default function ContextMenuTableRow() {
@@ -26,25 +26,25 @@ export default function ContextMenuTableRow() {
         <TableCaption>Right-click a row for its actions.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead>Invoice</TableHead>
-            <TableHead>Tenant</TableHead>
-            <TableHead className="text-right">CHF</TableHead>
+            <TableHead>Date</TableHead>
+            <TableHead>Post</TableHead>
+            <TableHead className="text-right">Reading</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {invoices.map((invoice) => (
-            <ContextMenu key={invoice.id}>
+          {posts.map((post) => (
+            <ContextMenu key={post.date}>
               <ContextMenuTrigger render={<TableRow />}>
-                <TableCell className="text-label-13-mono">{invoice.id}</TableCell>
-                <TableCell>{invoice.tenant}</TableCell>
-                <TableCell className="text-right text-label-13-mono">{invoice.amount}</TableCell>
+                <TableCell className="text-label-13-mono">{post.date}</TableCell>
+                <TableCell>{post.title}</TableCell>
+                <TableCell className="text-right text-label-13-mono">{post.reading}</TableCell>
               </ContextMenuTrigger>
               <ContextMenuContent className="w-48">
-                <ContextMenuItem>Open invoice</ContextMenuItem>
-                <ContextMenuItem>Send reminder</ContextMenuItem>
-                <ContextMenuItem>Download PDF</ContextMenuItem>
+                <ContextMenuItem>Open post</ContextMenuItem>
+                <ContextMenuItem>Edit</ContextMenuItem>
+                <ContextMenuItem>Copy link</ContextMenuItem>
                 <ContextMenuSeparator />
-                <ContextMenuItem variant="destructive">Void invoice</ContextMenuItem>
+                <ContextMenuItem variant="destructive">Unpublish</ContextMenuItem>
               </ContextMenuContent>
             </ContextMenu>
           ))}

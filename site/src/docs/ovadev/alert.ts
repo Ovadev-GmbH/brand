@@ -2,10 +2,10 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A note in the flow of the page that stays until its cause is gone: a maintenance window, a failed payment, a key about to expire. For news about something the operator just did, use a [Toast](/internal/toast).",
+    "A note in the flow of the page that stays until its cause is gone: a maintenance window, a contact form that stopped sending, a domain about to expire. For news about something the editor just did, use a [Toast](/ovadev/toast).",
   usage: `<Alert>
-  <AlertTitle>Maintenance on 2026-09-14</AlertTitle>
-  <AlertDescription>ch-zrh-1 is read-only from 02:00 to 02:30 UTC.</AlertDescription>
+  <AlertTitle>Maintenance on 2026-09-21</AlertTitle>
+  <AlertDescription>ova.dev is read-only from 02:00 to 02:30 CEST while the host moves it.</AlertDescription>
 </Alert>`,
   composition: `Alert
 ├── AlertTitle
@@ -24,7 +24,7 @@ export default {
     },
     {
       title: "Warning",
-      text: '`variant="warning"`, for what needs attention before it becomes a problem: a quota close to its limit, a key about to expire.',
+      text: '`variant="warning"`, for what needs attention before it becomes a problem: a mailbox close to its limit, a domain about to expire.',
       example: "warning",
     },
     {

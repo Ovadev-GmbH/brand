@@ -10,19 +10,19 @@ import {
 
 const sections = [
   {
-    label: "Tenants",
+    label: "Products",
     links: [
-      { href: "#tenants", name: "All tenants" },
-      { href: "#trials", name: "Trials" },
-      { href: "#suspended", name: "Suspended" },
+      { href: "#ticketova", name: "TICKETOVA" },
+      { href: "#januna", name: "JANUNA" },
+      { href: "#changelog", name: "Changelog" },
     ],
   },
   {
-    label: "Billing",
+    label: "Company",
     links: [
-      { href: "#invoices", name: "Invoices" },
-      { href: "#plans", name: "Plans" },
-      { href: "#payouts", name: "Payouts" },
+      { href: "#about", name: "About us" },
+      { href: "#blog", name: "Blog" },
+      { href: "#brand", name: "Brand" },
     ],
   },
 ];
@@ -46,8 +46,8 @@ export default function NavigationMenuDemo() {
           </NavigationMenuItem>
         ))}
         <NavigationMenuItem>
-          <NavigationMenuLink href="#audit-log" className={navigationMenuTriggerStyle()}>
-            Audit log
+          <NavigationMenuLink href="#contact" className={navigationMenuTriggerStyle()}>
+            Contact
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

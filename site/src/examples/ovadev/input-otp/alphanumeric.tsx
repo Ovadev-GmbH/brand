@@ -13,7 +13,7 @@ export default function InputOtpAlphanumeric() {
       inputMode="text"
       value={code}
       onChange={(next) => setCode(next.toUpperCase())}
-      aria-label="Recovery code"
+      aria-label="Press kit access code"
     >
       <InputOTPGroup>
         <InputOTPSlot index={0} className="text-label-13-mono" />

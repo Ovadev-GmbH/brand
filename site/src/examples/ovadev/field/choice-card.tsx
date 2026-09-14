@@ -11,16 +11,16 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const plans = [
-  { value: "starter", name: "Starter", price: "49.00", members: "up to 3 members" },
-  { value: "team", name: "Team", price: "390.00", members: "up to 10 members" },
-  { value: "scale", name: "Scale", price: "1'240.00", members: "no member limit" },
+  { value: "starter", name: "Starter", price: "49.00", members: "one point of sale" },
+  { value: "season", name: "Season", price: "390.00", members: "up to 5 points of sale" },
+  { value: "venue", name: "Venue", price: "1'240.00", members: "no limit on points of sale" },
 ];
 
 export default function FieldChoiceCard() {
   return (
     <FieldSet className="w-96">
-      <FieldLegend variant="label">Plan for helvetia-labs</FieldLegend>
-      <RadioGroup defaultValue="team">
+      <FieldLegend variant="label">TICKETOVA plan for Strandbad Türlersee</FieldLegend>
+      <RadioGroup defaultValue="season">
         {plans.map((plan) => (
           <FieldLabel key={plan.value} htmlFor={`field-choice-${plan.value}`}>
             <Field orientation="horizontal">

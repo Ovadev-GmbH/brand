@@ -6,23 +6,23 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@ovadev-gmbh/ui-ovadev";
-import { GlobeIcon, KeyRoundIcon, RocketIcon, ScrollTextIcon, SirenIcon, UsersIcon } from "lucide-react";
+import { ActivityIcon, BriefcaseIcon, FileTextIcon, NewspaperIcon, TicketIcon, UtensilsIcon } from "lucide-react";
 
 const sections = [
   {
-    label: "Operations",
+    label: "Products",
     links: [
-      { href: "#deployments", icon: RocketIcon, name: "Deployments", detail: "3 running, 1 queued" },
-      { href: "#regions", icon: GlobeIcon, name: "Regions", detail: "ch-zrh-1, ch-gva-1, eu-central-1" },
-      { href: "#incidents", icon: SirenIcon, name: "Incidents", detail: "None open" },
+      { href: "#ticketova", icon: TicketIcon, name: "TICKETOVA", detail: "Shop, admission control, reporting" },
+      { href: "#januna", icon: UtensilsIcon, name: "JANUNA", detail: "Till, kitchen displays, orders" },
+      { href: "#status", icon: ActivityIcon, name: "Status", detail: "All services operational" },
     ],
   },
   {
-    label: "Access",
+    label: "Company",
     links: [
-      { href: "#team", icon: UsersIcon, name: "Team", detail: "14 members, 2 invited" },
-      { href: "#api-keys", icon: KeyRoundIcon, name: "API keys", detail: "1 expires this week" },
-      { href: "#audit-log", icon: ScrollTextIcon, name: "Audit log", detail: "Kept for 400 days" },
+      { href: "#blog", icon: NewspaperIcon, name: "Blog", detail: "12 posts, German and English" },
+      { href: "#jobs", icon: BriefcaseIcon, name: "Jobs", detail: "1 open position in Baar" },
+      { href: "#press", icon: FileTextIcon, name: "Press kit", detail: "Logos, photos, facts" },
     ],
   },
 ];

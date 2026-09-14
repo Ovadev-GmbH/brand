@@ -4,26 +4,26 @@ const days = [
   {
     day: "2026-09-12",
     events: [
-      { time: "14:03", actor: "r.markant", action: "deployment.promoted", target: "d-8f3a21c" },
-      { time: "11:47", actor: "l.keller", action: "invoice.voided", target: "INV-2026-0139" },
-      { time: "10:22", actor: "system", action: "api_key.rotated", target: "bergwerk-ag" },
-      { time: "09:05", actor: "l.keller", action: "plan.changed", target: "helvetia-labs" },
+      { time: "14:03", actor: "robin", action: "post.published", target: "season-2026-in-numbers" },
+      { time: "11:47", actor: "philip", action: "contact.replied", target: "gemeinde-cham" },
+      { time: "10:22", actor: "system", action: "newsletter.sent", target: "2026-09" },
+      { time: "09:05", actor: "beni", action: "page.updated", target: "/about" },
     ],
   },
   {
     day: "2026-09-11",
     events: [
-      { time: "17:52", actor: "r.markant", action: "deployment.promoted", target: "d-41e9f02" },
-      { time: "16:10", actor: "system", action: "invoice.issued", target: "INV-2026-0142" },
-      { time: "12:31", actor: "a.brunner", action: "tenant.created", target: "acme-logistics" },
+      { time: "17:52", actor: "robin", action: "post.drafted", target: "why-a-till-of-our-own" },
+      { time: "16:10", actor: "system", action: "contact.received", target: "gemeinde-cham" },
+      { time: "12:31", actor: "philip", action: "press-kit.updated", target: "ticketova" },
     ],
   },
   {
     day: "2026-09-10",
     events: [
-      { time: "15:44", actor: "system", action: "invoice.overdue", target: "INV-2026-0131" },
-      { time: "09:31", actor: "r.markant", action: "deployment.promoted", target: "d-2b8d9e4" },
-      { time: "08:02", actor: "a.brunner", action: "member.invited", target: "s.frei@ova.dev" },
+      { time: "15:44", actor: "system", action: "job.expired", target: "engineer-baar" },
+      { time: "09:31", actor: "beni", action: "page.updated", target: "/de/impressum" },
+      { time: "08:02", actor: "robin", action: "brand.published", target: "ovadev/colour" },
     ],
   },
 ];

@@ -10,17 +10,17 @@ export default function IntroDemo() {
           <InputGroupAddon>
             <SearchIcon className="size-4" />
           </InputGroupAddon>
-          <InputGroupInput placeholder="Find a tenant" readOnly />
+          <InputGroupInput placeholder="Search the blog" readOnly />
         </InputGroup>
         <Button>
           <PlusIcon data-icon="inline-start" />
-          New key
+          New post
         </Button>
       </div>
       <div className="flex items-center gap-3">
-        <Input placeholder="inv_2026_004812" className="w-44 text-label-13-mono" readOnly />
-        <Badge variant="outline">Live</Badge>
-        <Badge variant="secondary">v2.14.0</Badge>
+        <Input placeholder="2026-09-14" className="w-44 text-label-13-mono" readOnly />
+        <Badge variant="outline">Published</Badge>
+        <Badge variant="secondary">TICKETOVA</Badge>
       </div>
     </div>
   );

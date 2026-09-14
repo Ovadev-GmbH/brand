@@ -19,20 +19,20 @@ export default function MessageWithAttachment() {
   return (
     <Message className="w-full max-w-xl">
       <MessageContent>
-        <MessageHeader>Anna Roth, acme-logistics</MessageHeader>
+        <MessageHeader>Nina Baumann, Strandbad Türlersee</MessageHeader>
         <Bubble variant="muted">
-          <BubbleContent>Here is the seat export from our HR system.</BubbleContent>
+          <BubbleContent>Here is the season pass list from our till.</BubbleContent>
         </Bubble>
         <Attachment>
           <AttachmentMedia>
             <FileSpreadsheetIcon />
           </AttachmentMedia>
           <AttachmentContent>
-            <AttachmentTitle>seats-2026-09.csv</AttachmentTitle>
+            <AttachmentTitle>season-passes-2026.csv</AttachmentTitle>
             <AttachmentDescription className="text-label-12-mono">12 KB</AttachmentDescription>
           </AttachmentContent>
           <AttachmentActions>
-            <AttachmentAction aria-label="Download seats-2026-09.csv">
+            <AttachmentAction aria-label="Download season-passes-2026.csv">
               <DownloadIcon />
             </AttachmentAction>
           </AttachmentActions>

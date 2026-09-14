@@ -15,19 +15,19 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const earlier = [
-  { id: "e-1", text: "d-8f3a21c promoted to production in ch-zrh-1." },
-  { id: "e-2", text: "d-77b0e19 promoted to staging in eu-central-1." },
-  { id: "e-3", text: "Nightly invoice run finished: 38 issued, 0 failed." },
+  { id: "e-1", text: "Blog post \"A season at Türlersee in numbers\" published on ova.dev." },
+  { id: "e-2", text: "Press kit updated to 2026-09, 12.4 MB." },
+  { id: "e-3", text: "August newsletter sent: 1'188 delivered, 0 bounced." },
 ];
 
 const steps = [
-  "Checked out 9a1e442.",
-  "Installed 412 packages in 8.2 s.",
-  "Bundled dist/server.mjs, 1.84 MB.",
-  "Pushed the image to ch-zrh-1.",
-  "Health checks passed on 3 of 3 instances.",
-  "Drained d-8f3a21c, 0 requests dropped.",
-  "Promoted d-9a1e442 to production.",
+  "Rendered the issue in DE and EN.",
+  "Checked 38 links, 0 broken.",
+  "Queued 1'204 recipients.",
+  "Sent 400 of 1'204.",
+  "Sent 800 of 1'204.",
+  "Sent 1'204 of 1'204, 0 bounced.",
+  "Archived the issue on ova.dev/blog.",
 ];
 
 export default function MessageScrollerFollowing() {
@@ -35,7 +35,7 @@ export default function MessageScrollerFollowing() {
   const [done, setDone] = React.useState(0);
   const running = run > 0 && done < steps.length;
 
-  // Stands in for the deploy reporting its steps.
+  // Stands in for the mailer reporting its steps.
   React.useEffect(() => {
     if (run === 0) return;
     let count = 0;
@@ -51,7 +51,7 @@ export default function MessageScrollerFollowing() {
     <div className="flex w-full max-w-xl flex-col gap-3">
       <MessageScrollerProvider autoScroll>
         <MessageScroller className="h-64 border border-divider">
-          <MessageScrollerViewport aria-label="Deployments channel" className="p-3">
+          <MessageScrollerViewport aria-label="Site channel" className="p-3">
             <MessageScrollerContent className="gap-2">
               {earlier.map((row) => (
                 <MessageScrollerItem key={row.id} messageId={row.id}>
@@ -66,7 +66,7 @@ export default function MessageScrollerFollowing() {
                     <Message align="end">
                       <MessageContent>
                         <Bubble>
-                          <BubbleContent>Deploy 9a1e442 to production.</BubbleContent>
+                          <BubbleContent>Send the September newsletter.</BubbleContent>
                         </Bubble>
                       </MessageContent>
                     </Message>
@@ -74,7 +74,7 @@ export default function MessageScrollerFollowing() {
                   <MessageScrollerItem messageId={`report-${run}`}>
                     <Message>
                       <MessageContent>
-                        <MessageHeader>deploy-bot</MessageHeader>
+                        <MessageHeader>site-bot</MessageHeader>
                         <Bubble variant="outline">
                           <BubbleContent>
                             <ol className="flex flex-col gap-1">
@@ -105,7 +105,7 @@ export default function MessageScrollerFollowing() {
           setRun((r) => r + 1);
         }}
       >
-        Deploy 9a1e442
+        Send the September newsletter
       </Button>
     </div>
   );

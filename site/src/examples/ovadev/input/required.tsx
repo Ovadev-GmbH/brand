@@ -6,8 +6,8 @@ export default function InputRequired() {
       <FieldLabel htmlFor="input-required-company">
         Company <span className="text-status-danger">*</span>
       </FieldLabel>
-      <Input id="input-required-company" placeholder="Acme Logistics AG" required />
-      <FieldDescription>The legal name, as it appears on invoices.</FieldDescription>
+      <Input id="input-required-company" placeholder="Strandbad Türlersee AG" required />
+      <FieldDescription>The legal name, as it appears on the quote.</FieldDescription>
     </Field>
   );
 }

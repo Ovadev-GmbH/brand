@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@ovadev-gmbh/ui-ovadev";
-import { LogOutIcon, ShieldCheckIcon, UserIcon } from "lucide-react";
+import { LanguagesIcon, LogOutIcon, UserIcon } from "lucide-react";
 
 export default function DropdownMenuInset() {
   return (
@@ -28,10 +28,10 @@ export default function DropdownMenuInset() {
             Profile
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <ShieldCheckIcon />
-            Two-factor authentication
+            <LanguagesIcon />
+            Language: English
           </DropdownMenuItem>
-          <DropdownMenuItem inset>Session history</DropdownMenuItem>
+          <DropdownMenuItem inset>Newsletter settings</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>

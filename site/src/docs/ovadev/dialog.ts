@@ -4,11 +4,11 @@ export default {
   description:
     "A window over the page for a task that needs full attention. The page behind it cannot be used until the dialog closes.",
   usage: `<Dialog>
-  <DialogTrigger render={<Button variant="outline" />}>Rename tenant</DialogTrigger>
+  <DialogTrigger render={<Button variant="outline" />}>Rename page</DialogTrigger>
   <DialogContent>
     <DialogHeader>
-      <DialogTitle>Rename tenant</DialogTitle>
-      <DialogDescription>Only the display name changes.</DialogDescription>
+      <DialogTitle>Rename page</DialogTitle>
+      <DialogDescription>Only the title changes; the URL stays.</DialogDescription>
     </DialogHeader>
   </DialogContent>
 </Dialog>`,
@@ -24,7 +24,7 @@ export default {
     {
       title: "Trigger",
       text: "`DialogTrigger` renders a plain button. Pass `render` to make it one of the system's buttons; the trigger's behaviour and the Button's look combine.",
-      code: `<DialogTrigger render={<Button variant="outline" />}>Rename tenant</DialogTrigger>`,
+      code: `<DialogTrigger render={<Button variant="outline" />}>Rename page</DialogTrigger>`,
     },
     {
       title: "Custom Close Button",

@@ -4,10 +4,10 @@ export default function LabelWithHint() {
   return (
     <div className="grid w-72 gap-2">
       <Label htmlFor="label-hint-vat">
-        VAT number
+        Phone
         <span className="text-content-tertiary">optional</span>
       </Label>
-      <Input id="label-hint-vat" className="text-label-13-mono" placeholder="CHE-123.456.789" />
+      <Input id="label-hint-vat" className="text-label-13-mono" placeholder="+41 41 000 00 00" />
     </div>
   );
 }

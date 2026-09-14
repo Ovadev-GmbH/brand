@@ -11,19 +11,19 @@ export default function AvatarWithBadge() {
         </Avatar>
         <div className="flex flex-col">
           <span className="text-label-13">robin@ova.dev</span>
-          <span className="text-label-12 text-content-secondary">On call until 18:00 UTC</span>
+          <span className="text-label-12 text-content-secondary">On call this week</span>
         </div>
       </li>
       <li className="flex items-center gap-3">
         <Avatar size="lg">
-          <AvatarFallback>PS</AvatarFallback>
+          <AvatarFallback>PH</AvatarFallback>
           <AvatarBadge>
             <ShieldCheckIcon />
           </AvatarBadge>
         </Avatar>
         <div className="flex flex-col">
           <span className="text-label-13">philip@ova.dev</span>
-          <span className="text-label-12 text-content-secondary">Ovadev admin</span>
+          <span className="text-label-12 text-content-secondary">Consulting &amp; Sales</span>
         </div>
       </li>
     </ul>

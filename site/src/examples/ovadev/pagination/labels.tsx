@@ -11,10 +11,10 @@ export default function PaginationLabels() {
     <Pagination>
       <PaginationContent>
         <PaginationItem>
-          <PaginationPrevious href="#audit-newer" text="Newer" aria-label="Newer audit events" />
+          <PaginationPrevious href="#posts-newer" text="Newer" aria-label="Newer posts" />
         </PaginationItem>
         <PaginationItem>
-          <PaginationNext href="#audit-older" text="Older" aria-label="Older audit events" />
+          <PaginationNext href="#posts-older" text="Older" aria-label="Older posts" />
         </PaginationItem>
       </PaginationContent>
     </Pagination>

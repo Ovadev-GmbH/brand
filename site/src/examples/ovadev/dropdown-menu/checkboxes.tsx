@@ -11,18 +11,18 @@ import {
 import { Columns3Icon } from "lucide-react";
 
 const columns = [
-  { key: "plan", label: "Plan" },
-  { key: "region", label: "Region" },
-  { key: "seats", label: "Seats" },
-  { key: "mrr", label: "MRR (CHF)" },
+  { key: "author", label: "Author" },
+  { key: "language", label: "Language" },
+  { key: "reading", label: "Reading time" },
+  { key: "published", label: "Published" },
 ];
 
 export default function DropdownMenuCheckboxes() {
   const [visible, setVisible] = React.useState<Record<string, boolean>>({
-    plan: true,
-    region: true,
-    seats: false,
-    mrr: true,
+    author: true,
+    language: true,
+    reading: false,
+    published: true,
   });
   const shown = columns.filter((c) => visible[c.key]).length;
 

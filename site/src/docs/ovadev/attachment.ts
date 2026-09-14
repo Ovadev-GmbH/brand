@@ -2,14 +2,14 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A file on a form, a ticket or a message: its type, name and size, how far its upload has got, and what can be done with it.",
+    "A file on a form, a contact request or a message: its type, name and size, how far its upload has got, and what can be done with it.",
   usage: `<Attachment>
   <AttachmentMedia>
     <FileTextIcon />
   </AttachmentMedia>
   <AttachmentContent>
-    <AttachmentTitle>INV-2026-0142.pdf</AttachmentTitle>
-    <AttachmentDescription>84 KB</AttachmentDescription>
+    <AttachmentTitle>ovadev-press-kit.zip</AttachmentTitle>
+    <AttachmentDescription>12.4 MB</AttachmentDescription>
   </AttachmentContent>
 </Attachment>`,
   composition: `AttachmentGroup

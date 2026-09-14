@@ -10,22 +10,22 @@ import {
   MenubarTrigger,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const regions = ["ch-zrh-1", "ch-gva-1", "eu-central-1"];
+const languages = ["de-CH", "en", "fr-CH"];
 
 export default function MenubarSubmenu() {
   return (
     <Menubar className="w-max">
       <MenubarMenu>
-        <MenubarTrigger>Tenant</MenubarTrigger>
+        <MenubarTrigger>Post</MenubarTrigger>
         <MenubarContent className="w-52">
-          <MenubarItem>Open overview</MenubarItem>
+          <MenubarItem>Open on ova.dev</MenubarItem>
           <MenubarSeparator />
           <MenubarSub>
-            <MenubarSubTrigger>Move to region</MenubarSubTrigger>
+            <MenubarSubTrigger>Translate to</MenubarSubTrigger>
             <MenubarSubContent>
-              {regions.map((region) => (
-                <MenubarItem key={region} className="text-label-13-mono">
-                  {region}
+              {languages.map((language) => (
+                <MenubarItem key={language} className="text-label-13-mono">
+                  {language}
                 </MenubarItem>
               ))}
             </MenubarSubContent>
@@ -33,8 +33,8 @@ export default function MenubarSubmenu() {
           <MenubarSub>
             <MenubarSubTrigger>Export</MenubarSubTrigger>
             <MenubarSubContent>
-              <MenubarItem>Members as CSV</MenubarItem>
-              <MenubarItem>Invoices as CSV</MenubarItem>
+              <MenubarItem>Post as Markdown</MenubarItem>
+              <MenubarItem>Images as ZIP</MenubarItem>
               <MenubarItem>Everything as JSON</MenubarItem>
             </MenubarSubContent>
           </MenubarSub>

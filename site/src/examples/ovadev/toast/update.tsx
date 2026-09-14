@@ -1,24 +1,24 @@
 import { Button, Toaster, toast } from "@ovadev-gmbh/ui-ovadev";
 
-const steps = ["Creating the new key", "Moving 4 services to the new key", "Revoking the old key"];
+const steps = ["Rendering the English page", "Rendering the German page", "Refreshing the blog index"];
 
 export default function ToastUpdate() {
-  function rotate() {
+  function publish() {
     const id = toast.add({
       type: "loading",
-      title: "Rotating sk_live_4f9a…",
+      title: "Publishing Pool season 2026",
       description: `Step 1 of 3 · ${steps[0]}`,
       timeout: 0,
     });
-    // Stands in for the rotation reporting its progress.
+    // Stands in for the build reporting its progress.
     setTimeout(() => toast.update(id, { description: `Step 2 of 3 · ${steps[1]}` }), 1200);
     setTimeout(() => toast.update(id, { description: `Step 3 of 3 · ${steps[2]}` }), 2400);
     setTimeout(
       () =>
         toast.update(id, {
           type: "success",
-          title: "Key rotated",
-          description: "sk_live_9c01… is live. The old key no longer authenticates.",
+          title: "Post published",
+          description: "ova.dev/blog/pool-season-2026 is live in both languages.",
           timeout: 5000,
         }),
       3600,
@@ -27,8 +27,8 @@ export default function ToastUpdate() {
 
   return (
     <Toaster>
-      <Button variant="outline" onClick={rotate}>
-        Rotate API key
+      <Button variant="outline" onClick={publish}>
+        Publish post
       </Button>
     </Toaster>
   );

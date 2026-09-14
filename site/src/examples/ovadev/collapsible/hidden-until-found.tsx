@@ -1,10 +1,10 @@
 import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from "@ovadev-gmbh/ui-ovadev";
 
 const lines = [
-  "14:02:11  Pulling registry.ova.dev/api-gateway:4f8c2a9",
-  "14:02:19  Running migration 0142_invoice_index",
-  "14:02:23  Applied 0142_invoice_index in 3.8 s",
-  "14:02:31  Health check passed on 3 of 3 instances",
+  "14:02:11  Reading tariff_2026.csv, 14 rows",
+  "14:02:19  Created 14 ticket types",
+  "14:02:23  Set season 2026-05-09 to 2026-09-13",
+  "14:02:31  Shop for Strandbad Türlersee is open",
 ];
 
 export default function CollapsibleHiddenUntilFound() {
@@ -12,7 +12,7 @@ export default function CollapsibleHiddenUntilFound() {
     <Collapsible className="flex w-full max-w-md flex-col gap-2">
       <div className="flex items-center justify-between gap-4">
         <span className="text-label-13">
-          Deploy log <span className="text-label-13-mono text-content-secondary">4f8c2a9, UTC</span>
+          Import log <span className="text-label-13-mono text-content-secondary">tariff_2026.csv, CEST</span>
         </span>
         <CollapsibleTrigger render={<Button variant="outline" size="sm" />}>Show log</CollapsibleTrigger>
       </div>

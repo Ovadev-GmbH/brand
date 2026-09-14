@@ -19,8 +19,8 @@ export default function MenubarInset() {
         <MenubarContent className="w-56">
           <MenubarGroup>
             <MenubarLabel inset>Rows</MenubarLabel>
-            <MenubarCheckboxItem defaultChecked>Show archived tenants</MenubarCheckboxItem>
-            <MenubarCheckboxItem>Show trials</MenubarCheckboxItem>
+            <MenubarCheckboxItem defaultChecked>Show unpublished posts</MenubarCheckboxItem>
+            <MenubarCheckboxItem>Show German only</MenubarCheckboxItem>
           </MenubarGroup>
           <MenubarSeparator />
           <MenubarItem inset>Reset view</MenubarItem>

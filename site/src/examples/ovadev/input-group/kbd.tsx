@@ -4,7 +4,7 @@ import { SearchIcon } from "lucide-react";
 export default function InputGroupWithKbd() {
   return (
     <InputGroup className="w-80">
-      <InputGroupInput aria-label="Search the audit log" placeholder="Search the audit log" />
+      <InputGroupInput aria-label="Search the brand pages" placeholder="Search the brand pages" />
       <InputGroupAddon>
         <SearchIcon />
       </InputGroupAddon>

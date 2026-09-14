@@ -12,13 +12,13 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const fields = [
-  { value: "name", label: "Name" },
-  { value: "mrr", label: "MRR" },
-  { value: "created", label: "Created" },
+  { value: "title", label: "Title" },
+  { value: "published", label: "Published" },
+  { value: "reading", label: "Reading time" },
 ];
 
 export default function MenubarRadio() {
-  const [field, setField] = React.useState("mrr");
+  const [field, setField] = React.useState("published");
   const [order, setOrder] = React.useState("desc");
 
   return (

@@ -4,12 +4,12 @@ import { LockIcon } from "lucide-react";
 export default function InputGroupDisabled() {
   return (
     <InputGroup className="w-80">
-      <InputGroupInput aria-label="Tenant ID" className="text-label-13-mono" defaultValue="tnt_8f2k1q" disabled />
+      <InputGroupInput aria-label="Company register" className="text-label-13-mono" defaultValue="CHE-312.484.019" disabled />
       <InputGroupAddon>
         <LockIcon />
       </InputGroupAddon>
       <InputGroupAddon align="inline-end">
-        <InputGroupText>Set at creation</InputGroupText>
+        <InputGroupText>From the register</InputGroupText>
       </InputGroupAddon>
     </InputGroup>
   );

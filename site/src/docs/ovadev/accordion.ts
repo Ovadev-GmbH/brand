@@ -2,15 +2,15 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Sections of one record or document that open in place, so a long page is read a part at a time: a runbook, a postmortem, a tenant's settings. For a single section use [Collapsible](/internal/collapsible); for views that replace each other, [Tabs](/internal/tabs).",
-  usage: `<Accordion defaultValue={["billing"]}>
-  <AccordionItem value="billing">
-    <AccordionTrigger>Billing</AccordionTrigger>
-    <AccordionContent>Scale plan, invoiced monthly in CHF.</AccordionContent>
+    "Sections of one record or document that open in place, so a long page is read a part at a time: a job posting, a product's specification, the privacy notice. For a single section use [Collapsible](/ovadev/collapsible); for views that replace each other, [Tabs](/ovadev/tabs).",
+  usage: `<Accordion defaultValue={["ticketova"]}>
+  <AccordionItem value="ticketova">
+    <AccordionTrigger>TICKETOVA</AccordionTrigger>
+    <AccordionContent>Online ticketing for swimming pools and venues: shop, admission control, real-time reporting.</AccordionContent>
   </AccordionItem>
-  <AccordionItem value="hosting">
-    <AccordionTrigger>Hosting</AccordionTrigger>
-    <AccordionContent>Runs in ch-zrh-1.</AccordionContent>
+  <AccordionItem value="januna">
+    <AccordionTrigger>JANUNA</AccordionTrigger>
+    <AccordionContent>Restaurant operations: till, kitchen displays, orders. Coming soon.</AccordionContent>
   </AccordionItem>
 </Accordion>`,
   composition: `Accordion

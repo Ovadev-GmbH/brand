@@ -1,10 +1,10 @@
 import { Button, Kbd, KbdGroup, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@ovadev-gmbh/ui-ovadev";
-import { DownloadIcon, RefreshCwIcon, SearchIcon } from "lucide-react";
+import { DownloadIcon, EyeIcon, SearchIcon } from "lucide-react";
 
 const actions = [
-  { label: "Search tenants", icon: SearchIcon, keys: ["⌘", "K"] },
-  { label: "Refresh", icon: RefreshCwIcon, keys: ["R"] },
-  { label: "Export CSV", icon: DownloadIcon, keys: ["⇧", "E"] },
+  { label: "Search posts", icon: SearchIcon, keys: ["⌘", "K"] },
+  { label: "Preview", icon: EyeIcon, keys: ["P"] },
+  { label: "Download press kit", icon: DownloadIcon, keys: ["⇧", "D"] },
 ];
 
 export default function TooltipKeyboardShortcut() {

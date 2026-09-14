@@ -7,18 +7,18 @@ import {
   ComboboxList,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const tenants = ["acme-logistics", "bergwerk-ag", "helvetia-labs", "nordlicht-energie", "rheintal-bau", "seeblick-hotels"];
+const customers = ["tuerlersee.ch", "hausen.ch", "baar.ch", "zug.ch", "cham.ch", "oberaegeri.ch"];
 
 export default function ComboboxClearButton() {
   return (
-    <Combobox items={tenants} defaultValue="bergwerk-ag">
-      <ComboboxInput placeholder="Search tenants" aria-label="Tenant" showClear className="w-64" />
+    <Combobox items={customers} defaultValue="hausen.ch">
+      <ComboboxInput placeholder="Search customers" aria-label="Customer" showClear className="w-64" />
       <ComboboxContent>
-        <ComboboxEmpty>No tenant matches.</ComboboxEmpty>
+        <ComboboxEmpty>No customer matches.</ComboboxEmpty>
         <ComboboxList>
-          {(tenant: string) => (
-            <ComboboxItem key={tenant} value={tenant}>
-              <span className="text-label-13-mono">{tenant}</span>
+          {(customer: string) => (
+            <ComboboxItem key={customer} value={customer}>
+              <span className="text-label-13-mono">{customer}</span>
             </ComboboxItem>
           )}
         </ComboboxList>

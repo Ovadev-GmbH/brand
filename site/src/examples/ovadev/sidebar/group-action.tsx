@@ -12,15 +12,15 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@ovadev-gmbh/ui-ovadev";
-import { KeyIcon, PlusIcon } from "lucide-react";
+import { FileTextIcon, PlusIcon } from "lucide-react";
 
 export default function SidebarGroupActionExample() {
-  const [keys, setKeys] = React.useState(["ci-deploy", "billing-export", "support-readonly"]);
-  const [active, setActive] = React.useState("ci-deploy");
+  const [drafts, setDrafts] = React.useState(["season-2026-in-numbers", "why-a-till-of-our-own", "januna-kitchen-display"]);
+  const [active, setActive] = React.useState("season-2026-in-numbers");
 
-  function createKey() {
-    const name = `untitled-${keys.length + 1}`;
-    setKeys((current) => [...current, name]);
+  function createDraft() {
+    const name = `untitled-${drafts.length + 1}`;
+    setDrafts((current) => [...current, name]);
     setActive(name);
   }
 
@@ -29,17 +29,17 @@ export default function SidebarGroupActionExample() {
       <Sidebar collapsible="none" className="border-r border-divider">
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>API keys</SidebarGroupLabel>
-            <SidebarGroupAction aria-label="Create API key" title="Create API key" onClick={createKey}>
+            <SidebarGroupLabel>Drafts</SidebarGroupLabel>
+            <SidebarGroupAction aria-label="New draft" title="New draft" onClick={createDraft}>
               <PlusIcon />
             </SidebarGroupAction>
             <SidebarGroupContent>
               <SidebarMenu>
-                {keys.map((key) => (
-                  <SidebarMenuItem key={key}>
-                    <SidebarMenuButton isActive={key === active} onClick={() => setActive(key)}>
-                      <KeyIcon />
-                      <span className="text-label-13-mono">{key}</span>
+                {drafts.map((draft) => (
+                  <SidebarMenuItem key={draft}>
+                    <SidebarMenuButton isActive={draft === active} onClick={() => setActive(draft)}>
+                      <FileTextIcon />
+                      <span className="text-label-13-mono">{draft}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

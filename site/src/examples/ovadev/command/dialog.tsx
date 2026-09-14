@@ -12,7 +12,7 @@ import {
   Kbd,
   KbdGroup,
 } from "@ovadev-gmbh/ui-ovadev";
-import { Building2Icon, ReceiptIcon, RocketIcon, SearchIcon } from "lucide-react";
+import { FileTextIcon, NewspaperIcon, SearchIcon, UserIcon } from "lucide-react";
 
 export default function CommandInDialog() {
   const [open, setOpen] = React.useState(false);
@@ -40,30 +40,30 @@ export default function CommandInDialog() {
           <Kbd>K</Kbd>
         </KbdGroup>
       </Button>
-      <CommandDialog open={open} onOpenChange={setOpen} title="Search" description="Find a tenant, an invoice or a deployment.">
+      <CommandDialog open={open} onOpenChange={setOpen} title="Search" description="Find a page, a post or a person.">
         <Command>
-          <CommandInput placeholder="Search tenants, invoices, deployments…" />
+          <CommandInput placeholder="Search pages, posts, people…" />
           <CommandList>
             <CommandEmpty>Nothing matches.</CommandEmpty>
-            <CommandGroup heading="Tenants">
+            <CommandGroup heading="People">
               <CommandItem onSelect={close}>
-                <Building2Icon />
-                acme-logistics
+                <UserIcon />
+                Beni, CEO & Engineering
               </CommandItem>
               <CommandItem onSelect={close}>
-                <Building2Icon />
-                helvetia-labs
+                <UserIcon />
+                Philip, Consulting & Sales
               </CommandItem>
             </CommandGroup>
             <CommandSeparator />
             <CommandGroup heading="Recent">
               <CommandItem onSelect={close}>
-                <ReceiptIcon />
-                <span className="text-label-13-mono">INV-2026-0142</span>
+                <NewspaperIcon />
+                <span className="text-label-13-mono">/blog/pool-season-2026</span>
               </CommandItem>
               <CommandItem onSelect={close}>
-                <RocketIcon />
-                <span className="text-label-13-mono">dpl_4f2c91</span>
+                <FileTextIcon />
+                <span className="text-label-13-mono">/brand/colour</span>
               </CommandItem>
             </CommandGroup>
           </CommandList>

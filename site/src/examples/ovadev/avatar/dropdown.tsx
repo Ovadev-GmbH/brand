@@ -23,7 +23,7 @@ export default function AvatarDropdown() {
         <DropdownMenuGroup>
           <DropdownMenuLabel>robin@ova.dev</DropdownMenuLabel>
           <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Personal API keys</DropdownMenuItem>
+          <DropdownMenuItem>My posts</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem>Sign out</DropdownMenuItem>

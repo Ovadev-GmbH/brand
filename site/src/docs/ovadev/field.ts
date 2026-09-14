@@ -4,9 +4,9 @@ export default {
   description:
     "The frame around a control: its label, its help text and its error, in a column or a row. `FieldSet` and `FieldGroup` put fields together into a form.",
   usage: `<Field>
-  <FieldLabel htmlFor="key-name">Key name</FieldLabel>
-  <Input id="key-name" />
-  <FieldDescription>Appears in the audit log next to every request.</FieldDescription>
+  <FieldLabel htmlFor="site-name">Site name</FieldLabel>
+  <Input id="site-name" />
+  <FieldDescription>Appears in the browser tab and in every e-mail the site sends.</FieldDescription>
 </Field>`,
   composition: `FieldSet
 ├── FieldLegend

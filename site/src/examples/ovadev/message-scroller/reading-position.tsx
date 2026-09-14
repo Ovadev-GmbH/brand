@@ -15,19 +15,19 @@ import {
 
 const turns = [
   {
-    id: "turn-seats",
-    topic: "Seat count",
-    rows: ["Our invoice lists 14 seats, we have 11.", "Three removals were billed to the end of August.", "Can that be corrected?"],
+    id: "turn-passes",
+    topic: "Season passes",
+    rows: ["Our reporting lists 412 passes, the till says 418.", "Six were sold at the door and paid in cash.", "Can they be added to the report?"],
   },
   {
-    id: "turn-credit",
-    topic: "Credit note",
-    rows: ["Credit note CN-2026-0031 is issued.", "It covers 3 seats, CHF 87.00.", "It is deducted in September."],
+    id: "turn-refund",
+    topic: "Refund",
+    rows: ["The refund for order T-2026-08814 is issued.", "It covers 2 day tickets, CHF 42.00.", "It is on the payout of 2026-09-15."],
   },
   {
-    id: "turn-plan",
-    topic: "Plan change",
-    rows: ["We would like to move to Scale.", "Scale applies from 2026-10-01.", "The difference for September is CHF 184.50."],
+    id: "turn-scanner",
+    topic: "Third scanner",
+    rows: ["We would like a third scanner for the main gate.", "It ships on 2026-09-28.", "The price is CHF 890.00."],
   },
 ];
 
@@ -53,7 +53,7 @@ export default function MessageScrollerReadingPosition() {
       <MessageScrollerProvider defaultScrollPosition="start">
         <Position />
         <MessageScroller className="h-56 border border-divider">
-          <MessageScrollerViewport aria-label="Conversation with acme-logistics" className="p-3">
+          <MessageScrollerViewport aria-label="Conversation with Strandbad Türlersee" className="p-3">
             <MessageScrollerContent className="gap-2">
               {turns.map((turn) => [
                 <MessageScrollerItem key={turn.id} messageId={turn.id} scrollAnchor>

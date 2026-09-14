@@ -9,18 +9,18 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const channels = [
-  { value: "email", label: "E-mail to the billing contact" },
-  { value: "portal", label: "Customer portal only" },
-  { value: "both", label: "E-mail and customer portal" },
+  { value: "email", label: "E-mail to the contact person" },
+  { value: "call", label: "Phone call from Philip" },
+  { value: "both", label: "E-mail and a call" },
 ];
 
 export default function RadioGroupFieldset() {
   return (
     <FieldSet className="w-full max-w-sm">
       <FieldLegend id="radio-group-fieldset-legend" variant="label">
-        Invoice delivery
+        How we reply
       </FieldLegend>
-      <FieldDescription>How acme-logistics receives its monthly invoice.</FieldDescription>
+      <FieldDescription>How Gemeinde Hausen am Albis hears back on its quote request.</FieldDescription>
       <RadioGroup defaultValue="email" aria-labelledby="radio-group-fieldset-legend">
         {channels.map((channel) => (
           <Field key={channel.value} orientation="horizontal">

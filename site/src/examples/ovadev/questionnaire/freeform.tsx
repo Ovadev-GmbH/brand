@@ -18,24 +18,24 @@ export default function QuestionnaireFreeform() {
     <Questionnaire className="w-full max-w-md" onSubmit={(event) => event.preventDefault()}>
       <QuestionnaireProgress />
       <QuestionnaireItem name="reason" required>
-        <QuestionnaireTitle>Why is acme-logistics cancelling?</QuestionnaireTitle>
+        <QuestionnaireTitle>Why are you leaving the newsletter?</QuestionnaireTitle>
         <QuestionnaireChoices>
-          <QuestionnaireChoice value="price">Too expensive for its usage</QuestionnaireChoice>
-          <QuestionnaireChoice value="feature">Missing a feature</QuestionnaireChoice>
-          <QuestionnaireChoice value="provider">Moving to another provider</QuestionnaireChoice>
+          <QuestionnaireChoice value="frequency">Too many e-mails</QuestionnaireChoice>
+          <QuestionnaireChoice value="relevance">Not relevant to my work</QuestionnaireChoice>
+          <QuestionnaireChoice value="unknown">I never signed up</QuestionnaireChoice>
           <QuestionnaireInput aria-label="Another reason" placeholder="Another reason" />
         </QuestionnaireChoices>
         <QuestionnaireError>Choose a reason or write one.</QuestionnaireError>
       </QuestionnaireItem>
-      <QuestionnaireItem name="ticket" required>
-        <QuestionnaireTitle>Which support ticket records the decision?</QuestionnaireTitle>
-        <QuestionnaireInput aria-label="Support ticket" placeholder="SUP-4821" autoComplete="off" />
-        <QuestionnaireError>Link the ticket so the decision can be traced.</QuestionnaireError>
+      <QuestionnaireItem name="email" required>
+        <QuestionnaireTitle>Which address was subscribed?</QuestionnaireTitle>
+        <QuestionnaireInput type="email" aria-label="Subscribed e-mail" placeholder="name@example.ch" autoComplete="off" />
+        <QuestionnaireError>Enter the address so it is removed everywhere.</QuestionnaireError>
       </QuestionnaireItem>
       <QuestionnaireActions>
         <QuestionnairePrevious />
         <QuestionnaireNext />
-        <QuestionnaireSubmit>Record cancellation</QuestionnaireSubmit>
+        <QuestionnaireSubmit>Unsubscribe</QuestionnaireSubmit>
       </QuestionnaireActions>
     </Questionnaire>
   );

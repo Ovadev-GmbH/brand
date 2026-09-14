@@ -6,16 +6,16 @@ export default function AlertSmall() {
     <div className="grid w-full max-w-md gap-2">
       <Alert size="sm" variant="warning">
         <TriangleAlertIcon />
-        <AlertDescription>3 deliveries failed since 08:00 UTC.</AlertDescription>
+        <AlertDescription>3 ticket e-mails were not delivered since 08:00.</AlertDescription>
         <AlertAction>
           <Button variant="outline" size="xs">
-            Retry deliveries
+            Send again
           </Button>
         </AlertAction>
       </Alert>
       <Alert size="sm">
         <InfoIcon />
-        <AlertDescription>Changes apply to new deliveries only.</AlertDescription>
+        <AlertDescription>Changes apply to new orders only.</AlertDescription>
       </Alert>
     </div>
   );

@@ -11,13 +11,13 @@ export default function InputGroupAlign() {
   return (
     <div className="grid w-80 gap-4">
       <InputGroup>
-        <InputGroupInput aria-label="Search tenants" placeholder="Search tenants" />
+        <InputGroupInput aria-label="Search the blog" placeholder="Search the blog" />
         <InputGroupAddon align="inline-start">
           <SearchIcon />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput aria-label="Invoice total" className="text-right text-label-13-mono" defaultValue="1'240.00" />
+        <InputGroupInput aria-label="Project budget" className="text-right text-label-13-mono" defaultValue="25'000.00" />
         <InputGroupAddon align="inline-end">
           <InputGroupText>CHF</InputGroupText>
         </InputGroupAddon>
@@ -26,11 +26,11 @@ export default function InputGroupAlign() {
         <InputGroupInput
           id="input-group-align-webhook"
           className="text-label-13-mono"
-          defaultValue="https://acme.ch/hooks/ova"
+          defaultValue="https://www.tuerlersee.ch"
         />
         <InputGroupAddon align="block-start">
           <Label htmlFor="input-group-align-webhook" className="text-content-secondary">
-            Webhook URL
+            Company website
           </Label>
         </InputGroupAddon>
       </InputGroup>

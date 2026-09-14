@@ -1,9 +1,9 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@ovadev-gmbh/ui-ovadev";
 
 const events = [
-  { what: "Rotated sk_live_4f9a…", who: "robin@ova.dev", ago: "4 min ago", at: "2026-09-13T16:44:12+02:00", exact: "2026-09-13 16:44:12 CEST" },
-  { what: "Sent INV-2026-0142", who: "philip@ova.dev", ago: "2 h ago", at: "2026-09-13T14:31:05+02:00", exact: "2026-09-13 14:31:05 CEST" },
-  { what: "Changed the plan to Scale", who: "system", ago: "yesterday", at: "2026-09-12T09:02:48+02:00", exact: "2026-09-12 09:02:48 CEST" },
+  { what: "Published “One season on TICKETOVA”", who: "robin@ova.dev", ago: "4 min ago", at: "2026-09-13T16:44:12+02:00", exact: "2026-09-13 16:44:12 CEST" },
+  { what: "Answered the quote request from Hausen am Albis", who: "philip@ova.dev", ago: "2 h ago", at: "2026-09-13T14:31:05+02:00", exact: "2026-09-13 14:31:05 CEST" },
+  { what: "Sent the September issue", who: "system", ago: "yesterday", at: "2026-09-12T09:02:48+02:00", exact: "2026-09-12 09:02:48 CEST" },
 ];
 
 export default function TooltipExactTime() {

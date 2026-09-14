@@ -13,13 +13,13 @@ import {
 import { ChevronDownIcon } from "lucide-react";
 
 const scopes: Record<string, { label: string; placeholder: string }> = {
-  invoice: { label: "Invoice", placeholder: "INV-2026-0142" },
-  tenant: { label: "Tenant", placeholder: "acme-logistics" },
-  deployment: { label: "Deployment", placeholder: "dpl_9f31c" },
+  post: { label: "Post", placeholder: "tuerlersee-season-2026" },
+  page: { label: "Page", placeholder: "about-us" },
+  release: { label: "Release", placeholder: "ticketova-2.14.0" },
 };
 
 export default function InputGroupWithDropdown() {
-  const [scope, setScope] = React.useState("invoice");
+  const [scope, setScope] = React.useState("post");
   const current = scopes[scope]!;
 
   return (

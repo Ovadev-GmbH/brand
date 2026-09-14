@@ -3,16 +3,16 @@ import { Field, FieldLabel, NativeSelect, NativeSelectOptGroup, NativeSelectOpti
 export default function NativeSelectGroups() {
   return (
     <Field className="w-72">
-      <FieldLabel htmlFor="native-select-groups-target">Roll back to</FieldLabel>
-      <NativeSelect id="native-select-groups-target" className="w-full" defaultValue="dpl_7c21">
-        <NativeSelectOptGroup label="Production">
-          <NativeSelectOption value="dpl_8a4f">dpl_8a4f, 2026-09-13 09:12</NativeSelectOption>
-          <NativeSelectOption value="dpl_7c21">dpl_7c21, 2026-09-11 14:02</NativeSelectOption>
-          <NativeSelectOption value="dpl_66b0">dpl_66b0, 2026-09-08 16:45</NativeSelectOption>
+      <FieldLabel htmlFor="native-select-groups-target">Related post</FieldLabel>
+      <NativeSelect id="native-select-groups-target" className="w-full" defaultValue="season-opening-tuerlersee">
+        <NativeSelectOptGroup label="2026">
+          <NativeSelectOption value="admission-offline">Admission control without a network, 2026-08-20</NativeSelectOption>
+          <NativeSelectOption value="season-opening-tuerlersee">Season opening at Türlersee, 2026-05-02</NativeSelectOption>
+          <NativeSelectOption value="januna-early-access">JANUNA early access, 2026-02-11</NativeSelectOption>
         </NativeSelectOptGroup>
-        <NativeSelectOptGroup label="Staging">
-          <NativeSelectOption value="dpl_91d3">dpl_91d3, 2026-09-13 08:40</NativeSelectOption>
-          <NativeSelectOption value="dpl_90aa">dpl_90aa, 2026-09-12 17:21</NativeSelectOption>
+        <NativeSelectOptGroup label="2025">
+          <NativeSelectOption value="ticketova-reporting">Real-time reporting for pools, 2025-11-04</NativeSelectOption>
+          <NativeSelectOption value="hello">Ovadev, Baar, 2025-06-30</NativeSelectOption>
         </NativeSelectOptGroup>
       </NativeSelect>
     </Field>

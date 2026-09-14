@@ -1,7 +1,7 @@
 import { Button, Toaster, toast } from "@ovadev-gmbh/ui-ovadev";
 
-// Stands in for the request: resolves with the number of invoices exported.
-const exportInvoices = () => new Promise<number>((resolve) => setTimeout(() => resolve(142), 1800));
+// Stands in for the request: resolves with the number of subscribers the issue went to.
+const sendNewsletter = () => new Promise<number>((resolve) => setTimeout(() => resolve(412), 1800));
 
 export default function ToastPromise() {
   return (
@@ -9,14 +9,14 @@ export default function ToastPromise() {
       <Button
         variant="outline"
         onClick={() =>
-          toast.promise(exportInvoices(), {
-            loading: "Exporting September invoices…",
-            success: (count) => ({ title: "Export ready", description: `${count} invoices, sent to robin@ova.dev.` }),
-            error: "Export failed. Nothing was sent.",
+          toast.promise(sendNewsletter(), {
+            loading: "Sending the September issue…",
+            success: (count) => ({ title: "Issue sent", description: `${count} subscribers, German and English.` }),
+            error: "Sending failed. Nothing went out.",
           })
         }
       >
-        Export invoices
+        Send newsletter
       </Button>
     </Toaster>
   );

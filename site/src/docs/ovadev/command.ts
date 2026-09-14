@@ -2,14 +2,14 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A search box over a list of records and commands, filtered as you type and worked with the arrow keys: the ⌘K palette of a tool. To choose a value inside a form, use [Combobox](/internal/combobox).",
+    "A search box over a list of records and commands, filtered as you type and worked with the arrow keys: the ⌘K palette of the site's admin. To choose a value inside a form, use [Combobox](/ovadev/combobox).",
   usage: `<Command className="w-96">
-  <CommandInput placeholder="Search tenants" />
+  <CommandInput placeholder="Search pages" />
   <CommandList>
-    <CommandEmpty>No tenant matches.</CommandEmpty>
-    <CommandGroup heading="Tenants">
-      <CommandItem>acme-logistics</CommandItem>
-      <CommandItem>bergwerk-ag</CommandItem>
+    <CommandEmpty>No page matches.</CommandEmpty>
+    <CommandGroup heading="Pages">
+      <CommandItem>About us</CommandItem>
+      <CommandItem>Contact</CommandItem>
     </CommandGroup>
   </CommandList>
 </Command>`,
@@ -41,7 +41,7 @@ export default {
     },
     {
       title: "Keywords",
-      text: "The filter matches an item's `value`, which is its text unless you set one. `keywords` adds words it should also match, such as a tenant's ID.",
+      text: "The filter matches an item's `value`, which is its text unless you set one. `keywords` adds words it should also match, such as a page's path.",
       example: "keywords",
     },
     {

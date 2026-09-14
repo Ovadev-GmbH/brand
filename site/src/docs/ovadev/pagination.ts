@@ -36,7 +36,7 @@ export default {
     },
     {
       title: "Labels",
-      text: "`text` renames Previous and Next, as Newer and Older for a log sorted newest first. Below `sm` only the chevron shows, so set `aria-label` to match.",
+      text: "`text` renames Previous and Next, as Newer and Older for a blog sorted newest first. Below `sm` only the chevron shows, so set `aria-label` to match.",
       example: "labels",
     },
     {

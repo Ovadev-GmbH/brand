@@ -5,9 +5,9 @@ export default function TooltipDisabledButton() {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger render={<span tabIndex={0} className="inline-flex" />}>
-          <Button disabled>Deploy to production</Button>
+          <Button disabled>Publish post</Button>
         </TooltipTrigger>
-        <TooltipContent>Deploys are frozen until 2026-09-15 06:00 CEST</TooltipContent>
+        <TooltipContent>The German translation is still missing</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

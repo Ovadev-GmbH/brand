@@ -14,22 +14,22 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const steps = [
-  "Pause the invoice run for bergwerk-ag",
-  "Export open invoices as CSV",
-  "Switch the billing region to ch-zrh-1",
-  "Resume the invoice run",
+  "Publish the JANUNA product page",
+  "Send the September issue",
+  "Update the press kit with the JANUNA mark",
+  "Post the launch on LinkedIn",
 ];
 
 export default function DrawerNonModal() {
   const [done, setDone] = React.useState<string[]>([]);
 
   return (
-    /* Not modal: the page stays usable while the runbook is open beside it. */
+    /* Not modal: the page stays usable while the checklist is open beside it. */
     <Drawer swipeDirection="right" modal={false} disablePointerDismissal>
-      <DrawerTrigger render={<Button variant="outline" />}>Open runbook</DrawerTrigger>
+      <DrawerTrigger render={<Button variant="outline" />}>Open checklist</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Region migration</DrawerTitle>
+          <DrawerTitle>JANUNA launch</DrawerTitle>
           <DrawerDescription>
             {done.length} of {steps.length} steps done. Work through them on the page.
           </DrawerDescription>

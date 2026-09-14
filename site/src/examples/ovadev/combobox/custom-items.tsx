@@ -10,17 +10,15 @@ import {
 type Member = { name: string; email: string; role: string };
 
 const members: Member[] = [
-  { name: "Robin", email: "robin@ova.dev", role: "Owner" },
-  { name: "Philip", email: "philip@ova.dev", role: "Admin" },
-  { name: "Lena", email: "lena@ova.dev", role: "Support" },
-  { name: "Marco", email: "marco@ova.dev", role: "Billing" },
-  { name: "Sara", email: "sara@ova.dev", role: "Engineering" },
+  { name: "Beni", email: "beni@ova.dev", role: "CEO & Engineering" },
+  { name: "Robin", email: "robin@ova.dev", role: "CTO & Engineering" },
+  { name: "Philip", email: "philip@ova.dev", role: "Consulting & Sales" },
 ];
 
 export default function ComboboxCustomItems() {
   return (
     <Combobox items={members} itemToStringLabel={(member: Member) => member.name}>
-      <ComboboxInput placeholder="Search the team" aria-label="Assignee" className="w-64" />
+      <ComboboxInput placeholder="Search the team" aria-label="Author" className="w-64" />
       <ComboboxContent>
         <ComboboxEmpty>No one on the team matches.</ComboboxEmpty>
         <ComboboxList>

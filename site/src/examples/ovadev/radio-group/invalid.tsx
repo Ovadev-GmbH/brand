@@ -1,16 +1,16 @@
 import { Field, FieldError, FieldLabel, FieldLegend, FieldSet, RadioGroup, RadioGroupItem } from "@ovadev-gmbh/ui-ovadev";
 
 const reasons = [
-  { value: "duplicate", label: "Duplicate charge" },
-  { value: "wrong-plan", label: "Billed on the wrong plan" },
-  { value: "goodwill", label: "Goodwill credit" },
+  { value: "quote", label: "Quote for a pool season" },
+  { value: "support", label: "Support for a running installation" },
+  { value: "press", label: "Press and partnerships" },
 ];
 
 export default function RadioGroupInvalid() {
   return (
     <FieldSet className="w-full max-w-sm">
       <FieldLegend id="radio-group-invalid-legend" variant="label">
-        Refund reason
+        Reason for contact
       </FieldLegend>
       <RadioGroup aria-labelledby="radio-group-invalid-legend">
         {reasons.map((reason) => (
@@ -20,7 +20,7 @@ export default function RadioGroupInvalid() {
           </Field>
         ))}
       </RadioGroup>
-      <FieldError>Choose a reason before refunding INV-2026-0142.</FieldError>
+      <FieldError>Choose a reason before sending the message.</FieldError>
     </FieldSet>
   );
 }

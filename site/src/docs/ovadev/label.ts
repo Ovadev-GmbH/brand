@@ -2,9 +2,9 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "The name of a control, tied to it with `htmlFor` so a click on the words focuses or toggles it. In a form, [Field](/internal/field) uses it as `FieldLabel` and adds the description and the error.",
-  usage: `<Label htmlFor="tenant-slug">Tenant slug</Label>
-<Input id="tenant-slug" />`,
+    "The name of a control, tied to it with `htmlFor` so a click on the words focuses or toggles it. In a form, [Field](/ovadev/field) uses it as `FieldLabel` and adds the description and the error.",
+  usage: `<Label htmlFor="page-slug">Page slug</Label>
+<Input id="page-slug" />`,
   sections: [
     {
       title: "With Checkbox",
@@ -23,7 +23,7 @@ export default {
     },
     {
       title: "Field",
-      text: "In a form, use `FieldLabel` in a `Field`: the same label, spaced with the control, its description and its error. See [Field](/internal/field).",
+      text: "In a form, use `FieldLabel` in a `Field`: the same label, spaced with the control, its description and its error. See [Field](/ovadev/field).",
       example: "field",
     },
   ],

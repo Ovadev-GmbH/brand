@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A row of slides moved with buttons, swipes or the arrow keys, for a few large things seen one or three at a time. Rows of records that should be compared belong in a [Table](/internal/table).",
+    "A row of slides moved with buttons, swipes or the arrow keys, for a few large things seen one or three at a time. Rows of records that should be compared belong in a [Table](/ovadev/table).",
   usage: `<Carousel>
   <CarouselContent>
     <CarouselItem>…</CarouselItem>
@@ -39,7 +39,7 @@ export default {
     },
     {
       title: "Plugins",
-      text: "`plugins` takes Embla's plugins. Leave out Autoplay: a tool does not move content while someone is reading it.",
+      text: "`plugins` takes Embla's plugins. Leave out Autoplay: the site does not move content while someone is reading it.",
     },
     {
       title: "API",

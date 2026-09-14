@@ -7,10 +7,10 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const pages = [
-  { href: "#tenants", label: "Tenants" },
-  { href: "#invoices", label: "Invoices", active: true },
-  { href: "#deployments", label: "Deployments" },
-  { href: "#audit-log", label: "Audit log" },
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About us", active: true },
+  { href: "#blog", label: "Blog" },
+  { href: "#contact", label: "Contact" },
 ];
 
 export default function NavigationMenuLinks() {

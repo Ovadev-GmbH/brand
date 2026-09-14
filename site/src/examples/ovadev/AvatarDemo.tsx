@@ -8,7 +8,7 @@ export default function AvatarDemo() {
       </Avatar>
       <div className="flex flex-col">
         <span className="text-label-13">Robin Markant</span>
-        <span className="text-label-12 text-content-secondary">robin@ova.dev</span>
+        <span className="text-label-12 text-content-secondary">CTO &amp; Engineering</span>
       </div>
     </div>
   );

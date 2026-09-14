@@ -17,22 +17,22 @@ import {
 export default function DialogDemo() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>Edit billing contact</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>Edit press contact</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Edit billing contact</DialogTitle>
+          <DialogTitle>Edit press contact</DialogTitle>
           <DialogDescription>
-            Invoices for <span className="text-label-13-mono">acme-logistics</span> go to this person.
+            Press requests from <span className="text-label-13-mono">ova.dev/contact</span> go to this person.
           </DialogDescription>
         </DialogHeader>
         <FieldGroup>
           <Field>
             <FieldLabel htmlFor="dialog-contact-name">Name</FieldLabel>
-            <Input id="dialog-contact-name" defaultValue="Mara Keller" />
+            <Input id="dialog-contact-name" defaultValue="Philip" />
           </Field>
           <Field>
             <FieldLabel htmlFor="dialog-contact-email">E-mail</FieldLabel>
-            <Input id="dialog-contact-email" type="email" defaultValue="billing@acme-logistics.ch" />
+            <Input id="dialog-contact-email" type="email" defaultValue="press@ova.dev" />
           </Field>
         </FieldGroup>
         <DialogFooter>

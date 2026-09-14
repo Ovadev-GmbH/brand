@@ -11,14 +11,14 @@ import {
 export default function DropdownMenuShortcuts() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>INV-2026-0142</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>Pool season 2026</DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
         <DropdownMenuItem>
-          Open invoice
+          Open post
           <DropdownMenuShortcut>↵</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuItem>
-          Copy invoice number
+          Copy link
           <DropdownMenuShortcut>⌘C</DropdownMenuShortcut>
         </DropdownMenuItem>
         <DropdownMenuItem>
@@ -27,8 +27,8 @@ export default function DropdownMenuShortcuts() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          Send reminder
-          <DropdownMenuShortcut>⇧⌘R</DropdownMenuShortcut>
+          Send to newsletter
+          <DropdownMenuShortcut>⇧⌘N</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

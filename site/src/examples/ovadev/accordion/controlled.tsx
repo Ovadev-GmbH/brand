@@ -5,22 +5,22 @@ const sections = [
   {
     value: "summary",
     title: "Summary",
-    body: "Checkout API on ch-zrh-1 answered with errors for 34 minutes. 212 payments were retried and went through.",
+    body: "The TICKETOVA shop answered slowly for 34 minutes on 2026-08-02. 212 payments were retried by customers and went through.",
   },
   {
     value: "timeline",
     title: "Timeline",
-    body: "09:14 alert on p99 latency. 09:21 traffic moved to ch-gva-1. 09:48 dpl_4f2c91 rolled back.",
+    body: "09:14 alert on response time. 09:21 traffic moved to the second data centre. 09:48 the morning release rolled back.",
   },
   {
     value: "cause",
     title: "Root cause",
-    body: "A migration filtered invoices on a column without an index, and the query fell back to a full scan.",
+    body: "The new season-pass report filtered orders on a column without an index, and the query fell back to a full scan.",
   },
   {
     value: "follow-up",
     title: "Follow-ups",
-    body: "Add the index before the next invoice run. Check query plans for migrations in CI. Due 2026-09-19.",
+    body: "Add the index. Check query plans for new reports before release. Due 2026-08-07.",
   },
 ];
 

@@ -28,34 +28,34 @@ export default function QuestionnaireCustomProgress() {
           </div>
         )}
       />
-      <QuestionnaireItem name="export" required>
-        <QuestionnaireTitle>Send acme-logistics a data export first?</QuestionnaireTitle>
+      <QuestionnaireItem name="format" required>
+        <QuestionnaireTitle>Which format do you need the mark in?</QuestionnaireTitle>
         <QuestionnaireChoices>
-          <QuestionnaireChoice value="yes">Yes, to the account owner</QuestionnaireChoice>
-          <QuestionnaireChoice value="no">No, they declined one</QuestionnaireChoice>
+          <QuestionnaireChoice value="svg">SVG, for print and web</QuestionnaireChoice>
+          <QuestionnaireChoice value="png">PNG at 2x, for slides</QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>Choose whether to send an export.</QuestionnaireError>
+        <QuestionnaireError>Choose a format.</QuestionnaireError>
       </QuestionnaireItem>
-      <QuestionnaireItem name="keys" required>
-        <QuestionnaireTitle>When are its 4 live API keys revoked?</QuestionnaireTitle>
+      <QuestionnaireItem name="mark" required>
+        <QuestionnaireTitle>Which version of the mark?</QuestionnaireTitle>
         <QuestionnaireChoices>
-          <QuestionnaireChoice value="now">Now</QuestionnaireChoice>
-          <QuestionnaireChoice value="contract-end">At contract end, 2026-09-30</QuestionnaireChoice>
+          <QuestionnaireChoice value="mark">The pixel O on its own</QuestionnaireChoice>
+          <QuestionnaireChoice value="wordmark">With the wordmark, on paper</QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>Choose when the keys stop working.</QuestionnaireError>
+        <QuestionnaireError>Choose a version of the mark.</QuestionnaireError>
       </QuestionnaireItem>
-      <QuestionnaireItem name="final-invoice" required>
-        <QuestionnaireTitle>How is the last period billed?</QuestionnaireTitle>
+      <QuestionnaireItem name="delivery" required>
+        <QuestionnaireTitle>How should the kit reach you?</QuestionnaireTitle>
         <QuestionnaireChoices>
-          <QuestionnaireChoice value="pro-rata">Pro rata, to the day</QuestionnaireChoice>
-          <QuestionnaireChoice value="full-month">The full month</QuestionnaireChoice>
+          <QuestionnaireChoice value="email">By e-mail, as a ZIP</QuestionnaireChoice>
+          <QuestionnaireChoice value="link">A download link, valid 7 days</QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>Choose how to bill the last period.</QuestionnaireError>
+        <QuestionnaireError>Choose how the kit reaches you.</QuestionnaireError>
       </QuestionnaireItem>
       <QuestionnaireActions>
         <QuestionnairePrevious />
         <QuestionnaireNext />
-        <QuestionnaireSubmit>Schedule offboarding</QuestionnaireSubmit>
+        <QuestionnaireSubmit>Send press kit</QuestionnaireSubmit>
       </QuestionnaireActions>
     </Questionnaire>
   );

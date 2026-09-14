@@ -10,12 +10,12 @@ import {
   FieldLabel,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const members = ["robin@ova.dev", "philip@ova.dev", "lena@ova.dev", "marco@ova.dev", "sara@ova.dev"];
+const members = ["beni@ova.dev", "robin@ova.dev", "philip@ova.dev"];
 
 export default function ComboboxInvalid() {
   return (
     <Field data-invalid className="w-64">
-      <FieldLabel htmlFor="combobox-invalid-owner">Account owner</FieldLabel>
+      <FieldLabel htmlFor="combobox-invalid-owner">Author</FieldLabel>
       <Combobox items={members}>
         <ComboboxInput id="combobox-invalid-owner" placeholder="Search the team" aria-invalid className="w-full" />
         <ComboboxContent>
@@ -29,7 +29,7 @@ export default function ComboboxInvalid() {
           </ComboboxList>
         </ComboboxContent>
       </Combobox>
-      <FieldError>Every tenant needs an owner at Ovadev.</FieldError>
+      <FieldError>Every post on the blog names an author.</FieldError>
     </Field>
   );
 }

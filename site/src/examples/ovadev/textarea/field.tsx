@@ -3,9 +3,9 @@ import { Field, FieldDescription, FieldLabel, Textarea } from "@ovadev-gmbh/ui-o
 export default function TextareaField() {
   return (
     <Field className="w-96">
-      <FieldLabel htmlFor="textarea-field-reason">Reason for the credit note</FieldLabel>
-      <Textarea id="textarea-field-reason" placeholder="Charged twice for September on INV-2026-0142" />
-      <FieldDescription>Printed on the credit note sent to acme-logistics.</FieldDescription>
+      <FieldLabel htmlFor="textarea-field-reason">Message</FieldLabel>
+      <Textarea id="textarea-field-reason" placeholder="We run an outdoor pool with about 60'000 visitors a season" />
+      <FieldDescription>Goes to Philip, who answers within a working day.</FieldDescription>
     </Field>
   );
 }

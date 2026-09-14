@@ -3,9 +3,9 @@ import { Field, FieldDescription, FieldLabel, Input } from "@ovadev-gmbh/ui-ovad
 export default function LabelInField() {
   return (
     <Field className="w-72">
-      <FieldLabel htmlFor="label-field-manager">Account manager</FieldLabel>
-      <Input id="label-field-manager" type="email" defaultValue="lea.meier@ova.dev" />
-      <FieldDescription>Gets the renewal reminders for bergwerk-ag.</FieldDescription>
+      <FieldLabel htmlFor="label-field-manager">Your contact at Ovadev</FieldLabel>
+      <Input id="label-field-manager" type="email" defaultValue="philip@ova.dev" />
+      <FieldDescription>Answers the quote request for Strandbad Türlersee.</FieldDescription>
     </Field>
   );
 }

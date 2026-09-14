@@ -12,10 +12,10 @@ export default function MenubarShortcuts() {
   return (
     <Menubar className="w-max">
       <MenubarMenu>
-        <MenubarTrigger>Invoice</MenubarTrigger>
+        <MenubarTrigger>Post</MenubarTrigger>
         <MenubarContent className="w-52">
           <MenubarItem>
-            New invoice
+            New post
             <MenubarShortcut>⌘N</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
@@ -24,7 +24,7 @@ export default function MenubarShortcuts() {
           </MenubarItem>
           <MenubarSeparator />
           <MenubarItem>
-            Download PDF
+            Export as Markdown
             <MenubarShortcut>⌘S</MenubarShortcut>
           </MenubarItem>
         </MenubarContent>
@@ -42,7 +42,7 @@ export default function MenubarShortcuts() {
           </MenubarItem>
           <MenubarSeparator />
           <MenubarItem>
-            Add line item
+            Add link
             <MenubarShortcut>⌘L</MenubarShortcut>
           </MenubarItem>
         </MenubarContent>

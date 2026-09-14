@@ -7,7 +7,7 @@ export default function SliderDemo() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-3">
       <div className="flex items-center justify-between">
-        <Label id="slider-retention-label">Log retention</Label>
+        <Label id="slider-retention-label">Ticket validity</Label>
         <span className="text-label-13-mono text-content-secondary">{days} days</span>
       </div>
       <Slider

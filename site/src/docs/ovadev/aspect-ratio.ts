@@ -4,17 +4,17 @@ export default {
   description:
     "A box whose height follows its width at a fixed ratio, for screenshots, previews and charts that must not jump as the column changes.",
   usage: `<AspectRatio ratio={16 / 9} className="bg-surface-secondary">
-  <img src={preview} alt="Deployment d-8f3a21c" className="size-full object-cover" />
+  <img src={preview} alt="The TICKETOVA shop on a phone" className="size-full object-cover" />
 </AspectRatio>`,
   sections: [
     {
       title: "Square",
-      text: "`ratio={1}` for a tenant's logo or an avatar upload, at whatever width the column gives it.",
+      text: "`ratio={1}` for a product's mark or a team member's photo, at whatever width the column gives it.",
       example: "square",
     },
     {
       title: "Portrait",
-      text: "A ratio under 1 is taller than wide: `ratio={9 / 16}` for a screenshot a customer sent from their phone.",
+      text: "A ratio under 1 is taller than wide: `ratio={9 / 16}` for a screenshot of the TICKETOVA shop on a phone.",
       example: "portrait",
     },
     {

@@ -10,8 +10,8 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const zones: Record<string, { label: string; time: string }> = {
-  zurich: { label: "Europe/Zurich", time: "2026-09-13 16:44:12 CEST" },
-  utc: { label: "UTC", time: "2026-09-13 14:44:12 UTC" },
+  zurich: { label: "Europe/Zurich", time: "2026-09-14 16:44:12 CEST" },
+  utc: { label: "UTC", time: "2026-09-14 14:44:12 UTC" },
 };
 
 export default function ContextMenuRadioGroupExample() {
@@ -20,7 +20,7 @@ export default function ContextMenuRadioGroupExample() {
   return (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-32 w-80 flex-col items-center justify-center gap-1 border border-dashed border-divider-strong">
-        <span className="text-label-13">Rotated sk_live_4f9a…</span>
+        <span className="text-label-13">Published Pool season 2026</span>
         <span className="text-label-13-mono text-content-secondary">{zones[zone]!.time}</span>
       </ContextMenuTrigger>
       <ContextMenuContent className="w-48">

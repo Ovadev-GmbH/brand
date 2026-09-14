@@ -7,8 +7,8 @@ export default function SpinnerEmpty() {
         <EmptyMedia variant="icon">
           <Spinner aria-hidden />
         </EmptyMedia>
-        <EmptyTitle>Loading deployments</EmptyTitle>
-        <EmptyDescription>Fetching the last 50 deployments of api-gateway in ch-zrh-1.</EmptyDescription>
+        <EmptyTitle>Loading posts</EmptyTitle>
+        <EmptyDescription>Fetching the last 50 posts of the blog in English.</EmptyDescription>
       </EmptyHeader>
     </Empty>
   );

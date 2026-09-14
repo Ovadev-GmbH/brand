@@ -1,15 +1,15 @@
 import { Button, Toaster, toast } from "@ovadev-gmbh/ui-ovadev";
 
 export default function ToastWithAction() {
-  function archive() {
+  function unpublish() {
     const id = toast.add({
-      title: "bergwerk-ag archived",
-      description: "Its 12 members can no longer sign in.",
+      title: "Pool season 2026 unpublished",
+      description: "The post is no longer on ova.dev. Its link returns 404.",
       actionProps: {
         children: "Undo",
         onClick: () => {
           toast.close(id);
-          toast.add({ type: "success", title: "bergwerk-ag restored" });
+          toast.add({ type: "success", title: "Pool season 2026 is back online" });
         },
       },
     });
@@ -17,8 +17,8 @@ export default function ToastWithAction() {
 
   return (
     <Toaster>
-      <Button variant="outline" onClick={archive}>
-        Archive tenant
+      <Button variant="outline" onClick={unpublish}>
+        Unpublish post
       </Button>
     </Toaster>
   );

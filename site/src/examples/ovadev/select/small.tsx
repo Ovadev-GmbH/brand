@@ -24,7 +24,7 @@ export default function SelectSmall() {
       </Select>
       <Button variant="outline" size="sm">
         <DownloadIcon data-icon="inline-start" />
-        Export
+        Uptime report
       </Button>
     </div>
   );

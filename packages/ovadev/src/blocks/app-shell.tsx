@@ -42,7 +42,7 @@ type AppShellNavItem = {
   icon?: React.ComponentType;
   href?: string;
   active?: boolean;
-  /** A count beside the title, in mono: open incidents, unpaid invoices. */
+  /** A count beside the title, in mono: unanswered contact requests, draft posts. */
   badge?: string;
 };
 
@@ -74,7 +74,7 @@ function AppShell({
   ...props
 }: React.ComponentProps<typeof SidebarProvider> & {
   nav: AppShellNavGroup[];
-  /** The sidebar's header: the product's name, the tenant, the environment. */
+  /** The sidebar's header: the brand word, the site, the language. */
   brand?: React.ReactNode;
   /** Shown in the sidebar's footer with a menu: settings, sign out. */
   user?: AppShellUser;

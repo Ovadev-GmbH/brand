@@ -8,51 +8,51 @@ import {
   SelectValue,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const currencies = [
+const cantons = [
   {
-    region: "Europe",
+    region: "German-speaking",
     items: [
-      ["CHF", "Swiss franc"],
-      ["EUR", "Euro"],
-      ["GBP", "Pound sterling"],
-      ["SEK", "Swedish krona"],
-      ["NOK", "Norwegian krone"],
-      ["DKK", "Danish krone"],
-      ["PLN", "Polish złoty"],
-      ["CZK", "Czech koruna"],
+      ["ZH", "Zürich"],
+      ["BE", "Bern"],
+      ["LU", "Luzern"],
+      ["ZG", "Zug"],
+      ["SG", "St. Gallen"],
+      ["AG", "Aargau"],
+      ["BS", "Basel-Stadt"],
+      ["TG", "Thurgau"],
     ],
   },
   {
-    region: "Americas",
+    region: "French-speaking",
     items: [
-      ["USD", "US dollar"],
-      ["CAD", "Canadian dollar"],
-      ["MXN", "Mexican peso"],
-      ["BRL", "Brazilian real"],
+      ["GE", "Genève"],
+      ["VD", "Vaud"],
+      ["NE", "Neuchâtel"],
+      ["JU", "Jura"],
     ],
   },
   {
-    region: "Asia and Pacific",
+    region: "Italian-speaking and bilingual",
     items: [
-      ["JPY", "Japanese yen"],
-      ["SGD", "Singapore dollar"],
-      ["HKD", "Hong Kong dollar"],
-      ["AUD", "Australian dollar"],
-      ["NZD", "New Zealand dollar"],
+      ["TI", "Ticino"],
+      ["VS", "Valais"],
+      ["FR", "Fribourg"],
+      ["GR", "Graubünden"],
+      ["BL", "Basel-Landschaft"],
     ],
   },
 ] as const;
 
-const items = currencies.flatMap((group) => group.items.map(([code, name]) => ({ label: `${code} · ${name}`, value: code })));
+const items = cantons.flatMap((group) => group.items.map(([code, name]) => ({ label: `${code} · ${name}`, value: code })));
 
 export default function SelectScrollable() {
   return (
-    <Select items={items} defaultValue="CHF">
-      <SelectTrigger className="w-60" aria-label="Invoice currency">
+    <Select items={items} defaultValue="ZG">
+      <SelectTrigger className="w-60" aria-label="Canton of the venue">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        {currencies.map((group) => (
+        {cantons.map((group) => (
           <SelectGroup key={group.region}>
             <SelectLabel>{group.region}</SelectLabel>
             {group.items.map(([code, name]) => (

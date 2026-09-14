@@ -5,14 +5,13 @@ export default function ForbiddenExample() {
   return (
     <ErrorPage className="min-h-[640px]">
       <ErrorPageCode>403</ErrorPageCode>
-      <ErrorPageTitle>You don't have access</ErrorPageTitle>
+      <ErrorPageTitle>This page isn't yours.</ErrorPageTitle>
       <ErrorPageDescription>
-        Billing for bergwerk-ag is limited to the finance role. You are signed in as robin@ova.dev with the operations
-        role.
+        Editing the blog is limited to the team. You are signed in as guest@ova.dev, and a guest reads only.
       </ErrorPageDescription>
       <ErrorPageActions>
-        <Button render={<a href="/access/request?scope=billing:bergwerk-ag" />}>Request access</Button>
-        <Button variant="outline" render={<a href="/sign-out?next=/tenants/bergwerk-ag/billing" />}>
+        <Button render={<a href="/access/request?scope=blog" />}>Request access</Button>
+        <Button variant="outline" render={<a href="/sign-out?next=/blog" />}>
           Sign in as someone else
         </Button>
       </ErrorPageActions>

@@ -6,10 +6,10 @@ export default function ButtonWithIcon() {
     <div className="flex items-center gap-2">
       <Button>
         <PlusIcon data-icon="inline-start" />
-        New tenant
+        New post
       </Button>
       <Button variant="outline">
-        Next invoice
+        Next post
         <ArrowRightIcon data-icon="inline-end" />
       </Button>
     </div>

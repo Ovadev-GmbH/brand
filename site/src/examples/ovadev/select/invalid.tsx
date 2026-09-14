@@ -11,8 +11,8 @@ import {
 
 const plans = [
   { label: "Starter", value: "starter" },
-  { label: "Team", value: "team" },
-  { label: "Scale", value: "scale" },
+  { label: "Season", value: "season" },
+  { label: "Venue", value: "venue" },
 ];
 
 export default function SelectInvalid() {
@@ -31,7 +31,7 @@ export default function SelectInvalid() {
           ))}
         </SelectContent>
       </Select>
-      <FieldError>Choose a plan before creating the tenant.</FieldError>
+      <FieldError>Choose a plan before requesting a quote.</FieldError>
     </Field>
   );
 }

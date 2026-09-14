@@ -12,19 +12,19 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@ovadev-gmbh/ui-ovadev";
-import { Building2Icon, ReceiptIcon, RocketIcon } from "lucide-react";
+import { HouseIcon, MailIcon, NewspaperIcon } from "lucide-react";
 
 const variants = ["sidebar", "floating", "inset"] as const;
 
 const pages = [
-  { title: "Tenants", icon: Building2Icon },
-  { title: "Invoices", icon: ReceiptIcon },
-  { title: "Deployments", icon: RocketIcon },
+  { title: "Home", icon: HouseIcon },
+  { title: "Blog", icon: NewspaperIcon },
+  { title: "Contact", icon: MailIcon },
 ];
 
 export default function SidebarVariant() {
   const [variant, setVariant] = React.useState<(typeof variants)[number]>("floating");
-  const [active, setActive] = React.useState("Invoices");
+  const [active, setActive] = React.useState("Blog");
 
   return (
     <div className="flex w-full max-w-2xl flex-col gap-3">
@@ -40,7 +40,7 @@ export default function SidebarVariant() {
         <Sidebar variant={variant} className="absolute h-full">
           <SidebarContent>
             <SidebarGroup>
-              <SidebarGroupLabel>Operations</SidebarGroupLabel>
+              <SidebarGroupLabel>ova.dev</SidebarGroupLabel>
               <SidebarGroupContent>
                 <SidebarMenu>
                   {pages.map((page) => (

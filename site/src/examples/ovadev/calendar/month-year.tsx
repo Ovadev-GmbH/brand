@@ -24,7 +24,7 @@ export default function CalendarMonthYear() {
         className="material-base"
       />
       <p className="m-0 text-label-13 text-content-secondary">
-        Contract start for bergwerk-ag:{" "}
+        First season with TICKETOVA, Strandbad Türlersee:{" "}
         <span className="text-label-13-mono text-content-primary">{formatDate(start)}</span>
       </p>
     </div>

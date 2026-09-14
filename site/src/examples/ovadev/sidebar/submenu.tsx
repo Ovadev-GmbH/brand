@@ -12,15 +12,15 @@ import {
   SidebarMenuSubItem,
   SidebarProvider,
 } from "@ovadev-gmbh/ui-ovadev";
-import { ReceiptIcon, ServerIcon } from "lucide-react";
+import { NewspaperIcon, PaletteIcon } from "lucide-react";
 
 const sections = [
-  { title: "Billing", icon: ReceiptIcon, pages: ["Invoices", "Payments", "Credit notes"] },
-  { title: "Platform", icon: ServerIcon, pages: ["Deployments", "Regions", "Incidents"] },
+  { title: "Blog", icon: NewspaperIcon, pages: ["Posts", "Drafts", "Tags"] },
+  { title: "Brand", icon: PaletteIcon, pages: ["Mark", "Colour", "Type"] },
 ];
 
 export default function SidebarSubmenu() {
-  const [active, setActive] = React.useState("Payments");
+  const [active, setActive] = React.useState("Drafts");
 
   return (
     <SidebarProvider className="h-80 min-h-0 w-full max-w-2xl overflow-hidden border border-divider">

@@ -1,19 +1,19 @@
 import { Button, Item, ItemActions, ItemContent, ItemDescription, ItemTitle } from "@ovadev-gmbh/ui-ovadev";
 
-const tenants = [
-  { variant: "default", slug: "acme-logistics", detail: "Scale plan, ch-zrh-1" },
-  { variant: "outline", slug: "bergwerk-ag", detail: "Team plan, eu-central-1" },
-  { variant: "muted", slug: "helvetia-labs", detail: "Starter plan, ch-zrh-1" },
+const products = [
+  { variant: "default", name: "TICKETOVA", detail: "Online ticketing for pools and venues" },
+  { variant: "outline", name: "JANUNA", detail: "Restaurant operations, coming soon" },
+  { variant: "muted", name: "Consulting", detail: "A day of reading, then a week of deleting" },
 ] as const;
 
 export default function ItemVariant() {
   return (
     <div className="flex w-full max-w-md flex-col gap-4">
-      {tenants.map((tenant) => (
-        <Item key={tenant.slug} variant={tenant.variant}>
+      {products.map((product) => (
+        <Item key={product.name} variant={product.variant}>
           <ItemContent>
-            <ItemTitle>{tenant.slug}</ItemTitle>
-            <ItemDescription>{tenant.detail}</ItemDescription>
+            <ItemTitle>{product.name}</ItemTitle>
+            <ItemDescription>{product.detail}</ItemDescription>
           </ItemContent>
           <ItemActions>
             <Button variant="outline" size="sm">

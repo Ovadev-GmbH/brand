@@ -13,31 +13,31 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const rows = [
-  { id: "j-1", from: "customer", text: "Hello, a few questions about our invoices." },
-  { id: "j-2", from: "customer", text: "INV-2026-0118 was paid twice in June." },
-  { id: "j-3", from: "support", text: "Confirmed, the second payment of CHF 1'240.00 arrived on 2026-06-19." },
-  { id: "j-4", from: "support", text: "Do you want it refunded or carried forward?" },
-  { id: "j-5", from: "customer", text: "Carried forward, please." },
-  { id: "j-6", from: "support", text: "Done, it shows as a credit on the account." },
-  { id: "j-7", from: "customer", text: "Next, INV-2026-0131 still lists the old address." },
+  { id: "j-1", from: "customer", text: "Hello, a few questions about our quotes." },
+  { id: "j-2", from: "customer", text: "Q-2026-0118 lists two scanners, we need three." },
+  { id: "j-3", from: "support", text: "Confirmed, I have added a third scanner at CHF 890.00." },
+  { id: "j-4", from: "support", text: "Do you want it delivered in September or at the season start?" },
+  { id: "j-5", from: "customer", text: "September, please." },
+  { id: "j-6", from: "support", text: "Done, the delivery date is 2026-09-28." },
+  { id: "j-7", from: "customer", text: "Next, Q-2026-0131 still lists the old address." },
   { id: "j-8", from: "support", text: "It was issued before the change. I have reissued it." },
   { id: "j-9", from: "customer", text: "Thanks. Last one." },
-  { id: "j-10", from: "customer", text: "Why is INV-2026-0142 higher than August?" },
-  { id: "j-11", from: "support", text: "Three seats were billed to the end of the period." },
-  { id: "j-12", from: "support", text: "Credit note CN-2026-0031 corrects it." },
+  { id: "j-10", from: "customer", text: "Why is Q-2026-0142 higher than last season?" },
+  { id: "j-11", from: "support", text: "It includes the reporting module for the sauna." },
+  { id: "j-12", from: "support", text: "You asked for it on 2026-08-30, I can take it out again." },
 ] as const;
 
 const mentions = [
-  { id: "j-2", invoice: "INV-2026-0118" },
-  { id: "j-7", invoice: "INV-2026-0131" },
-  { id: "j-10", invoice: "INV-2026-0142" },
+  { id: "j-2", quote: "Q-2026-0118" },
+  { id: "j-7", quote: "Q-2026-0131" },
+  { id: "j-10", quote: "Q-2026-0142" },
 ];
 
 function Mentions() {
   const { scrollToMessage, scrollToStart, scrollToEnd } = useMessageScroller();
 
   return (
-    <nav aria-label="Invoices in this conversation" className="flex flex-wrap items-center gap-2">
+    <nav aria-label="Quotes in this conversation" className="flex flex-wrap items-center gap-2">
       <Button variant="ghost" size="xs" onClick={() => scrollToStart({ behavior: "smooth" })}>
         First
       </Button>
@@ -48,7 +48,7 @@ function Mentions() {
           size="xs"
           onClick={() => scrollToMessage(mention.id, { align: "center", behavior: "smooth" })}
         >
-          <span className="text-label-12-mono">{mention.invoice}</span>
+          <span className="text-label-12-mono">{mention.quote}</span>
         </Button>
       ))}
       <Button variant="ghost" size="xs" onClick={() => scrollToEnd({ behavior: "smooth" })}>
@@ -64,7 +64,7 @@ export default function MessageScrollerJump() {
       <MessageScrollerProvider defaultScrollPosition="start">
         <Mentions />
         <MessageScroller className="h-56 border border-divider">
-          <MessageScrollerViewport aria-label="Conversation with acme-logistics" className="p-3">
+          <MessageScrollerViewport aria-label="Conversation with Gemeinde Cham" className="p-3">
             <MessageScrollerContent className="gap-2">
               {rows.map((row) => (
                 <MessageScrollerItem key={row.id} messageId={row.id}>

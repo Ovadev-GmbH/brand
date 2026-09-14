@@ -1,126 +1,130 @@
 ---
-name: internal-design-system
-description: "Design, build, or substantially improve an Internal surface: Ovadev's internal tools for operations, billing, deployments, support and audit. Use for any admin screen, table, form, panel, console or report that staff use daily, whenever the result must look and behave like Internal: black on white, dense, exact, quiet."
+name: ovadev-design-system
+description: "Design, build, or substantially improve an Ovadev surface: the company's own site and every screen that carries its name, from a contact form to a product page to a status page. Use for any page, form, list, card or panel a visitor, customer or partner of Ovadev LLC sees, whenever the result must look and behave like Ovadev: paper, ink, one red, hard edges."
 ---
 
-# Design Internal tool surfaces
+# Design Ovadev surfaces
 
-Act as an excellent Internal designer and design engineer. Turn the task into a tool that staff can work in for hours: dense where it needs density, exact in every figure, quiet everywhere else. Shape the job and the interface together; a tool is not a dashboard of cards.
+Act as an excellent Ovadev designer and design engineer. Turn the task into a page that states its facts and stops: exact where it gives a number, plain where it gives a sentence, cut where it draws an edge. Shape the content and the interface together; a page is not a sequence of cards.
 
-## Internal product and brand context
+## Ovadev product and brand context
 
-Internal is the layer Ovadev runs itself on: tenants, invoices, deployments, incidents, API keys, the audit log. The people using it are the team, every day, often with three other windows open. They do not need to be persuaded of anything; they need to find the row, read the number, and act.
+Ovadev LLC is a small software company in Baar that builds and runs its own products: TICKETOVA, online ticketing for pools and venues, and JANUNA, restaurant operations. Three people. The people reading an Ovadev surface are visitors, customers and partners: someone comparing a product, someone writing to the company, someone reading a post or looking up the address. They do not need to be persuaded; they need the fact, the price, the date, the person, and the one way to get in touch.
 
-The look is black on white. Four neutrals between them, one colour per meaning (red, green, blue, yellow), grey hairline rules for structure, square corners, figures in mono. No warmth, no lift, no gradient. An Internal screen looks like a well-kept ledger.
+The look is ink on paper: near-white type on a near-black ground. Everything between the two is a step on one neutral ramp. Red is the single colour, a signal, one block per screen, seated into a corner or an edge; it is never type and never a button. One face, Geist, for the display, the prose and the meta. Corners are hard, lines are one hairline, and the only shadow is a cut: eight pixels across, eight down, no blur. An Ovadev screen looks like a sign, cut rather than moulded.
 
-Start with the operator's job, not the screen category. Identify what they are looking for, what they must not misread, and the one action that follows. Build confidence through exactness: units, timestamps, IDs, states, all visible, all in the system's words.
+Start with what the reader came for, not the page category. Identify the fact they need, what they must not misread, and the one action that follows. Build confidence through exactness: prices in CHF, dates as 2026-09-14, names spelt as the company spells them, product names in caps.
 
 ## Use this priority order
 
 When requirements compete, protect them in this order:
 
-1. Preserve the data, the words, the units, the states and the constraints you were given. An invoice of CHF 1'240.00 due 2026-10-01 is not "about twelve hundred, due next month".
-2. Preserve the host codebase: its framework, its routes, its data layer, and the Internal package as installed. Do not fork a component to restyle it; do not reach around the package for a raw element when a component exists.
-3. Make the operator's job immediately clear: what this screen lists or shows, what needs their decision, and what they can do about it.
-4. Be unmistakably Internal: the semantic colours, the type styles, the materials, the measure, Geist, Lucide.
-5. Compose for this screen. Reject the obvious template (a hero, a card grid, KPI tiles) unless the material earns it. In a tool, the material is usually a table.
+1. Preserve the data, the words, the units, the dates and the constraints you were given. A season pass at CHF 240.00 from 2027-05-01 is not "around 240 francs from May".
+2. Preserve the host codebase: its framework, its routes, its data layer, and the Ovadev package as installed. Do not fork a component to restyle it; do not reach around the package for a raw element when a component exists.
+3. Make the reader's path immediately clear: what this page is about, what it states, and what they can do next.
+4. Be unmistakably Ovadev: paper and ink, the one red block, the semantic colours, the type styles, the materials, the hard edges, Geist, Lucide.
+5. Compose for this screen. Reject the obvious template (a hero over a card grid, a row of icon tiles, a testimonial band) unless the material earns it. On an Ovadev page the material is usually a heading, a paragraph and a table.
 6. Refine responsive behaviour, interaction and detail without weakening the hierarchy above.
 
-Ask one grouped set of questions only when proceeding could change what a record, an amount, a permission or a deletion means. Otherwise design the missing state honestly (an empty state, a placeholder, a "not yet" note) and proceed.
+When two of the brand's own rules meet, the mark wins over the layout, the red block wins over every other emphasis, the ladder wins over a gap that merely looks even, the hairline wins over a heavier edge, and stillness wins over a transition that explains nothing.
+
+Ask one grouped set of questions only when proceeding could change what a price, a date, a legal line or a person's name means. Otherwise design the missing state honestly (an empty state, a placeholder, a "coming soon" note) and proceed.
 
 ## Integrate with the caller's project
 
 Preserve the host framework, file structure, routes, data fetching and build. Edit the files that naturally own the screen. Do not force a single-file deliverable, raw HTML or a new framework; when no project exists, the smallest runnable React app with Tailwind 4 is the fallback.
 
-The system is one package: `@ovadev-gmbh/ui-internal`, on the GitHub Packages registry of `Ovadev-GmbH`. Install it, then make its stylesheet the app's only Tailwind entry:
+The system is one package: `@ovadev-gmbh/ui-ovadev`, on the GitHub Packages registry of `Ovadev-GmbH`. Install it, then make its stylesheet the app's only Tailwind entry:
 
 ```css
 /* app.css */
-@import "@ovadev-gmbh/ui-internal/styles.css";
+@import "@ovadev-gmbh/ui-ovadev/styles.css";
 ```
 
-That line brings Tailwind, the theme, the type styles, the materials, Geist and Geist Mono. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
+That line brings Tailwind, the theme, the type styles, the materials and Geist. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
+
+The system is dark only. Paper is the ground; there is no light palette, no switcher and no theme cookie, so there is nothing for a `dark:` variant to switch to. Write every class once, unprefixed. A `dark:` in an Ovadev file is a mistake.
 
 Import components from the package root and icons from its `icons` subpath (Lucide, re-exported):
 
 ```tsx
-import { Button, Table, TableRow, DropdownMenu } from "@ovadev-gmbh/ui-internal";
-import { PlusIcon, SearchIcon } from "@ovadev-gmbh/ui-internal/icons";
+import { Button, Table, TableRow, Field } from "@ovadev-gmbh/ui-ovadev";
+import { ArrowRightIcon, MailIcon } from "@ovadev-gmbh/ui-ovadev/icons";
 ```
 
 Whole screens start from a block, the package's `/blocks` subpath: an app shell with the sidebar, the auth screens, the error pages, a stats row. Start there where one fits and compose the rest from components; never rebuild what a block already is.
 
 ```tsx
-import { ErrorPage, AppShell } from "@ovadev-gmbh/ui-internal/blocks";
+import { ErrorPage, AppShell } from "@ovadev-gmbh/ui-ovadev/blocks";
 ```
 
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. It brings its own Base UI and icon set; the app supplies only React and Tailwind, and never installs or imports either library itself. Keep screens static except where a control holds state.
 
-When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API. Internal shares its class vocabulary with Januna; a screen written for one reads in the other, only the values differ.
+When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. The mark is not a component and not an icon: it comes from the brand assets, drawn on its own cells, and is placed rather than composed. Integration changes syntax, never composition or the published API. Ovadev shares its class vocabulary with Internal and Januna; a screen written for one reads in the others, only the values differ.
 
 ## Work in four passes
 
 ### Frame the job
 
-Before laying anything out, answer: who is working here, what are they looking for, and what must they not misread. Name the states the screen can be in: empty, loading, the common case, a lot of rows, the error. Normalise the material: every amount has a currency, every time has a zone and a date, every ID is shown as the system shows it, every status has one of the system's names. Distinguish what the system knows from what it derives.
+Before laying anything out, answer: who is reading here, what did they come for, and what must they not misread. Name the states the screen can be in: empty, loading, the common case, a long list, the error, the form sent. Normalise the material: every price has its currency, every date is written as the site writes it, every product name is in caps, every person carries the role the company gives them. Distinguish what the company states from what a visitor infers.
 
-Support two speeds of reading. The scan: the table, the state words, the mono figures lined up. The check: the description list of one record, the audit trail, the exact timestamp.
+Support two speeds of reading. The scan: the eyebrow, the heading, the one red block, the table of facts. The check: the paragraph, the address, the exact date, the legal line.
 
 ### Choose the composition
 
-Say aloud the layout the screen type suggests, then ask whether the material earns it. A list of anything is a table with the filter above it. One record is a description list with one or two actions. A setting is a row with a control. A dashboard is a table with a few figures above it, not a grid of cards.
+Say aloud the layout the page type suggests, then ask whether the material earns it. A list of anything is a table, or a column of rows with hairlines between them. A product is a heading, a paragraph, a table of what it does and one action. A person is a row: name, role, contact. A post is its title, its date, its reading time and its prose. A contact page is the form and the address, side by side where the width allows.
 
-Match the opening to the job. A list screen opens with the filter and the table. A record screen opens with the identifier, the status, and the actions. A form opens with the field the operator came to fill. A console opens with the log.
+Match the opening to the job. A page opens with its eyebrow and its heading, in the first cell of the rail. A form opens with the field the visitor came to fill. A post opens with its title and its date. A status page opens with the state of each service, in the system's word.
 
-Map the material to the right primitive. Precise lookup is a `Table`. A ratio is a `Progress` with its `ProgressLabel` and `ProgressValue`. A state is a `Badge` with its word, or the word alone in its status colour where a badge would be too loud. Metadata is a plain `<dl>`: each `<dt>` in `text-label-12` and the secondary ink, each `<dd>` in `text-label-13`, figures and IDs in `text-label-13-mono`. A row with one or two controls is an `Item`. A value to copy is an `InputGroup` holding a read-only `InputGroupInput` in mono and an `InputGroupButton` that copies it, labelled for what it copies. Never encode with colour alone.
+Map the material to the right primitive. A set of facts is a `Table`. A ratio is a `Progress` with its `ProgressLabel` and `ProgressValue`. A state is a `Badge` with its word, or the word alone in its status colour where a badge would be too loud. Metadata is a plain `<dl>`: each `<dt>` in `text-label-11-caps` and the secondary ink, each `<dd>` in `text-label-14`, figures, dates and file names in `text-label-13-mono`. A row with one or two controls is an `Item`. A form is a `Field` per input with its `FieldLabel` and `FieldError`. Never encode with colour alone.
 
-### Authoritative Internal visual system
+### Authoritative Ovadev visual system
 
 Treat this section as the design authority. Use the published API at the end for exact names; use these instructions for composition, hierarchy, and every case the API does not decide.
 
 #### Colour
 
-Design in black and white. Colour appears only where it means something: the four status colours where a state is named (always beside a word or an icon), the blue on a link and the focus ring, the callout fills behind a note. The primary button is black. A screen with colour that is not a state is a screen with decoration on it; remove it.
+Design in ink on paper. Red is not a colour to design with: it is a signal, one block per screen, `bg-brand-signal`, seated hard into a corner or an edge of a cell. It is never type, never a button, never a hairline, never a hover, and never twice. The mark carries its own block, and that one belongs to the mark, not to the layout. The four status colours appear only where a state is named, always beside a word or an icon; danger is the reject red, not the identity's. The primary button is ink. A screen with colour that is neither the signal nor a state is a screen with decoration on it; remove it.
 
-Write with the semantic names. `bg-surface-primary` is the sheet, `bg-surface-tertiary` the quieter sheet for sidebars and panels, `bg-surface-secondary` a table header or a well. Hover is `bg-surface-hover`, pressed and selected `bg-surface-active`: black at a few percent. Text is `text-content-primary`, `-secondary`, `-tertiary`; on black it is `text-content-inverse`. Lines are `border-divider` inside things and `border-divider-strong` where a line must be seen: an input, a section's end. Reach for a scale step only for an exact colour a name does not cover, and say why in a comment.
+Write with the semantic names. `bg-surface-primary` is paper, `bg-surface-secondary` a cell lifted off it (a band, a table header), `bg-surface-tertiary` a sidebar or a panel, `bg-surface-quaternary` a card inside a band or a code block. Hover is `bg-surface-hover`, pressed and selected `bg-surface-active`: ink at a few percent. Text is `text-content-primary` (ink), `-secondary` (stone), `-tertiary`; on ink it is `text-content-inverse`. The accent resolves to ink, so `text-content-brand` cannot spend red. Type on the red block is white and nothing else. Lines are `border-divider` inside things and `border-divider-strong` where a line must survive a lifted surface: an input, a menu's edge, a section's end. Reach for a scale step only for an exact colour a name does not cover, and say why in a comment.
 
 #### Type
 
-Geist for everything; Geist Mono for figures, IDs, codes and paths, which is a lot of Internal. Use the published styles and only them: `text-heading-20` for a page title, `-16` for a section or a card title; `text-label-13` for the working lines of the tool (rows, cells, menus, form labels), `-12` beneath it; `text-copy-14` for the rare running text; `text-button-14` on buttons; `text-label-13-mono` for anything a person might copy or compare. Each style sets size, line height, tracking and weight together, so never add `font-medium` beside one. Do not create a font size.
+Geist for everything. There is no second family; the mono role is Geist with tabular figures, set in caps at wide tracking, and it exists for figures, dates, tokens and file names. Use the published styles and only them: `text-heading-98` for the one hero on the site, `-78` for a page title, `-54` for a section, all at 900 and tight; `-24` for a subheading; `-16` for a card or dialog title. `text-copy-17` for prose on the site and `-15` in a product; `text-copy-18` for the lede under a heading. `text-label-14` for the working lines (rows, cells, menus, form labels), `-13` beneath it; `text-label-11-caps` for the eyebrow over a section and `text-label-11-caps-mono` for the meta line; `text-button-14` on buttons; `text-label-13-mono` for anything a person might copy or compare. Each style sets size, line height, tracking and weight together, so never add `font-medium` beside one. Do not create a font size.
 
-Headings are sentence case and name the thing: "Invoices", "Deployment 4f2c", "API keys". No eyebrows, no numbering, no praise.
+Headings are sentence case and state a fact: "Ticketing for pools", "Three people", "Contact". Product names are always in caps: TICKETOVA, JANUNA. The eyebrow above a heading is one or two words in `text-label-11-caps`, never a sentence. No numbering, no praise.
 
 #### Rhythm and measure
 
-Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Inside a group `space-2` to `space-3`; between groups `space-4` to `space-6`; between chapters `space-8`. Controls are 32px tall; 28px in dense rows and toolbars; 40px only for the one primary action on a form. Corners are square: `rounded-regular` and `rounded-small` are both 0, `rounded-pill` only on avatars and switches. Tables take the full width; forms sit in a column of 480 to 640px.
+Give every gap one owner: the flex or grid parent, or the page wrapper, never the children's margins. Every gap comes off the ladder: inside a group `space-2` to `space-3`; between groups `space-4` to `space-6`; between chapters `space-8` to `space-12`; between bands on the site `space-16` or `space-24`. Two neighbouring steps are always visibly different, which is the point; nothing off the ladder. Controls are 32px tall; 28px in dense rows and toolbars; 40px only for the one primary action on a form. Corners are hard: `rounded-regular`, `rounded-small` and `rounded-large` are all 0, and `rounded-pill` is for a switch and nothing else, not an avatar, not a chip, not the mark. Tables and bands take the full width of the rail; prose and forms sit in a column of 480 to 640px.
 
 #### Surfaces and edges
 
-A surface is a material: `material-base` for cards, inputs and containers, a single grey hairline; `material-menu` for what floats; `material-modal` for a dialog. The material draws the edge; never add a border to one, never a card in a card. `material-medium` and `-large` add a short lift and exist for the one object on a page that must be found first. Prefer rules and spacing to boxes: a table's rows are lines, not cards.
+A surface is a material: `material-base` for cards, inputs and containers, one hairline on paper; `material-small` for a control, the strong hairline; `material-medium` for a band or a plate, a cell lifted off the page; `material-menu` for what floats; `material-modal` for a dialog. The material draws the edge; never add a border to one, never a card in a card. Where two cells meet, one of them draws the line. `material-large`, `-menu` and `-modal` carry the cut: 8px right, 8px down, no blur, the one shadow in the system, and it exists for what floats and for the one object on a page that must be found first. To emphasise, knock a block out of a field or invert it (`bg-brand text-content-inverse`); never outline it more heavily, never glow it. Prefer rules and spacing to boxes: a list's rows are lines, not cards.
 
 #### Motion
 
-Default to stillness. Use `ease-brand` and the three durations, none longer than a quarter second. Motion explains a state change or confirms an action; a tool never animates for pleasure. Nothing moves at rest except a `Spinner` beside the word of a state that is genuinely in progress. Reduced motion is honoured by the tokens.
+Default to stillness. What moves, moves on one axis, as a translate, with `ease-brand` and one of the three durations: `duration-fast` for a colour change, `duration-base` for a panel or a page arriving, `duration-slow` for a block seating into a corner. Nothing fades, blurs, scales, bounces, rotates or dissolves; a thing is there, or it is not, or it is on its way along one axis. Nothing moves at rest except a `Spinner` beside the word of a state that is genuinely in progress. Reduced motion is honoured by the tokens: durations drop to zero and the end state renders at once.
 
 #### Icons
 
-Lucide, stroke 2 at 16px inside controls, 1.75 at 20px standalone. An icon takes the colour of its text. Icons label; they do not decorate: one in a button beside its word, one in a cell for a state, one in an empty state. No icon tiles, no oversized icons, no mixed sets.
+Lucide, stroke 2 at 16px inside controls, 1.75 at 20px standalone, always in the ink. An icon takes the colour of its text. Icons label; they do not decorate: one in a button beside its word, one in a cell for a state, one in an empty state. No icon tiles, no oversized icons, no mixed sets. The mark is not an icon: it comes from the brand assets, keeps one cell of clear space on every side, is never below 24px in an interface, and is never rounded, rotated, recoloured, glowed, boxed or stretched.
 
 #### Copy
 
-Sentence case everywhere but proper nouns, IDs, and Title Case labels in a description list. Buttons are verb plus noun: "Create key", "Retry deployment", "Void invoice". Numbers keep their units, currencies and zones; relative times carry the exact one in a tooltip. Write for a colleague who knows the system and is in a hurry.
+Sentence case everywhere but proper nouns and product names, which are in caps. Buttons are verb plus noun: "Send message", "Download kit", "Read post". Prices keep their currency, dates are written 2026-09-14, phone numbers as +41 41 …, addresses as the imprint prints them. Plain, exact, a little dry: no superlatives, no exclamation marks. Write for a reader who wants the fact and will leave once they have it.
 
 ### Inspect and revise privately
 
 Render the result when tooling exists. Look at the first viewport, the full screen, and the narrow width before handoff. Review in this order:
 
-1. **First read:** Is it Internal at a glance? Can the operator see the table or the record and the one action without scrolling?
-2. **Language:** Every state in the system's word, every figure with its unit, every ID as the system prints it?
-3. **Composition:** One dominant object? Each section earning its place? No accidental boxes, no KPI tiles that a table would say better?
-4. **Typography:** One published style per element, figures in mono and aligned, baselines aligned, every gap owned by one parent?
-5. **States:** Empty, loading, many rows, error, disabled and selected all designed, not defaulted?
-6. **Restraint:** Can any surface, border, badge, icon, colour or paragraph be removed without losing meaning or affordance? If yes, remove it.
-7. **Reflow:** Usable at a laptop's width and a narrow one, tables scrolling locally, no shrunken controls?
+1. **First read:** Is it Ovadev at a glance? Paper, ink, one red block and nothing else chromatic? Can the reader see the heading and the one action without scrolling?
+2. **Language:** Every price with its currency, every date written out, every product name in caps, every state in the system's word?
+3. **Composition:** One dominant object? Each cell earning its place? No accidental boxes, no card grid that a table or a column of rows would say better?
+4. **Typography:** One published style per element, headings at their weight and tracking, figures in mono and aligned, every gap owned by one parent and on the ladder?
+5. **States:** Empty, loading, long list, error, sent, disabled and selected all designed, not defaulted?
+6. **Restraint:** Can any surface, border, badge, icon, colour or paragraph be removed without losing meaning or affordance? If yes, remove it. Is there a second red? Remove it.
+7. **Reflow:** Usable at a laptop's width and a narrow one, tables scrolling locally, the red block still seated on its corner, no shrunken controls?
 8. **Trust and access:** Semantics, labels, focus, contrast, motion and the words beside every colour sound?
 
 Fix the highest-impact defect, render again, and repeat until nothing material remains. Keep this work internal; deliver the screen, not a score.
@@ -129,21 +133,25 @@ Fix the highest-impact defect, render again, and repeat until nothing material r
 
 Do not ship any of these recognisable defaults:
 
-- A dashboard of KPI cards where a table with three figures above it would do.
-- Colour as decoration: a coloured header, a tinted sidebar, a gradient anywhere, an accent that is not a state.
-- Rounded corners on what acts or holds; pill buttons; pill badges.
-- Soft shadows on cards at rest. A card is a hairline.
-- A 3px glow on focus, or any halo. Focus is a 1px blue edge.
-- Borders on materials, cards in cards, a box around every section.
-- All-caps eyebrows, tracked labels, decorative section numbers, a font size that is not a published style.
-- `font-medium` or `font-semibold` beside a type style.
+- A hero over a grid of feature cards where a heading, a paragraph and a table would do.
+- A rounded corner anywhere: on a button, a card, an input, an image, an avatar, a badge. Nothing Ovadev owns has a radius; the switch is the one exception.
+- Red spent twice: a red button, red type, a red hairline, a red hover, a red icon, a second block. One block per screen, seated into a corner or an edge, and it is not type.
+- Ink type on the red block. Type on red is white.
+- Colour as decoration: a tinted band, a coloured header, a gradient anywhere, an accent that is neither the signal nor a state.
+- A glow, a blurred shadow, a bevel, an inner shadow, a highlight edge, a halo on focus. The one shadow is the cut, 8px 8px with no blur, only on what floats; focus is a 1px ink edge.
+- Borders on materials, cards in cards, a box around every section, a heavier outline for emphasis. To emphasise, knock a block out or invert it.
+- A second typeface: a mono face, a display face, a serif. Geist does every job; the mono role is Geist with tabular figures.
+- A tracked label that is not `text-label-11-caps`, a heading above 30px lighter than 900, a font size that is not a published style, `font-medium` or `font-semibold` beside a type style.
+- A fade, a scale, a zoom, a bounce, a rotation, a cross-fade, a blur-in. Motion is a translate on one axis, or nothing.
+- The mark rounded, rotated, recoloured, glowed, boxed, framed, badged or stretched; the mark in a circle or a tile; the mark below its minimum; the mark drawn as an icon.
+- A gap off the ladder: 20px, 30px, 44px. Every gap is a step.
 - Proportional figures in a column of numbers. Figures are mono and right-aligned.
-- Relative times without the exact one; amounts without currency; IDs truncated without a way to copy them.
+- Prices without CHF; dates as "next month"; a product name in lower case.
 - A badge for ordinary metadata; a state shown as a colour, a dot or an empty badge without its word.
-- Icons as decoration: a tile per feature, an icon per heading, mixed weights.
+- Icons as decoration: a tile per feature, an icon per heading, mixed sets.
 - Empty states with an illustration. An empty state says what is empty and offers the one action.
-- Dismiss buttons on notes; toasts for things the screen already shows.
-- Hard-coded hex, `bg-white`, `bg-black`, `text-zinc-500`, Tailwind's default palette, `dark:` variants.
+- Hard-coded hex, `bg-white`, `bg-black`, `text-zinc-500`, Tailwind's default palette, `dark:` variants, a light theme.
+- Marketing register: superlatives, exclamation marks, a testimonial band.
 - Em dashes in copy.
 - Narrating the design: captions that explain why a layout was chosen.
 
@@ -237,7 +245,7 @@ Ten steps each, the same roles on every scale. Reach for a step (`bg-green-200`,
 | `black-alpha` | Black at increasing opacity: scrims, and what sits on ink. | `oklch(0 0 0 / 55%)` |
 | `red` | The identity's one colour. 7 is the red block, #E8202A, locked; the rest is its ramp on paper. Type on red is white, never ink. | `#e8202a` |
 | `green` | Done, confirmed, live. | `oklch(0.620 0.160 150)` |
-| `blue` | Links and information; never the accent. | `oklch(0.620 0.170 262)` |
+| `blue` | Information: the info status and its fill. Never a link, never the accent. | `oklch(0.620 0.170 262)` |
 | `yellow` | Pending, attention needed. | `oklch(0.620 0.150 85)` |
 
 Backgrounds: `background-100` #0e0f12 (The ground. Near-black; the page, and what shows through the mark's counter.) and `background-200` #16181c (A cell lifted off the page: a band, a plate, a panel.)
@@ -497,6 +505,6 @@ import { PlusIcon, SearchIcon } from "@ovadev-gmbh/ui-ovadev/icons";
 
 ## Accessibility and reflow
 
-Use landmarks, one `h1` per screen, ordered headings, native controls with visible labels, semantic tables with header cells, and the package's components, which carry their ARIA. Every state has a word or an icon beside its colour. Focus is visible on everything focusable, in tab order that follows reading order; a tool is driven from the keyboard more than a product is, so shortcuts are documented in `Kbd` where they exist. Contrast meets WCAG AA; the ink levels are published so that it does.
+Use landmarks, one `h1` per screen, ordered headings, native controls with visible labels, semantic tables with header cells, and the package's components, which carry their ARIA. Every state has a word or an icon beside its colour; the red block carries no meaning a word does not also carry. Focus is visible on everything focusable, a 1px ink edge, in tab order that follows reading order. Contrast is measured, not asserted, and each pair has a bar to clear: ink and stone on paper and on a surface clear 4.5:1 for body type; the red block clears 3:1 against paper so it can be found; type on the block is white, the one pair on red that carries type, because ink on red is 3.6:1 and does not; a hairline is a separator, not a control, and is held to 1.2:1. Reduced motion is honoured: durations drop to zero and the end state renders at once.
 
-Reflow before shrinking: rows stack, tables scroll locally in their own container, controls keep their size, type keeps its style. Give grid and flex children `min-width: 0`. Never conceal overflow. A screen must work on a laptop and at a narrow width without a different design for each.
+Reflow before shrinking: rows stack, tables scroll locally in their own container, controls keep their size, type keeps its style, the red block keeps its corner. Give grid and flex children `min-width: 0`. Never conceal overflow. A screen must work on a laptop and at a phone's width without a different design for each.

@@ -2,19 +2,19 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@o
 
 const questions = [
   {
-    value: "proration",
-    title: "How is a plan change billed?",
-    body: "Moving from Team to Scale is charged pro rata for the rest of the month, on the next invoice.",
+    value: "pricing",
+    title: "How is TICKETOVA priced?",
+    body: "Per ticket sold, CHF 0.35, billed monthly. There is no set-up fee and no minimum.",
   },
   {
-    value: "currency",
-    title: "Which currencies do invoices use?",
-    body: "CHF for tenants in Switzerland, EUR for tenants in the European Union.",
+    value: "payment",
+    title: "Which payment methods does the shop take?",
+    body: "TWINT, Visa, Mastercard and PostFinance. Payouts arrive weekly in CHF.",
   },
   {
-    value: "dunning",
-    title: "When is a tenant suspended?",
-    body: "After the second reminder, 45 days past the due date. Suspension keeps the data for 90 days.",
+    value: "season",
+    title: "What happens when the season ends?",
+    body: "The shop closes on the date you set. Reports and the customer list stay available all year.",
   },
 ];
 

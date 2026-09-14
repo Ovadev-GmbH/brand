@@ -6,10 +6,9 @@ export default function NotFoundExample() {
   return (
     <ErrorPage className="min-h-[640px]">
       <ErrorPageCode>404</ErrorPageCode>
-      <ErrorPageTitle>Page not found</ErrorPageTitle>
+      <ErrorPageTitle>This page doesn't fit.</ErrorPageTitle>
       <ErrorPageDescription>
-        There is nothing at /tenants/acme-logistics/invoices/INV-2026-0142. The invoice may have been voided, or the
-        address has a typo.
+        There is nothing at /blog/2026/season-opening-tuerlersee. The post may have moved, or the address has a typo.
       </ErrorPageDescription>
       <ErrorPageActions>
         <Button render={<a href="/" />}>Back to home</Button>

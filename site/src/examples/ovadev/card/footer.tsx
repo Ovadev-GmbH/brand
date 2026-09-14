@@ -4,18 +4,18 @@ export default function CardWithFooter() {
   return (
     <Card className="w-full max-w-md">
       <CardHeader>
-        <CardTitle>Delete tenant</CardTitle>
-        <CardDescription>bergwerk-ag and everything in it will be removed after 30 days.</CardDescription>
+        <CardTitle>Delete post</CardTitle>
+        <CardDescription>Notes on shipping on a Friday will be taken off ova.dev in both languages.</CardDescription>
       </CardHeader>
       <CardContent>
         <ul className="m-0 flex flex-col gap-1 pl-4 text-copy-13 text-content-secondary">
-          <li>4 environments and their deployments</li>
-          <li>12 API keys, revoked at once</li>
-          <li>Invoices stay available to Ovadev for 10 years</li>
+          <li>The English and the German version</li>
+          <li>3 images and the cover</li>
+          <li>Links to the post return 410 Gone</li>
         </ul>
       </CardContent>
       <CardFooter className="justify-end">
-        <Button variant="destructive">Delete bergwerk-ag</Button>
+        <Button variant="destructive">Delete post</Button>
       </CardFooter>
     </Card>
   );

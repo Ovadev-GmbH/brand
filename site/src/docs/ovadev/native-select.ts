@@ -2,11 +2,11 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "The browser's own `<select>`, styled to match. It opens the platform's picker, which is what a phone should show. When options need icons, descriptions or search, use [Select](/internal/select) or [Combobox](/internal/combobox).",
-  usage: `<NativeSelect defaultValue="team" aria-label="Plan">
-  <NativeSelectOption value="starter">Starter</NativeSelectOption>
-  <NativeSelectOption value="team">Team</NativeSelectOption>
-  <NativeSelectOption value="scale">Scale</NativeSelectOption>
+    "The browser's own `<select>`, styled to match. It opens the platform's picker, which is what a phone should show. When options need icons, descriptions or search, use [Select](/ovadev/select) or [Combobox](/ovadev/combobox).",
+  usage: `<NativeSelect defaultValue="ticketova" aria-label="Topic">
+  <NativeSelectOption value="ticketova">TICKETOVA</NativeSelectOption>
+  <NativeSelectOption value="januna">JANUNA</NativeSelectOption>
+  <NativeSelectOption value="other">Something else</NativeSelectOption>
 </NativeSelect>`,
   sections: [
     { title: "Size", text: '`size="sm"` is 28px tall, to sit in a toolbar beside small buttons.', example: "size" },

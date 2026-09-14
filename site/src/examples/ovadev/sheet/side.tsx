@@ -25,8 +25,8 @@ export default function SheetSide() {
           <SheetTrigger render={<Button variant="outline" />}>{label}</SheetTrigger>
           <SheetContent side={side}>
             <SheetHeader>
-              <SheetTitle>Deployment dpl_8a4f</SheetTitle>
-              <SheetDescription>Production for acme-logistics, deployed 2026-09-13 09:12 by robin@ova.dev.</SheetDescription>
+              <SheetTitle>One season on TICKETOVA</SheetTitle>
+              <SheetDescription>Blog post, published 2026-09-13 09:12 by robin@ova.dev. 6 min read.</SheetDescription>
             </SheetHeader>
             <SheetFooter>
               <SheetClose render={<Button variant="outline" />}>Close</SheetClose>

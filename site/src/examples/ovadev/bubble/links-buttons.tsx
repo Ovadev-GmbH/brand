@@ -2,7 +2,7 @@ import * as React from "react";
 import { Bubble, BubbleContent, BubbleGroup } from "@ovadev-gmbh/ui-ovadev";
 import { ArrowUpRightIcon } from "lucide-react";
 
-const suggestions = ["Mark as resolved", "Escalate to billing"];
+const suggestions = ["Mark as answered", "Forward to Philip"];
 
 export default function BubbleLinksButtons() {
   const [sent, setSent] = React.useState<string | null>(null);
@@ -10,10 +10,10 @@ export default function BubbleLinksButtons() {
   return (
     <BubbleGroup className="w-full max-w-md">
       <Bubble variant="outline">
-        <BubbleContent render={<a href="#INV-2026-0142" />}>
+        <BubbleContent render={<a href="#Q-2026-0142" />}>
           <span className="flex items-center gap-2">
-            <span className="text-copy-13-mono">INV-2026-0142</span>
-            <span className="text-content-secondary">CHF 1'240.00, open</span>
+            <span className="text-copy-13-mono">Q-2026-0142</span>
+            <span className="text-content-secondary">CHF 4'800.00, open</span>
             <ArrowUpRightIcon className="size-3.5" aria-hidden />
           </span>
         </BubbleContent>

@@ -15,19 +15,19 @@ export default function ItemAvatar() {
     <Item variant="outline" className="w-full max-w-md">
       <ItemMedia>
         <Avatar>
-          <AvatarFallback>LK</AvatarFallback>
+          <AvatarFallback>AK</AvatarFallback>
         </Avatar>
       </ItemMedia>
       <ItemContent>
-        <ItemTitle>lea@ova.dev</ItemTitle>
-        <ItemDescription>Invited as Billing on 2026-09-11, not joined yet</ItemDescription>
+        <ItemTitle>Anna Keller</ItemTitle>
+        <ItemDescription>Gemeinde Hausen am Albis, asked for a quote on 2026-09-11</ItemDescription>
       </ItemContent>
       <ItemActions>
         <Button variant="outline" size="sm">
-          Resend invite
+          Send quote
         </Button>
         <Button variant="ghost" size="sm">
-          Revoke
+          Decline
         </Button>
       </ItemActions>
     </Item>

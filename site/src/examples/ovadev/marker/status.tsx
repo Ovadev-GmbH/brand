@@ -8,8 +8,8 @@ export default function MarkerStatus() {
           <Spinner />
         </MarkerIcon>
         <MarkerContent>
-          Rolling out <span className="text-label-12-mono">d-8f3a21c</span> to{" "}
-          <span className="text-label-12-mono">ch-zrh-1</span>, 7 of 12 pods ready
+          Sending the newsletter <span className="text-label-12-mono">2026-09</span> to{" "}
+          <span className="text-label-12-mono">1'412</span> subscribers, 7 of 12 batches done
         </MarkerContent>
       </Marker>
     </div>

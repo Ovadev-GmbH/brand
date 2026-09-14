@@ -11,20 +11,20 @@ import { FileDownIcon, PencilIcon, Trash2Icon } from "lucide-react";
 export default function DropdownMenuDestructive() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>Tenant actions</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>Post actions</DropdownMenuTrigger>
       <DropdownMenuContent className="w-52">
         <DropdownMenuItem>
           <PencilIcon />
-          Rename
+          Edit
         </DropdownMenuItem>
         <DropdownMenuItem>
           <FileDownIcon />
-          Export data
+          Export as Markdown
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem variant="destructive">
           <Trash2Icon />
-          Delete tenant
+          Delete post
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

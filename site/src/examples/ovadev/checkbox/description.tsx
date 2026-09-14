@@ -5,9 +5,9 @@ export default function CheckboxWithDescription() {
     <Field orientation="horizontal" className="w-96">
       <Checkbox id="checkbox-description-suspend" defaultChecked />
       <FieldContent>
-        <FieldLabel htmlFor="checkbox-description-suspend">Suspend on overdue invoices</FieldLabel>
+        <FieldLabel htmlFor="checkbox-description-suspend">Product updates</FieldLabel>
         <FieldDescription>
-          acme-logistics is suspended 14 days after an invoice falls due, until it is paid.
+          One e-mail when TICKETOVA or JANUNA ships a release, at most once a month.
         </FieldDescription>
       </FieldContent>
     </Field>

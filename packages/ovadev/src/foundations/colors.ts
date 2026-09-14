@@ -58,7 +58,7 @@ export const SCALES: Scale[] = [
   { id: "black-alpha", name: "Black alpha", note: "Black at increasing opacity: scrims, and what sits on ink.", steps: alpha("oklch(0 0 0", [4, 8, 12, 18, 26, 36, 55, 72, 90, 100]) },
   scale("red", "Red", "The identity's one colour. 7 is the red block, #E8202A, locked; the rest is its ramp on paper. Type on red is white, never ink.", 25, 0.21, { 700: "#e8202a" }),
   scale("green", "Green", "Done, confirmed, live.", 150, 0.16),
-  scale("blue", "Blue", "Links and information; never the accent.", 262, 0.17),
+  scale("blue", "Blue", "Information: the info status and its fill. Never a link, never the accent.", 262, 0.17),
   scale("yellow", "Yellow", "Pending, attention needed.", 85, 0.15),
 ];
 

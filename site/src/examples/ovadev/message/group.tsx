@@ -11,9 +11,9 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const lines = [
-  "We are moving helvetia-labs from eu-central-1 to ch-zrh-1.",
-  "Is there downtime while the data is copied?",
-  "Our window would be Saturday, 02:00 to 04:00 CEST.",
+  "We are opening the Hallenbad Cham on 2026-10-03.",
+  "Can the shop sell season passes before that date?",
+  "Our pre-sale would start on Monday, 2026-09-21.",
 ];
 
 export default function MessageGroupExample() {
@@ -32,7 +32,7 @@ export default function MessageGroupExample() {
               ) : null}
             </MessageAvatar>
             <MessageContent>
-              {first ? <MessageHeader>Sandra Weber, helvetia-labs</MessageHeader> : null}
+              {first ? <MessageHeader>Sandra Weber, Gemeinde Cham</MessageHeader> : null}
               <Bubble variant="muted">
                 <BubbleContent>{line}</BubbleContent>
               </Bubble>

@@ -11,14 +11,14 @@ import {
 const settings = [
   {
     id: "switch-card-dunning",
-    title: "Dunning e-mails",
-    description: "Remind the billing contact 3, 7 and 14 days after an invoice is due.",
+    title: "Release notes",
+    description: "One e-mail when TICKETOVA or JANUNA ships a release.",
     on: true,
   },
   {
     id: "switch-card-suspend",
-    title: "Suspend on non-payment",
-    description: "Pause the tenant's API keys 30 days after the due date.",
+    title: "Blog posts",
+    description: "Every new post on ova.dev, the day it is published.",
     on: false,
   },
 ];

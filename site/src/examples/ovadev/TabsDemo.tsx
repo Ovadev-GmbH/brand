@@ -2,23 +2,23 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ovadev-gmbh/ui-ovadev
 
 export default function TabsDemo() {
   return (
-    <Tabs defaultValue="overview" className="w-full max-w-sm">
+    <Tabs defaultValue="shop" className="w-full max-w-sm">
       <TabsList>
-        <TabsTrigger value="overview">Overview</TabsTrigger>
-        <TabsTrigger value="invoices">Invoices</TabsTrigger>
-        <TabsTrigger value="keys">API keys</TabsTrigger>
+        <TabsTrigger value="shop">Shop</TabsTrigger>
+        <TabsTrigger value="entrance">Entrance</TabsTrigger>
+        <TabsTrigger value="reports">Reports</TabsTrigger>
       </TabsList>
-      <TabsContent value="overview" className="text-content-secondary">
-        Scale plan, <span className="text-label-13-mono">42</span> seats, hosted in{" "}
-        <span className="text-label-13-mono">ch-zrh-1</span>.
+      <TabsContent value="shop" className="text-content-secondary">
+        <span className="text-label-13-mono">14</span> ticket types, on sale from{" "}
+        <span className="text-label-13-mono">06:00</span> each day.
       </TabsContent>
-      <TabsContent value="invoices" className="text-content-secondary">
-        <span className="text-label-13-mono">3</span> open invoices,{" "}
-        <span className="text-label-13-mono">CHF 1&apos;240.00</span> due 2026-10-01.
+      <TabsContent value="entrance" className="text-content-secondary">
+        <span className="text-label-13-mono">3</span> scanners at Strandbad Türlersee,{" "}
+        <span className="text-label-13-mono">1&apos;204</span> admissions today.
       </TabsContent>
-      <TabsContent value="keys" className="text-content-secondary">
-        <span className="text-label-13-mono">2</span> active keys, last used at{" "}
-        <span className="text-label-13-mono">14:02 UTC</span>.
+      <TabsContent value="reports" className="text-content-secondary">
+        <span className="text-label-13-mono">CHF 8&apos;410.00</span> today, updated at{" "}
+        <span className="text-label-13-mono">14:02</span>.
       </TabsContent>
     </Tabs>
   );

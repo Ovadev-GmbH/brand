@@ -8,25 +8,25 @@ import {
   SelectValue,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const roles = [
-  { label: "Owner", value: "owner" },
-  { label: "Admin", value: "admin" },
-  { label: "Billing", value: "billing" },
-  { label: "Read only", value: "read-only" },
+const topics = [
+  { label: "Quote", value: "quote" },
+  { label: "Support", value: "support" },
+  { label: "Press", value: "press" },
+  { label: "Other", value: "other" },
 ];
 
 export default function SelectDemo() {
   return (
     <Field className="w-full max-w-48">
-      <FieldLabel htmlFor="select-role">Role</FieldLabel>
-      <Select items={roles}>
+      <FieldLabel htmlFor="select-role">Topic</FieldLabel>
+      <Select items={topics}>
         <SelectTrigger id="select-role" className="w-full">
-          <SelectValue placeholder="Choose a role" />
+          <SelectValue placeholder="Choose a topic" />
         </SelectTrigger>
         <SelectContent>
-          {roles.map((role) => (
-            <SelectItem key={role.value} value={role.value}>
-              {role.label}
+          {topics.map((topic) => (
+            <SelectItem key={topic.value} value={topic.value}>
+              {topic.label}
             </SelectItem>
           ))}
         </SelectContent>

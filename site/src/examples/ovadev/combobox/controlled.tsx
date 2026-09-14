@@ -8,44 +8,44 @@ import {
   ComboboxList,
 } from "@ovadev-gmbh/ui-ovadev";
 
-type Tenant = { slug: string; plan: string; region: string };
+type Customer = { slug: string; product: string; canton: string };
 
-const tenants: Tenant[] = [
-  { slug: "acme-logistics", plan: "Scale", region: "ch-zrh-1" },
-  { slug: "bergwerk-ag", plan: "Team", region: "eu-central-1" },
-  { slug: "helvetia-labs", plan: "Starter", region: "ch-gva-1" },
+const customers: Customer[] = [
+  { slug: "tuerlersee.ch", product: "TICKETOVA", canton: "ZH" },
+  { slug: "hausen.ch", product: "TICKETOVA", canton: "ZH" },
+  { slug: "baar.ch", product: "JANUNA", canton: "ZG" },
 ];
 
 export default function ComboboxControlled() {
-  const [tenant, setTenant] = React.useState<Tenant | null>(tenants[0] ?? null);
+  const [customer, setCustomer] = React.useState<Customer | null>(customers[0] ?? null);
 
   return (
     <div className="flex flex-col items-start gap-2">
       <Combobox
-        items={tenants}
-        value={tenant}
-        onValueChange={setTenant}
-        itemToStringLabel={(t: Tenant) => t.slug}
+        items={customers}
+        value={customer}
+        onValueChange={setCustomer}
+        itemToStringLabel={(c: Customer) => c.slug}
       >
-        <ComboboxInput placeholder="Search tenants" aria-label="Tenant" className="w-64" />
+        <ComboboxInput placeholder="Search customers" aria-label="Customer" className="w-64" />
         <ComboboxContent>
-          <ComboboxEmpty>No tenant matches.</ComboboxEmpty>
+          <ComboboxEmpty>No customer matches.</ComboboxEmpty>
           <ComboboxList>
-            {(t: Tenant) => (
-              <ComboboxItem key={t.slug} value={t}>
-                <span className="text-label-13-mono">{t.slug}</span>
+            {(c: Customer) => (
+              <ComboboxItem key={c.slug} value={c}>
+                <span className="text-label-13-mono">{c.slug}</span>
               </ComboboxItem>
             )}
           </ComboboxList>
         </ComboboxContent>
       </Combobox>
       <span className="text-label-13 text-content-secondary">
-        {tenant ? (
+        {customer ? (
           <>
-            {tenant.plan} plan in <span className="text-label-13-mono">{tenant.region}</span>
+            {customer.product} in <span className="text-label-13-mono">{customer.canton}</span>
           </>
         ) : (
-          "No tenant chosen"
+          "No customer chosen"
         )}
       </span>
     </div>

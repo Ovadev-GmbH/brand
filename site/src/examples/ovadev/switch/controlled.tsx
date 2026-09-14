@@ -17,13 +17,13 @@ export default function SwitchControlled() {
   return (
     <Field orientation="horizontal" className="w-full max-w-sm">
       <FieldContent>
-        <FieldLabel htmlFor="switch-controlled-maintenance">Maintenance mode</FieldLabel>
+        <FieldLabel htmlFor="switch-controlled-maintenance">Maintenance notice</FieldLabel>
         <FieldDescription>
           {saving
             ? "Saving…"
             : maintenance
-              ? "acme-logistics shows the maintenance page."
-              : "acme-logistics is serving traffic."}
+              ? "ova.dev shows the maintenance notice."
+              : "ova.dev is up."}
         </FieldDescription>
       </FieldContent>
       {saving ? <Spinner /> : null}

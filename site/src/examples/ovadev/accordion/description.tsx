@@ -2,30 +2,30 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@o
 
 const sections = [
   {
-    value: "billing",
-    title: "Billing",
+    value: "customer",
+    title: "Customer",
     fields: [
-      { term: "Plan", value: "Scale" },
-      { term: "Monthly Amount", value: "CHF 1'240.00", mono: true },
-      { term: "Next Invoice", value: "2026-10-01", mono: true },
-      { term: "Payment Terms", value: "Invoice, net 30" },
+      { term: "Operator", value: "Gemeinde Hausen am Albis" },
+      { term: "Venue", value: "Strandbad Türlersee" },
+      { term: "Season", value: "2026-05-09 to 2026-09-13", mono: true },
+      { term: "Contact", value: "+41 44 764 80 20", mono: true },
     ],
   },
   {
-    value: "hosting",
-    title: "Hosting",
+    value: "contract",
+    title: "Contract",
     fields: [
-      { term: "Region", value: "ch-zrh-1", mono: true },
-      { term: "Environments", value: "3", mono: true },
-      { term: "Last Deployment", value: "dpl_4f2c91", mono: true },
-      { term: "Deployed", value: "2026-09-13 14:02 CEST", mono: true },
+      { term: "Product", value: "TICKETOVA" },
+      { term: "Price per Ticket", value: "CHF 0.35", mono: true },
+      { term: "Tickets 2026", value: "48'212", mono: true },
+      { term: "Next Invoice", value: "2026-10-01", mono: true },
     ],
   },
 ];
 
 export default function AccordionWithDescription() {
   return (
-    <Accordion defaultValue={["billing"]} className="w-[28rem]">
+    <Accordion defaultValue={["customer"]} className="w-[28rem]">
       {sections.map((section) => (
         <AccordionItem key={section.value} value={section.value}>
           <AccordionTrigger>{section.title}</AccordionTrigger>

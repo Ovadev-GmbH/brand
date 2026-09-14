@@ -9,11 +9,11 @@ import {
 import { CircleAlertIcon, FileTextIcon } from "lucide-react";
 
 const files = [
-  { state: "idle", name: "audit-log-2026-09.csv", note: "Not uploaded yet" },
-  { state: "uploading", name: "contract-bergwerk-ag.pdf", note: "Uploading, 64%" },
-  { state: "processing", name: "seats-2026-09.csv", note: "Checking for malware" },
-  { state: "error", name: "INV-2026-0139.pdf", note: "Larger than 10 MB" },
-  { state: "done", name: "INV-2026-0142.pdf", note: "84 KB" },
+  { state: "idle", name: "season-passes-2026.csv", note: "Not uploaded yet" },
+  { state: "uploading", name: "contract-gemeinde-cham.pdf", note: "Uploading, 64%" },
+  { state: "processing", name: "sales-2026-08.csv", note: "Checking for malware" },
+  { state: "error", name: "tuerlersee-opening-2026.mov", note: "Larger than 10 MB" },
+  { state: "done", name: "quote-tuerlersee-2027.pdf", note: "84 KB" },
 ] as const;
 
 export default function AttachmentStates() {

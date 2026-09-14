@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A hairline between two groups of content, across a column or between items in a row. Rows of records need none: a [Table](/internal/table) draws its own rules.",
+    "A hairline between two groups of content, across a column or between items in a row. Rows of records need none: a [Table](/ovadev/table) draws its own rules.",
   usage: `<Separator />`,
   sections: [
     {
@@ -22,7 +22,7 @@ export default {
     },
     {
       title: "With a Label",
-      text: 'A rule with a word in it, such as the day in a conversation, is a [Marker](/internal/marker) with `variant="separator"`.',
+      text: 'A rule with a word in it, such as the day in a conversation, is a [Marker](/ovadev/marker) with `variant="separator"`.',
     },
   ],
   api: [

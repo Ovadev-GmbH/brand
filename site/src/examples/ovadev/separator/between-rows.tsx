@@ -3,21 +3,21 @@ import { Label, Separator, Switch } from "@ovadev-gmbh/ui-ovadev";
 
 const settings = [
   {
-    id: "separator-dunning",
-    label: "Automatic dunning",
-    description: "Send a reminder 7 days after an invoice is due.",
+    id: "separator-analytics",
+    label: "Analytics",
+    description: "Count page views on ova.dev. No personal data is stored.",
     on: true,
   },
   {
-    id: "separator-usage-alerts",
-    label: "Usage alerts",
-    description: "E-mail the tenant at 80% of the plan's API requests.",
+    id: "separator-newsletter",
+    label: "Newsletter",
+    description: "One e-mail a month about TICKETOVA and JANUNA.",
     on: true,
   },
   {
-    id: "separator-sandbox",
-    label: "Sandbox tenants",
-    description: "Let tenants on Starter create a sandbox.",
+    id: "separator-jobs",
+    label: "Job alerts",
+    description: "E-mail when Ovadev posts a position in Baar.",
     on: false,
   },
 ];

@@ -4,8 +4,8 @@ export default function SwitchDescription() {
   return (
     <Field orientation="horizontal" className="w-full max-w-sm">
       <FieldContent>
-        <FieldLabel htmlFor="switch-description-previews">Preview deployments</FieldLabel>
-        <FieldDescription>Every pull request against main gets its own URL on preview.ova.dev.</FieldDescription>
+        <FieldLabel htmlFor="switch-description-previews">Page view counts</FieldLabel>
+        <FieldDescription>Counts visits to ova.dev without cookies. Off means nothing is counted.</FieldDescription>
       </FieldContent>
       <Switch id="switch-description-previews" defaultChecked />
     </Field>

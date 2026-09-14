@@ -1,31 +1,31 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ovadev-gmbh/ui-ovadev";
-import { ChartLineIcon, RocketIcon, TerminalIcon } from "lucide-react";
+import { ChartLineIcon, FileTextIcon, MailIcon } from "lucide-react";
 
 export default function TabsWithIcon() {
   return (
-    <Tabs defaultValue="logs" className="w-full max-w-md">
+    <Tabs defaultValue="posts" className="w-full max-w-md">
       <TabsList>
-        <TabsTrigger value="logs">
-          <TerminalIcon data-icon="inline-start" />
-          Logs
+        <TabsTrigger value="posts">
+          <FileTextIcon data-icon="inline-start" />
+          Posts
         </TabsTrigger>
-        <TabsTrigger value="metrics">
+        <TabsTrigger value="readers">
           <ChartLineIcon data-icon="inline-start" />
-          Metrics
+          Readers
         </TabsTrigger>
-        <TabsTrigger value="deployments">
-          <RocketIcon data-icon="inline-start" />
-          Deployments
+        <TabsTrigger value="newsletter">
+          <MailIcon data-icon="inline-start" />
+          Newsletter
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="logs" className="text-content-secondary">
-        Streaming from api-gateway in ch-zrh-1.
+      <TabsContent value="posts" className="text-content-secondary">
+        24 posts, 12 in German and 12 in English.
       </TabsContent>
-      <TabsContent value="metrics" className="text-content-secondary">
-        p99 latency 182 ms over the last hour.
+      <TabsContent value="readers" className="text-content-secondary">
+        1'842 readers over the last 30 days.
       </TabsContent>
-      <TabsContent value="deployments" className="text-content-secondary">
-        4f8c2a9 is live; 9d02c5f failed at 13:48 UTC.
+      <TabsContent value="newsletter" className="text-content-secondary">
+        1'204 subscribers; the September issue went out 2026-09-08.
       </TabsContent>
     </Tabs>
   );

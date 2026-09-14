@@ -1,19 +1,19 @@
 import { InputGroup, InputGroupAddon, InputGroupInput } from "@ovadev-gmbh/ui-ovadev";
-import { MailIcon, RocketIcon } from "lucide-react";
+import { MailIcon, PhoneIcon } from "lucide-react";
 
 export default function InputGroupWithIcon() {
   return (
     <div className="grid w-80 gap-4">
       <InputGroup>
-        <InputGroupInput type="email" aria-label="Team member e-mail" placeholder="name@ova.dev" />
+        <InputGroupInput type="email" aria-label="E-mail" placeholder="info@tuerlersee.ch" />
         <InputGroupAddon>
           <MailIcon />
         </InputGroupAddon>
       </InputGroup>
       <InputGroup>
-        <InputGroupInput aria-label="Deployment ID" className="text-label-13-mono" placeholder="dpl_9f31c" />
+        <InputGroupInput aria-label="Phone" className="text-label-13-mono" placeholder="+41 41 000 00 00" />
         <InputGroupAddon>
-          <RocketIcon />
+          <PhoneIcon />
         </InputGroupAddon>
       </InputGroup>
     </div>

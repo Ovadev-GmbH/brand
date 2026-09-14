@@ -3,14 +3,14 @@ import { Field, FieldLabel, InputGroup, InputGroupAddon, InputGroupInput, InputG
 export default function InputWithInputGroup() {
   return (
     <Field className="w-80">
-      <FieldLabel htmlFor="input-group-subdomain">Subdomain</FieldLabel>
+      <FieldLabel htmlFor="input-group-subdomain">Post slug</FieldLabel>
       <InputGroup>
         <InputGroupAddon>
-          <InputGroupText>https://</InputGroupText>
+          <InputGroupText>ova.dev/blog/</InputGroupText>
         </InputGroupAddon>
-        <InputGroupInput id="input-group-subdomain" placeholder="acme" />
+        <InputGroupInput id="input-group-subdomain" placeholder="tuerlersee" />
         <InputGroupAddon align="inline-end">
-          <InputGroupText>.ova.dev</InputGroupText>
+          <InputGroupText>.html</InputGroupText>
         </InputGroupAddon>
       </InputGroup>
     </Field>

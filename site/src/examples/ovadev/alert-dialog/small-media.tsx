@@ -19,14 +19,14 @@ export default function AlertDialogSmallWithMedia() {
 
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
-      <AlertDialogTrigger render={<Button variant="outline" />}>Pause deployments</AlertDialogTrigger>
+      <AlertDialogTrigger render={<Button variant="outline" />}>Pause newsletter</AlertDialogTrigger>
       <AlertDialogContent size="sm">
         <AlertDialogHeader>
           <AlertDialogMedia>
             <CirclePauseIcon />
           </AlertDialogMedia>
-          <AlertDialogTitle>Pause helvetia-labs?</AlertDialogTitle>
-          <AlertDialogDescription>Pushes to main wait in the queue until you resume.</AlertDialogDescription>
+          <AlertDialogTitle>Pause the newsletter?</AlertDialogTitle>
+          <AlertDialogDescription>No issues go out until you resume.</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>

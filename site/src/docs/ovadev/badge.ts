@@ -2,13 +2,13 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A short label on something unlike its neighbours: Beta, Trial, Overdue. A record's state is a badge with its word, such as Building or Failed; in a table where every row has one, write the word in its status colour rather than a column of badges.",
+    "A short label on something unlike its neighbours: Beta, Coming soon, Draft. A record's state is a badge with its word, such as Published or Draft; in a table where every row has one, write the word in its status colour rather than a column of badges.",
   usage: `<Badge variant="secondary">Beta</Badge>`,
   sections: [
-    { title: "Default", text: "Black carrying white, for the one label in view that must be read first.", example: "default" },
+    { title: "Default", text: "Ink carrying paper, for the one label in view that must be read first.", example: "default" },
     {
       title: "Secondary",
-      text: "A grey fill: the quiet label most badges should be, such as Trial next to a tenant.",
+      text: "A grey fill: the quiet label most badges should be, such as Draft next to a post.",
       example: "secondary",
     },
     {
@@ -18,7 +18,7 @@ export default {
     },
     {
       title: "Destructive",
-      text: "Red on a faint red fill, for what has gone wrong with one record: Overdue, Revoked.",
+      text: "Red on a faint red fill, for what has gone wrong with one record: Bounced, Failed.",
       example: "destructive",
     },
     {

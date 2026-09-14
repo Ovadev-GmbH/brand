@@ -10,17 +10,17 @@ import {
 const timeZones = [
   "Europe/Zurich",
   "Europe/Berlin",
+  "Europe/Vienna",
+  "Europe/Paris",
+  "Europe/Rome",
   "Europe/London",
-  "Europe/Lisbon",
-  "America/New_York",
-  "Asia/Singapore",
   "UTC",
 ];
 
 export default function ComboboxAutoHighlight() {
   return (
     <Combobox items={timeZones} autoHighlight>
-      <ComboboxInput placeholder="Search time zones" aria-label="Time zone for invoices" className="w-64" />
+      <ComboboxInput placeholder="Search time zones" aria-label="Time zone of the launch event" className="w-64" />
       <ComboboxContent>
         <ComboboxEmpty>No time zone matches.</ComboboxEmpty>
         <ComboboxList>

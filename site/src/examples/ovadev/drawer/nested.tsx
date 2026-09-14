@@ -13,22 +13,22 @@ import {
 export default function DrawerNested() {
   return (
     <Drawer>
-      <DrawerTrigger render={<Button variant="outline" />}>Review deployment</DrawerTrigger>
+      <DrawerTrigger render={<Button variant="outline" />}>Review draft</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Deployment dpl_8a4f</DrawerTitle>
-          <DrawerDescription>Production for acme-logistics since 2026-09-13 09:12. Error rate 4.2%.</DrawerDescription>
+          <DrawerTitle>One season on TICKETOVA</DrawerTitle>
+          <DrawerDescription>Draft since 2026-09-13 09:12. 2 open comments from Beni.</DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="pt-4">
           <Drawer>
-            <DrawerTrigger render={<Button variant="destructive" />}>Roll back</DrawerTrigger>
+            <DrawerTrigger render={<Button variant="destructive" />}>Discard draft</DrawerTrigger>
             <DrawerContent>
               <DrawerHeader>
-                <DrawerTitle>Roll back to dpl_7c21?</DrawerTitle>
-                <DrawerDescription>Traffic moves to the build from 2026-09-11 14:02 in about 20 seconds.</DrawerDescription>
+                <DrawerTitle>Discard the draft?</DrawerTitle>
+                <DrawerDescription>The post goes back to the version published 2026-09-11 14:02. The comments are kept.</DrawerDescription>
               </DrawerHeader>
               <DrawerFooter className="pt-4">
-                <DrawerClose render={<Button variant="destructive" />}>Roll back now</DrawerClose>
+                <DrawerClose render={<Button variant="destructive" />}>Discard now</DrawerClose>
                 <DrawerClose render={<Button variant="outline" />}>Cancel</DrawerClose>
               </DrawerFooter>
             </DrawerContent>

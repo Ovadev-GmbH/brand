@@ -2,22 +2,22 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A form asked one question at a time, with progress and Back and Next: an incident intake, a tenant's onboarding, an offboarding checklist. For a form that is read at a glance, lay out [Field](/internal/field)s instead.",
+    "A form asked one question at a time, with progress and Back and Next: a quote request, a customer's onboarding, a job application. For a form that is read at a glance, lay out [Field](/ovadev/field)s instead.",
   usage: `<Questionnaire onSubmit={(event) => event.preventDefault()}>
   <QuestionnaireProgress />
-  <QuestionnaireItem name="plan" required>
-    <QuestionnaireTitle>Which plan is the tenant on?</QuestionnaireTitle>
+  <QuestionnaireItem name="product" required>
+    <QuestionnaireTitle>Which product is the request about?</QuestionnaireTitle>
     <QuestionnaireChoices>
-      <QuestionnaireChoice value="starter">Starter</QuestionnaireChoice>
-      <QuestionnaireChoice value="team">Team</QuestionnaireChoice>
-      <QuestionnaireChoice value="scale">Scale</QuestionnaireChoice>
+      <QuestionnaireChoice value="ticketova">TICKETOVA</QuestionnaireChoice>
+      <QuestionnaireChoice value="januna">JANUNA</QuestionnaireChoice>
+      <QuestionnaireChoice value="other">Something else</QuestionnaireChoice>
     </QuestionnaireChoices>
-    <QuestionnaireError>Choose a plan.</QuestionnaireError>
+    <QuestionnaireError>Choose a product.</QuestionnaireError>
   </QuestionnaireItem>
   <QuestionnaireActions>
     <QuestionnairePrevious />
     <QuestionnaireNext />
-    <QuestionnaireSubmit>Create tenant</QuestionnaireSubmit>
+    <QuestionnaireSubmit>Send request</QuestionnaireSubmit>
   </QuestionnaireActions>
 </Questionnaire>`,
   composition: `Questionnaire
@@ -42,8 +42,8 @@ export default {
       code: `function submit(event: React.FormEvent<HTMLFormElement>) {
   event.preventDefault();
   const answers = new FormData(event.currentTarget);
-  answers.get("plan"); // "team"
-  answers.getAll("modules"); // ["billing", "audit-log"]
+  answers.get("product"); // "ticketova"
+  answers.getAll("venues"); // ["pool", "arena"]
 }`,
     },
     {
@@ -78,12 +78,12 @@ export default {
     },
     {
       title: "Dialog",
-      text: "Inside `DialogContent`, the questionnaire sits under the dialog's own header. `onSubmit` closes the dialog; the × and Escape leave it without answering. See [Dialog](/internal/dialog).",
+      text: "Inside `DialogContent`, the questionnaire sits under the dialog's own header. `onSubmit` closes the dialog; the × and Escape leave it without answering. See [Dialog](/ovadev/dialog).",
       example: "dialog",
     },
     {
       title: "Controlled",
-      text: "`item` and `onItemChange` hand the active question to you, to show where the operator is or to send them back to an earlier one.",
+      text: "`item` and `onItemChange` hand the active question to you, to show where the person is or to send them back to an earlier one.",
       example: "controlled",
     },
   ],

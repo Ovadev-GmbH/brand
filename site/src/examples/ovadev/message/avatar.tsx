@@ -20,7 +20,7 @@ export default function MessageWithAvatar() {
         </MessageAvatar>
         <MessageContent>
           <Bubble variant="muted">
-            <BubbleContent>Our API key for bergwerk-ag stopped working this morning.</BubbleContent>
+            <BubbleContent>The logo in our TICKETOVA shop is still the old one from 2024.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>
@@ -31,7 +31,7 @@ export default function MessageWithAvatar() {
         <MessageContent>
           <Bubble variant="outline">
             <BubbleContent>
-              Key <span className="text-copy-13-mono">ovk_live_…9f2a</span> was revoked at 07:58 CEST after it appeared in a public repository.
+              The file <span className="text-copy-13-mono">logo-gemeinde-cham.svg</span> arrived through the contact form at 07:58 CEST and is waiting for review.
             </BubbleContent>
           </Bubble>
         </MessageContent>
@@ -39,12 +39,12 @@ export default function MessageWithAvatar() {
       <Message align="end">
         <MessageAvatar>
           <Avatar>
-            <AvatarFallback>LK</AvatarFallback>
+            <AvatarFallback>RM</AvatarFallback>
           </Avatar>
         </MessageAvatar>
         <MessageContent>
           <Bubble>
-            <BubbleContent>I have issued a new key and sent it to your account owner.</BubbleContent>
+            <BubbleContent>Swapped. The shop shows the new logo since 08:10.</BubbleContent>
           </Bubble>
         </MessageContent>
       </Message>

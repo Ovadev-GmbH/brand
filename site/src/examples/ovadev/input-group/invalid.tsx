@@ -11,7 +11,7 @@ import {
 export default function InputGroupInvalid() {
   return (
     <Field data-invalid className="w-72">
-      <FieldLabel htmlFor="input-group-invalid-limit">Monthly spend limit</FieldLabel>
+      <FieldLabel htmlFor="input-group-invalid-limit">Project budget</FieldLabel>
       <InputGroup>
         <InputGroupInput
           id="input-group-invalid-limit"

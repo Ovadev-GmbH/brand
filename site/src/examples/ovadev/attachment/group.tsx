@@ -9,16 +9,16 @@ import {
 import { FileArchiveIcon, FileSpreadsheetIcon, FileTextIcon } from "lucide-react";
 
 const files = [
-  { name: "INV-2026-0142.pdf", size: "84 KB", icon: FileTextIcon },
-  { name: "seats-2026-09.csv", size: "12 KB", icon: FileSpreadsheetIcon },
-  { name: "contract-bergwerk-ag.pdf", size: "1.2 MB", icon: FileTextIcon },
-  { name: "d-8f3a21c-logs.zip", size: "2.3 MB", icon: FileArchiveIcon },
-  { name: "usage-2026-08.csv", size: "48 KB", icon: FileSpreadsheetIcon },
+  { name: "quote-tuerlersee-2027.pdf", size: "84 KB", icon: FileTextIcon },
+  { name: "season-passes-2026.csv", size: "12 KB", icon: FileSpreadsheetIcon },
+  { name: "contract-gemeinde-cham.pdf", size: "1.2 MB", icon: FileTextIcon },
+  { name: "ovadev-press-kit-2026-09.zip", size: "12.4 MB", icon: FileArchiveIcon },
+  { name: "sales-2026-08.csv", size: "48 KB", icon: FileSpreadsheetIcon },
 ];
 
 export default function AttachmentGroupExample() {
   return (
-    <AttachmentGroup tabIndex={0} role="group" aria-label="Files on SUP-2291" className="w-full max-w-md">
+    <AttachmentGroup tabIndex={0} role="group" aria-label="Files on the Türlersee offer" className="w-full max-w-md">
       {files.map((file) => (
         <Attachment key={file.name} size="sm">
           <AttachmentMedia>

@@ -2,13 +2,13 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A panel that slides over the page from one edge, for a record's details or an edit where the list behind should stay in mind. For a short task in the middle of the screen, use [Dialog](/internal/dialog); for touch, [Drawer](/internal/drawer).",
+    "A panel that slides over the page from one edge, for a record's details or an edit where the list behind should stay in mind. For a short task in the middle of the screen, use [Dialog](/ovadev/dialog); for touch, [Drawer](/ovadev/drawer).",
   usage: `<Sheet>
-  <SheetTrigger render={<Button variant="outline" />}>Open invoice</SheetTrigger>
+  <SheetTrigger render={<Button variant="outline" />}>Open request</SheetTrigger>
   <SheetContent>
     <SheetHeader>
-      <SheetTitle>INV-2026-0142</SheetTitle>
-      <SheetDescription>Issued 2026-09-01 to acme-logistics.</SheetDescription>
+      <SheetTitle>Gemeinde Hausen</SheetTitle>
+      <SheetDescription>Received 2026-09-12 through the contact form.</SheetDescription>
     </SheetHeader>
   </SheetContent>
 </Sheet>`,

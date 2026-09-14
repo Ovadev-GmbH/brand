@@ -17,28 +17,28 @@ function formatDate(date?: Date) {
 }
 
 export default function CalendarPresets() {
-  const [due, setDue] = React.useState<Date | undefined>(addDays(issued, 30));
+  const [validUntil, setValidUntil] = React.useState<Date | undefined>(addDays(issued, 30));
   const [month, setMonth] = React.useState(addDays(issued, 30));
 
   function applyTerm(days: number) {
     const date = addDays(issued, days);
-    setDue(date);
+    setValidUntil(date);
     setMonth(date);
   }
 
   return (
     <div className="flex w-fit flex-col material-base">
-      <Calendar mode="single" weekStartsOn={1} selected={due} onSelect={setDue} month={month} onMonthChange={setMonth} />
+      <Calendar mode="single" weekStartsOn={1} selected={validUntil} onSelect={setValidUntil} month={month} onMonthChange={setMonth} />
       <div className="flex flex-col gap-3 border-t border-divider p-3">
         <div className="flex gap-2">
           {terms.map((days) => (
             <Button key={days} variant="outline" size="sm" className="flex-1" onClick={() => applyTerm(days)}>
-              Net {days}
+              {days} days
             </Button>
           ))}
         </div>
         <p className="m-0 text-label-13 text-content-secondary">
-          INV-2026-0142 due <span className="text-label-13-mono text-content-primary">{formatDate(due)}</span>
+          Quote Q-2026-031 valid until <span className="text-label-13-mono text-content-primary">{formatDate(validUntil)}</span>
         </p>
       </div>
     </div>

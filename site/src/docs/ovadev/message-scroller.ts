@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "The scrolling frame of a conversation. It opens at the latest message, keeps the reader in place while messages arrive or history loads above, and offers the way back to the end. For a list that only needs a scrollbar, use [Scroll Area](/internal/scroll-area).",
+    "The scrolling frame of a conversation. It opens at the latest message, keeps the reader in place while messages arrive or history loads above, and offers the way back to the end. For a list that only needs a scrollbar, use [Scroll Area](/ovadev/scroll-area).",
   usage: `<MessageScrollerProvider>
   <MessageScroller className="h-80">
     <MessageScrollerViewport>
@@ -51,7 +51,7 @@ export default {
     },
     {
       title: "Jump to a Message",
-      text: "`useMessageScroller` returns `scrollToMessage`, `scrollToStart` and `scrollToEnd`, for controls anywhere inside the provider, such as the invoices a conversation mentions.",
+      text: "`useMessageScroller` returns `scrollToMessage`, `scrollToStart` and `scrollToEnd`, for controls anywhere inside the provider, such as the pages a conversation mentions.",
       example: "jump-to-message",
     },
     {

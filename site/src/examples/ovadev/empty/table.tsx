@@ -14,34 +14,34 @@ import {
   TableRow,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const invoices = [
-  { id: "INV-2026-0142", due: "2026-09-30", amount: "1'240.00", overdue: false },
-  { id: "INV-2026-0131", due: "2026-08-31", amount: "1'240.00", overdue: false },
+const posts = [
+  { title: "Admission control at the turnstile", published: "2026-09-08", minutes: "6 min", german: false },
+  { title: "A season at Türlersee in numbers", published: "2026-08-24", minutes: "4 min", german: false },
 ];
 
 export default function EmptyInTable() {
-  const [overdueOnly, setOverdueOnly] = React.useState(true);
-  const rows = overdueOnly ? invoices.filter((i) => i.overdue) : invoices;
+  const [germanOnly, setGermanOnly] = React.useState(true);
+  const rows = germanOnly ? posts.filter((p) => p.german) : posts;
 
   return (
     <div className="flex w-full max-w-xl flex-col gap-2">
       <span className="text-label-13 text-content-secondary">
-        acme-logistics, {overdueOnly ? "overdue invoices" : "all invoices"}
+        Blog, {germanOnly ? "posts in German" : "all posts"}
       </span>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Invoice</TableHead>
-            <TableHead>Due</TableHead>
-            <TableHead className="text-right">CHF</TableHead>
+            <TableHead>Post</TableHead>
+            <TableHead>Published</TableHead>
+            <TableHead className="text-right">Reading time</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {rows.map((invoice) => (
-            <TableRow key={invoice.id}>
-              <TableCell className="text-label-13-mono">{invoice.id}</TableCell>
-              <TableCell className="text-label-13-mono text-content-secondary">{invoice.due}</TableCell>
-              <TableCell className="text-right text-label-13-mono">{invoice.amount}</TableCell>
+          {rows.map((post) => (
+            <TableRow key={post.title}>
+              <TableCell>{post.title}</TableCell>
+              <TableCell className="text-label-13-mono text-content-secondary">{post.published}</TableCell>
+              <TableCell className="text-right text-label-13-mono">{post.minutes}</TableCell>
             </TableRow>
           ))}
           {rows.length === 0 ? (
@@ -49,11 +49,11 @@ export default function EmptyInTable() {
               <TableCell colSpan={3} className="whitespace-normal">
                 <Empty>
                   <EmptyHeader>
-                    <EmptyTitle>No overdue invoices</EmptyTitle>
-                    <EmptyDescription>No invoice of acme-logistics is past its due date.</EmptyDescription>
+                    <EmptyTitle>No posts in German</EmptyTitle>
+                    <EmptyDescription>Every post on the blog is in English so far.</EmptyDescription>
                   </EmptyHeader>
                   <EmptyContent>
-                    <Button variant="outline" size="sm" onClick={() => setOverdueOnly(false)}>
+                    <Button variant="outline" size="sm" onClick={() => setGermanOnly(false)}>
                       Clear filter
                     </Button>
                   </EmptyContent>

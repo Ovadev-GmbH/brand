@@ -15,37 +15,37 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 export default function QuestionnaireConditional() {
-  const [method, setMethod] = React.useState("card");
+  const [method, setMethod] = React.useState("email");
 
   return (
     <Questionnaire className="w-full max-w-md" onSubmit={(event) => event.preventDefault()}>
       <QuestionnaireProgress />
       <QuestionnaireItem name="method" required>
-        <QuestionnaireTitle>How does helvetia-labs pay?</QuestionnaireTitle>
+        <QuestionnaireTitle>How should we reply?</QuestionnaireTitle>
         <QuestionnaireChoices>
-          <QuestionnaireChoice value="card" checked={method === "card"} onChange={() => setMethod("card")}>
-            Credit card, charged monthly
+          <QuestionnaireChoice value="email" checked={method === "email"} onChange={() => setMethod("email")}>
+            By e-mail, within a working day
           </QuestionnaireChoice>
-          <QuestionnaireChoice value="invoice" checked={method === "invoice"} onChange={() => setMethod("invoice")}>
-            Invoice, 30 days net
+          <QuestionnaireChoice value="call" checked={method === "call"} onChange={() => setMethod("call")}>
+            Phone call from Philip
           </QuestionnaireChoice>
         </QuestionnaireChoices>
-        <QuestionnaireError>Choose a payment method.</QuestionnaireError>
+        <QuestionnaireError>Choose how we reply.</QuestionnaireError>
       </QuestionnaireItem>
-      <QuestionnaireItem name="purchase-order" required disabled={method !== "invoice"}>
-        <QuestionnaireTitle>Which purchase order goes on the invoices?</QuestionnaireTitle>
-        <QuestionnaireInput aria-label="Purchase order number" placeholder="PO-2026-118" autoComplete="off" />
-        <QuestionnaireError>Invoices to helvetia-labs need a purchase order number.</QuestionnaireError>
+      <QuestionnaireItem name="phone" required disabled={method !== "call"}>
+        <QuestionnaireTitle>Which number should Philip call?</QuestionnaireTitle>
+        <QuestionnaireInput type="tel" aria-label="Phone number" placeholder="+41 41 000 00 00" autoComplete="off" />
+        <QuestionnaireError>A call needs a number.</QuestionnaireError>
       </QuestionnaireItem>
-      <QuestionnaireItem name="reminders" required>
-        <QuestionnaireTitle>Who receives payment reminders?</QuestionnaireTitle>
-        <QuestionnaireInput type="email" aria-label="Reminder e-mail" placeholder="billing@helvetia-labs.ch" />
-        <QuestionnaireError>Enter an e-mail address for reminders.</QuestionnaireError>
+      <QuestionnaireItem name="summary" required>
+        <QuestionnaireTitle>Where does the written summary go?</QuestionnaireTitle>
+        <QuestionnaireInput type="email" aria-label="E-mail for the summary" placeholder="gemeinde@hausen.ch" />
+        <QuestionnaireError>Enter an e-mail address for the summary.</QuestionnaireError>
       </QuestionnaireItem>
       <QuestionnaireActions>
         <QuestionnairePrevious />
         <QuestionnaireNext />
-        <QuestionnaireSubmit>Save billing</QuestionnaireSubmit>
+        <QuestionnaireSubmit>Send request</QuestionnaireSubmit>
       </QuestionnaireActions>
     </Questionnaire>
   );

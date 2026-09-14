@@ -1,9 +1,9 @@
 import { Progress, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@ovadev-gmbh/ui-ovadev";
 
-const exports = [
-  { tenant: "acme-logistics", done: 40_000, total: 40_000 },
-  { tenant: "bergwerk-ag", done: 12_480, total: 31_200 },
-  { tenant: "helvetia-labs", done: 0, total: 8_750 },
+const seasons = [
+  { pool: "Türlersee", sold: 40_000, capacity: 40_000 },
+  { pool: "Seebad Zug", sold: 12_480, capacity: 31_200 },
+  { pool: "Badi Baar", sold: 0, capacity: 8_750 },
 ];
 
 const int = new Intl.NumberFormat("de-CH");
@@ -14,20 +14,20 @@ export default function ProgressInTable() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Tenant</TableHead>
-            <TableHead className="w-40">Export</TableHead>
-            <TableHead className="text-right">Rows</TableHead>
+            <TableHead>Pool</TableHead>
+            <TableHead className="w-40">Season</TableHead>
+            <TableHead className="text-right">Tickets</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {exports.map((e) => (
-            <TableRow key={e.tenant}>
-              <TableCell>{e.tenant}</TableCell>
+          {seasons.map((s) => (
+            <TableRow key={s.pool}>
+              <TableCell>{s.pool}</TableCell>
               <TableCell>
-                <Progress value={e.done} max={e.total} aria-label={`Export of ${e.tenant}`} />
+                <Progress value={s.sold} max={s.capacity} aria-label={`Tickets sold at ${s.pool}`} />
               </TableCell>
               <TableCell className="text-right text-label-13-mono">
-                {int.format(e.done)} / {int.format(e.total)}
+                {int.format(s.sold)} / {int.format(s.capacity)}
               </TableCell>
             </TableRow>
           ))}

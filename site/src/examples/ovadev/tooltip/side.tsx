@@ -9,7 +9,7 @@ export default function TooltipSide() {
         {sides.map((side) => (
           <Tooltip key={side}>
             <TooltipTrigger render={<Button variant="outline" className="capitalize" />}>{side}</TooltipTrigger>
-            <TooltipContent side={side}>Last deployed 2026-09-13 14:02 CEST</TooltipContent>
+            <TooltipContent side={side}>Last published 2026-09-13 14:02 CEST</TooltipContent>
           </Tooltip>
         ))}
       </div>

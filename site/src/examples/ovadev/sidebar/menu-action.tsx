@@ -17,36 +17,36 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@ovadev-gmbh/ui-ovadev";
-import { EllipsisIcon, RocketIcon } from "lucide-react";
+import { EllipsisIcon, NewspaperIcon } from "lucide-react";
 
-const deployments = ["d-8f3a21c", "d-77b0e19", "d-5c2d4a8", "d-41e9f02"];
+const posts = ["season-2026-in-numbers", "why-a-till-of-our-own", "januna-kitchen-display", "hello-baar"];
 
 export default function SidebarMenuActionExample() {
-  const [active, setActive] = React.useState("d-8f3a21c");
+  const [active, setActive] = React.useState("season-2026-in-numbers");
 
   return (
     <SidebarProvider className="h-80 min-h-0 w-full max-w-2xl overflow-hidden border border-divider">
       <Sidebar collapsible="none" className="border-r border-divider">
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Deployments</SidebarGroupLabel>
+            <SidebarGroupLabel>Posts</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {deployments.map((id) => (
-                  <SidebarMenuItem key={id}>
-                    <SidebarMenuButton isActive={id === active} onClick={() => setActive(id)}>
-                      <RocketIcon />
-                      <span className="text-label-13-mono">{id}</span>
+                {posts.map((slug) => (
+                  <SidebarMenuItem key={slug}>
+                    <SidebarMenuButton isActive={slug === active} onClick={() => setActive(slug)}>
+                      <NewspaperIcon />
+                      <span className="text-label-13-mono">{slug}</span>
                     </SidebarMenuButton>
                     <DropdownMenu>
-                      <DropdownMenuTrigger render={<SidebarMenuAction showOnHover aria-label={`Actions for ${id}`} />}>
+                      <DropdownMenuTrigger render={<SidebarMenuAction showOnHover aria-label={`Actions for ${slug}`} />}>
                         <EllipsisIcon />
                       </DropdownMenuTrigger>
                       <DropdownMenuContent side="right" align="start" className="w-48">
-                        <DropdownMenuItem>Open logs</DropdownMenuItem>
-                        <DropdownMenuItem>Promote to production</DropdownMenuItem>
+                        <DropdownMenuItem>Open on ova.dev</DropdownMenuItem>
+                        <DropdownMenuItem>Publish</DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem variant="destructive">Roll back</DropdownMenuItem>
+                        <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </SidebarMenuItem>
@@ -57,7 +57,7 @@ export default function SidebarMenuActionExample() {
         </SidebarContent>
       </Sidebar>
       <SidebarInset className="p-4">
-        <h2 className="text-heading-16">Deployment {active}</h2>
+        <h2 className="text-heading-16">Post {active}</h2>
       </SidebarInset>
     </SidebarProvider>
   );

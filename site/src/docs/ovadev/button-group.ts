@@ -2,10 +2,10 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Buttons that act on the same thing, joined into one control: a split action, an input with its button, a set of row actions. For options that stay pressed, use [Toggle Group](/internal/toggle-group).",
-  usage: `<ButtonGroup aria-label="Invoice INV-2026-0142">
-  <Button variant="outline">Download PDF</Button>
-  <Button variant="outline">Send reminder</Button>
+    "Buttons that act on the same thing, joined into one control: a split action, an input with its button, a set of row actions. For options that stay pressed, use [Toggle Group](/ovadev/toggle-group).",
+  usage: `<ButtonGroup aria-label="Post: Season opening at Türlersee">
+  <Button variant="outline">Edit</Button>
+  <Button variant="outline">Preview</Button>
 </ButtonGroup>`,
   composition: `ButtonGroup
 ├── ButtonGroupText
@@ -36,7 +36,7 @@ export default {
     },
     {
       title: "Split",
-      text: "The action, a separator and an icon button that opens a `DropdownMenu` with the other targets. After a black button the separator turns light.",
+      text: "The action, a separator and an icon button that opens a `DropdownMenu` with the other targets. After a filled button the separator inverts with it.",
       example: "split",
     },
     {
@@ -46,12 +46,12 @@ export default {
     },
     {
       title: "Input",
-      text: "An `Input` in the group takes the free width; the buttons keep theirs. See [Input](/internal/input).",
+      text: "An `Input` in the group takes the free width; the buttons keep theirs. See [Input](/ovadev/input).",
       example: "input",
     },
     {
       title: "Select",
-      text: "A `SelectTrigger` in the group is as wide as its value unless it is given a width. See [Select](/internal/select).",
+      text: "A `SelectTrigger` in the group is as wide as its value unless it is given a width. See [Select](/ovadev/select).",
       example: "select",
     },
   ],

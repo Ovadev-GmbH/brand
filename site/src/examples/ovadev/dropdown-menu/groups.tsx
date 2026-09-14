@@ -12,19 +12,19 @@ import {
 export default function DropdownMenuGroups() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" />}>acme-logistics</DropdownMenuTrigger>
+      <DropdownMenuTrigger render={<Button variant="outline" />}>TICKETOVA</DropdownMenuTrigger>
       <DropdownMenuContent className="w-52">
         <DropdownMenuGroup>
-          <DropdownMenuLabel>Tenant</DropdownMenuLabel>
+          <DropdownMenuLabel>Product</DropdownMenuLabel>
           <DropdownMenuItem>Overview</DropdownMenuItem>
-          <DropdownMenuItem>Members</DropdownMenuItem>
-          <DropdownMenuItem>API keys</DropdownMenuItem>
+          <DropdownMenuItem>Shop</DropdownMenuItem>
+          <DropdownMenuItem>Admission control</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuLabel>Billing</DropdownMenuLabel>
-          <DropdownMenuItem>Invoices</DropdownMenuItem>
-          <DropdownMenuItem>Change plan</DropdownMenuItem>
+          <DropdownMenuLabel>Site</DropdownMenuLabel>
+          <DropdownMenuItem>Changelog</DropdownMenuItem>
+          <DropdownMenuItem>Request a quote</DropdownMenuItem>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

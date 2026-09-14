@@ -12,18 +12,18 @@ import {
 
 const events = Array.from({ length: 16 }, (_, i) => ({
   at: `2026-09-13 ${String(17 - Math.floor(i / 2)).padStart(2, "0")}:${String(58 - i * 3).padStart(2, "0")}`,
-  who: i % 3 === 0 ? "robin@ova.dev" : i % 3 === 1 ? "philip@ova.dev" : "system",
-  what: ["Rotated the publishable key", "Changed the plan to Scale", "Sent INV-2026-0142", "Added a billing contact"][i % 4],
+  who: i % 3 === 0 ? "robin@ova.dev" : i % 3 === 1 ? "philip@ova.dev" : "beni@ova.dev",
+  what: ["Replaced the team photo", "Changed the office address", "Published the September post", "Added the JANUNA teaser"][i % 4],
 }));
 
 export default function DialogStickyFooter() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>View audit log</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>View page history</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Audit log</DialogTitle>
-          <DialogDescription>Everything that changed on acme-logistics today.</DialogDescription>
+          <DialogTitle>Page history</DialogTitle>
+          <DialogDescription>Everything that changed on ova.dev today.</DialogDescription>
         </DialogHeader>
         <ul className="-mx-6 m-0 max-h-[50vh] list-none overflow-y-auto border-y border-divider p-0 px-6">
           {events.map((e) => (

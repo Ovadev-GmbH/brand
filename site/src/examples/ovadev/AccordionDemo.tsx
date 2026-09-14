@@ -7,25 +7,25 @@ import {
 
 export default function AccordionDemo() {
   return (
-    <Accordion defaultValue={["deployment"]} className="w-full max-w-md">
-      <AccordionItem value="deployment">
-        <AccordionTrigger>A deployment failed</AccordionTrigger>
+    <Accordion defaultValue={["entrance"]} className="w-full max-w-md">
+      <AccordionItem value="entrance">
+        <AccordionTrigger>Does TICKETOVA work with our turnstiles?</AccordionTrigger>
         <AccordionContent>
-          Open the build log from the deployment. If a migration failed, roll back to the last live
-          deployment before you retry.
+          The admission control reads the ticket code on any Android or iOS device. Turnstiles with a
+          serial or network interface are connected on request.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="quota">
-        <AccordionTrigger>A tenant hit its API quota</AccordionTrigger>
+      <AccordionItem value="januna">
+        <AccordionTrigger>When does JANUNA ship?</AccordionTrigger>
         <AccordionContent>
-          Requests return <span className="text-label-13-mono">429</span> until the window resets at{" "}
-          <span className="text-label-13-mono">00:00 UTC</span>. Raise the quota only once billing has agreed.
+          JANUNA runs at <span className="text-label-13-mono">2</span> restaurants near Zug. The public release is
+          planned for <span className="text-label-13-mono">2027</span>, before the summer season.
         </AccordionContent>
       </AccordionItem>
-      <AccordionItem value="invoices">
-        <AccordionTrigger>An invoice run stopped</AccordionTrigger>
+      <AccordionItem value="hosting">
+        <AccordionTrigger>Where is the data hosted?</AccordionTrigger>
         <AccordionContent>
-          Restart it from Billing. The run resumes after the last invoice it wrote, so no number is skipped.
+          In Switzerland, in two data centres. Ovadev GmbH is the data controller, and the contract is under Swiss law.
         </AccordionContent>
       </AccordionItem>
     </Accordion>

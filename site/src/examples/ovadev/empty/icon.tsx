@@ -7,20 +7,20 @@ import {
   EmptyMedia,
   EmptyTitle,
 } from "@ovadev-gmbh/ui-ovadev";
-import { RocketIcon } from "lucide-react";
+import { BriefcaseIcon } from "lucide-react";
 
 export default function EmptyIcon() {
   return (
     <Empty className="w-full max-w-md">
       <EmptyHeader>
         <EmptyMedia variant="icon">
-          <RocketIcon />
+          <BriefcaseIcon />
         </EmptyMedia>
-        <EmptyTitle>No deployments in eu-central-1</EmptyTitle>
-        <EmptyDescription>api-gateway has only been deployed to ch-zrh-1 so far.</EmptyDescription>
+        <EmptyTitle>No open positions</EmptyTitle>
+        <EmptyDescription>Ovadev is three people and is not hiring at the moment.</EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
-        <Button size="sm">Create deployment</Button>
+        <Button size="sm">Write to us anyway</Button>
       </EmptyContent>
     </Empty>
   );

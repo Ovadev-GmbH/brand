@@ -16,31 +16,31 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 import { ChevronDownIcon } from "lucide-react";
 
-const tenants = ["acme-logistics", "bergwerk-ag", "helvetia-labs"];
+const products = ["TICKETOVA", "JANUNA"];
 
 export default function BreadcrumbDropdown() {
-  const [tenant, setTenant] = React.useState("acme-logistics");
+  const [product, setProduct] = React.useState("TICKETOVA");
 
   return (
     <Breadcrumb>
       <BreadcrumbList>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#tenants">Tenants</BreadcrumbLink>
+          <BreadcrumbLink href="#products">Products</BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 outline-none hover:text-content-primary focus-visible:ring-1 focus-visible:ring-brand-bright">
-              {tenant}
+              {product}
               <ChevronDownIcon className="size-3.5" />
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuGroup>
-                <DropdownMenuLabel>Switch tenant</DropdownMenuLabel>
-                <DropdownMenuRadioGroup value={tenant} onValueChange={setTenant}>
-                  {tenants.map((t) => (
-                    <DropdownMenuRadioItem key={t} value={t}>
-                      {t}
+                <DropdownMenuLabel>Switch product</DropdownMenuLabel>
+                <DropdownMenuRadioGroup value={product} onValueChange={setProduct}>
+                  {products.map((p) => (
+                    <DropdownMenuRadioItem key={p} value={p}>
+                      {p}
                     </DropdownMenuRadioItem>
                   ))}
                 </DropdownMenuRadioGroup>
@@ -50,7 +50,7 @@ export default function BreadcrumbDropdown() {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>Invoices</BreadcrumbPage>
+          <BreadcrumbPage>Pricing</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

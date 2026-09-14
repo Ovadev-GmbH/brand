@@ -2,11 +2,13 @@
 
 When requirements compete, protect them in this order:
 
-1. Preserve the data, the words, the units, the states and the constraints you were given. An invoice of CHF 1'240.00 due 2026-10-01 is not "about twelve hundred, due next month".
-2. Preserve the host codebase: its framework, its routes, its data layer, and the Internal package as installed. Do not fork a component to restyle it; do not reach around the package for a raw element when a component exists.
-3. Make the operator's job immediately clear: what this screen lists or shows, what needs their decision, and what they can do about it.
-4. Be unmistakably Internal: the semantic colours, the type styles, the materials, the measure, Geist, Lucide.
-5. Compose for this screen. Reject the obvious template (a hero, a card grid, KPI tiles) unless the material earns it. In a tool, the material is usually a table.
+1. Preserve the data, the words, the units, the dates and the constraints you were given. A season pass at CHF 240.00 from 2027-05-01 is not "around 240 francs from May".
+2. Preserve the host codebase: its framework, its routes, its data layer, and the Ovadev package as installed. Do not fork a component to restyle it; do not reach around the package for a raw element when a component exists.
+3. Make the reader's path immediately clear: what this page is about, what it states, and what they can do next.
+4. Be unmistakably Ovadev: paper and ink, the one red block, the semantic colours, the type styles, the materials, the hard edges, Geist, Lucide.
+5. Compose for this screen. Reject the obvious template (a hero over a card grid, a row of icon tiles, a testimonial band) unless the material earns it. On an Ovadev page the material is usually a heading, a paragraph and a table.
 6. Refine responsive behaviour, interaction and detail without weakening the hierarchy above.
 
-Ask one grouped set of questions only when proceeding could change what a record, an amount, a permission or a deletion means. Otherwise design the missing state honestly (an empty state, a placeholder, a "not yet" note) and proceed.
+When two of the brand's own rules meet, the mark wins over the layout, the red block wins over every other emphasis, the ladder wins over a gap that merely looks even, the hairline wins over a heavier edge, and stillness wins over a transition that explains nothing.
+
+Ask one grouped set of questions only when proceeding could change what a price, a date, a legal line or a person's name means. Otherwise design the missing state honestly (an empty state, a placeholder, a "coming soon" note) and proceed.

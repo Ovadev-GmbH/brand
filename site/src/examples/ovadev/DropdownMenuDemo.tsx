@@ -13,18 +13,18 @@ import { EllipsisIcon } from "lucide-react";
 export default function DropdownMenuDemo() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="outline" size="icon" aria-label="Actions for key sk_live_…b21c" />}>
+      <DropdownMenuTrigger render={<Button variant="outline" size="icon" aria-label="Actions for the post 2026-09-14" />}>
         <EllipsisIcon />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-48">
         <DropdownMenuGroup>
-          <DropdownMenuLabel className="text-label-12-mono">sk_live_…b21c</DropdownMenuLabel>
-          <DropdownMenuItem>Copy key ID</DropdownMenuItem>
-          <DropdownMenuItem>Rename</DropdownMenuItem>
-          <DropdownMenuItem>Rotate</DropdownMenuItem>
+          <DropdownMenuLabel className="text-label-12-mono">2026-09-14</DropdownMenuLabel>
+          <DropdownMenuItem>Copy link</DropdownMenuItem>
+          <DropdownMenuItem>Edit</DropdownMenuItem>
+          <DropdownMenuItem>Unpublish</DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem variant="destructive">Revoke key</DropdownMenuItem>
+        <DropdownMenuItem variant="destructive">Delete post</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

@@ -2,18 +2,18 @@ import * as React from "react";
 import { Menubar, MenubarCheckboxItem, MenubarContent, MenubarMenu, MenubarTrigger } from "@ovadev-gmbh/ui-ovadev";
 
 const columns = [
-  { key: "plan", label: "Plan" },
-  { key: "region", label: "Region" },
-  { key: "seats", label: "Seats" },
-  { key: "mrr", label: "MRR (CHF)" },
+  { key: "author", label: "Author" },
+  { key: "language", label: "Language" },
+  { key: "reading", label: "Reading time" },
+  { key: "published", label: "Published" },
 ];
 
 export default function MenubarCheckbox() {
   const [visible, setVisible] = React.useState<Record<string, boolean>>({
-    plan: true,
-    region: false,
-    seats: true,
-    mrr: true,
+    author: true,
+    language: false,
+    reading: true,
+    published: true,
   });
 
   return (

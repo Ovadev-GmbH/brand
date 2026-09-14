@@ -16,9 +16,9 @@ function ErrorPage({ className, ...props }: React.ComponentProps<"main">) {
   );
 }
 
-/* The status code, as the system prints it: mono, tertiary. */
+/* The status code as a meta line: caps mono at wide tracking, tertiary. */
 function ErrorPageCode({ className, ...props }: React.ComponentProps<"p">) {
-  return <p data-slot="error-page-code" className={cn("text-label-13-mono text-content-tertiary", className)} {...props} />;
+  return <p data-slot="error-page-code" className={cn("text-label-11-caps-mono text-content-tertiary", className)} {...props} />;
 }
 
 function ErrorPageTitle({ className, ...props }: React.ComponentProps<"h1">) {

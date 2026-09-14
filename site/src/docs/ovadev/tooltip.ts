@@ -2,12 +2,12 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A short label for a control that has none of its own, or the exact value behind a shortened one: an icon button's name, a relative time's timestamp. For anything longer, or anything to click, use [Popover](/internal/popover).",
+    "A short label for a control that has none of its own, or the exact value behind a shortened one: an icon button's name, a relative time's timestamp. For anything longer, or anything to click, use [Popover](/ovadev/popover).",
   usage: `<Tooltip>
-  <TooltipTrigger render={<Button variant="outline" size="icon" aria-label="Redeploy" />}>
+  <TooltipTrigger render={<Button variant="outline" size="icon" aria-label="Refresh" />}>
     <RefreshCwIcon />
   </TooltipTrigger>
-  <TooltipContent>Redeploy</TooltipContent>
+  <TooltipContent>Refresh</TooltipContent>
 </Tooltip>`,
   composition: `TooltipProvider
 └── Tooltip
@@ -28,7 +28,7 @@ export default {
     },
     {
       title: "Keyboard Shortcut",
-      text: "A `Kbd` inside the content names the key that does the same thing, and turns light on the black.",
+      text: "A `Kbd` inside the content names the key that does the same thing, and inverts on the ink.",
       example: "keyboard-shortcut",
     },
     {
@@ -50,7 +50,7 @@ export default {
     },
     {
       name: "TooltipContent",
-      text: "The tooltip, black with white text and an arrow toward the trigger, with its portal and positioner. Takes Base UI's Popup props.",
+      text: "The tooltip, ink with paper text and an arrow toward the trigger, with its portal and positioner. Takes Base UI's Popup props.",
       props: [
         ["side", `"top" | "bottom" | "left" | "right" | "inline-start" | "inline-end"`, `"top"`],
         ["sideOffset", "number", "4"],

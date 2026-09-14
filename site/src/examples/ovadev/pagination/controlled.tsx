@@ -54,7 +54,7 @@ export default function PaginationControlled() {
         </PaginationContent>
       </Pagination>
       <span className="text-label-13 text-content-secondary">
-        Deployments, page <span className="text-label-13-mono">{page}</span> of{" "}
+        Blog posts, page <span className="text-label-13-mono">{page}</span> of{" "}
         <span className="text-label-13-mono">{pageCount}</span>
       </span>
     </div>

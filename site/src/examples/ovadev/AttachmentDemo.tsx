@@ -18,11 +18,11 @@ export default function AttachmentDemo() {
           <FileTextIcon />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>INV-2026-0142.pdf</AttachmentTitle>
+          <AttachmentTitle>quote-tuerlersee-2027.pdf</AttachmentTitle>
           <AttachmentDescription className="text-label-12-mono">84 KB</AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Remove INV-2026-0142.pdf">
+          <AttachmentAction aria-label="Remove quote-tuerlersee-2027.pdf">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>
@@ -32,13 +32,13 @@ export default function AttachmentDemo() {
           <Spinner />
         </AttachmentMedia>
         <AttachmentContent>
-          <AttachmentTitle>audit-log-2026-09.csv</AttachmentTitle>
+          <AttachmentTitle>tuerlersee-opening-2026.jpg</AttachmentTitle>
           <AttachmentDescription>
             Uploading, <span className="text-label-12-mono">64%</span>
           </AttachmentDescription>
         </AttachmentContent>
         <AttachmentActions>
-          <AttachmentAction aria-label="Cancel upload of audit-log-2026-09.csv">
+          <AttachmentAction aria-label="Cancel upload of tuerlersee-opening-2026.jpg">
             <XIcon />
           </AttachmentAction>
         </AttachmentActions>

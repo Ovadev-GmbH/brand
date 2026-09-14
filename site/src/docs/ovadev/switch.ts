@@ -2,10 +2,10 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Turns one setting on or off, and the change applies at once: maintenance mode, auto-deploy, dunning e-mails. When the choice only counts after a Save, use [Checkbox](/internal/checkbox).",
+    "Turns one setting on or off, and the change applies at once: maintenance mode, the blog, the newsletter. When the choice only counts after a Save, use [Checkbox](/ovadev/checkbox).",
   usage: `<div className="flex items-center gap-3">
-  <Switch id="auto-deploy" />
-  <Label htmlFor="auto-deploy">Auto-deploy main</Label>
+  <Switch id="publish-blog" />
+  <Label htmlFor="publish-blog">Publish blog</Label>
 </div>`,
   sections: [
     {

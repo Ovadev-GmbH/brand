@@ -2,12 +2,12 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "One entry in a conversation: who wrote it, what they wrote and when. It places the avatar, a header, the content and a footer on the sender's side; the content is usually a [Bubble](/internal/bubble).",
+    "One entry in a conversation: who wrote it, what they wrote and when. It places the avatar, a header, the content and a footer on the sender's side; the content is usually a [Bubble](/ovadev/bubble).",
   usage: `<Message>
   <MessageContent>
-    <MessageHeader>Anna Roth, acme-logistics</MessageHeader>
+    <MessageHeader>Anna Roth, Gemeinde Hausen</MessageHeader>
     <Bubble variant="muted">
-      <BubbleContent>Invoice INV-2026-0142 lists 14 seats.</BubbleContent>
+      <BubbleContent>Does TICKETOVA handle season passes for the lake?</BubbleContent>
     </Bubble>
   </MessageContent>
 </Message>`,
@@ -51,7 +51,7 @@ export default {
     },
     {
       title: "Attachment",
-      text: "An [Attachment](/internal/attachment) goes in `MessageContent` next to the bubble and keeps to the row's side.",
+      text: "An [Attachment](/ovadev/attachment) goes in `MessageContent` next to the bubble and keeps to the row's side.",
       example: "attachment",
     },
   ],

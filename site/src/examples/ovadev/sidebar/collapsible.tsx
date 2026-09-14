@@ -13,18 +13,18 @@ import {
   SidebarRail,
   SidebarTrigger,
 } from "@ovadev-gmbh/ui-ovadev";
-import { Building2Icon, KeyIcon, ReceiptIcon, RocketIcon, ScrollTextIcon } from "lucide-react";
+import { HouseIcon, MailIcon, NewspaperIcon, PaletteIcon, UsersIcon } from "lucide-react";
 
 const pages = [
-  { title: "Tenants", icon: Building2Icon },
-  { title: "Invoices", icon: ReceiptIcon },
-  { title: "Deployments", icon: RocketIcon },
-  { title: "API keys", icon: KeyIcon },
-  { title: "Audit log", icon: ScrollTextIcon },
+  { title: "Home", icon: HouseIcon },
+  { title: "About us", icon: UsersIcon },
+  { title: "Blog", icon: NewspaperIcon },
+  { title: "Contact", icon: MailIcon },
+  { title: "Brand", icon: PaletteIcon },
 ];
 
 export default function SidebarCollapsible() {
-  const [active, setActive] = React.useState("Deployments");
+  const [active, setActive] = React.useState("Blog");
 
   return (
     // The sidebar is fixed to the viewport by default; absolute keeps it in this box.
@@ -32,7 +32,7 @@ export default function SidebarCollapsible() {
       <Sidebar collapsible="icon" className="absolute h-full">
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Operations</SidebarGroupLabel>
+            <SidebarGroupLabel>ova.dev</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {pages.map((page) => (

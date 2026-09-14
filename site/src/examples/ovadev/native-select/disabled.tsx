@@ -3,17 +3,17 @@ import { NativeSelect, NativeSelectOption } from "@ovadev-gmbh/ui-ovadev";
 export default function NativeSelectDisabled() {
   return (
     <div className="flex items-center gap-3">
-      <NativeSelect defaultValue="team" disabled aria-label="Plan, locked">
+      <NativeSelect defaultValue="season" disabled aria-label="Plan, locked">
         <NativeSelectOption value="starter">Starter</NativeSelectOption>
-        <NativeSelectOption value="team">Team</NativeSelectOption>
-        <NativeSelectOption value="scale">Scale</NativeSelectOption>
+        <NativeSelectOption value="season">Season</NativeSelectOption>
+        <NativeSelectOption value="venue">Venue</NativeSelectOption>
       </NativeSelect>
-      <NativeSelect defaultValue="team" aria-label="Plan">
+      <NativeSelect defaultValue="season" aria-label="Plan">
         <NativeSelectOption value="starter" disabled>
-          Starter (up to 5 seats)
+          Starter (one point of sale)
         </NativeSelectOption>
-        <NativeSelectOption value="team">Team</NativeSelectOption>
-        <NativeSelectOption value="scale">Scale</NativeSelectOption>
+        <NativeSelectOption value="season">Season</NativeSelectOption>
+        <NativeSelectOption value="venue">Venue</NativeSelectOption>
       </NativeSelect>
     </div>
   );

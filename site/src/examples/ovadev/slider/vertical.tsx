@@ -1,9 +1,9 @@
 import { Slider } from "@ovadev-gmbh/ui-ovadev";
 
 const thresholds = [
-  { id: "cpu", label: "CPU", value: 70 },
-  { id: "memory", label: "Memory", value: 85 },
-  { id: "disk", label: "Disk", value: 90 },
+  { id: "pool", label: "Pool", value: 70 },
+  { id: "sauna", label: "Sauna", value: 85 },
+  { id: "carpark", label: "Car park", value: 90 },
 ];
 
 export default function SliderVertical() {

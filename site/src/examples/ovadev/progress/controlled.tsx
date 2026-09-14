@@ -16,7 +16,7 @@ export default function ProgressControlled() {
   return (
     <div className="flex w-full max-w-sm flex-col gap-3">
       <Progress value={value}>
-        <ProgressLabel>{done ? "Audit log exported" : "Audit log export, August 2026"}</ProgressLabel>
+        <ProgressLabel>{done ? "Season report exported" : "Season report, summer 2026"}</ProgressLabel>
         <ProgressValue />
       </Progress>
       <Button
@@ -29,7 +29,7 @@ export default function ProgressControlled() {
           setStarted(true);
         }}
       >
-        {done ? "Export again" : "Export audit log"}
+        {done ? "Export again" : "Export season report"}
       </Button>
     </div>
   );

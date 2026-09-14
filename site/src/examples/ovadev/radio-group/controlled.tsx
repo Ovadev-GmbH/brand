@@ -21,7 +21,7 @@ export default function RadioGroupControlled() {
         ))}
       </RadioGroup>
       <div className="flex items-baseline justify-between border-t border-divider pt-3">
-        <span className="text-label-13 text-content-secondary">Team plan, {current?.per}</span>
+        <span className="text-label-13 text-content-secondary">TICKETOVA Season plan, {current?.per}</span>
         <span className="text-label-13-mono">{current?.amount}</span>
       </div>
     </div>

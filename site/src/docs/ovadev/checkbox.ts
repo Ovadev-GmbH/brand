@@ -2,9 +2,9 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "One setting that is on or off, or one row picked from many. For a setting that takes effect the moment it changes, use [Switch](/internal/switch).",
-  usage: `<Checkbox id="send-reminders" />
-<Label htmlFor="send-reminders">Send payment reminders</Label>`,
+    "One setting that is on or off, or one row picked from many. For a setting that takes effect the moment it changes, use [Switch](/ovadev/switch).",
+  usage: `<Checkbox id="newsletter" />
+<Label htmlFor="newsletter">Send me the newsletter</Label>`,
   sections: [
     {
       title: "Description",

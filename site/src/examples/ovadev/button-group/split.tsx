@@ -12,15 +12,15 @@ import { ChevronDownIcon } from "lucide-react";
 export default function ButtonGroupSplit() {
   return (
     <ButtonGroup>
-      <Button>Deploy to staging</Button>
+      <Button>Publish in English</Button>
       <ButtonGroupSeparator />
       <DropdownMenu>
-        <DropdownMenuTrigger render={<Button size="icon" aria-label="Other deploy targets" />}>
+        <DropdownMenuTrigger render={<Button size="icon" aria-label="Other languages" />}>
           <ChevronDownIcon />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
-          <DropdownMenuItem>Deploy to preview</DropdownMenuItem>
-          <DropdownMenuItem>Deploy to production</DropdownMenuItem>
+          <DropdownMenuItem>Publish in German</DropdownMenuItem>
+          <DropdownMenuItem>Publish in both</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </ButtonGroup>

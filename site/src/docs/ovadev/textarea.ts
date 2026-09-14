@@ -2,8 +2,8 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "Several lines of text: a note on an invoice, the reason for a refund, an incident summary. For a single line, use [Input](/internal/input).",
-  usage: `<Textarea placeholder="Reason for the credit note" />`,
+    "Several lines of text: a message on the contact form, a post's summary, a job description. For a single line, use [Input](/ovadev/input).",
+  usage: `<Textarea placeholder="Your message" />`,
   sections: [
     {
       title: "Field",

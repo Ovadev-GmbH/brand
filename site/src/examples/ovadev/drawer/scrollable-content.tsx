@@ -11,35 +11,35 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const lines = [
-  "Cloning ovadev/acme-logistics at 4f2c9e1",
-  "Restoring build cache, 412 MB",
-  "Installing 1'284 packages",
-  "Running 3 database migrations",
-  "Building server bundle",
-  "Building client bundle",
-  ...Array.from({ length: 12 }, (_, i) => `Uploaded assets/chunk-${String(i + 1).padStart(2, "0")}.js`),
-  "Starting 3 replicas in ch-zrh-1",
-  "Replica 1 passed its health check",
-  "Replica 2 passed its health check",
-  "Replica 3 passed its health check",
-  "Moving traffic to dpl_8a4f",
-  "Draining dpl_7c21",
-  "Deployment ready",
+  "Rendering the September issue in DE and EN",
+  "Inlining 4 images, 312 KB",
+  "Personalising 1'204 e-mails",
+  "Checking 1'204 addresses against the unsubscribe list",
+  "Signing with DKIM for ova.dev",
+  "Opening 3 connections to the mail provider",
+  ...Array.from({ length: 12 }, (_, i) => `Sent batch ${String(i + 1).padStart(2, "0")} of 12, 100 e-mails`),
+  "Sent 1'204 e-mails",
+  "Delivered 1'198",
+  "Bounced 6, addresses marked",
+  "Recording the send in the archive",
+  "Updating the newsletter page on ova.dev",
+  "Closing connections",
+  "Issue sent",
 ];
 
 export default function DrawerScrollableContent() {
   return (
     <Drawer>
-      <DrawerTrigger render={<Button variant="outline" />}>Show build log</DrawerTrigger>
+      <DrawerTrigger render={<Button variant="outline" />}>Show send log</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Build log</DrawerTitle>
-          <DrawerDescription>dpl_8a4f for acme-logistics, 2026-09-13.</DrawerDescription>
+          <DrawerTitle>Send log</DrawerTitle>
+          <DrawerDescription>The September issue, 2026-09-13.</DrawerDescription>
         </DrawerHeader>
         <ol className="m-0 my-4 min-h-0 flex-1 list-none overflow-y-auto border-y border-divider px-4 py-2">
           {lines.map((line, i) => (
             <li key={line} className="flex gap-3 py-0.5 text-label-12-mono">
-              <span className="text-content-tertiary">09:12:{String(i * 2).padStart(2, "0")}</span>
+              <span className="text-content-tertiary">08:00:{String(i * 2).padStart(2, "0")}</span>
               <span>{line}</span>
             </li>
           ))}

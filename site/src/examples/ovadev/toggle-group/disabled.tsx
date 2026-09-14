@@ -3,17 +3,17 @@ import { ToggleGroup, ToggleGroupItem } from "@ovadev-gmbh/ui-ovadev";
 export default function ToggleGroupDisabled() {
   return (
     <div className="flex flex-col items-start gap-4">
-      <ToggleGroup variant="outline" disabled defaultValue={["team"]} aria-label="Plan">
-        <ToggleGroupItem value="starter">Starter</ToggleGroupItem>
-        <ToggleGroupItem value="team">Team</ToggleGroupItem>
-        <ToggleGroupItem value="scale">Scale</ToggleGroupItem>
+      <ToggleGroup variant="outline" disabled defaultValue={["ticketova"]} aria-label="Product">
+        <ToggleGroupItem value="ticketova">TICKETOVA</ToggleGroupItem>
+        <ToggleGroupItem value="januna">JANUNA</ToggleGroupItem>
+        <ToggleGroupItem value="consulting">Consulting</ToggleGroupItem>
       </ToggleGroup>
-      <ToggleGroup variant="outline" defaultValue={["ch-zrh-1"]} aria-label="Region">
-        <ToggleGroupItem value="ch-zrh-1" className="text-label-13-mono">
-          ch-zrh-1
+      <ToggleGroup variant="outline" defaultValue={["ova.dev"]} aria-label="Domain">
+        <ToggleGroupItem value="ova.dev" className="text-label-13-mono">
+          ova.dev
         </ToggleGroupItem>
-        <ToggleGroupItem value="eu-central-1" className="text-label-13-mono" disabled>
-          eu-central-1
+        <ToggleGroupItem value="ovadev.ch" className="text-label-13-mono" disabled>
+          ovadev.ch
         </ToggleGroupItem>
       </ToggleGroup>
     </div>

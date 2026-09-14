@@ -1,29 +1,29 @@
 import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@ovadev-gmbh/ui-ovadev";
-import { ActivityIcon, CopyIcon, KeyRoundIcon, PencilIcon, RotateCwIcon } from "lucide-react";
+import { BarChart3Icon, CopyIcon, FileTextIcon, LanguagesIcon, PencilIcon } from "lucide-react";
 
 export default function DropdownMenuIcons() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger render={<Button variant="outline" />}>
-        <KeyRoundIcon data-icon="inline-start" />
-        Checkout backend
+        <FileTextIcon data-icon="inline-start" />
+        Pool season 2026
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-52">
         <DropdownMenuItem>
           <CopyIcon />
-          Copy key ID
+          Copy link
         </DropdownMenuItem>
         <DropdownMenuItem>
           <PencilIcon />
-          Rename
+          Edit
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <RotateCwIcon />
-          Rotate
+          <LanguagesIcon />
+          Translate
         </DropdownMenuItem>
         <DropdownMenuItem>
-          <ActivityIcon />
-          View usage
+          <BarChart3Icon />
+          View readers
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

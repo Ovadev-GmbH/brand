@@ -15,14 +15,14 @@ export default function KbdIcon() {
             <span className="sr-only">Down arrow</span>
           </Kbd>
         </KbdGroup>
-        Move between invoices
+        Move between posts
       </span>
       <span className="flex items-center gap-2">
         <Kbd>
           <CornerDownLeftIcon />
           <span className="sr-only">Enter</span>
         </Kbd>
-        Open invoice
+        Open post
       </span>
     </div>
   );

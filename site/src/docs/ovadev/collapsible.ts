@@ -2,10 +2,10 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A section that opens and closes under its own trigger: the older runs of a pipeline, the advanced options of a form. For a stack of sections whose headings list what is inside, use [Accordion](/internal/accordion).",
+    "A section that opens and closes under its own trigger: the older posts of a year on the blog, the advanced options of a form. For a stack of sections whose headings list what is inside, use [Accordion](/ovadev/accordion).",
   usage: `<Collapsible>
   <CollapsibleTrigger render={<Button variant="ghost" size="sm" />}>Advanced options</CollapsibleTrigger>
-  <CollapsibleContent>Rate limit, allowed IP ranges and expiry.</CollapsibleContent>
+  <CollapsibleContent>Canonical URL, meta description and the social image.</CollapsibleContent>
 </Collapsible>`,
   composition: `Collapsible
 ├── CollapsibleTrigger
@@ -18,7 +18,7 @@ export default {
     },
     {
       title: "Open by Default",
-      text: "`defaultOpen` on `Collapsible` starts it open, for the detail someone came to read, like the steps of a deployment that failed.",
+      text: "`defaultOpen` on `Collapsible` starts it open, for the detail someone came to read, like the reason a contact request bounced.",
       example: "default-open",
     },
     {
@@ -28,12 +28,12 @@ export default {
     },
     {
       title: "Nested",
-      text: "A `Collapsible` inside another's content, for records that group: an environment's services, each with its instances.",
+      text: "A `Collapsible` inside another's content, for records that group: a product's pages, each in its languages.",
       example: "nested",
     },
     {
       title: "Disabled",
-      text: "`disabled` on `Collapsible` keeps it shut and its trigger inert, for content that does not exist yet, such as the logs of a queued build.",
+      text: "`disabled` on `Collapsible` keeps it shut and its trigger inert, for content that does not exist yet, such as the reads of a post not yet published.",
       example: "disabled",
     },
     {

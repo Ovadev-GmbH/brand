@@ -11,20 +11,20 @@ import {
   TabsTrigger,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const deployments = [
-  { id: "4f8c2a9", service: "api-gateway", region: "ch-zrh-1", duration: "2m 14s", live: true },
-  { id: "b31e07d", service: "billing-worker", region: "ch-zrh-1", duration: "1m 52s", live: true },
-  { id: "9d02c5f", service: "tenant-sync", region: "eu-central-1", duration: "0m 41s", live: false },
+const devices = [
+  { id: "gate-01", venue: "Strandbad Türlersee", place: "Hausen am Albis", lastSeen: "14:02:11", online: true },
+  { id: "gate-02", venue: "Strandbad Türlersee", place: "Hausen am Albis", lastSeen: "14:01:58", online: true },
+  { id: "kiosk-01", venue: "Hallenbad Baar", place: "Baar", lastSeen: "2026-09-11", online: false },
 ];
 
 const tabs = [
-  { value: "live", label: "Live", rows: deployments.filter((d) => d.live) },
-  { value: "failed", label: "Failed", rows: deployments.filter((d) => !d.live) },
+  { value: "online", label: "Online", rows: devices.filter((d) => d.online) },
+  { value: "offline", label: "Offline", rows: devices.filter((d) => !d.online) },
 ];
 
 export default function TabsWithTable() {
   return (
-    <Tabs defaultValue="live" className="w-full max-w-xl">
+    <Tabs defaultValue="online" className="w-full max-w-xl">
       <TabsList>
         {tabs.map((tab) => (
           <TabsTrigger key={tab.value} value={tab.value}>
@@ -37,23 +37,23 @@ export default function TabsWithTable() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Deployment</TableHead>
-                <TableHead>Service</TableHead>
-                <TableHead>Region</TableHead>
+                <TableHead>Device</TableHead>
+                <TableHead>Venue</TableHead>
+                <TableHead>Place</TableHead>
                 <TableHead>Status</TableHead>
-                <TableHead className="text-right">Build time</TableHead>
+                <TableHead className="text-right">Last seen</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {tab.rows.map((d) => (
                 <TableRow key={d.id}>
                   <TableCell className="text-label-13-mono">{d.id}</TableCell>
-                  <TableCell>{d.service}</TableCell>
-                  <TableCell className="text-label-13-mono text-content-secondary">{d.region}</TableCell>
-                  <TableCell className={d.live ? "text-status-success" : "text-status-danger"}>
-                    {d.live ? "Live" : "Failed"}
+                  <TableCell>{d.venue}</TableCell>
+                  <TableCell className="text-label-13-mono text-content-secondary">{d.place}</TableCell>
+                  <TableCell className={d.online ? "text-status-success" : "text-status-danger"}>
+                    {d.online ? "Online" : "Offline"}
                   </TableCell>
-                  <TableCell className="text-right text-label-13-mono">{d.duration}</TableCell>
+                  <TableCell className="text-right text-label-13-mono">{d.lastSeen}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

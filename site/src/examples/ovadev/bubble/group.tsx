@@ -5,15 +5,15 @@ export default function BubbleGroupExample() {
     <div className="flex w-full max-w-md flex-col gap-4">
       <BubbleGroup>
         <Bubble variant="muted">
-          <BubbleContent>The export for August is empty.</BubbleContent>
+          <BubbleContent>The sales export for August is empty.</BubbleContent>
         </Bubble>
         <Bubble variant="muted">
-          <BubbleContent>Tenant helvetia-labs, report usage-2026-08.</BubbleContent>
+          <BubbleContent>Strandbad Türlersee, report sales-2026-08.</BubbleContent>
         </Bubble>
       </BubbleGroup>
       <BubbleGroup>
         <Bubble align="end">
-          <BubbleContent>The job ran before the last usage sync.</BubbleContent>
+          <BubbleContent>The export ran before the last till sync.</BubbleContent>
         </Bubble>
         <Bubble align="end">
           <BubbleContent>I have started it again.</BubbleContent>

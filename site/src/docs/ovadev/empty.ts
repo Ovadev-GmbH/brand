@@ -5,11 +5,11 @@ export default {
     "What a view shows when it has nothing to show: it says what is empty and offers the one action that fills it. No illustration.",
   usage: `<Empty>
   <EmptyHeader>
-    <EmptyTitle>No invoices</EmptyTitle>
-    <EmptyDescription>acme-logistics has not been billed yet.</EmptyDescription>
+    <EmptyTitle>No posts</EmptyTitle>
+    <EmptyDescription>The blog has nothing published yet.</EmptyDescription>
   </EmptyHeader>
   <EmptyContent>
-    <Button size="sm">Create invoice</Button>
+    <Button size="sm">Write a post</Button>
   </EmptyContent>
 </Empty>`,
   composition: `Empty

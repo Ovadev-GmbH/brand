@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A month grid for picking a date or a stretch of dates: an invoice's due date, a reporting period, a maintenance day. Behind a button in a [Popover](/internal/popover), it is a date picker.",
+    "A month grid for picking a date or a stretch of dates: a post's publish date, a reporting period, a maintenance day. Behind a button in a [Popover](/ovadev/popover), it is a date picker.",
   usage: `const [date, setDate] = React.useState<Date | undefined>(new Date());
 
 <Calendar mode="single" selected={date} onSelect={setDate} />`,
@@ -34,7 +34,7 @@ export default {
     },
     {
       title: "Date Picker",
-      text: "A `Popover` whose trigger shows the chosen date, closed from `onSelect`. See [Popover](/internal/popover).",
+      text: "A `Popover` whose trigger shows the chosen date, closed from `onSelect`. See [Popover](/ovadev/popover).",
       example: "date-picker",
     },
     {

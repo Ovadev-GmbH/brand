@@ -17,7 +17,7 @@ export default function DialogNoCloseButton() {
       <DialogContent showCloseButton={false}>
         <DialogHeader>
           <DialogTitle>Your session has expired</DialogTitle>
-          <DialogDescription>Sign in again to keep working. Unsaved changes on this page are kept.</DialogDescription>
+          <DialogDescription>Sign in again to keep editing. Unsaved changes to the post are kept.</DialogDescription>
         </DialogHeader>
         <DialogFooter>
           <DialogClose render={<Button />}>Sign in again</DialogClose>

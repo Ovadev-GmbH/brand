@@ -6,20 +6,20 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 import { ChevronsUpDownIcon } from "lucide-react";
 
-type Deployment = { id: string; result: string; duration: string };
+type Release = { version: string; note: string; date: string };
 
-const latest: Deployment = { id: "4f8c2a9", result: "Live", duration: "2m 14s" };
-const older: Deployment[] = [
-  { id: "b31e07d", result: "Replaced", duration: "2m 09s" },
-  { id: "9d02c5f", result: "Rolled back", duration: "3m 41s" },
+const latest: Release = { version: "2026.9", note: "Current", date: "2026-09-08" };
+const older: Release[] = [
+  { version: "2026.8", note: "Replaced", date: "2026-08-11" },
+  { version: "2026.7", note: "Replaced", date: "2026-07-06" },
 ];
 
-function Run({ run }: { run: Deployment }) {
+function Run({ run }: { run: Release }) {
   return (
     <div className="material-base flex items-center gap-3 px-3 py-2 text-label-13">
-      <span className="text-label-13-mono">{run.id}</span>
-      <span className="flex-1 text-content-secondary">{run.result}</span>
-      <span className="text-label-13-mono text-content-secondary">{run.duration}</span>
+      <span className="text-label-13-mono">{run.version}</span>
+      <span className="flex-1 text-content-secondary">{run.note}</span>
+      <span className="text-label-13-mono text-content-secondary">{run.date}</span>
     </div>
   );
 }
@@ -28,15 +28,15 @@ export default function CollapsibleDemo() {
   return (
     <Collapsible className="flex w-full max-w-sm flex-col gap-2">
       <div className="flex items-center justify-between gap-4">
-        <span className="text-heading-14">api-gateway deployments</span>
-        <CollapsibleTrigger render={<Button variant="ghost" size="icon-sm" aria-label="Show older deployments" />}>
+        <span className="text-heading-14">TICKETOVA releases</span>
+        <CollapsibleTrigger render={<Button variant="ghost" size="icon-sm" aria-label="Show older releases" />}>
           <ChevronsUpDownIcon />
         </CollapsibleTrigger>
       </div>
       <Run run={latest} />
       <CollapsibleContent className="flex flex-col gap-2">
         {older.map((run) => (
-          <Run key={run.id} run={run} />
+          <Run key={run.version} run={run} />
         ))}
       </CollapsibleContent>
     </Collapsible>

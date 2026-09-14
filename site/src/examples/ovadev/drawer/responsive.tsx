@@ -44,14 +44,14 @@ function InviteForm({ onDone }: { onDone: () => void }) {
       <FieldGroup>
         <Field>
           <FieldLabel htmlFor="drawer-responsive-email">E-mail</FieldLabel>
-          <Input id="drawer-responsive-email" type="email" placeholder="lena@ova.dev" required />
+          <Input id="drawer-responsive-email" type="email" placeholder="beni@ova.dev" required />
         </Field>
         <Field>
           <FieldLabel htmlFor="drawer-responsive-role">Role</FieldLabel>
-          <NativeSelect id="drawer-responsive-role" className="w-full" defaultValue="support">
-            <NativeSelectOption value="admin">Admin</NativeSelectOption>
-            <NativeSelectOption value="support">Support</NativeSelectOption>
-            <NativeSelectOption value="billing">Billing</NativeSelectOption>
+          <NativeSelect id="drawer-responsive-role" className="w-full" defaultValue="author">
+            <NativeSelectOption value="editor">Editor</NativeSelectOption>
+            <NativeSelectOption value="author">Author</NativeSelectOption>
+            <NativeSelectOption value="reviewer">Reviewer</NativeSelectOption>
           </NativeSelect>
         </Field>
       </FieldGroup>
@@ -63,13 +63,13 @@ function InviteForm({ onDone }: { onDone: () => void }) {
 export default function DrawerResponsive() {
   const [open, setOpen] = React.useState(false);
   const desktop = useMediaQuery("(min-width: 768px)");
-  const title = "Invite a team member";
-  const description = "They get an e-mail with a link that works for 7 days.";
+  const title = "Invite an author";
+  const description = "They get an e-mail with a link to the blog editor that works for 7 days.";
 
   if (desktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger render={<Button variant="outline" />}>Invite member</DialogTrigger>
+        <DialogTrigger render={<Button variant="outline" />}>Invite author</DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
@@ -83,7 +83,7 @@ export default function DrawerResponsive() {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger render={<Button variant="outline" />}>Invite member</DrawerTrigger>
+      <DrawerTrigger render={<Button variant="outline" />}>Invite author</DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle>{title}</DrawerTitle>

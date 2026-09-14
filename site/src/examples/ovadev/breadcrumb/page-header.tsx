@@ -15,34 +15,34 @@ export default function BreadcrumbPageHeader() {
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
-            <BreadcrumbLink href="#tenants">Tenants</BreadcrumbLink>
+            <BreadcrumbLink href="#blog">Blog</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="#bergwerk-ag">bergwerk-ag</BreadcrumbLink>
+            <BreadcrumbLink href="#product">Product</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="#invoices">Invoices</BreadcrumbLink>
+            <BreadcrumbLink href="#2026">2026</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage className="text-label-13-mono">INV-2026-0142</BreadcrumbPage>
+            <BreadcrumbPage>Ticketing, rebuilt</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <h3 className="m-0 text-heading-16">
-            Invoice <span className="text-label-14-mono">INV-2026-0142</span>
+            Ticketing, rebuilt
           </h3>
-          <Badge variant="secondary">Pending</Badge>
+          <Badge variant="secondary">Draft</Badge>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" size="sm">
-            Download PDF
+            Preview
           </Button>
-          <Button size="sm">Send reminder</Button>
+          <Button size="sm">Publish</Button>
         </div>
       </div>
     </header>

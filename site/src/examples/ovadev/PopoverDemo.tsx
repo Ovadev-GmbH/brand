@@ -14,18 +14,18 @@ import {
 export default function PopoverDemo() {
   return (
     <Popover>
-      <PopoverTrigger render={<Button variant="outline" />}>Seat limit</PopoverTrigger>
+      <PopoverTrigger render={<Button variant="outline" />}>Reading time</PopoverTrigger>
       <PopoverContent align="start">
         <PopoverHeader>
-          <PopoverTitle>Seat limit</PopoverTitle>
-          <PopoverDescription>Overrides the Scale plan default of 25 for acme-logistics.</PopoverDescription>
+          <PopoverTitle>Reading time</PopoverTitle>
+          <PopoverDescription>Overrides the estimate of 6 min from the word count of this post.</PopoverDescription>
         </PopoverHeader>
         <Field>
-          <FieldLabel htmlFor="popover-seats">Seats</FieldLabel>
-          <Input id="popover-seats" type="number" min={1} defaultValue={40} className="text-label-13-mono" />
+          <FieldLabel htmlFor="popover-seats">Minutes</FieldLabel>
+          <Input id="popover-seats" type="number" min={1} defaultValue={8} className="text-label-13-mono" />
         </Field>
         <Button size="sm" className="self-end">
-          Save limit
+          Save
         </Button>
       </PopoverContent>
     </Popover>

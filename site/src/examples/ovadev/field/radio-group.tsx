@@ -8,19 +8,19 @@ import {
   RadioGroupItem,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const regions = ["ch-zrh-1", "eu-central-1"];
+const languages = ["de-CH", "en"];
 
 export default function FieldRadioGroup() {
   return (
     <FieldSet className="w-80">
-      <FieldLegend variant="label">Region</FieldLegend>
-      <FieldDescription>Where the data of bergwerk-ag is stored. It cannot move later.</FieldDescription>
-      <RadioGroup defaultValue="ch-zrh-1">
-        {regions.map((region) => (
-          <Field key={region} orientation="horizontal">
-            <RadioGroupItem value={region} id={`field-radio-${region}`} />
-            <FieldLabel htmlFor={`field-radio-${region}`} className="text-label-13-mono">
-              {region}
+      <FieldLegend variant="label">Site language</FieldLegend>
+      <FieldDescription>The language ova.dev opens in. The switch in the footer changes it later.</FieldDescription>
+      <RadioGroup defaultValue="de-CH">
+        {languages.map((language) => (
+          <Field key={language} orientation="horizontal">
+            <RadioGroupItem value={language} id={`field-radio-${language}`} />
+            <FieldLabel htmlFor={`field-radio-${language}`} className="text-label-13-mono">
+              {language}
             </FieldLabel>
           </Field>
         ))}

@@ -1,25 +1,25 @@
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@ovadev-gmbh/ui-ovadev";
-import { RefreshCwIcon, RotateCcwIcon, ZapIcon } from "lucide-react";
+import { LanguagesIcon, SendIcon, UploadIcon } from "lucide-react";
 
 export default function CommandDisabled() {
   return (
     <Command className="w-96">
-      <CommandInput placeholder="Run a command on dpl_4f2c91…" />
+      <CommandInput placeholder="Run a command on Pool season 2026…" />
       <CommandList>
         <CommandEmpty>No command matches.</CommandEmpty>
-        <CommandGroup heading="Deployment">
+        <CommandGroup heading="Post">
           <CommandItem>
-            <RefreshCwIcon />
-            Redeploy
+            <UploadIcon />
+            Publish
           </CommandItem>
           <CommandItem disabled>
-            <RotateCcwIcon />
-            Roll back
-            <span className="ml-auto text-label-12 text-content-tertiary">No earlier build</span>
+            <LanguagesIcon />
+            Translate to German
+            <span className="ml-auto text-label-12 text-content-tertiary">Already translated</span>
           </CommandItem>
           <CommandItem>
-            <ZapIcon />
-            Purge CDN cache
+            <SendIcon />
+            Send to newsletter
           </CommandItem>
         </CommandGroup>
       </CommandList>

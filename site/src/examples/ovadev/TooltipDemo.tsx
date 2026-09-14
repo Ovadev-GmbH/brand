@@ -1,14 +1,14 @@
 import { Button, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@ovadev-gmbh/ui-ovadev";
-import { RefreshCwIcon } from "lucide-react";
+import { LinkIcon } from "lucide-react";
 
 export default function TooltipDemo() {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger render={<Button variant="outline" size="icon" aria-label="Redeploy" />}>
-          <RefreshCwIcon />
+        <TooltipTrigger render={<Button variant="outline" size="icon" aria-label="Copy link" />}>
+          <LinkIcon />
         </TooltipTrigger>
-        <TooltipContent>Redeploy</TooltipContent>
+        <TooltipContent>Copy link</TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );

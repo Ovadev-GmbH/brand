@@ -5,9 +5,9 @@ export default function AlertWarning() {
   return (
     <Alert variant="warning" className="max-w-md">
       <TriangleAlertIcon />
-      <AlertTitle>API quota 86% used</AlertTitle>
+      <AlertTitle>Pool at 86% of capacity</AlertTitle>
       <AlertDescription>
-        helvetia-labs has made 860'000 of 1'000'000 requests in September. Requests are rejected once the quota is spent.
+        Türlersee has admitted 860 of 1'000 visitors today. The shop stops selling day tickets once the pool is full.
       </AlertDescription>
     </Alert>
   );

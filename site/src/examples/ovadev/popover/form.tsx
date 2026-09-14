@@ -23,7 +23,7 @@ export default function PopoverForm() {
       <PopoverContent align="start" className="w-80">
         <PopoverHeader>
           <PopoverTitle>Filter by amount</PopoverTitle>
-          <PopoverDescription>Invoices between the two amounts, in CHF.</PopoverDescription>
+          <PopoverDescription>Quote requests between the two amounts, in CHF.</PopoverDescription>
         </PopoverHeader>
         <FieldGroup className="grid grid-cols-2 gap-3">
           <Field>

@@ -13,8 +13,8 @@ import {
 
 export default function PopoverControlled() {
   const [open, setOpen] = React.useState(false);
-  const [seats, setSeats] = React.useState(40);
-  const [draft, setDraft] = React.useState("40");
+  const [seats, setSeats] = React.useState(60);
+  const [draft, setDraft] = React.useState("60");
 
   function openChange(next: boolean) {
     // Start from the saved value each time the popover opens.
@@ -31,14 +31,14 @@ export default function PopoverControlled() {
   return (
     <div className="flex items-center gap-3">
       <span className="text-label-13">
-        bergwerk-ag <span className="text-label-13-mono text-content-secondary">{seats} seats</span>
+        Restaurant Linde <span className="text-label-13-mono text-content-secondary">{seats} seats</span>
       </span>
       <Popover open={open} onOpenChange={openChange}>
         <PopoverTrigger render={<Button variant="outline" size="sm" />}>Change</PopoverTrigger>
         <PopoverContent align="start" className="w-60">
           <form onSubmit={apply} className="flex flex-col gap-3">
             <PopoverHeader>
-              <PopoverTitle>Seat limit</PopoverTitle>
+              <PopoverTitle>Seats in JANUNA</PopoverTitle>
             </PopoverHeader>
             <Field>
               <FieldLabel htmlFor="popover-controlled-seats">Seats</FieldLabel>
@@ -52,7 +52,7 @@ export default function PopoverControlled() {
               />
             </Field>
             <Button type="submit" size="sm" className="self-end">
-              Save limit
+              Save seats
             </Button>
           </form>
         </PopoverContent>

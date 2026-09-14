@@ -14,10 +14,10 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 import { EllipsisIcon } from "lucide-react";
 
-const keys = [
-  { name: "Checkout backend", prefix: "sk_live_4f9a", lastUsed: "2 minutes ago" },
-  { name: "Reporting export", prefix: "sk_live_b21c", lastUsed: "yesterday" },
-  { name: "Old staging key", prefix: "sk_test_77e0", lastUsed: "3 months ago" },
+const pages = [
+  { name: "About us", path: "/en/about", updated: "2 minutes ago" },
+  { name: "Contact", path: "/en/contact", updated: "yesterday" },
+  { name: "Imprint", path: "/en/imprint", updated: "3 months ago" },
 ];
 
 export default function TableWithActions() {
@@ -26,30 +26,30 @@ export default function TableWithActions() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Key</TableHead>
-            <TableHead>Prefix</TableHead>
-            <TableHead>Last used</TableHead>
+            <TableHead>Page</TableHead>
+            <TableHead>Path</TableHead>
+            <TableHead>Last edited</TableHead>
             <TableHead className="w-10">
               <span className="sr-only">Actions</span>
             </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {keys.map((key) => (
-            <TableRow key={key.prefix}>
-              <TableCell>{key.name}</TableCell>
-              <TableCell className="text-label-13-mono text-content-secondary">{key.prefix}…</TableCell>
-              <TableCell className="text-content-secondary">{key.lastUsed}</TableCell>
+          {pages.map((page) => (
+            <TableRow key={page.path}>
+              <TableCell>{page.name}</TableCell>
+              <TableCell className="text-label-13-mono text-content-secondary">{page.path}</TableCell>
+              <TableCell className="text-content-secondary">{page.updated}</TableCell>
               <TableCell className="text-right">
                 <DropdownMenu>
-                  <DropdownMenuTrigger render={<Button variant="ghost" size="icon-sm" aria-label={`Actions for ${key.name}`} />}>
+                  <DropdownMenuTrigger render={<Button variant="ghost" size="icon-sm" aria-label={`Actions for ${page.name}`} />}>
                     <EllipsisIcon />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    <DropdownMenuItem>Rename</DropdownMenuItem>
-                    <DropdownMenuItem>Rotate</DropdownMenuItem>
+                    <DropdownMenuItem>Edit</DropdownMenuItem>
+                    <DropdownMenuItem>Open German version</DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem variant="destructive">Revoke</DropdownMenuItem>
+                    <DropdownMenuItem variant="destructive">Unpublish</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </TableCell>

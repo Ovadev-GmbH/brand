@@ -9,16 +9,16 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const releases = [
-  { version: "2026.09.3", date: "2026-09-12", summary: "Invoice exports run per tenant" },
-  { version: "2026.09.2", date: "2026-09-08", summary: "API keys show when they were last used" },
-  { version: "2026.09.1", date: "2026-09-02", summary: "Deployments to ch-gva-1" },
-  { version: "2026.08.4", date: "2026-08-27", summary: "Audit log filters by member" },
+  { version: "2026.09.3", date: "2026-09-12", summary: "Season reports as PDF" },
+  { version: "2026.09.2", date: "2026-09-08", summary: "Gates show the queue length" },
+  { version: "2026.09.1", date: "2026-09-02", summary: "Shop in French" },
+  { version: "2026.08.4", date: "2026-08-27", summary: "Family tickets" },
 ];
 
 export default function CarouselDemo() {
   return (
     <div className="w-full max-w-xs px-12">
-      <Carousel aria-label="Releases" className="w-full">
+      <Carousel aria-label="TICKETOVA releases" className="w-full">
         <CarouselContent>
           {releases.map((release) => (
             <CarouselItem key={release.version}>

@@ -13,11 +13,11 @@ import {
   Switch,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const plans = [
-  { label: "Starter", value: "starter" },
-  { label: "Team", value: "team" },
-  { label: "Scale", value: "scale" },
-  { label: "Enterprise", value: "enterprise" },
+const products = [
+  { label: "TICKETOVA", value: "ticketova" },
+  { label: "JANUNA", value: "januna" },
+  { label: "Consulting", value: "consulting" },
+  { label: "Something else", value: "other" },
 ];
 
 export default function SelectAlignItem() {
@@ -32,14 +32,14 @@ export default function SelectAlignItem() {
         </FieldContent>
         <Switch id="select-align-switch" checked={aligned} onCheckedChange={setAligned} />
       </Field>
-      <Select items={plans} defaultValue="scale">
-        <SelectTrigger className="w-full" aria-label="Plan">
+      <Select items={products} defaultValue="consulting">
+        <SelectTrigger className="w-full" aria-label="Product">
           <SelectValue />
         </SelectTrigger>
         <SelectContent alignItemWithTrigger={aligned}>
-          {plans.map((plan) => (
-            <SelectItem key={plan.value} value={plan.value}>
-              {plan.label}
+          {products.map((product) => (
+            <SelectItem key={product.value} value={product.value}>
+              {product.label}
             </SelectItem>
           ))}
         </SelectContent>

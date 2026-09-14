@@ -5,7 +5,7 @@ export default function ButtonDestructive() {
   return (
     <Button variant="destructive">
       <Trash2Icon data-icon="inline-start" />
-      Revoke API key
+      Delete draft
     </Button>
   );
 }

@@ -14,16 +14,16 @@ import {
 export default function DialogCloseButton() {
   return (
     <Dialog>
-      <DialogTrigger render={<Button variant="outline" />}>Share invoice</DialogTrigger>
+      <DialogTrigger render={<Button variant="outline" />}>Share draft</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Share invoice</DialogTitle>
-          <DialogDescription>Anyone with the link can view and download INV-2026-0142 for 30 days.</DialogDescription>
+          <DialogTitle>Share draft</DialogTitle>
+          <DialogDescription>Anyone with the link can read the draft until the post is published.</DialogDescription>
         </DialogHeader>
         <Input
           className="text-label-13-mono"
-          defaultValue="https://billing.ova.dev/i/9fK2qL"
-          aria-label="Invoice link"
+          defaultValue="https://ova.dev/blog/draft/9fK2qL"
+          aria-label="Draft link"
           readOnly
         />
         <DialogFooter>

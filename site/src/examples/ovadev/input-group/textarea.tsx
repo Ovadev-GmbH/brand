@@ -12,11 +12,11 @@ import {
 const limit = 280;
 
 export default function InputGroupWithTextarea() {
-  const [note, setNote] = React.useState("Paid by bank transfer on 2026-09-11, reference 7741-0142.");
+  const [note, setNote] = React.useState("TICKETOVA now runs admission control at Strandbad Türlersee. Season opens 2026-05-09.");
 
   return (
     <Field className="w-96">
-      <FieldLabel htmlFor="input-group-textarea-note">Note on INV-2026-0142</FieldLabel>
+      <FieldLabel htmlFor="input-group-textarea-note">Summary for the post list</FieldLabel>
       <InputGroup>
         <InputGroupTextarea
           id="input-group-textarea-note"
@@ -28,7 +28,7 @@ export default function InputGroupWithTextarea() {
             {note.length} / {limit}
           </InputGroupText>
           <InputGroupButton variant="default" className="ml-auto">
-            Save note
+            Save summary
           </InputGroupButton>
         </InputGroupAddon>
       </InputGroup>

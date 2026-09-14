@@ -3,11 +3,11 @@ import { Field, FieldLabel, NativeSelect, NativeSelectOption } from "@ovadev-gmb
 export default function NativeSelectDemo() {
   return (
     <Field className="w-full max-w-48">
-      <FieldLabel htmlFor="native-select-terms">Payment terms</FieldLabel>
-      <NativeSelect id="native-select-terms" className="w-full" defaultValue="30">
-        <NativeSelectOption value="10">Net 10</NativeSelectOption>
-        <NativeSelectOption value="30">Net 30</NativeSelectOption>
-        <NativeSelectOption value="60">Net 60</NativeSelectOption>
+      <FieldLabel htmlFor="native-select-terms">Visitors a day</FieldLabel>
+      <NativeSelect id="native-select-terms" className="w-full" defaultValue="2000">
+        <NativeSelectOption value="500">Up to 500</NativeSelectOption>
+        <NativeSelectOption value="2000">Up to 2'000</NativeSelectOption>
+        <NativeSelectOption value="more">More than 2'000</NativeSelectOption>
       </NativeSelect>
     </Field>
   );

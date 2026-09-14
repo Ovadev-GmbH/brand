@@ -2,8 +2,8 @@ import { Kbd, KbdGroup } from "@ovadev-gmbh/ui-ovadev";
 
 const shortcuts = [
   { action: "Open the command menu", keys: ["⌘", "K"] },
-  { action: "Search the audit log", keys: ["/"] },
-  { action: "Copy the tenant ID", keys: ["⌘", "⇧", "C"] },
+  { action: "Search the blog", keys: ["/"] },
+  { action: "Copy the link to this page", keys: ["⌘", "⇧", "C"] },
 ];
 
 export default function KbdDemo() {

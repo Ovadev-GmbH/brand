@@ -15,19 +15,19 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 import { ChevronRightIcon } from "lucide-react";
 
-type Tenant = { slug: string; plan: string; region: string; mrr: string };
+type Customer = { slug: string; plan: string; region: string; mrr: string };
 
-const tenants: Tenant[] = [
-  { slug: "acme-logistics", plan: "Scale", region: "ch-zrh-1", mrr: "790.00" },
-  { slug: "bergwerk-ag", plan: "Team", region: "eu-central-1", mrr: "190.00" },
-  { slug: "helvetia-labs", plan: "Starter", region: "ch-gva-1", mrr: "49.00" },
+const customers: Customer[] = [
+  { slug: "tuerlersee", plan: "TICKETOVA", region: "Aeugst am Albis ZH", mrr: "390.00" },
+  { slug: "hallenbad-baar", plan: "TICKETOVA", region: "Baar ZG", mrr: "290.00" },
+  { slug: "restaurant-linde", plan: "JANUNA", region: "Cham ZG", mrr: "190.00" },
 ];
 
 export default function SheetControlled() {
   const [open, setOpen] = React.useState(false);
-  const [tenant, setTenant] = React.useState<Tenant | null>(null);
+  const [customer, setTenant] = React.useState<Customer | null>(null);
 
-  function show(t: Tenant) {
+  function show(t: Customer) {
     setTenant(t);
     setOpen(true);
   }
@@ -37,16 +37,16 @@ export default function SheetControlled() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Tenant</TableHead>
-            <TableHead>Plan</TableHead>
-            <TableHead className="text-right">MRR, CHF</TableHead>
+            <TableHead>Customer</TableHead>
+            <TableHead>Product</TableHead>
+            <TableHead className="text-right">Fee, CHF</TableHead>
             <TableHead className="w-10">
               <span className="sr-only">Details</span>
             </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {tenants.map((t) => (
+          {customers.map((t) => (
             <TableRow key={t.slug}>
               <TableCell className="text-label-13-mono">{t.slug}</TableCell>
               <TableCell>{t.plan}</TableCell>
@@ -63,9 +63,9 @@ export default function SheetControlled() {
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle className="text-label-14-mono">{tenant?.slug}</SheetTitle>
+            <SheetTitle className="text-label-14-mono">{customer?.slug}</SheetTitle>
             <SheetDescription>
-              {tenant?.plan} plan in {tenant?.region}, CHF {tenant?.mrr} a month.
+              {customer?.plan} in {customer?.region}, CHF {customer?.mrr} a month.
             </SheetDescription>
           </SheetHeader>
         </SheetContent>

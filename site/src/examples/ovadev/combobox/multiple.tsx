@@ -12,33 +12,33 @@ import {
   useComboboxAnchor,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const environments = ["production", "staging", "preview", "development", "sandbox"];
+const tags = ["ticketova", "januna", "release", "company", "engineering"];
 
 export default function ComboboxMultiple() {
   const anchor = useComboboxAnchor();
 
   return (
     <div className="flex w-72 flex-col gap-2">
-      <Label htmlFor="combobox-multiple-input">Key valid in</Label>
-      <Combobox items={environments} multiple defaultValue={["production", "staging"]}>
+      <Label htmlFor="combobox-multiple-input">Post tags</Label>
+      <Combobox items={tags} multiple defaultValue={["ticketova", "release"]}>
         <ComboboxChips ref={anchor}>
           <ComboboxValue>
             {(values: string[]) => (
               <>
-                {values.map((environment) => (
-                  <ComboboxChip key={environment}>{environment}</ComboboxChip>
+                {values.map((tag) => (
+                  <ComboboxChip key={tag}>{tag}</ComboboxChip>
                 ))}
-                <ComboboxChipsInput id="combobox-multiple-input" placeholder="Add an environment" />
+                <ComboboxChipsInput id="combobox-multiple-input" placeholder="Add a tag" />
               </>
             )}
           </ComboboxValue>
         </ComboboxChips>
         <ComboboxContent anchor={anchor}>
-          <ComboboxEmpty>No environment matches.</ComboboxEmpty>
+          <ComboboxEmpty>No tag matches.</ComboboxEmpty>
           <ComboboxList>
-            {(environment: string) => (
-              <ComboboxItem key={environment} value={environment}>
-                {environment}
+            {(tag: string) => (
+              <ComboboxItem key={tag} value={tag}>
+                {tag}
               </ComboboxItem>
             )}
           </ComboboxList>

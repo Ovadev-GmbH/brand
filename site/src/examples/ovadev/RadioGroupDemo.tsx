@@ -1,18 +1,18 @@
 import { Label, RadioGroup, RadioGroupItem } from "@ovadev-gmbh/ui-ovadev";
 
-const plans = [
-  { value: "starter", label: "Starter" },
-  { value: "team", label: "Team" },
-  { value: "scale", label: "Scale" },
+const reasons = [
+  { value: "quote", label: "Quote request" },
+  { value: "support", label: "Support" },
+  { value: "press", label: "Press" },
 ];
 
 export default function RadioGroupDemo() {
   return (
-    <RadioGroup defaultValue="team" aria-label="Plan" className="w-fit">
-      {plans.map((plan) => (
-        <div key={plan.value} className="flex items-center gap-3">
-          <RadioGroupItem id={`radio-group-${plan.value}`} value={plan.value} />
-          <Label htmlFor={`radio-group-${plan.value}`}>{plan.label}</Label>
+    <RadioGroup defaultValue="quote" aria-label="Reason for contact" className="w-fit">
+      {reasons.map((reason) => (
+        <div key={reason.value} className="flex items-center gap-3">
+          <RadioGroupItem id={`radio-group-${reason.value}`} value={reason.value} />
+          <Label htmlFor={`radio-group-${reason.value}`}>{reason.label}</Label>
         </div>
       ))}
     </RadioGroup>

@@ -5,8 +5,8 @@ export default function AlertInfo() {
   return (
     <Alert variant="info" className="max-w-md">
       <InfoIcon />
-      <AlertTitle>New tenants default to ch-zrh-1 from 2026-10-01</AlertTitle>
-      <AlertDescription>Tenants created before then stay in the region they are in.</AlertDescription>
+      <AlertTitle>JANUNA opens to new restaurants from 2026-10-01</AlertTitle>
+      <AlertDescription>Restaurants on the waiting list get their invitation first.</AlertDescription>
     </Alert>
   );
 }

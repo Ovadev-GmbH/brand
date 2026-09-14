@@ -18,8 +18,8 @@ const rows = Array.from({ length: 12 }, (_, index) => ({
   from: index % 2 === 0 ? "customer" : "support",
   text:
     index % 2 === 0
-      ? `Is ${["ch-zrh-1", "eu-central-1"][index % 4 === 0 ? 0 : 1]} affected by incident INC-0413?`
-      : "Not any more. The fix was deployed with d-8f3a21c at 14:03 CEST.",
+      ? `Is ${["the shop", "the reporting page"][index % 4 === 0 ? 0 : 1]} affected by the outage of 2026-09-12?`
+      : "Not any more. The fix went live with version 2.14.1 at 14:03 CEST.",
 }));
 
 function Status() {
@@ -46,7 +46,7 @@ export default function MessageScrollerScrollState() {
       <MessageScrollerProvider defaultScrollPosition="start">
         <Status />
         <MessageScroller className="h-56 border border-divider">
-          <MessageScrollerViewport aria-label="Conversation with bergwerk-ag" className="p-3">
+          <MessageScrollerViewport aria-label="Conversation with Gemeinde Cham" className="p-3">
             <MessageScrollerContent className="gap-2">
               {rows.map((row) => (
                 <MessageScrollerItem key={row.id} messageId={row.id}>

@@ -5,7 +5,7 @@ export default function SliderDisabled() {
     <div className="flex w-full max-w-sm flex-col gap-3">
       <div className="flex items-center justify-between">
         <span id="slider-disabled-label" className="text-label-13 text-content-disabled">
-          Log retention
+          Ticket validity
         </span>
         <span className="text-label-13-mono text-content-disabled">30 days</span>
       </div>

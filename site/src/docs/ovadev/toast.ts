@@ -2,14 +2,14 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A short message about something that happened out of view: a request that went through, an export that is ready. What the screen already shows needs no toast; for something that needs an answer, use [Alert Dialog](/internal/alert-dialog).",
+    "A short message about something that happened out of view: a request that went through, an export that is ready. What the screen already shows needs no toast; for something that needs an answer, use [Alert Dialog](/ovadev/alert-dialog).",
   usage: `<Button
   variant="outline"
   onClick={() =>
-    toast.add({ title: "Invoice sent", description: "INV-2026-0142 went to acme-logistics." })
+    toast.add({ title: "Post published", description: "Season opening at Türlersee is on the blog." })
   }
 >
-  Send invoice
+  Publish post
 </Button>`,
   composition: `Toaster
 └── ToastPortal

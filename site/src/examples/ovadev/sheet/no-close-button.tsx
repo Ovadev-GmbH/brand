@@ -12,10 +12,10 @@ import {
 } from "@ovadev-gmbh/ui-ovadev";
 
 const rows = [
-  ["Tenant", "acme-logistics"],
-  ["Recipient", "billing@acme-logistics.ch"],
-  ["Amount", "CHF 1'240.00"],
-  ["Due", "2026-10-01"],
+  ["Issue", "2026-09"],
+  ["Recipients", "1'204 subscribers"],
+  ["Subject", "One season on TICKETOVA"],
+  ["Scheduled", "2026-09-15 08:00"],
 ] as const;
 
 export default function SheetNoCloseButton() {
@@ -23,11 +23,11 @@ export default function SheetNoCloseButton() {
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger render={<Button variant="outline" />}>Preview invoice</SheetTrigger>
+      <SheetTrigger render={<Button variant="outline" />}>Preview issue</SheetTrigger>
       <SheetContent showCloseButton={false}>
         <SheetHeader>
-          <SheetTitle>Send INV-2026-0142?</SheetTitle>
-          <SheetDescription>Check the details. Once sent, the invoice can only be voided.</SheetDescription>
+          <SheetTitle>Send the September issue?</SheetTitle>
+          <SheetDescription>Check the details. Once sent, an issue cannot be recalled.</SheetDescription>
         </SheetHeader>
         <dl className="m-0 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 px-4">
           {rows.map(([term, value]) => (
@@ -38,7 +38,7 @@ export default function SheetNoCloseButton() {
           ))}
         </dl>
         <SheetFooter>
-          <Button onClick={() => setOpen(false)}>Send invoice</Button>
+          <Button onClick={() => setOpen(false)}>Send issue</Button>
           <SheetClose render={<Button variant="outline" />}>Back to editing</SheetClose>
         </SheetFooter>
       </SheetContent>

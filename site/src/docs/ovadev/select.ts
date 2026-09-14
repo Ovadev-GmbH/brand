@@ -2,21 +2,21 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "One value from a short list that is known in advance. When the list is long enough that people would rather type, use [Combobox](/internal/combobox).",
-  usage: `const plans = [
-  { label: "Starter", value: "starter" },
-  { label: "Team", value: "team" },
-  { label: "Scale", value: "scale" },
+    "One value from a short list that is known in advance. When the list is long enough that people would rather type, use [Combobox](/ovadev/combobox).",
+  usage: `const topics = [
+  { label: "TICKETOVA", value: "ticketova" },
+  { label: "JANUNA", value: "januna" },
+  { label: "Something else", value: "other" },
 ];
 
-<Select items={plans}>
+<Select items={topics}>
   <SelectTrigger className="w-48">
-    <SelectValue placeholder="Plan" />
+    <SelectValue placeholder="Topic" />
   </SelectTrigger>
   <SelectContent>
-    {plans.map((plan) => (
-      <SelectItem key={plan.value} value={plan.value}>
-        {plan.label}
+    {topics.map((topic) => (
+      <SelectItem key={topic.value} value={topic.value}>
+        {topic.label}
       </SelectItem>
     ))}
   </SelectContent>

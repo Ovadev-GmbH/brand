@@ -5,9 +5,9 @@ export default function AlertDestructive() {
   return (
     <Alert variant="destructive" className="max-w-md">
       <CircleXIcon />
-      <AlertTitle>Payment failed for INV-2026-0142</AlertTitle>
+      <AlertTitle>Message not sent</AlertTitle>
       <AlertDescription>
-        The card on file for bergwerk-ag was declined. CHF 1'240.00 stays open, due 2026-09-30.
+        The contact form could not reach hello@ova.dev. Write to us directly or try again in a few minutes.
       </AlertDescription>
     </Alert>
   );

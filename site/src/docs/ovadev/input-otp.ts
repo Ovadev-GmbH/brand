@@ -2,7 +2,7 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A short code typed one character per box: a sign-in code, a confirmation before a tenant is deleted. One real input sits underneath, so a pasted code or the one the phone suggests fills every box at once.",
+    "A short code typed one character per box: a sign-in code, a confirmation before the site is reset. One real input sits underneath, so a pasted code or the one the phone suggests fills every box at once.",
   usage: `<InputOTP maxLength={6}>
   <InputOTPGroup>
     <InputOTPSlot index={0} />

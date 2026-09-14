@@ -14,10 +14,10 @@ export default function EmptyWithInput() {
   return (
     <Empty className="w-full max-w-md">
       <EmptyHeader>
-        <EmptyTitle>Tenant not found</EmptyTitle>
+        <EmptyTitle>Post not found</EmptyTitle>
         <EmptyDescription>
-          No tenant has the slug <span className="text-copy-13-mono">acme-logistic</span>. It may have been renamed or
-          deleted.
+          No post has the address <span className="text-copy-13-mono">/blog/admission-controll</span>. It may have
+          been renamed or unpublished.
         </EmptyDescription>
       </EmptyHeader>
       <EmptyContent>
@@ -25,7 +25,7 @@ export default function EmptyWithInput() {
           <InputGroupAddon>
             <SearchIcon />
           </InputGroupAddon>
-          <InputGroupInput placeholder="Search tenants" aria-label="Search tenants" />
+          <InputGroupInput placeholder="Search posts" aria-label="Search posts" />
         </InputGroup>
       </EmptyContent>
     </Empty>

@@ -2,14 +2,14 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "A list of actions or options behind a button: a row's actions, a table's columns, the account. To choose one value in a form use [Select](/internal/select); for actions on right-click, [Context Menu](/internal/context-menu).",
+    "A list of actions or options behind a button: a row's actions, a table's columns, the account. To choose one value in a form use [Select](/ovadev/select); for actions on right-click, [Context Menu](/ovadev/context-menu).",
   usage: `<DropdownMenu>
-  <DropdownMenuTrigger render={<Button variant="outline" />}>Key actions</DropdownMenuTrigger>
+  <DropdownMenuTrigger render={<Button variant="outline" />}>Post actions</DropdownMenuTrigger>
   <DropdownMenuContent>
-    <DropdownMenuItem>Rename</DropdownMenuItem>
-    <DropdownMenuItem>Rotate</DropdownMenuItem>
+    <DropdownMenuItem>Edit</DropdownMenuItem>
+    <DropdownMenuItem>Duplicate</DropdownMenuItem>
     <DropdownMenuSeparator />
-    <DropdownMenuItem variant="destructive">Revoke</DropdownMenuItem>
+    <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>`,
   composition: `DropdownMenu
@@ -71,7 +71,7 @@ export default {
     },
     {
       title: "Destructive",
-      text: '`variant="destructive"` turns the item red. Put it last, after a separator, and confirm it in an [Alert Dialog](/internal/alert-dialog).',
+      text: '`variant="destructive"` turns the item red. Put it last, after a separator, and confirm it in an [Alert Dialog](/ovadev/alert-dialog).',
       example: "destructive",
     },
   ],

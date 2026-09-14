@@ -18,17 +18,16 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from "@ovadev-gmbh/ui-ovadev";
-import { ChevronsUpDownIcon, RocketIcon, ServerIcon } from "lucide-react";
+import { ChevronsUpDownIcon, FileTextIcon, NewspaperIcon } from "lucide-react";
 
-const environments = [
-  { name: "production", region: "ch-zrh-1" },
-  { name: "staging", region: "eu-central-1" },
-  { name: "development", region: "eu-central-1" },
+const languages = [
+  { name: "English", code: "en" },
+  { name: "Deutsch", code: "de" },
 ];
 
 export default function SidebarWithHeader() {
-  const [environment, setEnvironment] = React.useState("production");
-  const current = environments.find((e) => e.name === environment) ?? environments[0]!;
+  const [language, setLanguage] = React.useState("en");
+  const current = languages.find((l) => l.code === language) ?? languages[0]!;
 
   return (
     <SidebarProvider className="h-80 min-h-0 w-full max-w-2xl overflow-hidden border border-divider">
@@ -37,20 +36,20 @@ export default function SidebarWithHeader() {
           <SidebarMenu>
             <SidebarMenuItem>
               <DropdownMenu>
-                <DropdownMenuTrigger render={<SidebarMenuButton size="lg" aria-label="Environment" />}>
+                <DropdownMenuTrigger render={<SidebarMenuButton size="lg" aria-label="Language" />}>
                   <span className="flex min-w-0 flex-1 flex-col">
                     <span className="truncate text-label-13">{current.name}</span>
-                    <span className="truncate text-label-12-mono text-content-secondary">{current.region}</span>
+                    <span className="truncate text-label-12-mono text-content-secondary">ova.dev/{current.code}</span>
                   </span>
                   <ChevronsUpDownIcon />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                   <DropdownMenuGroup>
-                    <DropdownMenuLabel>Environment</DropdownMenuLabel>
-                    <DropdownMenuRadioGroup value={environment} onValueChange={setEnvironment}>
-                      {environments.map((e) => (
-                        <DropdownMenuRadioItem key={e.name} value={e.name}>
-                          {e.name}
+                    <DropdownMenuLabel>Language</DropdownMenuLabel>
+                    <DropdownMenuRadioGroup value={language} onValueChange={setLanguage}>
+                      {languages.map((l) => (
+                        <DropdownMenuRadioItem key={l.code} value={l.code}>
+                          {l.name}
                         </DropdownMenuRadioItem>
                       ))}
                     </DropdownMenuRadioGroup>
@@ -62,18 +61,18 @@ export default function SidebarWithHeader() {
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Platform</SidebarGroupLabel>
+            <SidebarGroupLabel>Site</SidebarGroupLabel>
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton isActive>
-                  <RocketIcon />
-                  <span>Deployments</span>
+                  <FileTextIcon />
+                  <span>Pages</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton>
-                  <ServerIcon />
-                  <span>Regions</span>
+                  <NewspaperIcon />
+                  <span>Blog</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -81,9 +80,9 @@ export default function SidebarWithHeader() {
         </SidebarContent>
       </Sidebar>
       <SidebarInset className="gap-1 p-4">
-        <h2 className="text-heading-16">Deployments</h2>
+        <h2 className="text-heading-16">Pages</h2>
         <p className="text-label-13 text-content-secondary">
-          {current.name}, <span className="text-label-13-mono">{current.region}</span>
+          {current.name}, <span className="text-label-13-mono">ova.dev/{current.code}</span>
         </p>
       </SidebarInset>
     </SidebarProvider>

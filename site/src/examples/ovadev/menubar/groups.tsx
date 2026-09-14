@@ -16,15 +16,15 @@ export default function MenubarGroups() {
         <MenubarTrigger>Go</MenubarTrigger>
         <MenubarContent className="w-48">
           <MenubarGroup>
-            <MenubarLabel>Tenants</MenubarLabel>
-            <MenubarItem>All tenants</MenubarItem>
-            <MenubarItem>Trials</MenubarItem>
+            <MenubarLabel>Blog</MenubarLabel>
+            <MenubarItem>All posts</MenubarItem>
+            <MenubarItem>Drafts</MenubarItem>
           </MenubarGroup>
           <MenubarSeparator />
           <MenubarGroup>
-            <MenubarLabel>Billing</MenubarLabel>
-            <MenubarItem>Invoices</MenubarItem>
-            <MenubarItem>Plans</MenubarItem>
+            <MenubarLabel>Site</MenubarLabel>
+            <MenubarItem>Brand pages</MenubarItem>
+            <MenubarItem>Changelog</MenubarItem>
           </MenubarGroup>
         </MenubarContent>
       </MenubarMenu>
@@ -32,15 +32,15 @@ export default function MenubarGroups() {
         <MenubarTrigger>Tools</MenubarTrigger>
         <MenubarContent className="w-48">
           <MenubarGroup>
-            <MenubarLabel>Data</MenubarLabel>
-            <MenubarItem>Import CSV</MenubarItem>
-            <MenubarItem>Export CSV</MenubarItem>
+            <MenubarLabel>Content</MenubarLabel>
+            <MenubarItem>Import Markdown</MenubarItem>
+            <MenubarItem>Export Markdown</MenubarItem>
           </MenubarGroup>
           <MenubarSeparator />
           <MenubarGroup>
-            <MenubarLabel>Access</MenubarLabel>
-            <MenubarItem>API keys</MenubarItem>
-            <MenubarItem>Audit log</MenubarItem>
+            <MenubarLabel>Outreach</MenubarLabel>
+            <MenubarItem>Newsletter</MenubarItem>
+            <MenubarItem>Press kit</MenubarItem>
           </MenubarGroup>
         </MenubarContent>
       </MenubarMenu>

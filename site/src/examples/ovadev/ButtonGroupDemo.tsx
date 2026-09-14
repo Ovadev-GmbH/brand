@@ -11,18 +11,18 @@ import { EllipsisIcon } from "lucide-react";
 
 export default function ButtonGroupDemo() {
   return (
-    <ButtonGroup aria-label="Invoice INV-2026-0142">
-      <Button variant="outline">Download PDF</Button>
-      <Button variant="outline">Send reminder</Button>
+    <ButtonGroup aria-label="Post: TICKETOVA at Türlersee">
+      <Button variant="outline">Preview</Button>
+      <Button variant="outline">Publish</Button>
       <DropdownMenu>
         <DropdownMenuTrigger render={<Button variant="outline" size="icon" aria-label="More actions" />}>
           <EllipsisIcon />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-48">
-          <DropdownMenuItem>Issue credit note</DropdownMenuItem>
-          <DropdownMenuItem>Copy invoice ID</DropdownMenuItem>
+          <DropdownMenuItem>Duplicate as German</DropdownMenuItem>
+          <DropdownMenuItem>Copy link</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem variant="destructive">Void invoice</DropdownMenuItem>
+          <DropdownMenuItem variant="destructive">Delete draft</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </ButtonGroup>

@@ -13,27 +13,27 @@ import {
   SidebarProvider,
 } from "@ovadev-gmbh/ui-ovadev";
 
-const tenants = ["acme-logistics", "alpenrad-gmbh", "bergwerk-ag", "helvetia-labs", "nordlicht-energie", "seeland-foods"];
+const customers = ["badi-tuerlersee", "freibad-cham", "hallenbad-baar", "hallenbad-huenenberg", "seebad-kuesnacht", "strandbad-zug"];
 
 export default function SidebarSearch() {
   const [query, setQuery] = React.useState("");
-  const [active, setActive] = React.useState("bergwerk-ag");
-  const shown = tenants.filter((slug) => slug.includes(query.trim().toLowerCase()));
+  const [active, setActive] = React.useState("hallenbad-baar");
+  const shown = customers.filter((slug) => slug.includes(query.trim().toLowerCase()));
 
   return (
     <SidebarProvider className="h-80 min-h-0 w-full max-w-2xl overflow-hidden border border-divider">
       <Sidebar collapsible="none" className="border-r border-divider">
         <SidebarHeader>
           <SidebarInput
-            aria-label="Filter tenants"
-            placeholder="Filter tenants"
+            aria-label="Filter customers"
+            placeholder="Filter customers"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
-            <SidebarGroupLabel>Tenants</SidebarGroupLabel>
+            <SidebarGroupLabel>Customers</SidebarGroupLabel>
             {shown.length ? (
               <SidebarMenu>
                 {shown.map((slug) => (
@@ -45,7 +45,7 @@ export default function SidebarSearch() {
                 ))}
               </SidebarMenu>
             ) : (
-              <p className="px-2 py-1.5 text-label-13 text-content-secondary">No tenant matches "{query}".</p>
+              <p className="px-2 py-1.5 text-label-13 text-content-secondary">No customer matches "{query}".</p>
             )}
           </SidebarGroup>
         </SidebarContent>

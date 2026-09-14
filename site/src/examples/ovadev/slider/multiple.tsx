@@ -5,10 +5,10 @@ export default function SliderMultiple() {
     <div className="flex w-full max-w-sm flex-col gap-3">
       <div className="flex flex-col gap-1">
         <span id="slider-multiple-label" className="text-label-13">
-          Usage alerts
+          Capacity alerts
         </span>
         <span className="text-copy-13 text-content-secondary">
-          Notify the billing contact as requests pass each mark, in % of the plan&rsquo;s quota.
+          Notify the pool office as admissions pass each mark, in % of the day&rsquo;s capacity.
         </span>
       </div>
       <Slider

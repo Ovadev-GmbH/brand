@@ -3,13 +3,13 @@ import { Field, FieldDescription, FieldLabel, Textarea } from "@ovadev-gmbh/ui-o
 export default function TextareaDisabled() {
   return (
     <Field data-disabled className="w-96">
-      <FieldLabel htmlFor="textarea-disabled-terms">Contract terms</FieldLabel>
+      <FieldLabel htmlFor="textarea-disabled-terms">Imprint</FieldLabel>
       <Textarea
         id="textarea-disabled-terms"
-        defaultValue="Scale plan, billed yearly. 99.95% availability for ch-zrh-1."
+        defaultValue="Ovadev GmbH, Baar ZG. CHE-312.484.019. Managing directors: Beni, Robin."
         disabled
       />
-      <FieldDescription>Set in the contract with helvetia-labs; change it there.</FieldDescription>
+      <FieldDescription>Set from the commercial register; change it there.</FieldDescription>
     </Field>
   );
 }

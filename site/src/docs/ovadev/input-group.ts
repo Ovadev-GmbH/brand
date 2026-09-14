@@ -2,9 +2,9 @@ import type { Doc } from "../../types";
 
 export default {
   description:
-    "An input with something inside its edge: an icon, a unit, a button, a shortcut. For separate controls that only touch, use [Button Group](/internal/button-group).",
+    "An input with something inside its edge: an icon, a unit, a button, a shortcut. For separate controls that only touch, use [Button Group](/ovadev/button-group).",
   usage: `<InputGroup>
-  <InputGroupInput placeholder="Search invoices" />
+  <InputGroupInput placeholder="Search posts" />
   <InputGroupAddon>
     <SearchIcon />
   </InputGroupAddon>

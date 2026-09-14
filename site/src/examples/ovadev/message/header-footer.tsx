@@ -13,9 +13,9 @@ export default function MessageHeaderFooter() {
     <div className="flex w-full max-w-xl flex-col gap-4">
       <Message>
         <MessageContent>
-          <MessageHeader>Jonas Frei, bergwerk-ag</MessageHeader>
+          <MessageHeader>Jonas Frei, Gemeinde Cham</MessageHeader>
           <Bubble variant="muted">
-            <BubbleContent>Can we move from Team to Scale before the next invoice run?</BubbleContent>
+            <BubbleContent>Can we add the sauna to the season pass before the pre-sale starts?</BubbleContent>
           </Bubble>
           <MessageFooter>
             <time dateTime="2026-09-13T09:12+02:00" className="text-label-12-mono">
@@ -26,11 +26,11 @@ export default function MessageHeaderFooter() {
       </Message>
       <Message align="end">
         <MessageContent>
-          <MessageHeader>l.keller, support</MessageHeader>
+          <MessageHeader>Philip, Ovadev</MessageHeader>
           <Bubble>
             <BubbleContent>
-              Done. Scale applies from <span className="text-copy-13-mono">2026-10-01</span>, and the difference for September is{" "}
-              <span className="text-copy-13-mono">CHF 184.50</span>.
+              Done. The sauna is on the pass from <span className="text-copy-13-mono">2026-09-21</span>, and the pass price is{" "}
+              <span className="text-copy-13-mono">CHF 480.00</span>.
             </BubbleContent>
           </Bubble>
           <MessageFooter className="gap-1">

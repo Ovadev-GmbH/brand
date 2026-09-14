@@ -5,11 +5,11 @@ export default function BadgeWithSpinner() {
     <div className="flex items-center gap-3">
       <Badge variant="secondary">
         <Spinner data-icon="inline-start" />
-        Building
+        Publishing
       </Badge>
       <Badge variant="outline">
         <Spinner data-icon="inline-start" />
-        Syncing
+        Translating
       </Badge>
     </div>
   );

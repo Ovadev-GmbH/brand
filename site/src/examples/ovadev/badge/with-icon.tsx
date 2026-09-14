@@ -6,11 +6,11 @@ export default function BadgeWithIcon() {
     <div className="flex items-center gap-3">
       <Badge variant="secondary">
         <CircleCheckIcon data-icon="inline-start" />
-        Paid
+        Published
       </Badge>
       <Badge variant="destructive">
         <CircleAlertIcon data-icon="inline-start" />
-        Overdue
+        Sold out
       </Badge>
       <Badge variant="outline" render={<a href="#changelog" />}>
         Changelog

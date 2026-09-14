@@ -6,13 +6,13 @@ export default function ToggleGroupVertical() {
       orientation="vertical"
       variant="outline"
       spacing={0}
-      defaultValue={["invoices"]}
-      aria-label="Billing view"
+      defaultValue={["posts"]}
+      aria-label="Blog view"
       className="w-40"
     >
-      <ToggleGroupItem value="invoices">Invoices</ToggleGroupItem>
-      <ToggleGroupItem value="credits">Credit notes</ToggleGroupItem>
-      <ToggleGroupItem value="usage">Usage</ToggleGroupItem>
+      <ToggleGroupItem value="posts">Posts</ToggleGroupItem>
+      <ToggleGroupItem value="changelog">Changelog</ToggleGroupItem>
+      <ToggleGroupItem value="press">Press</ToggleGroupItem>
     </ToggleGroup>
   );
 }
