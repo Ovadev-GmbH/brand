@@ -4,9 +4,7 @@ import * as React from "react";
 import { cn } from "../lib/utils";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
-import { Checkbox } from "../components/ui/checkbox";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "../components/ui/field";
-import { Input } from "../components/ui/input";
 import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "../components/ui/input-group";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "../components/ui/input-otp";
 
@@ -99,112 +97,7 @@ function AuthLink({ className, ...props }: React.ComponentProps<"p">) {
   );
 }
 
-function LoginForm({
-  onSubmit,
-  forgotHref,
-  signupHref,
-  className,
-  ...props
-}: FormProps & { forgotHref?: string; signupHref?: string }) {
-  const id = React.useId();
-  return (
-    <form data-slot="login-form" className={cn("flex flex-col gap-space-6", className)} onSubmit={onSubmit} {...props}>
-      <FieldGroup>
-        <Field>
-          <FieldLabel htmlFor={`${id}-email`}>Email</FieldLabel>
-          <Input id={`${id}-email`} name="email" type="email" autoComplete="email" placeholder="you@restaurant.ch" required />
-        </Field>
-        <Field>
-          <div className="flex items-center justify-between gap-space-2">
-            <FieldLabel htmlFor={`${id}-password`}>Password</FieldLabel>
-            {forgotHref ? (
-              <a href={forgotHref} className="text-label-13 text-content-brand underline-offset-4 hover:underline">
-                Forgot password?
-              </a>
-            ) : null}
-          </div>
-          <Input id={`${id}-password`} name="password" type="password" autoComplete="current-password" required />
-        </Field>
-        <Button type="submit" className="w-full">
-          Sign in
-        </Button>
-      </FieldGroup>
-      {signupHref ? (
-        <AuthLink>
-          New to Januna? <a href={signupHref}>Create an account</a>
-        </AuthLink>
-      ) : null}
-    </form>
-  );
-}
-
-function SignupForm({
-  onSubmit,
-  loginHref,
-  termsHref = "#",
-  privacyHref = "#",
-  className,
-  ...props
-}: FormProps & { loginHref?: string; termsHref?: string; privacyHref?: string }) {
-  const id = React.useId();
-  return (
-    <form data-slot="signup-form" className={cn("flex flex-col gap-space-6", className)} onSubmit={onSubmit} {...props}>
-      <FieldGroup>
-        <Field>
-          <FieldLabel htmlFor={`${id}-name`}>Name</FieldLabel>
-          <Input id={`${id}-name`} name="name" autoComplete="name" placeholder="Lena Brunner" required />
-        </Field>
-        <Field>
-          <FieldLabel htmlFor={`${id}-email`}>Email</FieldLabel>
-          <Input id={`${id}-email`} name="email" type="email" autoComplete="email" placeholder="you@restaurant.ch" required />
-        </Field>
-        <Field>
-          <FieldLabel htmlFor={`${id}-password`}>Password</FieldLabel>
-          <Input id={`${id}-password`} name="password" type="password" autoComplete="new-password" minLength={12} required />
-          <FieldDescription>At least 12 characters.</FieldDescription>
-        </Field>
-        <Field orientation="horizontal">
-          <Checkbox id={`${id}-terms`} name="terms" required />
-          <FieldLabel htmlFor={`${id}-terms`} className="inline text-copy-14 [&_a]:text-content-brand [&_a]:underline-offset-4 [&_a:hover]:underline">
-            I agree to the <a href={termsHref}>terms of service</a> and the <a href={privacyHref}>privacy policy</a>
-          </FieldLabel>
-        </Field>
-        <Button type="submit" className="w-full">
-          Create account
-        </Button>
-      </FieldGroup>
-      {loginHref ? (
-        <AuthLink>
-          Already have an account? <a href={loginHref}>Sign in</a>
-        </AuthLink>
-      ) : null}
-    </form>
-  );
-}
-
-function ForgotPasswordForm({ onSubmit, backHref, className, ...props }: FormProps & { backHref?: string }) {
-  const id = React.useId();
-  return (
-    <form data-slot="forgot-password-form" className={cn("flex flex-col gap-space-6", className)} onSubmit={onSubmit} {...props}>
-      <FieldGroup>
-        <Field>
-          <FieldLabel htmlFor={`${id}-email`}>Email</FieldLabel>
-          <Input id={`${id}-email`} name="email" type="email" autoComplete="email" placeholder="you@restaurant.ch" required />
-        </Field>
-        <Button type="submit" className="w-full">
-          Send reset link
-        </Button>
-      </FieldGroup>
-      {backHref ? (
-        <AuthLink>
-          <a href={backHref}>Back to sign in</a>
-        </AuthLink>
-      ) : null}
-    </form>
-  );
-}
-
-/* The one-time code from the e-mail: six cells drawn as one control, the
+/* The one-time code from the phone: six cells drawn as one control, the
    submit, and a way to get a fresh code. */
 function OtpForm({
   onSubmit,
@@ -226,7 +119,7 @@ function OtpForm({
               ))}
             </InputOTPGroup>
           </InputOTP>
-          <FieldDescription>Enter the {length}-digit code we sent to your e-mail.</FieldDescription>
+          <FieldDescription>Enter the {length}-digit code we sent to your phone.</FieldDescription>
         </Field>
         <Button type="submit" className="w-full">
           Verify
@@ -278,4 +171,4 @@ function PhoneSignInForm({ onSubmit, className, ...props }: FormProps) {
   );
 }
 
-export { AuthLayout, AuthCard, AuthLink, LoginForm, SignupForm, ForgotPasswordForm, OtpForm, OvadevMark, SecuredBy, PhoneSignInForm };
+export { AuthLayout, AuthCard, AuthLink, OvadevMark, SecuredBy, PhoneSignInForm, OtpForm };

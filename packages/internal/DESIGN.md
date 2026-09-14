@@ -476,7 +476,7 @@ import { AppShell, AuthLayout } from "@ovadev-gmbh/ui-internal/blocks";
 ```
 
 - App Shell (`app-shell`): AppShell, AppShellHeader, AppShellContent
-- Auth (`auth`): AuthLayout, AuthCard, LoginForm, SignupForm, ForgotPasswordForm, OtpForm, OvadevMark, SecuredBy, GoogleSignInForm
+- Auth (`auth`): AuthLayout, AuthCard, OvadevMark, SecuredBy, GoogleSignInForm
 - Error Page (`error-page`): ErrorPage, ErrorPageCode, ErrorPageTitle, ErrorPageDescription, ErrorPageActions
 - Stats (`stats`): StatGrid, Stat, StatDelta
 
