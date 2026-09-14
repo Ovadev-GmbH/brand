@@ -58,7 +58,8 @@ export function HomePage() {
           the pair is set as one word: a space before it, and only the gap the
           glyph needs after. */}
       <p className="mt-auto px-6 pt-8 pb-8 text-[13px] text-gray-700 md:px-12">
-        Published on GitHub Packages from{" "}
+        Installed with <code className="font-mono text-[12px] text-gray-900">bun add @ovadev-gmbh/&lt;package&gt;</code> from
+        GitHub Packages. Source:{" "}
         <span className="ml-1 inline-flex translate-y-[0.15em] items-center gap-1">
           <GitHubIcon size={14} />
           <a className="underline underline-offset-2 hover:text-gray-1000" href="https://github.com/Ovadev-GmbH/brand">
