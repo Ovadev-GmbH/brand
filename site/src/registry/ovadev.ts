@@ -532,7 +532,7 @@ export const ovadev: Pkg = {
   name: "Ovadev",
   pkg: "@ovadev-gmbh/ui-ovadev",
   frame: true,
-  groups: ["Blocks", "Actions", "Forms", "Overlays", "Disclosure", "Feedback", "Data", "Layout", "Chat"],
+  groups: ["Actions", "Forms", "Overlays", "Disclosure", "Feedback", "Data", "Layout", "Chat"],
   entries: [
     {
       name: "App Shell",
@@ -541,8 +541,8 @@ export const ovadev: Pkg = {
       kind: "block",
       imports: ["AppShell","AppShellHeader","AppShellContent"],
       examples: [
-        { name: "01-dashboard", title: "Dashboard", Component: lazy(() => import("../examples/ovadev/blocks/app-shell/01-dashboard")), source: AppShell01DashboardSrc },
-        { name: "02-settings", title: "Settings", Component: lazy(() => import("../examples/ovadev/blocks/app-shell/02-settings")), source: AppShell02SettingsSrc },
+        { name: "01-dashboard", title: "Dashboard", description: "", Component: lazy(() => import("../examples/ovadev/blocks/app-shell/01-dashboard")), source: AppShell01DashboardSrc },
+        { name: "02-settings", title: "Settings", description: "", Component: lazy(() => import("../examples/ovadev/blocks/app-shell/02-settings")), source: AppShell02SettingsSrc },
       ],
     },
     {
@@ -552,7 +552,7 @@ export const ovadev: Pkg = {
       kind: "block",
       imports: ["AuthLayout","AuthCard","OvadevMark","SecuredBy","GoogleSignInForm"],
       examples: [
-        { name: "01-google", title: "Google", Component: lazy(() => import("../examples/ovadev/blocks/auth/01-google")), source: Auth01GoogleSrc },
+        { name: "01-google", title: "Google", description: "master.ova.dev: the one door for the people who run things, opened with a Google account.", Component: lazy(() => import("../examples/ovadev/blocks/auth/01-google")), source: Auth01GoogleSrc },
       ],
     },
     {
@@ -562,9 +562,9 @@ export const ovadev: Pkg = {
       kind: "block",
       imports: ["ErrorPage","ErrorPageCode","ErrorPageTitle","ErrorPageDescription","ErrorPageActions"],
       examples: [
-        { name: "01-not-found", title: "Not Found", Component: lazy(() => import("../examples/ovadev/blocks/error-page/01-not-found")), source: ErrorPage01NotFoundSrc },
-        { name: "02-server-error", title: "Server Error", Component: lazy(() => import("../examples/ovadev/blocks/error-page/02-server-error")), source: ErrorPage02ServerErrorSrc },
-        { name: "03-forbidden", title: "Forbidden", Component: lazy(() => import("../examples/ovadev/blocks/error-page/03-forbidden")), source: ErrorPage03ForbiddenSrc },
+        { name: "01-not-found", title: "Not Found", description: "", Component: lazy(() => import("../examples/ovadev/blocks/error-page/01-not-found")), source: ErrorPage01NotFoundSrc },
+        { name: "02-server-error", title: "Server Error", description: "", Component: lazy(() => import("../examples/ovadev/blocks/error-page/02-server-error")), source: ErrorPage02ServerErrorSrc },
+        { name: "03-forbidden", title: "Forbidden", description: "", Component: lazy(() => import("../examples/ovadev/blocks/error-page/03-forbidden")), source: ErrorPage03ForbiddenSrc },
       ],
     },
     {
@@ -574,8 +574,8 @@ export const ovadev: Pkg = {
       kind: "block",
       imports: ["StatGrid","Stat","StatDelta"],
       examples: [
-        { name: "01-overview", title: "Overview", Component: lazy(() => import("../examples/ovadev/blocks/stats/01-overview")), source: Stats01OverviewSrc },
-        { name: "02-with-hints", title: "With Hints", Component: lazy(() => import("../examples/ovadev/blocks/stats/02-with-hints")), source: Stats02WithHintsSrc },
+        { name: "01-overview", title: "Overview", description: "", Component: lazy(() => import("../examples/ovadev/blocks/stats/01-overview")), source: Stats01OverviewSrc },
+        { name: "02-with-hints", title: "With Hints", description: "", Component: lazy(() => import("../examples/ovadev/blocks/stats/02-with-hints")), source: Stats02WithHintsSrc },
       ],
     },
     {

@@ -21,6 +21,7 @@ export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
   return [
     { slug: "", name: "Introduction" },
     ...(CHROME[pkg.id].marks?.length ? [{ slug: "brand-assets", name: "Brand Assets" }] : []),
+    ...(pkg.entries.some((e) => e.kind === "block") ? [{ slug: "blocks", name: "Blocks" }] : []),
     { slug: "colors", name: "Colors" },
     { slug: "typography", name: "Typography" },
     ...(CHROME[pkg.id].materials ? [{ slug: "materials", name: "Materials" }] : []),

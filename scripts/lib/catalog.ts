@@ -98,7 +98,13 @@ export function componentsOf(id: string): Component[] {
     });
 }
 
-export type Block = { slug: string; name: string; exports: string[]; source: string; examples: { name: string; title: string; source: string }[] };
+export type Block = { slug: string; name: string; exports: string[]; source: string; examples: { name: string; title: string; description: string; source: string }[] };
+
+/** An example's one line, from the doc comment at the top of its file. */
+function descriptionOf(src: string): string {
+  const m = src.match(/^(?:import[^\n]*\n|\s*\n)*\/\*\*([\s\S]*?)\*\//);
+  return m ? m[1]!.replace(/^\s*\*\s?/gm, "").replace(/\s+/g, " ").trim() : "";
+}
 
 /** Every block of a package, in sidebar order, with its examples. A block
  *  file that BLOCKS does not list is an error, like an ungrouped component. */
@@ -117,7 +123,8 @@ export function blocksOf(id: string): Block[] {
           .sort()
           .map((f) => {
             const name = f.replace(/\.tsx$/, "");
-            return { name, title: title(name.replace(/^\d+-/, "")), source: readFileSync(`${exDir}/${f}`, "utf8") };
+            const source = readFileSync(`${exDir}/${f}`, "utf8");
+            return { name, title: title(name.replace(/^\d+-/, "")), description: descriptionOf(source), source };
           })
       : [];
     if (!examples.length) throw new Error(`block ${slug} has no examples under site/src/examples/${id}/blocks/${slug}/`);

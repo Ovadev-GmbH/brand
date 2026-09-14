@@ -184,6 +184,14 @@ if (existsSync(`${ROOT}/packages/${ID}/src/components/ui`)) {
     ].join("\n"));
     blocks.push({ slug: b.slug, name: b.name, exports: b.exports });
   }
+  if (blocks.length) {
+    const all = blocksOf(ID);
+    write("blocks", [
+      `# ${brand.name} blocks`, ``,
+      `Whole screens and screen parts composed from the components, from the package's \`/blocks\` subpath. Live: ${BASE}/blocks. Each block's page, with every example and its source:`, ``,
+      ...all.flatMap((b) => [`## [${b.name}](${BASE}/${b.slug}.md)`, ``, `\`import { ${b.exports.join(", ")} } from "${brand.pkg}/blocks";\``, ``, ...b.examples.map((e) => `- **${e.title}**${e.description ? `: ${e.description}` : ""}`), ``]),
+    ].join("\n"));
+  }
 } else {
   /* The Base UI registry is generated TypeScript that imports TSX, so it is
      read as text: each entry's name, slug, group and imports, and the example

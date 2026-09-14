@@ -17,24 +17,6 @@ export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
   const importLine = oneLine.length <= 80 ? oneLine : `import {\n${names.map((n) => `  ${n},`).join("\n")}\n} from "${pkg.pkg}";`;
   const frame = (index: number) => (pkg.frame ? { pkg: pkg.id, slug: entry.slug, index } : undefined);
 
-  if (entry.kind === "block") {
-    const blockLine = `import { ${names.join(", ")} } from "${pkg.pkg}/blocks";`;
-    return (
-      <article>
-        <PageHeader title={entry.name} md={mdHref(pkg, entry.slug)}>
-          <p className="mt-3 text-[13px] text-gray-900">
-            <code>{blockLine.length <= 80 ? blockLine : `import {\n${names.map((n) => `  ${n},`).join("\n")}\n} from "${pkg.pkg}/blocks";`}</code>
-          </p>
-        </PageHeader>
-        <section className="mt-12">
-          {entry.examples.map((ex, i) => (
-            <Example key={i} example={ex} anchor={ex.name ?? `example-${i + 1}`} frame={frame(i)} block />
-          ))}
-        </section>
-      </article>
-    );
-  }
-
   if (!doc) {
     return (
       <article>

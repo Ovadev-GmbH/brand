@@ -6,9 +6,10 @@
  * per section that names one, from site/src/examples/<id>/<slug>/<name>.tsx,
  * and carries the doc itself for its page.
  *
- * Blocks (packages/<id>/src/blocks) come first, in the Blocks group, with one
- * example per file under site/src/examples/<id>/blocks/<slug>/; the package's
- * src/blocks.ts entry is written here too, from the same list.
+ * Blocks (packages/<id>/src/blocks) are entries too, kind "block", with one
+ * example per file under site/src/examples/<id>/blocks/<slug>/ — the Blocks
+ * page shows them all, the sidebar does not list them one by one; the
+ * package's src/blocks.ts entry is written here too, from the same list.
  *
  * The demos are imported lazily. They pull in the package and its Tailwind
  * classes, which the catalog's own page never renders — they run inside the
@@ -65,7 +66,7 @@ const lines: string[] = [
   `  name: "${meta.name}",`,
   `  pkg: "${meta.pkg}",`,
   `  frame: true,`,
-  `  groups: [${[...(blocks.length ? [BLOCKS_GROUP] : []), ...GROUPS.map(([g]) => g)].map((g) => JSON.stringify(g)).join(", ")}],`,
+  `  groups: [${GROUPS.map(([g]) => JSON.stringify(g)).join(", ")}],`,
   `  entries: [`,
 ];
 for (const b of blocks) {
@@ -79,7 +80,7 @@ for (const b of blocks) {
     `      imports: ${JSON.stringify(b.exports)},`,
     `      examples: [`,
     ...b.examples.map(
-      (e) => `        { name: ${JSON.stringify(e.name)}, title: ${JSON.stringify(e.title)}, Component: lazy(() => import("../examples/${ID}/blocks/${b.slug}/${e.name}")), source: ${P}${pascal(e.name)}Src },`,
+      (e) => `        { name: ${JSON.stringify(e.name)}, title: ${JSON.stringify(e.title)}, description: ${JSON.stringify(e.description)}, Component: lazy(() => import("../examples/${ID}/blocks/${b.slug}/${e.name}")), source: ${P}${pascal(e.name)}Src },`,
     ),
     `      ],`,
     `    },`,

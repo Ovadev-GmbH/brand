@@ -16,6 +16,7 @@ export function DemoFrame({
   index,
   thumb = false,
   min = 96,
+  width,
 }: {
   pkg: PkgId;
   slug: string;
@@ -24,6 +25,9 @@ export function DemoFrame({
   thumb?: boolean;
   /** The least height the frame takes, in px; a block gets a screen's worth. */
   min?: number;
+  /** A fixed width in px, for looking at a block as a tablet or a phone
+   *  would; the full width otherwise. */
+  width?: number;
 }) {
   const id = `${pkg}/${slug}/${index}`;
   const frame = React.useRef<HTMLIFrameElement>(null);
@@ -55,8 +59,8 @@ export function DemoFrame({
       ref={frame}
       src={src}
       title="Demo"
-      className={`block w-full border-0 transition-[height] duration-150 ${thumb ? "pointer-events-none" : ""}`}
-      style={{ height }}
+      className={`block max-w-full border-0 transition-[height,width] duration-150 ${thumb ? "pointer-events-none" : ""}`}
+      style={{ height, width: width ?? "100%" }}
       tabIndex={thumb ? -1 : undefined}
       aria-hidden={thumb || undefined}
     />

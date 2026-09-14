@@ -13,8 +13,9 @@ export type Example = {
   /** The file's name under examples/<id>/<slug>/, which a doc section names.
    *  Absent for the page's lead demo. */
   name?: string;
-  /** A block example's heading on the page. */
+  /** A block example's heading on the page, and its one line under it. */
   title?: string;
+  description?: string;
 };
 
 /** A component's documentation, in the shape shadcn/ui gives its pages:

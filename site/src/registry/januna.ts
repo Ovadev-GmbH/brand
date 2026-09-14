@@ -535,7 +535,7 @@ export const januna: Pkg = {
   name: "Januna",
   pkg: "@ovadev-gmbh/ui-januna",
   frame: true,
-  groups: ["Blocks", "Actions", "Forms", "Overlays", "Disclosure", "Feedback", "Data", "Layout", "Chat"],
+  groups: ["Actions", "Forms", "Overlays", "Disclosure", "Feedback", "Data", "Layout", "Chat"],
   entries: [
     {
       name: "App Shell",
@@ -544,8 +544,8 @@ export const januna: Pkg = {
       kind: "block",
       imports: ["AppShell","AppShellHeader","AppShellContent"],
       examples: [
-        { name: "01-dashboard", title: "Dashboard", Component: lazy(() => import("../examples/januna/blocks/app-shell/01-dashboard")), source: AppShell01DashboardSrc },
-        { name: "02-settings", title: "Settings", Component: lazy(() => import("../examples/januna/blocks/app-shell/02-settings")), source: AppShell02SettingsSrc },
+        { name: "01-dashboard", title: "Dashboard", description: "", Component: lazy(() => import("../examples/januna/blocks/app-shell/01-dashboard")), source: AppShell01DashboardSrc },
+        { name: "02-settings", title: "Settings", description: "", Component: lazy(() => import("../examples/januna/blocks/app-shell/02-settings")), source: AppShell02SettingsSrc },
       ],
     },
     {
@@ -555,8 +555,8 @@ export const januna: Pkg = {
       kind: "block",
       imports: ["AuthLayout","AuthCard","AuthLink","OvadevMark","SecuredBy","PhoneSignInForm","OtpForm"],
       examples: [
-        { name: "01-phone", title: "Phone", Component: lazy(() => import("../examples/januna/blocks/auth/01-phone")), source: Auth01PhoneSrc },
-        { name: "02-verify-code", title: "Verify Code", Component: lazy(() => import("../examples/januna/blocks/auth/02-verify-code")), source: Auth02VerifyCodeSrc },
+        { name: "01-phone", title: "Phone", description: "The restaurant signs in with a mobile number; the code follows on the next screen (see Verify Code).", Component: lazy(() => import("../examples/januna/blocks/auth/01-phone")), source: Auth01PhoneSrc },
+        { name: "02-verify-code", title: "Verify Code", description: "", Component: lazy(() => import("../examples/januna/blocks/auth/02-verify-code")), source: Auth02VerifyCodeSrc },
       ],
     },
     {
@@ -566,9 +566,9 @@ export const januna: Pkg = {
       kind: "block",
       imports: ["ErrorPage","ErrorPageCode","ErrorPageTitle","ErrorPageDescription","ErrorPageActions"],
       examples: [
-        { name: "01-not-found", title: "Not Found", Component: lazy(() => import("../examples/januna/blocks/error-page/01-not-found")), source: ErrorPage01NotFoundSrc },
-        { name: "02-server-error", title: "Server Error", Component: lazy(() => import("../examples/januna/blocks/error-page/02-server-error")), source: ErrorPage02ServerErrorSrc },
-        { name: "03-forbidden", title: "Forbidden", Component: lazy(() => import("../examples/januna/blocks/error-page/03-forbidden")), source: ErrorPage03ForbiddenSrc },
+        { name: "01-not-found", title: "Not Found", description: "", Component: lazy(() => import("../examples/januna/blocks/error-page/01-not-found")), source: ErrorPage01NotFoundSrc },
+        { name: "02-server-error", title: "Server Error", description: "", Component: lazy(() => import("../examples/januna/blocks/error-page/02-server-error")), source: ErrorPage02ServerErrorSrc },
+        { name: "03-forbidden", title: "Forbidden", description: "", Component: lazy(() => import("../examples/januna/blocks/error-page/03-forbidden")), source: ErrorPage03ForbiddenSrc },
       ],
     },
     {
@@ -578,8 +578,8 @@ export const januna: Pkg = {
       kind: "block",
       imports: ["StatGrid","Stat","StatDelta"],
       examples: [
-        { name: "01-overview", title: "Overview", Component: lazy(() => import("../examples/januna/blocks/stats/01-overview")), source: Stats01OverviewSrc },
-        { name: "02-with-hints", title: "With Hints", Component: lazy(() => import("../examples/januna/blocks/stats/02-with-hints")), source: Stats02WithHintsSrc },
+        { name: "01-overview", title: "Overview", description: "", Component: lazy(() => import("../examples/januna/blocks/stats/01-overview")), source: Stats01OverviewSrc },
+        { name: "02-with-hints", title: "With Hints", description: "", Component: lazy(() => import("../examples/januna/blocks/stats/02-with-hints")), source: Stats02WithHintsSrc },
       ],
     },
     {

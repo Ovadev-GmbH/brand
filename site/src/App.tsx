@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Route, Routes, useLocation, useParams } from "react-router";
+import { Navigate, Route, Routes, useLocation, useParams } from "react-router";
 import { entryBySlug, pkgById } from "./registry";
 import { CHROME } from "./brands";
 import { Shell } from "./components/Shell";
@@ -13,6 +13,7 @@ import { MaterialsPage } from "./pages/MaterialsPage";
 import { LayoutPage } from "./pages/LayoutPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { EntryPage } from "./pages/EntryPage";
+import { BlocksPage } from "./pages/BlocksPage";
 
 /* Each brand is its own catalog under /<brand>, with its own shell, its own
    ⌘K and its own foundations. The root is the chooser and the only place the
@@ -26,6 +27,7 @@ const PAGES = {
   icons: IconsPage,
   materials: MaterialsPage,
   layout: LayoutPage,
+  blocks: BlocksPage,
 };
 
 function Brand({ page }: { page: keyof typeof PAGES }) {
@@ -37,7 +39,8 @@ function Brand({ page }: { page: keyof typeof PAGES }) {
   const missing =
     (page === "brand-assets" && !CHROME[pkg.id].marks?.length) || (page === "icons" && !CHROME[pkg.id].icons) ||
     (page === "materials" && !CHROME[pkg.id].materials) ||
-    (page === "layout" && !CHROME[pkg.id].layout);
+    (page === "layout" && !CHROME[pkg.id].layout) ||
+    (page === "blocks" && !pkg.entries.some((e) => e.kind === "block"));
   const Body = PAGES[page];
   return <Shell pkg={pkg}>{missing ? <NotFoundPage pkg={pkg} /> : <Body pkg={pkg} />}</Shell>;
 }
@@ -47,6 +50,8 @@ function Component() {
   const pkg = pkgById(id);
   const entry = pkg ? entryBySlug(pkg, slug) : undefined;
   if (!pkg) return <NotFound />;
+  // A block's own address is a place on the Blocks page.
+  if (entry?.kind === "block") return <Navigate to={`/${pkg.id}/blocks?block=${entry.slug}`} replace />;
   return <Shell pkg={pkg}>{entry ? <EntryPage pkg={pkg} entry={entry} /> : <NotFoundPage pkg={pkg} />}</Shell>;
 }
 
@@ -82,6 +87,7 @@ export function App() {
         <Route path="/:pkg/icons" element={<Brand page="icons" />} />
         <Route path="/:pkg/materials" element={<Brand page="materials" />} />
         <Route path="/:pkg/layout" element={<Brand page="layout" />} />
+        <Route path="/:pkg/blocks" element={<Brand page="blocks" />} />
         <Route path="/:pkg/:slug" element={<Component />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

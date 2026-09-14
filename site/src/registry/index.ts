@@ -44,7 +44,7 @@ export function grouped(pkg: Pkg, filter = ""): { group: string; entries: Entry[
   return pkg.groups
     .map((group) => ({
       group,
-      entries: pkg.entries.filter((e) => e.group === group && (!q || e.name.toLowerCase().includes(q))),
+      entries: pkg.entries.filter((e) => e.kind !== "block" && e.group === group && (!q || e.name.toLowerCase().includes(q))),
     }))
     .filter((g) => g.entries.length > 0);
 }
