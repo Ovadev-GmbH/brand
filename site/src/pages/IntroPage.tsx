@@ -33,7 +33,7 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
       ? [{ name: "Components", line: chrome.lines?.components ?? `${components.length} building blocks on Base UI.`, to: href(pkg.id, components[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug="intro" index={0} thumb /> }]
       : []),
     ...(blocks.length
-      ? [{ name: "Blocks", line: "Whole screens from the components: shell, auth, errors, stats.", to: href(pkg.id, blocks[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug={blocks.find((b) => b.slug === "stats")?.slug ?? blocks[0]!.slug} index={0} thumb /> }]
+      ? [{ name: "Blocks", line: "Whole screens from the components: shell, auth, errors, stats.", to: href(pkg.id, blocks[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug="blocks" index={0} thumb /> }]
       : []),
     {
       name: "Colors",
