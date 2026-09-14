@@ -103,16 +103,21 @@ function Preview({ pkg, extra, demos }: { pkg: Pkg; extra: Extra; demos: Record<
     return () => window.removeEventListener("message", onMessage);
   }, [demos]);
 
-  const Demo = pkg.entries.find((e) => e.slug === shown.slug)?.examples[shown.index]?.Component ?? extra[shown.slug];
+  const entry = pkg.entries.find((e) => e.slug === shown.slug);
+  const Demo = entry?.examples[shown.index]?.Component ?? extra[shown.slug];
   const id = `${shown.pkg}/${shown.slug}/${shown.index}`;
   if (shown.pkg !== pkg.id || !Demo) return <p className="p-6 text-sm">No such demo.</p>;
+  // A block is a screen: it fills the frame edge to edge and sizes itself.
+  const block = entry?.kind === "block" && !THUMB;
   return (
     <div
       data-brand={pkg.id}
       className={
         THUMB
           ? "flex items-center justify-center bg-transparent p-4 text-foreground"
-          : "flex min-h-24 items-center justify-center bg-background px-8 py-10 text-foreground"
+          : block
+            ? "bg-background text-foreground"
+            : "flex min-h-24 items-center justify-center bg-background px-8 py-10 text-foreground"
       }
     >
       <Suspense fallback={null}>

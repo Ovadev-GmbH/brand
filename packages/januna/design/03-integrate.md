@@ -18,6 +18,12 @@ import { Button, Dialog, DialogTrigger, DialogContent } from "@ovadev-gmbh/ui-ja
 import { HugeiconsIcon, Calendar03Icon } from "@ovadev-gmbh/ui-januna/icons";
 ```
 
+Whole screens start from a block, the package's `/blocks` subpath: an app shell with the sidebar, the auth screens, the error pages, a stats row. Start there where one fits and compose the rest from components; never rebuild what a block already is.
+
+```tsx
+import { ErrorPage, AppShell } from "@ovadev-gmbh/ui-januna/blocks";
+```
+
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. It brings its own Base UI and icon set; the app supplies only React and Tailwind, and never installs or imports either library itself. Keep screens static except where a control holds state.
 
 When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API.

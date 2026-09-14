@@ -15,15 +15,17 @@ export function DemoFrame({
   slug,
   index,
   thumb = false,
+  min = 96,
 }: {
   pkg: PkgId;
   slug: string;
   index: number;
   /** Inert and centred: a card's preview, not a page's demo. */
   thumb?: boolean;
+  /** The least height the frame takes, in px; a block gets a screen's worth. */
+  min?: number;
 }) {
   const id = `${pkg}/${slug}/${index}`;
-  const min = 96;
   const frame = React.useRef<HTMLIFrameElement>(null);
   const [ready, setReady] = React.useState(false);
   const [height, setHeight] = React.useState(min);

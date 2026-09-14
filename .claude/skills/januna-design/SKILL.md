@@ -9,7 +9,7 @@ Everything Januna-looking comes from one package and one document.
 
 1. Read `packages/januna/DESIGN.md` in the brand repo, or `https://intern.ova.dev/brand/januna/design.md` from anywhere. It is the authority: read it fully before the first line of UI.
 2. For a specific component, read its Markdown page: `https://intern.ova.dev/brand/januna/<slug>.md` (import line, demo, source). The index is `https://intern.ova.dev/brand/januna/llms.txt`.
-3. Build only with the package. Install it from GitHub Packages, import `@ovadev-gmbh/ui-januna/styles.css` as the Tailwind entry, import components from `@ovadev-gmbh/ui-januna`, icons from `@ovadev-gmbh/ui-januna/icons`. Never install or import Base UI or Hugeicons in the app; the package brings both.
+3. Build only with the package. Install it from GitHub Packages, import `@ovadev-gmbh/ui-januna/styles.css` as the Tailwind entry, import components from `@ovadev-gmbh/ui-januna`, icons from `@ovadev-gmbh/ui-januna/icons`, whole screens (app shell, auth, error pages, stats) from `@ovadev-gmbh/ui-januna/blocks`. Never install or import Base UI or Hugeicons in the app; the package brings both.
 
 Rules that are not negotiable, in the words of DESIGN.md:
 

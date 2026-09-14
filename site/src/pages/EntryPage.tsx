@@ -17,6 +17,24 @@ export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
   const importLine = oneLine.length <= 80 ? oneLine : `import {\n${names.map((n) => `  ${n},`).join("\n")}\n} from "${pkg.pkg}";`;
   const frame = (index: number) => (pkg.frame ? { pkg: pkg.id, slug: entry.slug, index } : undefined);
 
+  if (entry.kind === "block") {
+    const blockLine = `import { ${names.join(", ")} } from "${pkg.pkg}/blocks";`;
+    return (
+      <article>
+        <PageHeader title={entry.name} md={mdHref(pkg, entry.slug)}>
+          <p className="mt-3 text-[13px] text-gray-900">
+            <code>{blockLine.length <= 80 ? blockLine : `import {\n${names.map((n) => `  ${n},`).join("\n")}\n} from "${pkg.pkg}/blocks";`}</code>
+          </p>
+        </PageHeader>
+        <section className="mt-12">
+          {entry.examples.map((ex, i) => (
+            <Example key={i} example={ex} anchor={ex.name ?? `example-${i + 1}`} frame={frame(i)} block />
+          ))}
+        </section>
+      </article>
+    );
+  }
+
   if (!doc) {
     return (
       <article>
@@ -47,9 +65,9 @@ export function EntryPage({ pkg, entry }: { pkg: Pkg; entry: Entry }) {
 
         <DocSection title="Installation">
           <p>
-            <Rich text={`Add the package and Base UI, which it is built on. The \`@ovadev-gmbh\` scope is served from GitHub Packages, so the registry needs a token that can read packages.`} />
+            <Rich text={`Add the package; it brings Base UI and the icon set with it. The \`@ovadev-gmbh\` scope is served from GitHub Packages, so the registry needs a token that can read packages.`} />
           </p>
-          <CodeBlock lang="bash" code={`bun add ${pkg.pkg} @base-ui/react`} />
+          <CodeBlock lang="bash" code={`bun add ${pkg.pkg}`} />
           <p>Import the stylesheet as the app&rsquo;s Tailwind entry.</p>
           <CodeBlock lang="css" code={`@import "${pkg.pkg}/styles.css";`} />
         </DocSection>

@@ -9,7 +9,8 @@ import { defineConfig } from "vite";
 // stays external: the app supplies React and Tailwind, the package's own
 // dependencies (Base UI, the icon set) come with it, and the component
 // classes live in these files for the app's Tailwind to find. icons.ts is
-// a second entry, published as the ./icons subpath.
+// a second entry, published as the ./icons subpath; blocks.ts a third, the
+// screens composed from the components, as ./blocks.
 export default defineConfig({
   plugins: [react(), preserveDirectives()],
   build: {
@@ -17,6 +18,7 @@ export default defineConfig({
       entry: {
         index: resolve(import.meta.dirname, "src/index.ts"),
         icons: resolve(import.meta.dirname, "src/icons.ts"),
+        blocks: resolve(import.meta.dirname, "src/blocks.ts"),
       },
       formats: ["es"],
     },

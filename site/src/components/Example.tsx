@@ -19,19 +19,24 @@ export function Example({
   example,
   anchor,
   frame,
+  block = false,
 }: {
   example: ExampleData;
   anchor: string;
   /** Set for a package whose demos run in preview-<id>.html. */
   frame?: { pkg: PkgId; slug: string; index: number };
+  /** A block's example: a screen, so it gets its title, the full width and
+   *  room to be one. */
+  block?: boolean;
 }) {
   const [open, setOpen] = React.useState(false);
   const Demo = example.Component;
   return (
     <section className="mb-10" id={anchor}>
+      {block && example.title ? <h2 className="mt-0 mb-4 font-display text-xl">{example.title}</h2> : null}
       <div className="overflow-hidden rounded-brand border border-alpha-400 bg-bg-100">
         {frame ? (
-          <DemoFrame pkg={frame.pkg} slug={frame.slug} index={frame.index} />
+          <DemoFrame pkg={frame.pkg} slug={frame.slug} index={frame.index} min={block ? 200 : undefined} />
         ) : (
           <div data-demo className="scrollbar-quiet min-h-24 overflow-x-auto p-6 [&>*+*]:mt-4">
             <Demo />

@@ -11,7 +11,7 @@
  *   bun run scripts/gen-catalog-md.ts januna */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import type { Doc } from "../site/src/types";
-import { BRANDS, ROOT, SITE, componentsOf, demoOf } from "./lib/catalog";
+import { BLOCKS_GROUP, BRANDS, ROOT, SITE, blocksOf, componentsOf, demoOf } from "./lib/catalog";
 import { colorsMd, layoutMd, loadFoundations, materialsMd, typographyMd } from "./lib/foundations-md";
 
 const ID = process.argv[2];
@@ -46,6 +46,7 @@ type Component = { slug: string; name: string; group: string; exports: string[] 
 const foundations: Page[] = [];
 const assets: Page[] = [];
 let components: Component[] = [];
+const blocks: Component[] = [];
 
 /* ── foundations and assets ─────────────────────────────────────────── */
 
@@ -142,8 +143,8 @@ if (existsSync(`${ROOT}/packages/${ID}/src/components/ui`)) {
       `Group: ${c.group}. Package: \`${brand.pkg}\`. Live: ${BASE}/${c.slug}`, ``,
       ...(demo ? fence("tsx", demo) : []),
       `## Installation`, ``,
-      `Add the package and Base UI, which it is built on. The \`@ovadev-gmbh\` scope is served from GitHub Packages, so the registry needs a token that can read packages.`, ``,
-      ...fence("bash", `bun add ${brand.pkg} @base-ui/react`),
+      `Add the package; it brings Base UI and the icon set with it. The \`@ovadev-gmbh\` scope is served from GitHub Packages, so the registry needs a token that can read packages.`, ``,
+      ...fence("bash", `bun add ${brand.pkg}`),
       `Import the stylesheet as the app's Tailwind entry.`, ``,
       ...fence("css", `@import "${brand.pkg}/styles.css";`),
       `## Usage`, ``,
@@ -171,6 +172,18 @@ if (existsSync(`${ROOT}/packages/${ID}/src/components/ui`)) {
     ].join("\n"));
   }
   components = cs;
+
+  /* Blocks: the import line from the subpath, every example, then the source. */
+  for (const b of blocksOf(ID)) {
+    write(b.slug, [
+      `# ${b.name}`, ``,
+      `A block: a screen or screen part composed from the components. Group: ${BLOCKS_GROUP}. Package: \`${brand.pkg}/blocks\`. Live: ${BASE}/${b.slug}`, ``,
+      ...fence("tsx", `import { ${b.exports.join(", ")} } from "${brand.pkg}/blocks";`),
+      ...b.examples.flatMap((e) => [`## ${e.title}`, ``, ...fence("tsx", e.source)]),
+      `## Source`, ``, `The block as the package ships it.`, ``, ...fence("tsx", b.source),
+    ].join("\n"));
+    blocks.push({ slug: b.slug, name: b.name, exports: b.exports });
+  }
 } else {
   /* The Base UI registry is generated TypeScript that imports TSX, so it is
      read as text: each entry's name, slug, group and imports, and the example
@@ -214,6 +227,14 @@ writeFileSync(`${ROOT}/site/public/${ID}.md`, [
   `${lines.components ?? `${components.length} building blocks on Base UI.`} Import them from the package:`, ``,
   "```tsx", `import { ${components.slice(0, 3).map((c) => c.exports[0]).join(", ")} } from "${brand.pkg}";`, "```", ``,
   ...[...byGroup].flatMap(([g, cs]) => [`**${g}.** ${cs.map((c) => `[${c.name}](${BASE}/${c.slug}.md)`).join(", ")}`, ``]),
+  ...(blocks.length
+    ? [
+        `---`, ``,
+        `## Blocks`, ``,
+        `Screens and screen parts composed from the components, from the \`/blocks\` subpath: ${blocks.map((b) => `[${b.name}](${BASE}/${b.slug}.md)`).join(", ")}.`, ``,
+        "```tsx", `import { ${blocks.slice(0, 2).map((b) => b.exports[0]).join(", ")} } from "${brand.pkg}/blocks";`, "```", ``,
+      ]
+    : []),
   `---`, ``,
   `## Markdown for agents`, ``,
   `Every page of this catalog is also Markdown: append \`.md\` to its URL (for example ${BASE}/colors.md), or request it with an \`Accept: text/markdown\` header.${design ? ` How to design with ${brand.name}: ${BASE}/design.md.` : ""} Every page of this brand: ${BASE}/llms.txt. Every brand: ${SITE}.md.`, ``,
@@ -230,6 +251,7 @@ writeFileSync(`${out}/llms.txt`, [
   ...(assets.length ? [`## Assets`, ``, ...assets.map((p) => `- [${p.name}](${BASE}/${p.slug}.md)`), ``] : []),
   `## Components`, ``,
   ...components.map((c) => `- [${c.name}](${BASE}/${c.slug}.md): ${c.exports.slice(0, 6).join(", ")}${c.exports.length > 6 ? ", …" : ""}`), ``,
+  ...(blocks.length ? [`## Blocks`, ``, ...blocks.map((b) => `- [${b.name}](${BASE}/${b.slug}.md): ${b.exports.join(", ")}`), ``] : []),
 ].join("\n"));
 
-console.log(`site/public/${ID}: introduction, ${foundations.length + assets.length} foundation and asset pages, ${components.length} components, llms.txt`);
+console.log(`site/public/${ID}: introduction, ${foundations.length + assets.length} foundation and asset pages, ${components.length} components, ${blocks.length} blocks, llms.txt`);

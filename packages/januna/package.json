@@ -1,6 +1,6 @@
 {
   "name": "@ovadev-gmbh/ui-januna",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Januna component library: shadcn on Base UI, themed from one green.",
   "license": "UNLICENSED",
   "type": "module",
@@ -13,6 +13,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./blocks": {
+      "types": "./dist/blocks.d.ts",
+      "import": "./dist/blocks.js"
     },
     "./icons": {
       "types": "./dist/icons.d.ts",

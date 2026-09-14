@@ -23,12 +23,17 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
   const marks = chrome.marks ?? [];
   const at = (slug: string) => `${href(pkg.id)}/${slug}`;
+  const blocks = pkg.entries.filter((e) => e.kind === "block");
+  const components = pkg.entries.filter((e) => e.kind !== "block");
 
   const doors: Door[] = [
     ...(marks.length ? [{ name: "Brand Assets", line: "The marks, and how to place them.", to: at("brand-assets"), preview: <MarkRow marks={marks} /> }] : []),
     ...(chrome.icons ? [{ name: "Icons", line: chrome.lines?.icons ?? `${chrome.icons.library}, as the components draw it.`, to: at("icons"), preview: <IconGrid icons={chrome.icons} /> }] : []),
     ...(pkg.frame
-      ? [{ name: "Components", line: chrome.lines?.components ?? `${pkg.entries.length} building blocks on Base UI.`, to: href(pkg.id, pkg.entries[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug="intro" index={0} thumb /> }]
+      ? [{ name: "Components", line: chrome.lines?.components ?? `${components.length} building blocks on Base UI.`, to: href(pkg.id, components[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug="intro" index={0} thumb /> }]
+      : []),
+    ...(blocks.length
+      ? [{ name: "Blocks", line: "Whole screens from the components: shell, auth, errors, stats.", to: href(pkg.id, blocks[0]?.slug), preview: <DemoFrame pkg={pkg.id} slug={blocks.find((b) => b.slug === "stats")?.slug ?? blocks[0]!.slug} index={0} thumb /> }]
       : []),
     {
       name: "Colors",

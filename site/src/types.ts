@@ -13,6 +13,8 @@ export type Example = {
   /** The file's name under examples/<id>/<slug>/, which a doc section names.
    *  Absent for the page's lead demo. */
   name?: string;
+  /** A block example's heading on the page. */
+  title?: string;
 };
 
 /** A component's documentation, in the shape shadcn/ui gives its pages:
@@ -37,6 +39,10 @@ export type Entry = {
   slug: string;
   group: string;
   status?: "draft" | "deprecated";
+  /** A block: a screen or screen part composed from the components, imported
+   *  from the package's `/blocks` subpath and shown full-width, one example
+   *  per case. */
+  kind?: "block";
   examples: Example[];
   /** What the page's import line names. Defaults to [name]. */
   imports?: string[];

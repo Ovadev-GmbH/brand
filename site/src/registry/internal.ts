@@ -65,6 +65,18 @@ import MessageDemoSrc from "../examples/internal/MessageDemo.tsx?raw";
 import MessageScrollerDemoSrc from "../examples/internal/MessageScrollerDemo.tsx?raw";
 import BubbleDemoSrc from "../examples/internal/BubbleDemo.tsx?raw";
 import AttachmentDemoSrc from "../examples/internal/AttachmentDemo.tsx?raw";
+import AppShell01DashboardSrc from "../examples/internal/blocks/app-shell/01-dashboard.tsx?raw";
+import AppShell02SettingsSrc from "../examples/internal/blocks/app-shell/02-settings.tsx?raw";
+import Auth01LoginSrc from "../examples/internal/blocks/auth/01-login.tsx?raw";
+import Auth02SignupSrc from "../examples/internal/blocks/auth/02-signup.tsx?raw";
+import Auth03ForgotPasswordSrc from "../examples/internal/blocks/auth/03-forgot-password.tsx?raw";
+import Auth04VerifyCodeSrc from "../examples/internal/blocks/auth/04-verify-code.tsx?raw";
+import Auth05LoginSplitSrc from "../examples/internal/blocks/auth/05-login-split.tsx?raw";
+import ErrorPage01NotFoundSrc from "../examples/internal/blocks/error-page/01-not-found.tsx?raw";
+import ErrorPage02ServerErrorSrc from "../examples/internal/blocks/error-page/02-server-error.tsx?raw";
+import ErrorPage03ForbiddenSrc from "../examples/internal/blocks/error-page/03-forbidden.tsx?raw";
+import Stats01OverviewSrc from "../examples/internal/blocks/stats/01-overview.tsx?raw";
+import Stats02WithHintsSrc from "../examples/internal/blocks/stats/02-with-hints.tsx?raw";
 import ButtonDoc from "../docs/internal/button";
 import ButtonSizeSrc from "../examples/internal/button/size.tsx?raw";
 import ButtonDefaultSrc from "../examples/internal/button/default.tsx?raw";
@@ -524,8 +536,56 @@ export const internal: Pkg = {
   name: "Internal",
   pkg: "@ovadev-gmbh/ui-internal",
   frame: true,
-  groups: ["Actions", "Forms", "Overlays", "Disclosure", "Feedback", "Data", "Layout", "Chat"],
+  groups: ["Blocks", "Actions", "Forms", "Overlays", "Disclosure", "Feedback", "Data", "Layout", "Chat"],
   entries: [
+    {
+      name: "App Shell",
+      slug: "app-shell",
+      group: "Blocks",
+      kind: "block",
+      imports: ["AppShell","AppShellHeader","AppShellContent"],
+      examples: [
+        { name: "01-dashboard", title: "Dashboard", Component: lazy(() => import("../examples/internal/blocks/app-shell/01-dashboard")), source: AppShell01DashboardSrc },
+        { name: "02-settings", title: "Settings", Component: lazy(() => import("../examples/internal/blocks/app-shell/02-settings")), source: AppShell02SettingsSrc },
+      ],
+    },
+    {
+      name: "Auth",
+      slug: "auth",
+      group: "Blocks",
+      kind: "block",
+      imports: ["AuthLayout","AuthCard","LoginForm","SignupForm","ForgotPasswordForm","OtpForm"],
+      examples: [
+        { name: "01-login", title: "Login", Component: lazy(() => import("../examples/internal/blocks/auth/01-login")), source: Auth01LoginSrc },
+        { name: "02-signup", title: "Signup", Component: lazy(() => import("../examples/internal/blocks/auth/02-signup")), source: Auth02SignupSrc },
+        { name: "03-forgot-password", title: "Forgot Password", Component: lazy(() => import("../examples/internal/blocks/auth/03-forgot-password")), source: Auth03ForgotPasswordSrc },
+        { name: "04-verify-code", title: "Verify Code", Component: lazy(() => import("../examples/internal/blocks/auth/04-verify-code")), source: Auth04VerifyCodeSrc },
+        { name: "05-login-split", title: "Login Split", Component: lazy(() => import("../examples/internal/blocks/auth/05-login-split")), source: Auth05LoginSplitSrc },
+      ],
+    },
+    {
+      name: "Error Page",
+      slug: "error-page",
+      group: "Blocks",
+      kind: "block",
+      imports: ["ErrorPage","ErrorPageCode","ErrorPageTitle","ErrorPageDescription","ErrorPageActions"],
+      examples: [
+        { name: "01-not-found", title: "Not Found", Component: lazy(() => import("../examples/internal/blocks/error-page/01-not-found")), source: ErrorPage01NotFoundSrc },
+        { name: "02-server-error", title: "Server Error", Component: lazy(() => import("../examples/internal/blocks/error-page/02-server-error")), source: ErrorPage02ServerErrorSrc },
+        { name: "03-forbidden", title: "Forbidden", Component: lazy(() => import("../examples/internal/blocks/error-page/03-forbidden")), source: ErrorPage03ForbiddenSrc },
+      ],
+    },
+    {
+      name: "Stats",
+      slug: "stats",
+      group: "Blocks",
+      kind: "block",
+      imports: ["StatGrid","Stat","StatDelta"],
+      examples: [
+        { name: "01-overview", title: "Overview", Component: lazy(() => import("../examples/internal/blocks/stats/01-overview")), source: Stats01OverviewSrc },
+        { name: "02-with-hints", title: "With Hints", Component: lazy(() => import("../examples/internal/blocks/stats/02-with-hints")), source: Stats02WithHintsSrc },
+      ],
+    },
     {
       name: "Button",
       slug: "button",

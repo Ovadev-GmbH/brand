@@ -6,7 +6,7 @@
  *
  *   bun run scripts/gen-design-md.ts januna */
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
-import { BRANDS, ROOT, SITE, componentsOf } from "./lib/catalog";
+import { BRANDS, ROOT, SITE, blocksOf, componentsOf } from "./lib/catalog";
 import { colorsMd, layoutMd, loadFoundations, materialsMd, typographyMd } from "./lib/foundations-md";
 
 const ID = process.argv[2];
@@ -18,10 +18,11 @@ const dir = `${ROOT}/packages/${ID}/design`;
 const parts = readdirSync(dir).filter((f) => f.endsWith(".md")).sort();
 const f = await loadFoundations(ID);
 const components = componentsOf(ID);
+const blocks = blocksOf(ID);
 
 const api = [
   `## Use the published API`, ``,
-  `Install the package and import its stylesheet as the app's Tailwind entry; nothing else is needed.`, ``,
+  `Install the package and import its stylesheet as the app's Tailwind entry; nothing else is needed. It brings Base UI and the icon set with it.`, ``,
   "```css", `@import "${brand.pkg}/styles.css";`, "```", ``,
   "```tsx", `import { Button, Dialog, DialogTrigger } from "${brand.pkg}";`, "```", ``,
   `Every colour, type style, material and layout token below is a Tailwind class in the app. Tailwind's own palette is cleared: \`bg-zinc-500\` does not exist, and that is the point.`, ``,
@@ -33,6 +34,14 @@ const api = [
     for (const c of components) byGroup.set(c.group, [...(byGroup.get(c.group) ?? []), c]);
     return [...byGroup].flatMap(([g, cs]) => [`**${g}.**`, ``, ...cs.map((c) => `- ${c.name} (\`${c.slug}\`): ${c.exports.join(", ")}`), ``]);
   })(),
+  ...(blocks.length
+    ? [
+        `### Blocks`, ``,
+        `Screens and screen parts composed from the components, so a whole page starts from one import. Each is shown with every case at ${SITE}/${ID}/<slug>, and as Markdown at the same path with \`.md\`. Start a screen from a block where one fits; compose from components where none does.`, ``,
+        "```tsx", `import { ${blocks.slice(0, 2).map((b) => b.exports[0]).join(", ")} } from "${brand.pkg}/blocks";`, "```", ``,
+        ...blocks.map((b) => `- ${b.name} (\`${b.slug}\`): ${b.exports.join(", ")}`), ``,
+      ]
+    : []),
   `### Icons`, ``, `${brand.icons.library}. ${brand.icons.note} The full set: ${SITE}/${ID}/icons`, ``, "```tsx", brand.icons.usage, "```", ``,
 ].join("\n");
 

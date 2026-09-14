@@ -1,7 +1,7 @@
 /* What the catalog knows about a package's components, shared by the
  * generators: which slug sits in which group, how a slug becomes a name, and
  * which names a component file exports. */
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 
 export const ROOT = new URL("../..", import.meta.url).pathname.replace(/\/$/, "");
 
@@ -56,6 +56,13 @@ export const GROUPS: [string, string[]][] = [
 ];
 export const groupOf = new Map(GROUPS.flatMap(([g, slugs]) => slugs.map((s) => [s, g] as const)));
 
+/** The blocks, in sidebar order: whole screens and screen parts composed
+ *  from the components, published as the package's `/blocks` subpath. Each
+ *  is packages/<id>/src/blocks/<slug>.tsx; its examples are every file under
+ *  site/src/examples/<id>/blocks/<slug>/. */
+export const BLOCKS = ["app-shell", "auth", "error-page", "stats"];
+export const BLOCKS_GROUP = "Blocks";
+
 const CAPS: Record<string, string> = { otp: "OTP" };
 export const pascal = (slug: string) => slug.split("-").map((w) => w[0]!.toUpperCase() + w.slice(1)).join("");
 export const title = (slug: string) => slug.split("-").map((w) => CAPS[w] ?? w[0]!.toUpperCase() + w.slice(1)).join(" ");
@@ -63,7 +70,7 @@ export const title = (slug: string) => slug.split("-").map((w) => CAPS[w] ?? w[0
 /** The component names a file exports — its closing `export { … }` block,
  *  minus the helpers (variants, hooks) that start lowercase. */
 export function exportsOf(src: string): string[] {
-  const block = src.match(/export \{([^}]+)\}\s*$/);
+  const block = src.match(/export \{([^}]+)\};?\s*$/);
   if (!block) return [];
   return block[1]!
     .split(",")
@@ -85,6 +92,33 @@ export function componentsOf(id: string): Component[] {
       const source = readFileSync(`${dir}/${slug}.tsx`, "utf8");
       return { slug, name: title(slug), group: groupOf.get(slug)!, exports: exportsOf(source), source };
     });
+}
+
+export type Block = { slug: string; name: string; exports: string[]; source: string; examples: { name: string; title: string; source: string }[] };
+
+/** Every block of a package, in sidebar order, with its examples. A block
+ *  file that BLOCKS does not list is an error, like an ungrouped component. */
+export function blocksOf(id: string): Block[] {
+  const dir = `${ROOT}/packages/${id}/src/blocks`;
+  if (!existsSync(dir)) return [];
+  const slugs = readdirSync(dir).filter((f) => f.endsWith(".tsx")).map((f) => f.replace(/\.tsx$/, ""));
+  const unlisted = slugs.filter((s) => !BLOCKS.includes(s));
+  if (unlisted.length) throw new Error(`blocks not in BLOCKS: ${unlisted.join(", ")}`);
+  return BLOCKS.filter((s) => slugs.includes(s)).map((slug) => {
+    const source = readFileSync(`${dir}/${slug}.tsx`, "utf8");
+    const exDir = `${ROOT}/site/src/examples/${id}/blocks/${slug}`;
+    const examples = existsSync(exDir)
+      ? readdirSync(exDir)
+          .filter((f) => f.endsWith(".tsx"))
+          .sort()
+          .map((f) => {
+            const name = f.replace(/\.tsx$/, "");
+            return { name, title: title(name.replace(/^\d+-/, "")), source: readFileSync(`${exDir}/${f}`, "utf8") };
+          })
+      : [];
+    if (!examples.length) throw new Error(`block ${slug} has no examples under site/src/examples/${id}/blocks/${slug}/`);
+    return { slug, name: title(slug), exports: exportsOf(source), source, examples };
+  });
 }
 
 /** A demo's source, if the catalog has one. */

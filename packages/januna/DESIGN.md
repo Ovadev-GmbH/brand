@@ -48,6 +48,12 @@ import { Button, Dialog, DialogTrigger, DialogContent } from "@ovadev-gmbh/ui-ja
 import { HugeiconsIcon, Calendar03Icon } from "@ovadev-gmbh/ui-januna/icons";
 ```
 
+Whole screens start from a block, the package's `/blocks` subpath: an app shell with the sidebar, the auth screens, the error pages, a stats row. Start there where one fits and compose the rest from components; never rebuild what a block already is.
+
+```tsx
+import { ErrorPage, AppShell } from "@ovadev-gmbh/ui-januna/blocks";
+```
+
 The package ships ESM with `"use client"` preserved, so it works in any React 19 setup, server-rendered or not, without wrappers. It brings its own Base UI and icon set; the app supplies only React and Tailwind, and never installs or imports either library itself. Keep screens static except where a control holds state.
 
 When the host already uses the package, reuse what is applied: its providers (`TooltipProvider`, `Toaster`), its layout shell and grid conventions. Add a component only through the package; never copy a shadcn file into the app. Integration changes syntax, never composition or the published API.
@@ -143,7 +149,7 @@ Do not ship any of these recognisable defaults:
 
 ## Use the published API
 
-Install the package and import its stylesheet as the app's Tailwind entry; nothing else is needed.
+Install the package and import its stylesheet as the app's Tailwind entry; nothing else is needed. It brings Base UI and the icon set with it.
 
 ```css
 @import "@ovadev-gmbh/ui-januna/styles.css";
@@ -467,6 +473,19 @@ A material sets radius, fill, stroke and shadow together. The stroke is a hairli
 - Message Scroller (`message-scroller`): MessageScrollerProvider, MessageScroller, MessageScrollerViewport, MessageScrollerContent, MessageScrollerItem, MessageScrollerButton
 - Bubble (`bubble`): BubbleGroup, Bubble, BubbleContent, BubbleReactions
 - Attachment (`attachment`): Attachment, AttachmentGroup, AttachmentMedia, AttachmentContent, AttachmentTitle, AttachmentDescription, AttachmentActions, AttachmentAction, AttachmentTrigger
+
+### Blocks
+
+Screens and screen parts composed from the components, so a whole page starts from one import. Each is shown with every case at https://intern.ova.dev/brand/januna/<slug>, and as Markdown at the same path with `.md`. Start a screen from a block where one fits; compose from components where none does.
+
+```tsx
+import { AppShell, AuthLayout } from "@ovadev-gmbh/ui-januna/blocks";
+```
+
+- App Shell (`app-shell`): AppShell, AppShellHeader, AppShellContent
+- Auth (`auth`): AuthLayout, AuthCard, AuthLink, LoginForm, SignupForm, ForgotPasswordForm, OtpForm
+- Error Page (`error-page`): ErrorPage, ErrorPageCode, ErrorPageTitle, ErrorPageDescription, ErrorPageActions
+- Stats (`stats`): StatGrid, Stat, StatDelta
 
 ### Icons
 

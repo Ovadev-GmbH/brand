@@ -1,6 +1,6 @@
 {
   "name": "@ovadev-gmbh/ui-internal",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Internal component library: shadcn on Base UI, black on white, for Ovadev's internal tools.",
   "license": "UNLICENSED",
   "type": "module",
@@ -13,6 +13,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./blocks": {
+      "types": "./dist/blocks.d.ts",
+      "import": "./dist/blocks.js"
     },
     "./icons": {
       "types": "./dist/icons.d.ts",
