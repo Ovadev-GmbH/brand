@@ -10,7 +10,14 @@ import type { PkgId } from "../types";
  *
  *  The frame sizes itself to what the document reports (src/preview.tsx):
  *  the demo at rest, and when a popup or dialog opens, the room it needs. */
-export function DemoFrame({
+/** The frame's document is one brand's; switching brands on the same page
+ *  must load the other brand's document, so the frame is keyed by brand
+ *  and mounts afresh rather than being told to show a demo it cannot. */
+export function DemoFrame(props: React.ComponentProps<typeof Frame>) {
+  return <Frame key={props.pkg} {...props} />;
+}
+
+function Frame({
   pkg,
   slug,
   index,
