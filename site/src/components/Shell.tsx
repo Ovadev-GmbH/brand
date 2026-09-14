@@ -15,6 +15,7 @@ import { CommandMenu } from "./CommandMenu";
 import { Pagination } from "./Pagination";
 import { MenuIcon, CloseIcon, SearchIcon } from "./icons";
 import { BrandSwitcher } from "./BrandSwitcher";
+import { AreaNav } from "./AreaNav";
 
 /* The sidebar's list: foundations first, then one group per component
    category. A group is a small capitals label with its pages tight beneath
@@ -86,6 +87,7 @@ export function Shell({ pkg, children }: { pkg: Pkg; children: React.ReactNode }
             <BrandSwitcher pkg={pkg} />
           </div>
           <div className="flex items-center gap-2 py-2 pr-3 pl-3 md:p-4 lg:grow lg:justify-between">
+            <AreaNav pkg={pkg} area="docs" />
             <button
               type="button"
               className="flex h-8 w-8 max-w-full cursor-pointer items-center justify-center gap-2 rounded-brand border border-gray-400 bg-transparent text-[13px] text-gray-700 hover:bg-gray-100 md:w-55 md:justify-between md:pr-1.5 md:pl-2"
@@ -100,7 +102,6 @@ export function Shell({ pkg, children }: { pkg: Pkg; children: React.ReactNode }
                 <span>K</span>
               </kbd>
             </button>
-            <span className="hidden flex-1 md:block" />
             <button
               type="button"
               className="inline-flex size-8 cursor-pointer items-center justify-center rounded-full border-0 bg-transparent text-gray-1000 lg:hidden"
