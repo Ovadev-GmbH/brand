@@ -483,7 +483,7 @@ import { AppShell, AuthLayout } from "@ovadev-gmbh/ui-januna/blocks";
 ```
 
 - App Shell (`app-shell`): AppShell, AppShellHeader, AppShellContent
-- Auth (`auth`): AuthLayout, AuthCard, AuthLink, LoginForm, SignupForm, ForgotPasswordForm, OtpForm
+- Auth (`auth`): AuthLayout, AuthCard, AuthLink, LoginForm, SignupForm, ForgotPasswordForm, OtpForm, OvadevMark, SecuredBy, PhoneSignInForm
 - Error Page (`error-page`): ErrorPage, ErrorPageCode, ErrorPageTitle, ErrorPageDescription, ErrorPageActions
 - Stats (`stats`): StatGrid, Stat, StatDelta
 

@@ -7,11 +7,35 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../co
 import { Checkbox } from "../components/ui/checkbox";
 import { Field, FieldDescription, FieldGroup, FieldLabel } from "../components/ui/field";
 import { Input } from "../components/ui/input";
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from "../components/ui/input-group";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "../components/ui/input-otp";
 
 type FormProps = Omit<React.ComponentProps<"form">, "onSubmit"> & {
   onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 };
+
+
+/* The Ovadev mark, cut on eight cells: ink, the counter punched, the red
+   block seated in the lower right. Every auth screen carries it, with the
+   words, because the sign-in is Ovadev's wherever the screen is. */
+function OvadevMark({ className, ...props }: React.ComponentProps<"svg">) {
+  return (
+    <svg data-slot="ovadev-mark" viewBox="0 0 8 8" width="16" height="16" aria-hidden="true" className={cn("shrink-0", className)} {...props}>
+      <path fill="currentColor" fillRule="evenodd" d="M0 0h8v5H5v3H0Zm3 3v2h2V3Z" />
+      <path fill="#e8202a" d="M5 5h3v3H5Z" />
+    </svg>
+  );
+}
+
+/* "Secured by Ovadev", the mark beside it. Under every auth card. */
+function SecuredBy({ className, ...props }: React.ComponentProps<"p">) {
+  return (
+    <p data-slot="secured-by" className={cn("flex items-center justify-center gap-space-2 text-label-12 text-content-tertiary", className)} {...props}>
+      <OvadevMark className="text-content-primary" />
+      Secured by Ovadev
+    </p>
+  );
+}
 
 /* The page around an auth card: the taupe island edge to edge, the brand
    above the card, a line of small print below. Everything is centred and
@@ -35,6 +59,7 @@ function AuthLayout({
         </div>
       ) : null}
       {children}
+      <SecuredBy />
       {footer ? (
         <div data-slot="auth-layout-footer" className="max-w-sm text-center text-label-13 text-content-secondary [&_a]:text-content-brand [&_a]:underline-offset-4 [&_a:hover]:underline">
           {footer}
@@ -217,4 +242,40 @@ function OtpForm({
   );
 }
 
-export { AuthLayout, AuthCard, AuthLink, LoginForm, SignupForm, ForgotPasswordForm, OtpForm };
+
+/* Sign in with a Swiss mobile number: the country code is fixed, the
+   number is typed the way it is said, and the code arrives by WhatsApp or
+   SMS. The next screen is OtpForm. */
+function PhoneSignInForm({ onSubmit, className, ...props }: FormProps) {
+  const id = React.useId();
+  return (
+    <form data-slot="phone-sign-in-form" className={cn("flex flex-col gap-space-6", className)} onSubmit={onSubmit} {...props}>
+      <FieldGroup>
+        <Field>
+          <FieldLabel htmlFor={`${id}-phone`}>Mobile number</FieldLabel>
+          <InputGroup>
+            <InputGroupAddon>
+              <InputGroupText>+41</InputGroupText>
+            </InputGroupAddon>
+            <InputGroupInput
+              id={`${id}-phone`}
+              name="phone"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel-national"
+              placeholder="79 123 45 67"
+              pattern="[0-9 ]{9,13}"
+              required
+            />
+          </InputGroup>
+          <FieldDescription>We send a code by WhatsApp, or by SMS if you prefer.</FieldDescription>
+        </Field>
+        <Button type="submit" className="w-full">
+          Send code
+        </Button>
+      </FieldGroup>
+    </form>
+  );
+}
+
+export { AuthLayout, AuthCard, AuthLink, LoginForm, SignupForm, ForgotPasswordForm, OtpForm, OvadevMark, SecuredBy, PhoneSignInForm };

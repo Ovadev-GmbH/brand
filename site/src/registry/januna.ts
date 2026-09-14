@@ -72,6 +72,7 @@ import Auth02SignupSrc from "../examples/januna/blocks/auth/02-signup.tsx?raw";
 import Auth03ForgotPasswordSrc from "../examples/januna/blocks/auth/03-forgot-password.tsx?raw";
 import Auth04VerifyCodeSrc from "../examples/januna/blocks/auth/04-verify-code.tsx?raw";
 import Auth05LoginSplitSrc from "../examples/januna/blocks/auth/05-login-split.tsx?raw";
+import Auth06PhoneSrc from "../examples/januna/blocks/auth/06-phone.tsx?raw";
 import ErrorPage01NotFoundSrc from "../examples/januna/blocks/error-page/01-not-found.tsx?raw";
 import ErrorPage02ServerErrorSrc from "../examples/januna/blocks/error-page/02-server-error.tsx?raw";
 import ErrorPage03ForbiddenSrc from "../examples/januna/blocks/error-page/03-forbidden.tsx?raw";
@@ -556,13 +557,14 @@ export const januna: Pkg = {
       slug: "auth",
       group: "Blocks",
       kind: "block",
-      imports: ["AuthLayout","AuthCard","AuthLink","LoginForm","SignupForm","ForgotPasswordForm","OtpForm"],
+      imports: ["AuthLayout","AuthCard","AuthLink","LoginForm","SignupForm","ForgotPasswordForm","OtpForm","OvadevMark","SecuredBy","PhoneSignInForm"],
       examples: [
         { name: "01-login", title: "Login", Component: lazy(() => import("../examples/januna/blocks/auth/01-login")), source: Auth01LoginSrc },
         { name: "02-signup", title: "Signup", Component: lazy(() => import("../examples/januna/blocks/auth/02-signup")), source: Auth02SignupSrc },
         { name: "03-forgot-password", title: "Forgot Password", Component: lazy(() => import("../examples/januna/blocks/auth/03-forgot-password")), source: Auth03ForgotPasswordSrc },
         { name: "04-verify-code", title: "Verify Code", Component: lazy(() => import("../examples/januna/blocks/auth/04-verify-code")), source: Auth04VerifyCodeSrc },
         { name: "05-login-split", title: "Login Split", Component: lazy(() => import("../examples/januna/blocks/auth/05-login-split")), source: Auth05LoginSplitSrc },
+        { name: "06-phone", title: "Phone", Component: lazy(() => import("../examples/januna/blocks/auth/06-phone")), source: Auth06PhoneSrc },
       ],
     },
     {
