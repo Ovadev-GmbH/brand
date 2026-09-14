@@ -27,7 +27,11 @@ export const BRANDS: Record<string, Brand> = {
   },
   ovadev: {
     name: "Ovadev", pkg: "@ovadev-gmbh/ui-ovadev", prefix: "ova",
-    icons: { library: "", usage: "", note: "" },
+    icons: {
+      library: "Lucide",
+      usage: 'import { PlusIcon, SearchIcon } from "@ovadev-gmbh/ui-ovadev/icons";\n\n<PlusIcon className="size-4" />',
+      note: "2,000 icons, stroke 2 at 16px inside controls, 1.75 at 20px standalone, always in the ink. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling. The mark itself is not an icon: it comes from Brand Assets.",
+    },
   },
   ticketova: {
     name: "TICKETOVA", pkg: "@ovadev-gmbh/ui-ticketova", prefix: "tova",

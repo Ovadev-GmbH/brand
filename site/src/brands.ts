@@ -8,6 +8,7 @@
 import type { PkgId } from "./types";
 import { colors as janunaColors, typography as janunaType, materials as janunaMaterials, layout as janunaLayout } from "@ovadev-gmbh/ui-januna";
 import { colors as internColors, typography as internType, materials as internMaterials, layout as internLayout } from "@ovadev-gmbh/ui-internal";
+import { colors as ovaColors, typography as ovaType, materials as ovaMaterials, layout as ovaLayout } from "@ovadev-gmbh/ui-ovadev";
 
 /** A brand's foundations, as its package exports them (src/foundations). */
 export type ColorSystem = typeof janunaColors;
@@ -92,17 +93,34 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       },
     ],
     mark: "Ovadev",
-    source: "packages/ovadev/src/tokens.css — taken from Landing/apps/ova/src/styles.css",
-    swatches: [
-      { name: "Background", token: "--ova-bg", value: "#0e0f12" },
-      { name: "Foreground", token: "--ova-fg", value: "#eceef2" },
-      { name: "Accent", token: "--ova-accent", value: "#e8202a" },
-    ],
+    source: "packages/ovadev/src/foundations/colors.ts — paper, ink and one red, as ova.dev sets them, as scales",
+    lines: {
+      colors: "One ground, one ink, one red.",
+      typography: "One face, three jobs: Geist.",
+      icons: "Lucide, in the ink.",
+      components: "Building blocks for the site, on Base UI.",
+    },
+    colors: ovaColors,
+    typography: ovaType,
+    materials: ovaMaterials,
+    layout: ovaLayout,
+    swatches: ovaColors.SCALES.filter((sc) => !sc.id.endsWith("-alpha")).map((sc) => ({
+      name: sc.name,
+      token: `--ova-${sc.id}-${sc.id === "red" ? 700 : 1000}`,
+      value: sc.steps[sc.id === "red" ? 700 : 1000],
+    })),
     type: [
-      { name: "Display", family: '"Oswald", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "--ova-font, set in caps" },
-      { name: "Heading", family: '"Oswald", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "24px", note: "--ova-font" },
-      { name: "Body", family: "ui-sans-serif, system-ui, sans-serif", weight: 400, size: "16px", note: "system stack" },
+      { name: "Display", family: '"Geist Variable", "Geist", system-ui, Arial, sans-serif', weight: 900, size: "54px", note: "text-heading-54, tight" },
+      { name: "Text", family: '"Geist Variable", "Geist", system-ui, Arial, sans-serif', weight: 400, size: "15px", note: "text-copy-15" },
+      { name: "Meta", family: '"Geist Variable", "Geist", ui-monospace, monospace', weight: 600, size: "11px", note: "text-label-11-caps-mono, caps and wide" },
     ],
+    icons: {
+      kind: "lucide",
+      library: "Lucide",
+      pkg: "lucide-react",
+      usage: 'import { PlusIcon } from "@ovadev-gmbh/ui-ovadev/icons";  <PlusIcon className="size-4" />',
+      color: "#eceef2",
+    },
   },
   ticketova: {
     marks: [
@@ -196,7 +214,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   },
 };
 
-const TOKEN_PREFIX: Partial<Record<PkgId, string>> = { internal: "int", januna: "jan" };
+const TOKEN_PREFIX: Partial<Record<PkgId, string>> = { internal: "int", januna: "jan", ovadev: "ova" };
 
 /** A brand's colour tokens as custom properties, for the element that draws
  *  with them. The catalog's pages do not load the packages' stylesheets (two
