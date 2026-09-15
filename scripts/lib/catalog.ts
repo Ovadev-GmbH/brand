@@ -35,7 +35,11 @@ export const BRANDS: Record<string, Brand> = {
   },
   ticketova: {
     name: "TICKETOVA", pkg: "@ovadev-gmbh/ui-ticketova", prefix: "tova",
-    icons: { library: "Hugeicons", usage: "", note: "" },
+    icons: {
+      library: "Phosphor",
+      usage: 'import { PlusIcon, MagnifyingGlassIcon } from "@ovadev-gmbh/ui-ticketova/icons";\n\n<PlusIcon className="size-4" />',
+      note: "1,512 icons in six weights; the system draws the regular weight, 16px inside controls, 20px standalone, in the colour of its text. Every icon is exported as `Name` and `NameIcon`; use the `Icon` spelling.",
+    },
   },
   internal: {
     name: "Internal", pkg: "@ovadev-gmbh/ui-internal", prefix: "int",

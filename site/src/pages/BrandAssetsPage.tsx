@@ -53,7 +53,7 @@ export function BrandAssetsPage({ pkg }: { pkg: Pkg }) {
         <>
           <SectionHeader title="Favicon" />
           <p className="mt-2 mb-8 max-w-2xl text-sm text-gray-900">
-            The icon on its badge, and the whole set a site needs: favicon.ico, the PNG sizes, the Apple touch icon and the PWA icons, in both tones.
+            The icon as it ships, and the whole set a site needs: favicon.ico and the PNG sizes for the tab, the Apple touch icon and the PWA icons for a home screen.
           </p>
           <div className="-mx-6 lg:-mx-12">
             <Grid cols={1}>

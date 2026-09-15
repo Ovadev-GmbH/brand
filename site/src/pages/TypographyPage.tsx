@@ -16,7 +16,7 @@ function Sample({ style, strong, faces }: { style: TypeSystem["GROUPS"][number][
     <span
       className="whitespace-nowrap text-gray-1000"
       style={{
-        fontFamily: faces[style.family].stack,
+        fontFamily: (faces[style.family] ?? faces.sans).stack,
         fontSize: style.size,
         lineHeight: `${style.line}px`,
         letterSpacing: style.tracking,
@@ -40,7 +40,10 @@ function SystemPage({ pkg, type }: { pkg: Pkg; type: TypeSystem }) {
     <article>
       <PageHeader title="Typography" md={mdHref(pkg, "typography")}>
         <p className="mt-3 max-w-160 text-[15px] text-gray-900">
-          {type.FACES.sans.name} for everything, {type.FACES.mono.name} for figures and code. Each style is one
+          {type.FACES.display
+            ? `${type.FACES.display.name} for the headings that carry the brand, ${type.FACES.sans.name} for everything else, `
+            : `${type.FACES.sans.name} for everything, `}
+          {type.FACES.mono.name} for figures and code. Each style is one
           class that sets size, line height, tracking and weight together. Inside a style,{" "}
           <code>&lt;strong&gt;</code> is the modifier: Strong in Copy and Label, Subtle in Heading.
         </p>

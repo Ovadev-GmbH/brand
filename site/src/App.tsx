@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Navigate, Route, Routes, useLocation, useParams } from "react-router";
+import { Navigate, Outlet, Route, Routes, useLocation, useParams } from "react-router";
 import { entryBySlug, pkgById } from "./registry";
 import { CHROME } from "./brands";
 import { Shell } from "./components/Shell";
@@ -14,7 +14,6 @@ import { LayoutPage } from "./pages/LayoutPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { EntryPage } from "./pages/EntryPage";
 import { BlocksPage } from "./pages/BlocksPage";
-import { BlocksShell } from "./components/BlocksShell";
 
 /* Each brand is its own catalog under /<brand>, with its own shell, its own
    ⌘K and its own foundations. The root is the chooser and the only place the
@@ -30,10 +29,32 @@ const PAGES = {
   layout: LayoutPage,
 };
 
-function Brand({ page }: { page: keyof typeof PAGES }) {
+const hasBlocks = (pkg: NonNullable<ReturnType<typeof pkgById>>) => pkg.entries.some((e) => e.kind === "block");
+
+/* The brand's frame, mounted once for everything under /<brand>: the pages
+   below only fill it. Docs and Blocks are its two areas — the blocks get the
+   whole window and a list of their categories — and because the frame is
+   not remounted between them, it widens rather than being replaced. */
+function BrandLayout() {
   const { pkg: id } = useParams();
+  const { pathname } = useLocation();
   const pkg = pkgById(id);
   if (!pkg) return <NotFound />;
+  const blocks = /\/blocks\/?$/.test(pathname) && hasBlocks(pkg);
+  return (
+    <Shell pkg={pkg} area={blocks ? "blocks" : "docs"}>
+      <Outlet />
+    </Shell>
+  );
+}
+
+/** Only ever rendered inside BrandLayout, which has already found the package. */
+function usePkg() {
+  return pkgById(useParams().pkg)!;
+}
+
+function Brand({ page }: { page: keyof typeof PAGES }) {
+  const pkg = usePkg();
   // Brand Assets only exists where there are marks, so switching to a brand
   // without them lands on 404 rather than somewhere it was not asked for.
   const missing =
@@ -41,27 +62,20 @@ function Brand({ page }: { page: keyof typeof PAGES }) {
     (page === "materials" && !CHROME[pkg.id].materials) ||
     (page === "layout" && !CHROME[pkg.id].layout);
   const Body = PAGES[page];
-  return <Shell pkg={pkg}>{missing ? <NotFoundPage pkg={pkg} /> : <Body pkg={pkg} />}</Shell>;
+  return missing ? <NotFoundPage pkg={pkg} /> : <Body pkg={pkg} />;
 }
 
-/* Blocks are an area of their own beside the catalog, not a page in it: the
-   same header, no sidebar, the whole width for the screens. */
 function Blocks() {
-  const { pkg: id } = useParams();
-  const pkg = pkgById(id);
-  if (!pkg) return <NotFound />;
-  if (!pkg.entries.some((e) => e.kind === "block")) return <Shell pkg={pkg}><NotFoundPage pkg={pkg} /></Shell>;
-  return <BlocksShell pkg={pkg}><BlocksPage pkg={pkg} /></BlocksShell>;
+  const pkg = usePkg();
+  return hasBlocks(pkg) ? <BlocksPage pkg={pkg} /> : <NotFoundPage pkg={pkg} />;
 }
 
 function Component() {
-  const { pkg: id, slug } = useParams();
-  const pkg = pkgById(id);
-  const entry = pkg ? entryBySlug(pkg, slug) : undefined;
-  if (!pkg) return <NotFound />;
+  const pkg = usePkg();
+  const entry = entryBySlug(pkg, useParams().slug);
   // A block's own address is a place on the Blocks page.
   if (entry?.kind === "block") return <Navigate to={`/${pkg.id}/blocks?block=${entry.slug}`} replace />;
-  return <Shell pkg={pkg}>{entry ? <EntryPage pkg={pkg} entry={entry} /> : <NotFoundPage pkg={pkg} />}</Shell>;
+  return entry ? <EntryPage pkg={pkg} entry={entry} /> : <NotFoundPage pkg={pkg} />;
 }
 
 /** Without a package there is no shell to put the page in. */
@@ -89,15 +103,17 @@ export function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/:pkg" element={<Brand page="intro" />} />
-        <Route path="/:pkg/colors" element={<Brand page="colors" />} />
-        <Route path="/:pkg/typography" element={<Brand page="typography" />} />
-        <Route path="/:pkg/brand-assets" element={<Brand page="brand-assets" />} />
-        <Route path="/:pkg/icons" element={<Brand page="icons" />} />
-        <Route path="/:pkg/materials" element={<Brand page="materials" />} />
-        <Route path="/:pkg/layout" element={<Brand page="layout" />} />
-        <Route path="/:pkg/blocks" element={<Blocks />} />
-        <Route path="/:pkg/:slug" element={<Component />} />
+        <Route path="/:pkg" element={<BrandLayout />}>
+          <Route index element={<Brand page="intro" />} />
+          <Route path="colors" element={<Brand page="colors" />} />
+          <Route path="typography" element={<Brand page="typography" />} />
+          <Route path="brand-assets" element={<Brand page="brand-assets" />} />
+          <Route path="icons" element={<Brand page="icons" />} />
+          <Route path="materials" element={<Brand page="materials" />} />
+          <Route path="layout" element={<Brand page="layout" />} />
+          <Route path="blocks" element={<Blocks />} />
+          <Route path=":slug" element={<Component />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

@@ -9,10 +9,22 @@ import type { PkgId } from "./types";
 import { colors as janunaColors, typography as janunaType, materials as janunaMaterials, layout as janunaLayout } from "@ovadev-gmbh/ui-januna";
 import { colors as internColors, typography as internType, materials as internMaterials, layout as internLayout } from "@ovadev-gmbh/ui-internal";
 import { colors as ovaColors, typography as ovaType, materials as ovaMaterials, layout as ovaLayout } from "@ovadev-gmbh/ui-ovadev";
+import { colors as tovaColors, typography as tovaType, materials as tovaMaterials, layout as tovaLayout } from "@ovadev-gmbh/ui-ticketova";
 
 /** A brand's foundations, as its package exports them (src/foundations). */
 export type ColorSystem = typeof janunaColors;
-export type TypeSystem = typeof janunaType;
+/** The type system every brand shares: Januna's shape, with a brand face of
+ *  its own (TICKETOVA's Oswald) as an optional third family. */
+type Face = { name: string; stack: string };
+export type TypeSystem = {
+  GROUPS: {
+    name: string;
+    note: string;
+    strong: "strong" | "subtle";
+    styles: { cls: string; name: string; size: number; line: number; weight: number; tracking: string; family: "sans" | "mono" | "display"; use?: string }[];
+  }[];
+  FACES: { sans: Face; mono: Face; display?: Face };
+};
 export type MaterialSystem = typeof janunaMaterials;
 export type LayoutSystem = typeof janunaLayout;
 
@@ -38,13 +50,19 @@ export type Mark = {
    *  currentColor drawing in `file` is the cut for anything that has to take
    *  the surrounding ink. */
   colour?: string;
+  /** public/brand/<app>.svg — an icon's home-screen cut, square and opaque,
+   *  for the Apple touch icon and the PWA icons. */
+  app?: string;
+  /** Without an `app` drawing, the colour of the full square the icon is
+   *  set on for a home screen, which fills anything transparent itself. */
+  ground?: string;
 };
 export type TypeRow = { name: string; family: string; weight: number; size: string; note: string };
 
 /** The icon set a brand draws with, for the Icons page. */
 export type IconSet = {
   /** Which package's shape the set has; the Icons page loads it accordingly. */
-  kind: "hugeicons" | "lucide";
+  kind: "hugeicons" | "lucide" | "phosphor";
   library: string;
   /** The package the icons are imported from. */
   pkg: string;
@@ -89,7 +107,8 @@ export const CHROME: Record<PkgId, BrandChrome> = {
         name: "Icon",
         kind: "icon",
         colour: "ovadev-icon-colour",
-        note: "The pixel O, as it ships: paper, ink and the red block.",
+        app: "ovadev-app-icon",
+        note: "The pixel O in the app icon's colours: light cells and the red block on ink, edge to edge.",
       },
       {
         file: "ovadev-app-icon",
@@ -136,21 +155,40 @@ export const CHROME: Record<PkgId, BrandChrome> = {
         name: "Icon",
         kind: "icon",
         colour: "ticketova-icon-colour",
+        ground: "#ffffff",
         note: "The ticket booth, as the landing page ships it: black line art on its white disc.",
       },
     ],
     og: "ticketova-og",
     mark: "TICKETOVA",
-    source: "packages/ticketova/src/tokens.css — taken from Landing/apps/ticketova/src/globals.css",
-    swatches: [
-      { name: "Background", token: "--tova-bg", value: "#fafafa" },
-      { name: "Foreground", token: "--tova-fg", value: "#0a0a0a" },
-    ],
+    source: "packages/ticketova/src/foundations/colors.ts — ticketova.com's black, white, hairline grey, tick green and strike red, as scales",
+    lines: {
+      colors: "Black on white; green is the tick, red the refusal.",
+      typography: "Oswald for the brand, Geist for the work.",
+      icons: "Phosphor, in the ink.",
+      components: "Building blocks for ticketing, on Base UI.",
+    },
+    colors: tovaColors,
+    typography: tovaType,
+    materials: tovaMaterials,
+    layout: tovaLayout,
+    swatches: tovaColors.SCALES.filter((sc) => !sc.id.endsWith("-alpha")).map((sc) => ({
+      name: sc.name,
+      token: `--tova-${sc.id}-${sc.id === "gray" ? 1000 : 800}`,
+      value: sc.steps[sc.id === "gray" ? 1000 : 800],
+    })),
     type: [
-      { name: "Display", family: "Oswald, ui-sans-serif, system-ui, sans-serif", weight: 700, size: "40px", note: "--tova-font" },
-      { name: "Heading", family: "Oswald, ui-sans-serif, system-ui, sans-serif", weight: 700, size: "24px", note: "--tova-font" },
-      { name: "Body", family: "Oswald, ui-sans-serif, system-ui, sans-serif", weight: 400, size: "16px", note: "--tova-font, the only other weight" },
+      { name: "Display", family: '"Oswald Variable", "Oswald", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "text-heading-40, the brand" },
+      { name: "Text", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 400, size: "14px", note: "text-copy-14, the work" },
+      { name: "Mono", family: '"Geist Mono Variable", "Geist Mono", ui-monospace, monospace', weight: 400, size: "13px", note: "text-label-13-mono, codes and amounts" },
     ],
+    icons: {
+      kind: "phosphor",
+      library: "Phosphor",
+      pkg: "@phosphor-icons/react",
+      usage: 'import { TicketIcon } from "@ovadev-gmbh/ui-ticketova/icons";  <TicketIcon className="size-4" />',
+      color: "#0a0a0a",
+    },
   },
   januna: {
     marks: [
@@ -160,6 +198,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
         name: "Icon",
         kind: "icon",
         colour: "januna-icon-colour",
+        ground: "#094413",
         note: "The wave on its green badge, as the app icon ships it.",
       },
     ],
@@ -226,7 +265,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   },
 };
 
-const TOKEN_PREFIX: Partial<Record<PkgId, string>> = { internal: "int", januna: "jan", ovadev: "ova" };
+const TOKEN_PREFIX: Partial<Record<PkgId, string>> = { internal: "int", januna: "jan", ovadev: "ova", ticketova: "tova" };
 
 /** A brand's colour tokens as custom properties, for the element that draws
  *  with them. The catalog's pages do not load the packages' stylesheets (two

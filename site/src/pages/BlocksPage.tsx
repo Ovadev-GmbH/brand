@@ -1,5 +1,5 @@
 /* The brand's blocks, the way shadcn shows its own: one page, the categories
- * in the sidebar (components/BlocksShell.tsx), and every block full-width under a toolbar of
+ * in the sidebar (components/Shell.tsx), and every block full-width under a toolbar of
  * its own — its name and one line, a way to look at it as a tablet or a
  * phone would, the code behind it, a copy button, and the screen on its own
  * in a new tab. Nothing here is a component page: a block is a screen, and a

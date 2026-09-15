@@ -1,0 +1,5 @@
+## Accessibility and reflow
+
+Use landmarks, one `h1` per screen, ordered headings, native controls with visible labels, semantic tables with header cells, and the package's components, which carry their ARIA. Every state has a word or an icon beside its colour; a scan result says valid or not valid, and why, in words, because the person at the gate may not see green from red. Focus is visible on everything focusable, in tab order that follows reading order; the dashboard is driven from the keyboard, so shortcuts are documented in `Kbd` where they exist. Contrast meets WCAG AA; the ink levels, the tick green and the refusal red are chosen so that it does on white.
+
+Reflow before shrinking: rows stack, tables scroll locally in their own container, controls keep their size, type keeps its style. On the shop and at the till, targets are at least 44px and the action that pays or admits stays in reach of a thumb. Give grid and flex children `min-width: 0`. Never conceal overflow. A screen must work on a phone and on a laptop without a different design for each.

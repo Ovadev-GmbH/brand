@@ -82,6 +82,9 @@ console.log(`packages/${ID}/src/colors.css: ${SCALES.length} scales, ${vars.leng
     `@theme inline {`,
     `  --font-sans: ${FACES.sans.stack};`,
     `  --font-mono: ${FACES.mono.stack};`,
+    // A brand face of its own (TICKETOVA's Oswald) is a third family the
+    // large headings name; the components' font-heading stays the sans.
+    ...(FACES.display ? [`  --font-display: ${FACES.display.stack};`] : []),
     `  --font-heading: var(--font-sans);`,
     `}`,
     ``,

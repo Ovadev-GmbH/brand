@@ -31,7 +31,10 @@ export function colorsMd(id: string, f: Awaited<ReturnType<typeof loadFoundation
 }
 
 export function typographyMd(f: Awaited<ReturnType<typeof loadFoundations>>["typography"]): string {
-  const out: string[] = [`### Type styles`, ``, `${f.FACES.sans.name} for everything, ${f.FACES.mono.name} for figures and code. One class sets size, line height, tracking and weight; never add a weight class beside one. \`<strong>\` inside a style is its modifier.`, ``];
+  const faces = f.FACES.display
+    ? `${f.FACES.display.name} for the headings that carry the brand, ${f.FACES.sans.name} for everything else, ${f.FACES.mono.name} for figures and code.`
+    : `${f.FACES.sans.name} for everything, ${f.FACES.mono.name} for figures and code.`;
+  const out: string[] = [`### Type styles`, ``, `${faces} One class sets size, line height, tracking and weight; never add a weight class beside one. \`<strong>\` inside a style is its modifier.`, ``];
   for (const g of f.GROUPS) {
     out.push(`**${g.name}.** ${g.note}`, ``, table(["Class", "Size / line", "Weight", "Use"], g.styles.map((s: { cls: string; size: number; line: number; weight: number; use?: string }) => [`\`${s.cls}\``, `${s.size} / ${s.line}`, String(s.weight), s.use ?? ""])), ``);
   }
