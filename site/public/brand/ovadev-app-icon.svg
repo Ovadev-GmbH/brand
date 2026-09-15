@@ -1,0 +1,5 @@
+<!-- Ovadev app icon: the icon on its plate, as Landing/apps/ova/scripts/gen-icons.mjs cuts
+     icon-maskable-512.png — cells #ECEEF2, the red block #E8202A, on the #0E0F12 plate,
+     8 cells of 11 with 36 units of plate on every side, which keeps the corners inside
+     the 80% circle a launcher masks to. The counter is the plate showing through. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" fill="none" shape-rendering="crispEdges" role="img" aria-label="Ovadev"><rect x="0" y="0" width="160" height="160" fill="#0E0F12"/><g fill="#ECEEF2"><rect x="36" y="36" width="88" height="33"/><rect x="36" y="69" width="33" height="22"/><rect x="91" y="69" width="33" height="22"/><rect x="36" y="91" width="55" height="33"/></g><rect x="91" y="91" width="33" height="33" fill="#E8202A"/></svg>

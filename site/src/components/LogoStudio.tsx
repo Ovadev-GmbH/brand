@@ -36,7 +36,9 @@ export function sizeOf(svg: string): { W: number; H: number } {
 
 export async function rasterize(svg: string, W: number, H: number, outW: number, mime: string): Promise<Blob> {
   const outH = Math.round((outW * H) / W);
-  const sized = svg.replace(/<svg([^>]*?)>/, (_m, a: string) => `<svg width="${outW}" height="${outH}"${a}>`);
+  /* The marks carry their own width and height; a second pair makes the
+     document invalid XML, and an <img> of it never loads. */
+  const sized = svg.replace(/<svg([^>]*?)>/, (_m, a: string) => `<svg${a.replace(/\s(width|height)="[^"]*"/g, "")} width="${outW}" height="${outH}">`);
   const url = URL.createObjectURL(new Blob([sized], { type: "image/svg+xml;charset=utf-8" }));
   try {
     const img = new Image();

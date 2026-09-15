@@ -83,13 +83,19 @@ export type BrandChrome = {
 export const CHROME: Record<PkgId, BrandChrome> = {
   ovadev: {
     marks: [
-      { file: "ovadev-logo", name: "Logo", kind: "logo", note: "The OVADEV wordmark, outlined — it needs no font." },
+      { file: "ovadev-logo", name: "Logo", kind: "logo", note: "The Ovadev wordmark, outlined — it needs no font." },
       {
         file: "ovadev-icon",
         name: "Icon",
         kind: "icon",
         colour: "ovadev-icon-colour",
         note: "The pixel O, as it ships: paper, ink and the red block.",
+      },
+      {
+        file: "ovadev-app-icon",
+        name: "App icon",
+        kind: "icon",
+        note: "The pixel O on its plate, as the home-screen icons ship: light cells and the red block on ink, with a launcher's margin.",
       },
     ],
     mark: "Ovadev",
@@ -125,7 +131,13 @@ export const CHROME: Record<PkgId, BrandChrome> = {
   ticketova: {
     marks: [
       { file: "ticketova-logo", name: "Logo", kind: "logo", note: "The wordmark between its two rules." },
-      { file: "ticketova-icon", name: "Icon", kind: "icon", note: "The T, between the same two rules." },
+      {
+        file: "ticketova-icon",
+        name: "Icon",
+        kind: "icon",
+        colour: "ticketova-icon-colour",
+        note: "The ticket booth, as the landing page ships it: black line art on its white disc.",
+      },
     ],
     og: "ticketova-og",
     mark: "TICKETOVA",
