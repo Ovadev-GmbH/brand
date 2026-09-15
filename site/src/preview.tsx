@@ -28,6 +28,20 @@ function fromUrl(): Shown {
   return { pkg: q.get("pkg") ?? "", slug: q.get("slug") ?? "", index: Number(q.get("i") ?? 0) };
 }
 const THUMB = new URLSearchParams(location.search).get("thumb") === "1";
+
+/* A block's links are the app's own addresses (`/`, `/settings`, `/sign-out`),
+   kept so the code copies as it would ship. Followed in here they would take
+   the frame to that path on the catalog's host, which has nothing there and
+   answers 404 — so a click on one goes nowhere. An in-page anchor, mailto:
+   and a link to another site behave as usual. */
+document.addEventListener("click", (event) => {
+  const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
+  if (!(link instanceof HTMLAnchorElement)) return;
+  const url = new URL(link.href);
+  if (url.origin !== location.origin) return;
+  if (url.hash && url.pathname === location.pathname && url.search === location.search) return;
+  event.preventDefault();
+});
 // A card's preview shows through to the card: no sheet of its own.
 if (THUMB) document.documentElement.classList.add("thumb");
 

@@ -1,5 +1,5 @@
-/* The brand's blocks, the way shadcn shows its own: one page, a row of
- * categories across the top, and every block full-width under a toolbar of
+/* The brand's blocks, the way shadcn shows its own: one page, the categories
+ * in the sidebar (components/BlocksShell.tsx), and every block full-width under a toolbar of
  * its own — its name and one line, a way to look at it as a tablet or a
  * phone would, the code behind it, a copy button, and the screen on its own
  * in a new tab. Nothing here is a component page: a block is a screen, and a
@@ -21,7 +21,7 @@ type Viewport = (typeof VIEWPORTS)[number]["id"];
 
 export function BlocksPage({ pkg }: { pkg: Pkg }) {
   const blocks = pkg.entries.filter((e) => e.kind === "block");
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const current = params.get("block");
   const shown = current ? blocks.filter((b) => b.slug === current) : blocks;
 
@@ -34,34 +34,10 @@ export function BlocksPage({ pkg }: { pkg: Pkg }) {
         </p>
       </PageHeader>
 
-      <nav aria-label="Block categories" className="mt-8 flex flex-wrap gap-1 border-b border-alpha-400 pb-4">
-        <Tab active={!current} onClick={() => setParams({})}>
-          All
-        </Tab>
-        {blocks.map((b) => (
-          <Tab key={b.slug} active={current === b.slug} onClick={() => setParams({ block: b.slug })}>
-            {b.name}
-          </Tab>
-        ))}
-      </nav>
-
       <div className="mt-10 flex flex-col gap-16">
         {shown.flatMap((block) => block.examples.map((ex, i) => <BlockCard key={`${block.slug}/${i}`} pkg={pkg} block={block} example={ex} index={i} />))}
       </div>
     </article>
-  );
-}
-
-function Tab({ active, children, onClick }: { active: boolean; children: React.ReactNode; onClick: () => void }) {
-  return (
-    <button
-      type="button"
-      aria-pressed={active}
-      onClick={onClick}
-      className={`h-8 cursor-pointer rounded-brand border-0 px-3 text-sm ${active ? "bg-gray-1000 text-bg-100" : "bg-transparent text-gray-900 hover:bg-alpha-100 hover:text-gray-1000"}`}
-    >
-      {children}
-    </button>
   );
 }
 
