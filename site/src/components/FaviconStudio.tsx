@@ -141,9 +141,9 @@ export function FaviconStudio({ mark, brand }: { mark: Mark; brand: string }) {
       </div>
 
       <div className="col-span-full border-t border-alpha-400 p-8">
-        <ul className="m-0 grid list-none gap-x-8 p-0 md:grid-cols-2">
+        <ul className="m-0 list-none p-0 md:columns-2 md:gap-8">
           {FILES.map((n) => (
-            <li key={n}>
+            <li key={n} className="break-inside-avoid">
               <button
                 type="button"
                 className="flex h-7 w-full cursor-pointer items-center justify-between gap-3 rounded-brand border-0 bg-transparent px-2 text-left hover:bg-alpha-100 disabled:cursor-not-allowed disabled:opacity-50"
