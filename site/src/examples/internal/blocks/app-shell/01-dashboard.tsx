@@ -86,7 +86,7 @@ export default function DashboardExample() {
     <AppShell
       nav={nav}
       brand="Ovadev Internal"
-      user={{ name: "Robin Markant", email: "robin@ova.dev" }}
+      user={{ name: "Robin Markant", email: "robin@ova.dev", settingsHref: "/settings", signOutHref: "/logout" }}
     >
       <AppShellHeader
         crumbs={["Operations", "Overview"]}

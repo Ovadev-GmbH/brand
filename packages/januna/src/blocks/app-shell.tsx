@@ -32,7 +32,18 @@ type NavIcon = IconSvgElement | React.ComponentType<{ className?: string }>;
 
 type NavItem = { title: string; icon?: NavIcon; href?: string; active?: boolean; badge?: string };
 type NavGroup = { label: string; items: NavItem[] };
-type AppShellUser = { name: string; email: string; settingsHref?: string; signOutHref?: string };
+/* The signed-in person at the foot of the sidebar. Settings and Sign out
+   each appear only with somewhere to go (…Href) or something to run (on…);
+   signing out usually has to POST, so it takes a handler. */
+type AppShellUser = {
+  name: string;
+  /** The line under the name: an e-mail, a phone number, a role. */
+  email?: string;
+  settingsHref?: string;
+  onSettings?: () => void;
+  signOutHref?: string;
+  onSignOut?: () => void;
+};
 
 function NavItemIcon({ icon: Icon }: { icon: NavIcon }) {
   if (typeof Icon === "function") return <Icon />;
@@ -68,6 +79,8 @@ function AppShell({
   user?: AppShellUser;
   sidebarClassName?: string;
 }) {
+  const settings = !!(user?.settingsHref || user?.onSettings);
+  const signOut = !!(user?.signOutHref || user?.onSignOut);
   return (
     <SidebarProvider data-slot="app-shell" className={cn("bg-surface-primary", className)} {...props}>
       <Sidebar className={sidebarClassName}>
@@ -109,20 +122,24 @@ function AppShell({
                     </Avatar>
                     <span className="flex min-w-0 flex-1 flex-col text-left">
                       <span className="truncate text-label-14">{user.name}</span>
-                      <span className="truncate text-label-12 text-content-secondary">{user.email}</span>
+                      {user.email ? <span className="truncate text-label-12 text-content-secondary">{user.email}</span> : null}
                     </span>
                     <HugeiconsIcon icon={UnfoldMoreIcon} strokeWidth={2} className="text-content-tertiary" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent side="top" align="start" sideOffset={8}>
-                    <DropdownMenuItem render={<a href={user.settingsHref ?? "#"} />}>
-                      <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
-                      Settings
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem render={<a href={user.signOutHref ?? "#"} />}>
-                      <HugeiconsIcon icon={Logout01Icon} strokeWidth={2} />
-                      Sign out
-                    </DropdownMenuItem>
+                    {settings ? (
+                      <DropdownMenuItem render={user.settingsHref ? <a href={user.settingsHref} /> : undefined} onClick={user.onSettings}>
+                        <HugeiconsIcon icon={Settings01Icon} strokeWidth={2} />
+                        Settings
+                      </DropdownMenuItem>
+                    ) : null}
+                    {settings && signOut ? <DropdownMenuSeparator /> : null}
+                    {signOut ? (
+                      <DropdownMenuItem render={user.signOutHref ? <a href={user.signOutHref} /> : undefined} onClick={user.onSignOut}>
+                        <HugeiconsIcon icon={Logout01Icon} strokeWidth={2} />
+                        Sign out
+                      </DropdownMenuItem>
+                    ) : null}
                   </DropdownMenuContent>
                 </DropdownMenu>
               </SidebarMenuItem>

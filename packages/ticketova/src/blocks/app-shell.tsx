@@ -13,6 +13,7 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -48,7 +49,18 @@ type AppShellNavItem = {
 
 type AppShellNavGroup = { label: string; items: AppShellNavItem[] };
 
-type AppShellUser = { name: string; email: string };
+/* The signed-in person at the foot of the sidebar. Settings and Sign out
+   each appear only with somewhere to go (…Href) or something to run (on…);
+   signing out usually has to POST, so it takes a handler. */
+type AppShellUser = {
+  name: string;
+  /** The line under the name: an e-mail, a phone number, a role. */
+  email?: string;
+  settingsHref?: string;
+  onSettings?: () => void;
+  signOutHref?: string;
+  onSignOut?: () => void;
+};
 
 /* Two capitals from a name: "Robin Markant" reads RM. */
 function initials(name: string) {
@@ -80,6 +92,8 @@ function AppShell({
   user?: AppShellUser;
   sidebarClassName?: string;
 }) {
+  const settings = !!(user?.settingsHref || user?.onSettings);
+  const signOut = !!(user?.signOutHref || user?.onSignOut);
   return (
     <SidebarProvider data-slot="app-shell" className={cn(className)} {...props}>
       <Sidebar className={sidebarClassName}>
@@ -124,21 +138,29 @@ function AppShell({
                     </Avatar>
                     <span className="flex min-w-0 flex-1 flex-col text-left">
                       <span className="truncate text-label-13">{user.name}</span>
-                      <span className="truncate text-label-12 text-content-secondary">{user.email}</span>
+                      {user.email ? <span className="truncate text-label-12 text-content-secondary">{user.email}</span> : null}
                     </span>
                     <CaretUpDownIcon className="text-content-secondary" />
                   </DropdownMenuTrigger>
                   <DropdownMenuContent side="top" align="start" className="w-(--anchor-width)">
-                    <DropdownMenuLabel className="truncate">{user.email}</DropdownMenuLabel>
-                    <DropdownMenuItem>
-                      <GearIcon />
-                      Settings
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>
-                      <SignOutIcon />
-                      Sign out
-                    </DropdownMenuItem>
+                    {user.email ? (
+                      <DropdownMenuGroup>
+                        <DropdownMenuLabel className="truncate">{user.email}</DropdownMenuLabel>
+                      </DropdownMenuGroup>
+                    ) : null}
+                    {settings ? (
+                      <DropdownMenuItem render={user.settingsHref ? <a href={user.settingsHref} /> : undefined} onClick={user.onSettings}>
+                        <GearIcon />
+                        Settings
+                      </DropdownMenuItem>
+                    ) : null}
+                    {settings && signOut ? <DropdownMenuSeparator /> : null}
+                    {signOut ? (
+                      <DropdownMenuItem render={user.signOutHref ? <a href={user.signOutHref} /> : undefined} onClick={user.onSignOut}>
+                        <SignOutIcon />
+                        Sign out
+                      </DropdownMenuItem>
+                    ) : null}
                   </DropdownMenuContent>
                 </DropdownMenu>
               </SidebarMenuItem>

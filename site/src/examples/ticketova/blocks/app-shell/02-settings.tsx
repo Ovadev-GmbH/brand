@@ -43,7 +43,7 @@ export default function SettingsExample() {
     <AppShell
       nav={nav}
       brand="TICKETOVA"
-      user={{ name: "Robin Markant", email: "robin@ova.dev" }}
+      user={{ name: "Robin Markant", email: "robin@ova.dev", settingsHref: "/settings", signOutHref: "/logout" }}
     >
       <AppShellHeader crumbs={["Workspace", "General"]} />
       <AppShellContent>
