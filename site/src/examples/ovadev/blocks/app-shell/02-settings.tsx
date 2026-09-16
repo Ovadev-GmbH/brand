@@ -49,10 +49,7 @@ const nav = [
 
 export default function SettingsExample() {
   return (
-    // The sidebar is fixed to the viewport by default; absolute keeps it in this box.
     <AppShell
-      className="relative h-[720px] min-h-0 overflow-hidden"
-      sidebarClassName="absolute h-full"
       nav={nav}
       brand="Ovadev"
       user={{ name: "Robin Markant", email: "robin@ova.dev" }}

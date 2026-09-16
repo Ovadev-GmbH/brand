@@ -3,7 +3,7 @@ import { ErrorPage, ErrorPageActions, ErrorPageCode, ErrorPageDescription, Error
 
 export default function ServerErrorExample() {
   return (
-    <ErrorPage className="min-h-[640px]">
+    <ErrorPage>
       <ErrorPageCode>500</ErrorPageCode>
       <ErrorPageTitle>Something went wrong</ErrorPageTitle>
       <ErrorPageDescription>

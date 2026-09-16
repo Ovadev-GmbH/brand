@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from "@ovadev-gmbh/ui-ticketova/icons";
 
 export default function NotFoundExample() {
   return (
-    <ErrorPage className="min-h-[640px]">
+    <ErrorPage>
       <ErrorPageCode>404</ErrorPageCode>
       <ErrorPageTitle>Page not found</ErrorPageTitle>
       <ErrorPageDescription>

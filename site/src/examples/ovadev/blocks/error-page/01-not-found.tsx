@@ -4,7 +4,7 @@ import { SearchIcon } from "@ovadev-gmbh/ui-ovadev/icons";
 
 export default function NotFoundExample() {
   return (
-    <ErrorPage className="min-h-[640px]">
+    <ErrorPage>
       <ErrorPageCode>404</ErrorPageCode>
       <ErrorPageTitle>This page doesn't fit.</ErrorPageTitle>
       <ErrorPageDescription>

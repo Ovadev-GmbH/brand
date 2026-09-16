@@ -12,10 +12,12 @@ import { mdHref } from "../registry";
 import { DemoFrame } from "../components/DemoFrame";
 import { PageHeader } from "../components/PageHeader";
 
+/* A screen is looked at on one of these: its width, and the height of the
+   screen it fills (a block that is only part of a screen takes its own). */
 const VIEWPORTS = [
-  { id: "desktop", name: "Desktop", width: undefined },
-  { id: "tablet", name: "Tablet", width: 768 },
-  { id: "phone", name: "Phone", width: 390 },
+  { id: "desktop", name: "Desktop", width: undefined, height: 760 },
+  { id: "tablet", name: "Tablet", width: 768, height: 1024 },
+  { id: "phone", name: "Phone", width: 390, height: 844 },
 ] as const;
 type Viewport = (typeof VIEWPORTS)[number]["id"];
 
@@ -45,7 +47,7 @@ function BlockCard({ pkg, block, example, index }: { pkg: Pkg; block: Entry; exa
   const [viewport, setViewport] = React.useState<Viewport>("desktop");
   const [view, setView] = React.useState<"preview" | "code">("preview");
   const [copied, setCopied] = React.useState(false);
-  const width = VIEWPORTS.find((v) => v.id === viewport)!.width;
+  const { width, height: screenHeight } = VIEWPORTS.find((v) => v.id === viewport)!;
   const id = `${block.slug}-${example.name ?? index}`;
   const names = block.imports ?? [block.name];
   const importLine = `import { ${names.join(", ")} } from "${pkg.pkg}/blocks";`;
@@ -96,7 +98,7 @@ function BlockCard({ pkg, block, example, index }: { pkg: Pkg; block: Entry; exa
       <div className="mt-4 overflow-hidden rounded-brand border border-alpha-400 bg-bg-100">
         {view === "preview" ? (
           <div className={`bg-checker ${width ? "flex justify-center" : ""}`}>
-            <DemoFrame pkg={pkg.id} slug={block.slug} index={index} min={480} width={width} />
+            <DemoFrame pkg={pkg.id} slug={block.slug} index={index} min={120} width={width} screen={screenHeight} />
           </div>
         ) : (
           <div>

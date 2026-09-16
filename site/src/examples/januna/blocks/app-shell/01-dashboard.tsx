@@ -76,8 +76,6 @@ const bookings = [
 export default function DashboardExample() {
   return (
     <AppShell
-      className="relative h-[720px] min-h-0 overflow-hidden"
-      sidebarClassName="absolute h-full"
       nav={nav}
       brand={<span className="text-heading-16">Trattoria Sole</span>}
       user={{ name: "Lena Brunner", email: "lena@trattoriasole.ch", settingsHref: "/settings", signOutHref: "/logout" }}

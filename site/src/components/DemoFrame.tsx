@@ -24,6 +24,7 @@ function Frame({
   thumb = false,
   min = 96,
   width,
+  screen,
 }: {
   pkg: PkgId;
   slug: string;
@@ -35,11 +36,18 @@ function Frame({
   /** A fixed width in px, for looking at a block as a tablet or a phone
    *  would; the full width otherwise. */
   width?: number;
+  /** For a block: the height of the screen it is looked at on. A demo that
+   *  reports itself as a screen (src/preview.tsx) gets exactly this and
+   *  scrolls inside it, the way the page would in a browser; anything else
+   *  is sized to its content. */
+  screen?: number;
 }) {
   const id = `${pkg}/${slug}/${index}`;
   const frame = React.useRef<HTMLIFrameElement>(null);
   const [ready, setReady] = React.useState(false);
-  const [height, setHeight] = React.useState(min);
+  // Start at the screen's height, so a screen measures itself against it.
+  const [height, setHeight] = React.useState(screen ?? min);
+  const [isScreen, setIsScreen] = React.useState(false);
   const [src] = React.useState(
     () => `${import.meta.env.BASE_URL}preview-${pkg}.html?pkg=${pkg}&slug=${slug}&i=${index}${thumb ? "&thumb=1" : ""}`,
   );
@@ -48,7 +56,10 @@ function Frame({
     const onMessage = (e: MessageEvent) => {
       if (e.source !== frame.current?.contentWindow) return;
       if (e.data?.type === "demo-ready") setReady(true);
-      if (e.data?.type === "demo-height" && e.data.id === id) setHeight(Math.max(min, e.data.height));
+      if (e.data?.type === "demo-height" && e.data.id === id) {
+        setIsScreen(!!e.data.screen);
+        setHeight(Math.max(min, e.data.height));
+      }
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
@@ -67,7 +78,7 @@ function Frame({
       src={src}
       title="Demo"
       className={`block max-w-full border-0 transition-[height,width] duration-150 ${thumb ? "pointer-events-none" : ""}`}
-      style={{ height, width: width ?? "100%" }}
+      style={{ height: screen && isScreen ? screen : height, width: width ?? "100%" }}
       tabIndex={thumb ? -1 : undefined}
       aria-hidden={thumb || undefined}
     />

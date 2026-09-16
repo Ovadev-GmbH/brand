@@ -5,7 +5,6 @@ import { AuthCard, AuthLayout, GoogleSignInForm, OvadevMark } from "@ovadev-gmbh
 export default function GoogleExample() {
   return (
     <AuthLayout
-      className="min-h-[640px]"
       brand={
         <>
           <OvadevMark width={20} height={20} />

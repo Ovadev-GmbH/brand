@@ -73,10 +73,7 @@ const statusVariant = { Live: "secondary", Building: "outline", Failed: "destruc
 
 export default function DashboardExample() {
   return (
-    // The sidebar is fixed to the viewport by default; absolute keeps it in this box.
     <AppShell
-      className="relative h-[720px] min-h-0 overflow-hidden"
-      sidebarClassName="absolute h-full"
       nav={nav}
       brand="TICKETOVA"
       user={{ name: "Robin Markant", email: "robin@ova.dev" }}

@@ -3,7 +3,7 @@ import { ErrorPage, ErrorPageActions, ErrorPageCode, ErrorPageDescription, Error
 
 export default function ForbiddenExample() {
   return (
-    <ErrorPage className="min-h-[640px]">
+    <ErrorPage>
       <ErrorPageCode>403</ErrorPageCode>
       <ErrorPageTitle>This page isn't yours.</ErrorPageTitle>
       <ErrorPageDescription>

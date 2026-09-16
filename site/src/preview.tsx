@@ -28,6 +28,8 @@ function fromUrl(): Shown {
   return { pkg: q.get("pkg") ?? "", slug: q.get("slug") ?? "", index: Number(q.get("i") ?? 0) };
 }
 const THUMB = new URLSearchParams(location.search).get("thumb") === "1";
+/** Opened as a page of its own rather than in the catalog's frame. */
+const STANDALONE = window.parent === window;
 
 /* A block's links are the app's own addresses (`/`, `/settings`, `/sign-out`),
    kept so the code copies as it would ship. Followed in here they would take
@@ -53,7 +55,10 @@ if (THUMB) document.documentElement.classList.add("thumb");
  *  chasing their bottom edge would move them down and grow forever. */
 function neededHeight(): number {
   const vh = window.innerHeight;
-  let h = document.documentElement.scrollHeight;
+  // A block measures its own box: the document is never shorter than the
+  // frame, so its scrollHeight could only ever keep a frame as tall as it is.
+  const block = document.querySelector("[data-block]");
+  let h = block ? Math.ceil(block.getBoundingClientRect().height) : document.documentElement.scrollHeight;
   const SEL = "[data-slot$='popup'], [role='dialog'], [role='menu'], [role='listbox'], [role='tooltip']";
   for (const root of Array.from(document.body.children)) {
     for (const node of [root, ...Array.from(root.querySelectorAll<HTMLElement>(SEL))]) {
@@ -70,9 +75,19 @@ function neededHeight(): number {
   return Math.min(h, 960);
 }
 
+/** A block whose root is as tall as the viewport at least (min-h-svh: the
+ *  app shell, auth, an error page) is a screen, and the frame gives it a
+ *  screen's height; anything else (a stat grid) is sized to its content.
+ *  Read from the root's own min-height, which never depends on the frame's
+ *  current height, so the answer cannot flip as the frame resizes. */
+function isScreen(): boolean {
+  const root = document.querySelector("[data-block] > *");
+  return !!root && parseFloat(getComputedStyle(root).minHeight) >= window.innerHeight - 1;
+}
+
 function Report({ id }: { id: string }) {
   useEffect(() => {
-    const send = () => parent.postMessage({ type: "demo-height", id, height: neededHeight() }, "*");
+    const send = () => parent.postMessage({ type: "demo-height", id, height: neededHeight(), screen: isScreen() }, "*");
     const ro = new ResizeObserver(send);
     ro.observe(document.body);
     // Popups portal into <body> after the demo mounts; watch for them too.
@@ -118,19 +133,30 @@ function Preview({ pkg, extra, demos }: { pkg: Pkg; extra: Extra; demos: Record<
   }, [demos]);
 
   const entry = pkg.entries.find((e) => e.slug === shown.slug);
-  const Demo = entry?.examples[shown.index]?.Component ?? extra[shown.slug];
+  const example = entry?.examples[shown.index];
+  const Demo = example?.Component ?? extra[shown.slug];
   const id = `${shown.pkg}/${shown.slug}/${shown.index}`;
+
+  // On its own, the tab says what it shows.
+  useEffect(() => {
+    if (STANDALONE && entry) document.title = [example?.title, entry.name, pkg.name].filter(Boolean).join(" · ");
+  }, [entry, example, pkg.name]);
   if (shown.pkg !== pkg.id || !Demo) return <p className="p-6 text-sm">No such demo.</p>;
-  // A block is a screen: it fills the frame edge to edge and sizes itself.
+  // A block fills the frame edge to edge and sizes itself. Opened on its own
+  // (Open ↗), the page is the block: a screen fills the window, and a part of
+  // one (a stat grid) sits centred on the brand's ground.
   const block = entry?.kind === "block" && !THUMB;
   return (
     <div
       data-brand={pkg.id}
+      data-block={block || undefined}
       className={
         THUMB
           ? "flex items-center justify-center bg-transparent p-4 text-foreground"
           : block
-            ? "bg-background text-foreground"
+            ? STANDALONE
+              ? "flex min-h-svh flex-col justify-center bg-background text-foreground"
+              : "bg-background text-foreground"
             : "flex min-h-24 items-center justify-center bg-background px-8 py-10 text-foreground"
       }
     >
