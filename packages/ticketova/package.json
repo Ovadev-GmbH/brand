@@ -1,6 +1,6 @@
 {
   "name": "@ovadev-gmbh/ui-ticketova",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "The TICKETOVA design system: black on white, Oswald for the brand, Geist for the work, Phosphor.",
   "license": "UNLICENSED",
   "type": "module",

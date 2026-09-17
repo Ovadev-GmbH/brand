@@ -8,13 +8,14 @@ import { cn } from "../lib/utils";
    term and its value. Columns fit the width: four on a laptop, two on a
    narrow screen; override them with a className. The hairlines are the
    cells' outlines meeting in a 1px gap, so a row that is not full ends
-   in an empty white cell, not a grey one. */
+   in an empty white cell, not a grey one. The grid wears the Card's
+   corner; overflow-hidden clips the corner cells' outlines to it. */
 function StatGrid({ className, ...props }: React.ComponentProps<"dl">) {
   return (
     <dl
       data-slot="stat-grid"
       className={cn(
-        "grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-px border border-divider bg-surface-primary",
+        "grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-px overflow-hidden rounded-xl border border-divider bg-surface-primary",
         className,
       )}
       {...props}
