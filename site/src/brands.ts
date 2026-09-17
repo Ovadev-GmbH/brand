@@ -45,6 +45,10 @@ export type Mark = {
   nudge?: number;
   /** One line under the name, if the drawing needs one. */
   note?: string;
+  /** false keeps the mark off the introduction's card, where the marks sit
+   *  side by side at 48px: a lockup repeats the icon and the wordmark that
+   *  are already there and would only push them out of the frame. */
+  card?: false;
   /** public/brand/<colour>.svg — the mark as it actually ships, ground and
    *  accents and all. Where it exists it is the one shown and downloaded; the
    *  currentColor drawing in `file` is the cut for anything that has to take
@@ -101,6 +105,13 @@ export type BrandChrome = {
 export const CHROME: Record<PkgId, BrandChrome> = {
   ovadev: {
     marks: [
+      {
+        file: "ovadev-lockup",
+        name: "Lockup",
+        kind: "logo",
+        card: false,
+        note: "The pixel O and the wordmark on one field, the default. Cap height five cells of the mark, three cells between them, the cap box centred on the mark — the geometry ova.dev prints.",
+      },
       { file: "ovadev-logo", name: "Logo", kind: "logo", note: "The Ovadev wordmark, outlined — it needs no font." },
       {
         file: "ovadev-icon",
@@ -233,6 +244,26 @@ export const CHROME: Record<PkgId, BrandChrome> = {
     },
   },
   internal: {
+    /* INTERN is Ovadev's own tool, so it wears Ovadev's mark; only the word
+       changes. The wordmark is cut from the same setting as Ovadev's. */
+    marks: [
+      {
+        file: "intern-lockup",
+        name: "Lockup",
+        kind: "logo",
+        card: false,
+        note: "Ovadev's pixel O with the Intern wordmark, on the Ovadev lockup's geometry: cap height five cells, gap three, cap box centred on the mark.",
+      },
+      { file: "intern-logo", name: "Logo", kind: "logo", note: "The Intern wordmark — Geist 900, the same setting as Ovadev's, outlined." },
+      {
+        file: "ovadev-icon",
+        name: "Icon",
+        kind: "icon",
+        colour: "ovadev-icon-colour",
+        app: "ovadev-app-icon",
+        note: "Ovadev's icon, unchanged: INTERN has no mark of its own.",
+      },
+    ],
     mark: "INTERN",
     source: "packages/internal/src/foundations/colors.ts — INTERN's black, white, neutrals and four colours, as scales",
     lines: {

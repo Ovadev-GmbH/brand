@@ -5,7 +5,8 @@ import type { Mark } from "../brands";
  *  preview — each as it actually ships, so a mark that has its own colours is
  *  shown in them. The rest paint themselves in currentColor, which is why they
  *  are fetched rather than <img>-ed: inlined, they take the page's ink. */
-export function MarkRow({ marks }: { marks: Mark[] }) {
+export function MarkRow({ marks: all }: { marks: Mark[] }) {
+  const marks = React.useMemo(() => all.filter((m) => m.card !== false), [all]);
   const [svgs, setSvgs] = React.useState<Record<string, string>>({});
 
   React.useEffect(() => {
