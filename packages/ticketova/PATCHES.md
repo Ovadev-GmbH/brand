@@ -10,6 +10,24 @@ Unlike Internal and Januna, the components keep nova's own classes
 slots `src/theme.css` maps (`--primary`, `--muted`, `--border`, `--radius`),
 so these are fixes, not a restyle.
 
+## 0.3.0
+
+- **button.tsx:** the `cta` size. 44px, `text-base`, wider padding — the
+  door on ticketova.com's hero, where it is the only thing to do on the
+  screen, not a dashboard control. A size and nothing else: the colours,
+  the hover and the focus ring stay the variants'.
+
+  It carried two compound variants for a while — an inverting hover on the
+  solid one, a darker rest border on the outline one, both lifted from the
+  hand-written button on ticketova.com. They are gone, and the reason is
+  worth keeping: a compound that sets `border-foreground/25` next to the
+  variant's `border-border` produces two `border-color` utilities at the
+  same specificity, and `cn` does not merge them — tailwind-merge knows
+  Tailwind's own palette, not this theme's colour names, so it treats both
+  as unrelated and the stylesheet's order decides. The variant won and the
+  compound was dead code that measured as a silent no-op. A colour that has
+  to fight the variant it sits on is a second variant, not a size.
+
 ## 0.2.0
 
 - **alert-dialog.tsx:** `AlertDialogAction` renders `AlertDialogPrimitive.Close`
