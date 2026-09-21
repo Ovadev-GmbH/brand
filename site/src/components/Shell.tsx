@@ -139,7 +139,7 @@ export function Shell({ pkg, area, children }: { pkg: Pkg; area: Area; children:
   const columns = "lg:grid lg:grid-cols-[var(--container-side)_minmax(0,1fr)]";
 
   return (
-    <div className="min-h-screen bg-bg-200" data-brand={pkg.id}>
+    <div className="catalog-shell min-h-screen bg-bg-200" data-brand={pkg.id}>
       <header className={`sticky top-0 z-40 ${width}`}>
         <div className={`flex w-full border-x border-b border-alpha-400 bg-bg-100 ${columns}`}>
           {/* Below the sidebar breakpoint the header has to fit a phone: the
@@ -195,7 +195,7 @@ export function Shell({ pkg, area, children }: { pkg: Pkg; area: Area; children:
           </aside>
         </div>
         <div className="flex min-h-[calc(100vh-var(--spacing-header))] min-w-0 flex-col">
-          <div className="flex-1 px-6 pt-8 pb-12 lg:px-12 lg:pt-10 lg:pb-16">{children}</div>
+          <div className="catalog-content flex-1 px-6 pt-8 pb-12 lg:px-12 lg:pt-10 lg:pb-16">{children}</div>
           {area === "docs" ? <Pagination prev={prev} next={next} /> : null}
         </div>
       </main>

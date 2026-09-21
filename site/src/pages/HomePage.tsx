@@ -52,6 +52,12 @@ export function HomePage() {
             </Link>
           </Cell>
         ))}
+        <Cell>
+          <a className="flex h-full flex-col gap-6 bg-bg-100 p-8 text-inherit no-underline transition-colors duration-150 hover:bg-alpha-100" href="https://ops.backend.ovadev.dev/frontends?view=branding">
+            <div className="flex flex-col gap-2"><p className="text-xl text-gray-1000 md:text-2xl">Auth</p><p className="font-mono text-sm text-gray-900">Central authentication · Ovadev</p></div>
+            <p className="mt-auto text-sm text-gray-700">Components and screens from the running Auth service. Private Ops access required.</p>
+          </a>
+        </Cell>
       </Grid>
       {/* The colophon sits on the floor of the page, not under the last card.
           The mark is outside the anchor so the rule does not run under it, and

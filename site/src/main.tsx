@@ -5,6 +5,11 @@ import { Toaster } from "sonner";
 import { App } from "./App";
 import "./styles/app.css";
 
+// Persist embedded layout across client-side catalog navigation.
+if (window.parent !== window && new URLSearchParams(location.search).get('embed') === '1') {
+  document.documentElement.dataset.embedded = 'true';
+}
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
