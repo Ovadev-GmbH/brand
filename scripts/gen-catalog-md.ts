@@ -28,7 +28,7 @@ const table = (head: string[], rows: string[][]) =>
 type Mark = { file: string; name: string; kind: string; note?: string; colour?: string };
 type Chrome = {
   marks?: Mark[];
-  og?: string;
+  og?: { de: string; en: string };
   source: string;
   swatches: { name: string; token: string; value: string }[];
   type: { name: string; family: string; weight: number; size: string; note: string }[];
@@ -94,8 +94,13 @@ if (chrome.marks?.length) {
         ``,
       ];
     }),
-    ...(chrome.og && file(`${chrome.og}.png`)
-      ? [`## OG image`, ``, `What a link to the brand unfurls into, 1200 × 630: ${file(`${chrome.og}.png`)}`, ``]
+    ...(chrome.og && file(`${chrome.og.de}.png`)
+      ? [
+          `## OG image`, ``,
+          `What a link to the brand unfurls into, 1200 × 630, one drawing per language.`, ``,
+          `- German: ${file(`${chrome.og.de}.png`)}`,
+          `- English: ${file(`${chrome.og.en}.png`)}`, ``,
+        ]
       : []),
   ].join("\n"));
   assets.push({ slug: "brand-assets", name: "Brand Assets", line: "The marks, and how to place them." });

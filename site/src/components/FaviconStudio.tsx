@@ -12,6 +12,7 @@ import * as React from "react";
 import type { Mark } from "../brands";
 import { badge, inked, rasterize, save, sizeOf } from "./LogoStudio";
 import { buildIco, zipStore, type ZipFile } from "../lib/bundle";
+import { Grid, Cell } from "./Grid";
 
 const FAVICON_PX = [16, 32, 48, 64, 96, 128, 256] as const;
 const PWA_PX = [192, 512, 1024] as const;
@@ -98,74 +99,118 @@ export function FaviconStudio({ mark, brand }: { mark: Mark; brand: string }) {
     });
   const downloadAll = () => run((all) => save(zipStore(all), `${brand}-favicon-bundle.zip`));
 
+  const disabled = busy || !art;
+
+  /* Two rows of the page's own grid, not a layout of its own. The first row is
+     the two cuts, each in the box a mark gets — stage, name, note, its own
+     download at the foot. The second is the bundle and every file in it. The
+     first row closes its own top, because the heading above draws no rule; the
+     second takes the first's bottom as its top, so no line is drawn twice. */
   return (
-    <div className="grid md:grid-cols-[minmax(0,1fr)_18rem]">
-      <div className="flex min-h-64 items-end justify-center gap-12 border-b border-alpha-400 bg-checker p-8 md:border-r md:border-b-0">
-        {art ? (
-          <>
-            <Tile label="Tab">
-              <div className="size-16 [&>svg]:block [&>svg]:size-full" dangerouslySetInnerHTML={{ __html: fill(art.tab) }} />
-            </Tile>
-            <Tile label="Home screen">
-              <div className="size-28 overflow-hidden rounded-[22%] [&>svg]:block [&>svg]:size-full" dangerouslySetInnerHTML={{ __html: fill(art.app) }} />
-            </Tile>
-          </>
-        ) : null}
-      </div>
-
-      <div className="flex flex-col gap-6 p-8">
-        <div>
-          <p className="text-base font-semibold text-gray-1000">Favicon</p>
-          <p className="mt-0.5 text-sm text-gray-900">
-            The icon as it ships: on transparent in a tab, on a full square of its ground on a home screen.
-          </p>
-        </div>
-        <div className="mt-auto flex flex-col gap-2">
-          <button
-            type="button"
-            className="h-9 w-full cursor-pointer rounded-brand border-0 bg-bg-200 text-sm font-medium text-gray-1000 shadow-border hover:bg-alpha-100 disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={() => downloadOne("favicon.ico")}
-            disabled={busy || !art}
+    <>
+      <Grid cols={2} top>
+        <Cell>
+          <Face
+            name="Tab"
+            note="The drawing on transparent, at the sizes a browser asks for."
+            file="favicon.ico"
+            onDownload={downloadOne}
+            disabled={disabled}
           >
-            favicon.ico
-          </button>
-          <button
-            type="button"
-            className="h-9 w-full cursor-pointer rounded-brand border-0 bg-gray-1000 text-sm font-medium text-bg-100 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
-            onClick={downloadAll}
-            disabled={busy || !art}
+            <div className="size-16 [&>svg]:block [&>svg]:size-full" dangerouslySetInnerHTML={{ __html: fill(art?.tab ?? "") }} />
+          </Face>
+        </Cell>
+        <Cell>
+          <Face
+            name="Home screen"
+            note="The app cut, on a full square of its ground: iOS and Android fill anything transparent themselves."
+            file="apple-touch-icon.png"
+            onDownload={downloadOne}
+            disabled={disabled}
           >
-            {busy ? "Rendering…" : `Download bundle · ${FILES.length} files`}
-          </button>
-        </div>
-      </div>
+            <div className="size-20 overflow-hidden rounded-[22%] [&>svg]:block [&>svg]:size-full" dangerouslySetInnerHTML={{ __html: fill(art?.app ?? "") }} />
+          </Face>
+        </Cell>
+      </Grid>
 
-      <div className="col-span-full border-t border-alpha-400 p-8">
-        <ul className="m-0 list-none p-0 md:columns-2 md:gap-8">
-          {FILES.map((n) => (
-            <li key={n} className="break-inside-avoid">
-              <button
-                type="button"
-                className="flex h-7 w-full cursor-pointer items-center justify-between gap-3 rounded-brand border-0 bg-transparent px-2 text-left hover:bg-alpha-100 disabled:cursor-not-allowed disabled:opacity-50"
-                onClick={() => downloadOne(n)}
-                disabled={busy || !art}
-              >
-                <code className="truncate font-mono text-[11px] text-gray-900">{n}</code>
-                <span className="shrink-0 text-[11px] text-gray-700">↓</span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+      <Grid cols={1}>
+        <Cell>
+          <div className="flex h-full flex-col gap-6 p-8">
+            <div>
+              <p className="text-base font-semibold text-gray-1000">The bundle</p>
+              <p className="mt-0.5 max-w-160 text-sm text-gray-900">
+                Every file a site needs, drawn in the browser from the mark, so there is nothing to keep in sync.
+                Take the zip, or any one of them on its own.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              className="h-9 w-full max-w-80 cursor-pointer rounded-brand border-0 bg-gray-1000 text-sm font-medium text-bg-100 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+              onClick={downloadAll}
+              disabled={disabled}
+            >
+              {busy ? "Rendering…" : `Download bundle · ${FILES.length} files`}
+            </button>
+
+            <ul className="m-0 grid list-none grid-cols-1 gap-x-8 p-0 md:grid-cols-3">
+              {FILES.map((n) => (
+                <li key={n}>
+                  <button
+                    type="button"
+                    className="flex h-7 w-full cursor-pointer items-center justify-between gap-3 rounded-brand border-0 bg-transparent px-2 text-left hover:bg-alpha-100 disabled:cursor-not-allowed disabled:opacity-50"
+                    onClick={() => downloadOne(n)}
+                    disabled={disabled}
+                  >
+                    <code className="truncate font-mono text-[11px] text-gray-900">{n}</code>
+                    <span className="shrink-0 text-[11px] text-gray-700">↓</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Cell>
+      </Grid>
+    </>
   );
 }
 
-function Tile({ label, children }: { label: string; children: React.ReactNode }) {
+/** One cut of the icon, in the box a mark gets. */
+function Face({
+  name,
+  note,
+  file,
+  onDownload,
+  disabled,
+  children,
+}: {
+  name: string;
+  note: string;
+  file: string;
+  onDownload: (name: string) => void;
+  disabled: boolean;
+  children: React.ReactNode;
+}) {
   return (
-    <figure className="m-0 flex flex-col items-center gap-3">
-      {children}
-      <figcaption className="font-mono text-[11px] text-gray-700">{label}</figcaption>
-    </figure>
+    <div className="flex h-full flex-col gap-6 p-8">
+      <div className="flex h-40 items-center justify-center overflow-hidden rounded-brand bg-checker p-5 text-gray-1000">
+        {children}
+      </div>
+      <div>
+        <p className="text-base font-semibold text-gray-1000">{name}</p>
+        <p className="mt-0.5 text-sm text-gray-900">{note}</p>
+      </div>
+      <div className="mt-auto flex flex-col gap-3">
+        <button
+          type="button"
+          className="h-9 w-full cursor-pointer rounded-brand border-0 bg-bg-200 text-sm font-medium text-gray-1000 shadow-border hover:bg-alpha-100 disabled:cursor-not-allowed disabled:opacity-50"
+          onClick={() => onDownload(file)}
+          disabled={disabled}
+        >
+          Download
+        </button>
+        <code className="font-mono text-[11px] leading-4 text-gray-700">{file}</code>
+      </div>
+    </div>
   );
 }
