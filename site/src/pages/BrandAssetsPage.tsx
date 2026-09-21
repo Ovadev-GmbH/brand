@@ -5,7 +5,7 @@
 import type { Pkg } from "../types";
 import { CHROME } from "../brands";
 import { AssetCard } from "../components/LogoStudio";
-import { OgCard } from "../components/OgCard";
+import { OgCard, LANGS } from "../components/OgCard";
 import { FaviconStudio } from "../components/FaviconStudio";
 import { Grid, Cell } from "../components/Grid";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
@@ -33,36 +33,34 @@ export function BrandAssetsPage({ pkg }: { pkg: Pkg }) {
         <p className="mt-10 text-sm text-gray-900">{pkg.name} has no marks of its own — it wears Ovadev&rsquo;s.</p>
       )}
 
-      <SectionHeader title="OG Image" />
-      <p className="mt-2 mb-8 max-w-2xl text-sm text-gray-900">
-        What a link to the brand unfurls into on Slack, LinkedIn or iMessage. One fixed drawing per brand, never generated.
-      </p>
-      <div className="-mx-6 lg:-mx-12">
-        <Grid cols={2}>
-          <Cell>
-            {chrome.og ? (
-              <OgCard file={chrome.og} brand={pkg.name} />
-            ) : (
-              <p className="p-8 text-sm text-gray-900">{pkg.name} has no OG image yet.</p>
-            )}
-          </Cell>
-        </Grid>
-      </div>
-
-      {icon ? (
-        <>
-          <SectionHeader title="Favicon" />
-          <p className="mt-2 mb-8 max-w-2xl text-sm text-gray-900">
-            The icon as it ships, and the whole set a site needs: favicon.ico and the PNG sizes for the tab, the Apple touch icon and the PWA icons for a home screen.
-          </p>
-          <div className="-mx-6 lg:-mx-12">
-            <Grid cols={1}>
+      <section>
+        <SectionHeader title="OG Image" />
+        <div className="mt-6 -mx-6 lg:-mx-12">
+          {chrome.og ? (
+            <Grid cols={2} top>
+              {LANGS.map((lang) => (
+                <Cell key={lang}>
+                  <OgCard file={chrome.og![lang]} lang={lang} brand={pkg.name} />
+                </Cell>
+              ))}
+            </Grid>
+          ) : (
+            <Grid cols={1} top>
               <Cell>
-                <FaviconStudio mark={icon} brand={pkg.id} />
+                <p className="p-8 text-sm text-gray-900">{pkg.name} has no OG image yet.</p>
               </Cell>
             </Grid>
+          )}
+        </div>
+      </section>
+
+      {icon ? (
+        <section>
+          <SectionHeader title="Favicon" />
+          <div className="mt-6 -mx-6 lg:-mx-12">
+            <FaviconStudio mark={icon} brand={pkg.id} />
           </div>
-        </>
+        </section>
       ) : null}
     </article>
   );

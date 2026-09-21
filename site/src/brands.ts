@@ -76,6 +76,9 @@ export type IconSet = {
   color: string;
 };
 
+/** One file per language, named without its extension. */
+export type OgImage = { de: string; en: string };
+
 export type BrandChrome = {
   /** The mark: a wordmark, since none of the brands has an SVG in this repo yet. */
   mark: string;
@@ -85,9 +88,10 @@ export type BrandChrome = {
   source: string;
   /** Absent for internal, which has no marks of its own — it wears Ovadev's. */
   marks?: Mark[];
-  /** public/brand/<og>.png — the brand's social card, 1200 × 630, as it
-   *  ships. Absent until the brand has one. */
-  og?: string;
+  /** The brand's social card, 1200 × 630, as it ships: public/brand/<og>.png
+   *  per language, because the card carries a sentence and the sentence is
+   *  translated. Absent until the brand has one. */
+  og?: OgImage;
   /** Only for a brand whose components ship with an icon set. */
   icons?: IconSet;
   /** One line per door on the introduction, where the brand has its own
@@ -129,6 +133,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
         note: "The pixel O on its plate, as the home-screen icons ship: light cells and the red block on ink, with a launcher's margin.",
       },
     ],
+    og: { de: "ovadev-og-de", en: "ovadev-og-en" },
     mark: "Ovadev",
     source: "packages/ovadev/src/foundations/colors.ts — paper, ink and one red, as ova.dev sets them, as scales",
     lines: {
@@ -171,7 +176,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
         note: "The ticket booth, as the landing page ships it: black line art on its white disc.",
       },
     ],
-    og: "ticketova-og",
+    og: { de: "ticketova-og-de", en: "ticketova-og-en" },
     mark: "TICKETOVA",
     source: "packages/ticketova/src/foundations/colors.ts — ticketova.com's black, white, hairline grey, tick green and strike red, as scales",
     lines: {
@@ -214,6 +219,7 @@ export const CHROME: Record<PkgId, BrandChrome> = {
         note: "The wave on its green badge, as the app icon ships it.",
       },
     ],
+    og: { de: "januna-og-de", en: "januna-og-en" },
     mark: "Januna",
     source: "packages/januna/src/foundations/colors.ts — nine scales, generated into colors.css",
     lines: {

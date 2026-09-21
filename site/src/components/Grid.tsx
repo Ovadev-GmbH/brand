@@ -13,6 +13,11 @@
  * border by default, and two coats of a translucent grey read as a rule twice
  * as heavy as the gaps it is supposed to match.
  *
+ * A group that follows a heading which draws no rule of its own — a
+ * SectionHeader — has nothing closing its top, and the gap between its cells
+ * then starts in mid-air. Those pass `top`, and it is the only line there, so
+ * the rule still holds: PageHeader's groups must not.
+ *
  * It follows that a half-filled last row would show the hairline colour across
  * the whole gap, so the grid fills the row out with empty cells. Counting them
  * means every child has to be one Cell: hand it a fragment or a component that
@@ -22,12 +27,12 @@
 import * as React from "react";
 import type { CSSProperties, ReactNode } from "react";
 
-export function Grid({ cols = 1, children }: { cols?: number; children: ReactNode }) {
+export function Grid({ cols = 1, top = false, children }: { cols?: number; top?: boolean; children: ReactNode }) {
   const count = React.Children.count(children);
   const missing = count % cols === 0 ? 0 : cols - (count % cols);
   return (
     <section
-      className="grid grid-cols-1 gap-px border-b border-alpha-400 bg-alpha-400 bg-clip-padding md:grid-cols-(--cols)"
+      className={`grid grid-cols-1 gap-px border-alpha-400 bg-alpha-400 bg-clip-padding md:grid-cols-(--cols) ${top ? "border-y" : "border-b"}`}
       style={{ "--cols": `repeat(${cols}, minmax(0, 1fr))` } as CSSProperties}
     >
       {children}
