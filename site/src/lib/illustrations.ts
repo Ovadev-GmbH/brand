@@ -110,6 +110,78 @@ export const illustrations = [
     "description": "Tailored offers for municipalities.",
     "bytes": 8098,
     "source": "/illustrations/gemeinden-flexibel.svg"
+  },
+  {
+    "file": "events-club-door.svg",
+    "title": "Club door",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 45367,
+    "source": "/illustrations/events-club-door.svg"
+  },
+  {
+    "file": "events-self-signup.svg",
+    "title": "Self-service sign-up",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 10557,
+    "source": "/illustrations/events-self-signup.svg"
+  },
+  {
+    "file": "events-payment-connect.svg",
+    "title": "Payment provider",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 32402,
+    "source": "/illustrations/events-payment-connect.svg"
+  },
+  {
+    "file": "events-ticket-pricing.svg",
+    "title": "Ticket prices",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 33270,
+    "source": "/illustrations/events-ticket-pricing.svg"
+  },
+  {
+    "file": "events-scanner-parcel.svg",
+    "title": "Devices on loan",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 44769,
+    "source": "/illustrations/events-scanner-parcel.svg"
+  },
+  {
+    "file": "events-evening-box.svg",
+    "title": "Box office",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 49728,
+    "source": "/illustrations/events-evening-box.svg"
+  },
+  {
+    "file": "events-bar-pos.svg",
+    "title": "Bar point of sale",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 51345,
+    "source": "/illustrations/events-bar-pos.svg"
+  },
+  {
+    "file": "events-percent-ticket.svg",
+    "title": "Flat percentage",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 25336,
+    "source": "/illustrations/events-percent-ticket.svg"
+  },
+  {
+    "file": "events-dj-crowd.svg",
+    "title": "DJ & crowd",
+    "category": "Events",
+    "description": "Generated in the house style for TICKETOVA for events, then traced with Potrace. Black shapes only; white is transparent.",
+    "bytes": 59297,
+    "source": "/illustrations/events-dj-crowd.svg"
   }
 ] as const;
 
