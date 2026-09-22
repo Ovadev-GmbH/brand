@@ -19,7 +19,10 @@ import { BlocksPage } from "./pages/BlocksPage";
    ⌘K and its own foundations. The root is the chooser and the only place the
    four brands are named together. */
 
+import { AssetLibraryPage } from "./pages/AssetLibraryPage";
+
 const PAGES = {
+  "asset-library": AssetLibraryPage,
   intro: IntroPage,
   colors: ColorsPage,
   typography: TypographyPage,
@@ -58,6 +61,7 @@ function Brand({ page }: { page: keyof typeof PAGES }) {
   // Brand Assets only exists where there are marks, so switching to a brand
   // without them lands on 404 rather than somewhere it was not asked for.
   const missing =
+    (page === "asset-library" && pkg.id !== "ticketova") ||
     (page === "brand-assets" && !CHROME[pkg.id].marks?.length) || (page === "icons" && !CHROME[pkg.id].icons) ||
     (page === "materials" && !CHROME[pkg.id].materials) ||
     (page === "layout" && !CHROME[pkg.id].layout);
@@ -107,6 +111,7 @@ export function App() {
           <Route index element={<Brand page="intro" />} />
           <Route path="colors" element={<Brand page="colors" />} />
           <Route path="typography" element={<Brand page="typography" />} />
+          <Route path="asset-library" element={<Brand page="asset-library" />} />
           <Route path="brand-assets" element={<Brand page="brand-assets" />} />
           <Route path="icons" element={<Brand page="icons" />} />
           <Route path="materials" element={<Brand page="materials" />} />

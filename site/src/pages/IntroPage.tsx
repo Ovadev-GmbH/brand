@@ -27,6 +27,7 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
   const components = pkg.entries.filter((e) => e.kind !== "block");
 
   const doors: Door[] = [
+    ...(pkg.id === "ticketova" ? [{ name: "Asset Library", line: "Illustrations, ready to use. Browse and download originals.", to: at("asset-library"), preview: <img src={`${import.meta.env.BASE_URL}ticketova/illustrations/dashboard-vector.svg`} alt="" className="h-32 w-full object-contain" /> }] : []),
     ...(marks.length ? [{ name: "Brand Assets", line: "The marks, and how to place them.", to: at("brand-assets"), preview: <MarkRow marks={marks} /> }] : []),
     ...(chrome.icons ? [{ name: "Icons", line: chrome.lines?.icons ?? `${chrome.icons.library}, as the components draw it.`, to: at("icons"), preview: <IconGrid icons={chrome.icons} /> }] : []),
     ...(pkg.frame
