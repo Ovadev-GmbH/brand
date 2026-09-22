@@ -25,10 +25,10 @@ export function BrandSwitcher({ pkg }: { pkg: Pkg }) {
 
   // Switching brands keeps you where you are: from Januna's Colors you land on
   // TICKETOVA's. Where the other brand has no such page you land on its 404,
-  // which is the honest answer — Internal has no Brand Assets.
+  // which is the honest answer — only TICKETOVA has an Asset Library.
   const rest = pathname.split("/").slice(2).join("/");
 
-  // Named by the brand, set the way the brand sets itself: Internal, Ovadev,
+  // Named by the brand, set the way the brand sets itself: Ovadev,
   // TICKETOVA, Januna. The package name is one line down on the landing for
   // whoever needs the string to install.
   const rows: Row[] = [

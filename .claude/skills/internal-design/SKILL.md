@@ -1,25 +1,12 @@
 ---
 name: internal-design
-description: Design and build UI for Internal (Ovadev's internal tools: operations, billing, deployments, support, audit) with the @ovadev-gmbh/ui-internal design system. Use whenever a task touches an internal admin screen, table, form, console or panel — building new UI, restyling, reviewing a PR for brand fit, or answering "how should this look". Loads DESIGN.md (priorities, visual system, anti-patterns, the published API) and points at the catalog's Markdown pages.
+description: Design and build UI for Internal (Ovadev's internal tools: operations, billing, deployments, support, audit). Internal is Ovadev's design system in light mode, so this hands over to ovadev-design. Use whenever a task touches an internal admin screen, table, form, console or panel.
 ---
 
 # Internal design
 
-Everything Internal-looking comes from one package and one document.
+Internal is Ovadev in light mode. There is no separate system: follow the `ovadev-design` skill and `packages/ovadev/DESIGN.md` (or `https://intern.ova.dev/brand/ovadev/design.md`), with these differences for a tool:
 
-1. Read `packages/internal/DESIGN.md` in the brand repo, or `https://intern.ova.dev/brand/internal/design.md` from anywhere. It is the authority: read it fully before the first line of UI.
-2. For a specific component, read its Markdown page: `https://intern.ova.dev/brand/internal/<slug>.md` (import line, demo, source). The index is `https://intern.ova.dev/brand/internal/llms.txt`.
-3. Build only with the package. Install it from GitHub Packages, import `@ovadev-gmbh/ui-internal/styles.css` as the Tailwind entry, import components from `@ovadev-gmbh/ui-internal`, icons from `@ovadev-gmbh/ui-internal/icons`, whole screens (app shell, auth, error pages, stats) from `@ovadev-gmbh/ui-internal/blocks`. Never install or import Base UI or Lucide in the app; the package brings both.
-
-Rules that are not negotiable, in the words of DESIGN.md:
-
-- Write with the semantic names (`bg-surface-hover`, `text-content-secondary`, `bg-brand text-content-inverse`: black carrying white); never a hex, never Tailwind's default palette, never `dark:`.
-- One type style per element (`text-label-14`, `text-heading-16`), never a weight class beside it, never a made-up size.
-- Materials draw edges; never a border on a material, never a card in a card.
-- Square corners everywhere, pills only for status dots, avatars, switches. Grey hairline edges, no shadows on the page.
-- Colour only where it names a state; the primary button is black; figures in mono, right-aligned; every amount with its currency, every time exact.
-- Default to stillness; `ease-brand` and the three durations only.
-
-When reviewing existing UI, check it against the "Reject generated-design reflexes" list in DESIGN.md and name each hit.
-
-To change the system itself (a token, a style, a component), work in the brand repo: foundations live in `packages/internal/src/foundations/*.ts` and are generated into CSS with `bun run foundations`; components in `packages/internal/src/components/ui/`; the catalog registry and Markdown mirror regenerate at build.
+- Existing tools import `@ovadev-gmbh/ui-internal/styles.css`, which is Ovadev's stylesheet with light mode as the default and the old `--int-*` custom properties kept as aliases. New code imports components from `@ovadev-gmbh/ui-ovadev` and writes `--ova-*`, never `--int-*`.
+- A tool may offer dark mode: `data-theme="dark"` on `<html>` (or `"system"` to follow the OS). The tokens switch; never write `dark:`.
+- Red stays a signal, not a status: errors use `status-danger`, and a tool screen rarely needs the red block at all.

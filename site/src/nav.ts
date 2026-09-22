@@ -15,8 +15,7 @@ export type NavItem = {
 };
 
 /** The pages above the components, in the order the introduction lists them.
- *  Brand Assets only exists for a brand that has marks: ui-internal has none
- *  of its own, it wears Ovadev's. */
+ *  Brand Assets only exists for a brand that has marks. */
 export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
   return [
     { slug: "", name: "Introduction" },

@@ -1,7 +1,6 @@
-/* The chooser. Four doors and nothing else: the libraries are standalone, so
+/* The chooser. Three doors and nothing else: the libraries are standalone, so
    there is no page here that lists components across them. A door is named by
-   the brand, set the way the brand sets itself — Internal, Ovadev, TICKETOVA,
-   Januna — with the package a consumer would install on the line under it, so
+   the brand, set the way the brand sets itself — Ovadev, TICKETOVA, Januna — with the package a consumer would install on the line under it, so
    the card answers both "whose is this" and "what do I type". */
 
 import { Link } from "react-router";

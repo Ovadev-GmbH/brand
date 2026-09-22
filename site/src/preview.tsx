@@ -44,6 +44,16 @@ document.addEventListener("click", (event) => {
   if (url.hash && url.pathname === location.pathname && url.search === location.search) return;
   event.preventDefault();
 });
+/* A brand with two modes is shown in the one the catalog has chosen: the
+   first in the URL, a change by message. data-theme on <html> is what an
+   app would set. */
+const applyTheme = (mode: string | null) => {
+  if (mode === "light" || mode === "dark") document.documentElement.dataset.theme = mode;
+};
+applyTheme(new URLSearchParams(location.search).get("theme"));
+window.addEventListener("message", (e) => {
+  if (e.source === parent && e.data?.type === "demo-theme") applyTheme(e.data.mode);
+});
 // A card's preview shows through to the card: no sheet of its own.
 if (THUMB) document.documentElement.classList.add("thumb");
 

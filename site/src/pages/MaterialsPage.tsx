@@ -6,6 +6,7 @@ import type { Pkg } from "../types";
 import { mdHref } from "../registry";
 import { CHROME, tokenVars, type MaterialSystem } from "../brands";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
+import { useMode } from "../lib/theme";
 
 function Table({ rows }: { rows: MaterialSystem["SURFACE"] }) {
   return (
@@ -45,9 +46,10 @@ function Table({ rows }: { rows: MaterialSystem["SURFACE"] }) {
 
 export function MaterialsPage({ pkg }: { pkg: Pkg }) {
   const materials = CHROME[pkg.id].materials;
+  const mode = useMode();
   if (!materials) return null;
   return (
-    <article data-brand={pkg.id} style={tokenVars(pkg.id)}>
+    <article data-brand={pkg.id} style={tokenVars(pkg.id, mode)}>
       <PageHeader title="Materials" md={mdHref(pkg, "materials")}>
         <p className="mt-3 max-w-160 text-[15px] text-gray-900">
           Presets for radius, fill, stroke and shadow, chosen together for where a surface sits. One class each,

@@ -19,7 +19,6 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, "index.html"),
         "preview-januna": resolve(import.meta.dirname, "preview-januna.html"),
-        "preview-internal": resolve(import.meta.dirname, "preview-internal.html"),
         "preview-ovadev": resolve(import.meta.dirname, "preview-ovadev.html"),
         "preview-ticketova": resolve(import.meta.dirname, "preview-ticketova.html"),
       },

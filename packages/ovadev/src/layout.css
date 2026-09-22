@@ -6,7 +6,8 @@
    duration-base. */
 
 :root,
-[data-brand="ovadev"] {
+[data-brand="ovadev"],
+[data-theme] {
   --ova-space-1: 4px;
   --ova-space-2: 8px;
   --ova-space-3: 12px;
@@ -52,7 +53,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   :root,
-  [data-brand="ovadev"] {
+  [data-brand="ovadev"],
+  [data-theme] {
     --ova-duration-fast: 0ms;
     --ova-duration-base: 0ms;
     --ova-duration-slow: 0ms;

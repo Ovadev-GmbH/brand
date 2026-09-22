@@ -7,7 +7,7 @@
 import { existsSync, writeFileSync } from "node:fs";
 import { BRANDS, ROOT, SITE } from "./lib/catalog";
 
-const ORDER = ["internal", "ovadev", "ticketova", "januna"];
+const ORDER = ["ovadev", "ticketova", "januna"];
 
 const md = [
   `# Ovadev Brand`, ``,
@@ -22,7 +22,7 @@ const md = [
   ``,
   `---`, ``,
   `## Markdown for agents`, ``,
-  `Every page of the catalog is also Markdown: append \`.md\` to its URL (${SITE}/internal/button.md), or request it with an \`Accept: text/markdown\` header.`, ``,
+  `Every page of the catalog is also Markdown: append \`.md\` to its URL (${SITE}/ovadev/button.md), or request it with an \`Accept: text/markdown\` header.`, ``,
 ].join("\n");
 
 writeFileSync(`${ROOT}/site/public/index.md`, md);

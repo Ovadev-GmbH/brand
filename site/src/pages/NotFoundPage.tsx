@@ -1,8 +1,8 @@
 /* The page that is not here.
  *
  * It is a real page rather than a redirect on purpose: switching brands keeps
- * you on the page you were on, and not every brand has every page — Internal
- * has no Brand Assets. Landing on 404 says that plainly, where being bounced
+ * you on the page you were on, and not every brand has every page — only
+ * TICKETOVA has an Asset Library. Landing on 404 says that plainly, where being bounced
  * to an introduction would just look like the click went wrong. */
 
 import { Link } from "react-router";

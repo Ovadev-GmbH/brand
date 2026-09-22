@@ -6,14 +6,15 @@
    component needs the lift without the rest. */
 
 :root,
-[data-brand="ovadev"] {
+[data-brand="ovadev"],
+[data-theme] {
   --ova-shadow-base: 0 0 0 1px var(--ova-divider);
   --ova-shadow-small: 0 0 0 1px var(--ova-divider-strong);
   --ova-shadow-medium: 0 0 0 1px var(--ova-divider);
-  --ova-shadow-large: 0 0 0 1px var(--ova-divider), 8px 8px 0 rgba(0, 0, 0, 0.55);
+  --ova-shadow-large: 0 0 0 1px var(--ova-divider), 8px 8px 0 var(--ova-cut);
   --ova-shadow-tooltip: none;
-  --ova-shadow-menu: 0 0 0 1px var(--ova-divider-strong), 8px 8px 0 rgba(0, 0, 0, 0.55);
-  --ova-shadow-modal: 0 0 0 1px var(--ova-divider-strong), 8px 8px 0 rgba(0, 0, 0, 0.55);
+  --ova-shadow-menu: 0 0 0 1px var(--ova-divider-strong), 8px 8px 0 var(--ova-cut);
+  --ova-shadow-modal: 0 0 0 1px var(--ova-divider-strong), 8px 8px 0 var(--ova-cut);
   --ova-shadow-fullscreen: none;
   --ova-shadow-accent: 0 0 0 1px var(--ova-gray-1000);
   --ova-shadow-active: 0 0 0 1px var(--ova-gray-1000);
@@ -48,13 +49,13 @@
 
 @utility material-medium {
   border-radius: 0px;
-  background: var(--ova-surface-secondary);
+  background: var(--ova-surface-raised);
   box-shadow: var(--ova-shadow-medium);
 }
 
 @utility material-large {
   border-radius: 0px;
-  background: var(--ova-surface-secondary);
+  background: var(--ova-surface-raised);
   box-shadow: var(--ova-shadow-large);
 }
 
@@ -66,13 +67,13 @@
 
 @utility material-menu {
   border-radius: 0px;
-  background: var(--ova-surface-secondary);
+  background: var(--ova-surface-raised);
   box-shadow: var(--ova-shadow-menu);
 }
 
 @utility material-modal {
   border-radius: 0px;
-  background: var(--ova-surface-secondary);
+  background: var(--ova-surface-raised);
   box-shadow: var(--ova-shadow-modal);
 }
 

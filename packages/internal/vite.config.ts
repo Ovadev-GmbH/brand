@@ -1,18 +1,9 @@
-import { isAbsolute, resolve } from "node:path";
-import react from "@vitejs/plugin-react";
-import preserveDirectives from "rollup-preserve-directives";
+import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
-// Library mode, one output module per source module. Modules are preserved
-// so that each component's "use client" survives (a single bundle would drop
-// it) and an app bundles only the components it imports. Every dependency
-// stays external: the app supplies React and Tailwind, the package's own
-// dependencies (Base UI, the icon set) come with it, and the component
-// classes live in these files for the app's Tailwind to find. icons.ts is
-// a second entry, published as the ./icons subpath; blocks.ts a third, the
-// screens composed from the components, as ./blocks.
+// Three re-exports, built as three modules that import Ovadev's: nothing of
+// Ovadev is bundled in, so an app gets one copy of each component.
 export default defineConfig({
-  plugins: [react(), preserveDirectives()],
   build: {
     lib: {
       entry: {
@@ -22,15 +13,7 @@ export default defineConfig({
       },
       formats: ["es"],
     },
-    rollupOptions: {
-      external: (id) => !id.startsWith(".") && !isAbsolute(id) && !id.startsWith("\0"),
-      output: {
-        preserveModules: true,
-        preserveModulesRoot: "src",
-        entryFileNames: "[name].js",
-      },
-    },
-    sourcemap: true,
+    rollupOptions: { external: (id) => id.startsWith("@ovadev-gmbh/") },
     minify: false,
   },
 });

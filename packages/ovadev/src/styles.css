@@ -15,6 +15,6 @@
 @import "@fontsource-variable/geist";
 @import "./theme.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
 
 @source "../dist";

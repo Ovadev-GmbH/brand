@@ -4,7 +4,7 @@
 
 import type { ComponentType } from "react";
 
-export type PkgId = "internal" | "ovadev" | "ticketova" | "januna";
+export type PkgId = "ovadev" | "ticketova" | "januna";
 
 export type Example = {
   Component: ComponentType;
@@ -22,7 +22,7 @@ export type Example = {
  *  what it is, how to use it, how it is put together, one section per case
  *  worth showing, and its props. Lives in site/src/docs/<id>/<slug>.ts; the
  *  page and the Markdown twin both read it. Text may carry `code` and
- *  [links](/internal/button-group). */
+ *  [links](/ovadev/button-group). */
 export type Doc = {
   description: string;
   /** The smallest useful JSX, shown under the import line. */
