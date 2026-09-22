@@ -11,6 +11,7 @@ import type { Entry, Example, Pkg } from "../types";
 import { mdHref } from "../registry";
 import { DemoFrame } from "../components/DemoFrame";
 import { PageHeader } from "../components/PageHeader";
+import { useMode } from "../lib/theme";
 
 /* A screen is looked at on one of these: its width, and the height of the
    screen it fills (a block that is only part of a screen takes its own). */
@@ -47,11 +48,12 @@ function BlockCard({ pkg, block, example, index }: { pkg: Pkg; block: Entry; exa
   const [viewport, setViewport] = React.useState<Viewport>("desktop");
   const [view, setView] = React.useState<"preview" | "code">("preview");
   const [copied, setCopied] = React.useState(false);
+  const mode = useMode();
   const { width, height: screenHeight } = VIEWPORTS.find((v) => v.id === viewport)!;
   const id = `${block.slug}-${example.name ?? index}`;
   const names = block.imports ?? [block.name];
   const importLine = `import { ${names.join(", ")} } from "${pkg.pkg}/blocks";`;
-  const standalone = `${import.meta.env.BASE_URL}preview-${pkg.id}.html?pkg=${pkg.id}&slug=${block.slug}&i=${index}`;
+  const standalone = `${import.meta.env.BASE_URL}preview-${pkg.id}.html?pkg=${pkg.id}&slug=${block.slug}&i=${index}&theme=${mode}`;
 
   return (
     <section id={id} className="scroll-mt-24">

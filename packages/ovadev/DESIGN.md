@@ -43,7 +43,7 @@ The system is one package: `@ovadev-gmbh/ui-ovadev`, on the GitHub Packages regi
 
 That line brings Tailwind, the theme, the type styles, the materials and Geist. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
 
-The system is dark only. Paper is the ground; there is no light palette, no switcher and no theme cookie, so there is nothing for a `dark:` variant to switch to. Write every class once, unprefixed. A `dark:` in an Ovadev file is a mistake.
+The system has two modes, and the tokens switch, not the classes. Dark is the default: with nothing set, paper is near-black. `data-theme="light"` on `<html>` turns the sheet over, `data-theme="system"` follows the OS, and `data-theme="dark"` on an element inside a light page turns that part back. Every semantic name (`surface-*`, `content-*`, `divider`, `gray-alpha-*`) resolves to the right step in either mode, so write every class once, unprefixed. A `dark:` in an Ovadev file is a mistake; so is `white-alpha` for a line or a tint, which stays near-white in light mode — use `gray-alpha`, which is ink in both.
 
 Import components from the package root and icons from its `icons` subpath (Lucide, re-exported):
 
@@ -181,8 +181,9 @@ Write with these. Each is a Tailwind colour (`bg-surface-hover`, `text-content-s
 | `surface-secondary` | `gray-100` | A cell lifted off the page: a table header, a band. |
 | `surface-tertiary` | `background-200` | Sidebars and panels. |
 | `surface-quaternary` | `gray-200` | A cell lifted off a surface: a card inside a band, a code block. |
-| `surface-hover` | `white-alpha-100` | A row, option or button under the pointer: ink at 4%. |
-| `surface-active` | `white-alpha-300` | The selected row, the pressed toggle, the current page: ink at 12%. |
+| `surface-raised` | `background-300` | What is lifted and cut: menus, dialogs, a plate. The surface in dark, white in light. |
+| `surface-hover` | `gray-alpha-100` | A row, option or button under the pointer: ink at 4%. |
+| `surface-active` | `gray-alpha-300` | The selected row, the pressed toggle, the current page: ink at 12%. |
 | `surface-modal` | `black-alpha-700` | The scrim behind a dialog. |
 | `surface-danger` | `red-100` | A destructive callout's fill. |
 | `surface-success` | `green-100` | A success callout's fill. |
@@ -205,8 +206,8 @@ Write with these. Each is a Tailwind colour (`bg-surface-hover`, `text-content-s
 | Token | Step | Use |
 | --- | --- | --- |
 | `brand` | `gray-1000` | The primary button, the current item: ink. |
-| `brand-hover` | `white-alpha-900` | The primary button under the pointer: ink at 90%. |
-| `brand-subtle` | `white-alpha-200` | A tint behind a selected control. |
+| `brand-hover` | `gray-alpha-900` | The primary button under the pointer: ink at 90%. |
+| `brand-subtle` | `gray-alpha-200` | A tint behind a selected control. |
 | `brand-bright` | `gray-1000` | The focus ring: ink, one hairline. |
 | `brand-signal` | `red-700` | The red block. Never type, never a button, never twice. |
 
@@ -223,9 +224,10 @@ Write with these. Each is a Tailwind colour (`bg-surface-hover`, `text-content-s
 
 | Token | Step | Use |
 | --- | --- | --- |
-| `divider` | `white-alpha-300` | Every cell division and rail edge: between rows, inside a component, a card's edge. |
-| `divider-strong` | `white-alpha-500` | A line that must be seen: an input's edge, a section's end. |
+| `divider` | `gray-alpha-300` | Every cell division and rail edge: between rows, inside a component, a card's edge. |
+| `divider-strong` | `gray-alpha-500` | A line that must be seen: an input's edge, a section's end. |
 | `divider-inverse` | `black-alpha-400` | A line on ink. |
+| `cut` | `black-alpha-700` | The colour of the one shadow: the 8px cut under what floats. |
 
 ### Scales
 
@@ -241,7 +243,8 @@ Ten steps each, the same roles on every scale. Reach for a step (`bg-green-200`,
 | Scale | Note | 700 |
 | --- | --- | --- |
 | `gray` | The neutral ramp, from the surface up to the ink: surface, surface 2, mist, the two hairlines composited, then stone at 9 and ink at 10. | `#6a6e76` |
-| `white-alpha` | Ink at increasing opacity: 3 is the hairline (12%), 5 the strong hairline (26%), for what must sit on either ground. | `oklch(0.945 0.004 265 / 55%)` |
+| `gray-alpha` | Ink at increasing opacity, turning with the mode: 3 is the hairline (12%), 5 the strong hairline (26%). What a component writes for a line or a tint. | `oklch(0.945 0.004 265 / 55%)` |
+| `white-alpha` | Near-white at increasing opacity, in either mode: what sits on a dark fill. | `oklch(0.945 0.004 265 / 55%)` |
 | `black-alpha` | Black at increasing opacity: scrims, and what sits on ink. | `oklch(0 0 0 / 55%)` |
 | `red` | The identity's one colour. 7 is the red block, #E8202A, locked; the rest is its ramp on paper. Type on red is white, never ink. | `#e8202a` |
 | `green` | Done, confirmed, live. | `oklch(0.620 0.160 150)` |

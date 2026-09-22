@@ -1,13 +1,13 @@
 /* What the shell needs to wear one brand's clothes. The values are copied
-   from the packages' own token files (packages/<id>/src/tokens.css) and, for
-   internal, from the vendored design system — nothing here is invented, so a
+   from the packages' own token files (packages/<id>/src/tokens.css) —
+   nothing here is invented, so a
    swatch on the Colors page and the CSS a component ships are the same
    string. The chrome tokens these map onto live in styles/tokens.css under
    [data-brand="<id>"]. */
 
 import type { PkgId } from "./types";
+import { inMode, type Mode } from "./lib/theme";
 import { colors as janunaColors, typography as janunaType, materials as janunaMaterials, layout as janunaLayout } from "@ovadev-gmbh/ui-januna";
-import { colors as internColors, typography as internType, materials as internMaterials, layout as internLayout } from "@ovadev-gmbh/ui-internal";
 import { colors as ovaColors, typography as ovaType, materials as ovaMaterials, layout as ovaLayout } from "@ovadev-gmbh/ui-ovadev";
 import { colors as tovaColors, typography as tovaType, materials as tovaMaterials, layout as tovaLayout } from "@ovadev-gmbh/ui-ticketova";
 
@@ -86,7 +86,6 @@ export type BrandChrome = {
   type: TypeRow[];
   /** Where the tokens came from, named on the page. */
   source: string;
-  /** Absent for internal, which has no marks of its own — it wears Ovadev's. */
   marks?: Mark[];
   /** The brand's social card, 1200 × 630, as it ships: public/brand/<og>.png
    *  per language, because the card carries a sentence and the sentence is
@@ -132,6 +131,17 @@ export const CHROME: Record<PkgId, BrandChrome> = {
         kind: "icon",
         note: "The pixel O on its plate, as the home-screen icons ship: light cells and the red block on ink, with a launcher's margin.",
       },
+      /* INTERN is Ovadev's own tool in light mode, so it wears Ovadev's mark;
+         only the word changes, cut from the same setting as Ovadev's. */
+      {
+        file: "intern-lockup",
+        name: "Intern lockup",
+        kind: "logo",
+        card: false,
+        colour: "intern-lockup-colour",
+        note: "Ovadev's icon in its colours with the Intern wordmark in the plate's ink, on the Ovadev lockup's geometry: cap height five cells, gap three, cap box centred on the mark.",
+      },
+      { file: "intern-logo", name: "Intern logo", kind: "logo", card: false, note: "The Intern wordmark — Geist 900, the same setting as Ovadev's, outlined." },
     ],
     og: { de: "ovadev-og-de", en: "ovadev-og-en" },
     mark: "Ovadev",
@@ -250,74 +260,16 @@ export const CHROME: Record<PkgId, BrandChrome> = {
       color: "#094413",
     },
   },
-  internal: {
-    /* INTERN is Ovadev's own tool, so it wears Ovadev's mark; only the word
-       changes. The wordmark is cut from the same setting as Ovadev's. */
-    marks: [
-      {
-        file: "intern-lockup",
-        name: "Lockup",
-        kind: "logo",
-        card: false,
-        colour: "intern-lockup-colour",
-        note: "Ovadev's icon in its colours with the Intern wordmark in the plate's ink, on the Ovadev lockup's geometry: cap height five cells, gap three, cap box centred on the mark.",
-      },
-      { file: "intern-logo", name: "Logo", kind: "logo", note: "The Intern wordmark — Geist 900, the same setting as Ovadev's, outlined." },
-      {
-        file: "ovadev-icon",
-        name: "Icon",
-        kind: "icon",
-        colour: "ovadev-icon-colour",
-        app: "ovadev-app-icon",
-        note: "The pixel O in the app icon's colours: light cells and the red block on ink, edge to edge. Ovadev's, unchanged.",
-      },
-      {
-        file: "ovadev-app-icon",
-        name: "App icon",
-        kind: "icon",
-        note: "The pixel O on its plate, as the home-screen icons ship: light cells and the red block on ink, with a launcher's margin. Ovadev's, unchanged.",
-      },
-    ],
-    mark: "INTERN",
-    source: "packages/internal/src/foundations/colors.ts — INTERN's black, white, neutrals and four colours, as scales",
-    lines: {
-      colors: "Black, white, and one colour per meaning.",
-      typography: "Geist, dense, figures in mono.",
-      icons: "Lucide, in the ink.",
-      components: "Building blocks for the tools, on Base UI.",
-    },
-    colors: internColors,
-    typography: internType,
-    materials: internMaterials,
-    layout: internLayout,
-    swatches: internColors.SCALES.filter((sc) => !sc.id.endsWith("-alpha")).map((sc) => ({
-      name: sc.name,
-      token: `--int-${sc.id}-800`,
-      value: sc.steps[800],
-    })),
-    type: [
-      { name: "Display", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 600, size: "40px", note: "text-heading-40" },
-      { name: "Text", family: '"Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif', weight: 400, size: "14px", note: "text-copy-14" },
-      { name: "Mono", family: '"Geist Mono Variable", "Geist Mono", ui-monospace, monospace', weight: 400, size: "13px", note: "text-label-13-mono, figures and IDs" },
-    ],
-    icons: {
-      kind: "lucide",
-      library: "Lucide",
-      pkg: "lucide-react",
-      usage: 'import { PlusIcon } from "@ovadev-gmbh/ui-internal/icons";  <PlusIcon className="size-4" />',
-      color: "#000000",
-    },
-  },
 };
 
-const TOKEN_PREFIX: Partial<Record<PkgId, string>> = { internal: "int", januna: "jan", ovadev: "ova", ticketova: "tova" };
+const TOKEN_PREFIX: Partial<Record<PkgId, string>> = { januna: "jan", ovadev: "ova", ticketova: "tova" };
 
 /** A brand's colour tokens as custom properties, for the element that draws
  *  with them. The catalog's pages do not load the packages' stylesheets (two
  *  brands' utilities share class names), so a material whose stroke is
  *  var(--int-gray-300) would otherwise resolve to nothing and draw nothing. */
-export function tokenVars(id: PkgId): Record<string, string> {
-  const colors = CHROME[id].colors;
+export function tokenVars(id: PkgId, mode: Mode = "dark"): Record<string, string> {
+  const colors = CHROME[id].colors && inMode(CHROME[id].colors, mode);
   const p = TOKEN_PREFIX[id];
   if (!colors || !p) return {};
   const vars: Record<string, string> = {};

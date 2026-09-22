@@ -5,7 +5,8 @@
  * custom properties and as Tailwind colours. This file maps the slots the
  * shadcn components read onto the semantic layer (surface, content, accent,
  * status, stroke), which in turn points at steps of the scales. Nothing
- * here names a colour by value. Dark only: paper, ink and one red.
+ * here names a colour by value. Paper, ink and one red, in two modes: dark
+ * by default, light with data-theme="light" (colors.css).
  *
  * The same block is declared on :root, for an app that wears the brand, and
  * on [data-brand="ovadev"], for a page that shows more than one brand (the
@@ -63,9 +64,8 @@
 }
 
 :root,
-[data-brand="ovadev"] {
-  color-scheme: dark;
-
+[data-brand="ovadev"],
+[data-theme] {
   --ova-radius: var(--ova-radius-regular);
 
   /* ── the slots the components read, as the semantic layer ──────────── */
@@ -107,7 +107,7 @@
   --sidebar-foreground: var(--ova-content-primary);
   --sidebar-primary: var(--ova-brand);
   --sidebar-primary-foreground: var(--ova-content-inverse);
-  --sidebar-accent: var(--ova-white-alpha-200);
+  --sidebar-accent: var(--ova-gray-alpha-200);
   --sidebar-accent-foreground: var(--ova-content-primary);
   --sidebar-border: var(--ova-divider);
   --sidebar-ring: var(--ova-brand-bright);

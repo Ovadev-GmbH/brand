@@ -11,7 +11,7 @@ The system is one package: `@ovadev-gmbh/ui-ovadev`, on the GitHub Packages regi
 
 That line brings Tailwind, the theme, the type styles, the materials and Geist. Do not add a second `@import "tailwindcss"`, a `tailwind.config`, a shadcn `components.json`, a registry, a preset, or a theme of your own. Tailwind's default palette is cleared on purpose; if a class does not exist, the system has no name for it, and that is the answer.
 
-The system is dark only. Paper is the ground; there is no light palette, no switcher and no theme cookie, so there is nothing for a `dark:` variant to switch to. Write every class once, unprefixed. A `dark:` in an Ovadev file is a mistake.
+The system has two modes, and the tokens switch, not the classes. Dark is the default: with nothing set, paper is near-black. `data-theme="light"` on `<html>` turns the sheet over, `data-theme="system"` follows the OS, and `data-theme="dark"` on an element inside a light page turns that part back. Every semantic name (`surface-*`, `content-*`, `divider`, `gray-alpha-*`) resolves to the right step in either mode, so write every class once, unprefixed. A `dark:` in an Ovadev file is a mistake; so is `white-alpha` for a line or a tint, which stays near-white in light mode — use `gray-alpha`, which is ink in both.
 
 Import components from the package root and icons from its `icons` subpath (Lucide, re-exported):
 

@@ -20,6 +20,7 @@ import { BlocksPage } from "./pages/BlocksPage";
    four brands are named together. */
 
 import { AssetLibraryPage } from "./pages/AssetLibraryPage";
+import { setMode } from "./lib/theme";
 
 const PAGES = {
   "asset-library": AssetLibraryPage,
@@ -82,6 +83,15 @@ function Component() {
   return entry ? <EntryPage pkg={pkg} entry={entry} /> : <NotFoundPage pkg={pkg} />;
 }
 
+/** Internal became Ovadev's light mode: an old /internal address shows the
+ *  same page of Ovadev's, in light. */
+function InternalMoved() {
+  const rest = useParams()["*"];
+  const { search, hash } = useLocation();
+  React.useLayoutEffect(() => setMode("light"), []);
+  return <Navigate to={`/ovadev${rest ? `/${rest}` : ""}${search}${hash}`} replace />;
+}
+
 /** Without a package there is no shell to put the page in. */
 function NotFound() {
   return (
@@ -107,6 +117,7 @@ export function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/internal/*" element={<InternalMoved />} />
         <Route path="/:pkg" element={<BrandLayout />}>
           <Route index element={<Brand page="intro" />} />
           <Route path="colors" element={<Brand page="colors" />} />

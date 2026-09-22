@@ -166,10 +166,6 @@
   --ds-radius: 10px;
 }
 
-[data-brand="internal"] {
-  --ds-radius: 2px;
-}
-
 /* ── base ─────────────────────────────────────────────────────────────────
    The element defaults every page inherits, and the focus ring, which has to
    be one rule rather than a utility so nothing can be focusable without it.

@@ -13,7 +13,7 @@ Everything Ovadev-looking comes from one package and one document.
 
 Rules that are not negotiable, in the words of DESIGN.md:
 
-- Write with the semantic names (`bg-surface-hover`, `text-content-secondary`, `bg-brand text-content-inverse`: ink carrying paper); never a hex, never Tailwind's default palette, never `dark:`. The system is dark only.
+- Write with the semantic names (`bg-surface-hover`, `text-content-secondary`, `bg-brand text-content-inverse`: ink carrying paper); never a hex, never Tailwind's default palette, never `dark:`. Two modes, dark by default and light with `data-theme="light"` on `<html>`; the tokens switch, so a class is written once and a line or tint is `gray-alpha`, never `white-alpha`.
 - One type style per element (`text-label-14`, `text-heading-54`), never a weight class beside it, never a made-up size. Geist for everything; there is no second face.
 - Materials draw edges; never a border on a material, never a card in a card. The one shadow is the cut, 8px 8px, no blur, only on what floats.
 - Corners are hard everywhere; `rounded-pill` is for a switch and nothing else.

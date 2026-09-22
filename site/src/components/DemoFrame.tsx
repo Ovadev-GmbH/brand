@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { PkgId } from "../types";
+import { useMode } from "../lib/theme";
 
 /** A demo from a Tailwind package, embedded from preview-<brand>.html.
  *
@@ -43,13 +44,14 @@ function Frame({
   screen?: number;
 }) {
   const id = `${pkg}/${slug}/${index}`;
+  const mode = useMode();
   const frame = React.useRef<HTMLIFrameElement>(null);
   const [ready, setReady] = React.useState(false);
   // Start at the screen's height, so a screen measures itself against it.
   const [height, setHeight] = React.useState(screen ?? min);
   const [isScreen, setIsScreen] = React.useState(false);
   const [src] = React.useState(
-    () => `${import.meta.env.BASE_URL}preview-${pkg}.html?pkg=${pkg}&slug=${slug}&i=${index}${thumb ? "&thumb=1" : ""}`,
+    () => `${import.meta.env.BASE_URL}preview-${pkg}.html?pkg=${pkg}&slug=${slug}&i=${index}&theme=${mode}${thumb ? "&thumb=1" : ""}`,
   );
 
   React.useEffect(() => {
@@ -71,6 +73,10 @@ function Frame({
   React.useEffect(() => {
     if (ready) frame.current?.contentWindow?.postMessage({ type: "demo-show", pkg, slug, index }, "*");
   }, [ready, pkg, slug, index]);
+
+  React.useEffect(() => {
+    if (ready) frame.current?.contentWindow?.postMessage({ type: "demo-theme", mode }, "*");
+  }, [ready, mode]);
 
   return (
     <iframe

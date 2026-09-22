@@ -13,6 +13,7 @@ import type { Pkg } from "../types";
 import { mdHref } from "../registry";
 import { CHROME, type ColorSystem } from "../brands";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
+import { inMode, useMode } from "../lib/theme";
 
 /** Put a value on the clipboard and say so, once, quietly. */
 function copy(label: string, value: string) {
@@ -70,7 +71,7 @@ function SystemPage({ pkg, colors }: { pkg: Pkg; colors: ColorSystem }) {
     const m = /^(.*)-(\d+)$/.exec(ref);
     if (!m) return ref;
     const [, id, step] = m;
-    if (id === "background") return BACKGROUNDS[Number(step) as 100 | 200].value;
+    if (id === "background") return (BACKGROUNDS as Record<string, { value: string }>)[step!]?.value ?? ref;
     return SCALES.find((sc) => sc.id === id)?.steps[Number(step) as (typeof STEPS)[number]] ?? ref;
   };
   return (
@@ -197,5 +198,6 @@ function TokenPage({ pkg }: { pkg: Pkg }) {
 
 export function ColorsPage({ pkg }: { pkg: Pkg }) {
   const colors = CHROME[pkg.id].colors;
-  return colors ? <SystemPage pkg={pkg} colors={colors} /> : <TokenPage pkg={pkg} />;
+  const mode = useMode();
+  return colors ? <SystemPage pkg={pkg} colors={inMode(colors, mode)} /> : <TokenPage pkg={pkg} />;
 }

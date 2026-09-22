@@ -10,11 +10,15 @@
  * #E8202A, stone #8B9098, mist #2A2E36, the two surfaces, the two
  * hairlines and the reject red.
  *
- * Dark only: there is no light palette, no switcher, no theme cookie. The
- * scales run from the ground up, so step 1 is the darkest fill and step 10
- * the brightest ink — the roles read the same as in the light systems.
- * This file is the source of truth; scripts/gen-foundations.ts turns it
- * into colors.css. */
+ * Two modes, one identity. Dark is the default and the house: paper
+ * near-black, ink near-white. Light turns the sheet over — the paper takes
+ * ova.dev's ink tone, the ink takes its paper — and keeps everything else:
+ * the one red, the hard edges, the cut. Both modes carry the same scale
+ * names and the same semantic layer, so a component never knows which one
+ * it is in. In each, step 1 is the fill nearest the paper and step 10 the
+ * ink. `gray-alpha` is ink at opacity and turns with the mode;
+ * `white-alpha` and `black-alpha` are absolute. This file is the source of
+ * truth; scripts/gen-foundations.ts turns it into colors.css. */
 
 export type Step = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000;
 export const STEPS: Step[] = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
@@ -42,7 +46,12 @@ function scale(id: string, name: string, note: string, hue: number, peak: number
 export const BACKGROUNDS = {
   100: { name: "Paper", use: "The ground. Near-black; the page, and what shows through the mark's counter.", value: "#0e0f12" },
   200: { name: "Surface", use: "A cell lifted off the page: a band, a plate, a panel.", value: "#16181c" },
+  300: { name: "Raised", use: "What floats or is lifted and cut: a menu, a dialog, a plate.", value: "#16181c" },
 };
+
+/* Ink, as the base of the alpha ramp that turns with the mode. */
+const INK = { dark: "0.945 0.004 265", light: "0.170 0.008 265" };
+const INK_ALPHA = [4, 8, 12, 18, 26, 36, 55, 72, 90, 100];
 
 const alpha = (base: string, steps: number[]) =>
   Object.fromEntries(STEPS.map((s, i) => [s, `${base} / ${steps[i]}%)`])) as Record<Step, string>;
@@ -54,7 +63,8 @@ export const SCALES: Scale[] = [
     note: "The neutral ramp, from the surface up to the ink: surface, surface 2, mist, the two hairlines composited, then stone at 9 and ink at 10.",
     steps: { 100: "#16181c", 200: "#1c1e24", 300: "#2a2e36", 400: "#292b30", 500: "#484a4f", 600: "#5a5e66", 700: "#6a6e76", 800: "#7c8189", 900: "#8b9098", 1000: "#eceef2" },
   },
-  { id: "white-alpha", name: "White alpha", note: "Ink at increasing opacity: 3 is the hairline (12%), 5 the strong hairline (26%), for what must sit on either ground.", steps: alpha("oklch(0.945 0.004 265", [4, 8, 12, 18, 26, 36, 55, 72, 90, 100]) },
+  { id: "gray-alpha", name: "Gray alpha", note: "Ink at increasing opacity, turning with the mode: 3 is the hairline (12%), 5 the strong hairline (26%). What a component writes for a line or a tint.", steps: alpha(`oklch(${INK.dark}`, INK_ALPHA) },
+  { id: "white-alpha", name: "White alpha", note: "Near-white at increasing opacity, in either mode: what sits on a dark fill.", steps: alpha("oklch(0.945 0.004 265", INK_ALPHA) },
   { id: "black-alpha", name: "Black alpha", note: "Black at increasing opacity: scrims, and what sits on ink.", steps: alpha("oklch(0 0 0", [4, 8, 12, 18, 26, 36, 55, 72, 90, 100]) },
   scale("red", "Red", "The identity's one colour. 7 is the red block, #E8202A, locked; the rest is its ramp on paper. Type on red is white, never ink.", 25, 0.21, { 700: "#e8202a" }),
   scale("green", "Green", "Done, confirmed, live.", 150, 0.16),
@@ -62,11 +72,41 @@ export const SCALES: Scale[] = [
   scale("yellow", "Yellow", "Pending, attention needed.", 85, 0.15),
 ];
 
+/* Light: the sheet turned over. Paper takes ova.dev's ink tone (#ECEEF2,
+   a touch lighter for the page), ink its paper (#0E0F12); the neutral ramp
+   is the dark one read backwards, the same cool cast. The chromatic ramps
+   climb down from the paper instead of up from it; red 7 stays #E8202A. */
+const LL: Record<Step, number> = { 100: 0.972, 200: 0.952, 300: 0.925, 400: 0.885, 500: 0.83, 600: 0.745, 700: 0.58, 800: 0.5, 900: 0.42, 1000: 0.28 };
+const LC: Record<Step, number> = { 100: 0.12, 200: 0.2, 300: 0.3, 400: 0.42, 500: 0.58, 600: 0.78, 700: 1, 800: 0.94, 900: 0.84, 1000: 0.6 };
+function lightScale(of: Scale, hue: number, peak: number, pin: Partial<Record<Step, string>> = {}, lift: Partial<Record<Step, number>> = {}): Scale {
+  const steps = Object.fromEntries(STEPS.map((s) => [s, pin[s] ?? oklch(LL[s] + (lift[s] ?? 0), peak * LC[s], hue)])) as Record<Step, string>;
+  return { ...of, steps };
+}
+const byId = (id: string) => SCALES.find((s) => s.id === id)!;
+
+export const LIGHT = {
+  BACKGROUNDS: {
+    100: { ...BACKGROUNDS[100], use: "The ground. Light grey paper, cool like the ink it replaces.", value: "#f4f5f7" },
+    200: { ...BACKGROUNDS[200], use: "A panel set into the page: a sidebar, a band.", value: "#eceef2" },
+    300: { ...BACKGROUNDS[300], use: "What floats or is lifted and cut: a menu, a dialog, a plate. White.", value: "#ffffff" },
+  },
+  SCALES: [
+    { ...byId("gray"), note: "The neutral ramp read backwards: ova.dev's ink tone at 1, its paper at 10.", steps: { 100: "#eceef2", 200: "#e3e6eb", 300: "#d5d9e0", 400: "#c6cad2", 500: "#a8adb6", 600: "#8c919a", 700: "#6c7079", 800: "#5f636c", 900: "#50545c", 1000: "#0e0f12" } },
+    { ...byId("gray-alpha"), steps: alpha(`oklch(${INK.light}`, INK_ALPHA) },
+    byId("white-alpha"),
+    byId("black-alpha"),
+    lightScale(byId("red"), 25, 0.21, { 700: "#e8202a" }),
+    lightScale(byId("green"), 150, 0.16),
+    lightScale(byId("blue"), 262, 0.17),
+    lightScale(byId("yellow"), 85, 0.16, {}, { 600: 0.06, 900: 0.06, 1000: 0.04 }),
+  ] as Scale[],
+};
+
 export const scaleById = (id: string) => SCALES.find((s) => s.id === id);
 
-export type Semantic = { token: string; ref: string; use: string };
+export type Semantic = { token: string; ref: string; use: string; /** The step light mode reads, where it is not `ref`. */ light?: string };
 export type SemanticGroup = { name: string; note: string; tokens: Semantic[] };
-const ref = (scale: string, step: Step | 100 | 200) => `${scale}-${step}`;
+const ref = (scale: string, step: Step | 100 | 200 | 300) => `${scale}-${step}`;
 
 export const SEMANTIC: SemanticGroup[] = [
   {
@@ -77,9 +117,10 @@ export const SEMANTIC: SemanticGroup[] = [
       { token: "surface-secondary", ref: ref("gray", 100), use: "A cell lifted off the page: a table header, a band." },
       { token: "surface-tertiary", ref: ref("background", 200), use: "Sidebars and panels." },
       { token: "surface-quaternary", ref: ref("gray", 200), use: "A cell lifted off a surface: a card inside a band, a code block." },
-      { token: "surface-hover", ref: ref("white-alpha", 100), use: "A row, option or button under the pointer: ink at 4%." },
-      { token: "surface-active", ref: ref("white-alpha", 300), use: "The selected row, the pressed toggle, the current page: ink at 12%." },
-      { token: "surface-modal", ref: ref("black-alpha", 700), use: "The scrim behind a dialog." },
+      { token: "surface-raised", ref: ref("background", 300), use: "What is lifted and cut: menus, dialogs, a plate. The surface in dark, white in light." },
+      { token: "surface-hover", ref: ref("gray-alpha", 100), use: "A row, option or button under the pointer: ink at 4%." },
+      { token: "surface-active", ref: ref("gray-alpha", 300), use: "The selected row, the pressed toggle, the current page: ink at 12%." },
+      { token: "surface-modal", ref: ref("black-alpha", 700), light: ref("black-alpha", 500), use: "The scrim behind a dialog." },
       { token: "surface-danger", ref: ref("red", 100), use: "A destructive callout's fill." },
       { token: "surface-success", ref: ref("green", 100), use: "A success callout's fill." },
       { token: "surface-warning", ref: ref("yellow", 100), use: "A warning callout's fill." },
@@ -103,8 +144,8 @@ export const SEMANTIC: SemanticGroup[] = [
     note: "The one colour that acts is the ink. Red is a signal, not an accent: one block per screen, seated into a corner or an edge.",
     tokens: [
       { token: "brand", ref: ref("gray", 1000), use: "The primary button, the current item: ink." },
-      { token: "brand-hover", ref: ref("white-alpha", 900), use: "The primary button under the pointer: ink at 90%." },
-      { token: "brand-subtle", ref: ref("white-alpha", 200), use: "A tint behind a selected control." },
+      { token: "brand-hover", ref: ref("gray-alpha", 900), use: "The primary button under the pointer: ink at 90%." },
+      { token: "brand-subtle", ref: ref("gray-alpha", 200), use: "A tint behind a selected control." },
       { token: "brand-bright", ref: ref("gray", 1000), use: "The focus ring: ink, one hairline." },
       { token: "brand-signal", ref: ref("red", 700), use: "The red block. Never type, never a button, never twice." },
     ],
@@ -123,9 +164,10 @@ export const SEMANTIC: SemanticGroup[] = [
     name: "Stroke",
     note: "Lines. One weight, one colour: the hairline is ink at 12%, everywhere; the strong one at 26% where it has to survive a lifted surface.",
     tokens: [
-      { token: "divider", ref: ref("white-alpha", 300), use: "Every cell division and rail edge: between rows, inside a component, a card's edge." },
-      { token: "divider-strong", ref: ref("white-alpha", 500), use: "A line that must be seen: an input's edge, a section's end." },
-      { token: "divider-inverse", ref: ref("black-alpha", 400), use: "A line on ink." },
+      { token: "divider", ref: ref("gray-alpha", 300), use: "Every cell division and rail edge: between rows, inside a component, a card's edge." },
+      { token: "divider-strong", ref: ref("gray-alpha", 500), use: "A line that must be seen: an input's edge, a section's end." },
+      { token: "divider-inverse", ref: ref("black-alpha", 400), light: ref("white-alpha", 400), use: "A line on ink." },
+      { token: "cut", ref: ref("black-alpha", 700), light: ref("gray-alpha", 300), use: "The colour of the one shadow: the 8px cut under what floats." },
     ],
   },
 ];

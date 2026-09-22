@@ -8,12 +8,19 @@
    content, accent, status, stroke — bg-surface-secondary,
    text-content-tertiary — each one step of one scale. Tailwind's own
    palette is cleared first: the only colours an app can reach for are
-   these. */
+   these.
+
+   Two modes. Dark is the default; data-theme="light" on <html> (or on any
+   element) turns the sheet over, data-theme="system" follows the OS, and
+   data-theme="dark" inside a light page turns it back. */
 
 :root,
-[data-brand="ovadev"] {
+[data-brand="ovadev"],
+[data-theme] {
+  color-scheme: dark;
   --ova-background-100: #0e0f12;
   --ova-background-200: #16181c;
+  --ova-background-300: #16181c;
   --ova-gray-100: #16181c;
   --ova-gray-200: #1c1e24;
   --ova-gray-300: #2a2e36;
@@ -24,6 +31,16 @@
   --ova-gray-800: #7c8189;
   --ova-gray-900: #8b9098;
   --ova-gray-1000: #eceef2;
+  --ova-gray-alpha-100: oklch(0.945 0.004 265 / 4%);
+  --ova-gray-alpha-200: oklch(0.945 0.004 265 / 8%);
+  --ova-gray-alpha-300: oklch(0.945 0.004 265 / 12%);
+  --ova-gray-alpha-400: oklch(0.945 0.004 265 / 18%);
+  --ova-gray-alpha-500: oklch(0.945 0.004 265 / 26%);
+  --ova-gray-alpha-600: oklch(0.945 0.004 265 / 36%);
+  --ova-gray-alpha-700: oklch(0.945 0.004 265 / 55%);
+  --ova-gray-alpha-800: oklch(0.945 0.004 265 / 72%);
+  --ova-gray-alpha-900: oklch(0.945 0.004 265 / 90%);
+  --ova-gray-alpha-1000: oklch(0.945 0.004 265 / 100%);
   --ova-white-alpha-100: oklch(0.945 0.004 265 / 4%);
   --ova-white-alpha-200: oklch(0.945 0.004 265 / 8%);
   --ova-white-alpha-300: oklch(0.945 0.004 265 / 12%);
@@ -89,8 +106,9 @@
   --ova-surface-secondary: var(--ova-gray-100);
   --ova-surface-tertiary: var(--ova-background-200);
   --ova-surface-quaternary: var(--ova-gray-200);
-  --ova-surface-hover: var(--ova-white-alpha-100);
-  --ova-surface-active: var(--ova-white-alpha-300);
+  --ova-surface-raised: var(--ova-background-300);
+  --ova-surface-hover: var(--ova-gray-alpha-100);
+  --ova-surface-active: var(--ova-gray-alpha-300);
   --ova-surface-modal: var(--ova-black-alpha-700);
   --ova-surface-danger: var(--ova-red-100);
   --ova-surface-success: var(--ova-green-100);
@@ -103,17 +121,262 @@
   --ova-content-brand: var(--ova-gray-1000);
   --ova-content-disabled: var(--ova-gray-700);
   --ova-brand: var(--ova-gray-1000);
-  --ova-brand-hover: var(--ova-white-alpha-900);
-  --ova-brand-subtle: var(--ova-white-alpha-200);
+  --ova-brand-hover: var(--ova-gray-alpha-900);
+  --ova-brand-subtle: var(--ova-gray-alpha-200);
   --ova-brand-bright: var(--ova-gray-1000);
   --ova-brand-signal: var(--ova-red-700);
   --ova-status-danger: var(--ova-red-800);
   --ova-status-success: var(--ova-green-800);
   --ova-status-warning: var(--ova-yellow-800);
   --ova-status-info: var(--ova-blue-800);
-  --ova-divider: var(--ova-white-alpha-300);
-  --ova-divider-strong: var(--ova-white-alpha-500);
+  --ova-divider: var(--ova-gray-alpha-300);
+  --ova-divider-strong: var(--ova-gray-alpha-500);
   --ova-divider-inverse: var(--ova-black-alpha-400);
+  --ova-cut: var(--ova-black-alpha-700);
+}
+
+:root[data-theme="light"],
+:root[data-theme="light"] [data-brand="ovadev"]:not([data-theme]),
+[data-theme="light"] {
+  color-scheme: light;
+  --ova-background-100: #f4f5f7;
+  --ova-background-200: #eceef2;
+  --ova-background-300: #ffffff;
+  --ova-gray-100: #eceef2;
+  --ova-gray-200: #e3e6eb;
+  --ova-gray-300: #d5d9e0;
+  --ova-gray-400: #c6cad2;
+  --ova-gray-500: #a8adb6;
+  --ova-gray-600: #8c919a;
+  --ova-gray-700: #6c7079;
+  --ova-gray-800: #5f636c;
+  --ova-gray-900: #50545c;
+  --ova-gray-1000: #0e0f12;
+  --ova-gray-alpha-100: oklch(0.170 0.008 265 / 4%);
+  --ova-gray-alpha-200: oklch(0.170 0.008 265 / 8%);
+  --ova-gray-alpha-300: oklch(0.170 0.008 265 / 12%);
+  --ova-gray-alpha-400: oklch(0.170 0.008 265 / 18%);
+  --ova-gray-alpha-500: oklch(0.170 0.008 265 / 26%);
+  --ova-gray-alpha-600: oklch(0.170 0.008 265 / 36%);
+  --ova-gray-alpha-700: oklch(0.170 0.008 265 / 55%);
+  --ova-gray-alpha-800: oklch(0.170 0.008 265 / 72%);
+  --ova-gray-alpha-900: oklch(0.170 0.008 265 / 90%);
+  --ova-gray-alpha-1000: oklch(0.170 0.008 265 / 100%);
+  --ova-white-alpha-100: oklch(0.945 0.004 265 / 4%);
+  --ova-white-alpha-200: oklch(0.945 0.004 265 / 8%);
+  --ova-white-alpha-300: oklch(0.945 0.004 265 / 12%);
+  --ova-white-alpha-400: oklch(0.945 0.004 265 / 18%);
+  --ova-white-alpha-500: oklch(0.945 0.004 265 / 26%);
+  --ova-white-alpha-600: oklch(0.945 0.004 265 / 36%);
+  --ova-white-alpha-700: oklch(0.945 0.004 265 / 55%);
+  --ova-white-alpha-800: oklch(0.945 0.004 265 / 72%);
+  --ova-white-alpha-900: oklch(0.945 0.004 265 / 90%);
+  --ova-white-alpha-1000: oklch(0.945 0.004 265 / 100%);
+  --ova-black-alpha-100: oklch(0 0 0 / 4%);
+  --ova-black-alpha-200: oklch(0 0 0 / 8%);
+  --ova-black-alpha-300: oklch(0 0 0 / 12%);
+  --ova-black-alpha-400: oklch(0 0 0 / 18%);
+  --ova-black-alpha-500: oklch(0 0 0 / 26%);
+  --ova-black-alpha-600: oklch(0 0 0 / 36%);
+  --ova-black-alpha-700: oklch(0 0 0 / 55%);
+  --ova-black-alpha-800: oklch(0 0 0 / 72%);
+  --ova-black-alpha-900: oklch(0 0 0 / 90%);
+  --ova-black-alpha-1000: oklch(0 0 0 / 100%);
+  --ova-red-100: oklch(0.972 0.025 25);
+  --ova-red-200: oklch(0.952 0.042 25);
+  --ova-red-300: oklch(0.925 0.063 25);
+  --ova-red-400: oklch(0.885 0.088 25);
+  --ova-red-500: oklch(0.830 0.122 25);
+  --ova-red-600: oklch(0.745 0.164 25);
+  --ova-red-700: #e8202a;
+  --ova-red-800: oklch(0.500 0.197 25);
+  --ova-red-900: oklch(0.420 0.176 25);
+  --ova-red-1000: oklch(0.280 0.126 25);
+  --ova-green-100: oklch(0.972 0.019 150);
+  --ova-green-200: oklch(0.952 0.032 150);
+  --ova-green-300: oklch(0.925 0.048 150);
+  --ova-green-400: oklch(0.885 0.067 150);
+  --ova-green-500: oklch(0.830 0.093 150);
+  --ova-green-600: oklch(0.745 0.125 150);
+  --ova-green-700: oklch(0.580 0.160 150);
+  --ova-green-800: oklch(0.500 0.150 150);
+  --ova-green-900: oklch(0.420 0.134 150);
+  --ova-green-1000: oklch(0.280 0.096 150);
+  --ova-blue-100: oklch(0.972 0.020 262);
+  --ova-blue-200: oklch(0.952 0.034 262);
+  --ova-blue-300: oklch(0.925 0.051 262);
+  --ova-blue-400: oklch(0.885 0.071 262);
+  --ova-blue-500: oklch(0.830 0.099 262);
+  --ova-blue-600: oklch(0.745 0.133 262);
+  --ova-blue-700: oklch(0.580 0.170 262);
+  --ova-blue-800: oklch(0.500 0.160 262);
+  --ova-blue-900: oklch(0.420 0.143 262);
+  --ova-blue-1000: oklch(0.280 0.102 262);
+  --ova-yellow-100: oklch(0.972 0.019 85);
+  --ova-yellow-200: oklch(0.952 0.032 85);
+  --ova-yellow-300: oklch(0.925 0.048 85);
+  --ova-yellow-400: oklch(0.885 0.067 85);
+  --ova-yellow-500: oklch(0.830 0.093 85);
+  --ova-yellow-600: oklch(0.805 0.125 85);
+  --ova-yellow-700: oklch(0.580 0.160 85);
+  --ova-yellow-800: oklch(0.500 0.150 85);
+  --ova-yellow-900: oklch(0.480 0.134 85);
+  --ova-yellow-1000: oklch(0.320 0.096 85);
+
+  --ova-surface-primary: var(--ova-background-100);
+  --ova-surface-secondary: var(--ova-gray-100);
+  --ova-surface-tertiary: var(--ova-background-200);
+  --ova-surface-quaternary: var(--ova-gray-200);
+  --ova-surface-raised: var(--ova-background-300);
+  --ova-surface-hover: var(--ova-gray-alpha-100);
+  --ova-surface-active: var(--ova-gray-alpha-300);
+  --ova-surface-modal: var(--ova-black-alpha-500);
+  --ova-surface-danger: var(--ova-red-100);
+  --ova-surface-success: var(--ova-green-100);
+  --ova-surface-warning: var(--ova-yellow-100);
+  --ova-surface-info: var(--ova-blue-100);
+  --ova-content-primary: var(--ova-gray-1000);
+  --ova-content-secondary: var(--ova-gray-900);
+  --ova-content-tertiary: var(--ova-gray-700);
+  --ova-content-inverse: var(--ova-background-100);
+  --ova-content-brand: var(--ova-gray-1000);
+  --ova-content-disabled: var(--ova-gray-700);
+  --ova-brand: var(--ova-gray-1000);
+  --ova-brand-hover: var(--ova-gray-alpha-900);
+  --ova-brand-subtle: var(--ova-gray-alpha-200);
+  --ova-brand-bright: var(--ova-gray-1000);
+  --ova-brand-signal: var(--ova-red-700);
+  --ova-status-danger: var(--ova-red-800);
+  --ova-status-success: var(--ova-green-800);
+  --ova-status-warning: var(--ova-yellow-800);
+  --ova-status-info: var(--ova-blue-800);
+  --ova-divider: var(--ova-gray-alpha-300);
+  --ova-divider-strong: var(--ova-gray-alpha-500);
+  --ova-divider-inverse: var(--ova-white-alpha-400);
+  --ova-cut: var(--ova-gray-alpha-300);
+}
+
+@media (prefers-color-scheme: light) {
+  :root[data-theme="system"],
+  :root[data-theme="system"] [data-brand="ovadev"]:not([data-theme]),
+  [data-theme="system"] {
+    color-scheme: light;
+    --ova-background-100: #f4f5f7;
+    --ova-background-200: #eceef2;
+    --ova-background-300: #ffffff;
+    --ova-gray-100: #eceef2;
+    --ova-gray-200: #e3e6eb;
+    --ova-gray-300: #d5d9e0;
+    --ova-gray-400: #c6cad2;
+    --ova-gray-500: #a8adb6;
+    --ova-gray-600: #8c919a;
+    --ova-gray-700: #6c7079;
+    --ova-gray-800: #5f636c;
+    --ova-gray-900: #50545c;
+    --ova-gray-1000: #0e0f12;
+    --ova-gray-alpha-100: oklch(0.170 0.008 265 / 4%);
+    --ova-gray-alpha-200: oklch(0.170 0.008 265 / 8%);
+    --ova-gray-alpha-300: oklch(0.170 0.008 265 / 12%);
+    --ova-gray-alpha-400: oklch(0.170 0.008 265 / 18%);
+    --ova-gray-alpha-500: oklch(0.170 0.008 265 / 26%);
+    --ova-gray-alpha-600: oklch(0.170 0.008 265 / 36%);
+    --ova-gray-alpha-700: oklch(0.170 0.008 265 / 55%);
+    --ova-gray-alpha-800: oklch(0.170 0.008 265 / 72%);
+    --ova-gray-alpha-900: oklch(0.170 0.008 265 / 90%);
+    --ova-gray-alpha-1000: oklch(0.170 0.008 265 / 100%);
+    --ova-white-alpha-100: oklch(0.945 0.004 265 / 4%);
+    --ova-white-alpha-200: oklch(0.945 0.004 265 / 8%);
+    --ova-white-alpha-300: oklch(0.945 0.004 265 / 12%);
+    --ova-white-alpha-400: oklch(0.945 0.004 265 / 18%);
+    --ova-white-alpha-500: oklch(0.945 0.004 265 / 26%);
+    --ova-white-alpha-600: oklch(0.945 0.004 265 / 36%);
+    --ova-white-alpha-700: oklch(0.945 0.004 265 / 55%);
+    --ova-white-alpha-800: oklch(0.945 0.004 265 / 72%);
+    --ova-white-alpha-900: oklch(0.945 0.004 265 / 90%);
+    --ova-white-alpha-1000: oklch(0.945 0.004 265 / 100%);
+    --ova-black-alpha-100: oklch(0 0 0 / 4%);
+    --ova-black-alpha-200: oklch(0 0 0 / 8%);
+    --ova-black-alpha-300: oklch(0 0 0 / 12%);
+    --ova-black-alpha-400: oklch(0 0 0 / 18%);
+    --ova-black-alpha-500: oklch(0 0 0 / 26%);
+    --ova-black-alpha-600: oklch(0 0 0 / 36%);
+    --ova-black-alpha-700: oklch(0 0 0 / 55%);
+    --ova-black-alpha-800: oklch(0 0 0 / 72%);
+    --ova-black-alpha-900: oklch(0 0 0 / 90%);
+    --ova-black-alpha-1000: oklch(0 0 0 / 100%);
+    --ova-red-100: oklch(0.972 0.025 25);
+    --ova-red-200: oklch(0.952 0.042 25);
+    --ova-red-300: oklch(0.925 0.063 25);
+    --ova-red-400: oklch(0.885 0.088 25);
+    --ova-red-500: oklch(0.830 0.122 25);
+    --ova-red-600: oklch(0.745 0.164 25);
+    --ova-red-700: #e8202a;
+    --ova-red-800: oklch(0.500 0.197 25);
+    --ova-red-900: oklch(0.420 0.176 25);
+    --ova-red-1000: oklch(0.280 0.126 25);
+    --ova-green-100: oklch(0.972 0.019 150);
+    --ova-green-200: oklch(0.952 0.032 150);
+    --ova-green-300: oklch(0.925 0.048 150);
+    --ova-green-400: oklch(0.885 0.067 150);
+    --ova-green-500: oklch(0.830 0.093 150);
+    --ova-green-600: oklch(0.745 0.125 150);
+    --ova-green-700: oklch(0.580 0.160 150);
+    --ova-green-800: oklch(0.500 0.150 150);
+    --ova-green-900: oklch(0.420 0.134 150);
+    --ova-green-1000: oklch(0.280 0.096 150);
+    --ova-blue-100: oklch(0.972 0.020 262);
+    --ova-blue-200: oklch(0.952 0.034 262);
+    --ova-blue-300: oklch(0.925 0.051 262);
+    --ova-blue-400: oklch(0.885 0.071 262);
+    --ova-blue-500: oklch(0.830 0.099 262);
+    --ova-blue-600: oklch(0.745 0.133 262);
+    --ova-blue-700: oklch(0.580 0.170 262);
+    --ova-blue-800: oklch(0.500 0.160 262);
+    --ova-blue-900: oklch(0.420 0.143 262);
+    --ova-blue-1000: oklch(0.280 0.102 262);
+    --ova-yellow-100: oklch(0.972 0.019 85);
+    --ova-yellow-200: oklch(0.952 0.032 85);
+    --ova-yellow-300: oklch(0.925 0.048 85);
+    --ova-yellow-400: oklch(0.885 0.067 85);
+    --ova-yellow-500: oklch(0.830 0.093 85);
+    --ova-yellow-600: oklch(0.805 0.125 85);
+    --ova-yellow-700: oklch(0.580 0.160 85);
+    --ova-yellow-800: oklch(0.500 0.150 85);
+    --ova-yellow-900: oklch(0.480 0.134 85);
+    --ova-yellow-1000: oklch(0.320 0.096 85);
+
+    --ova-surface-primary: var(--ova-background-100);
+    --ova-surface-secondary: var(--ova-gray-100);
+    --ova-surface-tertiary: var(--ova-background-200);
+    --ova-surface-quaternary: var(--ova-gray-200);
+    --ova-surface-raised: var(--ova-background-300);
+    --ova-surface-hover: var(--ova-gray-alpha-100);
+    --ova-surface-active: var(--ova-gray-alpha-300);
+    --ova-surface-modal: var(--ova-black-alpha-500);
+    --ova-surface-danger: var(--ova-red-100);
+    --ova-surface-success: var(--ova-green-100);
+    --ova-surface-warning: var(--ova-yellow-100);
+    --ova-surface-info: var(--ova-blue-100);
+    --ova-content-primary: var(--ova-gray-1000);
+    --ova-content-secondary: var(--ova-gray-900);
+    --ova-content-tertiary: var(--ova-gray-700);
+    --ova-content-inverse: var(--ova-background-100);
+    --ova-content-brand: var(--ova-gray-1000);
+    --ova-content-disabled: var(--ova-gray-700);
+    --ova-brand: var(--ova-gray-1000);
+    --ova-brand-hover: var(--ova-gray-alpha-900);
+    --ova-brand-subtle: var(--ova-gray-alpha-200);
+    --ova-brand-bright: var(--ova-gray-1000);
+    --ova-brand-signal: var(--ova-red-700);
+    --ova-status-danger: var(--ova-red-800);
+    --ova-status-success: var(--ova-green-800);
+    --ova-status-warning: var(--ova-yellow-800);
+    --ova-status-info: var(--ova-blue-800);
+    --ova-divider: var(--ova-gray-alpha-300);
+    --ova-divider-strong: var(--ova-gray-alpha-500);
+    --ova-divider-inverse: var(--ova-white-alpha-400);
+    --ova-cut: var(--ova-gray-alpha-300);
+  }
 }
 
 @theme inline {
@@ -124,6 +387,7 @@
   --color-black: #000000;
   --color-background-100: var(--ova-background-100);
   --color-background-200: var(--ova-background-200);
+  --color-background-300: var(--ova-background-300);
   --color-gray-100: var(--ova-gray-100);
   --color-gray-200: var(--ova-gray-200);
   --color-gray-300: var(--ova-gray-300);
@@ -134,6 +398,16 @@
   --color-gray-800: var(--ova-gray-800);
   --color-gray-900: var(--ova-gray-900);
   --color-gray-1000: var(--ova-gray-1000);
+  --color-gray-alpha-100: var(--ova-gray-alpha-100);
+  --color-gray-alpha-200: var(--ova-gray-alpha-200);
+  --color-gray-alpha-300: var(--ova-gray-alpha-300);
+  --color-gray-alpha-400: var(--ova-gray-alpha-400);
+  --color-gray-alpha-500: var(--ova-gray-alpha-500);
+  --color-gray-alpha-600: var(--ova-gray-alpha-600);
+  --color-gray-alpha-700: var(--ova-gray-alpha-700);
+  --color-gray-alpha-800: var(--ova-gray-alpha-800);
+  --color-gray-alpha-900: var(--ova-gray-alpha-900);
+  --color-gray-alpha-1000: var(--ova-gray-alpha-1000);
   --color-white-alpha-100: var(--ova-white-alpha-100);
   --color-white-alpha-200: var(--ova-white-alpha-200);
   --color-white-alpha-300: var(--ova-white-alpha-300);
@@ -199,6 +473,7 @@
   --color-surface-secondary: var(--ova-surface-secondary);
   --color-surface-tertiary: var(--ova-surface-tertiary);
   --color-surface-quaternary: var(--ova-surface-quaternary);
+  --color-surface-raised: var(--ova-surface-raised);
   --color-surface-hover: var(--ova-surface-hover);
   --color-surface-active: var(--ova-surface-active);
   --color-surface-modal: var(--ova-surface-modal);
@@ -224,4 +499,5 @@
   --color-divider: var(--ova-divider);
   --color-divider-strong: var(--ova-divider-strong);
   --color-divider-inverse: var(--ova-divider-inverse);
+  --color-cut: var(--ova-cut);
 }

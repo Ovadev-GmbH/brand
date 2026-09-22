@@ -26,9 +26,11 @@ import { href } from "../registry";
 import { StatusBadge } from "./StatusBadge";
 import { CommandMenu } from "./CommandMenu";
 import { Pagination } from "./Pagination";
-import { MenuIcon, CloseIcon, SearchIcon } from "./icons";
+import { MenuIcon, CloseIcon, SearchIcon, ThemeIcon } from "./icons";
 import { BrandSwitcher } from "./BrandSwitcher";
 import { AreaNav } from "./AreaNav";
+import { CHROME } from "../brands";
+import { lightOf, setMode, useMode } from "../lib/theme";
 
 export type Area = "docs" | "blocks";
 
@@ -106,6 +108,23 @@ function BlockList({ pkg, onNavigate }: { pkg: Pkg; onNavigate?: () => void }) {
   );
 }
 
+/** Dark or light, for a brand that has both: the demos, the swatches and
+ *  the materials follow; the catalog's own chrome stays as it is. */
+function ModeToggle() {
+  const mode = useMode();
+  return (
+    <button
+      type="button"
+      className="inline-flex size-8 shrink-0 cursor-pointer items-center justify-center rounded-brand border-0 bg-transparent text-gray-900 hover:bg-gray-100 hover:text-gray-1000"
+      title={`Show ${mode === "dark" ? "light" : "dark"} mode`}
+      onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+    >
+      <ThemeIcon />
+      <span className="sr-only">Toggle theme</span>
+    </button>
+  );
+}
+
 export function Shell({ pkg, area, children }: { pkg: Pkg; area: Area; children: React.ReactNode }) {
   const [menu, setMenu] = React.useState(false);
   const [search, setSearch] = React.useState(false);
@@ -150,20 +169,23 @@ export function Shell({ pkg, area, children }: { pkg: Pkg; area: Area; children:
           </div>
           <div className="flex min-w-0 items-center gap-2 py-2 pr-3 pl-3 md:p-4 lg:justify-between">
             <AreaNav pkg={pkg} area={area} />
-            <button
-              type="button"
-              className="flex h-8 w-8 max-w-full cursor-pointer items-center justify-center gap-2 rounded-brand border border-gray-400 bg-transparent text-[13px] text-gray-700 hover:bg-gray-100 md:w-55 md:justify-between md:pr-1.5 md:pl-2"
-              onClick={() => setSearch(true)}
-            >
-              <span className="flex min-w-0 items-center gap-2">
-                <SearchIcon />
-                <span className="hidden truncate md:inline">Search {pkg.name}</span>
-              </span>
-              <kbd className="hidden h-5 min-w-5 items-center gap-px rounded px-1 font-sans text-[11px] text-gray-900 shadow-border md:inline-flex">
-                <span>⌘</span>
-                <span>K</span>
-              </kbd>
-            </button>
+            <div className="flex min-w-0 items-center gap-1">
+              <button
+                type="button"
+                className="flex h-8 w-8 max-w-full cursor-pointer items-center justify-center gap-2 rounded-brand border border-gray-400 bg-transparent text-[13px] text-gray-700 hover:bg-gray-100 md:w-55 md:justify-between md:pr-1.5 md:pl-2"
+                onClick={() => setSearch(true)}
+              >
+                <span className="flex min-w-0 items-center gap-2">
+                  <SearchIcon />
+                  <span className="hidden truncate md:inline">Search {pkg.name}</span>
+                </span>
+                <kbd className="hidden h-5 min-w-5 items-center gap-px rounded px-1 font-sans text-[11px] text-gray-900 shadow-border md:inline-flex">
+                  <span>⌘</span>
+                  <span>K</span>
+                </kbd>
+              </button>
+              {lightOf(CHROME[pkg.id].colors) ? <ModeToggle /> : null}
+            </div>
             <button
               type="button"
               className="inline-flex size-8 cursor-pointer items-center justify-center rounded-full border-0 bg-transparent text-gray-1000 lg:hidden"

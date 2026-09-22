@@ -22,7 +22,7 @@ const bubbleVariants = cva(
         default:
           "*:data-[slot=bubble-content]:bg-brand *:data-[slot=bubble-content]:text-content-inverse [&>[data-slot=bubble-content]:is(button,a):hover]:bg-brand-hover",
         secondary:
-          "*:data-[slot=bubble-content]:bg-white-alpha-200 *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-white-alpha-300",
+          "*:data-[slot=bubble-content]:bg-gray-alpha-200 *:data-[slot=bubble-content]:text-content-primary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-gray-alpha-300",
         muted:
           "*:data-[slot=bubble-content]:bg-surface-secondary [&>[data-slot=bubble-content]:is(button,a):hover]:bg-surface-quaternary",
         tinted:

@@ -16,11 +16,13 @@ import { MarkRow } from "../components/MarkRow";
 import { SwatchRow } from "../components/SwatchRow";
 import { DemoFrame } from "../components/DemoFrame";
 import { IconGrid, TypePanel, MaterialStack, GridPreview } from "../components/previews";
+import { useMode } from "../lib/theme";
 
 type Door = { name: string; line: string; to: string; preview?: React.ReactNode };
 
 export function IntroPage({ pkg }: { pkg: Pkg }) {
   const chrome = CHROME[pkg.id];
+  const mode = useMode();
   const marks = chrome.marks ?? [];
   const at = (slug: string) => `${href(pkg.id)}/${slug}`;
   const blocks = pkg.entries.filter((e) => e.kind === "block");
@@ -48,7 +50,7 @@ export function IntroPage({ pkg }: { pkg: Pkg }) {
       to: at("typography"),
       preview: chrome.typography ? <TypePanel type={chrome.typography} /> : undefined,
     },
-    ...(chrome.materials ? [{ name: "Materials", line: "Radius, stroke and shadow, by elevation.", to: at("materials"), preview: <MaterialStack materials={chrome.materials} vars={tokenVars(pkg.id)} /> }] : []),
+    ...(chrome.materials ? [{ name: "Materials", line: "Radius, stroke and shadow, by elevation.", to: at("materials"), preview: <MaterialStack materials={chrome.materials} vars={tokenVars(pkg.id, mode)} /> }] : []),
     ...(chrome.layout ? [{ name: "Layout", line: "Spacing, corners and motion.", to: at("layout"), preview: <GridPreview layout={chrome.layout} /> }] : []),
   ];
 

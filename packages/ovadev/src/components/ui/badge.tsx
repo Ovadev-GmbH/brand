@@ -10,7 +10,7 @@ const badgeVariants = cva(
       variant: {
         default: "bg-brand text-content-inverse [a]:hover:bg-brand-hover",
         secondary:
-          "bg-white-alpha-200 text-content-primary [a]:hover:bg-white-alpha-300",
+          "bg-gray-alpha-200 text-content-primary [a]:hover:bg-gray-alpha-300",
         destructive:
           "bg-status-danger/10 text-status-danger focus-visible:ring-status-danger [a]:hover:bg-status-danger/20",
         outline:

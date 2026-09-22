@@ -1,7 +1,7 @@
 {
   "name": "@ovadev-gmbh/ui-ovadev",
-  "version": "0.4.1",
-  "description": "The Ovadev design system: paper, ink and one red, Geist, hard edges.",
+  "version": "0.5.0",
+  "description": "The Ovadev design system: paper, ink and one red, Geist, hard edges. Dark by default, light with data-theme=\"light\".",
   "license": "UNLICENSED",
   "type": "module",
   "sideEffects": [

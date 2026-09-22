@@ -10,13 +10,12 @@
     "build": "bun scripts/gen-versions.mjs && bun run docs && vite build",
     "check-types": "bun scripts/gen-versions.mjs && tsc --noEmit",
     "preview": "vite preview",
-    "docs": "bun run ../scripts/gen-design-md.ts januna && bun run ../scripts/gen-catalog-md.ts januna && bun run ../scripts/gen-design-md.ts internal && bun run ../scripts/gen-catalog-md.ts internal && bun run ../scripts/gen-design-md.ts ovadev && bun run ../scripts/gen-catalog-md.ts ovadev && bun run ../scripts/gen-design-md.ts ticketova && bun run ../scripts/gen-catalog-md.ts ticketova && bun run ../scripts/gen-index-md.ts"
+    "docs": "bun run ../scripts/gen-design-md.ts januna && bun run ../scripts/gen-catalog-md.ts januna && bun run ../scripts/gen-design-md.ts ovadev && bun run ../scripts/gen-catalog-md.ts ovadev && bun run ../scripts/gen-design-md.ts ticketova && bun run ../scripts/gen-catalog-md.ts ticketova && bun run ../scripts/gen-index-md.ts"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
     "@hugeicons/core-free-icons": "^4.3.2",
     "@hugeicons/react": "^1.1.10",
-    "@ovadev-gmbh/ui-internal": "workspace:*",
     "@ovadev-gmbh/ui-januna": "workspace:*",
     "@ovadev-gmbh/ui-ovadev": "workspace:*",
     "@ovadev-gmbh/ui-ticketova": "workspace:*",

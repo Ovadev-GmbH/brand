@@ -35,6 +35,13 @@ const server = Bun.serve({
       return new Response("Bad request", { status: 400 });
     }
 
+    /* Internal is Ovadev in light mode now, and its pages are Ovadev's:
+       an old /internal address, page or Markdown, answers with Ovadev's.
+       The client router does the same for pages, and picks light. */
+    if (pathname === "/internal" || pathname === "/internal.md" || pathname.startsWith("/internal/")) {
+      pathname = pathname.replace(/^\/internal/, "/ovadev");
+    }
+
     const path = resolve(DIST, `.${pathname}`);
     if (path !== DIST && !path.startsWith(DIST + sep)) {
       return new Response("Not found", { status: 404 });
@@ -54,8 +61,8 @@ const server = Bun.serve({
       return new Response("Not found", { status: 404 });
     }
 
-    /* A page asked for as Markdown gets its twin: /internal/button is
-       /internal/button.md, the root is index.md. */
+    /* A page asked for as Markdown gets its twin: /ovadev/button is
+       /ovadev/button.md, the root is index.md. */
     if (request.headers.get("accept")?.includes("text/markdown")) {
       const twin = resolve(DIST, `.${pathname === "/" ? "/index" : pathname.replace(/\/$/, "")}.md`);
       if (twin.startsWith(DIST + sep) && (await isFile(twin))) {

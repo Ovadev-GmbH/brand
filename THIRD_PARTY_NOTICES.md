@@ -2,7 +2,7 @@
 
 ## shadcn/ui
 
-The components in `packages/internal` and `packages/januna` are generated
+The components in `packages/ovadev` and `packages/januna` are generated
 with the shadcn CLI, and the catalog's component pages
 (`site/src/docs/<id>/`, `site/src/pages/EntryPage.tsx`) follow the structure
 shadcn/ui gives its documentation: description, installation, usage,
