@@ -34,3 +34,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## Payment method logos (datatrans/payment-logos)
+
+`site/public/brand/payment/{cards,wallets,apm,generic}/*.svg` are copied unchanged from
+https://github.com/datatrans/payment-logos (commit f36c35e), © Datatrans AG, licensed under
+Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/. The logos themselves are trademarks of their
+respective owners.
