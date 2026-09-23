@@ -6,9 +6,11 @@
  * One flat silhouette, two strokes for eyes, nothing else, after
  * Blobatar (github.com/Alain00/blobatar), redrawn in TICKETOVA's terms:
  *
- *   black on white  the bodies are TICKETOVA's grey ramp down to its
- *                   ink, never a hue. Colour is how TICKETOVA says a state,
- *                   and a customer is not a state;
+ *   colour          as Blobatar has it: the seed picks a hue and one of
+ *                   six tones, set in OKLCH so every hue is equally pale
+ *                   or deep. `palette: "mono"` draws from TICKETOVA's
+ *                   grey ramp instead, for surfaces where only a state
+ *                   may carry colour;
  *   the counter     half the silhouettes are what lies on a ticket desk:
  *                   ticket, stamp, wristband, coin;
  *   stillness       nothing moves at rest. `animate: "hover"` answers a
@@ -22,12 +24,13 @@
 
 import { reader } from "./seed";
 import { outline, r1, sdf, SHAPES, type Shape } from "./shapes";
+import { colourPalette, COLOUR_TONES } from "./color";
 
 export { SHAPES, type Shape } from "./shapes";
 
 /* TICKETOVA's grey ramp, --tova-gray-400 to -1000, and the eye each one
    needs to keep its contrast */
-export const TONES = [
+export const MONO_TONES = [
   { body: "#d1d5db", eye: "#0a0a0a" },
   { body: "#9ca3af", eye: "#0a0a0a" },
   { body: "#6b7280", eye: "#ffffff" },
@@ -36,13 +39,19 @@ export const TONES = [
   { body: "#0a0a0a", eye: "#ffffff" },
 ] as const;
 
+/** The six colour tones, pale to ink, for pickers. */
+export const TONES = ["pastel", "pale", "mid", "deep", "bright", "ink"] as const;
+export { COLOUR_TONES };
+
 export const EXPRESSIONS = ["idle", "happy", "sad", "mad", "surprised", "wink", "sleepy", "smug", "shy", "scared"] as const;
 export type Expression = (typeof EXPRESSIONS)[number];
 
 export interface Traits {
   shape: Shape;
-  /** index into TONES, pale to ink */
+  /** 0..5: the colour tone (pastel … ink), or the grey step in mono */
   tone: number;
+  /** degrees on the colour wheel; mono ignores it */
+  hue: number;
   /** degrees; the whole figure leans, eyes and all */
   tilt: number;
   /** squash and stretch of the silhouette */
@@ -64,6 +73,8 @@ export interface Traits {
 export interface BlobOptions {
   /** width and height in px; without it the SVG scales with CSS */
   size?: number;
+  /** "colour" (default, as Blobatar) or "mono", TICKETOVA's grey ramp */
+  palette?: "colour" | "mono";
   /** the plate behind the blob; "circle" by default, TICKETOVA's only pill */
   background?: "circle" | "squircle" | "square" | "none";
   /** a pose over the seeded face; "idle" is the seed's own. A pose is
@@ -91,6 +102,7 @@ export function blobTraits(seed: string, pinned?: Partial<Traits>): Traits {
   return {
     shape,
     tone: Math.floor(u("tone") * TONES.length),
+    hue: u.num("hue", 0, 360),
     tilt: u.num("tilt", -10, 10),
     scaleX: u.num("scale.x", 0.9, 1.08),
     scaleY: u.num("scale.y", 0.9, 1.08),
@@ -137,16 +149,23 @@ const eyePath = ({ x, y, len, angle }: Eye) => {
 
 let uid = 0;
 
-const PLATES: Record<Exclude<NonNullable<BlobOptions["background"]>, "none">, string> = {
-  circle: `<circle cx="50" cy="50" r="50" fill="${PLATE}"/>`,
-  squircle: `<rect width="100" height="100" rx="24" fill="${PLATE}"/>`,
-  square: `<rect width="100" height="100" fill="${PLATE}"/>`,
+const PLATES: Record<Exclude<NonNullable<BlobOptions["background"]>, "none">, (fill: string) => string> = {
+  circle: (fill) => `<circle cx="50" cy="50" r="50" fill="${fill}"/>`,
+  squircle: (fill) => `<rect width="100" height="100" rx="24" fill="${fill}"/>`,
+  square: (fill) => `<rect width="100" height="100" fill="${fill}"/>`,
 };
+
+/** The blob's three colours for the chosen palette. */
+export function blobColours(t: Traits, palette: BlobOptions["palette"] = "colour") {
+  const step = Math.min(5, Math.max(0, Math.round(t.tone)));
+  if (palette === "mono") return { ...MONO_TONES[step]!, plate: PLATE };
+  return colourPalette(((t.hue % 360) + 360) % 360, step);
+}
 
 /** A standalone SVG document string. */
 export function blobSvg(seed: string, options: BlobOptions = {}): string {
   const t = blobTraits(seed, options.traits);
-  const tone = TONES[Math.min(TONES.length - 1, Math.max(0, Math.round(t.tone)))]!;
+  const tone = blobColours(t, options.palette);
   const body = outline(sdf(t.shape, t.wobble), t.scaleX * FIT, t.scaleY * FIT, 0, CX, CY);
   const [l, r] = eyes(t, options.expression ?? "idle");
   const bg = options.background ?? "circle";
@@ -158,7 +177,7 @@ export function blobSvg(seed: string, options: BlobOptions = {}): string {
   let svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"${size}${a11y}${anim ? ` class="${id}"` : ""}>`;
   if (options.title) svg += `<title>${esc(options.title)}</title>`;
   if (anim) svg += `<style>${motion(id)}</style>`;
-  if (bg !== "none") svg += PLATES[bg];
+  if (bg !== "none") svg += PLATES[bg](tone.plate);
   svg += `<g class="f"><g transform="rotate(${r1(t.tilt)} ${CX} ${CY})">`;
   svg += `<path d="${body}" fill="${tone.body}"/>`;
   svg += `<g class="e" fill="none" stroke="${tone.eye}" stroke-linecap="round">`;
