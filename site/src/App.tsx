@@ -21,11 +21,13 @@ import { BlocksPage } from "./pages/BlocksPage";
 
 import { AssetLibraryPage } from "./pages/AssetLibraryPage";
 import { AvatarsPage } from "./pages/AvatarsPage";
+import { HardwarePage } from "./pages/HardwarePage";
 import { setMode } from "./lib/theme";
 
 const PAGES = {
   "asset-library": AssetLibraryPage,
   avatars: AvatarsPage,
+  hardware: HardwarePage,
   intro: IntroPage,
   colors: ColorsPage,
   typography: TypographyPage,
@@ -66,6 +68,7 @@ function Brand({ page }: { page: keyof typeof PAGES }) {
   const missing =
     (page === "asset-library" && pkg.id !== "ticketova") ||
     (page === "avatars" && pkg.id !== "ticketova") ||
+    (page === "hardware" && pkg.id !== "ticketova" && pkg.id !== "januna") ||
     (page === "brand-assets" && !CHROME[pkg.id].marks?.length) || (page === "icons" && !CHROME[pkg.id].icons) ||
     (page === "materials" && !CHROME[pkg.id].materials) ||
     (page === "layout" && !CHROME[pkg.id].layout);
@@ -127,6 +130,7 @@ export function App() {
           <Route path="typography" element={<Brand page="typography" />} />
           <Route path="asset-library" element={<Brand page="asset-library" />} />
           <Route path="avatars" element={<Brand page="avatars" />} />
+          <Route path="hardware" element={<Brand page="hardware" />} />
           <Route path="brand-assets" element={<Brand page="brand-assets" />} />
           <Route path="icons" element={<Brand page="icons" />} />
           <Route path="materials" element={<Brand page="materials" />} />

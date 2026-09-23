@@ -21,6 +21,8 @@ export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
     { slug: "", name: "Introduction" },
     ...(CHROME[pkg.id].marks?.length ? [{ slug: "brand-assets", name: "Brand Assets" }] : []),
     ...(pkg.id === "ticketova" ? [{ slug: "asset-library", name: "Asset Library" }, { slug: "avatars", name: "Avatars" }] : []),
+    // The devices we sell run both products' tills and gates.
+    ...(pkg.id === "ticketova" || pkg.id === "januna" ? [{ slug: "hardware", name: "Hardware" }] : []),
     { slug: "colors", name: "Colors" },
     { slug: "typography", name: "Typography" },
     ...(CHROME[pkg.id].materials ? [{ slug: "materials", name: "Materials" }] : []),
