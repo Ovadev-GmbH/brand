@@ -21,30 +21,30 @@ export const devices = [
     "slug": "sunmi-d3",
     "name": "SUNMI D3",
     "kind": "Countertop till",
-    "description": "10.1\" display on a base with an 80 mm receipt printer. The till at the desk.",
-    "width": 590,
-    "height": 758,
-    "bytes": 35663
+    "description": "15.6\" display with a customer display on the back and an 80 mm receipt printer in the base. The till at the desk.",
+    "width": 881,
+    "height": 920,
+    "bytes": 54381
   },
   {
     "file": "sunmi-v3-mix.svg",
     "slug": "sunmi-v3-mix",
     "name": "SUNMI V3 MIX",
-    "kind": "Handheld till",
-    "description": "6.75\" handheld with a 58 mm printer and scanner. Sells and checks on the move.",
-    "width": 449,
-    "height": 939,
-    "bytes": 25240
+    "kind": "Tablet till",
+    "description": "Tablet on a round base with a printer and scanner module docked behind it.",
+    "width": 911,
+    "height": 781,
+    "bytes": 45326
   },
   {
     "file": "telpo-t20.svg",
     "slug": "telpo-t20",
     "name": "TELPO T20",
-    "kind": "Countertop POS",
-    "description": "15.6\" main display with a customer display and an 80 mm receipt printer in the base.",
-    "width": 881,
-    "height": 920,
-    "bytes": 54381
+    "kind": "Pole terminal",
+    "description": "Portrait self-service terminal clamped to a pole, with a card reader and a QR scanner at the bottom. Entry or unattended sale.",
+    "width": 496,
+    "height": 985,
+    "bytes": 28906
   }
 ] as const;
 
