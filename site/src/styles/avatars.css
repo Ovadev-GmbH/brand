@@ -1,0 +1,41 @@
+/* The Avatars preview page (pages/AvatarsPage.tsx). Its table and card are
+   an exhibit of the TICKETOVA dashboard, so they wear its values. */
+.avatars{--av-line:var(--color-alpha-400, #e5e7eb);--av-muted:var(--color-gray-700, #6b7280)}
+.av-draft{display:inline-block;margin-top:16px;font:11px/1 var(--font-mono, monospace);color:var(--av-muted);border:1px solid var(--av-line);border-radius:4px;padding:5px 7px}
+.av-sub{font-size:13px;line-height:1.6;color:var(--av-muted);margin:6px 0 18px;max-width:40rem}
+.av-play{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;margin-top:40px}
+.av-hero{display:flex;flex-direction:column;align-items:center;gap:8px;font:12px var(--font-mono, monospace);color:var(--av-muted)}
+.av-controls{display:flex;flex-direction:column;gap:14px;min-width:0}
+.av-controls label{display:flex;flex-direction:column;gap:6px;font-size:13px;color:var(--av-muted)}
+.av-controls input,.av-controls select{font-size:14px;height:32px;padding:0 10px;border:1px solid var(--av-line);border-radius:6px;background:#fff;color:#0a0a0a}
+.av-controls input{font-family:var(--font-mono, monospace)}
+.av-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.av-row-ctl{display:flex;gap:8px;flex-wrap:wrap}
+.av-row-ctl button{font-size:14px;font-weight:500;height:32px;padding:0 12px;border-radius:6px;border:1px solid var(--av-line);background:#fff;color:#0a0a0a;cursor:pointer}
+.av-row-ctl button:hover{background:#fafafa}
+.av-row-ctl .av-primary{background:#0a0a0a;border-color:#0a0a0a;color:#fff}
+.av-row-ctl .av-primary:hover{background:#262626}
+.avatars :is(input,select,button):focus-visible{outline:2px solid #0a0a0a;outline-offset:1px}
+.av-row{display:flex;flex-wrap:wrap;gap:20px}
+.av-row figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;font:12px var(--font-mono, monospace);color:var(--av-muted)}
+.av-crowd{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));border-top:1px solid var(--av-line);border-left:1px solid var(--av-line)}
+.av-crowd button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 4px 10px;border-right:1px solid var(--av-line);border-bottom:1px solid var(--av-line);font-size:12px;color:var(--av-muted);cursor:pointer;background:none}
+.av-crowd button:hover{background:#fafafa}
+.av-card{border:1px solid var(--av-line);border-radius:8px;overflow:hidden;background:#fff;color:#0a0a0a}
+.av-card-head{display:flex;justify-content:space-between;align-items:center;padding:20px 20px 14px;gap:16px}
+.av-card-head h3{font-family:"Oswald",var(--font-display, sans-serif);font-weight:600;font-size:32px;line-height:1.1;margin:0}
+.av-team{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--av-muted)}
+.av-stack{display:flex}
+.av-stack > span{margin-left:-8px;border-radius:999px;box-shadow:0 0 0 2px #fff}
+.av-stack > span:first-child{margin-left:0}
+.av-card table{width:100%;border-collapse:collapse;font-size:14px}
+.av-card th{background:#fafafa;text-align:left;font-weight:500;font-size:13px;color:var(--av-muted);padding:8px 16px;border-block:1px solid var(--av-line)}
+.av-card td{padding:10px 16px;border-bottom:1px solid var(--av-line);vertical-align:middle}
+.av-card tr:last-child td{border-bottom:0}
+.av-who{display:flex;align-items:center;gap:10px}
+.av-who small{display:block;font-size:13px;color:var(--av-muted)}
+.av-m{font:13px var(--font-mono, monospace)}
+.av-r{text-align:right}
+.av-ok{color:#15803d}.av-pend{color:#a16207}.av-ref{color:#b91c1c}
+.av-code{margin:0;font:13px/1.55 var(--font-mono, monospace);background:#fafafa;border:1px solid var(--av-line);border-radius:6px;padding:16px;overflow:auto}
+@media (max-width:820px){.av-play{grid-template-columns:1fr}.av-fields{grid-template-columns:1fr 1fr}.av-card{overflow-x:auto}}
