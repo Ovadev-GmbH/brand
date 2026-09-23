@@ -6,7 +6,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { BlobAvatar } from "@ovadev-gmbh/ticketova-blobs/react";
-import { blobSvg, blobTraits, EXPRESSIONS, SHAPES, TONES, type Expression, type Shape, type Traits } from "@ovadev-gmbh/ticketova-blobs";
+import { blobSvg, blobTraits, EXPRESSIONS, MONO_TONES, SHAPES, TONES, type Expression, type Shape, type Traits } from "@ovadev-gmbh/ticketova-blobs";
 import type { Pkg } from "../types";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
 import "../styles/avatars.css";
@@ -15,6 +15,10 @@ const SHAPE_NAMES: Record<Shape, string> = {
   round: "Round", organic: "Organic", boxy: "Boxy", band: "Wristband", cloud: "Cloud",
   drop: "Drop", hexagon: "Hexagon", ticket: "Ticket", stamp: "Stamp", coin: "Coin",
 };
+
+/* Blobatar's eight hue stops, so the two sheets can be compared */
+const HUES = [12, 40, 78, 140, 190, 225, 275, 320];
+type Palette = "colour" | "mono";
 
 const PEOPLE = ["Lea Meier", "Noah Keller", "Mia Frei", "Luca Brunner", "Elena Graf", "Jonas Huber", "Sofia Baumann", "Levin Wyss",
   "Nina Suter", "Matteo Roth", "Alina Moser", "David Steiner", "Lara Zürcher", "Elias Gerber", "Anna Widmer", "Tim Schmid",
@@ -35,11 +39,12 @@ export function AvatarsPage({ pkg }: { pkg: Pkg }) {
   const [seed, setSeed] = useState("lea.meier@example.ch");
   const [pinned, setPinned] = useState<Partial<Traits>>({});
   const [expression, setExpression] = useState<Expression>("idle");
+  const [palette, setPalette] = useState<Palette>("colour");
   const t = blobTraits(seed, pinned);
 
   const load = (s: string) => { setSeed(s); setPinned({}); setExpression("idle"); };
   async function copy() {
-    try { await navigator.clipboard.writeText(blobSvg(seed, { traits: pinned, expression })); toast.success("SVG copied"); }
+    try { await navigator.clipboard.writeText(blobSvg(seed, { traits: pinned, expression, palette })); toast.success("SVG copied"); }
     catch { toast.error("Couldn't copy the SVG."); }
   }
 
@@ -48,14 +53,14 @@ export function AvatarsPage({ pkg }: { pkg: Pkg }) {
       <PageHeader title="Avatars">
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-900">
           A face for every customer without a photo. Any e-mail address or id always gives the same blob: one flat
-          silhouette from {pkg.name}'s grey ramp and two strokes for eyes. Nothing to store, nothing to upload.
+          silhouette, a hue of its own and two strokes for eyes. Nothing to store, nothing to upload.
         </p>
         <p className="av-draft">Preview · not released · after Blobatar (MIT)</p>
       </PageHeader>
 
       <div className="av-play">
         <div className="av-hero">
-          <BlobAvatar seed={seed} size={200} traits={pinned} expression={expression} animate="hover" title={`Avatar for ${seed}`} />
+          <BlobAvatar seed={seed} size={200} traits={pinned} expression={expression} palette={palette} animate="hover" title={`Avatar for ${seed}`} />
           <span>Hover it</span>
         </div>
         <div className="av-controls">
@@ -70,7 +75,7 @@ export function AvatarsPage({ pkg }: { pkg: Pkg }) {
             </label>
             <label>Tone
               <select value={t.tone} onChange={(e) => setPinned({ ...pinned, tone: Number(e.target.value) })}>
-                {TONES.map((tone, i) => <option key={tone.body} value={i}>{tone.body}</option>)}
+                {(palette === "mono" ? MONO_TONES.map((m) => m.body) : TONES).map((name, i) => <option key={name} value={i}>{name}</option>)}
               </select>
             </label>
             <label>Expression
@@ -79,9 +84,21 @@ export function AvatarsPage({ pkg }: { pkg: Pkg }) {
               </select>
             </label>
           </div>
+          <div className="av-fields">
+            <label>Palette
+              <select value={palette} onChange={(e) => setPalette(e.target.value as Palette)}>
+                <option value="colour">Colour</option>
+                <option value="mono">Mono (grey ramp)</option>
+              </select>
+            </label>
+            <label className="av-hue">Hue <span>{Math.round(t.hue)}°</span>
+              <input type="range" min={0} max={359} value={Math.round(t.hue)} disabled={palette === "mono"}
+                onChange={(e) => setPinned({ ...pinned, hue: Number(e.target.value) })} />
+            </label>
+          </div>
           <div className="av-row-ctl">
             <button type="button" className="av-primary" onClick={() => load(`gast-${Math.random().toString(36).slice(2, 8)}@example.ch`)}>Random e-mail</button>
-            <button type="button" onClick={() => { setPinned({}); setExpression("idle"); }}>Reset</button>
+            <button type="button" onClick={() => { setPinned({}); setExpression("idle"); setPalette("colour"); }}>Reset</button>
             <button type="button" onClick={copy}>Copy SVG</button>
           </div>
         </div>
@@ -92,18 +109,40 @@ export function AvatarsPage({ pkg }: { pkg: Pkg }) {
       <div className="av-row">
         {SHAPES.map((s) => (
           <figure key={s}>
-            <BlobAvatar seed="shape" size={72} traits={{ shape: s, tone: 1, tilt: 0 }} animate="hover" />
+            <BlobAvatar seed="shape" size={72} traits={{ shape: s, tone: 0, hue: 12 + SHAPES.indexOf(s) * 34, tilt: 0 }} animate="hover" />
             <figcaption>{SHAPE_NAMES[s]}</figcaption>
           </figure>
         ))}
       </div>
 
-      <SectionHeader title="Tones" count={TONES.length} />
-      <p className="av-sub">--tova-gray-400 to -1000. No hue: colour is how {pkg.name} says a state, and a customer is not a state.</p>
+      <SectionHeader title="Hues" />
+      <p className="av-sub">The seed picks a hue anywhere on the wheel; these are Blobatar's eight stops. Lightness and chroma are fixed per tone in OKLCH, so every hue is equally pale or deep.</p>
       <div className="av-row">
-        {TONES.map((tone, i) => (
+        {HUES.map((hue) => (
+          <figure key={hue}>
+            <BlobAvatar seed="hue" size={72} traits={{ shape: "boxy", tone: 2, hue, tilt: -8 }} />
+            <figcaption>hue={hue}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <SectionHeader title="Tones" count={TONES.length} />
+      <p className="av-sub">Pastel to ink. The plate takes a whisper of the hue; the eyes turn light on a dark body and always clear 4.5:1.</p>
+      <div className="av-row">
+        {TONES.map((name, i) => (
+          <figure key={name}>
+            <BlobAvatar seed="tone" size={72} traits={{ shape: "round", tone: i, hue: 225 }} />
+            <figcaption>{name}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <SectionHeader title="Mono" count={MONO_TONES.length} />
+      <p className="av-sub"><code>palette="mono"</code>: {pkg.name}'s grey ramp, --tova-gray-400 to -1000, for surfaces where only a state may carry colour.</p>
+      <div className="av-row">
+        {MONO_TONES.map((tone, i) => (
           <figure key={tone.body}>
-            <BlobAvatar seed="tone" size={72} traits={{ shape: "boxy", tone: i }} />
+            <BlobAvatar seed="tone" size={72} palette="mono" traits={{ shape: "round", tone: i }} />
             <figcaption>{tone.body}</figcaption>
           </figure>
         ))}
@@ -114,7 +153,7 @@ export function AvatarsPage({ pkg }: { pkg: Pkg }) {
       <div className="av-row">
         {EXPRESSIONS.map((x) => (
           <figure key={x}>
-            <BlobAvatar seed="face" size={72} expression={x} traits={{ shape: "boxy", tone: 5, tilt: -4 }} />
+            <BlobAvatar seed="face" size={72} expression={x} traits={{ shape: "boxy", tone: 3, hue: 140, tilt: -4 }} />
             <figcaption>{x}</figcaption>
           </figure>
         ))}
@@ -125,20 +164,20 @@ export function AvatarsPage({ pkg }: { pkg: Pkg }) {
       <div className="av-crowd">
         {PEOPLE.map((n) => (
           <button key={n} type="button" onClick={() => { load(emailOf(n)); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
-            <BlobAvatar seed={emailOf(n)} size={56} animate="hover" title={n} />
+            <BlobAvatar seed={emailOf(n)} size={56} palette={palette} animate="hover" title={n} />
             {n.split(" ")[0]}
           </button>
         ))}
       </div>
 
       <SectionHeader title="In the dashboard" />
-      <p className="av-sub">32px, round, beside the name it belongs to.</p>
+      <p className="av-sub">32px, round, beside the name it belongs to. The palette switch above changes this table too.</p>
       <div className="av-card">
         <div className="av-card-head">
           <h3>Bestellungen</h3>
           <div className="av-team">Heute im Dienst
             <div className="av-stack">
-              {["robin@ova.dev", "beni@ova.dev", "philip@ova.dev"].map((s) => <BlobAvatar key={s} seed={s} size={28} title={s} />)}
+              {["robin@ova.dev", "beni@ova.dev", "philip@ova.dev"].map((s) => <BlobAvatar key={s} seed={s} size={28} palette={palette} title={s} />)}
             </div>
           </div>
         </div>
@@ -147,7 +186,7 @@ export function AvatarsPage({ pkg }: { pkg: Pkg }) {
           <tbody>
             {ORDERS.map(([n, no, ticket, state, cls, amount]) => (
               <tr key={no}>
-                <td><div className="av-who"><BlobAvatar seed={emailOf(n)} size={32} /><div>{n}<small>{emailOf(n)}</small></div></div></td>
+                <td><div className="av-who"><BlobAvatar seed={emailOf(n)} size={32} palette={palette} /><div>{n}<small>{emailOf(n)}</small></div></div></td>
                 <td className="av-m">{no}</td><td>{ticket}</td><td className={cls}>{state}</td><td className="av-m av-r">CHF {amount}</td>
               </tr>
             ))}
@@ -162,6 +201,7 @@ import { blobSvg, blobDataUri } from "@ovadev-gmbh/ticketova-blobs";
 <BlobAvatar seed={order.email} size={32} />
 <BlobAvatar seed={user.id} size={40} animate="hover" />
 <BlobAvatar seed={staff.id} traits={{ shape: "ticket" }} />
+<BlobAvatar seed={order.email} palette="mono" />   // grey ramp only
 
 blobSvg(order.email, { size: 48 });        // server, confirmation e-mail, PDF ticket
 blobDataUri(order.email, { background: "none" });`}</pre>

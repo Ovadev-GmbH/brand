@@ -15,7 +15,7 @@ const EXPR_DE: Record<Expression, string> = {
   wink: "Zwinkernd", sleepy: "Müde", smug: "Selbstzufrieden", shy: "Schüchtern", scared: "Erschrocken",
 };
 shapeSel.innerHTML = SHAPES.map((s) => `<option value="${s}">${SHAPE_DE[s]}</option>`).join("");
-toneSel.innerHTML = TONES.map((t, i) => `<option value="${i}">${t.body}</option>`).join("");
+toneSel.innerHTML = TONES.map((t, i) => `<option value="${i}">${t}</option>`).join("");
 exprSel.innerHTML = EXPRESSIONS.map((e) => `<option value="${e}">${EXPR_DE[e]}</option>`).join("");
 
 const emailOf = (name: string) => name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, ".") + "@example.ch";

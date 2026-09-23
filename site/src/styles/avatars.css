@@ -10,6 +10,9 @@
 .av-controls input,.av-controls select{font-size:14px;height:32px;padding:0 10px;border:1px solid var(--av-line);border-radius:6px;background:#fff;color:#0a0a0a}
 .av-controls input{font-family:var(--font-mono, monospace)}
 .av-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.av-fields:has(.av-hue){grid-template-columns:1fr 2fr}
+.av-hue span{font-family:var(--font-mono, monospace);color:#0a0a0a}
+.av-hue input[type=range]{height:32px;padding:0;border:0;accent-color:#0a0a0a}
 .av-row-ctl{display:flex;gap:8px;flex-wrap:wrap}
 .av-row-ctl button{font-size:14px;font-weight:500;height:32px;padding:0 12px;border-radius:6px;border:1px solid var(--av-line);background:#fff;color:#0a0a0a;cursor:pointer}
 .av-row-ctl button:hover{background:#fafafa}

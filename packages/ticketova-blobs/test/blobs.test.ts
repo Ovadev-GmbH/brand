@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { blobSvg, blobTraits, EXPRESSIONS, SHAPES, TONES } from "../src/index";
+import { blobColours, blobSvg, blobTraits, EXPRESSIONS, SHAPES, TONES } from "../src/index";
 
 const strip = (svg: string) => svg.replace(/tb[0-9a-z]+/g, "tb");
 
@@ -49,4 +49,21 @@ test("hover motion is scoped and respects reduced motion", () => {
 
 test("titles are escaped", () => {
   expect(blobSvg("x", { title: `<a "b">` })).toContain("&lt;a &quot;b&quot;&gt;");
+});
+
+test("eyes clear 4.5:1 on every hue and tone", () => {
+  const lum = (h: string) => {
+    const [r, g, b] = [1, 3, 5].map((i) => { const v = parseInt(h.slice(i, i + 2), 16) / 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; });
+    return 0.2126 * r! + 0.7152 * g! + 0.0722 * b!;
+  };
+  for (let hue = 0; hue < 360; hue += 15) for (let tone = 0; tone < 6; tone++) {
+    const c = blobColours({ ...blobTraits("x"), hue, tone });
+    const [a, b] = [lum(c.body), lum(c.eye)];
+    expect((Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05)).toBeGreaterThanOrEqual(4.45);
+  }
+});
+
+test("mono stays on the grey ramp", () => {
+  expect(blobSvg("x", { palette: "mono", traits: { tone: 5 } })).toContain("#0a0a0a");
+  expect(blobSvg("x", { palette: "mono" })).toContain("#f3f4f6");
 });

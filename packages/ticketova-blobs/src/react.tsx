@@ -11,13 +11,13 @@ export interface BlobAvatarProps extends BlobOptions, Omit<HTMLAttributes<HTMLSp
  * answer a hover. `title` names it for assistive technology; without one
  * it is decorative, as an avatar beside the person's written name is.
  */
-export function BlobAvatar({ seed, size = 32, background, expression, traits, animate, title, style, ...rest }: BlobAvatarProps) {
+export function BlobAvatar({ seed, size = 32, palette, background, expression, traits, animate, title, style, ...rest }: BlobAvatarProps) {
   const pinned = JSON.stringify(traits ?? null);
   const html = useMemo(
-    () => blobSvg(seed, { size, background, expression, traits, animate, title }),
+    () => blobSvg(seed, { size, palette, background, expression, traits, animate, title }),
     // traits is usually an inline object; its content is what matters
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [seed, size, background, expression, pinned, animate, title],
+    [seed, size, palette, background, expression, pinned, animate, title],
   );
   return (
     <span
