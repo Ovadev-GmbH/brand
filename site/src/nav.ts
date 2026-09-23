@@ -20,7 +20,7 @@ export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
   return [
     { slug: "", name: "Introduction" },
     ...(CHROME[pkg.id].marks?.length ? [{ slug: "brand-assets", name: "Brand Assets" }] : []),
-    ...(pkg.id === "ticketova" ? [{ slug: "asset-library", name: "Asset Library" }] : []),
+    ...(pkg.id === "ticketova" ? [{ slug: "asset-library", name: "Asset Library" }, { slug: "avatars", name: "Avatars" }] : []),
     { slug: "colors", name: "Colors" },
     { slug: "typography", name: "Typography" },
     ...(CHROME[pkg.id].materials ? [{ slug: "materials", name: "Materials" }] : []),

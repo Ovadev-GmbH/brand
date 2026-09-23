@@ -20,10 +20,12 @@ import { BlocksPage } from "./pages/BlocksPage";
    four brands are named together. */
 
 import { AssetLibraryPage } from "./pages/AssetLibraryPage";
+import { AvatarsPage } from "./pages/AvatarsPage";
 import { setMode } from "./lib/theme";
 
 const PAGES = {
   "asset-library": AssetLibraryPage,
+  avatars: AvatarsPage,
   intro: IntroPage,
   colors: ColorsPage,
   typography: TypographyPage,
@@ -63,6 +65,7 @@ function Brand({ page }: { page: keyof typeof PAGES }) {
   // without them lands on 404 rather than somewhere it was not asked for.
   const missing =
     (page === "asset-library" && pkg.id !== "ticketova") ||
+    (page === "avatars" && pkg.id !== "ticketova") ||
     (page === "brand-assets" && !CHROME[pkg.id].marks?.length) || (page === "icons" && !CHROME[pkg.id].icons) ||
     (page === "materials" && !CHROME[pkg.id].materials) ||
     (page === "layout" && !CHROME[pkg.id].layout);
@@ -123,6 +126,7 @@ export function App() {
           <Route path="colors" element={<Brand page="colors" />} />
           <Route path="typography" element={<Brand page="typography" />} />
           <Route path="asset-library" element={<Brand page="asset-library" />} />
+          <Route path="avatars" element={<Brand page="avatars" />} />
           <Route path="brand-assets" element={<Brand page="brand-assets" />} />
           <Route path="icons" element={<Brand page="icons" />} />
           <Route path="materials" element={<Brand page="materials" />} />
