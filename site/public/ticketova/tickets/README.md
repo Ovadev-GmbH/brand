@@ -45,7 +45,7 @@ Each tenant supplies one set; both kinds of pass use it.
 |---|---|---|
 | Account | Ovadev GmbH, team `MA466R3CFR` | Ovadev GmbH, issuer `3388000000023194530` |
 | Pass type | `pass.com.ticketova.tickets` | event ticket |
-| Issuer shown | TICKETOVA | TICKETOVA |
+| Name on the pass | the tenant's, over TICKETOVA as organisation | the tenant's, as the issuer name of the class |
 
 Certificates and keys are in 1Password, vault Shared: "TICKETOVA Apple Wallet" and "TICKETOVA Google Wallet".
 
