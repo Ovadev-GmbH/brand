@@ -27,6 +27,8 @@ export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
     ...(pkg.id === "ticketova" || pkg.id === "januna" ? [{ slug: "payments", name: "Payments" }] : []),
     // The Wallet passes every ticket can be saved as.
     ...(pkg.id === "ticketova" ? [{ slug: "tickets", name: "Tickets" }] : []),
+    // The mails a shop sends its visitors and partners.
+    ...(pkg.id === "ticketova" ? [{ slug: "emails", name: "E-mails" }] : []),
     { slug: "colors", name: "Colors" },
     { slug: "typography", name: "Typography" },
     ...(CHROME[pkg.id].materials ? [{ slug: "materials", name: "Materials" }] : []),
