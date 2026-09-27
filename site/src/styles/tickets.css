@@ -1,0 +1,19 @@
+.tk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,300px));gap:28px 24px;margin-top:20px}@media (max-width:720px){.tk-grid{grid-template-columns:minmax(0,300px)}}
+.tk-cell{min-width:0}
+.tk-caption{margin-top:10px;font-size:12px;color:var(--color-gray-900)}.tk-caption span{color:var(--color-gray-700)}
+.tk-field{display:flex;flex-direction:column;gap:1px;font-size:15px;line-height:1.2;white-space:nowrap}.tk-field span{font-size:10px;font-weight:600;letter-spacing:.02em}
+.tk-right{text-align:right;align-items:flex-end}
+.tk-row{display:flex;justify-content:space-between;gap:12px;padding:10px 14px}
+.tk-apple{margin:0;border-radius:12px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;box-shadow:0 1px 3px #0003}
+.tk-apple-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;min-height:50px}
+.tk-apple-logo{height:30px;width:auto;max-width:60%}
+.tk-apple-strip{display:block;width:100%;aspect-ratio:375/123;object-fit:cover}
+.tk-apple-code{display:flex;flex-direction:column;align-items:center;gap:4px;margin:6px auto 16px;width:max-content;padding:8px 8px 5px;background:#fff;border-radius:6px;color:#000;font-size:10px}.tk-apple-code img{width:110px;height:110px}
+.tk-google{margin:0;border-radius:28px;overflow:hidden;font-family:"Google Sans",Roboto,Arial,sans-serif;box-shadow:0 1px 3px #0003}
+.tk-google-top{display:flex;align-items:center;gap:10px;padding:16px 18px 0;font-size:13px}.tk-google-top img{width:28px;height:28px;border-radius:50%}
+.tk-google-title{margin:12px 18px 2px;font-size:20px;line-height:1.25}
+.tk-google .tk-row{justify-content:flex-start;gap:22px;padding:8px 18px}.tk-google .tk-field span{font-weight:400;opacity:.75;text-transform:none}
+.tk-google-code{display:flex;flex-direction:column;align-items:center;gap:4px;margin:8px auto 16px;width:max-content;padding:12px 12px 6px;background:#fff;border-radius:14px;color:#000;font-size:11px}.tk-google-code img{width:120px;height:120px}
+.tk-google-hero{display:block;width:100%;aspect-ratio:1032/336;object-fit:cover}
+.tk-badges{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px}.tk-badges a{display:block;line-height:0;border:0;padding:0;background:none;box-shadow:none}.tk-badges img{display:block;height:44px;width:auto;border:0;box-shadow:none}
+.tk-note{margin-top:40px;max-width:36rem;font-size:12px;color:var(--color-gray-900)}
