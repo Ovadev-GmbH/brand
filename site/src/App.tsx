@@ -23,6 +23,7 @@ import { AssetLibraryPage } from "./pages/AssetLibraryPage";
 import { AvatarsPage } from "./pages/AvatarsPage";
 import { HardwarePage } from "./pages/HardwarePage";
 import { TicketsPage } from "./pages/TicketsPage";
+import { PaymentsPage } from "./pages/PaymentsPage";
 import { setMode } from "./lib/theme";
 
 const PAGES = {
@@ -30,6 +31,7 @@ const PAGES = {
   avatars: AvatarsPage,
   hardware: HardwarePage,
   tickets: TicketsPage,
+  payments: PaymentsPage,
   intro: IntroPage,
   colors: ColorsPage,
   typography: TypographyPage,
@@ -72,6 +74,7 @@ function Brand({ page }: { page: keyof typeof PAGES }) {
     (page === "avatars" && pkg.id !== "ticketova") ||
     (page === "hardware" && pkg.id !== "ticketova" && pkg.id !== "januna") ||
     (page === "tickets" && pkg.id !== "ticketova") ||
+    (page === "payments" && pkg.id !== "ticketova" && pkg.id !== "januna") ||
     (page === "brand-assets" && !CHROME[pkg.id].marks?.length) || (page === "icons" && !CHROME[pkg.id].icons) ||
     (page === "materials" && !CHROME[pkg.id].materials) ||
     (page === "layout" && !CHROME[pkg.id].layout);
@@ -135,6 +138,7 @@ export function App() {
           <Route path="avatars" element={<Brand page="avatars" />} />
           <Route path="hardware" element={<Brand page="hardware" />} />
           <Route path="tickets" element={<Brand page="tickets" />} />
+          <Route path="payments" element={<Brand page="payments" />} />
           <Route path="brand-assets" element={<Brand page="brand-assets" />} />
           <Route path="icons" element={<Brand page="icons" />} />
           <Route path="materials" element={<Brand page="materials" />} />

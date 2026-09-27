@@ -23,6 +23,8 @@ export function foundationsOf(pkg: Pkg): { slug: string; name: string }[] {
     ...(pkg.id === "ticketova" ? [{ slug: "asset-library", name: "Asset Library" }, { slug: "avatars", name: "Avatars" }] : []),
     // The devices we sell run both products' tills and gates.
     ...(pkg.id === "ticketova" || pkg.id === "januna" ? [{ slug: "hardware", name: "Hardware" }] : []),
+    // Both products take payments at their checkouts.
+    ...(pkg.id === "ticketova" || pkg.id === "januna" ? [{ slug: "payments", name: "Payments" }] : []),
     // The Wallet passes every ticket can be saved as.
     ...(pkg.id === "ticketova" ? [{ slug: "tickets", name: "Tickets" }] : []),
     { slug: "colors", name: "Colors" },
