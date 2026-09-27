@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ArrowDownToLine, Copy } from "lucide-react";
 import { toast } from "sonner";
 import type { Pkg } from "../types";
@@ -10,7 +9,6 @@ import "../styles/asset-library.css";
    show the till, the handheld and the entry column people actually have,
    not only their names. */
 export function HardwarePage({ pkg }: { pkg: Pkg }) {
-  const [background, setBackground] = useState("light");
   async function copy(file: string) {
     try { await navigator.clipboard.writeText(new URL(deviceUrl(file), location.href).href); toast.success("Asset URL copied"); }
     catch { toast.error("Couldn't copy the URL. Open the file to copy its address."); }
@@ -18,14 +16,10 @@ export function HardwarePage({ pkg }: { pkg: Pkg }) {
   return <article className="asset-library">
     <PageHeader title="Hardware">
       <p className="mt-4 max-w-xl text-sm leading-relaxed text-gray-900">The devices {pkg.name} customers run on, drawn in the house style. Use them wherever a screen lists hardware, so people recognise the device in front of them.</p>
-      <div className="al-summary"><span className="al-dot" />Devices<span>{devices.length} assets</span><span>SVG</span></div>
+      <div className="al-summary">Devices<span>{devices.length} assets</span><span>SVG</span></div>
     </PageHeader>
-    <div className="al-filters">
-      <div />
-      <div className="al-backgrounds" aria-label="Preview background">{["light", "dark", "grid"].map(bg => <button key={bg} className={`al-swatch al-${bg}`} aria-label={`${bg} background`} aria-pressed={background === bg} onClick={() => setBackground(bg)} />)}</div>
-    </div>
-    <div className="al-grid">{devices.map(device => <section className="al-card" key={device.file}>
-      <a className={`al-preview al-${background}`} href={deviceUrl(device.file)} target="_blank" rel="noreferrer" aria-label={`Open ${device.name}`}>
+    <div className="al-grid mt-10">{devices.map(device => <section className="al-card" key={device.file}>
+      <a className="al-preview al-light" href={deviceUrl(device.file)} target="_blank" rel="noreferrer" aria-label={`Open ${device.name}`}>
         <span className="al-format">SVG</span>
         <img src={deviceUrl(device.file)} alt={device.name} loading="lazy" />
       </a>
