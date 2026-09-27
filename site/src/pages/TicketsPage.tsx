@@ -1,7 +1,7 @@
 import type { Pkg } from "../types";
 import { PageHeader, SectionHeader } from "../components/PageHeader";
 import {
-  appleLogo, passAsset, passColours, passesReadme, passFields, passTenants, qrUrl, ticketNumber,
+  appleLogo, googleFields, passAsset, passColours, passesReadme, passFields, passTenants, qrUrl, ticketNumber,
   walletButtons, walletButtonUrl, type PassKind, type PassTenant,
 } from "../lib/tickets";
 import "../styles/tickets.css";
@@ -28,13 +28,14 @@ function ApplePass({ tenant, kind }: { tenant: PassTenant; kind: PassKind }) {
 
 function GooglePass({ tenant, kind }: { tenant: PassTenant; kind: PassKind }) {
   const c = passColours(tenant, kind);
-  const f = passFields[kind];
+  const g = googleFields[kind];
   return <figure className="tk-google" style={{ background: c.background, color: c.text }}>
-    <div className="tk-google-top"><img src={passAsset(tenant, "google/logo.png")} alt="" /><span>TICKETOVA</span></div>
-    <p className="tk-google-title">{f.title} {tenant.place}</p>
-    {(kind === "day" ? [[f.header, ...f.secondary]] : [[f.header], f.secondary]).map((row, i) =>
-      <div key={i} className="tk-row">{row.map(s => <div key={s.label} className="tk-field"><span>{s.label}</span>{s.value}</div>)}</div>)}
-    <div className="tk-google-code"><img src={qrUrl} alt="" /><span>{ticketNumber}</span></div>
+    <div className="tk-google-top"><img src={passAsset(tenant, "google/logo.png")} alt="" /><span>{tenant.name}</span></div>
+    <div className="tk-google-body">
+      <p className="tk-google-title">{g.title}</p>
+      <div className="tk-google-fields">{g.fields.map(s => <div key={s.label}><span>{s.label}</span>{s.value}</div>)}</div>
+      <div className="tk-google-code"><img src={qrUrl} alt="" /><span>{ticketNumber}</span></div>
+    </div>
     <img className="tk-google-hero" src={passAsset(tenant, "google/hero.jpg")} alt="" />
   </figure>;
 }

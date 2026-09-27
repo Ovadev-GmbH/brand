@@ -30,6 +30,13 @@ export const passFields = {
   },
 } as const;
 
+/* Google sets its own type: a title, then up to three labelled values per
+   row in sentence case. The season's name moves into the title. */
+export const googleFields = {
+  day: { title: "Tageskarte", fields: [{ label: "Gültig am", value: "14.07.2027" }, { label: "Kategorie", value: "Erwachsene" }] },
+  season: { title: "Saisonkarte 2027", fields: [{ label: "Name", value: "Max Muster" }, { label: "Geburtsdatum", value: "01.01.1990" }] },
+} as const;
+
 export const ticketNumber = "T-DEMO-0001";
 
 export const walletButtons = [
