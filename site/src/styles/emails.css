@@ -1,0 +1,2 @@
+.em-meta{display:grid;grid-template-columns:max-content 1fr;gap:4px 16px;margin-top:14px;font-size:12px}.em-meta dt{color:var(--color-gray-700)}.em-meta dd{margin:0;color:var(--color-gray-1000)}
+.em-frame{display:block;width:100%;max-width:620px;margin-top:16px;border:1px solid var(--al-border);border-radius:9px;background:#f5f5f5}
