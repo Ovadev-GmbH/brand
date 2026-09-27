@@ -46,4 +46,4 @@ Type is Oswald, falling back to the system sans. `color-scheme: light` keeps App
 
 The wordmark is a PNG: Gmail and Outlook do not show SVG in mail. Use the same file as the Apple Wallet `logo@2x.png`; a light brand colour takes the dark wordmark, a dark one the white.
 
-`tuerlersee/` and `mettmi/` are rendered from the templates of the 2026 system with sample data. A tenant's real settings live with the tenant, not here.
+`tuerlersee/de/`, `tuerlersee/en/`, `mettmi/de/` and `mettmi/en/` are rendered from the templates of the 2026 system with sample data. A tenant's real settings live with the tenant, not here.
